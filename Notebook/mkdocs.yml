@@ -42,7 +42,7 @@ theme:
  
 # Pages
 nav: 
-  - Perface: Perface/Hello.md
+  - Hello: Hello.md
 # [Extensions]
 plugins:
   - search: # 现在还不支持中文搜索 支持之后可以设置语言
