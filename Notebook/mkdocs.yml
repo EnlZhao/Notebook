@@ -1,10 +1,12 @@
 site_name: 某兰的笔记本
 site_url: https://enl-z.github.io/Notebook/
+copyright: Copyright &copy; 2022-2023 <a href="https://github.com/enl-z" target="_blank" rel="noopener">某兰</a>
 site_author: Enl_Z
 site_description: 某兰的笔记
 theme:
   name: material
   logo: Icon/Avator.png
+#  custom_dir: overrides
 #  favicon:  
  # icon:
   admonition:
@@ -54,21 +56,35 @@ plugins:
         - ja
   - tags # 给单篇文章添加标签 https://squidfunk.github.io/mkdocs-material/setup/setting-up-tags/?h=tags
 markdown_extensions:
-  - pymdownx.arithmatex: # latex支持
-      generic: true
-  - attr_list # 给图片后面添加{width="300"}设置大小
   - toc:
-      permalink: true # 固定标题位置为当前位置
-  - pymdownx.highlight: # 代码块高亮
-      anchor_linenums: true
-    # linenums: true # 显示行号
-      # auto_title: true # 显示编程语言名称
-  - pymdownx.superfences # 代码块高亮插件
-  - pymdownx.inlinehilite
+      permalink: true
+      toc_depth: 4
+  - meta
+  - def_list
+  - attr_list
+  - md_in_html
+  - sane_lists
+  - admonition
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.critic
+  - pymdownx.details
   - pymdownx.snippets
-  - meta # 支持Markdown文件上方自定义标题标签等
-  - admonition # https://squidfunk.github.io/mkdocs-material/reference/admonitions/#inline-blocks
-  - pymdownx.details # admonition需要
+  - pymdownx.magiclink
+  - pymdownx.superfences
+  - pymdownx.inlinehilite
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.tabbed:
+      alternate_style: true 
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.arithmatex:
+      generic: true
 
 
 
@@ -86,9 +102,10 @@ extra_css:
 extra_javascript:
     - javascripts/extra.js
 
-#extra: 
-#  social: 
-#    - icon: 
+extra: 
+  social: 
+    - icon: fontawesome/brands/github
+      link: https://github.com/enl-z
 
 # Pages
 nav: 
@@ -96,5 +113,5 @@ nav:
     - index.md
   - Course:
     - 计算机系统Ⅱ:
-      - Course/System/Lec01_Introduction.md
+      - Course/System/Perface.md
 
