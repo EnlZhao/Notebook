@@ -1,4 +1,4 @@
-site_name: 某兰的笔记
+site_name: 某兰的笔记本
 site_url: https://enl-z.github.io/Notebook/
 site_author: Enl_Z
 site_description: 某兰的笔记
@@ -96,5 +96,5 @@ nav:
     - index.md
   - Course:
     - 计算机系统Ⅱ:
-      - Course/System2/Perface.md
+      - Course/System/Perface.md
 
