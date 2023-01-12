@@ -26,6 +26,9 @@ theme:
     - search.highlight # 搜索出的文章关键词加入高亮
   language: zh # 一些提示性的文字会变成中文
  
+# Pages
+nav: 
+  - Perface: Perface/Hello.md
 # [Extensions]
 plugins:
   - search: # 现在还不支持中文搜索 支持之后可以设置语言
