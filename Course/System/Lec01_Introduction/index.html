@@ -495,7 +495,7 @@
 <p><strong>interrupt handler</strong> must save the (interrupted) execution states</p>
 </li>
 <li>
-<p>A trap is a ==software-generated== interrupt, caused either by an error or a user request</p>
+<p>A trap is a <mark>software-generated</mark> interrupt, caused either by an error or a user request</p>
 </li>
 </ul>
 <blockquote>
@@ -509,7 +509,7 @@
 <p>e.g., <strong>system call</strong>, divided-by-zero exception, general protection exception...</p>
 </li>
 <li>
-<p>Operating systems are usually ==interrupt-driven==(有定时器中断，相应I/O中断等等)</p>
+<p>Operating systems are usually <mark>interrupt-driven</mark>(有定时器中断，相应I/O中断等等)</p>
 </li>
 </ul>
 <blockquote>
@@ -529,6 +529,8 @@
 <li>
 <p>OS determines which device caused the interrupt</p>
 </li>
+</ul>
+<ol>
 <li>
 <p><strong>polling</strong> </p>
 <blockquote>
@@ -541,9 +543,9 @@
 <p>硬件已经固定好（区分好中断类型，<strong>不需要软件再去查询</strong>），会<strong>直接跳转到对应地址</strong></p>
 </blockquote>
 </li>
-<li>
-<p>OS handles the interrupt by calling the <strong>device’s driver（设备驱动程序）</strong></p>
-</li>
+</ol>
+<ul>
+<li>OS handles the interrupt by calling the <strong>device’s driver（设备驱动程序）</strong></li>
 </ul>
 <blockquote>
 <p>宏内核的重要组件。而对于微内核，往往设备驱动程序放在操作系统内核范围外，为了安全性，常将设备驱动程序的大部分代码移到用户态。</p>
@@ -565,7 +567,7 @@
 <li>A program uses a <strong>system call</strong> to access system resources</li>
 <li>e.g., files, network</li>
 <li>
-<p>Operating system converts it to ==device access== and ==issues I/O requests==</p>
+<p>Operating system converts it to <mark>device access</mark> and <mark>issues I/O requests</mark></p>
 </li>
 <li>
 <p>I/O requests are sent to the device driver, then to the controller</p>
@@ -574,7 +576,7 @@
 <p>e.g., read disk blocks, send/receive packets...</p>
 </li>
 <li>
-<p>OS puts the program to wait (==synchronous I/O==) or returns to it without waiting (==asynchronous I/O==)</p>
+<p>OS puts the program to wait (<mark>synchronous I/O</mark>) or returns to it without waiting (<mark>asynchronous I/O</mark>)</p>
 </li>
 <li>
 <p>OS may switches to another program when the requester is waiting</p>
@@ -754,7 +756,7 @@
 <p>advantages: increased throughput, economy of scale, increased reliability -- graceful degradation or fault tolerance</p>
 </li>
 <li>
-<p>two types: ==asymmetric multiprocessing== and ==symmetric multiprocessing (SMP)==</p>
+<p>two types: <mark>asymmetric multiprocessing</mark> and <mark>symmetric multiprocessing (SMP)</mark></p>
 </li>
 </ul>
 <h3 id="symmetric-multiprocessing-architecture">Symmetric Multiprocessing Architecture<a class="headerlink" href="#symmetric-multiprocessing-architecture" title="Permanent link">&para;</a></h3>
@@ -898,10 +900,10 @@
 <h4 id="resource-management-process-management">Resource Management: Process Management<a class="headerlink" href="#resource-management-process-management" title="Permanent link">&para;</a></h4>
 <ul>
 <li>
-<p>A <em>process</em> is a ==program in execution==</p>
+<p>A <em>process</em> is a <mark>program in execution</mark></p>
 </li>
 <li>
-<p>program is a ==passive== entity, <em>process</em> is an ==active== entity</p>
+<p>program is a <mark>passive</mark> entity, <em>process</em> is an <mark>active</mark> entity</p>
 </li>
 <li>
 <p>a system has many processes running concurrently</p>
@@ -1286,6 +1288,10 @@
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2022-2023 <a href="https://github.com/enl-z" target="_blank" rel="noopener">某兰</a>
+    </div>
   
   
     Made with
