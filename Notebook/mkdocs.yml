@@ -94,4 +94,7 @@ extra_javascript:
 nav: 
   - Hello: 
     - index.md
+  - Course:
+    - 计算机系统Ⅱ:
+      - Course/System2/Perface.md
 
