@@ -1,1 +1,1 @@
-{"config":{"lang":["en","ja"],"separator":"[\\s\\-\uff0c\u3002]+","pipeline":["stemmer"]},"docs":[{"location":"","title":"index","text":"<p>\\(to be continued\\)</p>"}]}
+{"config":{"lang":["en","ja"],"separator":"[\\s\\-\uff0c\u3002]+","pipeline":["stemmer"]},"docs":[{"location":"","title":"index","text":"<p>\\(to ~~be ~~continued\\)</p>"}]}
