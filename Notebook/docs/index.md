@@ -4,6 +4,20 @@
   
   💬其余较杂的内容（诸如学习总结一类的）欢迎大家到我的[Blog](https://enl-z.github.io/)
   
-!!! Abstract
-  因为记性不好，笔记内容整理较为详细繁琐。
-  而且能力有限，大噶选择性看看叭~
+!!! Abstract 
+    因为记性不好，笔记内容整理较为繁琐。
+    而且能力有限，大噶选择性看看叭~
+
+$x^2+\alpha$
+
+
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']]
+  }
+};
+</script>
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
