@@ -697,28 +697,32 @@
 <li><span class="arithmatex">\(clock（）\)</span>：捕捉从程序开始运行到<span class="arithmatex">\(clock（）\)</span>被调用所耗费的时间。这个时间单位是<span class="arithmatex">\(clock ~~tick\)</span>，即”时钟打点“。
   常数CLK_TCK：机器时钟每秒所走的时钟打点数。</li>
 </ul>
-<p>!!! note “C语言”
-    <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;time.h&gt;</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">MyFunction</span><span class="p">()</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="p">{</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="p">}</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="kt">clock_t</span><span class="w"> </span><span class="n">start</span><span class="p">,</span><span class="w"> </span><span class="n">stop</span><span class="p">;</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="cm">/* clock_t 是 clock()函数返回的变量类型 */</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="kt">double</span><span class="w"> </span><span class="n">duration</span><span class="p">;</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="cm">/* 记录被测函数运行时间，以秒为单位 */</span>
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="p">{</span><span class="cm">/* 不在测试范围内的准备工作放在clock()调用之前 */</span>
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">    </span><span class="n">start</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">clock</span><span class="p">();</span><span class="w">    </span><span class="cm">/* 开始计时 */</span>
-<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">    </span><span class="n">MyFunction</span><span class="p">();</span>
-<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">    </span><span class="n">stop</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">clock</span><span class="p">();</span>
-<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">    </span><span class="n">duration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">((</span><span class="kt">double</span><span class="p">)(</span><span class="n">stop</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">start</span><span class="p">))</span><span class="o">/</span><span class="n">CLK_TCK</span><span class="p">;</span>
-<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">    </span><span class="cm">/* 其他不在测试范围的处理写在后面，例如输出duration的值 */</span>
-<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="p">}</span>
-</code></pre></div></p>
+<div class="admonition note">
+<p class="admonition-title">C语言</p>
+</div>
+<p>```c
+    #include <stdio.h>
+    #include <time.h>
+    int MyFunction()
+    {
+        return 1 + 1;
+    }</p>
+<div class="highlight"><pre><span></span><code>clock_t start, stop;
+/* clock_t 是 clock()函数返回的变量类型 */
+double duration;
+/* 记录被测函数运行时间，以秒为单位 */
+int main()
+{/* 不在测试范围内的准备工作放在clock()调用之前 */
+    start = clock();    /* 开始计时 */
+    MyFunction();
+    stop = clock();
+    duration = ((double)(stop - start))/CLK_TCK;
+    /* 其他不在测试范围的处理写在后面，例如输出duration的值 */
+    return 0;
+}
+```
+</code></pre></div>
+<p>!!!</p>
 <h2 id="-">简介-&gt;什么是数据结构<a class="headerlink" href="#-" title="Permanent link">&para;</a></h2>
 <h3 id="_2">数据对象在计算机中的组织方式<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <h4 id="_3">✨逻辑结构<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
@@ -735,7 +739,8 @@
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 </div>
-<p>​   描述数据结构</p>
+<p>​   描述数据结构
+!!!</p>
 <h5 id="abstract-data-type-adt">抽象数据类型（Abstract Data Type）| ADT<a class="headerlink" href="#abstract-data-type-adt" title="Permanent link">&para;</a></h5>
 <ol>
 <li>数据类型</li>
@@ -836,6 +841,19 @@ e.g：Matrix Add中不在乎按行加还是按列加，用什么语言实现都�
 </blockquote>
 </li>
 </ol>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']]
+  }
+};
+</script>
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<p>————————————————
+版权声明：本文为CSDN博主「水木子_」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：<a href="https://blog.csdn.net/qq_41261251/article/details/116021097">https://blog.csdn.net/qq_41261251/article/details/116021097</a></p>
 
 
 
