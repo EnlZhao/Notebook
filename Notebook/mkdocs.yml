@@ -7,13 +7,13 @@ theme:
   name: material
   logo: Icon/Avator.png
   icon: 
+    logo: material/notebook-outline # 页面icon
     repo: fontawesome/brands/github
   font:
     text: JetBrains Mono
     code: JetBrains Mono
 #  custom_dir: overrides
-#  favicon:  
- # icon:
+  favicon: Icon/Avator.png
   admonition:
     note: octicons/tag-16
     abstract: octicons/checklist-16
@@ -55,7 +55,7 @@ theme:
 edit_uri: edit/main/docs # 编辑按钮跳转的链接
 ## [top-right corner]
 repo_url: https://enl-z.github.io/Notebook/ # 右上角点击跳转的链接
-repo_name: yang-xijie.github.io/Notebook # 右上角的名字
+repo_name: enl-z.github.io # 右上角的名字
 ## [bottom-left corner]
 
 # [Extensions]
@@ -65,6 +65,7 @@ plugins:
       lang:
         - en
         - ja
+  - awesome-pages
   - tags # 给单篇文章添加标签 https://squidfunk.github.io/mkdocs-material/setup/setting-up-tags/?h=tags
 markdown_extensions:
   - toc:
@@ -118,6 +119,9 @@ extra:
     - icon: fontawesome/brands/github
       link: https://github.com/enl-z
       name: Github | Enl_Z
+    - icon: fontawesome/solid/paper-plane
+      link: EZhao1997@outlook.com
+      name: Outlook | Enl_Z
 
 # Pages
 nav: 
