@@ -552,7 +552,7 @@
 <li><a href="#interrupt-handling">Interrupt Handling</a></li>
 <li><a href="#interrupt-drive-io-cycle">Interrupt-drive I/O Cycle</a></li>
 <li><a href="#io-from-system-call-to-devices-and-back">I/O: from System Call to Devices, and Back</a></li>
-<li><a href="#direct-memory-access--dma">Direct Memory Access | DMA</a></li>
+<li><a href="#direct-memory-access-dma">Direct Memory Access | DMA</a></li>
 <li><a href="#storage-structure">Storage Structure</a></li>
 <li><a href="#storage-hierarchy">Storage Hierarchy</a><ul>
 <li><a href="#performance-of-storages">Performance of Storages</a></li>
@@ -568,28 +568,28 @@
 <li><a href="#dual-mode-operation">Dual-mode operation**</a></li>
 <li><a href="#transition-between-modes">Transition between Modes</a></li>
 <li><a href="#timer">Timer</a></li>
-<li><a href="#process--进程">Process | 进程</a><ul>
+<li><a href="#process">Process | 进程</a><ul>
 <li><a href="#resource-management-process-management">Resource Management: Process Management</a></li>
 <li><a href="#process-management-activities">Process Management Activities</a></li>
 </ul>
 </li>
-<li><a href="#thread--线程">Thread | 线程</a><ul>
+<li><a href="#thread">Thread | 线程</a><ul>
 <li><a href="#from-process-to-thread">From Process to Thread</a></li>
 </ul>
 </li>
-<li><a href="#resource-management-memory-management--内存管理">Resource Management: Memory Management | 内存管理</a></li>
-<li><a href="#resource-management-file-systems--文件系统">Resource Management: File Systems | 文件系统</a></li>
+<li><a href="#resource-management-memory-management">Resource Management: Memory Management | 内存管理</a></li>
+<li><a href="#resource-management-file-systems">Resource Management: File Systems | 文件系统</a></li>
 <li><a href="#resource-management-io-system-management">Resource Management: I/O System Management</a></li>
 <li><a href="#separate-policy-and-mechanism">Separate Policy and Mechanism</a></li>
 <li><a href="#virtualization">Virtualization</a></li>
 </ul>
 </li>
-<li><a href="#three-pieces中的introduction">Three pieces中的Introduction</a><ul>
+<li><a href="#three-piecesintroduction">Three pieces中的Introduction</a><ul>
 <li><a href="#what-happens-when-a-program-runs">What happens when a program runs?</a></li>
 <li><a href="#all-about-virtualization">All about Virtualization</a></li>
 <li><a href="#virtualizing-the-cpu">Virtualizing The CPU</a></li>
 <li><a href="#virtualizing-memory">Virtualizing Memory</a></li>
-<li><a href="#concurrency--并发">Concurrency | 并发</a></li>
+<li><a href="#concurrency">Concurrency | 并发</a></li>
 <li><a href="#io">I/O</a></li>
 </ul>
 </li>
@@ -713,7 +713,7 @@
 <blockquote>
 <p>一种自上而下，一种自下而上</p>
 </blockquote>
-<h3 id="direct-memory-access--dma">Direct Memory Access | DMA<a class="headerlink" href="#direct-memory-access--dma" title="Permanent link">&para;</a></h3>
+<h3 id="direct-memory-access-dma">Direct Memory Access | DMA<a class="headerlink" href="#direct-memory-access-dma" title="Permanent link">&para;</a></h3>
 <ul>
 <li>DMA is used for high-speed I/O devices able to transmit information at close to memory speeds </li>
 <li>
@@ -1012,7 +1012,7 @@
 <blockquote>
 <p><u>进程是资源分配的最小单元，线程是调度的最小单元</u></p>
 </blockquote>
-<h3 id="process--进程">Process | 进程<a class="headerlink" href="#process--进程" title="Permanent link">&para;</a></h3>
+<h3 id="process">Process | 进程<a class="headerlink" href="#process" title="Permanent link">&para;</a></h3>
 <blockquote>
 <p>Process is the unit of resource allocation</p>
 </blockquote>
@@ -1081,7 +1081,7 @@
 </div>
 
 <p><img alt="image-20221211065826923" src="https://gitee.com/enl-z/typora_-images/raw/master/202212110658983.png" /></p>
-<h3 id="thread--线程">Thread | 线程<a class="headerlink" href="#thread--线程" title="Permanent link">&para;</a></h3>
+<h3 id="thread">Thread | 线程<a class="headerlink" href="#thread" title="Permanent link">&para;</a></h3>
 <h4 id="from-process-to-thread">From Process to Thread<a class="headerlink" href="#from-process-to-thread" title="Permanent link">&para;</a></h4>
 <ul>
 <li>
@@ -1114,7 +1114,7 @@
 <li><u>每个线程有自己的栈和PC</u></li>
 <li><u>线程和线程的栈不是隔离的，是可以直接访问到</u></li>
 </ul>
-<h3 id="resource-management-memory-management--内存管理">Resource Management: Memory Management | 内存管理<a class="headerlink" href="#resource-management-memory-management--内存管理" title="Permanent link">&para;</a></h3>
+<h3 id="resource-management-memory-management">Resource Management: Memory Management | 内存管理<a class="headerlink" href="#resource-management-memory-management" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
 <p>Memory is the main storage directly accessible to CPU </p>
@@ -1144,7 +1144,7 @@
 <blockquote>
 <p>管理CPU，管理Memory，做好同步占去操作系统内核的大部分工作</p>
 </blockquote>
-<h3 id="resource-management-file-systems--文件系统">Resource Management: File Systems | 文件系统<a class="headerlink" href="#resource-management-file-systems--文件系统" title="Permanent link">&para;</a></h3>
+<h3 id="resource-management-file-systems">Resource Management: File Systems | 文件系统<a class="headerlink" href="#resource-management-file-systems" title="Permanent link">&para;</a></h3>
 <blockquote>
 <ul>
 <li>
@@ -1251,7 +1251,7 @@
 <li><strong>Abstract</strong> the hardware of a single computer (CPU/Memory/IO &hellip;) into different environments</li>
 </ul>
 <p><img alt="image-20221221104000986" src="https://gitee.com/enl-z/typora_-images/raw/master/202212211040058.png" /></p>
-<h2 id="three-pieces中的introduction">Three pieces中的Introduction<a class="headerlink" href="#three-pieces中的introduction" title="Permanent link">&para;</a></h2>
+<h2 id="three-piecesintroduction">Three pieces中的Introduction<a class="headerlink" href="#three-piecesintroduction" title="Permanent link">&para;</a></h2>
 <h3 id="what-happens-when-a-program-runs">What happens when a program runs?<a class="headerlink" href="#what-happens-when-a-program-runs" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Execute instructions (obviously)</li>
@@ -1330,7 +1330,7 @@
 <a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="p">}</span>
 </code></pre></div>
-<h3 id="concurrency--并发">Concurrency | 并发<a class="headerlink" href="#concurrency--并发" title="Permanent link">&para;</a></h3>
+<h3 id="concurrency">Concurrency | 并发<a class="headerlink" href="#concurrency" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="cp">#include</span><span class="cpf">&quot;common.h&quot;</span>

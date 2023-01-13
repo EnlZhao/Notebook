@@ -581,20 +581,20 @@
 <a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">      </span><span class="p">}</span>
 </code></pre></div>
 </details>
-<h1 id="简介-什么是数据结构">简介-&gt;什么是数据结构<a class="headerlink" href="#简介-什么是数据结构" title="Permanent link">&para;</a></h1>
-<h2 id="数据对象在计算机中的组织方式">数据对象在计算机中的组织方式<a class="headerlink" href="#数据对象在计算机中的组织方式" title="Permanent link">&para;</a></h2>
-<h3 id="逻辑结构">逻辑结构<a class="headerlink" href="#逻辑结构" title="Permanent link">&para;</a></h3>
+<h1 id="-">简介-&gt;什么是数据结构<a class="headerlink" href="#-" title="Permanent link">&para;</a></h1>
+<h2 id="_1">数据对象在计算机中的组织方式<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h3 id="_2">逻辑结构<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <ul>
 <li>一对一的结构，叫做”线性结构“</li>
 <li>一对多的逻辑结构，叫做”树型结构“</li>
 <li>多对多的复杂关系网，这个关系网叫做”图“</li>
 </ul>
-<h3 id="物理存储结构如数组形式链表形式">物理存储结构（如数组形式、链表形式……<a class="headerlink" href="#物理存储结构如数组形式链表形式" title="Permanent link">&para;</a></h3>
+<h3 id="_3">物理存储结构（如数组形式、链表形式……<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>描述数据结构</p>
 </div>
-<h4 id="抽象数据类型abstract-data-type-adt">抽象数据类型（Abstract Data Type）| ADT<a class="headerlink" href="#抽象数据类型abstract-data-type-adt" title="Permanent link">&para;</a></h4>
+<h4 id="abstract-data-type-adt">抽象数据类型（Abstract Data Type）| ADT<a class="headerlink" href="#abstract-data-type-adt" title="Permanent link">&para;</a></h4>
 <ol>
 <li>数据类型<ol>
 <li>数据对象集</li>
@@ -621,9 +621,9 @@
 <p>抽象的好处-&gt;一方面是提高程序的复用性，另一方面，让我们侧重去了解程序的逻辑结构</p>
 </blockquote>
 <hr />
-<h1 id="算法分析">算法分析<a class="headerlink" href="#算法分析" title="Permanent link">&para;</a></h1>
-<h2 id="定义">定义<a class="headerlink" href="#定义" title="Permanent link">&para;</a></h2>
-<h3 id="算法algorithm">算法（Algorithm）<a class="headerlink" href="#算法algorithm" title="Permanent link">&para;</a></h3>
+<h1 id="_4">算法分析<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h1>
+<h2 id="_5">定义<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h3 id="algorithm">算法（Algorithm）<a class="headerlink" href="#algorithm" title="Permanent link">&para;</a></h3>
 <ol>
 <li>一个有限指令集</li>
 <li>接受一些输入（有些情况下不需要输入）</li>
@@ -636,12 +636,12 @@
 </ol>
 </li>
 </ol>
-<h2 id="衡量算法的两个指标">衡量算法的两个指标<a class="headerlink" href="#衡量算法的两个指标" title="Permanent link">&para;</a></h2>
-<h3 id="空间复杂度sn">空间复杂度S(n)<a class="headerlink" href="#空间复杂度sn" title="Permanent link">&para;</a></h3>
+<h2 id="_6">衡量算法的两个指标<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<h3 id="sn">空间复杂度S(n)<a class="headerlink" href="#sn" title="Permanent link">&para;</a></h3>
 <p>根据算法写成的程序在执行时 <strong>占用存储单元的长度</strong> 。这个长度往往与输入数据的规模有关。空间复杂度过高的算法可能导致使用的内存超限，造成程序非正常中断。</p>
-<h3 id="时间复杂度tn">时间复杂度T(n)<a class="headerlink" href="#时间复杂度tn" title="Permanent link">&para;</a></h3>
+<h3 id="tn">时间复杂度T(n)<a class="headerlink" href="#tn" title="Permanent link">&para;</a></h3>
 <p>根据算法写成的程序在执行时 <strong>耗费时间的长度</strong> 。这个长度往往也与输入数据的规模有关。</p>
-<h2 id="复杂度的渐进表示法">复杂度的渐进表示法<a class="headerlink" href="#复杂度的渐进表示法" title="Permanent link">&para;</a></h2>
+<h2 id="_7">复杂度的渐进表示法<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
 <ol>
 <li><span class="arithmatex">\(T(n) =  O  (f(n))\)</span> 表示存在常数 <span class="arithmatex">\(C&gt;0, n_0 &gt; 0\)</span>, 使得当 <span class="arithmatex">\(n \ge  n_0\)</span> 时有 <span class="arithmatex">\(T(n) \le C×f(n)\)</span></li>
 <li><span class="arithmatex">\(T(n) =\Omega(g(n))\)</span> 表示存在常数 <span class="arithmatex">\(C&gt;0，n_0&gt;0\)</span>, 使得当 <span class="arithmatex">\(n&gt;=n0\)</span> 时有 <span class="arithmatex">\(T(n) \ge C×g(n)\)</span></li>
@@ -681,10 +681,10 @@
 <p class="admonition-title">Info</p>
 <p>一个分析复杂度的方法</p>
 </div>
-<h2 id="主定理--master">主定理 | Master<a class="headerlink" href="#主定理--master" title="Permanent link">&para;</a></h2>
-<h3 id="介绍">介绍<a class="headerlink" href="#介绍" title="Permanent link">&para;</a></h3>
+<h2 id="master">主定理 | Master<a class="headerlink" href="#master" title="Permanent link">&para;</a></h2>
+<h3 id="_8">介绍<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
 <p>Master定理，又称主定理，用于程序的时间复杂度计算（常用于递归调用算法的时间复杂度）</p>
-<h3 id="用法">用法<a class="headerlink" href="#用法" title="Permanent link">&para;</a></h3>
+<h3 id="_9">用法<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
 <p>递归算法时间复杂度形如：</p>
 <ol>
 <li><span class="arithmatex">\(T(n) = O(1), n = 1\)</span></li>
