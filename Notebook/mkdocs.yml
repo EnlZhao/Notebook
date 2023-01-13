@@ -6,6 +6,7 @@ site_description: 某兰的笔记
 theme:
   name: material
   logo: Icon/Avator.png
+  custom_dir: custom_dir/
   icon: 
     logo: material/airplane # 页面icon
   font:
@@ -144,6 +145,6 @@ nav:
   - Course:
     - 计算机系统Ⅱ:
       - Course/System/Perface.md
-   # - 数据结构基础: 
-   #   - Course/FDS/算法分析和抽象数据类型.md
+    - 数据结构基础: 
+      - Course/FDS/算法分析和抽象数据类型.md
 
