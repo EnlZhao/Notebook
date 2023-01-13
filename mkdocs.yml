@@ -1,0 +1,169 @@
+site_name: 某兰的笔记本
+site_url: https://enl-z.github.io/Notebook/
+edit_uri: tree/master/docs
+copyright: Copyright &copy; 2022-2023 <a href="https://github.com/enl-z" target="_blank" rel="noopener">某兰</a>
+site_author: Enl_Z
+site_description: 某兰的笔记
+theme:
+  name: material
+  logo: Icon/Avator.png
+  custom_dir: material/.overrides
+  icon: 
+    logo: material/airplane # 页面icon
+  font: 
+    text: JetBrains Mono
+    code: JetBrains Mono
+#  custom_dir: overrides
+  favicon: Icon/Avator.png
+  admonition:
+    note: octicons/tag-16
+    abstract: octicons/checklist-16
+    info: octicons/info-16
+    tip: octicons/squirrel-16
+    success: octicons/check-16
+    question: octicons/question-16
+    warning: octicons/alert-16
+    failure: octicons/x-circle-16
+    danger: octicons/zap-16
+    bug: octicons/bug-16
+    example: octicons/beaker-16
+    quote: octicons/quote-16
+  palette:
+    - scheme: default # 日间模式
+      primary: indigo # 上方的
+      accent: orange # 链接等可交互元件的高亮色
+      toggle:
+        icon: material/weather-night # 图标
+        name: 切换至夜间模式 # 鼠标悬浮提示
+    - scheme: slate # 夜间模式
+      primary: indigo
+      accent: orange
+      toggle:
+        icon: material/weather-sunny
+        name: 切换至日间模式
+  features:
+    - content.action.edit
+    - content.action.view
+    - content.code.annotate
+    - content.code.copy
+    - content.tooltips
+
+    - navigation.tracking # 在url中使用标题定位锚点
+    - navigation.tabs # 顶部显示导航顶层nav（也就是第一个节点）
+    - navigation.tabs.sticky # 滚动是隐藏顶部nav，需要配合navigation.tabs使用
+    - navigation.sections # nav节点缩进
+    - navigation.expand: false # 不折叠左侧nav节点
+    - navigation.footer
+    - navigation.indexes # 指定节点index pages ，跟instant不兼容
+    - toc.integrate # 右侧生产目录
+    - toc.follow
+    - navigation.top # 一键回顶部
+    - search.highlight
+    - search.share
+    - search.suggest
+
+  language: zh # 一些提示性的文字会变成中文
+
+repo_url: https://github.com/enl-z/Notebook # 右上角点击跳转的链接
+repo_name: enl-z.github.io # 右上角的名字
+## [bottom-left corner]
+
+# [Extensions]
+plugins:
+  - search: # 现在还不支持中文搜索 支持之后可以设置语言
+    # insider已经支持中文的分词搜索了 https://squidfunk.github.io/mkdocs-material/blog/2022/chinese-search-support/
+      lang:
+        - en
+        - ja
+  - awesome-pages
+  - tags # 给单篇文章添加标签 https://squidfunk.github.io/mkdocs-material/setup/setting-up-tags/?h=tags
+
+
+markdown_extensions:
+  - toc:  #锚点
+      permalink: true
+      toc_depth: 4
+  - smarty
+  - meta
+  - def_list
+  - attr_list
+  - md_in_html
+  - sane_lists
+  - admonition
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:  # 对加粗和斜体更好的检测
+      smart_enable: all
+  - pymdownx.keys
+  - pymdownx.mark   # 文本高亮
+  - pymdownx.tilde  # 删除线下标
+  - pymdownx.caret  # 下划线上标
+  - pymdownx.critic # 增加删除修改高亮注释，可修饰行内或段落
+  - pymdownx.details  # 提示块可折叠
+  - pymdownx.snippets
+  - pymdownx.smartsymbols # 符号转换
+  - pymdownx.magiclink:
+      repo_url_shorthand: true
+      user: Enl_Z
+      repo: enl-z.github.io
+  - pymdownx.superfences:   # 代码嵌套在列表里
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.inlinehilite  # 行内代码高亮
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.tabbed:
+      alternate_style: true 
+  - pymdownx.tasklist:  # 复选框checklist
+      custom_checkbox: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+
+
+
+
+extra_javascript:
+# latex支持
+# check https://squidfunk.github.io/mkdocs-material/reference/mathjax/?h=math for more information
+# notice `curl https://polyfill.io/v3/polyfill.min.js?features=es6 > docs/mkdocs/javascripts/polyfill.min.js && curl https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js > docs/mkdocs/javascripts/tex-mml-chtml.js` not works... because there are other resources that need to load
+  - mkdocs/javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+extra_css:
+  - mkdocs/stylesheets/extra.css  
+  - mkdocs/css/no-footer.css # 不使用底部的翻页
+  - mkdocs/css/unordered-list-symbols.css # multiplt unordered list symbols
+ # - extra_css/tasklist.css
+ # - extra_css/custom.css
+ # - extra_css/card.css
+ # - extra_css/flink.css
+ # - extra_css/changelog_extra.css
+
+extra_javascript:
+    - javascripts/extra.js
+
+extra: 
+  analytics:
+    provider: google
+    property: !ENV GOOGLE_ANALYTICS_KEY
+  social: 
+    - icon: fontawesome/brands/github
+      link: https://github.com/enl-z
+      name: Github | Enl_Z
+    - icon: fontawesome/solid/paper-plane
+      link: mailto:EZhao1997@outlook.com
+      name: Outlook | Enl_Z
+
+# Pages
+nav: 
+  - Hello: 
+    - index.md
+  - Course:
+    - 计算机系统Ⅱ:
+      - Course/System/index.md
+    - 数据结构基础: 
+      - 算法分析和抽象数据类型: Course/FDS/算法分析和抽象数据类型.md
+
