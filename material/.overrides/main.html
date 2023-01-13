@@ -1,11 +1,14 @@
-{#-
-  This file was automatically generated - do not edit
--#}
 {% extends "base.html" %}
-{% block extrahead %}
-  <link rel="stylesheet" href="{{ 'assets/stylesheets/custom.9097afc2.min.css' | url }}">
-{% endblock %}
-{% block scripts %}
-  {{ super() }}
-  <script src="{{ 'assets/javascripts/custom.acd37711.min.js' | url }}"></script>
+
+{% block libs %}
+{{ super() }}
+<script>
+    MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+        }
+    };
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
 {% endblock %}

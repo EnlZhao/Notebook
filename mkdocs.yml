@@ -10,8 +10,9 @@ theme:
   custom_dir: material/.overrides
   icon: 
     logo: material/airplane # 页面icon
+    repo: fontawesome/brands/github-alt
   font: 
-    text: JetBrains Mono
+    text: Share Tech
     code: JetBrains Mono
 #  custom_dir: overrides
   favicon: Icon/Avator.png
@@ -52,7 +53,7 @@ theme:
     - navigation.tabs # 顶部显示导航顶层nav（也就是第一个节点）
     - navigation.tabs.sticky # 滚动是隐藏顶部nav，需要配合navigation.tabs使用
     - navigation.sections # nav节点缩进
-    - navigation.expand: false # 不折叠左侧nav节点
+    - navigation.expand # 不折叠左侧nav节点
     - navigation.footer
     - navigation.indexes # 指定节点index pages ，跟instant不兼容
     - toc.integrate # 右侧生产目录
@@ -70,6 +71,8 @@ repo_name: enl-z.github.io # 右上角的名字
 
 # [Extensions]
 plugins:
+#  - minify:
+#      minify_html: true
   - search: # 现在还不支持中文搜索 支持之后可以设置语言
     # insider已经支持中文的分词搜索了 https://squidfunk.github.io/mkdocs-material/blog/2022/chinese-search-support/
       lang:
@@ -123,8 +126,6 @@ markdown_extensions:
       anchor_linenums: true
 
 
-
-
 extra_javascript:
 # latex支持
 # check https://squidfunk.github.io/mkdocs-material/reference/mathjax/?h=math for more information
@@ -134,6 +135,7 @@ extra_javascript:
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 extra_css:
   - mkdocs/stylesheets/extra.css  
+  - mkdocs/stylesheets/flink.css
   - mkdocs/css/no-footer.css # 不使用底部的翻页
   - mkdocs/css/unordered-list-symbols.css # multiplt unordered list symbols
  # - extra_css/tasklist.css
@@ -143,7 +145,9 @@ extra_css:
  # - extra_css/changelog_extra.css
 
 extra_javascript:
+    - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML
     - javascripts/extra.js
+    - javascripts/mathjax.js
 
 extra: 
   analytics:
