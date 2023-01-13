@@ -700,29 +700,29 @@
 <div class="admonition note">
 <p class="admonition-title">C语言</p>
 </div>
+<blockquote>
 <p>```c
-    #include <stdio.h>
-    #include <time.h>
-    int MyFunction()
-    {
-        return 1 + 1;
-    }</p>
-<div class="highlight"><pre><span></span><code>clock_t start, stop;
-/* clock_t 是 clock()函数返回的变量类型 */
-double duration;
-/* 记录被测函数运行时间，以秒为单位 */
-int main()
-{/* 不在测试范围内的准备工作放在clock()调用之前 */
-    start = clock();    /* 开始计时 */
-    MyFunction();
-    stop = clock();
-    duration = ((double)(stop - start))/CLK_TCK;
-    /* 其他不在测试范围的处理写在后面，例如输出duration的值 */
-    return 0;
-}
-```
-</code></pre></div>
-<p>!!!</p>
+   #include <stdio.h>
+   #include <time.h>
+   int MyFunction()
+   {
+      return 1 + 1;
+   }</p>
+</blockquote>
+<p>clock_t start, stop;
+   /<em> clock_t 是 clock()函数返回的变量类型 </em>/
+   double duration;
+   /<em> 记录被测函数运行时间，以秒为单位 </em>/
+   int main()
+   {/<em> 不在测试范围内的准备工作放在clock()调用之前 </em>/
+      start = clock();  /<em> 开始计时 </em>/
+      MyFunction();
+      stop = clock();
+      duration = ((double)(stop - start))/CLK_TCK;
+      /<em> 其他不在测试范围的处理写在后面，例如输出duration的值 </em>/
+      return 0;
+   }
+   ```</p>
 <h2 id="-">简介-&gt;什么是数据结构<a class="headerlink" href="#-" title="Permanent link">&para;</a></h2>
 <h3 id="_2">数据对象在计算机中的组织方式<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <h4 id="_3">✨逻辑结构<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
@@ -739,8 +739,7 @@ int main()
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 </div>
-<p>​   描述数据结构
-!!!</p>
+<p>​&gt; 描述数据结构</p>
 <h5 id="abstract-data-type-adt">抽象数据类型（Abstract Data Type）| ADT<a class="headerlink" href="#abstract-data-type-adt" title="Permanent link">&para;</a></h5>
 <ol>
 <li>数据类型</li>
@@ -841,19 +840,6 @@ e.g：Matrix Add中不在乎按行加还是按列加，用什么语言实现都�
 </blockquote>
 </li>
 </ol>
-<script>
-MathJax = {
-  tex: {
-    inlineMath: [['$', '$'], ['\\(', '\\)']]
-  }
-};
-</script>
-<script id="MathJax-script" async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
-</script>
-<p>————————————————
-版权声明：本文为CSDN博主「水木子_」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：<a href="https://blog.csdn.net/qq_41261251/article/details/116021097">https://blog.csdn.net/qq_41261251/article/details/116021097</a></p>
 
 
 
