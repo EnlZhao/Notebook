@@ -639,14 +639,31 @@
 <li>if-else结构的复杂度取决于if的条件判断复杂度和两个分支部分的复杂度，总体复杂度取三者中最大</li>
 </ol>
 <h2 id="checking-your-analysis">Checking Your Analysis<a class="headerlink" href="#checking-your-analysis" title="Permanent link">&para;</a></h2>
-<h2 id="_8"><img alt="image.png" src="https://cdn.nlark.com/yuque/0/2022/png/27904580/1663673834911-9adee8ce-e352-4f23-9727-6386d1f0083d.png#averageHue=%23e0ddb5&amp;clientId=u3b6968f0-75d2-4&amp;crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;from=paste&amp;height=411&amp;id=ue2d94756&amp;margin=%5Bobject%20Object%5D&amp;name=image.png&amp;originHeight=514&amp;originWidth=699&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=172143&amp;status=done&amp;style=none&amp;taskId=u32548eab-1cc6-48bd-aadc-b0568096415&amp;title=&amp;width=559.2" /><a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Method 1</p>
+<ol>
+<li>When <span class="arithmatex">\(T(N) = O(N)\)</span>, check if $T(2N)/T(N)\approx 2 $</li>
+<li>When <span class="arithmatex">\(T(N) = O(N^2)\)</span>, check if $T(2N)/T(N)\approx 4 $</li>
+<li>When <span class="arithmatex">\(T(N) = O(N^3)\)</span>, check if $T(2N)/T(N)\approx 8 $</li>
+<li>···</li>
+</ol>
+</li>
+<li>
+<p>Method 2</p>
+<ol>
+<li>When <span class="arithmatex">\(T(N) = O(f(N))\)</span>, check if <span class="arithmatex">\(<span class="arithmatex">\(\lim\limits_{N\rightarrow\infty}\frac{T(N)}{f(N)} \approx Constant\)</span>\)</span></li>
+</ol>
+</li>
+</ol>
+<hr />
 <blockquote>
 <p>一个分析复杂度的方法</p>
 </blockquote>
 <h2 id="master">主定理 | Master<a class="headerlink" href="#master" title="Permanent link">&para;</a></h2>
-<h3 id="_9">介绍<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<h3 id="_8">介绍<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
 <p>Master定理，又称主定理，用于程序的时间复杂度计算（常用于递归调用算法的时间复杂度）</p>
-<h3 id="_10">用法<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<h3 id="_9">用法<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
 <p>递归算法时间复杂度形如：</p>
 <ol>
 <li><span class="arithmatex">\(T(n) = O(1), n = 1\)</span></li>
@@ -685,7 +702,7 @@
 </ol>
 <blockquote>
 <p>参考：
-1. <a href="https://www.cnblogs.com/nwnu-daizh/p/8652285.html">算法时间复杂度分析方法 - 代祖华 - 博客园</a>
+1. <a href="https://www.cnblogs.com/nwnu-daizh/p/8652285.html">算法时间复杂度分析方法 - 代祖华 - 博客园</a>&lt;&gt;
 2. <a href="https://www.cnblogs.com/water-mi/p/9794604.html">Master定理学习笔记 - water_mi - 博客园</a></p>
 </blockquote>
 
