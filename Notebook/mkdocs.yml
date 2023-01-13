@@ -46,15 +46,13 @@ theme:
     - navigation.tabs # 顶部显示导航顶层nav（也就是第一个节点）
     - navigation.tabs.sticky # 滚动是隐藏顶部nav，需要配合navigation.tabs使用
     - navigation.sections # nav节点缩进
-    - navigation.expand # 不折叠左侧nav节点
+  #  - navigation.expand # 不折叠左侧nav节点
     - navigation.indexes # 指定节点index pages ，跟instant不兼容
     - toc.integrate # 右侧生产目录
     - navigation.top # 一键回顶部
   language: zh # 一些提示性的文字会变成中文
 
-edit_uri: edit/main/docs # 编辑按钮跳转的链接
-## [top-right corner]
-repo_url: https://enl-z.github.io/Notebook/ # 右上角点击跳转的链接
+repo_url: https://github.com/enl-z/Notebook # 右上角点击跳转的链接
 repo_name: enl-z.github.io # 右上角的名字
 ## [bottom-left corner]
 
@@ -130,4 +128,6 @@ nav:
   - Course:
     - 计算机系统Ⅱ:
       - Course/System/Perface.md
+    - 数据结构基础: 
+      - Course/FDS/算法分析和抽象数据类型.md
 
