@@ -7,8 +7,7 @@ theme:
   name: material
   logo: Icon/Avator.png
   icon: 
-    logo: material/notebook-outline # 页面icon
-    repo: fontawesome/brands/github
+    logo: material/airplane # 页面icon
   font:
     text: JetBrains Mono
     code: JetBrains Mono
@@ -65,6 +64,8 @@ plugins:
         - ja
   - awesome-pages
   - tags # 给单篇文章添加标签 https://squidfunk.github.io/mkdocs-material/setup/setting-up-tags/?h=tags
+
+
 markdown_extensions:
   - toc:
       permalink: true
@@ -75,14 +76,26 @@ markdown_extensions:
   - md_in_html
   - sane_lists
   - admonition
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
   - pymdownx.keys
   - pymdownx.mark
   - pymdownx.tilde
+  - pymdownx.caret
   - pymdownx.critic
   - pymdownx.details
   - pymdownx.snippets
-  - pymdownx.magiclink
-  - pymdownx.superfences
+  - pymdownx.magiclink:
+      repo_url_shorthand: true
+      user: Enl_Z
+      repo: enl-z.github.io
+  - pymdownx.superfences: 
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.inlinehilite
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
@@ -104,7 +117,7 @@ extra_javascript:
 # notice `curl https://polyfill.io/v3/polyfill.min.js?features=es6 > docs/mkdocs/javascripts/polyfill.min.js && curl https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js > docs/mkdocs/javascripts/tex-mml-chtml.js` not works... because there are other resources that need to load
   - mkdocs/javascripts/mathjax.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
-  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js # https://cdn.bytedance.com/?query=mathjax&version=3.2.0
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 extra_css:
   - mkdocs/stylesheets/extra.css  
   - mkdocs/css/no-footer.css # 不使用底部的翻页
@@ -113,12 +126,15 @@ extra_javascript:
     - javascripts/extra.js
 
 extra: 
+  analytics:
+    provider: google
+    property: !ENV GOOGLE_ANALYTICS_KEY
   social: 
     - icon: fontawesome/brands/github
       link: https://github.com/enl-z
       name: Github | Enl_Z
     - icon: fontawesome/solid/paper-plane
-      link: EZhao1997@outlook.com
+      link: mailto:EZhao1997@outlook.com
       name: Outlook | Enl_Z
 
 # Pages
@@ -128,6 +144,6 @@ nav:
   - Course:
     - 计算机系统Ⅱ:
       - Course/System/Perface.md
-    - 数据结构基础: 
-      - Course/FDS/算法分析和抽象数据类型.md
+   # - 数据结构基础: 
+   #   - Course/FDS/算法分析和抽象数据类型.md
 
