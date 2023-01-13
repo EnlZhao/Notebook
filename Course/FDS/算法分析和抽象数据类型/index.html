@@ -715,7 +715,7 @@
 
 <h1 id="_1">算法分析和抽象数据类型<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <ul>
-<li><span class="arithmatex">\(clock（）\)</span>：捕捉从程序开始运行到<span class="arithmatex">\(clock（）\)</span>被调用所耗费的时间。这个时间单位是<span class="arithmatex">\(clock ~tick\)</span>，即”时钟打点“。
+<li>clock()：捕捉从程序开始运行到clock()被调用所耗费的时间。这个时间单位是clock tick，即”时钟打点“。
   常数CLK_TCK：机器时钟每秒所走的时钟打点数。</li>
 </ul>
 <div class="admonition note">
@@ -745,15 +745,11 @@
 <h2 id="-">简介-&gt;什么是数据结构<a class="headerlink" href="#-" title="Permanent link">&para;</a></h2>
 <h3 id="_2">数据对象在计算机中的组织方式<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <h4 id="_3">✨逻辑结构<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
-<p>一对一的结构，叫做”线性结构“</p>
-<blockquote>
-<p>如将所有书排成一列</p>
-</blockquote>
-<p>一对多的逻辑结构，叫做”树型结构“</p>
-<blockquote>
-<p>图书按类分</p>
-</blockquote>
-<p>多对多的复杂关系网，这个关系网叫做”图“</p>
+<ul>
+<li>一对一的结构，叫做”线性结构“</li>
+<li>一对多的逻辑结构，叫做”树型结构“</li>
+<li>多对多的复杂关系网，这个关系网叫做”图“</li>
+</ul>
 <h4 id="_4">✨物理存储结构（如数组形式、链表形式……<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -769,12 +765,15 @@
 <li>与数据存储的物理结构无关</li>
 <li>与实现操作的算法和编程语言均无关</li>
 </ol>
-<p>只描述数据对象集和相关操作集”是什么“，并不涉及”如何做到“的问题<img alt="image.png" src="https://cdn.nlark.com/yuque/0/2022/png/27904580/1659343237988-1e32e236-aed0-48c6-9eea-6135929b5533.png#averageHue=%23ebeaea&amp;clientId=uf74e5c40-d564-4&amp;crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;from=paste&amp;height=460&amp;id=uab3a70e9&amp;margin=%5Bobject%20Object%5D&amp;name=image.png&amp;originHeight=575&amp;originWidth=860&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=414632&amp;status=done&amp;style=none&amp;taskId=u913a6b5d-ea44-4ed9-b5f6-9807d46f610&amp;title=&amp;width=688" />
-其中的抽象可以从如下看
-e.g：ElementType是通用数据类型（抽象)，需要double ，在前面define即可
-e.g：矩阵是用二维数组、一维数组还是十字链表实现的都不重要，只是实现一个矩阵
-e.g：Matrix Add中不在乎按行加还是按列加，用什么语言实现都不在乎
-✨抽象的好处-&gt;一方面是提高程序的复用性，另一方面，让我们侧重去了解程序的逻辑结构</p>
+<ul>
+<li>只描述数据对象集和相关操作集”是什么“，并不涉及”如何做到“的问题
+   <img alt="image.png" src="https://cdn.nlark.com/yuque/0/2022/png/27904580/1659343237988-1e32e236-aed0-48c6-9eea-6135929b5533.png#averageHue=%23ebeaea&amp;clientId=uf74e5c40-d564-4&amp;crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;from=paste&amp;height=460&amp;id=uab3a70e9&amp;margin=%5Bobject%20Object%5D&amp;name=image.png&amp;originHeight=575&amp;originWidth=860&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=414632&amp;status=done&amp;style=none&amp;taskId=u913a6b5d-ea44-4ed9-b5f6-9807d46f610&amp;title=&amp;width=688" /></li>
+<li>其中的抽象可以从如下看</li>
+<li>e.g：ElementType是通用数据类型（抽象)，需要double ，在前面define即可</li>
+<li>e.g：矩阵是用二维数组、一维数组还是十字链表实现的都不重要，只是实现一个矩阵</li>
+<li>e.g：Matrix Add中不在乎按行加还是按列加，用什么语言实现都不在乎</li>
+</ul>
+<p>✨抽象的好处-&gt;一方面是提高程序的复用性，另一方面，让我们侧重去了解程序的逻辑结构</p>
 <hr />
 <h2 id="_5">算法<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <h3 id="_6">定义<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
