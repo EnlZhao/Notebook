@@ -6,6 +6,11 @@ site_description: 某兰的笔记
 theme:
   name: material
   logo: Icon/Avator.png
+  icon: 
+    repo: fontawesome/brands/github
+  font:
+    text: JetBrains Mono
+    code: JetBrains Mono
 #  custom_dir: overrides
 #  favicon:  
  # icon:
@@ -46,6 +51,12 @@ theme:
     - toc.integrate # 右侧生产目录
     - navigation.top # 一键回顶部
   language: zh # 一些提示性的文字会变成中文
+
+edit_uri: edit/main/docs # 编辑按钮跳转的链接
+## [top-right corner]
+repo_url: https://enl-z.github.io/Notebook/ # 右上角点击跳转的链接
+repo_name: yang-xijie.github.io/Notebook # 右上角的名字
+## [bottom-left corner]
 
 # [Extensions]
 plugins:
@@ -106,6 +117,7 @@ extra:
   social: 
     - icon: fontawesome/brands/github
       link: https://github.com/enl-z
+      name: Github | Enl_Z
 
 # Pages
 nav: 
