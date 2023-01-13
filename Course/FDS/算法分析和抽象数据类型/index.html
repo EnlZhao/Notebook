@@ -563,10 +563,10 @@
       
         <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
-    算法
+    算法分析
   </a>
   
-    <nav class="md-nav" aria-label="算法">
+    <nav class="md-nav" aria-label="算法分析">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -579,7 +579,7 @@
         
           <li class="md-nav__item">
   <a href="#algorithm" class="md-nav__link">
-    ✨算法（Algorithm）
+    算法（Algorithm）
   </a>
   
 </li>
@@ -599,14 +599,14 @@
         
           <li class="md-nav__item">
   <a href="#sn" class="md-nav__link">
-    ✨空间复杂度S(n)
+    空间复杂度S(n)
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#tn" class="md-nav__link">
-    ✨时间复杂度T(n)
+    时间复杂度T(n)
   </a>
   
 </li>
@@ -637,6 +637,19 @@
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    
+  </a>
+  
+    <nav class="md-nav" aria-label="">
+      <ul class="md-nav__list">
+        
           <li class="md-nav__item">
   <a href="#master" class="md-nav__link">
     主定理 | Master
@@ -646,14 +659,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     介绍
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     用法
   </a>
   
@@ -762,8 +775,7 @@
 </li>
 </ol>
 <ul>
-<li>只描述数据对象集和相关操作集”是什么“，并不涉及”如何做到“的问题
-   <img alt="image.png" src="https://cdn.nlark.com/yuque/0/2022/png/27904580/1659343237988-1e32e236-aed0-48c6-9eea-6135929b5533.png#averageHue=%23ebeaea&amp;clientId=uf74e5c40-d564-4&amp;crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;from=paste&amp;height=460&amp;id=uab3a70e9&amp;margin=%5Bobject%20Object%5D&amp;name=image.png&amp;originHeight=575&amp;originWidth=860&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=414632&amp;status=done&amp;style=none&amp;taskId=u913a6b5d-ea44-4ed9-b5f6-9807d46f610&amp;title=&amp;width=688" /></li>
+<li>只描述数据对象集和相关操作集”是什么“，并不涉及”如何做到“的问题</li>
 <li>其中的抽象可以从如下看<ul>
 <li>e.g：ElementType是通用数据类型（抽象)，需要double ，在前面define即可</li>
 <li>e.g：矩阵是用二维数组、一维数组还是十字链表实现的都不重要，只是实现一个矩阵</li>
@@ -771,11 +783,13 @@
 </ul>
 </li>
 </ul>
-<p>✨抽象的好处-&gt;一方面是提高程序的复用性，另一方面，让我们侧重去了解程序的逻辑结构</p>
+<blockquote>
+<p>抽象的好处-&gt;一方面是提高程序的复用性，另一方面，让我们侧重去了解程序的逻辑结构</p>
+</blockquote>
 <hr />
-<h2 id="_5">算法<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h2 id="_5">算法分析<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <h3 id="_6">定义<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
-<h4 id="algorithm">✨算法（Algorithm）<a class="headerlink" href="#algorithm" title="Permanent link">&para;</a></h4>
+<h4 id="algorithm">算法（Algorithm）<a class="headerlink" href="#algorithm" title="Permanent link">&para;</a></h4>
 <ol>
 <li>一个有限指令集</li>
 <li>接受一些输入（有些情况下不需要输入）</li>
@@ -789,44 +803,44 @@
 </li>
 </ol>
 <h3 id="_7">衡量算法的两个指标<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
-<h4 id="sn">✨空间复杂度S(n)<a class="headerlink" href="#sn" title="Permanent link">&para;</a></h4>
+<h4 id="sn">空间复杂度S(n)<a class="headerlink" href="#sn" title="Permanent link">&para;</a></h4>
 <p>根据算法写成的程序在执行时<strong>占用存储单元的长度</strong>。这个长度往往与输入数据的规模有关。空间复杂度过高的算法可能导致使用的内存超限，造成程序非正常中断。</p>
-<h4 id="tn">✨时间复杂度T(n)<a class="headerlink" href="#tn" title="Permanent link">&para;</a></h4>
+<h4 id="tn">时间复杂度T(n)<a class="headerlink" href="#tn" title="Permanent link">&para;</a></h4>
 <p>根据算法写成的程序在执行时<strong>耗费时间的长度</strong>。这个长度往往也与输入数据的规模有关。</p>
 <h3 id="_8">复杂度的渐进表示法<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
 <ol>
-<li><span class="arithmatex">\(T(n) =  O  (f(n))\)</span> 表示存在常数<span class="arithmatex">\(C&gt;0, n_0 &gt; 0\)</span>使得当<span class="arithmatex">\(n \ge  n_0\)</span>时有<span class="arithmatex">\(T(n) \le C×f(n)\)</span></li>
-<li><span class="arithmatex">\(T(n) =\Omega(g(n))\)</span>表示存在常数<span class="arithmatex">\(C&gt;0，n_0&gt;0\)</span>使得当n&gt;=n0时有<span class="arithmatex">\(T(n) \ge C×g(n)\)</span></li>
-<li><span class="arithmatex">\(T(n) =\Theta(h(n))\)</span>表示同时有<span class="arithmatex">\(T(n) = O(h(n))和T(n) = \Omega(h(n))\)</span></li>
+<li><span class="arithmatex">\(T(n) =  O  (f(n))\)</span> 表示存在常数 <span class="arithmatex">\(C&gt;0, n_0 &gt; 0\)</span>, 使得当 <span class="arithmatex">\(n \ge  n_0\)</span> 时有 <span class="arithmatex">\(T(n) \le C×f(n)\)</span></li>
+<li><span class="arithmatex">\(T(n) =\Omega(g(n))\)</span> 表示存在常数 <span class="arithmatex">\(C&gt;0，n_0&gt;0\)</span>, 使得当 <span class="arithmatex">\(n&gt;=n0\)</span> 时有 <span class="arithmatex">\(T(n) \ge C×g(n)\)</span></li>
+<li><span class="arithmatex">\(T(n) =\Theta(h(n))\)</span> 表示同时有 <span class="arithmatex">\(T(n) = O(h(n))\)</span> 和 <span class="arithmatex">\(T(n) = \Omega(h(n))\)</span></li>
 </ol>
 <h3 id="tips">TIPs<a class="headerlink" href="#tips" title="Permanent link">&para;</a></h3>
 <ol>
-<li>若有两段算法分别有复杂度<span class="arithmatex">\(T_1(n) = O(f_1(n))\)</span>和<span class="arithmatex">\(T_2(n) = O(f_2(n))\)</span>，则<ol>
+<li>若有两段算法分别有复杂度 <span class="arithmatex">\(T_1(n) = O(f_1(n))和T_2(n) = O(f_2(n))\)</span>，则<ol>
 <li><span class="arithmatex">\(T_1(n) + T_2(n) = max(O(f_1(n)), O(f_2(n)))\)</span> 表示两个算法拼接起来</li>
 <li><span class="arithmatex">\(T_1(n) \times T_2(n) = O(f_1(n) \times f_2(n))\)</span> 表示两个算法嵌套起来</li>
 </ol>
 </li>
-<li>若<span class="arithmatex">\(T(n)\)</span>是关于n的k阶多项式，那么<span class="arithmatex">\(T(n)= \Theta (n^k)\)</span></li>
-<li>一个<span class="arithmatex">\(for\)</span>循环的时间复杂度等于循环次数乘以循环体代码的复杂度</li>
-<li><span class="arithmatex">\(if-else\)</span>结构的复杂度取决于<span class="arithmatex">\(if\)</span>的条件判断复杂度和两个分支部分的复杂度，总体复杂度取三者中最大</li>
+<li>若 <span class="arithmatex">\(T(n)\)</span> 是关于n的k阶多项式，那么 <span class="arithmatex">\(T(n)= \Theta (n^k)\)</span></li>
+<li>一个for循环的时间复杂度等于循环次数乘以循环体代码的复杂度</li>
+<li>if-else结构的复杂度取决于if的条件判断复杂度和两个分支部分的复杂度，总体复杂度取三者中最大</li>
 </ol>
 <h3 id="checking-your-analysis">Checking Your Analysis<a class="headerlink" href="#checking-your-analysis" title="Permanent link">&para;</a></h3>
-<p><img alt="image.png" src="https://cdn.nlark.com/yuque/0/2022/png/27904580/1663673834911-9adee8ce-e352-4f23-9727-6386d1f0083d.png#averageHue=%23e0ddb5&amp;clientId=u3b6968f0-75d2-4&amp;crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;from=paste&amp;height=411&amp;id=ue2d94756&amp;margin=%5Bobject%20Object%5D&amp;name=image.png&amp;originHeight=514&amp;originWidth=699&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=172143&amp;status=done&amp;style=none&amp;taskId=u32548eab-1cc6-48bd-aadc-b0568096415&amp;title=&amp;width=559.2" /></p>
+<h2 id="_9"><img alt="image.png" src="https://cdn.nlark.com/yuque/0/2022/png/27904580/1663673834911-9adee8ce-e352-4f23-9727-6386d1f0083d.png#averageHue=%23e0ddb5&amp;clientId=u3b6968f0-75d2-4&amp;crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;from=paste&amp;height=411&amp;id=ue2d94756&amp;margin=%5Bobject%20Object%5D&amp;name=image.png&amp;originHeight=514&amp;originWidth=699&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=172143&amp;status=done&amp;style=none&amp;taskId=u32548eab-1cc6-48bd-aadc-b0568096415&amp;title=&amp;width=559.2" /><a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>一个分析复杂度的方法</p>
 </blockquote>
 <h3 id="master">主定理 | Master<a class="headerlink" href="#master" title="Permanent link">&para;</a></h3>
-<h4 id="_9">介绍<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h4>
+<h4 id="_10">介绍<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h4>
 <p>Master定理，又称主定理，用于程序的时间复杂度计算（常用于递归调用算法的时间复杂度）</p>
-<h4 id="_10">用法<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h4>
+<h4 id="_11">用法<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h4>
 <p>递归算法时间复杂度形如：</p>
 <ol>
 <li><span class="arithmatex">\(T(n) = O(1), n = 1\)</span></li>
 <li><span class="arithmatex">\(T(n) = aT(\frac{n}{b}) + f(n) , n &gt; 1\)</span></li>
 </ol>
-<p>其中，<span class="arithmatex">\(a \ge 1; b &gt; 1 ;\)</span><span class="arithmatex">\(f(n)\)</span>表示不参与递归部分的时间复杂度, 规定<span class="arithmatex">\(C_{crit}=log_ba\)</span></p>
+<p>其中，<span class="arithmatex">\(a \ge 1; b &gt; 1 ;\)</span><span class="arithmatex">\(f(n)\)</span> 表示不参与递归部分的时间复杂度, 规定 <span class="arithmatex">\(C_{crit}=log_ba\)</span></p>
 <blockquote>
-<p>第二条公式表示：将一个规模为n的问题分为<span class="arithmatex">\(a\)</span>个规模为<span class="arithmatex">\(\frac{n}{b}\)</span>子问题，每次递归将带来<span class="arithmatex">\(f(n)\)</span>的额外计算，然后通过对这<span class="arithmatex">\(a\)</span>个子问题的解的综合，得到原问题的解</p>
+<p>第二条公式表示：将一个规模为n的问题分为 <span class="arithmatex">\(a\)</span> 个规模为 <span class="arithmatex">\(\frac{n}{b}\)</span> 子问题，每次递归将带来 <span class="arithmatex">\(f(n)\)</span> 的额外计算，然后通过对这 <span class="arithmatex">\(a\)</span> 个子问题的解的综合，得到原问题的解</p>
 </blockquote>
 <p>那么有：</p>
 <ol>
