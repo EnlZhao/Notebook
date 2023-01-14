@@ -42,7 +42,6 @@ theme:
         name: Switch to light mode
   # 导航栏
   features:
-    #- navigation.instant # without fully reloading the page
     - navigation.tracking # 在url中使用标题定位锚点
     - navigation.tabs # nav top目录显示在标题栏
     - navigation.tabs # 顶部显示导航顶层nav（也就是第一个节点）
