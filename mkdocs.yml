@@ -176,7 +176,14 @@ nav:
     - index.md
   - Course:
     - 计算机系统Ⅱ:
-      - Course/System/index.md
+      - Perface: Course/System/index.md
     - 数据结构基础: 
-      - Abstract: Course/FDS/index.md
+      - Perface: Course/FDS/index.md
       - 算法分析和抽象数据类型: Course/FDS/算法分析和抽象数据类型.md
+  - Triviality: 
+    - Markdown:
+      - Perface: Triviality/Markdown/index.md
+      - Markdown: Triviality/Markdown/markdown.md
+    - Missing Semester: 
+      - Perface: Triviality/The Missing Semester/index.md
+      - Vim: Triviality/The Missing Semester/Vim.md
