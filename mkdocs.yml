@@ -10,11 +10,9 @@ theme:
   custom_dir: material/.overrides
   icon: 
     logo: material/airplane # 页面icon
-    repo: fontawesome/brands/github-alt
   font: 
-    text: Share Tech
+    text: JetBrains Mono
     code: JetBrains Mono
-#  custom_dir: overrides
   favicon: Icon/Avator.png
   admonition:
     note: octicons/tag-16
@@ -30,35 +28,43 @@ theme:
     example: octicons/beaker-16
     quote: octicons/quote-16
   palette:
-    - scheme: default # 日间模式
-      primary: indigo # 上方的
-      accent: orange # 链接等可交互元件的高亮色
-      toggle:
-        icon: material/weather-night # 图标
-        name: 切换至夜间模式 # 鼠标悬浮提示
-    - scheme: slate # 夜间模式
+    - scheme: default
       primary: indigo
-      accent: orange
+      accent: indigo
       toggle:
-        icon: material/weather-sunny
-        name: 切换至日间模式
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  # 导航栏
   features:
+    #- navigation.instant # without fully reloading the page
+    - navigation.tracking # 在url中使用标题定位锚点
+    - navigation.tabs # nav top目录显示在标题栏
+    - navigation.tabs # 顶部显示导航顶层nav（也就是第一个节点）
+    - navigation.tabs.sticky  # 滚动是隐藏顶部nav，需要配合navigation.tabs使用
+    #- navigation.sections  # nav节点缩进
+    #- navigation.expand  # 每次刷新都展开子节点
+    - navigation.indexes  # 跟navigation.instant不兼容
+    #- toc.integrate  # 目录展开在字节点下
+    - navigation.top # 一键回顶 top
+    - search.suggest
+    - search.highlight
+    #- header.autohide
+    - content.code.annotate
+    - header.autohide
+    - toc.separate
+    - toc.follow
     - content.action.edit
     - content.action.view
     - content.code.annotate
     - content.code.copy
     - content.tooltips
-
-    - navigation.tracking # 在url中使用标题定位锚点
-    - navigation.tabs # 顶部显示导航顶层nav（也就是第一个节点）
-    - navigation.tabs.sticky # 滚动是隐藏顶部nav，需要配合navigation.tabs使用
-    - navigation.sections # nav节点缩进
-    - navigation.expand # 不折叠左侧nav节点
     - navigation.footer
-    - navigation.indexes # 指定节点index pages ，跟instant不兼容
-    - toc.integrate # 右侧生产目录
-    - toc.follow
-    - navigation.top # 一键回顶部
     - search.highlight
     - search.share
     - search.suggest
@@ -71,85 +77,88 @@ repo_name: enl-z.github.io # 右上角的名字
 
 # [Extensions]
 plugins:
-#  - minify:
-#      minify_html: true
-  - search: # 现在还不支持中文搜索 支持之后可以设置语言
-    # insider已经支持中文的分词搜索了 https://squidfunk.github.io/mkdocs-material/blog/2022/chinese-search-support/
-      lang:
-        - en
-        - ja
-  - awesome-pages
+  - minify:
+      minify_html: true
+  - search:
+      separator: '[\s\u200b\-]'
   - tags # 给单篇文章添加标签 https://squidfunk.github.io/mkdocs-material/setup/setting-up-tags/?h=tags
-
 
 markdown_extensions:
   - toc:  #锚点
       permalink: true
-      toc_depth: 4
-  - smarty
-  - meta
-  - def_list
-  - attr_list
-  - md_in_html
-  - sane_lists
+      toc_depth: 5
+  #独立术语表
+  - abbr
+  - pymdownx.snippets
+  #提示、警告栏
   - admonition
-  - pymdownx.arithmatex:
-      generic: true
-  - pymdownx.betterem:  # 对加粗和斜体更好的检测
-      smart_enable: all
+  - pymdownx.details  # 提示块可折叠
+  - pymdownx.superfences:   # 代码嵌套在列表里
+      custom_fences:
+          - name: mermaid
+            class: mermaid
+            format: !!python/name:pymdownx.superfences.fence_code_format
+  #按钮
+  - attr_list
+  #代码块
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite  # 行内代码高亮
+  #内容标签栏
+  - pymdownx.tabbed:
+      alternate_style: true 
+  #表格
+  - tables
+  #注脚
+  - footnotes
+  #格式化处理
   - pymdownx.keys
   - pymdownx.mark   # 文本高亮
   - pymdownx.tilde  # 删除线下标
   - pymdownx.caret  # 下划线上标
   - pymdownx.critic # 增加删除修改高亮注释，可修饰行内或段落
-  - pymdownx.details  # 提示块可折叠
-  - pymdownx.snippets
+  #图标
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  #图片
+  - md_in_html
+  #列表
+  - def_list
+  - pymdownx.tasklist:  # 复选框checklist
+      custom_checkbox: true
+  #其他
+  - smarty
+  - meta
+  - sane_lists
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:  # 对加粗和斜体更好的检测
+      smart_enable: all
   - pymdownx.smartsymbols # 符号转换
   - pymdownx.magiclink:
       repo_url_shorthand: true
       user: Enl_Z
       repo: enl-z.github.io
-  - pymdownx.superfences:   # 代码嵌套在列表里
-      custom_fences:
-        - name: mermaid
-          class: mermaid
-          format: !!python/name:pymdownx.superfences.fence_code_format
-  - pymdownx.inlinehilite  # 行内代码高亮
-  - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
-  - pymdownx.tabbed:
-      alternate_style: true 
-  - pymdownx.tasklist:  # 复选框checklist
-      custom_checkbox: true
-  - pymdownx.highlight:
-      anchor_linenums: true
-
-
+  - toc:
+      permalink:  👀 # ⚓︎ # 显示锚点
+  - pymdownx.tasklist:
+      custom_checkbox: true  
+  
 extra_javascript:
-# latex支持
-# check https://squidfunk.github.io/mkdocs-material/reference/mathjax/?h=math for more information
-# notice `curl https://polyfill.io/v3/polyfill.min.js?features=es6 > docs/mkdocs/javascripts/polyfill.min.js && curl https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js > docs/mkdocs/javascripts/tex-mml-chtml.js` not works... because there are other resources that need to load
+  #- https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML
   - mkdocs/javascripts/mathjax.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 extra_css:
   - mkdocs/stylesheets/extra.css  
-  - mkdocs/stylesheets/flink.css
-  - mkdocs/css/no-footer.css # 不使用底部的翻页
-  - mkdocs/css/unordered-list-symbols.css # multiplt unordered list symbols
- # - extra_css/tasklist.css
- # - extra_css/custom.css
- # - extra_css/card.css
- # - extra_css/flink.css
- # - extra_css/changelog_extra.css
-
-extra_javascript:
-    - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML
-    - javascripts/extra.js
-    - javascripts/mathjax.js
+  - extra_css/tasklist.css
+  - extra_css/counter.css
+  - extra_css/giscus.css
+  - extra_css/card.css
 
 extra: 
+  vssue: Enl_Z
   analytics:
     provider: google
     property: !ENV GOOGLE_ANALYTICS_KEY
@@ -169,5 +178,5 @@ nav:
     - 计算机系统Ⅱ:
       - Course/System/index.md
     - 数据结构基础: 
+      - Abstract: Course/FDS/index.md
       - 算法分析和抽象数据类型: Course/FDS/算法分析和抽象数据类型.md
-
