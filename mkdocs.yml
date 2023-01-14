@@ -76,8 +76,8 @@ repo_name: enl-z.github.io # 右上角的名字
 
 # [Extensions]
 plugins:
-  - minify:
-      minify_html: true
+#  - minify:
+#      minify_html: true
   - search:
       separator: '[\s\u200b\-]'
   - tags # 给单篇文章添加标签 https://squidfunk.github.io/mkdocs-material/setup/setting-up-tags/?h=tags
