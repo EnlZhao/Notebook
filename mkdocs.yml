@@ -179,6 +179,7 @@ nav:
     - 数据结构基础: 
       - Perface: Course/FDS/index.md
       - 算法分析和抽象数据类型: Course/FDS/算法分析和抽象数据类型.md
+      - 线性结构: Course/FDS/线性结构.md
   - Triviality: 
     - Markdown:
       - Perface: Triviality/Markdown/index.md
