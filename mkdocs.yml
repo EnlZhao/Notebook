@@ -180,6 +180,7 @@ nav:
       - Perface: Course/FDS/index.md
       - 算法分析和抽象数据类型: Course/FDS/算法分析和抽象数据类型.md
       - 线性结构: Course/FDS/线性结构.md
+      - 树: Course/FDS/树.md
   - Triviality: 
     - Markdown:
       - Perface: Triviality/Markdown/index.md
