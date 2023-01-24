@@ -1411,9 +1411,9 @@ print的顺序 <span class="arithmatex">\(\Rightarrow\)</span> D E F B H G I C A
 <h2 id="_9">建树及同构判别<a class="headerlink" href="#_9" title="Permanent link">👀</a></h2>
 <h3 id="_10">二叉树表示<a class="headerlink" href="#_10" title="Permanent link">👀</a></h3>
 <ul>
-<li>结构数组表示二叉树: 静态链表
-<img alt="image_2023-01-24-21-58-11" src="../../../Images/2023-01-24-21-58-11.png" /></li>
+<li>结构数组表示二叉树: 静态链表</li>
 </ul>
+<p><img alt="image_2023-01-24-21-58-11" src="../../../Images/2023-01-24-21-58-11.png" /></p>
 <details class="example">
 <summary>code</summary>
 <div class="highlight"><span class="filename">二叉树表示</span><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="cp">#define MaxTree 10</span>
@@ -1509,22 +1509,26 @@ print的顺序 <span class="arithmatex">\(\Rightarrow\)</span> D E F B H G I C A
 </details>
 <h2 id="binary-search-treebst">二叉搜索树 | Binary Search Tree(BST)<a class="headerlink" href="#binary-search-treebst" title="Permanent link">👀</a></h2>
 <blockquote>
-<p>二叉搜索树，也称二叉排序树或二叉查找树
-一棵二叉树可以为空；如果不为空，满足以下性质：
+<p>二叉搜索树，也称二叉排序树或二叉查找树</p>
+</blockquote>
+<p>一棵二叉树可以为空；如果不为空，满足以下性质：
 1. 非空左子树的所有键值小于其根节点的键值
 2. 非空右子树的所有键值大于其根节点的键值
 3. 左、右子树都是二叉搜索树</p>
-</blockquote>
 <h3 id="bst">BST的特别函数<a class="headerlink" href="#bst" title="Permanent link">👀</a></h3>
 <h4 id="position-findelementtype-x-bintree-bst">Position Find(ElementType X, BinTree BST)<a class="headerlink" href="#position-findelementtype-x-bintree-bst" title="Permanent link">👀</a></h4>
 <blockquote>
-<p>从BST中查找元素 X, 返回其所在结点的地址
-1. 查找从根结点开始，如果树为空，返回 NULL
-2. 若搜索树非空，则将根结点关键字和 X 进行比较，并进行不同处理:
-      1. 若 X 小于根结点键值，只需在左子树中继续搜索
-      2. 若大于，则在右子树中继续搜素
-      3. 若相等，搜索完成，返回指向此结点的指针</p>
+<p>从BST中查找元素 X, 返回其所在结点的地址</p>
 </blockquote>
+<ol>
+<li>查找从根结点开始，如果树为空，返回 NULL</li>
+<li>若搜索树非空，则将根结点关键字和 X 进行比较，并进行不同处理:<ol>
+<li>若 X 小于根结点键值，只需在左子树中继续搜索</li>
+<li>若大于，则在右子树中继续搜素</li>
+<li>若相等，搜索完成，返回指向此结点的指针</li>
+</ol>
+</li>
+</ol>
 <details class="example">
 <summary>code</summary>
 <p><div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">Position</span><span class="w"> </span><span class="nf">Find</span><span class="p">(</span><span class="w"> </span><span class="n">ElementType</span><span class="w"> </span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="n">BinTree</span><span class="w"> </span><span class="n">BST</span><span class="w"> </span><span class="p">)</span>
