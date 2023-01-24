@@ -1266,8 +1266,9 @@ as the main headline.
 <p><img alt="image_2023-01-19-15-24-54" src="../../../Images/2023-01-19-15-24-54.png" /></p>
 </details>
 <ul>
-<li>链表存储(每个结点的结构可以如下表示)
-  !!! note
+<li>链表存储(每个结点的结构可以如下表示)</li>
+</ul>
+<p>!!! note
       <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">    </span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">TreeNode</span><span class="w"> </span><span class="o">*</span><span class="n">BinTree</span><span class="p">;</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="k">typedef</span><span class="w"> </span><span class="n">BinTree</span><span class="w"> </span><span class="n">Position</span><span class="p">;</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">TreeNode</span><span class="p">{</span>
@@ -1275,8 +1276,7 @@ as the main headline.
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">        </span><span class="n">BinTree</span><span class="w"> </span><span class="n">Left</span><span class="p">;</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">        </span><span class="n">BinTree</span><span class="w"> </span><span class="n">Right</span><span class="p">;</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="p">}</span>
-</code></pre></div></li>
-</ul>
+</code></pre></div></p>
 <h2 id="_8">二叉树的遍历<a class="headerlink" href="#_8" title="Permanent link">👀</a></h2>
 <h3 id="preorder">先序遍历 | PreOrder<a class="headerlink" href="#preorder" title="Permanent link">👀</a></h3>
 <ul>
@@ -1381,11 +1381,13 @@ print的顺序 <span class="arithmatex">\(\Rightarrow\)</span> D E F B H G I C A
 </details>
 <h3 id="levelorder">层序遍历 | LevelOrder<a class="headerlink" href="#levelorder" title="Permanent link">👀</a></h3>
 <ul>
-<li>层序基本过程:
-        1. 根节点入队
-        2. 从队列中取出一个元素
-        3. 访问该元素所指结点
-        4. 若该元素所指结点的左、右孩子结点非空，则将其左、右孩子的指针入队</li>
+<li>层序基本过程:<ol>
+<li>根节点入队</li>
+<li>从队列中取出一个元素</li>
+<li>访问该元素所指结点</li>
+<li>若该元素所指结点的左、右孩子结点非空，则将其左、右孩子的指针入队</li>
+</ol>
+</li>
 </ul>
 <details class="example">
 <summary>层序遍历的队列实现</summary>
@@ -1511,10 +1513,14 @@ print的顺序 <span class="arithmatex">\(\Rightarrow\)</span> D E F B H G I C A
 <blockquote>
 <p>二叉搜索树，也称二叉排序树或二叉查找树</p>
 </blockquote>
-<p>一棵二叉树可以为空；如果不为空，满足以下性质：
-1. 非空左子树的所有键值小于其根节点的键值
-2. 非空右子树的所有键值大于其根节点的键值
-3. 左、右子树都是二叉搜索树</p>
+<ul>
+<li>一棵二叉树可以为空；如果不为空，满足以下性质：<ol>
+<li>非空左子树的所有键值小于其根节点的键值</li>
+<li>非空右子树的所有键值大于其根节点的键值</li>
+<li>左、右子树都是二叉搜索树</li>
+</ol>
+</li>
+</ul>
 <h3 id="bst">BST的特别函数<a class="headerlink" href="#bst" title="Permanent link">👀</a></h3>
 <h4 id="position-findelementtype-x-bintree-bst">Position Find(ElementType X, BinTree BST)<a class="headerlink" href="#position-findelementtype-x-bintree-bst" title="Permanent link">👀</a></h4>
 <blockquote>
