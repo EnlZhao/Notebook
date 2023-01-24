@@ -732,8 +732,36 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#position-findelementtype-x-bintree-bst" class="md-nav__link">
-    Position Find(ElementType X, BinTree BST)
+  <a href="#find" class="md-nav__link">
+    Find()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#findmin" class="md-nav__link">
+    FindMin()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#findmax" class="md-nav__link">
+    FindMax()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#insert" class="md-nav__link">
+    Insert()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete" class="md-nav__link">
+    Delete()
   </a>
   
 </li>
@@ -745,6 +773,13 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#balance-binary-treeavl" class="md-nav__link">
+    平衡二叉树 | Balance Binary Tree(AVL树)
+  </a>
   
 </li>
       
@@ -1111,8 +1146,36 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#position-findelementtype-x-bintree-bst" class="md-nav__link">
-    Position Find(ElementType X, BinTree BST)
+  <a href="#find" class="md-nav__link">
+    Find()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#findmin" class="md-nav__link">
+    FindMin()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#findmax" class="md-nav__link">
+    FindMax()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#insert" class="md-nav__link">
+    Insert()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete" class="md-nav__link">
+    Delete()
   </a>
   
 </li>
@@ -1124,6 +1187,13 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#balance-binary-treeavl" class="md-nav__link">
+    平衡二叉树 | Balance Binary Tree(AVL树)
+  </a>
   
 </li>
       
@@ -1526,7 +1596,7 @@ print的顺序 <span class="arithmatex">\(\Rightarrow\)</span> D E F B H G I C A
 </li>
 </ul>
 <h3 id="bst">BST的特别函数<a class="headerlink" href="#bst" title="Permanent link">👀</a></h3>
-<h4 id="position-findelementtype-x-bintree-bst">Position Find(ElementType X, BinTree BST)<a class="headerlink" href="#position-findelementtype-x-bintree-bst" title="Permanent link">👀</a></h4>
+<h4 id="find">Find()<a class="headerlink" href="#find" title="Permanent link">👀</a></h4>
 <blockquote>
 <p>从BST中查找元素 X, 返回其所在结点的地址</p>
 </blockquote>
@@ -1570,6 +1640,107 @@ print的顺序 <span class="arithmatex">\(\Rightarrow\)</span> D E F B H G I C A
 <a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a><span class="p">}</span>
 </code></pre></div></p>
 </details>
+<h4 id="findmin">FindMin()<a class="headerlink" href="#findmin" title="Permanent link">👀</a></h4>
+<ul>
+<li>从BST中查找并返回最小元素所在结点的地址</li>
+<li>最小元素一定在树的最左分支的端结点上</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">code</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="n">Position</span><span class="w"> </span><span class="nf">FindMin</span><span class="p">(</span><span class="w"> </span><span class="n">BinTree</span><span class="w"> </span><span class="n">BST</span><span class="p">)</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="p">{</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">BST</span><span class="w"> </span><span class="p">)</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">BST</span><span class="o">-&gt;</span><span class="n">Left</span><span class="p">)</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">BST</span><span class="p">;</span>
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="w">    </span><span class="k">else</span>
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">FindMin</span><span class="p">(</span><span class="w"> </span><span class="n">BST</span><span class="o">-&gt;</span><span class="n">Left</span><span class="w"> </span><span class="p">);</span>
+<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="p">}</span>
+</code></pre></div>
+</div>
+<h4 id="findmax">FindMax()<a class="headerlink" href="#findmax" title="Permanent link">👀</a></h4>
+<ul>
+<li>从二叉搜索树BST中查找并返回最大元素所在结点的地址</li>
+<li>最大元素一定在树的最右分支的端结点上</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">code</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">Position</span><span class="w"> </span><span class="nf">FindMax</span><span class="p">(</span><span class="w"> </span><span class="n">BinTree</span><span class="w"> </span><span class="n">BST</span><span class="p">)</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="p">{</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="w"> </span><span class="n">BST</span><span class="w"> </span><span class="p">)</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="w">        </span><span class="k">while</span><span class="p">(</span><span class="n">BST</span><span class="o">-&gt;</span><span class="n">Right</span><span class="p">)</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="w">            </span><span class="n">BST</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BST</span><span class="o">-&gt;</span><span class="n">Right</span><span class="p">;</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">BST</span><span class="p">;</span>
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="p">}</span>
+</code></pre></div>
+</div>
+<h4 id="insert">Insert()<a class="headerlink" href="#insert" title="Permanent link">👀</a></h4>
+<ul>
+<li>插入X(可以采用与Find类似的方法)</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">code</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="n">BinTree</span><span class="w"> </span><span class="nf">Insert</span><span class="p">(</span><span class="w"> </span><span class="n">ElementType</span><span class="w"> </span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="n">BinTree</span><span class="w"> </span><span class="n">BST</span><span class="p">)</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="p">{</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">BST</span><span class="w"> </span><span class="p">)</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="w">        </span><span class="n">BST</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">TreeNode</span><span class="p">));</span>
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="w">        </span><span class="n">BSt</span><span class="o">-&gt;</span><span class="n">Data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">X</span><span class="p">;</span>
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="w">        </span><span class="n">BST</span><span class="o">-&gt;</span><span class="n">Left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BST</span><span class="o">-&gt;</span><span class="n">Right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
+<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="w">    </span><span class="k">else</span>
+<a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="w"> </span><span class="n">X</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">BST</span><span class="o">-&gt;</span><span class="n">Data</span><span class="w"> </span><span class="p">)</span>
+<a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a><span class="w">            </span><span class="n">BST</span><span class="o">-&gt;</span><span class="n">Left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Insert</span><span class="p">(</span><span class="w"> </span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="n">BST</span><span class="o">-&gt;</span><span class="n">Left</span><span class="p">);</span>
+<a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a><span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="w"> </span><span class="n">X</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">BST</span><span class="o">-&gt;</span><span class="n">Data</span><span class="p">)</span>
+<a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a><span class="w">            </span><span class="n">BST</span><span class="o">-&gt;</span><span class="n">Right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Insert</span><span class="p">(</span><span class="w"> </span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="n">BST</span><span class="o">-&gt;</span><span class="n">Right</span><span class="p">);</span>
+<a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">BST</span><span class="p">;</span>
+<a id="__codelineno-15-17" name="__codelineno-15-17" href="#__codelineno-15-17"></a><span class="p">}</span>
+</code></pre></div>
+</div>
+<h4 id="delete">Delete()<a class="headerlink" href="#delete" title="Permanent link">👀</a></h4>
+<ul>
+<li>考虑三种情况<ol>
+<li>要删除的结点是叶结点：直接删除，并再修改其父结点指针——置为NULL</li>
+<li>要删除的结点只有一个孩子结点：将其父结点的指针指向要删除结点的孩子结点</li>
+<li>要删除的结点有左右两颗子树：用另一结点替代被删除结点——右子树的最小元素 或者 左子树的最大元素</li>
+</ol>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">code</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="n">BinTree</span><span class="w"> </span><span class="nf">Delete</span><span class="p">(</span><span class="w"> </span><span class="n">ELementType</span><span class="w"> </span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="n">BinTree</span><span class="w"> </span><span class="n">BST</span><span class="p">)</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="p">{</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="w">    </span><span class="n">Position</span><span class="w"> </span><span class="n">Tmp</span><span class="p">;</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">BST</span><span class="w"> </span><span class="p">)</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;要删除的元素未找到&quot;</span><span class="p">);</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="w"> </span><span class="n">X</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">BST</span><span class="o">-&gt;</span><span class="n">Data</span><span class="w"> </span><span class="p">)</span>
+<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="w">        </span><span class="n">BST</span><span class="o">-&gt;</span><span class="n">Left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Delete</span><span class="p">(</span><span class="w"> </span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="n">BST</span><span class="o">-&gt;</span><span class="n">Left</span><span class="p">);</span><span class="cm">/*左子树递归删除*/</span>
+<a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="w"> </span><span class="n">X</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">BST</span><span class="o">-&gt;</span><span class="n">Right</span><span class="w"> </span><span class="p">)</span>
+<a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a><span class="w">        </span><span class="n">BST</span><span class="o">-&gt;</span><span class="n">Right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Delete</span><span class="p">(</span><span class="w"> </span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="n">BST</span><span class="o">-&gt;</span><span class="n">Right</span><span class="p">);</span><span class="cm">/*右子树递归删除*/</span>
+<a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a><span class="w">    </span><span class="k">else</span>
+<a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="w"> </span><span class="n">BST</span><span class="o">-&gt;</span><span class="n">Left</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">BST</span><span class="o">-&gt;</span><span class="n">Right</span><span class="w"> </span><span class="p">)</span>
+<a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a><span class="w">            </span><span class="n">Tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FindMin</span><span class="p">(</span><span class="w"> </span><span class="n">BST</span><span class="o">-&gt;</span><span class="n">Right</span><span class="w"> </span><span class="p">);</span>
+<a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a><span class="w">                        </span><span class="cm">/*在右子树中找到最小元素填充删除结点*/</span>
+<a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a><span class="w">            </span><span class="n">BST</span><span class="o">-&gt;</span><span class="n">Data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Tmp</span><span class="o">-&gt;</span><span class="n">Data</span><span class="p">;</span>
+<a id="__codelineno-16-16" name="__codelineno-16-16" href="#__codelineno-16-16"></a><span class="w">            </span><span class="n">BST</span><span class="o">-&gt;</span><span class="n">Right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Delete</span><span class="p">(</span><span class="w"> </span><span class="n">BST</span><span class="o">-&gt;</span><span class="n">Data</span><span class="p">,</span><span class="w"> </span><span class="n">BST</span><span class="o">-&gt;</span><span class="n">Right</span><span class="p">);</span>
+<a id="__codelineno-16-17" name="__codelineno-16-17" href="#__codelineno-16-17"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-16-18" name="__codelineno-16-18" href="#__codelineno-16-18"></a><span class="w">        </span><span class="k">else</span><span class="w">    </span><span class="cm">/*被删除结点有一个或无子结点*/</span>
+<a id="__codelineno-16-19" name="__codelineno-16-19" href="#__codelineno-16-19"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-16-20" name="__codelineno-16-20" href="#__codelineno-16-20"></a><span class="w">            </span><span class="n">Tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BST</span><span class="p">;</span>
+<a id="__codelineno-16-21" name="__codelineno-16-21" href="#__codelineno-16-21"></a><span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">BST</span><span class="o">-&gt;</span><span class="n">Left</span><span class="p">)</span><span class="w"> </span><span class="cm">/*有右孩子或无*/</span>
+<a id="__codelineno-16-22" name="__codelineno-16-22" href="#__codelineno-16-22"></a><span class="w">                </span><span class="n">BST</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BST</span><span class="o">-&gt;</span><span class="n">Right</span><span class="p">;</span>
+<a id="__codelineno-16-23" name="__codelineno-16-23" href="#__codelineno-16-23"></a><span class="w">            </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">BST</span><span class="o">-&gt;</span><span class="n">Right</span><span class="p">)</span><span class="cm">/*有左孩子或无*/</span>
+<a id="__codelineno-16-24" name="__codelineno-16-24" href="#__codelineno-16-24"></a><span class="w">                </span><span class="n">BST</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BST</span><span class="o">-&gt;</span><span class="n">Left</span><span class="p">;</span>
+<a id="__codelineno-16-25" name="__codelineno-16-25" href="#__codelineno-16-25"></a><span class="w">            </span><span class="n">free</span><span class="p">(</span><span class="w"> </span><span class="n">Tmp</span><span class="w"> </span><span class="p">);</span>
+<a id="__codelineno-16-26" name="__codelineno-16-26" href="#__codelineno-16-26"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-16-27" name="__codelineno-16-27" href="#__codelineno-16-27"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">BST</span><span class="p">;</span>
+<a id="__codelineno-16-28" name="__codelineno-16-28" href="#__codelineno-16-28"></a><span class="p">}</span>
+</code></pre></div>
+</div>
+<h2 id="balance-binary-treeavl">平衡二叉树 | Balance Binary Tree(AVL树)<a class="headerlink" href="#balance-binary-treeavl" title="Permanent link">👀</a></h2>
 <p><center><font face="JetBrains Mono" size=6 color=grey size=18>To Be Continued</font></center></p>
 
 <!-- Source file information -->
