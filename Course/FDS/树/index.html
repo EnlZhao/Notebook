@@ -777,8 +777,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#balance-binary-treeavl" class="md-nav__link">
-    平衡二叉树 | Balance Binary Tree(AVL树)
+  <a href="#threaded-binary-tree" class="md-nav__link">
+    线索二叉树 | Threaded binary tree
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#d-d-heap" class="md-nav__link">
+    D-堆 | D-heap
   </a>
   
 </li>
@@ -1191,8 +1198,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#balance-binary-treeavl" class="md-nav__link">
-    平衡二叉树 | Balance Binary Tree(AVL树)
+  <a href="#threaded-binary-tree" class="md-nav__link">
+    线索二叉树 | Threaded binary tree
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#d-d-heap" class="md-nav__link">
+    D-堆 | D-heap
   </a>
   
 </li>
@@ -1740,7 +1754,26 @@ print的顺序 <span class="arithmatex">\(\Rightarrow\)</span> D E F B H G I C A
 <a id="__codelineno-16-28" name="__codelineno-16-28" href="#__codelineno-16-28"></a><span class="p">}</span>
 </code></pre></div>
 </div>
-<h2 id="balance-binary-treeavl">平衡二叉树 | Balance Binary Tree(AVL树)<a class="headerlink" href="#balance-binary-treeavl" title="Permanent link">👀</a></h2>
+<h2 id="threaded-binary-tree">线索二叉树 | Threaded binary tree<a class="headerlink" href="#threaded-binary-tree" title="Permanent link">👀</a></h2>
+<ul>
+<li>Rule 1: 若结点的左子树为空，将其空左儿子指向中序遍历前驱(上一个遍历的结点)</li>
+<li>Rule 2: 空右儿子指向中序遍历的后继(若前驱/后继均无，则引出为 NULL)</li>
+<li>Rule 3: 线索二叉树必须有一个头节点且其左儿子指向第一个结点</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="k">typedef</span><span class="w">  </span><span class="k">struct</span><span class="w">  </span><span class="nc">ThreadedTreeNode</span><span class="w">  </span><span class="o">*</span><span class="n">PtrTo</span><span class="w">  </span><span class="n">ThreadedNode</span><span class="p">;</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="k">typedef</span><span class="w">  </span><span class="k">struct</span><span class="w">  </span><span class="nc">PtrToThreadedNode</span><span class="w">  </span><span class="n">ThreadedTree</span><span class="p">;</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="k">typedef</span><span class="w">  </span><span class="k">struct</span><span class="w">  </span><span class="nc">ThreadedTreeNode</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="w">    </span><span class="kt">int</span><span class="w">     </span><span class="n">LeftThread</span><span class="p">;</span><span class="w">   </span><span class="cm">/* if it is TRUE, then Left */</span>
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="w">    </span><span class="n">ThreadedTree</span><span class="w">  </span><span class="n">Left</span><span class="p">;</span><span class="w">      </span><span class="cm">/* is a thread, not a child ptr.   */</span><span class="w"> </span>
+<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="w">    </span><span class="n">ElementTypeElement</span><span class="p">;</span><span class="n">intRightThread</span><span class="p">;</span><span class="w"> </span><span class="cm">/* if it is TRUE, then Right */</span>
+<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="w">    </span><span class="n">ThreadedTree</span><span class="w">  </span><span class="n">Right</span><span class="p">;</span><span class="w">    </span><span class="cm">/* is a thread, not a child ptr.   */</span>
+<a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a><span class="p">}</span>
+</code></pre></div>
+<div class="admonition quote">
+<p class="admonition-title">Quote</p>
+<p><a href="https://blog.csdn.net/qq_46104786/article/details/121361566?spm=1001.2101.3001.6650.1&amp;utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-121361566-blog-70183267.pc_relevant_aa&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-121361566-blog-70183267.pc_relevant_aa&amp;utm_relevant_index=2">CSDN-线索二叉树</a></p>
+</div>
+<h2 id="d-d-heap">D-堆 | D-heap<a class="headerlink" href="#d-d-heap" title="Permanent link">👀</a></h2>
 <p><center><font face="JetBrains Mono" size=6 color=grey size=18>To Be Continued</font></center></p>
 
 <!-- Source file information -->
