@@ -132,9 +132,9 @@ markdown_extensions:
   - sane_lists
   - pymdownx.arithmatex:
       generic: true
-  - pymdownx.betterem:  # 对加粗和斜体更好的检测
-      smart_enable: all
-  - pymdownx.smartsymbols # 符号转换
+  #- pymdownx.betterem:  # 对加粗和斜体更好的检测
+  #    smart_enable: all
+  #- pymdownx.smartsymbols # 符号转换
   - pymdownx.magiclink:
       repo_url_shorthand: true
       user: Enl_Z
@@ -198,4 +198,4 @@ nav:
     - GitHub: 
       - Perface: Triviality/GitHub/index.md
       - Basics: Triviality/GitHub/Le1.md
-      - Git 入门: Triviality/GitHub/Le3.md
+      #- Git 入门: Triviality/GitHub/Le3.md
