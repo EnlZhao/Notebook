@@ -1212,9 +1212,9 @@
 <div class="admonition example">
 <p class="admonition-title">Example</p>
 <blockquote>
-<p>git remote add origin <REMOTE_URL><br />
- 将 origin 与 <code>REMOTE_URL</code> 关联</p>
+<p>git remote add origin <REMOTE_URL></p>
 </blockquote>
+<p>将 origin 与 <code>REMOTE_URL</code> 关联</p>
 </div>
 <h2 id="manage-remote-repositories"><u>Manage remote repositories</u><a class="headerlink" href="#manage-remote-repositories" title="Permanent link">👀</a></h2>
 <h3 id="_2">添加远程仓库<a class="headerlink" href="#_2" title="Permanent link">👀</a></h3>
@@ -1237,17 +1237,17 @@
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>&gt;<span class="w"> </span>origin<span class="w">  </span>https://github.com/USER/REPO.git<span class="w"> </span><span class="o">(</span>push<span class="o">)</span>
 </code></pre></div>
 </details>
-<div class="admonition warning">
-<p class="admonition-title">Troubleshooting: Remote origin already exists</p>
+<details class="warning">
+<summary>Troubleshooting: Remote origin already exists</summary>
 <p>此错误消息表示尝试添加的远程与本地仓库远程名称相同<br />
  <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$<span class="w"> </span>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>origin<span class="w"> </span>https://github.com/octocat/Spoon-Knife.git
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>&gt;<span class="w"> </span>fatal:<span class="w"> </span>remote<span class="w"> </span>origin<span class="w"> </span>already<span class="w"> </span>exists.
-</code></pre></div></p>
-<p>??? question &ldquo;Solution&rdquo;<br />
+</code></pre></div><br />
+ !!! question &ldquo;Solution&rdquo;<br />
      * 对新远程使用不同名称<br />
      * 在添加新远程时，重命名现有远程仓库<br />
      * 在添加新远程前，删除现有远程仓库</p>
-</div>
+</details>
 <h3 id="url">更改远程仓库 URL<a class="headerlink" href="#url" title="Permanent link">👀</a></h3>
 <h2 id="associate-text-editors">Associate text editors<a class="headerlink" href="#associate-text-editors" title="Permanent link">👀</a></h2>
 <h2 id="handle-line-endings">Handle line endings<a class="headerlink" href="#handle-line-endings" title="Permanent link">👀</a></h2>
