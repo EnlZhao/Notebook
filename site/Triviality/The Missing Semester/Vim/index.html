@@ -59,15 +59,19 @@
       
     
     
+      <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+    
       <link rel="stylesheet" href="../../../mkdocs/stylesheets/extra.css">
     
-      <link rel="stylesheet" href="../../../extra_css/tasklist.css">
+      <link rel="stylesheet" href="../../../mkdocs/extra_css/tasklist.css">
     
-      <link rel="stylesheet" href="../../../extra_css/counter.css">
+      <link rel="stylesheet" href="../../../mkdocs/extra_css/flink.css">
     
-      <link rel="stylesheet" href="../../../extra_css/giscus.css">
+      <link rel="stylesheet" href="../../../mkdocs/extra_css/counter.css">
     
-      <link rel="stylesheet" href="../../../extra_css/card.css">
+      <link rel="stylesheet" href="../../../mkdocs/extra_css/giscus.css">
+    
+      <link rel="stylesheet" href="../../../mkdocs/extra_css/card.css">
     
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -1238,10 +1242,10 @@
 <h2 id="_2">命令<a class="headerlink" href="#_2" title="Permanent link">👀</a></h2>
 <ul>
 <li>默认Normal模式，Normal模式下按 i 将进入Insert模式，而在Insert模式下按Esc可以返回Normal模式<blockquote>
-<p>按键书写：例如如果是单独的按键 i ，那么直接写 i 就可以了，<br>
-如果是Ctrl + V这种按键组合，有下面几种表示方法<br>
-1. <code>^V</code>：一个“脱字符号”后面跟着控制用字符（这里的控制用字符指那个V，也就是组合键中 的另一个键）<br>
-2. <code>Ctrl - V</code> <br>
+<p>按键书写：例如如果是单独的按键 i ，那么直接写 i 就可以了，<br><br />
+如果是Ctrl + V这种按键组合，有下面几种表示方法<br><br />
+1. <code>^V</code>：一个“脱字符号”后面跟着控制用字符（这里的控制用字符指那个V，也就是组合键中 的另一个键）<br><br />
+2. <code>Ctrl - V</code> <br><br />
 3. <code>&lt; C - V&gt;</code> <br></p>
 </blockquote>
 </li>
@@ -1273,7 +1277,7 @@
 </ol>
 <details class="note">
 <summary>Note</summary>
-<p>在不同操作模式下，键盘敲击的含义也不同，比如，<code>x</code> 在插入模式会插入字母 <code>x</code>，但是在正常模式 会删除当前光标所在的字母，在可视模式下则会删除选中文块。<br>
+<p>在不同操作模式下，键盘敲击的含义也不同，比如，<code>x</code> 在插入模式会插入字母 <code>x</code>，但是在正常模式 会删除当前光标所在的字母，在可视模式下则会删除选中文块。<br><br />
 在默认设置下，Vim会在左下角显示当前的模式。 Vim启动时的默认模式是正常模式。通常你会把大部分 时间花在正常模式和插入模式。</p>
 </details>
 <h3 id="_4">基本操作<a class="headerlink" href="#_4" title="Permanent link">👀</a></h3>
@@ -1486,6 +1490,10 @@
       <script src="../../../assets/javascripts/bundle.51d95adb.min.js"></script>
       
         <script src="../../../mkdocs/javascripts/mathjax.js"></script>
+      
+        <script src="https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+      
+        <script src="../../../mkdocs/javascripts/katex.js"></script>
       
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       

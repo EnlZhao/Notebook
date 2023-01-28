@@ -59,15 +59,19 @@
       
     
     
+      <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+    
       <link rel="stylesheet" href="../../../mkdocs/stylesheets/extra.css">
     
-      <link rel="stylesheet" href="../../../extra_css/tasklist.css">
+      <link rel="stylesheet" href="../../../mkdocs/extra_css/tasklist.css">
     
-      <link rel="stylesheet" href="../../../extra_css/counter.css">
+      <link rel="stylesheet" href="../../../mkdocs/extra_css/flink.css">
     
-      <link rel="stylesheet" href="../../../extra_css/giscus.css">
+      <link rel="stylesheet" href="../../../mkdocs/extra_css/counter.css">
     
-      <link rel="stylesheet" href="../../../extra_css/card.css">
+      <link rel="stylesheet" href="../../../mkdocs/extra_css/giscus.css">
+    
+      <link rel="stylesheet" href="../../../mkdocs/extra_css/card.css">
     
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -1316,7 +1320,7 @@
 </blockquote>
 </li>
 <li>确认正确设置了用户名: <blockquote>
-<p>$ git config &ndash;global user.name 
+<p>$ git config &ndash;global user.name <br />
 MoLan</p>
 </blockquote>
 </li>
@@ -1330,7 +1334,7 @@ MoLan</p>
 </blockquote>
 </li>
 <li>确认:  <blockquote>
-<p>$ git config user.name 
+<p>$ git config user.name <br />
 MoLan</p>
 </blockquote>
 </li>
@@ -1350,8 +1354,8 @@ MoLan</p>
 </div>
 <ul>
 <li>在 GitHub 上设置提交电子邮件地址<ul>
-<li>若尚未启用电子邮件隐私保护, 则在 GitHub 上编辑、删除或创建文件或者合并拉取请求时，可以选择将作者更改提交到哪个经验证的电子邮件地址。 如果启用了电子邮件地址隐私，则不能更改提交作者电子邮件地址，默认情况下是 <code>&lt;username&gt;@users.noreply.github.com</code>
-1. 在 GitHub Settings 添加电子邮件地址
+<li>若尚未启用电子邮件隐私保护, 则在 GitHub 上编辑、删除或创建文件或者合并拉取请求时，可以选择将作者更改提交到哪个经验证的电子邮件地址。 如果启用了电子邮件地址隐私，则不能更改提交作者电子邮件地址，默认情况下是 <code>&lt;username&gt;@users.noreply.github.com</code><br />
+1. 在 GitHub Settings 添加电子邮件地址<br />
 2. <a href="https://docs.github.com/zh/get-started/signing-up-for-github/verifying-your-email-address">验证电子邮件地址</a>。<ol>
 <li>在 &ldquo;Primary email address&rdquo; 列表中选择要与基于 Web 的 Git 操作关联的电子邮件地址 </li>
 <li>若要在执行基于 web 的 Git 操作时对电子邮件地址保密, 单击 &ldquo;Keep my email addresses private&rdquo; </li>
@@ -1366,7 +1370,7 @@ MoLan</p>
 </blockquote>
 </li>
 <li>确认在 Git 中正确设置了电子邮件地址: <blockquote>
-<p>$ git config &ndash;global user.email
+<p>$ git config &ndash;global user.email<br />
 <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#109;&#97;&#105;&#108;&#64;&#101;&#120;&#97;&#109;&#112;&#108;&#101;&#46;&#99;&#111;&#109;">&#101;&#109;&#97;&#105;&#108;&#64;&#101;&#120;&#97;&#109;&#112;&#108;&#101;&#46;&#99;&#111;&#109;</a></p>
 </blockquote>
 </li>
@@ -1381,7 +1385,7 @@ MoLan</p>
 </blockquote>
 </li>
 <li>确认在 Git 中正确设置了电子邮件地址: <blockquote>
-<p>$ git config user.email
+<p>$ git config user.email<br />
 <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#109;&#97;&#105;&#108;&#64;&#101;&#120;&#97;&#109;&#112;&#108;&#101;&#46;&#99;&#111;&#109;">&#101;&#109;&#97;&#105;&#108;&#64;&#101;&#120;&#97;&#109;&#112;&#108;&#101;&#46;&#99;&#111;&#109;</a></p>
 </blockquote>
 </li>
@@ -1515,6 +1519,10 @@ MoLan</p>
       <script src="../../../assets/javascripts/bundle.51d95adb.min.js"></script>
       
         <script src="../../../mkdocs/javascripts/mathjax.js"></script>
+      
+        <script src="https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+      
+        <script src="../../../mkdocs/javascripts/katex.js"></script>
       
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       

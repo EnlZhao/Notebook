@@ -59,15 +59,19 @@
       
     
     
+      <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+    
       <link rel="stylesheet" href="../../../mkdocs/stylesheets/extra.css">
     
-      <link rel="stylesheet" href="../../../extra_css/tasklist.css">
+      <link rel="stylesheet" href="../../../mkdocs/extra_css/tasklist.css">
     
-      <link rel="stylesheet" href="../../../extra_css/counter.css">
+      <link rel="stylesheet" href="../../../mkdocs/extra_css/flink.css">
     
-      <link rel="stylesheet" href="../../../extra_css/giscus.css">
+      <link rel="stylesheet" href="../../../mkdocs/extra_css/counter.css">
     
-      <link rel="stylesheet" href="../../../extra_css/card.css">
+      <link rel="stylesheet" href="../../../mkdocs/extra_css/giscus.css">
+    
+      <link rel="stylesheet" href="../../../mkdocs/extra_css/card.css">
     
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -1580,7 +1584,7 @@
 <p class="admonition-title">Note</p>
 <ul>
 <li>用一个标识域Tag来区分头结点和非0元素结点:<br></li>
-<li>头结点的标识值为“Head”，矩阵非0元素结点的标识值为“Term”<br>
+<li>头结点的标识值为“Head”，矩阵非0元素结点的标识值为“Term”<br><br />
 <img alt="image-20230118104550194" src="../../../Images/image-20230118104550194.png" /></li>
 </ul>
 </div>
@@ -1876,10 +1880,10 @@
 <h2 id="queues">队列 | Queues<a class="headerlink" href="#queues" title="Permanent link">👀</a></h2>
 <div class="admonition abstract">
 <p class="admonition-title">Abstract</p>
-<p>队列：具有一定操作约束的线性表(插入和删除操作：只能在一段插入，而在另一端删除)<br>
-1. 数据插入：入队列<br>
-2. 数据删除：出队列<br>
-3. 先来先服务<br>
+<p>队列：具有一定操作约束的线性表(插入和删除操作：只能在一段插入，而在另一端删除)<br><br />
+1. 数据插入：入队列<br><br />
+2. 数据删除：出队列<br><br />
+3. 先来先服务<br><br />
 4. 先进先出<br></p>
 </div>
 <h3 id="_14">队列的抽象数据类型描述<a class="headerlink" href="#_14" title="Permanent link">👀</a></h3>
@@ -1905,9 +1909,9 @@
 <h4 id="_16">一维数组队列<a class="headerlink" href="#_16" title="Permanent link">👀</a></h4>
 <p><img alt="image_11_50_01" src="../../../Images/2023-01-18-11-50-01.png" /></p>
 <h4 id="_17">顺环队列<a class="headerlink" href="#_17" title="Permanent link">👀</a></h4>
-<p><img alt="image_13_06_48" src="../../../Images/2023-01-18-13-06-48.png" />
-判断顺环队列空和满可以用两种解决方案
-1. 使用额外标记：Size或者Tag域
+<p><img alt="image_13_06_48" src="../../../Images/2023-01-18-13-06-48.png" /><br />
+判断顺环队列空和满可以用两种解决方案<br />
+1. 使用额外标记：Size或者Tag域<br />
 2. 仅使用n-1个数组空间(Front == Rear时为空)</p>
 <details class="example">
 <summary>队列的定义与操作-顺序存储</summary>
@@ -2117,6 +2121,10 @@
       <script src="../../../assets/javascripts/bundle.51d95adb.min.js"></script>
       
         <script src="../../../mkdocs/javascripts/mathjax.js"></script>
+      
+        <script src="https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+      
+        <script src="../../../mkdocs/javascripts/katex.js"></script>
       
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       

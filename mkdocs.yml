@@ -143,18 +143,24 @@ markdown_extensions:
       permalink:  👀 # ⚓︎ # 显示锚点
   - pymdownx.tasklist:
       custom_checkbox: true  
+  - nl2br
   
 extra_javascript:
   #- https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML
   - mkdocs/javascripts/mathjax.js
+  - https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js
+  - mkdocs/javascripts/katex.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
 extra_css:
+  - https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css
   - mkdocs/stylesheets/extra.css  
-  - extra_css/tasklist.css
-  - extra_css/counter.css
-  - extra_css/giscus.css
-  - extra_css/card.css
+  - mkdocs/extra_css/tasklist.css
+  - mkdocs/extra_css/flink.css
+  - mkdocs/extra_css/counter.css
+  - mkdocs/extra_css/giscus.css
+  - mkdocs/extra_css/card.css
 
 extra: 
   vssue: Enl_Z

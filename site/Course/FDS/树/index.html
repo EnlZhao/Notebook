@@ -59,15 +59,19 @@
       
     
     
+      <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+    
       <link rel="stylesheet" href="../../../mkdocs/stylesheets/extra.css">
     
-      <link rel="stylesheet" href="../../../extra_css/tasklist.css">
+      <link rel="stylesheet" href="../../../mkdocs/extra_css/tasklist.css">
     
-      <link rel="stylesheet" href="../../../extra_css/counter.css">
+      <link rel="stylesheet" href="../../../mkdocs/extra_css/flink.css">
     
-      <link rel="stylesheet" href="../../../extra_css/giscus.css">
+      <link rel="stylesheet" href="../../../mkdocs/extra_css/counter.css">
     
-      <link rel="stylesheet" href="../../../extra_css/card.css">
+      <link rel="stylesheet" href="../../../mkdocs/extra_css/giscus.css">
+    
+      <link rel="stylesheet" href="../../../mkdocs/extra_css/card.css">
     
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -1453,15 +1457,15 @@
 </ol>
 <details class="quote">
 <summary>Quote</summary>
-<p><img alt="image_19_18_28" src="../../../Images/2023-01-18-19-18-28.png" />
- <img alt="image_01-18-19-18-55" src="../../../Images/2023-01-18-19-18-55.png" /></p>
+<p><img alt="image_19_18_28" src="../../../Images/2023-01-18-19-18-28.png" /><br />
+<img alt="image_01-18-19-18-55" src="../../../Images/2023-01-18-19-18-55.png" /></p>
 </details>
 <h3 id="_3">二叉树的定义<a class="headerlink" href="#_3" title="Permanent link">👀</a></h3>
 <ul>
 <li>二叉树(binary tree): 通常指有根二叉树。每个结点至多有两个子结点的树。通常将子结点确定一个顺序，称左子结点和右子结点</li>
 <li>特殊二叉树<ol>
-<li>完整二叉树(full/proper binary tree): 每个结点的子结点均为0或2个
- <span class="arithmatex">\(<span class="arithmatex">\(leaves = nodes-\frac{nodes-1}{degree}\)</span>\)</span> </li>
+<li>完整二叉树(full/proper binary tree): 每个结点的子结点均为0或2个<br />
+<span class="arithmatex">\(<span class="arithmatex">\(leaves = nodes-\frac{nodes-1}{degree}\)</span>\)</span> </li>
 <li>完美二叉树(即满二叉树，perfect binary tree): 所有叶结点深度均相同的二叉树——深度为k(k <span class="arithmatex">\(\ge\)</span> -1)且有 2<sup>k+1</sup> - 1 个结点</li>
 <li>完全二叉树(complete binary tree): 仅最深两层结点的度可以小于2，且最深一层的结点都集中在该层最左边的连续位置上 || 所有结点的编号都与满二叉树中的编号相同的二叉树</li>
 <li>斜二叉树(skewed binary tree): 没有任何左/右结点的树，称为右/左斜二叉树</li>
@@ -1499,9 +1503,9 @@
 </ol>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<p><img alt="image-01-18-21-26-21" src="../../../Images/2023-01-18-21-26-21.png" /><br>
- 完全二叉树的叶子结点数: <span class="arithmatex">\(n_0 = \frac{n+1}{2}\)</span> <br>
-       1. 当n为偶数时，<span class="arithmatex">\(n_0 = \frac{n}{2}\)</span> <br>
+<p><img alt="image-01-18-21-26-21" src="../../../Images/2023-01-18-21-26-21.png" /><br><br />
+ 完全二叉树的叶子结点数: <span class="arithmatex">\(n_0 = \frac{n+1}{2}\)</span> <br><br />
+       1. 当n为偶数时，<span class="arithmatex">\(n_0 = \frac{n}{2}\)</span> <br><br />
        2. 当n为奇数时，<span class="arithmatex">\(n_0 = \frac{n+1}{2}\)</span></p>
 </div>
 <ul>
@@ -1542,7 +1546,7 @@
 </ol>
 <details class="example">
 <summary>Example</summary>
-<p><img alt="image_2023-01-19-15-34-16" src="../../../Images/2023-01-19-15-34-16.png" /><br>
+<p><img alt="image_2023-01-19-15-34-16" src="../../../Images/2023-01-19-15-34-16.png" /><br><br />
 print的顺序 <span class="arithmatex">\(\Rightarrow\)</span> A B D F E C G H I</p>
 </details>
 </li>
@@ -1568,7 +1572,7 @@ print的顺序 <span class="arithmatex">\(\Rightarrow\)</span> A B D F E C G H I
 </ol>
 <details class="example">
 <summary>Example</summary>
-<p><img alt="image_2023-01-19-15-48-42" src="../../../Images/2023-01-19-15-48-42.png" /><br>
+<p><img alt="image_2023-01-19-15-48-42" src="../../../Images/2023-01-19-15-48-42.png" /><br><br />
 print的顺序 <span class="arithmatex">\(\Rightarrow\)</span> D B E F A G H C I</p>
 </details>
 </li>
@@ -1617,7 +1621,7 @@ print的顺序 <span class="arithmatex">\(\Rightarrow\)</span> D B E F A G H C I
 </ol>
 <details class="example">
 <summary>Example</summary>
-<p><img alt="image_2023-01-19-15-52-15" src="../../../Images/2023-01-19-15-52-15.png" /><br>
+<p><img alt="image_2023-01-19-15-52-15" src="../../../Images/2023-01-19-15-52-15.png" /><br><br />
 print的顺序 <span class="arithmatex">\(\Rightarrow\)</span> D E F B H G I C A</p>
 </details>
 </li>
@@ -1710,8 +1714,8 @@ print的顺序 <span class="arithmatex">\(\Rightarrow\)</span> D E F B H G I C A
 <a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>
 <a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="p">}</span>
-</code></pre></div>
-<br>
+</code></pre></div><br />
+<br><br />
 <div class="highlight"><span class="filename">BuildTree</span><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">Tree</span><span class="w"> </span><span class="nf">BulidTree</span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">TreeNode</span><span class="w"> </span><span class="n">T</span><span class="p">[])</span>
 <a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="p">{</span>
 <a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="err">……</span>
@@ -1740,8 +1744,8 @@ print的顺序 <span class="arithmatex">\(\Rightarrow\)</span> D E F B H G I C A
 <a id="__codelineno-9-26" name="__codelineno-9-26" href="#__codelineno-9-26"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-9-27" name="__codelineno-9-27" href="#__codelineno-9-27"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">Root</span><span class="p">;</span>
 <a id="__codelineno-9-28" name="__codelineno-9-28" href="#__codelineno-9-28"></a><span class="p">}</span>
-</code></pre></div>
-<br>
+</code></pre></div><br />
+<br><br />
 <div class="highlight"><span class="filename">判断同构</span><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">Isomorphic</span><span class="p">(</span><span class="n">Tree</span><span class="w"> </span><span class="n">R1</span><span class="p">,</span><span class="w"> </span><span class="n">Tree</span><span class="w"> </span><span class="n">R2</span><span class="p">)</span>
 <a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="p">{</span>
 <a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">    </span><span class="k">if</span><span class="p">((</span><span class="n">R1</span><span class="o">==</span><span class="n">Null</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="n">R2</span><span class="o">==</span><span class="n">Null</span><span class="p">))</span>
@@ -1802,10 +1806,10 @@ print的顺序 <span class="arithmatex">\(\Rightarrow\)</span> D E F B H G I C A
 <a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="w">    </span><span class="k">else</span>
 <a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">BST</span><span class="p">;</span>
 <a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="p">}</span>
-</code></pre></div>
-<br>
-由于非递归函数执行效率高，可将“尾递归”函数改为迭代函数
-<br>
+</code></pre></div><br />
+<br><br />
+由于非递归函数执行效率高，可将“尾递归”函数改为迭代函数<br />
+<br><br />
 <div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="n">Position</span><span class="w"> </span><span class="nf">IterFind</span><span class="p">(</span><span class="w"> </span><span class="n">ElementType</span><span class="w"> </span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="n">BinTree</span><span class="w"> </span><span class="n">BST</span><span class="p">)</span>
 <a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="p">{</span>
 <a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">    </span><span class="k">while</span><span class="p">(</span><span class="w"> </span><span class="n">BST</span><span class="w"> </span><span class="p">)</span>
@@ -2107,6 +2111,10 @@ print的顺序 <span class="arithmatex">\(\Rightarrow\)</span> D E F B H G I C A
       <script src="../../../assets/javascripts/bundle.51d95adb.min.js"></script>
       
         <script src="../../../mkdocs/javascripts/mathjax.js"></script>
+      
+        <script src="https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+      
+        <script src="../../../mkdocs/javascripts/katex.js"></script>
       
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       

@@ -57,15 +57,19 @@
       
     
     
+      <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+    
       <link rel="stylesheet" href="../../../mkdocs/stylesheets/extra.css">
     
-      <link rel="stylesheet" href="../../../extra_css/tasklist.css">
+      <link rel="stylesheet" href="../../../mkdocs/extra_css/tasklist.css">
     
-      <link rel="stylesheet" href="../../../extra_css/counter.css">
+      <link rel="stylesheet" href="../../../mkdocs/extra_css/flink.css">
     
-      <link rel="stylesheet" href="../../../extra_css/giscus.css">
+      <link rel="stylesheet" href="../../../mkdocs/extra_css/counter.css">
     
-      <link rel="stylesheet" href="../../../extra_css/card.css">
+      <link rel="stylesheet" href="../../../mkdocs/extra_css/giscus.css">
+    
+      <link rel="stylesheet" href="../../../mkdocs/extra_css/card.css">
     
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -1208,7 +1212,7 @@
 <div class="admonition example">
 <p class="admonition-title">Example</p>
 <blockquote>
-<p>git remote add origin <REMOTE_URL>
+<p>git remote add origin <REMOTE_URL><br />
  将 origin 与 <code>REMOTE_URL</code> 关联</p>
 </blockquote>
 </div>
@@ -1235,13 +1239,13 @@
 </details>
 <div class="admonition warning">
 <p class="admonition-title">Troubleshooting: Remote origin already exists</p>
-<p>此错误消息表示尝试添加的远程与本地仓库远程名称相同
+<p>此错误消息表示尝试添加的远程与本地仓库远程名称相同<br />
  <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$<span class="w"> </span>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>origin<span class="w"> </span>https://github.com/octocat/Spoon-Knife.git
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>&gt;<span class="w"> </span>fatal:<span class="w"> </span>remote<span class="w"> </span>origin<span class="w"> </span>already<span class="w"> </span>exists.
 </code></pre></div></p>
-<p>??? question &ldquo;Solution&rdquo;
-     * 对新远程使用不同名称
-     * 在添加新远程时，重命名现有远程仓库
+<p>??? question &ldquo;Solution&rdquo;<br />
+     * 对新远程使用不同名称<br />
+     * 在添加新远程时，重命名现有远程仓库<br />
      * 在添加新远程前，删除现有远程仓库</p>
 </div>
 <h3 id="url">更改远程仓库 URL<a class="headerlink" href="#url" title="Permanent link">👀</a></h3>
@@ -1341,6 +1345,10 @@
       <script src="../../../assets/javascripts/bundle.51d95adb.min.js"></script>
       
         <script src="../../../mkdocs/javascripts/mathjax.js"></script>
+      
+        <script src="https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+      
+        <script src="../../../mkdocs/javascripts/katex.js"></script>
       
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
