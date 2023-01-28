@@ -38,6 +38,17 @@
 
     
     
+
+<script>
+    MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+        }
+    };
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+
     
       
         
@@ -908,45 +919,29 @@
             <div class="md-content" data-md-component="content">
               <article class="md-content__inner md-typeset">
                 
+                  
   
-                  <!--
-  Copyright (c) 2016-2021 Martin Donath <martin.donath@squidfunk.com>
-  Permission is hereby granted, free of charge, to any person obtaining a copy
-  of this software and associated documentation files (the "Software"), to
-  deal in the Software without restriction, including without limitation the
-  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
-  sell copies of the Software, and to permit persons to whom the Software is
-  furnished to do so, subject to the following conditions:
-  The above copyright notice and this permission notice shall be included in
-  all copies or substantial portions of the Software.
-  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
-  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
-  IN THE SOFTWARE.
--->
-
-<!-- Edit button -->
-
-<a
-  href="https://github.com/enl-z/Notebook/tree/master/docs/Course/FDS/index.md"
-  title=""
-  class="md-content__button md-icon"
->
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
-</a>
 
 
-<!--
-  Hack: check whether the content contains a h1 headline. If it
-  doesn't, the page title (or respectively site name) is used
-  as the main headline.
--->
+
+  
+    <a href="https://github.com/enl-z/Notebook/tree/master/docs/Course/FDS/index.md" title="编辑此页" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/enl-z/Notebook/tree/master/docs/Course/FDS/index.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
+    </a>
+  
 
 
-<!-- Markdown content -->
+
 <h1 id="perface">Perface<a class="headerlink" href="#perface" title="Permanent link">👀</a></h1>
 <div class="admonition abstract">
 <p class="admonition-title">Abstract</p>
@@ -955,70 +950,13 @@
 <hr />
 <p><center><font face="JetBrains Mono" size=6 color=grey size=36>To Be Continued</font></center></p>
 
-<!-- Source file information -->
 
-
-<!-- Get setting from mkdocs.yml, but allow page-level overrides -->
+  
 
 
 
-<!-- Inject Disqus into current page -->
-
-    <div id="vssue"></div>
-
-    <!--<link rel="stylesheet" href="https://unpkg.com/vssue/dist/vssue.min.css">
- OR: vue full build (runtime + compiler)  -->
-<!-- <script src="https://unpkg.com/vue/dist/vue.min.js"></script> -->
-<script src="https://file.cdn.shafish.cn/blog/js/vue.js"></script>
-<!-- Vssue Github build -->
-<!-- <script src="https://unpkg.com/vssue/dist/vssue.github.min.js"></script> -->
-<script src="https://file.cdn.shafish.cn/blog/js/vssue.github.min.js"></script>
-
-<script>
-    new Vue({
-      el: '#vssue',
-   
-      data: {
-        title: options => `${options.prefix}${document.title}`,
-        
-        options: {
-          owner: 'tffats',
-          admins: ['shafishcn'],
-          repo: 'shafish_blog',
-          clientId: '84b1faa2fb960a12022a',
-          clientSecret: 'c1dea07821b8a9378c4567a9581e45920ae6483c', //only required for some of the platforms
-          prefix: '[BlogComment]',
-          labels: ['Vssue'],
-          autoCreateIssue: true,
-          issueContent: ({ url }) =>`这个 Issue 由 Vssue 自动创建，用来存储该页面的评论：${url}`,
-          perPage: 30
-        },
-      },
-
-      template: `<vssue :title="title" :options="options"></vssue>`,
-    })
-</script>
 
                 
-
-  <!-- Giscus -->
-  <!-- Replace with generated snippet  https://giscus.app/themes/custom_example.css-->
-  <script src=" https://giscus.app/client.js"
-  data-repo="tffats/shafish_blog"
-  data-repo-id="R_kgDOGirg3w"
-  data-category="Announcements"
-  data-category-id="DIC_kwDOGirg384CPf8O"
-  data-mapping="title"
-  data-reactions-enabled="1"
-  data-emit-metadata="1"
-  data-input-position="top"
-  data-theme="https://giscus.app/themes/custom_example.css"
-  data-lang="zh-CN"
-  data-loading="lazy"
-  crossorigin="anonymous"
-  async>
-</script>
-
               </article>
             </div>
           
