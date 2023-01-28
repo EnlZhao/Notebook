@@ -1249,6 +1249,45 @@
     3. 在添加新远程前，删除现有远程仓库</p>
 </details>
 <h3 id="url">更改远程仓库 URL<a class="headerlink" href="#url" title="Permanent link">👀</a></h3>
+<ul>
+<li><code>git remote set-url</code> 命令更改现有远程仓库 URL</li>
+<li>该命令采用两个参数: <ul>
+<li>现有远程仓库名称。如，<code>origin</code> ···</li>
+<li>远程仓库的新 URL。如:<ul>
+<li>若要更新为使用 HTTPS，URL 形如 <code>https://github.com/USERNAME/REPOSITORY.git</code></li>
+<li>若要更新为使用 SSH，URL 形如 <code>git@github.com:USERNAME/REPOSITORY.git</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">将远程 URL 从 SSH 切换到 HTTPS</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ol>
+<li>打开 Git Bash || 终端</li>
+<li>将当前目录更改为本地仓库</li>
+<li>列出现有仓库<br />
+ <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$<span class="w"> </span>git<span class="w"> </span>remote<span class="w"> </span>-v
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>&gt;<span class="w"> </span>origin<span class="w">  </span>git@github.com:USERNAME/REPOSITORY.git<span class="w"> </span><span class="o">(</span>fetch<span class="o">)</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>&gt;<span class="w"> </span>origin<span class="w">  </span>git@github.com:USERNAME/REPOSITORY.git<span class="w"> </span><span class="o">(</span>push<span class="o">)</span>
+</code></pre></div></li>
+<li>使用 <code>git remote set-url</code> 命令将远程 URL 从SSH 更改为 HTTPS<br />
+ <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>$<span class="w"> </span>git<span class="w"> </span>remote<span class="w"> </span>set-url<span class="w"> </span>origin<span class="w"> </span>https://github.com/USERNAME/REPOSITORY.git
+</code></pre></div></li>
+<li>验证<br />
+ <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>$<span class="w"> </span>git<span class="w"> </span>remote<span class="w"> </span>-v
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="c1"># Verify new remote URL</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>&gt;<span class="w"> </span>origin<span class="w">  </span>https://github.com/USERNAME/REPOSITORY.git<span class="w"> </span><span class="o">(</span>fetch<span class="o">)</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>&gt;<span class="w"> </span>origin<span class="w">  </span>https://github.com/USERNAME/REPOSITORY.git<span class="w"> </span><span class="o">(</span>push<span class="o">)</span>
+</code></pre></div><blockquote>
+<p>下次将 <code>git fetch</code>、<code>git pull</code>、<code>git push</code>执行到远程存储库时，系统将要求提供 GitHub 用户名和密码</p>
+</blockquote>
+</li>
+</ol>
+</div>
+</div>
+</div>
 <h2 id="associate-text-editors">Associate text editors<a class="headerlink" href="#associate-text-editors" title="Permanent link">👀</a></h2>
 <h2 id="handle-line-endings">Handle line endings<a class="headerlink" href="#handle-line-endings" title="Permanent link">👀</a></h2>
 <h2 id="ignoring-files">Ignoring files<a class="headerlink" href="#ignoring-files" title="Permanent link">👀</a></h2>
