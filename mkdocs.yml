@@ -188,3 +188,8 @@ nav:
     - Missing Semester: 
       - Perface: Triviality/The Missing Semester/index.md
       - Vim: Triviality/The Missing Semester/Vim.md
+  - Tools: 
+    - GitHub: 
+      - Perface: Triviality/GitHub/index.md
+      - Basics: Triviality/GitHub/Le1.md
+      - Git 入门: Triviality/GitHub/Le3.md
