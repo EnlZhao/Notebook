@@ -864,6 +864,26 @@
     集合运算 -- Union
   </a>
   
+    <nav class="md-nav" aria-label="集合运算 -- Union">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#smart-union-union-by-size" class="md-nav__link">
+    Smart Union -- Union-by-Size
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smart-union-union-by-height" class="md-nav__link">
+    Smart Union -- Union-by-Height
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -1441,6 +1461,26 @@
   <a href="#-union" class="md-nav__link">
     集合运算 -- Union
   </a>
+  
+    <nav class="md-nav" aria-label="集合运算 -- Union">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#smart-union-union-by-size" class="md-nav__link">
+    Smart Union -- Union-by-Size
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smart-union-union-by-height" class="md-nav__link">
+    Smart Union -- Union-by-Height
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -2307,6 +2347,48 @@ print的顺序 <span class="arithmatex">\(\Rightarrow\)</span> D E F B H G I C A
 <a id="__codelineno-23-11" name="__codelineno-23-11" href="#__codelineno-23-11"></a><span class="p">}</span>
 </code></pre></div>
 <h3 id="-union">集合运算 &ndash; Union<a class="headerlink" href="#-union" title="Permanent link">👀</a></h3>
+<ol>
+<li>分别找到 X1 和 X2 两个元素所在集合树的根结点</li>
+<li>若不同根，则将其中一个根结点的父结点的数组下标设为另一根结点的数组下标<br />
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">Union</span><span class="p">(</span><span class="w"> </span><span class="n">SetType</span><span class="w"> </span><span class="n">S</span><span class="p">[],</span><span class="w"> </span><span class="n">ElementType</span><span class="w"> </span><span class="n">X1</span><span class="p">,</span><span class="w"> </span><span class="n">ElementType</span><span class="w"> </span><span class="n">X2</span><span class="p">)</span>
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="p">{</span>
+<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">Root1</span><span class="p">,</span><span class="w"> </span><span class="n">Root2</span><span class="p">;</span>
+<a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a><span class="w">    </span><span class="n">Root1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Find</span><span class="p">(</span><span class="n">S</span><span class="p">,</span><span class="w"> </span><span class="n">X1</span><span class="p">);</span>
+<a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a><span class="w">    </span><span class="n">Root2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Find</span><span class="p">(</span><span class="n">S</span><span class="p">,</span><span class="w"> </span><span class="n">X2</span><span class="p">);</span>
+<a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="w"> </span><span class="n">Root1</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">Root2</span><span class="p">)</span>
+<a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a><span class="w">        </span><span class="n">S</span><span class="p">[</span><span class="n">Root2</span><span class="p">].</span><span class="n">Parent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Root1</span><span class="p">;</span>
+<a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a><span class="p">}</span>
+</code></pre></div><blockquote>
+<p>为改善合并后的查找性能，可以采用将小的集合合并到相对大的集合中(并用利用数组下标提示集合中元素数量)<br />
+<img alt="image_2023-01-29-22-39-00" src="../../../Images/2023-01-29-22-39-00.png" /><br />
+<center><font face="JetBrains Mono" size=2 color=grey >图片摘自 MOOC</font></center></p>
+</blockquote>
+</li>
+</ol>
+<h4 id="smart-union-union-by-size">Smart Union &ndash; Union-by-Size<a class="headerlink" href="#smart-union-union-by-size" title="Permanent link">👀</a></h4>
+<blockquote>
+<ul>
+<li>按大小合并(union-by-size)始终将小的树合并到大的树上，进而减小树的高度</li>
+<li>令 S[root] = -size (size 表示树的大小并初始化为 -1)</li>
+</ul>
+</blockquote>
+<div class="admonition note">
+<p class="admonition-title">Lemma</p>
+<ul>
+<li>Let <span class="arithmatex">\(T\)</span> be a tree created by union-by-size with N nodes, then <span class="arithmatex">\(height(T) \le \lfloor log_2N \rfloor + 1\)</span></li>
+<li>Proof: 通过归纳法，每个元素的集合名最多更改 <span class="arithmatex">\(log_2 N\)</span> 次</li>
+<li>且 N 次 union 和 M 次 find 操作的时间复杂度为 <span class="arithmatex">\(O( N + M log_2 N )\)</span> </li>
+</ul>
+<div class="admonition quote">
+<p class="admonition-title">Quote</p>
+<p><img alt="image_2023-01-29-22-51-42" src="../../../Images/2023-01-29-22-51-42.png" /></p>
+</div>
+</div>
+<p>在数组中采用树的大小的负值来记录，以证明若使用按大小求并则连续 M 次运算需要 <span class="arithmatex">\(O(M)\)</span> 平均时间。这是因为当随机的 Union 执行时整个算法一般只有一些很小的集合（通常含一个元素）与大集合合并。</p>
+<h4 id="smart-union-union-by-height">Smart Union &ndash; Union-by-Height<a class="headerlink" href="#smart-union-union-by-height" title="Permanent link">👀</a></h4>
+<blockquote>
+<p>同样保证了所有的树的深度最多是 <span class="arithmatex">\(O(log N)\)</span> </p>
+</blockquote>
 <p><center><font face="JetBrains Mono" color=grey size=18>To Be Continued</font></center></p>
 
 
