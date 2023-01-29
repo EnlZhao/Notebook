@@ -849,6 +849,26 @@
     并查集 | disjoint set
   </a>
   
+    <nav class="md-nav" aria-label="并查集 | disjoint set">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#-find" class="md-nav__link">
+    集合运算 -- Find
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-union" class="md-nav__link">
+    集合运算 -- Union
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1406,6 +1426,26 @@
   <a href="#disjoint-set" class="md-nav__link">
     并查集 | disjoint set
   </a>
+  
+    <nav class="md-nav" aria-label="并查集 | disjoint set">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#-find" class="md-nav__link">
+    集合运算 -- Find
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-union" class="md-nav__link">
+    集合运算 -- Union
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2224,12 +2264,16 @@ print的顺序 <span class="arithmatex">\(\Rightarrow\)</span> D E F B H G I C A
 <h2 id="disjoint-set">并查集 | disjoint set<a class="headerlink" href="#disjoint-set" title="Permanent link">👀</a></h2>
 <div class="admonition abstract">
 <p class="admonition-title">Abstract</p>
-<p>并查集是一种数据结构，支持两种操作: 
-* Union | 合并集合
-* Find | 查询元素所在集合</p>
+<p>并查集是一种数据结构，支持两种操作: </p>
+<ul>
+<li>Union | 合并集合</li>
+<li>Find | 查询元素所在集合</li>
+</ul>
 </div>
-<p>并查集中集合存储的两种实现: 
-* 树结构存储: 树的每一个结点代表一个集合元素</p>
+<p>并查集中集合存储的两种实现: </p>
+<ul>
+<li>树结构存储: 树的每一个结点代表一个集合元素</li>
+</ul>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
 <p><img alt="image_2023-01-29-22-20-20" src="../../../Images/2023-01-29-22-20-20.png" /></p>
@@ -2246,6 +2290,23 @@ print的顺序 <span class="arithmatex">\(\Rightarrow\)</span> D E F B H G I C A
 <p class="admonition-title">Example</p>
 <p><img alt="image_2023-01-29-22-30-12" src="../../../Images/2023-01-29-22-30-12.png" /></p>
 </div>
+<h3 id="-find">集合运算 &ndash; Find<a class="headerlink" href="#-find" title="Permanent link">👀</a></h3>
+<blockquote>
+<p>查找某个元素所在集合(用根结点表示)</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">Find</span><span class="p">(</span><span class="w"> </span><span class="n">SetType</span><span class="w"> </span><span class="n">S</span><span class="p">[],</span><span class="w"> </span><span class="n">ELementType</span><span class="w"> </span><span class="n">X</span><span class="p">)</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="p">{</span>
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="w">    </span><span class="cm">/*在数组S中查找值为X的元素所属的集合*/</span>
+<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="w">    </span><span class="cm">/*MaxSize是全局变量，为数组S的最大长度*/</span>
+<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a><span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">MaxSize</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">S</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">Data</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">X</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">);</span>
+<a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">MaxSize</span><span class="w"> </span><span class="p">)</span>
+<a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w">  </span><span class="cm">/*未找到X,返回 -1*/</span>
+<a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a><span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">S</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">Parent</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">S</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">Parent</span><span class="p">);</span>
+<a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w">   </span><span class="cm">/*找到X所属的集合，返回树根结点在数组S中的下标*/</span><span class="w"> </span>
+<a id="__codelineno-23-11" name="__codelineno-23-11" href="#__codelineno-23-11"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="-union">集合运算 &ndash; Union<a class="headerlink" href="#-union" title="Permanent link">👀</a></h3>
 <p><center><font face="JetBrains Mono" color=grey size=18>To Be Continued</font></center></p>
 
 
