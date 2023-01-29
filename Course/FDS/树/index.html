@@ -2019,10 +2019,7 @@ print的顺序 <span class="arithmatex">\(\Rightarrow\)</span> D E F B H G I C A
 <p>以最大堆为例</p>
 </blockquote>
 <ol>
-<li>最大堆的创建</li>
-</ol>
-<div class="admonition example">
-<p class="admonition-title">code</p>
+<li>最大堆的创建<br />
 <div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">HeapStruct</span><span class="w"> </span><span class="o">*</span><span class="n">MaxHeap</span><span class="p">;</span>
 <a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="k">struct</span><span class="w"> </span><span class="nc">HeapStruct</span><span class="p">{</span>
 <a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="w">    </span><span class="n">ElementType</span><span class="w"> </span><span class="o">*</span><span class="n">Elements</span><span class="p">;</span><span class="w">  </span><span class="cm">/*存储堆元素的数组*/</span>
@@ -2040,13 +2037,8 @@ print的顺序 <span class="arithmatex">\(\Rightarrow\)</span> D E F B H G I C A
 <a id="__codelineno-18-15" name="__codelineno-18-15" href="#__codelineno-18-15"></a><span class="w">        </span><span class="cm">/*定义“哨兵”为大于堆中所有可能元素的值，便于以后更快操作*/</span>
 <a id="__codelineno-18-16" name="__codelineno-18-16" href="#__codelineno-18-16"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">H</span><span class="p">;</span>
 <a id="__codelineno-18-17" name="__codelineno-18-17" href="#__codelineno-18-17"></a><span class="p">}</span>
-</code></pre></div>
-</div>
-<ol start="2">
-<li>插入——先放到最后一个位置，然后和父结点比较交换···</li>
-</ol>
-<div class="admonition example">
-<p class="admonition-title">code</p>
+</code></pre></div></li>
+<li>插入——先放到最后一个位置，然后和父结点比较交换···<br />
 <div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">Insert</span><span class="p">(</span><span class="n">MaxHeap</span><span class="w"> </span><span class="n">H</span><span class="p">,</span><span class="w"> </span><span class="n">ElementType</span><span class="w"> </span><span class="n">item</span><span class="p">)</span>
 <a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="p">{</span>
 <a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="w">    </span><span class="cm">/*将元素item插入到最大堆H，其中H-&gt;Elements[0]已经定义为哨兵*/</span>
@@ -2061,16 +2053,11 @@ print的顺序 <span class="arithmatex">\(\Rightarrow\)</span> D E F B H G I C A
 <a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a><span class="w">        </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Elements</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Elements</span><span class="p">[</span><span class="n">i</span><span class="o">/</span><span class="mi">2</span><span class="p">];</span><span class="w">  </span><span class="cm">/*向下过滤结点*/</span>
 <a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a><span class="w">    </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Elements</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">item</span><span class="p">;</span><span class="w">  </span><span class="cm">/*将item插入*/</span>
 <a id="__codelineno-19-14" name="__codelineno-19-14" href="#__codelineno-19-14"></a><span class="p">}</span>
-</code></pre></div>
-<blockquote>
+</code></pre></div><blockquote>
 <p><code>H-&gt;Elements[0]</code> 是哨兵元素，它不小于堆中的最大元素，控制循环结束</p>
 </blockquote>
-</div>
-<ol start="3">
-<li>删除——将最后一个元素放到根节点，然后和儿子比较交换···</li>
-</ol>
-<div class="admonition example">
-<p class="admonition-title">code</p>
+</li>
+<li>删除——将最后一个元素放到根节点，然后和儿子比较交换···<br />
 <div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="n">ElementType</span><span class="w"> </span><span class="nf">DeleteMax</span><span class="p">(</span><span class="w"> </span><span class="n">MaxHeap</span><span class="w"> </span><span class="n">H</span><span class="p">)</span>
 <a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="p">{</span><span class="cm">/*从最大堆H中取出键值为最大的元素，并删除一个结点*/</span>
 <a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">Parent</span><span class="p">,</span><span class="w"> </span><span class="n">Child</span><span class="p">;</span>
@@ -2097,11 +2084,18 @@ print的顺序 <span class="arithmatex">\(\Rightarrow\)</span> D E F B H G I C A
 <a id="__codelineno-20-24" name="__codelineno-20-24" href="#__codelineno-20-24"></a><span class="w">    </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Elements</span><span class="p">[</span><span class="n">Parent</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp</span><span class="p">;</span>
 <a id="__codelineno-20-25" name="__codelineno-20-25" href="#__codelineno-20-25"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">MaxItem</span><span class="p">;</span>
 <a id="__codelineno-20-26" name="__codelineno-20-26" href="#__codelineno-20-26"></a><span class="p">}</span>
-</code></pre></div>
-</div>
-<ol start="4">
+</code></pre></div></li>
 <li>Percolate: 自上而下或自下而上堆化(将元素向上或向下移动)<ul>
 <li>可以实现非最值元素的删除</li>
+</ul>
+</li>
+<li>构建一个堆——将已存在的 N 个元素按堆要求存放到一个一维数组<ul>
+<li>通过插入操作，将 N 个元素相继插入到一个初始化为空的栈中，时间代价最大为 <span class="arithmatex">\(O(NlogN)\)</span> </li>
+<li>时间复杂度为 <span class="arithmatex">\(O(N)\)</span> 的建立方法<ol>
+<li>将 N 个元素按输入顺序存入，先满足完全二叉树的结构特性</li>
+<li>调整结点位置，即进行 Percolate 操作以满足最大堆的有序特性</li>
+</ol>
+</li>
 </ul>
 </li>
 </ol>
