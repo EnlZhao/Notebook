@@ -4,6 +4,7 @@ edit_uri: tree/master/docs
 copyright: Copyright &copy; 2022-2023 <a href="https://github.com/enl-z" target="_blank" rel="noopener">某兰</a>
 site_author: Enl_Z
 site_description: 某兰的笔记
+
 theme:
   name: material
   logo: Icon/Avator.png
