@@ -1043,7 +1043,7 @@
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <ul>
-<li>对于无向图的存储，用一个长度为 N(N+1)/2 的一维数组 A 存储 {G<sub>00</sub>, G<sub>10</sub>, G<sub>11</sub>, ···, G<sub>n-1</sub> <sub>0</sub>, ···, G<sub>n-1</sub> <sub>n-1</sub>}, 则 G<sub>ij</sub> 在 A 中对应的下标是: i * (i + 1) / 2 + j</li>
+<li>对于无向图的存储，用一个长度为 N(N+1)/2 的一维数组 A 存储 {G<sub>00</sub>, G<sub>10</sub>, G<sub>11</sub>, ···, G<sub>(n-1)0</sub>, ···, G<sub>(n-1)(n-1)</sub>}, 则 G<sub>ij</sub> 在 A 中对应的下标是: i * (i + 1) / 2 + j</li>
 <li>对于网络，只要把 G[i][j] 的值定义为边 &lt; v<sub>i</sub>, v<sub>j</sub> &gt; 的权重即可</li>
 </ul>
 </div>
