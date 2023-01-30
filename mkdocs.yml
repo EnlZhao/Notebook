@@ -5,6 +5,32 @@ copyright: Copyright &copy; 2022-2023 <a href="https://github.com/enl-z" target=
 site_author: Enl_Z
 site_description: 某兰的笔记
 
+# Pages
+nav: 
+  - Hello: 
+    - index.md
+  - Course:
+    - 计算机系统Ⅱ:
+      - Perface: Course/System/index.md
+    - 数据结构基础: 
+      - Perface: Course/FDS/index.md
+      - 算法分析和抽象数据类型: Course/FDS/Lec01.md
+      - 线性结构: Course/FDS/Lec02.md
+      - 树: Course/FDS/Lec03.md
+      - 图: Course/FDS/Lec04.md
+  - Triviality: 
+    - Markdown:
+      - Perface: Triviality/Markdown/index.md
+      - Markdown: Triviality/Markdown/markdown.md
+    - Missing Semester: 
+      - Perface: Triviality/The Missing Semester/index.md
+      - Vim: Triviality/The Missing Semester/Vim.md
+  - Tools: 
+    - GitHub: 
+      - Perface: Triviality/GitHub/index.md
+      - Basics: Triviality/GitHub/Le1.md
+      #- Git 入门: Triviality/GitHub/Le3.md
+
 theme:
   name: material
   logo: Icon/Avator.png
@@ -176,27 +202,4 @@ extra:
       link: mailto:EZhao1997@outlook.com
       name: Outlook | Enl_Z
 
-# Pages
-nav: 
-  - Hello: 
-    - index.md
-  - Course:
-    - 计算机系统Ⅱ:
-      - Perface: Course/System/index.md
-    - 数据结构基础: 
-      - Perface: Course/FDS/index.md
-      - 算法分析和抽象数据类型: Course/FDS/算法分析和抽象数据类型.md
-      - 线性结构: Course/FDS/线性结构.md
-      - 树: Course/FDS/树.md
-  - Triviality: 
-    - Markdown:
-      - Perface: Triviality/Markdown/index.md
-      - Markdown: Triviality/Markdown/markdown.md
-    - Missing Semester: 
-      - Perface: Triviality/The Missing Semester/index.md
-      - Vim: Triviality/The Missing Semester/Vim.md
-  - Tools: 
-    - GitHub: 
-      - Perface: Triviality/GitHub/index.md
-      - Basics: Triviality/GitHub/Le1.md
-      #- Git 入门: Triviality/GitHub/Le3.md
+

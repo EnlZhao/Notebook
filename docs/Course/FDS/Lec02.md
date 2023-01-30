@@ -149,7 +149,7 @@
     }
     ```
 
-??? example "在第i-1(1 <= i <= n+1)个结点后插入一个值为X的新结点"
+??? example "在第i-1(1 <= i <= n+1)个节点后插入一个值为X的新节点"
     ```c
     List Insert(ElementType X, List Ptrl)
     {
@@ -178,7 +178,7 @@
     }
     ```
 
-??? example "删除第i个结点（1 <= i <= n）"
+??? example "删除第i个节点（1 <= i <= n）"
     ```c
     List Delete(int i, List Ptrl)
     {
@@ -196,12 +196,12 @@
         p = FindKth(i-1, Ptrl);
         if( p == NULL)
         {
-            printf("第%d个结点不存在"，i-1);
+            printf("第%d个节点不存在"，i-1);
             return NULL;
         }
         else if(p->Next == NULL)
         {
-            printf("第%d个结点不存在"，i);
+            printf("第%d个节点不存在"，i);
             return NULL;
         }
         else
@@ -225,26 +225,26 @@
     ```c
     typedef struct GNode *Glist;
     struct GNode{
-        int Tag;    /* 标志域，0表示结点是单元素，1表示是广义表*/
+        int Tag;    /* 标志域，0表示节点是单元素，1表示是广义表*/
         union{      /* 子表指针域Sublist与单元素数据域Data复用，即共用存储空间*/
             ElementType Data;
             GList SubList;
         }URegion;
-        GList Next; /* 指向后继结点 */
+        GList Next; /* 指向后继节点 */
     }
     ```
 
 ### 多重链表
 
 !!! note
-    链表中的结点可能同时隶属于多个链
+    链表中的节点可能同时隶属于多个链
 
-* 多重链表中结点的指针域会有多个，如前面的例子包含了Next和Sublist两个指针域；
+* 多重链表中节点的指针域会有多个，如前面的例子包含了Next和Sublist两个指针域；
 * 但包含两个指针域的链表并不一定是多重链表，比如双向链表
 
 !!! note
-    * 用一个标识域Tag来区分头结点和非0元素结点:<br>
-    * 头结点的标识值为“Head”，矩阵非0元素结点的标识值为“Term”<br>
+    * 用一个标识域Tag来区分头节点和非0元素节点:<br>
+    * 头节点的标识值为“Head”，矩阵非0元素节点的标识值为“Term”<br>
     ![image-20230118104550194](../../Images/image-20230118104550194.png)
 	
 ??? example "线性表的定义与操作-顺序表"
@@ -329,7 +329,7 @@
     
     Position Find( List L, ElementType X )
     {
-        Position p = L; /* p指向L的第1个结点 */
+        Position p = L; /* p指向L的第1个节点 */
     
         while ( p && p->Data!=X )
             p = p->Next;
@@ -341,21 +341,21 @@
             return ERROR;
     }
     
-    /* 带头结点的插入 */
-    /*注意:在插入位置参数P上与课程视频有所不同，课程视频中i是序列位序（从1开始），这里P是链表结点指针，在P之前插入新结点 */
+    /* 带头节点的插入 */
+    /*注意:在插入位置参数P上与课程视频有所不同，课程视频中i是序列位序（从1开始），这里P是链表节点指针，在P之前插入新节点 */
     bool Insert( List L, ElementType X, Position P )
-    { /* 这里默认L有头结点 */
+    { /* 这里默认L有头节点 */
         Position tmp, pre;
     
-        /* 查找P的前一个结点 */        
+        /* 查找P的前一个节点 */        
         for ( pre=L; pre&&pre->Next!=P; pre=pre->Next ) ;            
-        if ( pre==NULL ) { /* P所指的结点不在L中 */
+        if ( pre==NULL ) { /* P所指的节点不在L中 */
             printf("插入位置参数错误\n");
             return false;
         }
-        else { /* 找到了P的前一个结点pre */
-            /* 在P前插入新结点 */
-            tmp = (Position)malloc(sizeof(struct LNode)); /* 申请、填装结点 */
+        else { /* 找到了P的前一个节点pre */
+            /* 在P前插入新节点 */
+            tmp = (Position)malloc(sizeof(struct LNode)); /* 申请、填装节点 */
             tmp->Data = X; 
             tmp->Next = P;
             pre->Next = tmp;
@@ -363,20 +363,20 @@
         }
     }
     
-    /* 带头结点的删除 */
-    /*注意:在删除位置参数P上与课程视频有所不同，课程视频中i是序列位序（从1开始），这里P是拟删除结点指针 */
+    /* 带头节点的删除 */
+    /*注意:在删除位置参数P上与课程视频有所不同，课程视频中i是序列位序（从1开始），这里P是拟删除节点指针 */
     bool Delete( List L, Position P )
-    { /* 这里默认L有头结点 */
+    { /* 这里默认L有头节点 */
         Position pre;
     
-        /* 查找P的前一个结点 */        
+        /* 查找P的前一个节点 */        
         for ( pre=L; pre&&pre->Next!=P; pre=pre->Next ) ;            
-        if ( pre==NULL || P==NULL) { /* P所指的结点不在L中 */
+        if ( pre==NULL || P==NULL) { /* P所指的节点不在L中 */
             printf("删除位置参数错误\n");
             return false;
         }
-        else { /* 找到了P的前一个结点pre */
-            /* 将P位置的结点删除 */
+        else { /* 找到了P的前一个节点pre */
+            /* 将P位置的节点删除 */
             pre->Next = P->Next;
             free(P);
             return true;
@@ -469,7 +469,7 @@
     typedef PtrToSNode Stack;
 
     Stack CreateStack( ) 
-    { /* 构建一个堆栈的头结点，返回该结点指针 */
+    { /* 构建一个堆栈的头节点，返回该节点指针 */
         Stack S;
 
         S = (Stack)malloc(sizeof(struct SNode));
@@ -629,7 +629,7 @@
 ??? example "队列的定义与操作-链式存储"
     ```c
     typedef struct Node *PtrToNode;
-    struct Node { /* 队列中的结点 */
+    struct Node { /* 队列中的节点 */
         ElementType Data;
         PtrToNode Next;
     };
@@ -663,7 +663,7 @@
                 Q->Front = Q->Front->Next;
             FrontElem = FrontCell->Data;
 
-            free( FrontCell );  /* 释放被删除结点空间  */
+            free( FrontCell );  /* 释放被删除节点空间  */
             return  FrontElem;
         }
     }
