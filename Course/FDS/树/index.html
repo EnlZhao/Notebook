@@ -886,6 +886,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#path-compression" class="md-nav__link">
+    路径压缩 | Path Compression
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1484,6 +1491,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#path-compression" class="md-nav__link">
+    路径压缩 | Path Compression
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1527,25 +1541,25 @@
 <h1 id="tree">树 | Tree<a class="headerlink" href="#tree" title="Permanent link">👀</a></h1>
 <h2 id="_1">树的定义<a class="headerlink" href="#_1" title="Permanent link">👀</a></h2>
 <ul>
-<li>树：n(n <span class="arithmatex">\(\ge\)</span> 20)个结点构成的有限集合；</li>
+<li>树：n(n <span class="arithmatex">\(\ge\)</span> 20)个节点构成的有限集合；</li>
 <li>当n = 0时，称为空树；</li>
 <li>对于任一棵非空树(n <span class="arithmatex">\(&gt;\)</span> 0)，它具备以下性质：</li>
-<li>树中有一个称为“根”的特殊结点，用r表示；</li>
-<li>其余结点可分为m(m <span class="arithmatex">\(&gt;\)</span> 0)个互不相交的有限集 T<sub>1</sub> , T<sub>2</sub> , ···, T<sub>m</sub> , 其中每个集合本身又是一棵树，称为原来树的“子树”</li>
+<li>树中有一个称为“根”的特殊节点，用r表示；</li>
+<li>其余节点可分为m(m <span class="arithmatex">\(&gt;\)</span> 0)个互不相交的有限集 T<sub>1</sub> , T<sub>2</sub> , ···, T<sub>m</sub> , 其中每个集合本身又是一棵树，称为原来树的“子树”</li>
 </ul>
 <h3 id="_2">一些基本术语<a class="headerlink" href="#_2" title="Permanent link">👀</a></h3>
 <ol>
-<li>结点的度(Degree): 结点的子树个数</li>
-<li>树的度：树的所有结点中最大的度数</li>
-<li>叶结点(Leaf): 度为0的结点</li>
-<li>父结点(Parent): 有子树的结点是其子树的根结点的父节点</li>
-<li>子结点(Child): 若A结点是B结点的父结点，则称B结点是A结点的子结点；子结点也称孩子结点</li>
-<li>兄弟结点(Sibiling): 具有同一父结点的各结点彼此是兄弟结点</li>
-<li>路径和路径长度：从结点 n<sub>1</sub> 到 n<sub>k</sub> 的路径为一个结点序列 n<sub>1</sub> , n<sub>2</sub> ,···, n<sub>k</sub> , n<sub>i</sub> 是 n<sub>i+1</sub> 的父结点。路径所包含边的个数为路径的长度</li>
-<li>祖先结点(Ancestor): 沿树根到某一结点路径上的所有结点都是这个结点的祖先结点。</li>
-<li>子孙结点(Descendant): 某一结点的子树中的所有结点是这个结点的子孙。</li>
-<li>结点的层次(Level): 规定根结点在1层，其他任一结点的层数是其父节点的层数加1</li>
-<li>树的深度(Depth): 树中所有结点中最大层次是这棵树的深度</li>
+<li>节点的度(Degree): 节点的子树个数</li>
+<li>树的度：树的所有节点中最大的度数</li>
+<li>叶节点(Leaf): 度为0的节点</li>
+<li>父节点(Parent): 有子树的节点是其子树的根节点的父节点</li>
+<li>子节点(Child): 若A节点是B节点的父节点，则称B节点是A节点的子节点；子节点也称孩子节点</li>
+<li>兄弟节点(Sibiling): 具有同一父节点的各节点彼此是兄弟节点</li>
+<li>路径和路径长度：从节点 n<sub>1</sub> 到 n<sub>k</sub> 的路径为一个节点序列 n<sub>1</sub> , n<sub>2</sub> ,···, n<sub>k</sub> , n<sub>i</sub> 是 n<sub>i+1</sub> 的父节点。路径所包含边的个数为路径的长度</li>
+<li>祖先节点(Ancestor): 沿树根到某一节点路径上的所有节点都是这个节点的祖先节点。</li>
+<li>子孙节点(Descendant): 某一节点的子树中的所有节点是这个节点的子孙。</li>
+<li>节点的层次(Level): 规定根节点在1层，其他任一节点的层数是其父节点的层数加1</li>
+<li>树的深度(Depth): 树中所有节点中最大层次是这棵树的深度</li>
 </ol>
 <details class="quote">
 <summary>Quote</summary>
@@ -1554,27 +1568,27 @@
 </details>
 <h3 id="_3">二叉树的定义<a class="headerlink" href="#_3" title="Permanent link">👀</a></h3>
 <ul>
-<li>二叉树(binary tree): 通常指有根二叉树。每个结点至多有两个子结点的树。通常将子结点确定一个顺序，称左子结点和右子结点</li>
+<li>二叉树(binary tree): 通常指有根二叉树。每个节点至多有两个子节点的树。通常将子节点确定一个顺序，称左子节点和右子节点</li>
 <li>特殊二叉树<ol>
-<li>完整二叉树(full/proper binary tree): 每个结点的子结点均为0或2个<br />
+<li>完整二叉树(full/proper binary tree): 每个节点的子节点均为0或2个<br />
 <span class="arithmatex">\(<span class="arithmatex">\(leaves = nodes-\frac{nodes-1}{degree}\)</span>\)</span> </li>
-<li>完美二叉树(即满二叉树，perfect binary tree): 所有叶结点深度均相同的二叉树——深度为k(k <span class="arithmatex">\(\ge\)</span> -1)且有 2<sup>k+1</sup> - 1 个结点</li>
-<li>完全二叉树(complete binary tree): 仅最深两层结点的度可以小于2，且最深一层的结点都集中在该层最左边的连续位置上 || 所有结点的编号都与满二叉树中的编号相同的二叉树</li>
-<li>斜二叉树(skewed binary tree): 没有任何左/右结点的树，称为右/左斜二叉树</li>
+<li>完美二叉树(即满二叉树，perfect binary tree): 所有叶节点深度均相同的二叉树——深度为k(k <span class="arithmatex">\(\ge\)</span> -1)且有 2<sup>k+1</sup> - 1 个节点</li>
+<li>完全二叉树(complete binary tree): 仅最深两层节点的度可以小于2，且最深一层的节点都集中在该层最左边的连续位置上 || 所有节点的编号都与满二叉树中的编号相同的二叉树</li>
+<li>斜二叉树(skewed binary tree): 没有任何左/右节点的树，称为右/左斜二叉树</li>
 </ol>
 </li>
 </ul>
 <h3 id="_4">二叉树的几个重要性质<a class="headerlink" href="#_4" title="Permanent link">👀</a></h3>
 <ol>
-<li>一个二叉树第i层的最大结点数为: 2<sup>i-1</sup> , i <span class="arithmatex">\(\ge\)</span> 1</li>
-<li>深度为k的二叉树有最大结点总数为: 2<sup>k</sup> - 1 , k <span class="arithmatex">\(\ge\)</span> 1</li>
-<li>对任何非空二叉树，若 n<sub>0</sub> 表示叶结点的个数、n<sub>2</sub> 是度为2的非叶结点个数，那么两者满足关系 n<sub>0</sub> = n<sub>2</sub> + 1</li>
+<li>一个二叉树第i层的最大节点数为: 2<sup>i-1</sup> , i <span class="arithmatex">\(\ge\)</span> 1</li>
+<li>深度为k的二叉树有最大节点总数为: 2<sup>k</sup> - 1 , k <span class="arithmatex">\(\ge\)</span> 1</li>
+<li>对任何非空二叉树，若 n<sub>0</sub> 表示叶节点的个数、n<sub>2</sub> 是度为2的非叶节点个数，那么两者满足关系 n<sub>0</sub> = n<sub>2</sub> + 1</li>
 </ol>
 <h2 id="_5">二叉树的抽象数据类型<a class="headerlink" href="#_5" title="Permanent link">👀</a></h2>
 <ul>
 <li><strong>类型名称</strong> : 二叉树</li>
 <li>
-<p><strong>数据对象集</strong> : 一个有穷的结点集合。若不为空，则由根节点和其左、右二叉子树组成</p>
+<p><strong>数据对象集</strong> : 一个有穷的节点集合。若不为空，则由根节点和其左、右二叉子树组成</p>
 </li>
 <li>
 <p><strong>操作集</strong> : BT <span class="arithmatex">\(\in\)</span> BinTree，Item <span class="arithmatex">\(\in\)</span> ElementType, 重要操作有：</p>
@@ -1584,26 +1598,26 @@
 <p class="admonition-title">Note</p>
 <ol>
 <li>Boolean IsEmpty( BinTree BT ): 判断BT是否为空<br></li>
-<li>void Traversal( BinTree BT ): 遍历，按某顺序访问每个结点<br></li>
+<li>void Traversal( BinTree BT ): 遍历，按某顺序访问每个节点<br></li>
 <li>BinTree CreateBinTree( ): 创建一个二叉树<br></li>
 </ol>
 </div>
 <h2 id="_6">二叉树的存储结构<a class="headerlink" href="#_6" title="Permanent link">👀</a></h2>
 <h3 id="_7">顺序存储结构<a class="headerlink" href="#_7" title="Permanent link">👀</a></h3>
 <ol>
-<li>完全二叉树: 从上到下、从左至右顺序存储n个结点的完全二叉树的结点父子关系；</li>
+<li>完全二叉树: 从上到下、从左至右顺序存储n个节点的完全二叉树的节点父子关系；</li>
 </ol>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
 <p><img alt="image-01-18-21-26-21" src="../../../Images/2023-01-18-21-26-21.png" /><br><br />
- 完全二叉树的叶子结点数: <span class="arithmatex">\(n_0 = \frac{n+1}{2}\)</span> <br><br />
+ 完全二叉树的叶子节点数: <span class="arithmatex">\(n_0 = \frac{n+1}{2}\)</span> <br><br />
        1. 当n为偶数时，<span class="arithmatex">\(n_0 = \frac{n}{2}\)</span> <br><br />
        2. 当n为奇数时，<span class="arithmatex">\(n_0 = \frac{n+1}{2}\)</span></p>
 </div>
 <ul>
-<li>非根节点(序号i &gt; 1)的父结点的序号是 $\lfloor \frac{i}{2} \rfloor $ (不超过 i/2 的最大整数)；<ul>
-<li>结点(序号为i)的左孩子结点的序号是 2i (2i <span class="arithmatex">\(\le\)</span> n，否则没有左孩子)</li>
-<li>结点(序号为i)的右孩子结点的序号是 2i+1 (2i+1 <span class="arithmatex">\(\le\)</span> n，否则没有右孩子)</li>
+<li>非根节点(序号i &gt; 1)的父节点的序号是 $\lfloor \frac{i}{2} \rfloor $ (不超过 i/2 的最大整数)；<ul>
+<li>节点(序号为i)的左孩子节点的序号是 2i (2i <span class="arithmatex">\(\le\)</span> n，否则没有左孩子)</li>
+<li>节点(序号为i)的右孩子节点的序号是 2i+1 (2i+1 <span class="arithmatex">\(\le\)</span> n，否则没有右孩子)</li>
 </ul>
 </li>
 </ul>
@@ -1615,7 +1629,7 @@
 <p><img alt="image_2023-01-19-15-24-54" src="../../../Images/2023-01-19-15-24-54.png" /></p>
 </details>
 <ul>
-<li>链表存储(每个结点的结构可以如下表示)</li>
+<li>链表存储(每个节点的结构可以如下表示)</li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1689,15 +1703,15 @@ print的顺序 <span class="arithmatex">\(\Rightarrow\)</span> D B E F A G H C I
 <a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">      </span><span class="n">Stack</span><span class="w"> </span><span class="n">S</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CreatStack</span><span class="p">(</span><span class="n">MaxSize</span><span class="p">);</span><span class="w">    </span><span class="cm">/*创建并初始化堆栈S*/</span>
 <a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">      </span><span class="k">while</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">!</span><span class="n">IsEmpty</span><span class="p">(</span><span class="n">S</span><span class="p">))</span>
 <a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">      </span><span class="p">{</span>
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">          </span><span class="k">while</span><span class="p">(</span><span class="n">T</span><span class="p">)</span><span class="w">                  </span><span class="cm">/*一直向左并将沿途结点压入堆栈*/</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">          </span><span class="k">while</span><span class="p">(</span><span class="n">T</span><span class="p">)</span><span class="w">                  </span><span class="cm">/*一直向左并将沿途节点压入堆栈*/</span>
 <a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">          </span><span class="p">{</span>
 <a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">              </span><span class="n">Push</span><span class="p">(</span><span class="n">S</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="p">);</span>
 <a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">              </span><span class="n">T</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">T</span><span class="o">-&gt;</span><span class="n">Left</span><span class="p">;</span>
 <a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">          </span><span class="p">}</span>
 <a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">          </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">IsEmpty</span><span class="p">(</span><span class="n">S</span><span class="p">))</span>
 <a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">          </span><span class="p">{</span>
-<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">              </span><span class="n">T</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Pop</span><span class="p">(</span><span class="n">S</span><span class="p">);</span><span class="w">               </span><span class="cm">/*结点弹出堆栈*/</span>
-<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">              </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%5d&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="o">-&gt;</span><span class="n">Data</span><span class="p">);</span><span class="w">   </span><span class="cm">/*（访问）打印结点*/</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">              </span><span class="n">T</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Pop</span><span class="p">(</span><span class="n">S</span><span class="p">);</span><span class="w">               </span><span class="cm">/*节点弹出堆栈*/</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">              </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%5d&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="o">-&gt;</span><span class="n">Data</span><span class="p">);</span><span class="w">   </span><span class="cm">/*（访问）打印节点*/</span>
 <a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">              </span><span class="n">T</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">T</span><span class="o">-&gt;</span><span class="n">Right</span><span class="p">;</span><span class="w">         </span><span class="cm">/*转向右子树*/</span>
 <a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">          </span><span class="p">}</span>
 <a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">      </span><span class="p">}</span>
@@ -1735,8 +1749,8 @@ print的顺序 <span class="arithmatex">\(\Rightarrow\)</span> D E F B H G I C A
 <li>层序基本过程:<ol>
 <li>根节点入队</li>
 <li>从队列中取出一个元素</li>
-<li>访问该元素所指结点</li>
-<li>若该元素所指结点的左、右孩子结点非空，则将其左、右孩子的指针入队</li>
+<li>访问该元素所指节点</li>
+<li>若该元素所指节点的左、右孩子节点非空，则将其左、右孩子的指针入队</li>
 </ol>
 </li>
 </ul>
@@ -1752,7 +1766,7 @@ print的顺序 <span class="arithmatex">\(\Rightarrow\)</span> D E F B H G I C A
 <a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">    </span><span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">IsEmptyQ</span><span class="p">(</span><span class="n">Q</span><span class="p">))</span>
 <a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">    </span><span class="p">{</span>
 <a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">        </span><span class="n">T</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DeleteQ</span><span class="p">(</span><span class="n">Q</span><span class="p">);</span>
-<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="o">-&gt;</span><span class="n">Data</span><span class="p">);</span><span class="w">    </span><span class="cm">/*访问取出队列的结点*/</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="o">-&gt;</span><span class="n">Data</span><span class="p">);</span><span class="w">    </span><span class="cm">/*访问取出队列的节点*/</span>
 <a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">T</span><span class="o">-&gt;</span><span class="n">Left</span><span class="p">)</span><span class="w">     </span>
 <a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">            </span><span class="n">AddQ</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="o">-&gt;</span><span class="n">Left</span><span class="p">);</span>
 <a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">T</span><span class="o">-&gt;</span><span class="n">Right</span><span class="p">)</span>
@@ -1875,14 +1889,14 @@ print的顺序 <span class="arithmatex">\(\Rightarrow\)</span> D E F B H G I C A
 <h3 id="bst">BST的特别函数<a class="headerlink" href="#bst" title="Permanent link">👀</a></h3>
 <h4 id="find">Find()<a class="headerlink" href="#find" title="Permanent link">👀</a></h4>
 <blockquote>
-<p>从BST中查找元素 X, 返回其所在结点的地址</p>
+<p>从BST中查找元素 X, 返回其所在节点的地址</p>
 </blockquote>
 <ol>
-<li>查找从根结点开始，如果树为空，返回 NULL</li>
-<li>若搜索树非空，则将根结点关键字和 X 进行比较，并进行不同处理:<ol>
-<li>若 X 小于根结点键值，只需在左子树中继续搜索</li>
+<li>查找从根节点开始，如果树为空，返回 NULL</li>
+<li>若搜索树非空，则将根节点关键字和 X 进行比较，并进行不同处理:<ol>
+<li>若 X 小于根节点键值，只需在左子树中继续搜索</li>
 <li>若大于，则在右子树中继续搜素</li>
-<li>若相等，搜索完成，返回指向此结点的指针</li>
+<li>若相等，搜索完成，返回指向此节点的指针</li>
 </ol>
 </li>
 </ol>
@@ -1919,8 +1933,8 @@ print的顺序 <span class="arithmatex">\(\Rightarrow\)</span> D E F B H G I C A
 </details>
 <h4 id="findmin">FindMin()<a class="headerlink" href="#findmin" title="Permanent link">👀</a></h4>
 <ul>
-<li>从BST中查找并返回最小元素所在结点的地址</li>
-<li>最小元素一定在树的最左分支的端结点上</li>
+<li>从BST中查找并返回最小元素所在节点的地址</li>
+<li>最小元素一定在树的最左分支的端节点上</li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">code</p>
@@ -1937,8 +1951,8 @@ print的顺序 <span class="arithmatex">\(\Rightarrow\)</span> D E F B H G I C A
 </div>
 <h4 id="findmax">FindMax()<a class="headerlink" href="#findmax" title="Permanent link">👀</a></h4>
 <ul>
-<li>从二叉搜索树BST中查找并返回最大元素所在结点的地址</li>
-<li>最大元素一定在树的最右分支的端结点上</li>
+<li>从二叉搜索树BST中查找并返回最大元素所在节点的地址</li>
+<li>最大元素一定在树的最右分支的端节点上</li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">code</p>
@@ -1979,9 +1993,9 @@ print的顺序 <span class="arithmatex">\(\Rightarrow\)</span> D E F B H G I C A
 <h4 id="delete">Delete()<a class="headerlink" href="#delete" title="Permanent link">👀</a></h4>
 <ul>
 <li>考虑三种情况<ol>
-<li>要删除的结点是叶结点：直接删除，并再修改其父结点指针——置为NULL</li>
-<li>要删除的结点只有一个孩子结点：将其父结点的指针指向要删除结点的孩子结点</li>
-<li>要删除的结点有左右两颗子树：用另一结点替代被删除结点——右子树的最小元素 或者 左子树的最大元素</li>
+<li>要删除的节点是叶节点：直接删除，并再修改其父节点指针——置为NULL</li>
+<li>要删除的节点只有一个孩子节点：将其父节点的指针指向要删除节点的孩子节点</li>
+<li>要删除的节点有左右两颗子树：用另一节点替代被删除节点——右子树的最小元素 或者 左子树的最大元素</li>
 </ol>
 </li>
 </ul>
@@ -2000,11 +2014,11 @@ print的顺序 <span class="arithmatex">\(\Rightarrow\)</span> D E F B H G I C A
 <a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="w"> </span><span class="n">BST</span><span class="o">-&gt;</span><span class="n">Left</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">BST</span><span class="o">-&gt;</span><span class="n">Right</span><span class="w"> </span><span class="p">)</span>
 <a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a><span class="w">        </span><span class="p">{</span>
 <a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a><span class="w">            </span><span class="n">Tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FindMin</span><span class="p">(</span><span class="w"> </span><span class="n">BST</span><span class="o">-&gt;</span><span class="n">Right</span><span class="w"> </span><span class="p">);</span>
-<a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a><span class="w">                        </span><span class="cm">/*在右子树中找到最小元素填充删除结点*/</span>
+<a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a><span class="w">                        </span><span class="cm">/*在右子树中找到最小元素填充删除节点*/</span>
 <a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a><span class="w">            </span><span class="n">BST</span><span class="o">-&gt;</span><span class="n">Data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Tmp</span><span class="o">-&gt;</span><span class="n">Data</span><span class="p">;</span>
 <a id="__codelineno-16-16" name="__codelineno-16-16" href="#__codelineno-16-16"></a><span class="w">            </span><span class="n">BST</span><span class="o">-&gt;</span><span class="n">Right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Delete</span><span class="p">(</span><span class="w"> </span><span class="n">BST</span><span class="o">-&gt;</span><span class="n">Data</span><span class="p">,</span><span class="w"> </span><span class="n">BST</span><span class="o">-&gt;</span><span class="n">Right</span><span class="p">);</span>
 <a id="__codelineno-16-17" name="__codelineno-16-17" href="#__codelineno-16-17"></a><span class="w">        </span><span class="p">}</span>
-<a id="__codelineno-16-18" name="__codelineno-16-18" href="#__codelineno-16-18"></a><span class="w">        </span><span class="k">else</span><span class="w">    </span><span class="cm">/*被删除结点有一个或无子结点*/</span>
+<a id="__codelineno-16-18" name="__codelineno-16-18" href="#__codelineno-16-18"></a><span class="w">        </span><span class="k">else</span><span class="w">    </span><span class="cm">/*被删除节点有一个或无子节点*/</span>
 <a id="__codelineno-16-19" name="__codelineno-16-19" href="#__codelineno-16-19"></a><span class="w">        </span><span class="p">{</span>
 <a id="__codelineno-16-20" name="__codelineno-16-20" href="#__codelineno-16-20"></a><span class="w">            </span><span class="n">Tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BST</span><span class="p">;</span>
 <a id="__codelineno-16-21" name="__codelineno-16-21" href="#__codelineno-16-21"></a><span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">BST</span><span class="o">-&gt;</span><span class="n">Left</span><span class="p">)</span><span class="w"> </span><span class="cm">/*有右孩子或无*/</span>
@@ -2019,9 +2033,9 @@ print的顺序 <span class="arithmatex">\(\Rightarrow\)</span> D E F B H G I C A
 </div>
 <h2 id="threaded-binary-tree">线索二叉树 | Threaded binary tree<a class="headerlink" href="#threaded-binary-tree" title="Permanent link">👀</a></h2>
 <ul>
-<li>Rule 1: 若结点的左子树为空，将其空左儿子指向中序遍历前驱(上一个遍历的结点)</li>
+<li>Rule 1: 若节点的左子树为空，将其空左儿子指向中序遍历前驱(上一个遍历的节点)</li>
 <li>Rule 2: 空右儿子指向中序遍历的后继(若前驱/后继均无，则引出为 NULL)</li>
-<li>Rule 3: 线索二叉树必须有一个头节点且其左儿子指向第一个结点</li>
+<li>Rule 3: 线索二叉树必须有一个头节点且其左儿子指向第一个节点</li>
 </ul>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="k">typedef</span><span class="w">  </span><span class="k">struct</span><span class="w">  </span><span class="nc">ThreadedTreeNode</span><span class="w">  </span><span class="o">*</span><span class="n">PtrTo</span><span class="w">  </span><span class="n">ThreadedNode</span><span class="p">;</span>
 <a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="k">typedef</span><span class="w">  </span><span class="k">struct</span><span class="w">  </span><span class="nc">PtrToThreadedNode</span><span class="w">  </span><span class="n">ThreadedTree</span><span class="p">;</span>
@@ -2064,7 +2078,7 @@ print的顺序 <span class="arithmatex">\(\Rightarrow\)</span> D E F B H G I C A
 <li>插入 —— 元素总是插入链表头部      ~ <span class="arithmatex">\(\Theta (1)\)</span> </li>
 <li>删除 ——<ul>
 <li>查找最大(或最小)关键字        ~ <span class="arithmatex">\(\Theta (n)\)</span> </li>
-<li>删去结点                      ~ <span class="arithmatex">\(\Theta (1)\)</span> </li>
+<li>删去节点                      ~ <span class="arithmatex">\(\Theta (1)\)</span> </li>
 </ul>
 </li>
 </ul>
@@ -2090,14 +2104,14 @@ print的顺序 <span class="arithmatex">\(\Rightarrow\)</span> D E F B H G I C A
 </ul>
 <h3 id="binary-heap">二叉堆 | binary heap<a class="headerlink" href="#binary-heap" title="Permanent link">👀</a></h3>
 <ul>
-<li>二叉堆是一种完全二叉树——任意结点的值都 <span class="arithmatex">\(\le\)</span> (或 <span class="arithmatex">\(\ge\)</span> ) 父结点的值(即最大最小堆)</li>
+<li>二叉堆是一种完全二叉树——任意节点的值都 <span class="arithmatex">\(\le\)</span> (或 <span class="arithmatex">\(\ge\)</span> ) 父节点的值(即最大最小堆)</li>
 </ul>
 <div class="admonition info">
 <p class="admonition-title">引申</p>
 <ul>
-<li>D-heap | D-堆 是指每个结点有 d 个儿子<ul>
-<li>若D-堆使用数组存储，且一个结点的下标为 i </li>
-<li>其父结点的位置是 $\lceil (i + d - 2)/d \rceil $  </li>
+<li>D-heap | D-堆 是指每个节点有 d 个儿子<ul>
+<li>若D-堆使用数组存储，且一个节点的下标为 i </li>
+<li>其父节点的位置是 $\lceil (i + d - 2)/d \rceil $  </li>
 <li>其第一个儿子位于 $ (i - 2)d + 2 $ </li>
 <li>最后一个儿子位于 $ (i - 1)d + 1 $ </li>
 </ul>
@@ -2132,7 +2146,7 @@ print的顺序 <span class="arithmatex">\(\Rightarrow\)</span> D E F B H G I C A
 <a id="__codelineno-18-16" name="__codelineno-18-16" href="#__codelineno-18-16"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">H</span><span class="p">;</span>
 <a id="__codelineno-18-17" name="__codelineno-18-17" href="#__codelineno-18-17"></a><span class="p">}</span>
 </code></pre></div></li>
-<li>插入——先放到最后一个位置，然后和父结点比较交换···<br />
+<li>插入——先放到最后一个位置，然后和父节点比较交换···<br />
 <div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">Insert</span><span class="p">(</span><span class="n">MaxHeap</span><span class="w"> </span><span class="n">H</span><span class="p">,</span><span class="w"> </span><span class="n">ElementType</span><span class="w"> </span><span class="n">item</span><span class="p">)</span>
 <a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="p">{</span>
 <a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="w">    </span><span class="cm">/*将元素item插入到最大堆H，其中H-&gt;Elements[0]已经定义为哨兵*/</span>
@@ -2144,7 +2158,7 @@ print的顺序 <span class="arithmatex">\(\Rightarrow\)</span> D E F B H G I C A
 <a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a><span class="w">    </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">++</span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Size</span><span class="p">;</span><span class="w">  </span><span class="cm">/*i指向插入后堆中的最后一个元素的位置*/</span>
 <a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a><span class="w">    </span><span class="k">for</span><span class="p">(;</span><span class="w"> </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Elements</span><span class="p">[</span><span class="n">i</span><span class="o">/</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">item</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">/=</span><span class="mi">2</span><span class="p">)</span>
-<a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a><span class="w">        </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Elements</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Elements</span><span class="p">[</span><span class="n">i</span><span class="o">/</span><span class="mi">2</span><span class="p">];</span><span class="w">  </span><span class="cm">/*向下过滤结点*/</span>
+<a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a><span class="w">        </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Elements</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Elements</span><span class="p">[</span><span class="n">i</span><span class="o">/</span><span class="mi">2</span><span class="p">];</span><span class="w">  </span><span class="cm">/*向下过滤节点*/</span>
 <a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a><span class="w">    </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Elements</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">item</span><span class="p">;</span><span class="w">  </span><span class="cm">/*将item插入*/</span>
 <a id="__codelineno-19-14" name="__codelineno-19-14" href="#__codelineno-19-14"></a><span class="p">}</span>
 </code></pre></div><blockquote>
@@ -2153,7 +2167,7 @@ print的顺序 <span class="arithmatex">\(\Rightarrow\)</span> D E F B H G I C A
 </li>
 <li>删除——将最后一个元素放到根节点，然后和儿子比较交换···<br />
 <div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="n">ElementType</span><span class="w"> </span><span class="nf">DeleteMax</span><span class="p">(</span><span class="w"> </span><span class="n">MaxHeap</span><span class="w"> </span><span class="n">H</span><span class="p">)</span>
-<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="p">{</span><span class="cm">/*从最大堆H中取出键值为最大的元素，并删除一个结点*/</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="p">{</span><span class="cm">/*从最大堆H中取出键值为最大的元素，并删除一个节点*/</span>
 <a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">Parent</span><span class="p">,</span><span class="w"> </span><span class="n">Child</span><span class="p">;</span>
 <a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="w">    </span><span class="n">ElementType</span><span class="w"> </span><span class="n">MaxItem</span><span class="p">,</span><span class="w"> </span><span class="n">temp</span><span class="p">;</span>
 <a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="w"> </span><span class="n">IsEmpty</span><span class="p">(</span><span class="n">H</span><span class="p">))</span>
@@ -2162,14 +2176,14 @@ print的顺序 <span class="arithmatex">\(\Rightarrow\)</span> D E F B H G I C A
 <a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">;</span>
 <a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a><span class="w">    </span><span class="n">MaxItem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Elements</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span><span class="w">   </span><span class="cm">/*取出根节点最大值*/</span>
-<a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a><span class="w">    </span><span class="cm">/*用最大堆中最后一个元素从根节点开始向上过滤下层结点*/</span>
+<a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a><span class="w">    </span><span class="cm">/*用最大堆中最后一个元素从根节点开始向上过滤下层节点*/</span>
 <a id="__codelineno-20-12" name="__codelineno-20-12" href="#__codelineno-20-12"></a><span class="w">    </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Elements</span><span class="p">[</span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Size</span><span class="o">--</span><span class="p">];</span>
 <a id="__codelineno-20-13" name="__codelineno-20-13" href="#__codelineno-20-13"></a><span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="w"> </span><span class="n">Parent</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">Parent</span><span class="o">*</span><span class="mi">2</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Size</span><span class="p">;</span><span class="w"> </span><span class="n">Parent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Child</span><span class="p">)</span>
 <a id="__codelineno-20-14" name="__codelineno-20-14" href="#__codelineno-20-14"></a><span class="w">    </span><span class="p">{</span>
 <a id="__codelineno-20-15" name="__codelineno-20-15" href="#__codelineno-20-15"></a><span class="w">        </span><span class="n">Child</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Parent</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
 <a id="__codelineno-20-16" name="__codelineno-20-16" href="#__codelineno-20-16"></a><span class="w">        </span><span class="k">if</span><span class="p">((</span><span class="n">Child</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Size</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>
 <a id="__codelineno-20-17" name="__codelineno-20-17" href="#__codelineno-20-17"></a><span class="w">        </span><span class="p">(</span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Elements</span><span class="p">[</span><span class="n">Child</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Elements</span><span class="p">[</span><span class="n">Child</span><span class="o">+</span><span class="mi">1</span><span class="p">]))</span>
-<a id="__codelineno-20-18" name="__codelineno-20-18" href="#__codelineno-20-18"></a><span class="w">            </span><span class="n">Child</span><span class="w"> </span><span class="o">++</span><span class="p">;</span><span class="w">   </span><span class="cm">/*Child指向左右子结点的较大者*/</span>
+<a id="__codelineno-20-18" name="__codelineno-20-18" href="#__codelineno-20-18"></a><span class="w">            </span><span class="n">Child</span><span class="w"> </span><span class="o">++</span><span class="p">;</span><span class="w">   </span><span class="cm">/*Child指向左右子节点的较大者*/</span>
 <a id="__codelineno-20-19" name="__codelineno-20-19" href="#__codelineno-20-19"></a><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="w"> </span><span class="n">temp</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Elements</span><span class="p">[</span><span class="n">Child</span><span class="p">])</span>
 <a id="__codelineno-20-20" name="__codelineno-20-20" href="#__codelineno-20-20"></a><span class="w">            </span><span class="k">break</span><span class="p">;</span>
 <a id="__codelineno-20-21" name="__codelineno-20-21" href="#__codelineno-20-21"></a><span class="w">        </span><span class="k">else</span><span class="w">    </span><span class="cm">/*移动temp元素到下一层*/</span>
@@ -2187,7 +2201,7 @@ print的顺序 <span class="arithmatex">\(\Rightarrow\)</span> D E F B H G I C A
 <li>通过插入操作，将 N 个元素相继插入到一个初始化为空的栈中，时间代价最大为 <span class="arithmatex">\(O(NlogN)\)</span> </li>
 <li>时间复杂度为 <span class="arithmatex">\(O(N)\)</span> 的建立方法<ol>
 <li>将 N 个元素按输入顺序存入，先满足完全二叉树的结构特性</li>
-<li>调整结点位置，即进行 Percolate 操作以满足最大堆的有序特性</li>
+<li>调整节点位置，即进行 Percolate 操作以满足最大堆的有序特性</li>
 </ol>
 </li>
 </ul>
@@ -2246,7 +2260,7 @@ print的顺序 <span class="arithmatex">\(\Rightarrow\)</span> D E F B H G I C A
 <a id="__codelineno-21-49" name="__codelineno-21-49" href="#__codelineno-21-49"></a><span class="p">}</span>
 <a id="__codelineno-21-50" name="__codelineno-21-50" href="#__codelineno-21-50"></a>
 <a id="__codelineno-21-51" name="__codelineno-21-51" href="#__codelineno-21-51"></a><span class="n">ElementType</span><span class="w"> </span><span class="nf">DeleteMax</span><span class="p">(</span><span class="w"> </span><span class="n">MaxHeap</span><span class="w"> </span><span class="n">H</span><span class="w"> </span><span class="p">)</span>
-<a id="__codelineno-21-52" name="__codelineno-21-52" href="#__codelineno-21-52"></a><span class="p">{</span><span class="w"> </span><span class="cm">/* 从最大堆H中取出键值为最大的元素，并删除一个结点 */</span>
+<a id="__codelineno-21-52" name="__codelineno-21-52" href="#__codelineno-21-52"></a><span class="p">{</span><span class="w"> </span><span class="cm">/* 从最大堆H中取出键值为最大的元素，并删除一个节点 */</span>
 <a id="__codelineno-21-53" name="__codelineno-21-53" href="#__codelineno-21-53"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">Parent</span><span class="p">,</span><span class="w"> </span><span class="n">Child</span><span class="p">;</span>
 <a id="__codelineno-21-54" name="__codelineno-21-54" href="#__codelineno-21-54"></a><span class="w">    </span><span class="n">ElementType</span><span class="w"> </span><span class="n">MaxItem</span><span class="p">,</span><span class="w"> </span><span class="n">X</span><span class="p">;</span>
 <a id="__codelineno-21-55" name="__codelineno-21-55" href="#__codelineno-21-55"></a>
@@ -2255,13 +2269,13 @@ print的顺序 <span class="arithmatex">\(\Rightarrow\)</span> D E F B H G I C A
 <a id="__codelineno-21-58" name="__codelineno-21-58" href="#__codelineno-21-58"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">ERROR</span><span class="p">;</span>
 <a id="__codelineno-21-59" name="__codelineno-21-59" href="#__codelineno-21-59"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-21-60" name="__codelineno-21-60" href="#__codelineno-21-60"></a>
-<a id="__codelineno-21-61" name="__codelineno-21-61" href="#__codelineno-21-61"></a><span class="w">    </span><span class="n">MaxItem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Data</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span><span class="w"> </span><span class="cm">/* 取出根结点存放的最大值 */</span>
-<a id="__codelineno-21-62" name="__codelineno-21-62" href="#__codelineno-21-62"></a><span class="w">    </span><span class="cm">/* 用最大堆中最后一个元素从根结点开始向上过滤下层结点 */</span>
+<a id="__codelineno-21-61" name="__codelineno-21-61" href="#__codelineno-21-61"></a><span class="w">    </span><span class="n">MaxItem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Data</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span><span class="w"> </span><span class="cm">/* 取出根节点存放的最大值 */</span>
+<a id="__codelineno-21-62" name="__codelineno-21-62" href="#__codelineno-21-62"></a><span class="w">    </span><span class="cm">/* 用最大堆中最后一个元素从根节点开始向上过滤下层节点 */</span>
 <a id="__codelineno-21-63" name="__codelineno-21-63" href="#__codelineno-21-63"></a><span class="w">    </span><span class="n">X</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Data</span><span class="p">[</span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Size</span><span class="o">--</span><span class="p">];</span><span class="w"> </span><span class="cm">/* 注意当前堆的规模要减小 */</span>
 <a id="__codelineno-21-64" name="__codelineno-21-64" href="#__codelineno-21-64"></a><span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="w"> </span><span class="n">Parent</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">Parent</span><span class="o">*</span><span class="mi">2</span><span class="o">&lt;=</span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Size</span><span class="p">;</span><span class="w"> </span><span class="n">Parent</span><span class="o">=</span><span class="n">Child</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-21-65" name="__codelineno-21-65" href="#__codelineno-21-65"></a><span class="w">        </span><span class="n">Child</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Parent</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
 <a id="__codelineno-21-66" name="__codelineno-21-66" href="#__codelineno-21-66"></a><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="n">Child</span><span class="o">!=</span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Size</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Data</span><span class="p">[</span><span class="n">Child</span><span class="p">]</span><span class="o">&lt;</span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Data</span><span class="p">[</span><span class="n">Child</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span><span class="w"> </span><span class="p">)</span>
-<a id="__codelineno-21-67" name="__codelineno-21-67" href="#__codelineno-21-67"></a><span class="w">            </span><span class="n">Child</span><span class="o">++</span><span class="p">;</span><span class="w">  </span><span class="cm">/* Child指向左右子结点的较大者 */</span>
+<a id="__codelineno-21-67" name="__codelineno-21-67" href="#__codelineno-21-67"></a><span class="w">            </span><span class="n">Child</span><span class="o">++</span><span class="p">;</span><span class="w">  </span><span class="cm">/* Child指向左右子节点的较大者 */</span>
 <a id="__codelineno-21-68" name="__codelineno-21-68" href="#__codelineno-21-68"></a><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="w"> </span><span class="n">X</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Data</span><span class="p">[</span><span class="n">Child</span><span class="p">]</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">break</span><span class="p">;</span><span class="w"> </span><span class="cm">/* 找到了合适位置 */</span>
 <a id="__codelineno-21-69" name="__codelineno-21-69" href="#__codelineno-21-69"></a><span class="w">        </span><span class="k">else</span><span class="w">  </span><span class="cm">/* 下滤X */</span>
 <a id="__codelineno-21-70" name="__codelineno-21-70" href="#__codelineno-21-70"></a><span class="w">            </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Data</span><span class="p">[</span><span class="n">Parent</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Data</span><span class="p">[</span><span class="n">Child</span><span class="p">];</span>
@@ -2277,11 +2291,11 @@ print的顺序 <span class="arithmatex">\(\Rightarrow\)</span> D E F B H G I C A
 <a id="__codelineno-21-80" name="__codelineno-21-80" href="#__codelineno-21-80"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">Parent</span><span class="p">,</span><span class="w"> </span><span class="n">Child</span><span class="p">;</span>
 <a id="__codelineno-21-81" name="__codelineno-21-81" href="#__codelineno-21-81"></a><span class="w">    </span><span class="n">ElementType</span><span class="w"> </span><span class="n">X</span><span class="p">;</span>
 <a id="__codelineno-21-82" name="__codelineno-21-82" href="#__codelineno-21-82"></a>
-<a id="__codelineno-21-83" name="__codelineno-21-83" href="#__codelineno-21-83"></a><span class="w">    </span><span class="n">X</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Data</span><span class="p">[</span><span class="n">p</span><span class="p">];</span><span class="w"> </span><span class="cm">/* 取出根结点存放的值 */</span>
+<a id="__codelineno-21-83" name="__codelineno-21-83" href="#__codelineno-21-83"></a><span class="w">    </span><span class="n">X</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Data</span><span class="p">[</span><span class="n">p</span><span class="p">];</span><span class="w"> </span><span class="cm">/* 取出根节点存放的值 */</span>
 <a id="__codelineno-21-84" name="__codelineno-21-84" href="#__codelineno-21-84"></a><span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="w"> </span><span class="n">Parent</span><span class="o">=</span><span class="n">p</span><span class="p">;</span><span class="w"> </span><span class="n">Parent</span><span class="o">*</span><span class="mi">2</span><span class="o">&lt;=</span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Size</span><span class="p">;</span><span class="w"> </span><span class="n">Parent</span><span class="o">=</span><span class="n">Child</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-21-85" name="__codelineno-21-85" href="#__codelineno-21-85"></a><span class="w">        </span><span class="n">Child</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Parent</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
 <a id="__codelineno-21-86" name="__codelineno-21-86" href="#__codelineno-21-86"></a><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="n">Child</span><span class="o">!=</span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Size</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Data</span><span class="p">[</span><span class="n">Child</span><span class="p">]</span><span class="o">&lt;</span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Data</span><span class="p">[</span><span class="n">Child</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span><span class="w"> </span><span class="p">)</span>
-<a id="__codelineno-21-87" name="__codelineno-21-87" href="#__codelineno-21-87"></a><span class="w">            </span><span class="n">Child</span><span class="o">++</span><span class="p">;</span><span class="w">  </span><span class="cm">/* Child指向左右子结点的较大者 */</span>
+<a id="__codelineno-21-87" name="__codelineno-21-87" href="#__codelineno-21-87"></a><span class="w">            </span><span class="n">Child</span><span class="o">++</span><span class="p">;</span><span class="w">  </span><span class="cm">/* Child指向左右子节点的较大者 */</span>
 <a id="__codelineno-21-88" name="__codelineno-21-88" href="#__codelineno-21-88"></a><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="w"> </span><span class="n">X</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Data</span><span class="p">[</span><span class="n">Child</span><span class="p">]</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">break</span><span class="p">;</span><span class="w"> </span><span class="cm">/* 找到了合适位置 */</span>
 <a id="__codelineno-21-89" name="__codelineno-21-89" href="#__codelineno-21-89"></a><span class="w">        </span><span class="k">else</span><span class="w">  </span><span class="cm">/* 下滤X */</span>
 <a id="__codelineno-21-90" name="__codelineno-21-90" href="#__codelineno-21-90"></a><span class="w">            </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Data</span><span class="p">[</span><span class="n">Parent</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Data</span><span class="p">[</span><span class="n">Child</span><span class="p">];</span>
@@ -2295,7 +2309,7 @@ print的顺序 <span class="arithmatex">\(\Rightarrow\)</span> D E F B H G I C A
 <a id="__codelineno-21-98" name="__codelineno-21-98" href="#__codelineno-21-98"></a>
 <a id="__codelineno-21-99" name="__codelineno-21-99" href="#__codelineno-21-99"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
 <a id="__codelineno-21-100" name="__codelineno-21-100" href="#__codelineno-21-100"></a>
-<a id="__codelineno-21-101" name="__codelineno-21-101" href="#__codelineno-21-101"></a><span class="w">    </span><span class="cm">/* 从最后一个结点的父节点开始，到根结点1 */</span>
+<a id="__codelineno-21-101" name="__codelineno-21-101" href="#__codelineno-21-101"></a><span class="w">    </span><span class="cm">/* 从最后一个节点的父节点开始，到根节点1 */</span>
 <a id="__codelineno-21-102" name="__codelineno-21-102" href="#__codelineno-21-102"></a><span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">Size</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">--</span><span class="w"> </span><span class="p">)</span>
 <a id="__codelineno-21-103" name="__codelineno-21-103" href="#__codelineno-21-103"></a><span class="w">        </span><span class="n">PercDown</span><span class="p">(</span><span class="w"> </span><span class="n">H</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="p">);</span>
 <a id="__codelineno-21-104" name="__codelineno-21-104" href="#__codelineno-21-104"></a><span class="p">}</span>
@@ -2312,7 +2326,7 @@ print的顺序 <span class="arithmatex">\(\Rightarrow\)</span> D E F B H G I C A
 </div>
 <p>并查集中集合存储的两种实现: </p>
 <ul>
-<li>树结构存储: 树的每一个结点代表一个集合元素</li>
+<li>树结构存储: 树的每一个节点代表一个集合元素</li>
 </ul>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
@@ -2332,7 +2346,7 @@ print的顺序 <span class="arithmatex">\(\Rightarrow\)</span> D E F B H G I C A
 </div>
 <h3 id="-find">集合运算 &ndash; Find<a class="headerlink" href="#-find" title="Permanent link">👀</a></h3>
 <blockquote>
-<p>查找某个元素所在集合(用根结点表示)</p>
+<p>查找某个元素所在集合(用根节点表示)</p>
 </blockquote>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">Find</span><span class="p">(</span><span class="w"> </span><span class="n">SetType</span><span class="w"> </span><span class="n">S</span><span class="p">[],</span><span class="w"> </span><span class="n">ELementType</span><span class="w"> </span><span class="n">X</span><span class="p">)</span>
 <a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="p">{</span>
@@ -2343,13 +2357,13 @@ print的顺序 <span class="arithmatex">\(\Rightarrow\)</span> D E F B H G I C A
 <a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">MaxSize</span><span class="w"> </span><span class="p">)</span>
 <a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w">  </span><span class="cm">/*未找到X,返回 -1*/</span>
 <a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a><span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">S</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">Parent</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">S</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">Parent</span><span class="p">);</span>
-<a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w">   </span><span class="cm">/*找到X所属的集合，返回树根结点在数组S中的下标*/</span><span class="w"> </span>
+<a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w">   </span><span class="cm">/*找到X所属的集合，返回树根节点在数组S中的下标*/</span><span class="w"> </span>
 <a id="__codelineno-23-11" name="__codelineno-23-11" href="#__codelineno-23-11"></a><span class="p">}</span>
 </code></pre></div>
 <h3 id="-union">集合运算 &ndash; Union<a class="headerlink" href="#-union" title="Permanent link">👀</a></h3>
 <ol>
-<li>分别找到 X1 和 X2 两个元素所在集合树的根结点</li>
-<li>若不同根，则将其中一个根结点的父结点的数组下标设为另一根结点的数组下标<br />
+<li>分别找到 X1 和 X2 两个元素所在集合树的根节点</li>
+<li>若不同根，则将其中一个根节点的父节点的数组下标设为另一根节点的数组下标<br />
 <div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">Union</span><span class="p">(</span><span class="w"> </span><span class="n">SetType</span><span class="w"> </span><span class="n">S</span><span class="p">[],</span><span class="w"> </span><span class="n">ElementType</span><span class="w"> </span><span class="n">X1</span><span class="p">,</span><span class="w"> </span><span class="n">ElementType</span><span class="w"> </span><span class="n">X2</span><span class="p">)</span>
 <a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="p">{</span>
 <a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">Root1</span><span class="p">,</span><span class="w"> </span><span class="n">Root2</span><span class="p">;</span>
@@ -2396,7 +2410,17 @@ print的顺序 <span class="arithmatex">\(\Rightarrow\)</span> D E F B H G I C A
 <summary>Quote</summary>
 <p><img alt="image_2023-01-29-22-56-23" src="../../../Images/2023-01-29-22-56-23.png" /></p>
 </details>
-<p><center><font face="JetBrains Mono" color=grey size=18>To Be Continued</font></center></p>
+<h3 id="path-compression">路径压缩 | Path Compression<a class="headerlink" href="#path-compression" title="Permanent link">👀</a></h3>
+<ul>
+<li>路径压缩在一次 Find 操作期间执行。设操作为 Find(X)，此时路径压缩的效果是: 从 X 到根的路径上的每一个节点都使其父节点变成根。<br />
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="n">SetType</span><span class="w"> </span><span class="nf">Find</span><span class="p">(</span><span class="n">ElementType</span><span class="w"> </span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="n">DisjSet</span><span class="w"> </span><span class="n">S</span><span class="p">)</span>
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="p">{</span>
+<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">S</span><span class="p">[</span><span class="n">X</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">X</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">S</span><span class="p">[</span><span class="n">X</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Find</span><span class="p">(</span><span class="n">S</span><span class="p">[</span><span class="n">X</span><span class="p">],</span><span class="w"> </span><span class="n">S</span><span class="p">);</span>
+<a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a><span class="p">}</span>
+</code></pre></div></li>
+<li>路径压缩对于基本的 Find 操作唯一的变化是使得 S[X] 等于由 Find 返回的值</li>
+<li>在集合的根被递归找到后， X 就直接指向它，因此实现路径压缩</li>
+</ul>
 
 
   
