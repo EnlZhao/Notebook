@@ -43,9 +43,10 @@
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
 </script>
   <!-- Giscus -->
-  <h2 id="__comments">评论</h2>
 
-  <script src="https://giscus.app/client.js"
+    <h2 id="__comments">评论</h2>
+    <!-- Insert generated snippet here -->
+    <script src="https://giscus.app/client.js"
         data-repo="enl-z/DSG"
         data-repo-id="R_kgDOI2exGA"
         data-category-id="DIC_kwDOI2exGM4CT6Lt"
@@ -58,35 +59,36 @@
         data-lang="zh-CN"
         crossorigin="anonymous"
         async>
-  </script>
+    </script>
+    <!-- Synchronize Giscus theme with palette -->
+    <script>
+    var giscus = document.querySelector("script[src*=giscus]")
 
-  <!-- Reload on palette change -->
-  <script>
+    /* Set palette on initial load */
     var palette = __md_get("__palette")
-    if (palette && typeof palette.color === "object")
-      if (palette.color.scheme === "slate") {
-        var giscus = document.querySelector("script[src*=giscus]")
-        giscus.setAttribute("data-theme", "dark") 
-      }
+    if (palette && typeof palette.color === "object") {
+        var theme = palette.color.scheme === "slate" ? "dark" : "light"
+        giscus.setAttribute("data-theme", theme) 
+    }
 
     /* Register event handlers after documented loaded */
     document.addEventListener("DOMContentLoaded", function() {
-      var ref = document.querySelector("[data-md-component=palette]")
-      ref.addEventListener("change", function() {
+        var ref = document.querySelector("[data-md-component=palette]")
+        ref.addEventListener("change", function() {
         var palette = __md_get("__palette")
         if (palette && typeof palette.color === "object") {
-          var theme = palette.color.scheme === "slate" ? "dark" : "light"
+            var theme = palette.color.scheme === "slate" ? "dark" : "light"
 
-          /* Instruct Giscus to change theme */
-          var frame = document.querySelector(".giscus-frame")
-          frame.contentWindow.postMessage(
+            /* Instruct Giscus to change theme */
+            var frame = document.querySelector(".giscus-frame")
+            frame.contentWindow.postMessage(
             { giscus: { setConfig: { theme } } },
             "https://giscus.app"
-          )
+            )
         }
-      })
+        })
     })
-  </script>
+    </script>
 
     
       
