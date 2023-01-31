@@ -707,6 +707,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    带负权图
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#acyclic-graph" class="md-nav__link">
+    无环图 | Acyclic Graph
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1122,6 +1136,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    带负权图
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#acyclic-graph" class="md-nav__link">
+    无环图 | Acyclic Graph
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1435,7 +1463,7 @@
 <a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="w">                        </span><span class="p">}</span><span class="cm">/* end-if update W */</span>
 <a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="w">      </span><span class="p">}</span><span class="cm">/* end-for(;;) */</span>
 <a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="p">}</span>
-<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="cm">/* not work for edge with negative cost */</span>
+<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="cm">/* 不能解决有负边的情况 */</span>
 </code></pre></div>
 <details class="example">
 <summary>Dijkstra算法的声明</summary>
@@ -1484,6 +1512,47 @@
 </code></pre></div>
 </details>
 </div>
+<ul>
+<li>因为判定条件 T[V].Dist + Cvw &lt; T[W].Dist，T[i].Dist 要初始化为正无穷</li>
+<li>优化如下：<ul>
+<li>Implementation 1: 直接扫描所有未收录顶点 &ndash; <span class="arithmatex">\(O(|V|)\)</span> <ul>
+<li><span class="arithmatex">\(T = O(|V|^2 + |E|)\)</span> &ndash; 对于稠密图效果好</li>
+</ul>
+</li>
+<li>Implementation 2: 将 dist 存在最小堆中 &ndash; <span class="arithmatex">\(O(log|V|)\)</span> <ul>
+<li>更新 T[W].Dist 的值 &ndash; <span class="arithmatex">\(O(log|V|)\)</span> </li>
+<li>$ T = O(|V|log|V| + |E|log|V|) = O(|E|log|V|) $  &ndash; 对稀疏图效果好(指 V 和 E 一个数量级)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="_9">带负权图<a class="headerlink" href="#_9" title="Permanent link">👀</a></h4>
+<p>时间复杂度 <span class="arithmatex">\(T = O(|V| \times |E|)\)</span><br />
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kt">void</span><span class="w">  </span><span class="nf">WeightedNegative</span><span class="p">(</span><span class="w"> </span><span class="n">Table</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="p">)</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="p">{</span><span class="w">   </span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">    </span><span class="n">Queue</span><span class="w">  </span><span class="n">Q</span><span class="p">;</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">    </span><span class="n">Vertex</span><span class="w">  </span><span class="n">V</span><span class="p">,</span><span class="w"> </span><span class="n">W</span><span class="p">;</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">    </span><span class="n">Q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CreateQueue</span><span class="w"> </span><span class="p">(</span><span class="n">NumVertex</span><span class="w"> </span><span class="p">);</span><span class="w">  </span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">    </span><span class="n">MakeEmpty</span><span class="p">(</span><span class="w"> </span><span class="n">Q</span><span class="w"> </span><span class="p">);</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">    </span><span class="n">Enqueue</span><span class="p">(</span><span class="w"> </span><span class="n">S</span><span class="p">,</span><span class="w"> </span><span class="n">Q</span><span class="w"> </span><span class="p">);</span><span class="w"> </span><span class="cm">/* Enqueue the source vertex */</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">IsEmpty</span><span class="p">(</span><span class="w"> </span><span class="n">Q</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="w">        </span><span class="n">V</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Dequeue</span><span class="p">(</span><span class="w"> </span><span class="n">Q</span><span class="w"> </span><span class="p">);</span><span class="w">   </span><span class="cm">/* each vertex can dequeue at most |V| times */</span>
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">W</span><span class="w"> </span><span class="n">adjacent</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">V</span><span class="w"> </span><span class="p">)</span>
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">T</span><span class="p">[</span><span class="w"> </span><span class="n">V</span><span class="w"> </span><span class="p">].</span><span class="n">Dist</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Cvw</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">T</span><span class="p">[</span><span class="w"> </span><span class="n">W</span><span class="w"> </span><span class="p">].</span><span class="n">Dist</span><span class="w"> </span><span class="p">)</span><span class="w">  </span><span class="cm">/* no longer once per edge */</span>
+<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="w">            </span><span class="p">{</span>
+<a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="w">                </span><span class="n">T</span><span class="p">[</span><span class="w"> </span><span class="n">W</span><span class="w"> </span><span class="p">].</span><span class="n">Dist</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">T</span><span class="p">[</span><span class="w"> </span><span class="n">V</span><span class="w"> </span><span class="p">].</span><span class="n">Dist</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Cvw</span><span class="p">;</span>
+<a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a><span class="w">                </span><span class="n">T</span><span class="p">[</span><span class="w"> </span><span class="n">W</span><span class="w"> </span><span class="p">].</span><span class="n">Path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">V</span><span class="p">;</span>
+<a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">W</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">not</span><span class="w"> </span><span class="n">already</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">Q</span><span class="w"> </span><span class="p">)</span>
+<a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="w">                    </span><span class="n">Enqueue</span><span class="p">(</span><span class="w"> </span><span class="n">W</span><span class="p">,</span><span class="w"> </span><span class="n">Q</span><span class="w"> </span><span class="p">);</span>
+<a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a><span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="cm">/* end-if update */</span>
+<a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="cm">/* end-while */</span>
+<a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a><span class="w">    </span><span class="n">DisposeQueue</span><span class="p">(</span><span class="w"> </span><span class="n">Q</span><span class="w"> </span><span class="p">);</span><span class="w"> </span><span class="cm">/* free memory */</span>
+<a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a><span class="p">}</span>
+<a id="__codelineno-10-22" name="__codelineno-10-22" href="#__codelineno-10-22"></a><span class="cm">/* negative-cost cycle will cause indefinite loop */</span>
+</code></pre></div></p>
+<h4 id="acyclic-graph">无环图 | Acyclic Graph<a class="headerlink" href="#acyclic-graph" title="Permanent link">👀</a></h4>
 <h2 id="dfs">深度优先搜索 | DFS<a class="headerlink" href="#dfs" title="Permanent link">👀</a></h2>
 <p><center><font face="JetBrains Mono" color=grey size=18>To Be Continued</font></center></p>
 
@@ -1608,6 +1677,8 @@
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../../assets/js/busuanzi.pure.mini.js"></script>
       
     
   </body>
