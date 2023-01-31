@@ -658,6 +658,60 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    拓扑排序算法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    最短路算法
+  </a>
+  
+    <nav class="md-nav" aria-label="最短路算法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    问题分类
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    无权图的单源最短路
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    有权图的单源最短路
+  </a>
+  
+    <nav class="md-nav" aria-label="有权图的单源最短路">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dijkstra" class="md-nav__link">
+    Dijkstra 算法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1019,6 +1073,60 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    拓扑排序算法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    最短路算法
+  </a>
+  
+    <nav class="md-nav" aria-label="最短路算法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    问题分类
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    无权图的单源最短路
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    有权图的单源最短路
+  </a>
+  
+    <nav class="md-nav" aria-label="有权图的单源最短路">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dijkstra" class="md-nav__link">
+    Dijkstra 算法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1131,6 +1239,243 @@
 </blockquote>
 </li>
 </ul>
+<h3 id="_4">拓扑排序算法<a class="headerlink" href="#_4" title="Permanent link">👀</a></h3>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">Topsort</span><span class="p">(</span><span class="n">Graph</span><span class="w"> </span><span class="n">G</span><span class="p">)</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="p">{</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">Counter</span><span class="p">;</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">      </span><span class="n">Vertex</span><span class="w"> </span><span class="n">V</span><span class="p">,</span><span class="w"> </span><span class="n">W</span><span class="p">;</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">      </span><span class="k">for</span><span class="p">(</span><span class="n">Counter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">Counter</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">NUmVertex</span><span class="p">;</span><span class="w"> </span><span class="n">Counter</span><span class="w"> </span><span class="o">++</span><span class="p">)</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">      </span><span class="p">{</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">            </span><span class="n">V</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FindNeVertexOfDegreeZero</span><span class="p">();</span><span class="w">     </span><span class="cm">/* O(|V|) */</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">V</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">NotAVertex</span><span class="p">)</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">            </span><span class="p">{</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">                  </span><span class="n">Error</span><span class="p">(</span><span class="s">&quot;Graph has a cycle&quot;</span><span class="p">);</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">                  </span><span class="k">break</span><span class="p">;</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">            </span><span class="n">TopNum</span><span class="p">[</span><span class="n">V</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Counter</span><span class="p">;</span><span class="w">    </span><span class="cm">/*or output V*/</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">            </span><span class="k">for</span><span class="p">(</span><span class="n">each</span><span class="w"> </span><span class="n">W</span><span class="w"> </span><span class="n">adjacent</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">V</span><span class="p">)</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">                  </span><span class="n">Indegree</span><span class="p">[</span><span class="n">W</span><span class="p">]</span><span class="w"> </span><span class="o">--</span><span class="p">;</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="p">}</span>
+</code></pre></div>
+* 上述算法的时间复杂度 $T = O(|V|^2) $ 
+* Improvement: 随时将入度变为 0 的顶点放到一个容器中(栈或队列等)<br />
+<div class="highlight"><span class="filename">Improvement</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">Topsort</span><span class="p">(</span><span class="w"> </span><span class="n">Graph</span><span class="w"> </span><span class="n">G</span><span class="w"> </span><span class="p">)</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="p">{</span><span class="w">   </span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">      </span><span class="n">Queue</span><span class="w">  </span><span class="n">Q</span><span class="p">;</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">      </span><span class="kt">int</span><span class="w">  </span><span class="n">Counter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">      </span><span class="n">Vertex</span><span class="w">  </span><span class="n">V</span><span class="p">,</span><span class="w"> </span><span class="n">W</span><span class="p">;</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">      </span><span class="n">Q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CreateQueue</span><span class="p">(</span><span class="w"> </span><span class="n">NumVertex</span><span class="w"> </span><span class="p">);</span><span class="w">  </span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">      </span><span class="n">MakeEmpty</span><span class="p">(</span><span class="w"> </span><span class="n">Q</span><span class="w"> </span><span class="p">);</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">      </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">vertex</span><span class="w"> </span><span class="n">V</span><span class="w"> </span><span class="p">)</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Indegree</span><span class="p">[</span><span class="w"> </span><span class="n">V</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w">   </span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">                  </span><span class="n">Enqueue</span><span class="p">(</span><span class="w"> </span><span class="n">V</span><span class="p">,</span><span class="w"> </span><span class="n">Q</span><span class="w"> </span><span class="p">);</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">      </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">IsEmpty</span><span class="p">(</span><span class="w"> </span><span class="n">Q</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">      </span><span class="p">{</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">            </span><span class="n">V</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Dequeue</span><span class="p">(</span><span class="w"> </span><span class="n">Q</span><span class="w"> </span><span class="p">);</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">            </span><span class="n">TopNum</span><span class="p">[</span><span class="w"> </span><span class="n">V</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="n">Counter</span><span class="p">;</span><span class="w"> </span><span class="cm">/* assign next */</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">W</span><span class="w"> </span><span class="n">adjacent</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">V</span><span class="w"> </span><span class="p">)</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">                  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="err">–</span><span class="w"> </span><span class="err">–</span><span class="w"> </span><span class="n">Indegree</span><span class="p">[</span><span class="w"> </span><span class="n">W</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w">  </span>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">                        </span><span class="n">Enqueue</span><span class="p">(</span><span class="w"> </span><span class="n">W</span><span class="p">,</span><span class="w"> </span><span class="n">Q</span><span class="w"> </span><span class="p">);</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">      </span><span class="p">}</span><span class="w">  </span><span class="cm">/* end-while */</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Counter</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">NumVertex</span><span class="w"> </span><span class="p">)</span>
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="w">            </span><span class="n">Error</span><span class="p">(</span><span class="w"> </span><span class="err">“</span><span class="n">Graph</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">cycle</span><span class="err">”</span><span class="w"> </span><span class="p">);</span>
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>
+<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="w">      </span><span class="n">DisposeQueue</span><span class="p">(</span><span class="w"> </span><span class="n">Q</span><span class="w"> </span><span class="p">);</span><span class="w"> </span><span class="cm">/* free memory */</span><span class="p">}</span>
+</code></pre></div></p>
+<blockquote>
+<p>若有环则一定会存在找不到入度为 0 的点，来进入构成环的子图</p>
+</blockquote>
+<details class="example">
+<summary>邻接表存储&mdash;拓扑排序算法</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kt">bool</span><span class="w"> </span><span class="nf">TopSort</span><span class="p">(</span><span class="w"> </span><span class="n">LGraph</span><span class="w"> </span><span class="n">Graph</span><span class="p">,</span><span class="w"> </span><span class="n">Vertex</span><span class="w"> </span><span class="n">TopOrder</span><span class="p">[]</span><span class="w"> </span><span class="p">)</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="p">{</span><span class="w"> </span><span class="cm">/* 对Graph进行拓扑排序,  TopOrder[]顺序存储排序后的顶点下标 */</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="kt">int</span><span class="w"> </span><span class="n">Indegree</span><span class="p">[</span><span class="n">MaxVertexNum</span><span class="p">],</span><span class="w"> </span><span class="n">cnt</span><span class="p">;</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="n">Vertex</span><span class="w"> </span><span class="n">V</span><span class="p">;</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="n">PtrToAdjVNode</span><span class="w"> </span><span class="n">W</span><span class="p">;</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="n">Queue</span><span class="w"> </span><span class="n">Q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CreateQueue</span><span class="p">(</span><span class="w"> </span><span class="n">Graph</span><span class="o">-&gt;</span><span class="n">Nv</span><span class="w"> </span><span class="p">);</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="cm">/* 初始化Indegree[] */</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">V</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">V</span><span class="o">&lt;</span><span class="n">Graph</span><span class="o">-&gt;</span><span class="n">Nv</span><span class="p">;</span><span class="w"> </span><span class="n">V</span><span class="o">++</span><span class="p">)</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">      </span><span class="n">Indegree</span><span class="p">[</span><span class="n">V</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="cm">/* 遍历图，得到Indegree[] */</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">V</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">V</span><span class="o">&lt;</span><span class="n">Graph</span><span class="o">-&gt;</span><span class="n">Nv</span><span class="p">;</span><span class="w"> </span><span class="n">V</span><span class="o">++</span><span class="p">)</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">      </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">W</span><span class="o">=</span><span class="n">Graph</span><span class="o">-&gt;</span><span class="n">G</span><span class="p">[</span><span class="n">V</span><span class="p">].</span><span class="n">FirstEdge</span><span class="p">;</span><span class="w"> </span><span class="n">W</span><span class="p">;</span><span class="w"> </span><span class="n">W</span><span class="o">=</span><span class="n">W</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">)</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">            </span><span class="n">Indegree</span><span class="p">[</span><span class="n">W</span><span class="o">-&gt;</span><span class="n">AdjV</span><span class="p">]</span><span class="o">++</span><span class="p">;</span><span class="w"> </span><span class="cm">/* 对有向边&lt;V, W-&gt;AdjV&gt;累计终点的入度 */</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="cm">/* 将所有入度为0的顶点入列 */</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">V</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">V</span><span class="o">&lt;</span><span class="n">Graph</span><span class="o">-&gt;</span><span class="n">Nv</span><span class="p">;</span><span class="w"> </span><span class="n">V</span><span class="o">++</span><span class="p">)</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Indegree</span><span class="p">[</span><span class="n">V</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span>
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="w">            </span><span class="n">AddQ</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span><span class="w"> </span><span class="n">V</span><span class="p">);</span>
+<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>
+<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="cm">/* 下面进入拓扑排序 */</span><span class="w"> </span>
+<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="n">cnt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span>
+<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="k">while</span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">IsEmpty</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span><span class="w"> </span><span class="p">){</span>
+<a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a><span class="w">      </span><span class="n">V</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DeleteQ</span><span class="p">(</span><span class="n">Q</span><span class="p">);</span><span class="w"> </span><span class="cm">/* 弹出一个入度为0的顶点 */</span>
+<a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a><span class="w">      </span><span class="n">TopOrder</span><span class="p">[</span><span class="n">cnt</span><span class="o">++</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">V</span><span class="p">;</span><span class="w"> </span><span class="cm">/* 将之存为结果序列的下一个元素 */</span>
+<a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a><span class="w">      </span><span class="cm">/* 对V的每个邻接点W-&gt;AdjV */</span>
+<a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a><span class="w">      </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">W</span><span class="o">=</span><span class="n">Graph</span><span class="o">-&gt;</span><span class="n">G</span><span class="p">[</span><span class="n">V</span><span class="p">].</span><span class="n">FirstEdge</span><span class="p">;</span><span class="w"> </span><span class="n">W</span><span class="p">;</span><span class="w"> </span><span class="n">W</span><span class="o">=</span><span class="n">W</span><span class="o">-&gt;</span><span class="n">Next</span><span class="w"> </span><span class="p">)</span>
+<a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">--</span><span class="n">Indegree</span><span class="p">[</span><span class="n">W</span><span class="o">-&gt;</span><span class="n">AdjV</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="cm">/* 若删除V使得W-&gt;AdjV入度为0 */</span>
+<a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a><span class="w">            </span><span class="n">AddQ</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span><span class="w"> </span><span class="n">W</span><span class="o">-&gt;</span><span class="n">AdjV</span><span class="p">);</span><span class="w"> </span><span class="cm">/* 则该顶点入列 */</span><span class="w"> </span>
+<a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a><span class="p">}</span><span class="w"> </span><span class="cm">/* while结束*/</span>
+<a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a>
+<a id="__codelineno-2-33" name="__codelineno-2-33" href="#__codelineno-2-33"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">cnt</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">Graph</span><span class="o">-&gt;</span><span class="n">Nv</span><span class="w"> </span><span class="p">)</span>
+<a id="__codelineno-2-34" name="__codelineno-2-34" href="#__codelineno-2-34"></a><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"> </span><span class="cm">/* 说明图中有回路, 返回不成功标志 */</span><span class="w"> </span>
+<a id="__codelineno-2-35" name="__codelineno-2-35" href="#__codelineno-2-35"></a><span class="k">else</span>
+<a id="__codelineno-2-36" name="__codelineno-2-36" href="#__codelineno-2-36"></a><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<a id="__codelineno-2-37" name="__codelineno-2-37" href="#__codelineno-2-37"></a><span class="p">}</span>
+</code></pre></div>
+</details>
+<h2 id="_5">最短路算法<a class="headerlink" href="#_5" title="Permanent link">👀</a></h2>
+<div class="admonition abstract">
+<p class="admonition-title">最短路径问题的抽象</p>
+<p>在网络中，求两个不同顶点之间的所有路径中，边的权值之和最小的那一条路径。这条路径即两点之间的最短路径(Shortest Path), 第一个顶点为源点(Source), 最后一个顶点为终点(Destination)</p>
+</div>
+<h3 id="_6">问题分类<a class="headerlink" href="#_6" title="Permanent link">👀</a></h3>
+<ol>
+<li>单源最短路径: 从固定源点出发，求其到所有其他顶点的最短路径<ol>
+<li>(有向)无权图</li>
+<li>(有向)有权图</li>
+</ol>
+</li>
+<li>多源最短路径: 求任意两顶点间的最短路径</li>
+</ol>
+<h3 id="_7">无权图的单源最短路<a class="headerlink" href="#_7" title="Permanent link">👀</a></h3>
+<blockquote>
+<p>按照递增(递减)的顺序找出到各顶点的最短路<br />
+采用 BFS(Breadth-first search)</p>
+</blockquote>
+<div class="admonition note">
+<p class="admonition-title">Implementation</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">Table</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">Dist</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">distance</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">vi</span><span class="w">  </span><span class="cm">/* initialized to be  except for s */</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">Table</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">Known</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">vi</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">checked</span><span class="p">;</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">not</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">Table</span><span class="p">[</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="p">].</span><span class="n">Path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">tracking</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">path</span><span class="w">   </span><span class="cm">/* initialized to be 0 */</span>
+</code></pre></div>
+</div>
+<ol>
+<li>Normal:<br />
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">Unweighted</span><span class="p">(</span><span class="w"> </span><span class="n">Table</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="p">)</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="p">{</span><span class="w">   </span><span class="kt">int</span><span class="w">  </span><span class="n">CurrDist</span><span class="p">;</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="n">Vertex</span><span class="w">  </span><span class="n">V</span><span class="p">,</span><span class="w"> </span><span class="n">W</span><span class="p">;</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">CurrDist</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">CurrDist</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">NumVertex</span><span class="p">;</span><span class="w"> </span><span class="n">CurrDist</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">vertex</span><span class="w"> </span><span class="n">V</span><span class="w"> </span><span class="p">)</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">T</span><span class="p">[</span><span class="w"> </span><span class="n">V</span><span class="w"> </span><span class="p">].</span><span class="n">Known</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">T</span><span class="p">[</span><span class="w"> </span><span class="n">V</span><span class="w"> </span><span class="p">].</span><span class="n">Dist</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">CurrDist</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">        </span><span class="n">T</span><span class="p">[</span><span class="w"> </span><span class="n">V</span><span class="w"> </span><span class="p">].</span><span class="n">Known</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">W</span><span class="w"> </span><span class="n">adjacent</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">V</span><span class="w"> </span><span class="p">)</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">T</span><span class="p">[</span><span class="w"> </span><span class="n">W</span><span class="w"> </span><span class="p">].</span><span class="n">Dist</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Infinity</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">        </span><span class="n">T</span><span class="p">[</span><span class="w"> </span><span class="n">W</span><span class="w"> </span><span class="p">].</span><span class="n">Dist</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CurrDist</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">        </span><span class="n">T</span><span class="p">[</span><span class="w"> </span><span class="n">W</span><span class="w"> </span><span class="p">].</span><span class="n">Path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">V</span><span class="p">;</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="cm">/* end-if Dist == Infinity */</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="cm">/* end-if !Known &amp;&amp; Dist == CurrDist */</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">    </span><span class="p">}</span><span class="w">  </span><span class="cm">/* end-for CurrDist */</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="p">}</span>
+</code></pre></div><blockquote>
+<p><span class="arithmatex">\(T = O(|V|^2)\)</span> </p>
+</blockquote>
+</li>
+<li>Improvement:<br />
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">Unweighted</span><span class="p">(</span><span class="w"> </span><span class="n">Table</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="p">)</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="p">{</span><span class="w">   </span><span class="cm">/* T is initialized with the source vertex S given */</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="n">Queue</span><span class="w">  </span><span class="n">Q</span><span class="p">;</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="n">Vertex</span><span class="w">  </span><span class="n">V</span><span class="p">,</span><span class="w"> </span><span class="n">W</span><span class="p">;</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="n">Q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CreateQueue</span><span class="w"> </span><span class="p">(</span><span class="n">NumVertex</span><span class="w"> </span><span class="p">);</span><span class="w">  </span><span class="n">MakeEmpty</span><span class="p">(</span><span class="w"> </span><span class="n">Q</span><span class="w"> </span><span class="p">);</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="n">Enqueue</span><span class="p">(</span><span class="w"> </span><span class="n">S</span><span class="p">,</span><span class="w"> </span><span class="n">Q</span><span class="w"> </span><span class="p">);</span><span class="w"> </span><span class="cm">/* Enqueue the source vertex */</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">IsEmpty</span><span class="p">(</span><span class="w"> </span><span class="n">Q</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">        </span><span class="n">V</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Dequeue</span><span class="p">(</span><span class="w"> </span><span class="n">Q</span><span class="w"> </span><span class="p">);</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">        </span><span class="n">T</span><span class="p">[</span><span class="w"> </span><span class="n">V</span><span class="w"> </span><span class="p">].</span><span class="n">Known</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w"> </span><span class="cm">/* not really necessary */</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">W</span><span class="w"> </span><span class="n">adjacent</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">V</span><span class="w"> </span><span class="p">)</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">T</span><span class="p">[</span><span class="w"> </span><span class="n">W</span><span class="w"> </span><span class="p">].</span><span class="n">Dist</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Infinity</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">        </span><span class="n">T</span><span class="p">[</span><span class="w"> </span><span class="n">W</span><span class="w"> </span><span class="p">].</span><span class="n">Dist</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">T</span><span class="p">[</span><span class="w"> </span><span class="n">V</span><span class="w"> </span><span class="p">].</span><span class="n">Dist</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">        </span><span class="n">T</span><span class="p">[</span><span class="w"> </span><span class="n">W</span><span class="w"> </span><span class="p">].</span><span class="n">Path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">V</span><span class="p">;</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">        </span><span class="n">Enqueue</span><span class="p">(</span><span class="w"> </span><span class="n">W</span><span class="p">,</span><span class="w"> </span><span class="n">Q</span><span class="w"> </span><span class="p">);</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="cm">/* end-if Dist == Infinity */</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="cm">/* end-while */</span>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">    </span><span class="n">DisposeQueue</span><span class="p">(</span><span class="w"> </span><span class="n">Q</span><span class="w"> </span><span class="p">);</span><span class="w"> </span><span class="cm">/* free memory */</span>
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="p">}</span>
+</code></pre></div><blockquote>
+<p><span class="arithmatex">\(T = O(|V|+|E|)\)</span> </p>
+</blockquote>
+</li>
+</ol>
+<h3 id="_8">有权图的单源最短路<a class="headerlink" href="#_8" title="Permanent link">👀</a></h3>
+<blockquote>
+<p>按照递增的顺序找出到各顶点的最短路</p>
+</blockquote>
+<h4 id="dijkstra">Dijkstra 算法<a class="headerlink" href="#dijkstra" title="Permanent link">👀</a></h4>
+<ul>
+<li>令 S = {源点 s + 已经确定了最短路径的顶点 v<sub>i</sub> }</li>
+<li>对任一未收录的顶点 v, 定义 dist[v] 为 s 到 v 的最短路径长度，但该路径仅经过 s 中的顶点。</li>
+<li>由于路径按照递增顺序生成<ul>
+<li>真正的最短路必须只经过 S 中的顶点</li>
+<li>每次从未收录的顶点中选一个 dist 最小的收录</li>
+<li>增加一个 v 进入 S，可能影响另一个 w 的 dist 值(dist[w] = min{dist[w], dist[v] + &lt; v, w &gt; 的权重})</li>
+</ul>
+</li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">code</p>
+<div class="highlight"><span class="filename">伪码</span><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">Dijkstra</span><span class="p">(</span><span class="n">Table</span><span class="w"> </span><span class="n">T</span><span class="p">)</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="p">{</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">      </span><span class="n">Vertex</span><span class="w"> </span><span class="n">V</span><span class="p">,</span><span class="w"> </span><span class="n">W</span><span class="p">;</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">      </span><span class="k">for</span><span class="p">(;;)</span><span class="w">     </span><span class="cm">/* O(|V|) */</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">      </span><span class="p">{</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">            </span><span class="n">V</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">smallest</span><span class="w"> </span><span class="n">unknown</span><span class="w"> </span><span class="n">distance</span><span class="w"> </span><span class="n">vertex</span><span class="p">;</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">V</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">NotAVertex</span><span class="p">)</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">                  </span><span class="k">break</span><span class="p">;</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">            </span><span class="n">T</span><span class="p">[</span><span class="n">V</span><span class="p">].</span><span class="n">Known</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">            </span><span class="k">for</span><span class="p">(</span><span class="n">each</span><span class="w"> </span><span class="n">W</span><span class="w"> </span><span class="n">adjacent</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">V</span><span class="p">)</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">                  </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">T</span><span class="p">[</span><span class="n">W</span><span class="p">].</span><span class="n">Known</span><span class="p">)</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">                        </span><span class="k">if</span><span class="p">(</span><span class="n">T</span><span class="p">[</span><span class="n">V</span><span class="p">].</span><span class="n">Dist</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Cvw</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">T</span><span class="p">[</span><span class="n">W</span><span class="p">].</span><span class="n">Dist</span><span class="p">)</span>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="w">                        </span><span class="p">{</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="w">                              </span><span class="n">Decrease</span><span class="p">(</span><span class="n">T</span><span class="p">[</span><span class="n">W</span><span class="p">].</span><span class="n">Dist</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">T</span><span class="p">[</span><span class="n">V</span><span class="p">].</span><span class="n">Dist</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Cvw</span><span class="p">);</span>
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="w">                              </span><span class="n">T</span><span class="p">[</span><span class="n">W</span><span class="p">].</span><span class="n">Path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">V</span><span class="p">;</span>
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="w">                        </span><span class="p">}</span><span class="cm">/* end-if update W */</span>
+<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="w">      </span><span class="p">}</span><span class="cm">/* end-for(;;) */</span>
+<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="p">}</span>
+<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="cm">/* not work for edge with negative cost */</span>
+</code></pre></div>
+<p>??? example &ldquo;Dijkstra算法的声明&rdquo;<br />
+        <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">typedef</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">Vertex</span><span class="p">;</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="k">struct</span><span class="w"> </span><span class="nc">TableEntry</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="p">{</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">      </span><span class="n">List</span><span class="w"> </span><span class="n">Header</span><span class="p">;</span><span class="w">      </span><span class="cm">/* Adjacency list */</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">Known</span><span class="p">;</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">      </span><span class="n">DistType</span><span class="w"> </span><span class="n">Dist</span><span class="p">;</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">      </span><span class="n">Vertex</span><span class="w"> </span><span class="n">Path</span><span class="p">;</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="p">};</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="cm">/* Vertices are numbered from 0 */</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="cp">#define NotAVertex (-1)</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">TableEntry</span><span class="w"> </span><span class="n">Table</span><span class="p">[</span><span class="n">NumVertex</span><span class="p">];</span>
+</code></pre></div></p>
+<p>??? example &ldquo;表初始化例程&rdquo;<br />
+        <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">InitTable</span><span class="p">(</span><span class="n">Vertex</span><span class="w"> </span><span class="n">Start</span><span class="p">,</span><span class="w"> </span><span class="n">Graph</span><span class="w"> </span><span class="n">G</span><span class="p">,</span><span class="w"> </span><span class="n">Table</span><span class="w"> </span><span class="n">T</span><span class="p">)</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="p">{</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">      </span><span class="n">ReadGraph</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="p">);</span><span class="w">  </span><span class="cm">/* Read graph somehow */</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">      </span><span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">NumVertex</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">      </span><span class="p">{</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">            </span><span class="n">T</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">Known</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">False</span><span class="p">;</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">            </span><span class="n">T</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">Dist</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Infinity</span><span class="p">;</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">            </span><span class="n">T</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">Path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">NotAVertex</span><span class="p">;</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="w">      </span><span class="n">T</span><span class="p">[</span><span class="n">Start</span><span class="p">].</span><span class="n">dist</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="p">}</span>
+</code></pre></div></p>
+<p>??? example &ldquo;显示实际最短路径的例程&rdquo;<br />
+        <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="cm">/* Print shortest path to V after Dijkstra has run */</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="cm">/* Assume that the path exists */</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="kt">void</span><span class="w"> </span><span class="nf">PrintPath</span><span class="p">(</span><span class="n">Vertex</span><span class="w"> </span><span class="n">V</span><span class="p">,</span><span class="w"> </span><span class="n">Table</span><span class="w"> </span><span class="n">T</span><span class="p">)</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="p">{</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">      </span><span class="k">if</span><span class="p">(</span><span class="n">T</span><span class="p">[</span><span class="n">V</span><span class="p">].</span><span class="n">Path</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">NotAVertex</span><span class="p">)</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">      </span><span class="p">{</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">            </span><span class="n">PrintPath</span><span class="p">(</span><span class="n">T</span><span class="p">[</span><span class="n">V</span><span class="p">].</span><span class="n">Path</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="p">);</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">            </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot; to&quot;</span><span class="p">);</span>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="w">      </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%v&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">V</span><span class="p">);</span><span class="w">  </span><span class="c1">// %v 是伪代码</span>
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="p">}</span>
+</code></pre></div></p>
+</div>
 <h2 id="dfs">深度优先搜索 | DFS<a class="headerlink" href="#dfs" title="Permanent link">👀</a></h2>
 <p><center><font face="JetBrains Mono" color=grey size=18>To Be Continued</font></center></p>
 
