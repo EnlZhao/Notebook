@@ -34,7 +34,7 @@ nav:
 theme:
   name: material
   logo: Icon/Avator.png
-  custom_dir: material/.overrides
+  custom_dir: overrides
   icon: 
     logo: material/airplane # 页面icon
   font: 
@@ -179,6 +179,7 @@ extra_javascript:
   - mkdocs/javascripts/katex.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  - 'assets/js/busuanzi.pure.mini.js' #访问量统计
 
 extra_css:
   - https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css
@@ -197,9 +198,11 @@ extra:
   social: 
     - icon: fontawesome/brands/github
       link: https://github.com/enl-z
-      name: Github | Enl_Z
+      name: GitHub | Enl_Z
     - icon: fontawesome/solid/paper-plane
       link: mailto:EZhao1997@outlook.com
       name: Outlook | Enl_Z
-
+    - icon: fontawesome/brands/qq
+      link: tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=1613715141&website=www.oicqzone.com
+      name: QQ | Enl_Z
 
