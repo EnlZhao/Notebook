@@ -1157,7 +1157,7 @@
 <div class="admonition abstract">
 <p class="admonition-title">Abstract</p>
 <ul>
-<li>定义增量序列 $h_t &gt; h_{t-1} &gt; ··· &gt; h_1 = 1 $</li>
+<li>定义增量序列 <span class="arithmatex">\(h_t &gt; h_{t-1} &gt; ··· &gt; h_1 = 1\)</span></li>
 <li>对每个 <span class="arithmatex">\(h_t\)</span> 进行 &ldquo;<span class="arithmatex">\(h_t\)</span> -间隔&rdquo; 排序 </li>
 </ul>
 <blockquote>
@@ -1195,13 +1195,13 @@
 <ol>
 <li>Hibbard 增量序列<ol>
 <li><span class="arithmatex">\(h_k = 2^k - 1\)</span> &ndash; 相邻元素互质</li>
-<li>最坏情况: $T(N) = \Theta (N^{3/2}) $</li>
-<li>猜想: $ T_{avg}(N) =O(N^{5/4}) $</li>
+<li>最坏情况: <span class="arithmatex">\(T(N) = \Theta (N^{3/2})\)</span></li>
+<li>猜想: <span class="arithmatex">\(T_{avg}(N) =O(N^{5/4})\)</span></li>
 </ol>
 </li>
 <li>Sedgewick 增量序列 &ndash;  { 1，5，19，41，109，··· }<ol>
-<li>$ 9\times 4^i - 9\times 2^i + 1 $ 或 $ 4^i - 3\times 2^i + 1 $ </li>
-<li>猜想: $ T_{avg}(N) = O(N^{7/6}) $, $ T_{worst}(N) = O(N^{4/3}) $ </li>
+<li>$9\times 4^i - 9\times 2^i + 1 $ 或 $ 4^i - 3\times 2^i + 1$ </li>
+<li>猜想: $T_{avg}(N) = O(N^{7/6}) $, $ T_{worst}(N) = O(N^{4/3})$ </li>
 </ol>
 </li>
 </ol>
@@ -1226,7 +1226,7 @@
 <a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="p">}</span>
 </code></pre></div><ul>
-<li>$ T(N) = O(N logN) $</li>
+<li><span class="arithmatex">\(T(N) = O(N logN)\)</span></li>
 <li>但需要额外的 <span class="arithmatex">\(O(N)\)</span> 空间，并且复制元素需要时间</li>
 </ul>
 </li>
@@ -1247,7 +1247,7 @@
 </code></pre></div></li>
 </ul>
 </li>
-<li>堆排序处理 N 个不同元素的随机排列的平均比较次数为 $ 2NlogN - O(NloglogN) $ </li>
+<li>堆排序处理 N 个不同元素的随机排列的平均比较次数为 <span class="arithmatex">\(2NlogN - O(NloglogN)\)</span> </li>
 </ul>
 <blockquote>
 <p>虽然堆排序给出最佳平均时间复杂度，但实际效果不如希尔排序 + Sedgewick 增量</p>
