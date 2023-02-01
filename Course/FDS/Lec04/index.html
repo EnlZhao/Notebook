@@ -2023,10 +2023,74 @@ $T = O(|E|log|E|) $</p>
 <li>如果 u 不是 root，则 u 是割点当且仅当存在一个儿子 v，满足 Num[u] <span class="arithmatex">\(\leq\)</span> low[v]</li>
 </ul>
 </li>
+<li>计算 Low 并检验是否割点 (忽略对根的检验)<br />
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">AssignLow</span><span class="p">(</span><span class="n">Vertex</span><span class="w"> </span><span class="n">V</span><span class="p">)</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="p">{</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="w">    </span><span class="n">Vertex</span><span class="w"> </span><span class="n">W</span><span class="p">;</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="w">    </span><span class="n">Low</span><span class="p">[</span><span class="n">V</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Num</span><span class="p">[</span><span class="n">V</span><span class="p">];</span><span class="w">    </span>
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="n">each</span><span class="w"> </span><span class="n">W</span><span class="w"> </span><span class="n">adjacent</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">V</span><span class="p">)</span>
+<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">Num</span><span class="p">[</span><span class="n">W</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">Num</span><span class="p">[</span><span class="n">V</span><span class="p">])</span>
+<a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a><span class="w">            </span><span class="n">AssignLow</span><span class="p">(</span><span class="n">W</span><span class="p">);</span>
+<a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a><span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">Low</span><span class="p">[</span><span class="n">W</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">Num</span><span class="p">[</span><span class="n">V</span><span class="p">])</span>
+<a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a><span class="w">            </span><span class="p">{</span>
+<a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a><span class="w">                </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%v is an articulation point</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">);</span>
+<a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a><span class="w">            </span><span class="n">Low</span><span class="p">[</span><span class="n">V</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Min</span><span class="p">(</span><span class="n">Low</span><span class="p">[</span><span class="n">V</span><span class="p">],</span><span class="w"> </span><span class="n">Low</span><span class="p">[</span><span class="n">W</span><span class="p">]);</span>
+<a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-17-16" name="__codelineno-17-16" href="#__codelineno-17-16"></a><span class="w">        </span><span class="k">else</span>
+<a id="__codelineno-17-17" name="__codelineno-17-17" href="#__codelineno-17-17"></a><span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">Parent</span><span class="p">[</span><span class="n">V</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">W</span><span class="p">)</span>
+<a id="__codelineno-17-18" name="__codelineno-17-18" href="#__codelineno-17-18"></a><span class="w">            </span><span class="p">{</span>
+<a id="__codelineno-17-19" name="__codelineno-17-19" href="#__codelineno-17-19"></a><span class="w">                </span><span class="n">Low</span><span class="p">[</span><span class="n">V</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Min</span><span class="p">(</span><span class="n">Low</span><span class="p">[</span><span class="n">V</span><span class="p">],</span><span class="w"> </span><span class="n">Num</span><span class="p">[</span><span class="n">W</span><span class="p">]);</span>
+<a id="__codelineno-17-20" name="__codelineno-17-20" href="#__codelineno-17-20"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-17-21" name="__codelineno-17-21" href="#__codelineno-17-21"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-17-22" name="__codelineno-17-22" href="#__codelineno-17-22"></a><span class="p">}</span>
+</code></pre></div></li>
+<li>在一次 DFS 中对割点的检测（忽略对根的检测）<br />
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">FindArt</span><span class="p">(</span><span class="n">Vertex</span><span class="w"> </span><span class="n">V</span><span class="p">)</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="p">{</span>
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="w">    </span><span class="n">Vertex</span><span class="w"> </span><span class="n">W</span><span class="p">;</span>
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="w">    </span><span class="n">Visited</span><span class="p">[</span><span class="n">V</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">True</span><span class="p">;</span>
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="w">    </span><span class="n">Low</span><span class="p">[</span><span class="n">V</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Num</span><span class="p">[</span><span class="n">V</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Counter</span><span class="w"> </span><span class="o">++</span><span class="p">;</span>
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="n">each</span><span class="w"> </span><span class="n">W</span><span class="w"> </span><span class="n">adjacent</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">V</span><span class="p">)</span>
+<a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">Visited</span><span class="p">[</span><span class="n">W</span><span class="p">])</span>
+<a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a><span class="w">            </span><span class="n">Parent</span><span class="p">[</span><span class="n">W</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">V</span><span class="p">;</span>
+<a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a><span class="w">            </span><span class="n">FindArt</span><span class="p">(</span><span class="n">W</span><span class="p">);</span>
+<a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a><span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">Low</span><span class="p">[</span><span class="n">W</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">Num</span><span class="p">[</span><span class="n">V</span><span class="p">])</span>
+<a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a><span class="w">            </span><span class="p">{</span>
+<a id="__codelineno-18-14" name="__codelineno-18-14" href="#__codelineno-18-14"></a><span class="w">                </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%v is an articulation point</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">);</span>
+<a id="__codelineno-18-15" name="__codelineno-18-15" href="#__codelineno-18-15"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-18-16" name="__codelineno-18-16" href="#__codelineno-18-16"></a><span class="w">            </span><span class="n">Low</span><span class="p">[</span><span class="n">V</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Min</span><span class="p">(</span><span class="n">Low</span><span class="p">[</span><span class="n">V</span><span class="p">],</span><span class="w"> </span><span class="n">Low</span><span class="p">[</span><span class="n">W</span><span class="p">]);</span>
+<a id="__codelineno-18-17" name="__codelineno-18-17" href="#__codelineno-18-17"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-18-18" name="__codelineno-18-18" href="#__codelineno-18-18"></a><span class="w">        </span><span class="k">else</span>
+<a id="__codelineno-18-19" name="__codelineno-18-19" href="#__codelineno-18-19"></a><span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">Parent</span><span class="p">[</span><span class="n">V</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">W</span><span class="p">)</span>
+<a id="__codelineno-18-20" name="__codelineno-18-20" href="#__codelineno-18-20"></a><span class="w">            </span><span class="p">{</span>
+<a id="__codelineno-18-21" name="__codelineno-18-21" href="#__codelineno-18-21"></a><span class="w">                </span><span class="n">Low</span><span class="p">[</span><span class="n">V</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Min</span><span class="p">(</span><span class="n">Low</span><span class="p">[</span><span class="n">V</span><span class="p">],</span><span class="w"> </span><span class="n">Num</span><span class="p">[</span><span class="n">W</span><span class="p">]);</span>
+<a id="__codelineno-18-22" name="__codelineno-18-22" href="#__codelineno-18-22"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-18-23" name="__codelineno-18-23" href="#__codelineno-18-23"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-18-24" name="__codelineno-18-24" href="#__codelineno-18-24"></a><span class="p">}</span>
+</code></pre></div></li>
 </ul>
 </li>
 </ul>
 <h3 id="_10">欧拉回路 &amp; 欧拉路径<a class="headerlink" href="#_10" title="Permanent link">👀</a></h3>
+<ul>
+<li>欧拉路径 (Euler path | Euler tour) &mdash; 一笔画 | 包含所有边的简单路径<ul>
+<li>如果正好有两个度为奇数的顶点，欧拉路径就是可能的。必须从一个奇度的顶点开始 &ldquo;画&rdquo;</li>
+</ul>
+</li>
+<li>欧拉回路 (Euler curcit) &mdash; 一笔画并且结束点和起始点重合 | 包含所有边的简单环<ul>
+<li>只有当图连通且每个顶点度为偶数，欧拉回路才有可能</li>
+</ul>
+</li>
+<li>对无向图<ul>
+<li></li>
+</ul>
+</li>
+</ul>
 <p><center><font face="JetBrains Mono" color=grey size=18>To Be Continued</font></center></p>
 
 
