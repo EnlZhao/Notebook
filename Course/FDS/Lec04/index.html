@@ -763,6 +763,26 @@
     深度优先搜索 | DFS
   </a>
   
+    <nav class="md-nav" aria-label="深度优先搜索 | DFS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#binconnectivity" class="md-nav__link">
+    双连通 | Binconnectivity
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    欧拉回路 &amp; 欧拉路径
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1218,6 +1238,26 @@
   <a href="#dfs" class="md-nav__link">
     深度优先搜索 | DFS
   </a>
+  
+    <nav class="md-nav" aria-label="深度优先搜索 | DFS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#binconnectivity" class="md-nav__link">
+    双连通 | Binconnectivity
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    欧拉回路 &amp; 欧拉路径
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1925,6 +1965,59 @@ $T = O(|E|log|E|) $</p>
 </code></pre></div>
 </details>
 <h2 id="dfs">深度优先搜索 | DFS<a class="headerlink" href="#dfs" title="Permanent link">👀</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">DFS</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Vertex</span><span class="w"> </span><span class="n">V</span><span class="w"> </span><span class="p">)</span><span class="w">  </span><span class="cm">/* this is only a template */</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="p">{</span><span class="w">   </span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">    </span><span class="n">visited</span><span class="p">[</span><span class="w"> </span><span class="n">V</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w">  </span><span class="cm">/* mark this vertex to avoid cycles */</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">W</span><span class="w"> </span><span class="n">adjacent</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">V</span><span class="w"> </span><span class="p">)</span>
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">visited</span><span class="p">[</span><span class="w"> </span><span class="n">W</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="p">)</span>
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="w">            </span><span class="n">DFS</span><span class="p">(</span><span class="w"> </span><span class="n">W</span><span class="w"> </span><span class="p">);</span>
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="p">}</span><span class="w"> </span><span class="cm">/* T = O( |E| + |V| ) as long as adjacency lists are used */</span>
+</code></pre></div>
+<blockquote>
+<p>是先序遍历的一种推广</p>
+</blockquote>
+<h3 id="binconnectivity">双连通 | Binconnectivity<a class="headerlink" href="#binconnectivity" title="Permanent link">👀</a></h3>
+<ul>
+<li>若一个图不是双连通的，那么将其删除后图不再连通的顶点叫做割点 (articulation point)</li>
+<li>若一个连通的无向图中的任一顶点删除后，剩下的图仍然连通 (即连通且无割点) ，则称其为双连通</li>
+<li>双连通分量 (biconnected component) 是极大的双连通子图</li>
+</ul>
+<details class="example">
+<summary>具有割点 C 和 D 的图</summary>
+<p><img alt="2023-02-01-13-24-22" src="../../../Images/2023-02-01-13-24-22.png" /></p>
+</details>
+<ul>
+<li>Tarjan算法<br />
+    ??? note &ldquo;对顶点的 Num 赋值例程&rdquo;<br />
+        <div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="cm">/* Assign Num and compute Parents */</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="kt">void</span><span class="w"> </span><span class="nf">AssignNum</span><span class="p">(</span><span class="n">Vertex</span><span class="w"> </span><span class="n">V</span><span class="p">)</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="p">{</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="w">    </span><span class="n">Vertex</span><span class="w"> </span><span class="n">W</span><span class="p">;</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="w">    </span><span class="n">Num</span><span class="p">[</span><span class="n">V</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Counter</span><span class="w"> </span><span class="o">++</span><span class="p">;</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="w">    </span><span class="n">Visited</span><span class="p">[</span><span class="n">V</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">True</span><span class="p">;</span>
+<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">W</span><span class="w"> </span><span class="n">adjacent</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">V</span>
+<a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">Visited</span><span class="p">[</span><span class="n">W</span><span class="p">])</span>
+<a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a><span class="w">            </span><span class="n">Parent</span><span class="p">[</span><span class="n">W</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">V</span><span class="p">;</span>
+<a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="w">            </span><span class="n">AssignNum</span><span class="p">(</span><span class="n">W</span><span class="p">);</span>
+<a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a><span class="p">}</span>
+</code></pre></div><ul>
+<li>Num[v] 表示 v 第一次被访问的时间戳，即 DFS 时第几个被访问（从0开始）</li>
+<li>追溯值 low[x]<ul>
+<li>对于从 x 到 y 的边，如果 &lt; x, y &gt; 在树上，则 low[x] = min(Num[x], low[y])</li>
+<li>如果 &lt; x, y &gt; 不在树上，则 low[x] = min(Num[x], Num[y])</li>
+</ul>
+</li>
+<li>寻找割点：<ul>
+<li>如果 u 是 root，则 u 是割点当且仅当 u 有至少两个儿子</li>
+<li>如果 u 不是 root，则 u 是割点当且仅当存在一个儿子 v，满足 Num[u] <span class="arithmatex">\(\leq\)</span> low[v]</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="_10">欧拉回路 &amp; 欧拉路径<a class="headerlink" href="#_10" title="Permanent link">👀</a></h3>
 <p><center><font face="JetBrains Mono" color=grey size=18>To Be Continued</font></center></p>
 
 
@@ -1936,9 +2029,7 @@ $T = O(|E|log|E|) $</p>
                 
   <!-- Giscus -->
   <hr/>
-  <!-- <h2 id="__comments">评论</h2> --> 
 
-  <!-- 这里改成你的Giscus代码 -->
   <script src="https://giscus.app/client.js"
   data-repo="enl-z/DSG"
   data-repo-id="R_kgDOI2exGA"
@@ -2105,8 +2196,6 @@ $T = O(|E|log|E|) $</p>
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-      
-        <script src="http://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
       
     
   </body>
