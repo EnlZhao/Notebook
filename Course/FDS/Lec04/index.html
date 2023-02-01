@@ -1821,8 +1821,10 @@
 <h3 id="kruskal">Kruskal 算法<a class="headerlink" href="#kruskal" title="Permanent link">👀</a></h3>
 <p>将每个顶点都看作一棵树，收集的是边，如果这条边收入构成回路就不收入，如果不构成就收入（从边权重最小开始收，收到边的数量为|V|-1为止）</p>
 <blockquote>
-<p>稀疏图一般用此算法（边的数量和顶点数量级差不多）<br />
-$T = O(|E|log|E|) $</p>
+<ul>
+<li>稀疏图一般用此算法（边的数量和顶点数量级差不多）</li>
+<li><span class="arithmatex">\(T = O(|E|log|E|)\)</span> </li>
+</ul>
 </blockquote>
 <div class="highlight"><span class="filename">伪码</span><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">Kruskal</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Graph</span><span class="w"> </span><span class="n">G</span><span class="w"> </span><span class="p">)</span>
 <a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="p">{</span><span class="w">   </span>
