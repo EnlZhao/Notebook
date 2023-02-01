@@ -718,20 +718,33 @@
       
         <li class="md-nav__item">
   <a href="#_10" class="md-nav__link">
-    表排序
+    基数排序
+  </a>
+  
+    <nav class="md-nav" aria-label="基数排序">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    桶排序
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
     基数排序
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     排序算法的比较
   </a>
   
@@ -1134,20 +1147,33 @@
       
         <li class="md-nav__item">
   <a href="#_10" class="md-nav__link">
-    表排序
+    基数排序
+  </a>
+  
+    <nav class="md-nav" aria-label="基数排序">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    桶排序
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
     基数排序
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     排序算法的比较
   </a>
   
@@ -1599,9 +1625,218 @@
 <a id="__codelineno-9-40" name="__codelineno-9-40" href="#__codelineno-9-40"></a><span class="p">}</span>
 </code></pre></div>
 </details>
-<h2 id="_10">表排序<a class="headerlink" href="#_10" title="Permanent link">👀</a></h2>
-<h2 id="_11">基数排序<a class="headerlink" href="#_11" title="Permanent link">👀</a></h2>
-<h2 id="_12">排序算法的比较<a class="headerlink" href="#_12" title="Permanent link">👀</a></h2>
+<h2 id="_10">基数排序<a class="headerlink" href="#_10" title="Permanent link">👀</a></h2>
+<div class="admonition abstract">
+<p class="admonition-title">Abstract</p>
+<p>这之上的排序算法都有一个共同点 &mdash; 仅仅基于比较大小决定排序位置，所有这些算法时间复杂度最坏情况下界都是 <span class="arithmatex">\(NlogN\)</span> </p>
+</div>
+<h3 id="_11">桶排序<a class="headerlink" href="#_11" title="Permanent link">👀</a></h3>
+<ul>
+<li>如果输入数据都小于 M，则可以用一个大小为 M 的数组来记录某个值出现了多少次，这个数组称为桶（bucket</li>
+<li>桶初始化为 0，遍历输入数据，将每个数据对应的桶加 1</li>
+<li>最后遍历桶中的所有元素，对于 bucket[x] = y，将 x 输出 y 次</li>
+<li>时间复杂度 <span class="arithmatex">\(O(N+M)\)</span> (如果 N <span class="arithmatex">\(\ll\)</span> M, 用基数排序)</li>
+</ul>
+<details class="example">
+<summary>Example</summary>
+<ul>
+<li>假设有 N 个学生, 他们的成绩是 0 到 100 之间的整数 (于是有 M = 101 个不同的成绩值) 。如何在线性时间将学生按成绩排序: <br />
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">BucketSort</span><span class="p">(</span><span class="n">ElementType</span><span class="w"> </span><span class="n">A</span><span class="p">[],</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">N</span><span class="p">)</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="p">{</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">    </span><span class="n">count</span><span class="p">[]</span><span class="w"> </span><span class="n">初始化</span><span class="p">;</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">    </span><span class="k">while</span><span class="p">(</span><span class="n">读入一个学生成绩</span><span class="p">)</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">        </span><span class="n">将其插入</span><span class="w"> </span><span class="n">count</span><span class="p">[</span><span class="n">grade</span><span class="p">]</span><span class="w"> </span><span class="n">链表</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">M</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">count</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">            </span><span class="n">输出整个</span><span class="w"> </span><span class="n">count</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="n">链表</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="p">}</span>
+</code></pre></div></li>
+</ul>
+</details>
+<h3 id="_12">基数排序<a class="headerlink" href="#_12" title="Permanent link">👀</a></h3>
+<ul>
+<li>从低位（LSD，Least Significant Digit）到高位（MSB），对每一位进行进行排序 (次位优先)</li>
+<li>时间复杂度 <span class="arithmatex">\(O(P(N+B))\)</span> , 其中 <span class="arithmatex">\(P\)</span> 为轮数, <span class="arithmatex">\(N\)</span> 为元素个数, <span class="arithmatex">\(B\)</span> 为桶个数</li>
+</ul>
+<details class="example">
+<summary>Example</summary>
+<p><img alt="2023-02-01-23-10-42" src="../../../Images/2023-02-01-23-10-42.png" /><br />
+<center><font face="JetBrains Mono" size=2 color=grey >图片摘自 MOOC</font></center></p>
+<blockquote>
+<p>此问题中，P 即是 logB</p>
+</blockquote>
+</details>
+<details class="example">
+<summary>code-LSD</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="cm">/* 基数排序 - 次位优先 */</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="cm">/* 假设元素最多有MaxDigit个关键字，基数全是同样的Radix */</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="cp">#define MaxDigit 4</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="cp">#define Radix 10</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="cm">/* 桶元素结点 */</span>
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">Node</span><span class="w"> </span><span class="o">*</span><span class="n">PtrToNode</span><span class="p">;</span>
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Node</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">key</span><span class="p">;</span>
+<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="w">    </span><span class="n">PtrToNode</span><span class="w"> </span><span class="n">next</span><span class="p">;</span>
+<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="p">};</span>
+<a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>
+<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="cm">/* 桶头结点 */</span>
+<a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a><span class="k">struct</span><span class="w"> </span><span class="nc">HeadNode</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a><span class="w">    </span><span class="n">PtrToNode</span><span class="w"> </span><span class="n">head</span><span class="p">,</span><span class="w"> </span><span class="n">tail</span><span class="p">;</span>
+<a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a><span class="p">};</span>
+<a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">HeadNode</span><span class="w"> </span><span class="n">Bucket</span><span class="p">[</span><span class="n">Radix</span><span class="p">];</span>
+<a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a>
+<a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a><span class="kt">int</span><span class="w"> </span><span class="nf">GetDigit</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">D</span><span class="w"> </span><span class="p">)</span>
+<a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a><span class="p">{</span><span class="w"> </span><span class="cm">/* 默认次位D=1, 主位D&lt;=MaxDigit */</span>
+<a id="__codelineno-11-22" name="__codelineno-11-22" href="#__codelineno-11-22"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">d</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<a id="__codelineno-11-23" name="__codelineno-11-23" href="#__codelineno-11-23"></a>
+<a id="__codelineno-11-24" name="__codelineno-11-24" href="#__codelineno-11-24"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;=</span><span class="n">D</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-11-25" name="__codelineno-11-25" href="#__codelineno-11-25"></a><span class="w">        </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">X</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">Radix</span><span class="p">;</span>
+<a id="__codelineno-11-26" name="__codelineno-11-26" href="#__codelineno-11-26"></a><span class="w">        </span><span class="n">X</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="n">Radix</span><span class="p">;</span>
+<a id="__codelineno-11-27" name="__codelineno-11-27" href="#__codelineno-11-27"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-11-28" name="__codelineno-11-28" href="#__codelineno-11-28"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">d</span><span class="p">;</span>
+<a id="__codelineno-11-29" name="__codelineno-11-29" href="#__codelineno-11-29"></a><span class="p">}</span>
+<a id="__codelineno-11-30" name="__codelineno-11-30" href="#__codelineno-11-30"></a>
+<a id="__codelineno-11-31" name="__codelineno-11-31" href="#__codelineno-11-31"></a><span class="kt">void</span><span class="w"> </span><span class="nf">LSDRadixSort</span><span class="p">(</span><span class="w"> </span><span class="n">ElementType</span><span class="w"> </span><span class="n">A</span><span class="p">[],</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="p">)</span>
+<a id="__codelineno-11-32" name="__codelineno-11-32" href="#__codelineno-11-32"></a><span class="p">{</span><span class="w"> </span><span class="cm">/* 基数排序 - 次位优先 */</span>
+<a id="__codelineno-11-33" name="__codelineno-11-33" href="#__codelineno-11-33"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">D</span><span class="p">,</span><span class="w"> </span><span class="n">Di</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<a id="__codelineno-11-34" name="__codelineno-11-34" href="#__codelineno-11-34"></a><span class="w">    </span><span class="n">Bucket</span><span class="w"> </span><span class="n">B</span><span class="p">;</span>
+<a id="__codelineno-11-35" name="__codelineno-11-35" href="#__codelineno-11-35"></a><span class="w">    </span><span class="n">PtrToNode</span><span class="w"> </span><span class="n">tmp</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span><span class="w"> </span>
+<a id="__codelineno-11-36" name="__codelineno-11-36" href="#__codelineno-11-36"></a>
+<a id="__codelineno-11-37" name="__codelineno-11-37" href="#__codelineno-11-37"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="n">Radix</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="cm">/* 初始化每个桶为空链表 */</span>
+<a id="__codelineno-11-38" name="__codelineno-11-38" href="#__codelineno-11-38"></a><span class="w">        </span><span class="n">B</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">head</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">B</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">tail</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
+<a id="__codelineno-11-39" name="__codelineno-11-39" href="#__codelineno-11-39"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* 将原始序列逆序存入初始链表List */</span>
+<a id="__codelineno-11-40" name="__codelineno-11-40" href="#__codelineno-11-40"></a><span class="w">        </span><span class="n">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">PtrToNode</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">Node</span><span class="p">));</span>
+<a id="__codelineno-11-41" name="__codelineno-11-41" href="#__codelineno-11-41"></a><span class="w">        </span><span class="n">tmp</span><span class="o">-&gt;</span><span class="n">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<a id="__codelineno-11-42" name="__codelineno-11-42" href="#__codelineno-11-42"></a><span class="w">        </span><span class="n">tmp</span><span class="o">-&gt;</span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">List</span><span class="p">;</span>
+<a id="__codelineno-11-43" name="__codelineno-11-43" href="#__codelineno-11-43"></a><span class="w">        </span><span class="n">List</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tmp</span><span class="p">;</span>
+<a id="__codelineno-11-44" name="__codelineno-11-44" href="#__codelineno-11-44"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-11-45" name="__codelineno-11-45" href="#__codelineno-11-45"></a><span class="w">    </span><span class="cm">/* 下面开始排序 */</span><span class="w"> </span>
+<a id="__codelineno-11-46" name="__codelineno-11-46" href="#__codelineno-11-46"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">D</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">D</span><span class="o">&lt;=</span><span class="n">MaxDigit</span><span class="p">;</span><span class="w"> </span><span class="n">D</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* 对数据的每一位循环处理 */</span>
+<a id="__codelineno-11-47" name="__codelineno-11-47" href="#__codelineno-11-47"></a><span class="w">        </span><span class="cm">/* 下面是分配的过程 */</span>
+<a id="__codelineno-11-48" name="__codelineno-11-48" href="#__codelineno-11-48"></a><span class="w">        </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">List</span><span class="p">;</span>
+<a id="__codelineno-11-49" name="__codelineno-11-49" href="#__codelineno-11-49"></a><span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-11-50" name="__codelineno-11-50" href="#__codelineno-11-50"></a><span class="w">            </span><span class="n">Di</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GetDigit</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="n">D</span><span class="p">);</span><span class="w"> </span><span class="cm">/* 获得当前元素的当前位数字 */</span>
+<a id="__codelineno-11-51" name="__codelineno-11-51" href="#__codelineno-11-51"></a><span class="w">            </span><span class="cm">/* 从List中摘除 */</span>
+<a id="__codelineno-11-52" name="__codelineno-11-52" href="#__codelineno-11-52"></a><span class="w">            </span><span class="n">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p</span><span class="p">;</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+<a id="__codelineno-11-53" name="__codelineno-11-53" href="#__codelineno-11-53"></a><span class="w">            </span><span class="cm">/* 插入B[Di]号桶尾 */</span>
+<a id="__codelineno-11-54" name="__codelineno-11-54" href="#__codelineno-11-54"></a><span class="w">            </span><span class="n">tmp</span><span class="o">-&gt;</span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
+<a id="__codelineno-11-55" name="__codelineno-11-55" href="#__codelineno-11-55"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">B</span><span class="p">[</span><span class="n">Di</span><span class="p">].</span><span class="n">head</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span>
+<a id="__codelineno-11-56" name="__codelineno-11-56" href="#__codelineno-11-56"></a><span class="w">                </span><span class="n">B</span><span class="p">[</span><span class="n">Di</span><span class="p">].</span><span class="n">head</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">B</span><span class="p">[</span><span class="n">Di</span><span class="p">].</span><span class="n">tail</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tmp</span><span class="p">;</span>
+<a id="__codelineno-11-57" name="__codelineno-11-57" href="#__codelineno-11-57"></a><span class="w">            </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-11-58" name="__codelineno-11-58" href="#__codelineno-11-58"></a><span class="w">                </span><span class="n">B</span><span class="p">[</span><span class="n">Di</span><span class="p">].</span><span class="n">tail</span><span class="o">-&gt;</span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tmp</span><span class="p">;</span>
+<a id="__codelineno-11-59" name="__codelineno-11-59" href="#__codelineno-11-59"></a><span class="w">                </span><span class="n">B</span><span class="p">[</span><span class="n">Di</span><span class="p">].</span><span class="n">tail</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tmp</span><span class="p">;</span>
+<a id="__codelineno-11-60" name="__codelineno-11-60" href="#__codelineno-11-60"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-11-61" name="__codelineno-11-61" href="#__codelineno-11-61"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-11-62" name="__codelineno-11-62" href="#__codelineno-11-62"></a><span class="w">        </span><span class="cm">/* 下面是收集的过程 */</span>
+<a id="__codelineno-11-63" name="__codelineno-11-63" href="#__codelineno-11-63"></a><span class="w">        </span><span class="n">List</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span><span class="w"> </span>
+<a id="__codelineno-11-64" name="__codelineno-11-64" href="#__codelineno-11-64"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Di</span><span class="o">=</span><span class="n">Radix</span><span class="mi">-1</span><span class="p">;</span><span class="w"> </span><span class="n">Di</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">Di</span><span class="o">--</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* 将每个桶的元素顺序收集入List */</span>
+<a id="__codelineno-11-65" name="__codelineno-11-65" href="#__codelineno-11-65"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">B</span><span class="p">[</span><span class="n">Di</span><span class="p">].</span><span class="n">head</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* 如果桶不为空 */</span>
+<a id="__codelineno-11-66" name="__codelineno-11-66" href="#__codelineno-11-66"></a><span class="w">                </span><span class="cm">/* 整桶插入List表头 */</span>
+<a id="__codelineno-11-67" name="__codelineno-11-67" href="#__codelineno-11-67"></a><span class="w">                </span><span class="n">B</span><span class="p">[</span><span class="n">Di</span><span class="p">].</span><span class="n">tail</span><span class="o">-&gt;</span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">List</span><span class="p">;</span>
+<a id="__codelineno-11-68" name="__codelineno-11-68" href="#__codelineno-11-68"></a><span class="w">                </span><span class="n">List</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">B</span><span class="p">[</span><span class="n">Di</span><span class="p">].</span><span class="n">head</span><span class="p">;</span>
+<a id="__codelineno-11-69" name="__codelineno-11-69" href="#__codelineno-11-69"></a><span class="w">                </span><span class="n">B</span><span class="p">[</span><span class="n">Di</span><span class="p">].</span><span class="n">head</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">B</span><span class="p">[</span><span class="n">Di</span><span class="p">].</span><span class="n">tail</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span><span class="w"> </span><span class="cm">/* 清空桶 */</span>
+<a id="__codelineno-11-70" name="__codelineno-11-70" href="#__codelineno-11-70"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-11-71" name="__codelineno-11-71" href="#__codelineno-11-71"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-11-72" name="__codelineno-11-72" href="#__codelineno-11-72"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-11-73" name="__codelineno-11-73" href="#__codelineno-11-73"></a><span class="w">    </span><span class="cm">/* 将List倒入A[]并释放空间 */</span>
+<a id="__codelineno-11-74" name="__codelineno-11-74" href="#__codelineno-11-74"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-11-75" name="__codelineno-11-75" href="#__codelineno-11-75"></a><span class="w">        </span><span class="n">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">List</span><span class="p">;</span>
+<a id="__codelineno-11-76" name="__codelineno-11-76" href="#__codelineno-11-76"></a><span class="w">        </span><span class="n">List</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">List</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+<a id="__codelineno-11-77" name="__codelineno-11-77" href="#__codelineno-11-77"></a><span class="w">        </span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tmp</span><span class="o">-&gt;</span><span class="n">key</span><span class="p">;</span>
+<a id="__codelineno-11-78" name="__codelineno-11-78" href="#__codelineno-11-78"></a><span class="w">        </span><span class="n">free</span><span class="p">(</span><span class="n">tmp</span><span class="p">);</span>
+<a id="__codelineno-11-79" name="__codelineno-11-79" href="#__codelineno-11-79"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span>
+<a id="__codelineno-11-80" name="__codelineno-11-80" href="#__codelineno-11-80"></a><span class="p">}</span>
+</code></pre></div>
+</details>
+<details class="example">
+<summary>code-MSD</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="cm">/* 基数排序 - 主位优先 */</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="cm">/* 假设元素最多有MaxDigit个关键字，基数全是同样的Radix */</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="cp">#define MaxDigit 4</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="cp">#define Radix 10</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="cm">/* 桶元素结点 */</span>
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">Node</span><span class="w"> </span><span class="o">*</span><span class="n">PtrToNode</span><span class="p">;</span>
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Node</span><span class="p">{</span>
+<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">key</span><span class="p">;</span>
+<a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="w">    </span><span class="n">PtrToNode</span><span class="w"> </span><span class="n">next</span><span class="p">;</span>
+<a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a><span class="p">};</span>
+<a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a>
+<a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a><span class="cm">/* 桶头结点 */</span>
+<a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a><span class="k">struct</span><span class="w"> </span><span class="nc">HeadNode</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a><span class="w">    </span><span class="n">PtrToNode</span><span class="w"> </span><span class="n">head</span><span class="p">,</span><span class="w"> </span><span class="n">tail</span><span class="p">;</span>
+<a id="__codelineno-12-18" name="__codelineno-12-18" href="#__codelineno-12-18"></a><span class="p">};</span>
+<a id="__codelineno-12-19" name="__codelineno-12-19" href="#__codelineno-12-19"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">HeadNode</span><span class="w"> </span><span class="n">Bucket</span><span class="p">[</span><span class="n">Radix</span><span class="p">];</span>
+<a id="__codelineno-12-20" name="__codelineno-12-20" href="#__codelineno-12-20"></a>
+<a id="__codelineno-12-21" name="__codelineno-12-21" href="#__codelineno-12-21"></a><span class="kt">int</span><span class="w"> </span><span class="nf">GetDigit</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">D</span><span class="w"> </span><span class="p">)</span>
+<a id="__codelineno-12-22" name="__codelineno-12-22" href="#__codelineno-12-22"></a><span class="p">{</span><span class="w"> </span><span class="cm">/* 默认次位D=1, 主位D&lt;=MaxDigit */</span>
+<a id="__codelineno-12-23" name="__codelineno-12-23" href="#__codelineno-12-23"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">d</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<a id="__codelineno-12-24" name="__codelineno-12-24" href="#__codelineno-12-24"></a>
+<a id="__codelineno-12-25" name="__codelineno-12-25" href="#__codelineno-12-25"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;=</span><span class="n">D</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-12-26" name="__codelineno-12-26" href="#__codelineno-12-26"></a><span class="w">        </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">X</span><span class="o">%</span><span class="n">Radix</span><span class="p">;</span>
+<a id="__codelineno-12-27" name="__codelineno-12-27" href="#__codelineno-12-27"></a><span class="w">        </span><span class="n">X</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="n">Radix</span><span class="p">;</span>
+<a id="__codelineno-12-28" name="__codelineno-12-28" href="#__codelineno-12-28"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-12-29" name="__codelineno-12-29" href="#__codelineno-12-29"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">d</span><span class="p">;</span>
+<a id="__codelineno-12-30" name="__codelineno-12-30" href="#__codelineno-12-30"></a><span class="p">}</span>
+<a id="__codelineno-12-31" name="__codelineno-12-31" href="#__codelineno-12-31"></a>
+<a id="__codelineno-12-32" name="__codelineno-12-32" href="#__codelineno-12-32"></a><span class="kt">void</span><span class="w"> </span><span class="nf">MSD</span><span class="p">(</span><span class="w"> </span><span class="n">ElementType</span><span class="w"> </span><span class="n">A</span><span class="p">[],</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">L</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">R</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">D</span><span class="w"> </span><span class="p">)</span>
+<a id="__codelineno-12-33" name="__codelineno-12-33" href="#__codelineno-12-33"></a><span class="p">{</span><span class="w"> </span><span class="cm">/* 核心递归函数: 对A[L]...A[R]的第D位数进行排序 */</span>
+<a id="__codelineno-12-34" name="__codelineno-12-34" href="#__codelineno-12-34"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">Di</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">;</span>
+<a id="__codelineno-12-35" name="__codelineno-12-35" href="#__codelineno-12-35"></a><span class="w">    </span><span class="n">Bucket</span><span class="w"> </span><span class="n">B</span><span class="p">;</span>
+<a id="__codelineno-12-36" name="__codelineno-12-36" href="#__codelineno-12-36"></a><span class="w">    </span><span class="n">PtrToNode</span><span class="w"> </span><span class="n">tmp</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span><span class="w"> </span>
+<a id="__codelineno-12-37" name="__codelineno-12-37" href="#__codelineno-12-37"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">D</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span><span class="w"> </span><span class="cm">/* 递归终止条件 */</span>
+<a id="__codelineno-12-38" name="__codelineno-12-38" href="#__codelineno-12-38"></a>
+<a id="__codelineno-12-39" name="__codelineno-12-39" href="#__codelineno-12-39"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="n">Radix</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="cm">/* 初始化每个桶为空链表 */</span>
+<a id="__codelineno-12-40" name="__codelineno-12-40" href="#__codelineno-12-40"></a><span class="w">        </span><span class="n">B</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">head</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">B</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">tail</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
+<a id="__codelineno-12-41" name="__codelineno-12-41" href="#__codelineno-12-41"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="n">L</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;=</span><span class="n">R</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* 将原始序列逆序存入初始链表List */</span>
+<a id="__codelineno-12-42" name="__codelineno-12-42" href="#__codelineno-12-42"></a><span class="w">        </span><span class="n">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">PtrToNode</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">Node</span><span class="p">));</span>
+<a id="__codelineno-12-43" name="__codelineno-12-43" href="#__codelineno-12-43"></a><span class="w">        </span><span class="n">tmp</span><span class="o">-&gt;</span><span class="n">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<a id="__codelineno-12-44" name="__codelineno-12-44" href="#__codelineno-12-44"></a><span class="w">        </span><span class="n">tmp</span><span class="o">-&gt;</span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">List</span><span class="p">;</span>
+<a id="__codelineno-12-45" name="__codelineno-12-45" href="#__codelineno-12-45"></a><span class="w">        </span><span class="n">List</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tmp</span><span class="p">;</span>
+<a id="__codelineno-12-46" name="__codelineno-12-46" href="#__codelineno-12-46"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-12-47" name="__codelineno-12-47" href="#__codelineno-12-47"></a><span class="w">    </span><span class="cm">/* 下面是分配的过程 */</span>
+<a id="__codelineno-12-48" name="__codelineno-12-48" href="#__codelineno-12-48"></a><span class="w">    </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">List</span><span class="p">;</span>
+<a id="__codelineno-12-49" name="__codelineno-12-49" href="#__codelineno-12-49"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-12-50" name="__codelineno-12-50" href="#__codelineno-12-50"></a><span class="w">        </span><span class="n">Di</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GetDigit</span><span class="p">(</span><span class="n">p</span><span class="o">-&gt;</span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="n">D</span><span class="p">);</span><span class="w"> </span><span class="cm">/* 获得当前元素的当前位数字 */</span>
+<a id="__codelineno-12-51" name="__codelineno-12-51" href="#__codelineno-12-51"></a><span class="w">        </span><span class="cm">/* 从List中摘除 */</span>
+<a id="__codelineno-12-52" name="__codelineno-12-52" href="#__codelineno-12-52"></a><span class="w">        </span><span class="n">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p</span><span class="p">;</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+<a id="__codelineno-12-53" name="__codelineno-12-53" href="#__codelineno-12-53"></a><span class="w">        </span><span class="cm">/* 插入B[Di]号桶 */</span>
+<a id="__codelineno-12-54" name="__codelineno-12-54" href="#__codelineno-12-54"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">B</span><span class="p">[</span><span class="n">Di</span><span class="p">].</span><span class="n">head</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="n">B</span><span class="p">[</span><span class="n">Di</span><span class="p">].</span><span class="n">tail</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tmp</span><span class="p">;</span>
+<a id="__codelineno-12-55" name="__codelineno-12-55" href="#__codelineno-12-55"></a><span class="w">        </span><span class="n">tmp</span><span class="o">-&gt;</span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">B</span><span class="p">[</span><span class="n">Di</span><span class="p">].</span><span class="n">head</span><span class="p">;</span>
+<a id="__codelineno-12-56" name="__codelineno-12-56" href="#__codelineno-12-56"></a><span class="w">        </span><span class="n">B</span><span class="p">[</span><span class="n">Di</span><span class="p">].</span><span class="n">head</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tmp</span><span class="p">;</span>
+<a id="__codelineno-12-57" name="__codelineno-12-57" href="#__codelineno-12-57"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-12-58" name="__codelineno-12-58" href="#__codelineno-12-58"></a><span class="w">    </span><span class="cm">/* 下面是收集的过程 */</span>
+<a id="__codelineno-12-59" name="__codelineno-12-59" href="#__codelineno-12-59"></a><span class="w">    </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">L</span><span class="p">;</span><span class="w"> </span><span class="cm">/* i, j记录当前要处理的A[]的左右端下标 */</span>
+<a id="__codelineno-12-60" name="__codelineno-12-60" href="#__codelineno-12-60"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Di</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">Di</span><span class="o">&lt;</span><span class="n">Radix</span><span class="p">;</span><span class="w"> </span><span class="n">Di</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* 对于每个桶 */</span>
+<a id="__codelineno-12-61" name="__codelineno-12-61" href="#__codelineno-12-61"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">B</span><span class="p">[</span><span class="n">Di</span><span class="p">].</span><span class="n">head</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* 将非空的桶整桶倒入A[], 递归排序 */</span>
+<a id="__codelineno-12-62" name="__codelineno-12-62" href="#__codelineno-12-62"></a><span class="w">            </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">B</span><span class="p">[</span><span class="n">Di</span><span class="p">].</span><span class="n">head</span><span class="p">;</span>
+<a id="__codelineno-12-63" name="__codelineno-12-63" href="#__codelineno-12-63"></a><span class="w">            </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-12-64" name="__codelineno-12-64" href="#__codelineno-12-64"></a><span class="w">                </span><span class="n">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
+<a id="__codelineno-12-65" name="__codelineno-12-65" href="#__codelineno-12-65"></a><span class="w">                </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+<a id="__codelineno-12-66" name="__codelineno-12-66" href="#__codelineno-12-66"></a><span class="w">                </span><span class="n">A</span><span class="p">[</span><span class="n">j</span><span class="o">++</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tmp</span><span class="o">-&gt;</span><span class="n">key</span><span class="p">;</span>
+<a id="__codelineno-12-67" name="__codelineno-12-67" href="#__codelineno-12-67"></a><span class="w">                </span><span class="n">free</span><span class="p">(</span><span class="n">tmp</span><span class="p">);</span>
+<a id="__codelineno-12-68" name="__codelineno-12-68" href="#__codelineno-12-68"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-12-69" name="__codelineno-12-69" href="#__codelineno-12-69"></a><span class="w">            </span><span class="cm">/* 递归对该桶数据排序, 位数减1 */</span>
+<a id="__codelineno-12-70" name="__codelineno-12-70" href="#__codelineno-12-70"></a><span class="w">            </span><span class="n">MSD</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="mi">-1</span><span class="p">,</span><span class="w"> </span><span class="n">D</span><span class="mi">-1</span><span class="p">);</span>
+<a id="__codelineno-12-71" name="__codelineno-12-71" href="#__codelineno-12-71"></a><span class="w">            </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j</span><span class="p">;</span><span class="w"> </span><span class="cm">/* 为下一个桶对应的A[]左端 */</span>
+<a id="__codelineno-12-72" name="__codelineno-12-72" href="#__codelineno-12-72"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span>
+<a id="__codelineno-12-73" name="__codelineno-12-73" href="#__codelineno-12-73"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span>
+<a id="__codelineno-12-74" name="__codelineno-12-74" href="#__codelineno-12-74"></a><span class="p">}</span>
+<a id="__codelineno-12-75" name="__codelineno-12-75" href="#__codelineno-12-75"></a>
+<a id="__codelineno-12-76" name="__codelineno-12-76" href="#__codelineno-12-76"></a><span class="kt">void</span><span class="w"> </span><span class="nf">MSDRadixSort</span><span class="p">(</span><span class="w"> </span><span class="n">ElementType</span><span class="w"> </span><span class="n">A</span><span class="p">[],</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="p">)</span>
+<a id="__codelineno-12-77" name="__codelineno-12-77" href="#__codelineno-12-77"></a><span class="p">{</span><span class="w"> </span><span class="cm">/* 统一接口 */</span>
+<a id="__codelineno-12-78" name="__codelineno-12-78" href="#__codelineno-12-78"></a><span class="w">    </span><span class="n">MSD</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="mi">-1</span><span class="p">,</span><span class="w"> </span><span class="n">MaxDigit</span><span class="p">);</span><span class="w"> </span>
+<a id="__codelineno-12-79" name="__codelineno-12-79" href="#__codelineno-12-79"></a><span class="p">}</span>
+</code></pre></div>
+</details>
+<blockquote>
+<p>如果次位关键字建的桶很少，而主位关键字建的桶很多使元素分散开，这时再在桶内部排序可能就只涉及几个元素的排序，这时 MSD 可能就要更快了</p>
+</blockquote>
+<h2 id="_13">排序算法的比较<a class="headerlink" href="#_13" title="Permanent link">👀</a></h2>
 <table>
 <thead>
 <tr>
