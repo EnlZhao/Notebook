@@ -1988,9 +1988,10 @@ $T = O(|E|log|E|) $</p>
 </details>
 <ul>
 <li>
-<p>Tarjan算法<br />
-    ??? note &ldquo;对顶点的 Num 赋值例程&rdquo;<br />
-        <div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="cm">/* Assign Num and compute Parents */</span>
+<p>Tarjan算法</p>
+<details class="note">
+<summary>对顶点的 Num 赋值例程</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="cm">/* Assign Num and compute Parents */</span>
 <a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="kt">void</span><span class="w"> </span><span class="nf">AssignNum</span><span class="p">(</span><span class="n">Vertex</span><span class="w"> </span><span class="n">V</span><span class="p">)</span>
 <a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="p">{</span>
 <a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="w">    </span><span class="n">Vertex</span><span class="w"> </span><span class="n">W</span><span class="p">;</span>
@@ -2003,8 +2004,13 @@ $T = O(|E|log|E|) $</p>
 <a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="w">            </span><span class="n">AssignNum</span><span class="p">(</span><span class="n">W</span><span class="p">);</span>
 <a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a><span class="w">        </span><span class="p">}</span>
 <a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a><span class="p">}</span>
-</code></pre></div><br />
-        ??? example &ldquo;通过 DFS 建立的最小生成树&rdquo;</p>
+</code></pre></div>
+<details class="quote">
+<summary>通过 DFS 建立的最小生成树</summary>
+<p><img alt="2023-02-01-15-19-47" src="../../../Images/2023-02-01-15-19-47.png" /><br />
+<img alt="2023-02-01-15-20-59" src="../../../Images/2023-02-01-15-20-59.png" /></p>
+</details>
+</details>
 <ul>
 <li>Num[v] 表示 v 第一次被访问的时间戳，即 DFS 时第几个被访问（从0开始）</li>
 <li>追溯值 low[x]<ul>
