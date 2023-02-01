@@ -653,6 +653,7 @@ void DFS ( Vertex V )  /* this is only a template */
     ![2023-02-01-13-24-22](../../Images/2023-02-01-13-24-22.png)
 
 * Tarjan算法
+
     ??? note "对顶点的 Num 赋值例程"
         ```c
         /* Assign Num and compute Parents */
@@ -669,8 +670,10 @@ void DFS ( Vertex V )  /* this is only a template */
                 }
         }
         ```
-        ??? example "通过 DFS 建立的最小生成树"
-            
+
+        ??? quote "通过 DFS 建立的最小生成树"
+            ![2023-02-01-15-19-47](../../Images/2023-02-01-15-19-47.png)
+            ![2023-02-01-15-20-59](../../Images/2023-02-01-15-20-59.png)
     * Num[v] 表示 v 第一次被访问的时间戳，即 DFS 时第几个被访问（从0开始）
     * 追溯值 low[x]
         * 对于从 x 到 y 的边，如果 < x, y > 在树上，则 low[x] = min(Num[x], low[y])
@@ -678,9 +681,71 @@ void DFS ( Vertex V )  /* this is only a template */
     * 寻找割点：
         * 如果 u 是 root，则 u 是割点当且仅当 u 有至少两个儿子
         * 如果 u 不是 root，则 u 是割点当且仅当存在一个儿子 v，满足 Num[u] $\leq$ low[v]
+    * 计算 Low 并检验是否割点 (忽略对根的检验)
+    ```c
+    void AssignLow(Vertex V)
+    {
+        Vertex W;
+        Low[V] = Num[V];    
+        for(each W adjacent to V)
+        {
+            if(Num[W] < Num[V])
+            {
+                AssignLow(W);
+                if(Low[W] >= Num[V])
+                {
+                    printf("%v is an articulation point\n", v);
+                }
+                Low[V] = Min(Low[V], Low[W]);
+            }
+            else
+                if(Parent[V] != W)
+                {
+                    Low[V] = Min(Low[V], Num[W]);
+                }
+        }
+    }
+    ```
+    * 在一次 DFS 中对割点的检测（忽略对根的检测）
+    ```c
+    void FindArt(Vertex V)
+    {
+        Vertex W;
+        Visited[V] = True;
+        Low[V] = Num[V] = Counter ++;
+        for(each W adjacent to V)
+        {
+            if(!Visited[W])
+            {
+                Parent[W] = V;
+                FindArt(W);
+                if(Low[W] >= Num[V])
+                {
+                    printf("%v is an articulation point\n", v);
+                }
+                Low[V] = Min(Low[V], Low[W]);
+            }
+            else
+                if(Parent[V] != W)
+                {
+                    Low[V] = Min(Low[V], Num[W]);
+                }
+        }
+    }
+    ```
 
 ### 欧拉回路 & 欧拉路径
 
+* 欧拉路径 (Euler path | Euler tour) --- 一笔画 | 包含所有边的简单路径
+    * 如果正好有两个度为奇数的顶点，欧拉路径就是可能的。必须从一个奇度的顶点开始 "画"
+* 欧拉回路 (Euler curcit) --- 一笔画并且结束点和起始点重合 | 包含所有边的简单环
+    * 只有当图连通且每个顶点度为偶数，欧拉回路才有可能
+* 对无向图
+    * 无向图 G 有欧拉回路当且仅当 G 是连通的且每个顶点的度数都是偶数
+    * 无向图 G 有欧拉路径当且仅当 G 是连通的且有且仅有两个顶点的度数是奇数
+* 有向图
+    * 有向图 G 有欧拉回路当且仅当 G 是弱连通的且每个顶点的出度等于入度
+    * 有向图 G 有欧拉路径当且仅当 G 是弱连通的且有且仅有一个顶点的出度比入度大 1，有且仅有一个顶点的入度比出度大 1，其余顶点的出度等于入度
 
 
 <center><font face="JetBrains Mono" color=grey size=18>To Be Continued</font></center>
