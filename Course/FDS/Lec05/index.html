@@ -73,6 +73,8 @@
     
       <link rel="stylesheet" href="../../../mkdocs/extra_css/card.css">
     
+      <link rel="stylesheet" href="../../../mkdocs/extra_css/custom.css">
+    
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1153,8 +1155,8 @@
 </ul>
 <blockquote>
 <p>要提高算法效率，需要<br />
-  * 每次消去不止一对逆序对<br />
-  * 每次尽量交换相隔较远的元素</p>
+  1. 每次消去不止一对逆序对<br />
+  2. 每次尽量交换相隔较远的元素</p>
 </blockquote>
 </details>
 <h2 id="shell-sort">希尔排序 | Shell Sort<a class="headerlink" href="#shell-sort" title="Permanent link">👀</a></h2>
@@ -1193,8 +1195,7 @@
 <h3 id="_4">更多增量序列<a class="headerlink" href="#_4" title="Permanent link">👀</a></h3>
 <div class="admonition question">
 <p class="admonition-title">Question</p>
-<p>当增量元素不互质时，导致小增量可能不起作用<br />
-如:<br />
+<p>当增量元素不互质时，导致小增量可能不起作用, 如:<br />
 <img alt="2023-02-01-18-28-03" src="../../../Images/2023-02-01-18-28-03.png" /></p>
 </div>
 <ol>
