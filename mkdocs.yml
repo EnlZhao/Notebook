@@ -18,6 +18,7 @@ nav:
       - 线性结构: Course/FDS/Lec02.md
       - 树: Course/FDS/Lec03.md
       - 图: Course/FDS/Lec04.md
+      - 排序: Course/FDS/Lec05.md
   - Triviality: 
     - Markdown:
       - Perface: Triviality/Markdown/index.md
