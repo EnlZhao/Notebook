@@ -185,10 +185,8 @@ extra_css:
   - https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css
   - mkdocs/stylesheets/extra.css  
   - mkdocs/extra_css/tasklist.css
-  - mkdocs/extra_css/flink.css
   - mkdocs/extra_css/counter.css
   - mkdocs/extra_css/giscus.css
-  - mkdocs/extra_css/card.css
 
 extra: 
   vssue: Enl_Z
