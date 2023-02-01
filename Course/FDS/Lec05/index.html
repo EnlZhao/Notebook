@@ -694,24 +694,44 @@
     快速排序
   </a>
   
+    <nav class="md-nav" aria-label="快速排序">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    选主元
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    子集划分
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     表排序
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     基数排序
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
     排序算法的比较
   </a>
   
@@ -1090,24 +1110,44 @@
     快速排序
   </a>
   
+    <nav class="md-nav" aria-label="快速排序">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    选主元
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    子集划分
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     表排序
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     基数排序
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
     排序算法的比较
   </a>
   
@@ -1436,9 +1476,120 @@
 <p>归并排序在外排序中较为有用</p>
 </blockquote>
 <h2 id="_7">快速排序<a class="headerlink" href="#_7" title="Permanent link">👀</a></h2>
-<h2 id="_8">表排序<a class="headerlink" href="#_8" title="Permanent link">👀</a></h2>
-<h2 id="_9">基数排序<a class="headerlink" href="#_9" title="Permanent link">👀</a></h2>
-<h2 id="_10">排序算法的比较<a class="headerlink" href="#_10" title="Permanent link">👀</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">Quicksort</span><span class="p">(</span><span class="n">ElementType</span><span class="w"> </span><span class="n">A</span><span class="p">[],</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">N</span><span class="p">)</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="p">{</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">N</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">        </span><span class="k">return</span><span class="p">;</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">    </span><span class="n">pivot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">从</span><span class="w"> </span><span class="n">A</span><span class="p">[]</span><span class="w"> </span><span class="n">中选一个主元</span><span class="p">;</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">    </span><span class="n">将</span><span class="w"> </span><span class="n">S</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">A</span><span class="p">[]</span><span class="w"> </span><span class="err">\</span><span class="w"> </span><span class="n">pivot</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="n">分成两个独立子集</span><span class="w"> </span><span class="n">A1</span><span class="w"> </span><span class="n">和</span><span class="w"> </span><span class="n">A2</span><span class="p">;</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">    </span><span class="n">A</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Quicksort</span><span class="p">(</span><span class="n">A1</span><span class="p">,</span><span class="w"> </span><span class="n">N1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">{</span><span class="n">pivot</span><span class="p">}</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Quicksort</span><span class="p">(</span><span class="n">A2</span><span class="p">,</span><span class="w"> </span><span class="n">N2</span><span class="p">);</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="p">}</span>
+</code></pre></div>
+<blockquote>
+<p>分而治之: <br />
+快速排序的最好情况 &ndash; 每次正好中分 &ndash; <span class="arithmatex">\(T(N) = O(NlogN)\)</span><br />
+两个主要步骤: 选主元、子集划分</p>
+</blockquote>
+<h3 id="_8">选主元<a class="headerlink" href="#_8" title="Permanent link">👀</a></h3>
+<ul>
+<li>错误方法: pivot = arr[0] (对于已经排列好顺序的组合仍会消耗掉 <span class="arithmatex">\(O(N^2)\)</span> 的时间)</li>
+<li>安全方法: pivot = random element in arr (额外带来的开销: 随机数的生成)</li>
+<li>三数中值分割 | Median-of-Partitioning: pivot = median(left + center + right)<br />
+        ??? example &ldquo;Median3&rdquo;<br />
+<code>c
+ElementType Median3(ElementType A[], int Left, int Right)
+{
+    int Center = (Left + Right) / 2;
+    if(A[Left] &gt; A[Center])
+    {
+        Swap(&amp;A[Left], &amp;A[Center]);
+    }
+    else if(A[Left] &gt; A[Right])
+    {
+        Swap(&amp;A[Left], &amp;A[Right]);
+    }
+    else if(A[Right] &lt; A[Center])
+    {
+        Swap(&amp;A[Right], &amp;A[Center]);
+    }
+    /* A[Left] &lt;= A[Center] &lt;= A[Right] */
+    Swap(&amp;A[Center], &amp;A[Right-1]);  //将 pivot 藏到右边
+    /* 只需要考虑 A[Left+1] ... A[Right-2] */
+    return A[Right-1];  /* 返回 pivot */
+}</code></li>
+</ul>
+<h3 id="_9">子集划分<a class="headerlink" href="#_9" title="Permanent link">👀</a></h3>
+<ul>
+<li>当有元素正好等于 pivot 时<ul>
+<li>停下来交换 √</li>
+<li>不理他，继续移动指针 ×</li>
+</ul>
+</li>
+</ul>
+<details class="note">
+<summary>补充</summary>
+<ul>
+<li>小数组<ul>
+<li>对于 N (N <span class="arithmatex">\(\le\)</span> 20), 快速排序慢于插入排序</li>
+<li>可以在递归到 N 较小的情况下将快速排序更改为插入排序</li>
+</ul>
+</li>
+<li>复杂度 &ndash; <span class="arithmatex">\(T(N) = T(i) + T(N-i-1) + cN\)</span><ul>
+<li><span class="arithmatex">\(T_{worst}(N) = T(N-1) + cN ~ \rightarrow ~ T(N) = O(N^2)\)</span></li>
+<li><span class="arithmatex">\(T_{best}(N) = 2T(N/2) + cN ~ \rightarrow ~ T(N) = O(NlogN)\)</span></li>
+<li><span class="arithmatex">\(T_{average}(N) = \frac{2}{N}[\sum_{j=0}^{N-1} T(j)] + cN ~ \rightarrow ~ T(N) = O(NlogN)\)</span> (假设对每个 i, <span class="arithmatex">\(T(i)\)</span> 的平均值是 \frac{1}{N}[\sum_{j=0}^{N-1} T(j)])</li>
+</ul>
+</li>
+</ul>
+</details>
+<details class="example">
+<summary>完整算法</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="cm">/* 快速排序 */</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">ElementType</span><span class="w"> </span><span class="nf">Median3</span><span class="p">(</span><span class="w"> </span><span class="n">ElementType</span><span class="w"> </span><span class="n">A</span><span class="p">[],</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">Left</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">Right</span><span class="w"> </span><span class="p">)</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="p">{</span><span class="w"> </span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">Center</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Left</span><span class="o">+</span><span class="n">Right</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">A</span><span class="p">[</span><span class="n">Left</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">A</span><span class="p">[</span><span class="n">Center</span><span class="p">]</span><span class="w"> </span><span class="p">)</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">        </span><span class="n">Swap</span><span class="p">(</span><span class="w"> </span><span class="o">&amp;</span><span class="n">A</span><span class="p">[</span><span class="n">Left</span><span class="p">],</span><span class="w"> </span><span class="o">&amp;</span><span class="n">A</span><span class="p">[</span><span class="n">Center</span><span class="p">]</span><span class="w"> </span><span class="p">);</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">A</span><span class="p">[</span><span class="n">Left</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">A</span><span class="p">[</span><span class="n">Right</span><span class="p">]</span><span class="w"> </span><span class="p">)</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">        </span><span class="n">Swap</span><span class="p">(</span><span class="w"> </span><span class="o">&amp;</span><span class="n">A</span><span class="p">[</span><span class="n">Left</span><span class="p">],</span><span class="w"> </span><span class="o">&amp;</span><span class="n">A</span><span class="p">[</span><span class="n">Right</span><span class="p">]</span><span class="w"> </span><span class="p">);</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">A</span><span class="p">[</span><span class="n">Center</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">A</span><span class="p">[</span><span class="n">Right</span><span class="p">]</span><span class="w"> </span><span class="p">)</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">        </span><span class="n">Swap</span><span class="p">(</span><span class="w"> </span><span class="o">&amp;</span><span class="n">A</span><span class="p">[</span><span class="n">Center</span><span class="p">],</span><span class="w"> </span><span class="o">&amp;</span><span class="n">A</span><span class="p">[</span><span class="n">Right</span><span class="p">]</span><span class="w"> </span><span class="p">);</span>
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="w">    </span><span class="cm">/* 此时A[Left] &lt;= A[Center] &lt;= A[Right] */</span>
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="w">    </span><span class="n">Swap</span><span class="p">(</span><span class="w"> </span><span class="o">&amp;</span><span class="n">A</span><span class="p">[</span><span class="n">Center</span><span class="p">],</span><span class="w"> </span><span class="o">&amp;</span><span class="n">A</span><span class="p">[</span><span class="n">Right</span><span class="mi">-1</span><span class="p">]</span><span class="w"> </span><span class="p">);</span><span class="w"> </span><span class="cm">/* 将基准Pivot藏到右边*/</span>
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="w">    </span><span class="cm">/* 只需要考虑A[Left+1] … A[Right-2] */</span>
+<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="w">    </span><span class="k">return</span><span class="w">  </span><span class="n">A</span><span class="p">[</span><span class="n">Right</span><span class="mi">-1</span><span class="p">];</span><span class="w">  </span><span class="cm">/* 返回基准Pivot */</span>
+<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="p">}</span>
+<a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a>
+<a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="kt">void</span><span class="w"> </span><span class="nf">Qsort</span><span class="p">(</span><span class="w"> </span><span class="n">ElementType</span><span class="w"> </span><span class="n">A</span><span class="p">[],</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">Left</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">Right</span><span class="w"> </span><span class="p">)</span>
+<a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a><span class="p">{</span><span class="w"> </span><span class="cm">/* 核心递归函数 */</span><span class="w"> </span>
+<a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">Pivot</span><span class="p">,</span><span class="w"> </span><span class="n">Cutoff</span><span class="p">,</span><span class="w"> </span><span class="n">Low</span><span class="p">,</span><span class="w"> </span><span class="n">High</span><span class="p">;</span>
+<a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a>
+<a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Cutoff</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">Right</span><span class="o">-</span><span class="n">Left</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* 如果序列元素充分多，进入快排 */</span>
+<a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a><span class="w">        </span><span class="n">Pivot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Median3</span><span class="p">(</span><span class="w"> </span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">Left</span><span class="p">,</span><span class="w"> </span><span class="n">Right</span><span class="w"> </span><span class="p">);</span><span class="w"> </span><span class="cm">/* 选基准 */</span><span class="w"> </span>
+<a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a><span class="w">        </span><span class="n">Low</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Left</span><span class="p">;</span><span class="w"> </span><span class="n">High</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Right</span><span class="mi">-1</span><span class="p">;</span>
+<a id="__codelineno-8-24" name="__codelineno-8-24" href="#__codelineno-8-24"></a><span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/*将序列中比基准小的移到基准左边，大的移到右边*/</span>
+<a id="__codelineno-8-25" name="__codelineno-8-25" href="#__codelineno-8-25"></a><span class="w">            </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">A</span><span class="p">[</span><span class="o">++</span><span class="n">Low</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">Pivot</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">;</span>
+<a id="__codelineno-8-26" name="__codelineno-8-26" href="#__codelineno-8-26"></a><span class="w">            </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">A</span><span class="p">[</span><span class="o">--</span><span class="n">High</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">Pivot</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">;</span>
+<a id="__codelineno-8-27" name="__codelineno-8-27" href="#__codelineno-8-27"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Low</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">High</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">Swap</span><span class="p">(</span><span class="w"> </span><span class="o">&amp;</span><span class="n">A</span><span class="p">[</span><span class="n">Low</span><span class="p">],</span><span class="w"> </span><span class="o">&amp;</span><span class="n">A</span><span class="p">[</span><span class="n">High</span><span class="p">]</span><span class="w"> </span><span class="p">);</span>
+<a id="__codelineno-8-28" name="__codelineno-8-28" href="#__codelineno-8-28"></a><span class="w">            </span><span class="k">else</span><span class="w"> </span><span class="k">break</span><span class="p">;</span>
+<a id="__codelineno-8-29" name="__codelineno-8-29" href="#__codelineno-8-29"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-8-30" name="__codelineno-8-30" href="#__codelineno-8-30"></a><span class="w">        </span><span class="n">Swap</span><span class="p">(</span><span class="w"> </span><span class="o">&amp;</span><span class="n">A</span><span class="p">[</span><span class="n">Low</span><span class="p">],</span><span class="w"> </span><span class="o">&amp;</span><span class="n">A</span><span class="p">[</span><span class="n">Right</span><span class="mi">-1</span><span class="p">]</span><span class="w"> </span><span class="p">);</span><span class="w">   </span><span class="cm">/* 将基准换到正确的位置 */</span><span class="w"> </span>
+<a id="__codelineno-8-31" name="__codelineno-8-31" href="#__codelineno-8-31"></a><span class="w">        </span><span class="n">Qsort</span><span class="p">(</span><span class="w"> </span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">Left</span><span class="p">,</span><span class="w"> </span><span class="n">Low</span><span class="mi">-1</span><span class="w"> </span><span class="p">);</span><span class="w">    </span><span class="cm">/* 递归解决左边 */</span><span class="w"> </span>
+<a id="__codelineno-8-32" name="__codelineno-8-32" href="#__codelineno-8-32"></a><span class="w">        </span><span class="n">Qsort</span><span class="p">(</span><span class="w"> </span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">Low</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">Right</span><span class="w"> </span><span class="p">);</span><span class="w">   </span><span class="cm">/* 递归解决右边 */</span><span class="w">  </span>
+<a id="__codelineno-8-33" name="__codelineno-8-33" href="#__codelineno-8-33"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-8-34" name="__codelineno-8-34" href="#__codelineno-8-34"></a><span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="n">InsertionSort</span><span class="p">(</span><span class="w"> </span><span class="n">A</span><span class="o">+</span><span class="n">Left</span><span class="p">,</span><span class="w"> </span><span class="n">Right</span><span class="o">-</span><span class="n">Left</span><span class="o">+</span><span class="mi">1</span><span class="w"> </span><span class="p">);</span><span class="w"> </span><span class="cm">/* 元素太少，用简单排序 */</span><span class="w"> </span>
+<a id="__codelineno-8-35" name="__codelineno-8-35" href="#__codelineno-8-35"></a><span class="p">}</span>
+<a id="__codelineno-8-36" name="__codelineno-8-36" href="#__codelineno-8-36"></a>
+<a id="__codelineno-8-37" name="__codelineno-8-37" href="#__codelineno-8-37"></a><span class="kt">void</span><span class="w"> </span><span class="nf">QuickSort</span><span class="p">(</span><span class="w"> </span><span class="n">ElementType</span><span class="w"> </span><span class="n">A</span><span class="p">[],</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="p">)</span>
+<a id="__codelineno-8-38" name="__codelineno-8-38" href="#__codelineno-8-38"></a><span class="p">{</span><span class="w"> </span><span class="cm">/* 统一接口 */</span>
+<a id="__codelineno-8-39" name="__codelineno-8-39" href="#__codelineno-8-39"></a><span class="w">    </span><span class="n">Qsort</span><span class="p">(</span><span class="w"> </span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="mi">-1</span><span class="w"> </span><span class="p">);</span>
+<a id="__codelineno-8-40" name="__codelineno-8-40" href="#__codelineno-8-40"></a><span class="p">}</span>
+</code></pre></div>
+</details>
+<h2 id="_10">表排序<a class="headerlink" href="#_10" title="Permanent link">👀</a></h2>
+<h2 id="_11">基数排序<a class="headerlink" href="#_11" title="Permanent link">👀</a></h2>
+<h2 id="_12">排序算法的比较<a class="headerlink" href="#_12" title="Permanent link">👀</a></h2>
 <table>
 <thead>
 <tr>
