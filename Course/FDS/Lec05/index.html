@@ -1546,10 +1546,10 @@
 <li>复杂度 &ndash; <span class="arithmatex">\(T(N) = T(i) + T(N-i-1) + cN\)</span><ul>
 <li><span class="arithmatex">\(T_{worst}(N) = T(N-1) + cN ~ \rightarrow ~ T(N) = O(N^2)\)</span></li>
 <li><span class="arithmatex">\(T_{best}(N) = 2T(N/2) + cN ~ \rightarrow ~ T(N) = O(NlogN)\)</span></li>
-<li>
-<p><span class="arithmatex">\(T_{average}(N) = \frac{2}{N}[\sum_{j=0}^{N-1} T(j)] + cN ~ \rightarrow ~ T(N) = O(NlogN)\)</span> </p>
-<div class="highlight"><pre><span></span><code>&gt;假设对每个 i, $T(i)$ 的平均值是 $\frac{1}{N}[\sum_{j=0}^{N-1} T(j)]$
-</code></pre></div>
+<li>Average Case: <ul>
+<li>假设对每个 i, <span class="arithmatex">\(T(i)\)</span> 的平均值是 <span class="arithmatex">\(\frac{1}{N}[\sum_{j=0}^{N-1} T(j)]\)</span> </li>
+<li><span class="arithmatex">\(T(N) = \frac{2}{N}[\sum_{j=0}^{N-1} T(j)] + cN ~ \rightarrow ~ T(N) = O(NlogN)\)</span></li>
+</ul>
 </li>
 </ul>
 </li>
