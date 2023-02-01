@@ -12,16 +12,20 @@
         <meta name="author" content="Enl_Z">
       
       
-        <link rel="canonical" href="https://enl-z.github.io/Notebook/Course/OOP/Lec01/">
+        <link rel="canonical" href="https://enl-z.github.io/Notebook/Course/FDS/Lec05/">
       
       
+        <link rel="prev" href="../Lec04/">
+      
+      
+        <link rel="next" href="../../../Triviality/Markdown/">
       
       <link rel="icon" href="../../../Icon/Avator.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.6">
     
     
       
-        <title>Lec01 - 某兰的笔记本</title>
+        <title>排序 - 某兰的笔记本</title>
       
     
     
@@ -107,6 +111,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -137,7 +146,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Lec01
+              排序
             
           </span>
         </div>
@@ -245,6 +254,8 @@
         
   
   
+    
+  
 
 
   
@@ -256,7 +267,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../System/" class="md-tabs__link">
+      <a href="../../System/" class="md-tabs__link md-tabs__link--active">
         Course
       </a>
     </li>
@@ -411,14 +422,16 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
       
       
         
@@ -428,7 +441,7 @@
         
       
       
-        <label class="md-nav__link" for="__nav_2" tabindex="0" aria-expanded="false">
+        <label class="md-nav__link" for="__nav_2" tabindex="0" aria-expanded="true">
           Course
           <span class="md-nav__icon md-icon"></span>
         </label>
@@ -488,14 +501,16 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" checked>
       
       
         
@@ -518,7 +533,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../FDS/">数据结构基础</a>
+          <a href="../">数据结构基础</a>
           
             <label for="__nav_2_2">
               <span class="md-nav__icon md-icon"></span>
@@ -541,7 +556,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../FDS/Lec01/" class="md-nav__link">
+      <a href="../Lec01/" class="md-nav__link">
         算法分析和抽象数据类型
       </a>
     </li>
@@ -555,7 +570,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../FDS/Lec02/" class="md-nav__link">
+      <a href="../Lec02/" class="md-nav__link">
         线性结构
       </a>
     </li>
@@ -569,7 +584,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../FDS/Lec03/" class="md-nav__link">
+      <a href="../Lec03/" class="md-nav__link">
         树
       </a>
     </li>
@@ -583,7 +598,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../FDS/Lec04/" class="md-nav__link">
+      <a href="../Lec04/" class="md-nav__link">
         图
       </a>
     </li>
@@ -595,11 +610,59 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../FDS/Lec05/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          排序
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         排序
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    简单排序
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shell-sort" class="md-nav__link">
+    希尔排序 | Shell Sort
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -907,6 +970,30 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    简单排序
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shell-sort" class="md-nav__link">
+    希尔排序 | Shell Sort
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -925,7 +1012,7 @@
 
 
   
-    <a href="https://github.com/enl-z/Notebook/tree/master/docs/Course/OOP/Lec01.md" title="编辑此页" class="md-content__button md-icon">
+    <a href="https://github.com/enl-z/Notebook/tree/master/docs/Course/FDS/Lec05.md" title="编辑此页" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
     </a>
@@ -934,7 +1021,7 @@
     
       
     
-    <a href="https://github.com/enl-z/Notebook/tree/master/docs/Course/OOP/Lec01.md" title="View source of this page" class="md-content__button md-icon">
+    <a href="https://github.com/enl-z/Notebook/tree/master/docs/Course/FDS/Lec05.md" title="View source of this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
     </a>
@@ -942,7 +1029,68 @@
 
 
 
-
+<h1 id="_1">排序<a class="headerlink" href="#_1" title="Permanent link">👀</a></h1>
+<h2 id="_2">简单排序<a class="headerlink" href="#_2" title="Permanent link">👀</a></h2>
+<div class="admonition info">
+<p class="admonition-title">预备知识</p>
+<p><code>void XSort(ElementType A[], int N)</code></p>
+<ol>
+<li>大多数情况下，为简单起见，讨论从小到大的整数排序</li>
+<li>N是正整数</li>
+<li>只讨论基于比较的排序（&gt; = &lt; 有定义）</li>
+<li>只讨论内部排序</li>
+<li>稳定性：任意两个相等的数据，排序前后的相对位置不发生改变</li>
+<li>没有一种排序是任何情况下都表现最好的</li>
+</ol>
+</div>
+<ul>
+<li>
+<p>插入排序</p>
+<div class="admonition example">
+<p class="admonition-title">code</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">InsertionSort</span><span class="p">(</span><span class="w"> </span><span class="n">ElementType</span><span class="w"> </span><span class="n">A</span><span class="p">[],</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="p">)</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="p">{</span><span class="w"> </span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">P</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="n">ElementType</span><span class="w"> </span><span class="n">Tmp</span><span class="p">;</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="n">P</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="n">P</span><span class="o">++</span><span class="p">)</span><span class="w"> </span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">        </span><span class="n">Tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="p">[</span><span class="n">P</span><span class="p">];</span><span class="w">     </span><span class="cm">/* 取出未排序序列中的第一个元素*/</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">P</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="mi">-1</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">Tmp</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">--</span><span class="p">)</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">            </span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="mi">-1</span><span class="p">];</span><span class="w">  </span><span class="cm">/*依次与已排序序列中元素比较并右移*/</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">        </span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Tmp</span><span class="p">;</span><span class="w">     </span><span class="cm">/* 放进合适的位置 */</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="p">}</span>
+</code></pre></div>
+</div>
+<ul>
+<li>最好情况: 输入 A[] 是有序的, <span class="arithmatex">\(T(N) = O(N)\)</span></li>
+<li>最坏情况: 输入 A[] 是逆序的, <span class="arithmatex">\(T(N) = O(N^2)\)</span></li>
+</ul>
+</li>
+</ul>
+<details class="note">
+<summary>引申&ndash;时间复杂度下界</summary>
+<ul>
+<li>对于下标 i &lt; j, 如果 A[i] &gt; A[j], 则称 (i, j) 是一对逆序对 (inversion)</li>
+<li>冒泡和插入排序每次交换两个相邻元素都正好消去一个逆序对<ul>
+<li>插入排序: <span class="arithmatex">\(T(N, I) = O(N + I)\)</span></li>
+<li>其中 I 是原始序列中逆序对的数量</li>
+</ul>
+</li>
+<li>定理:<ul>
+<li>任意 N 个不同元素组成的序列平均具有 <span class="arithmatex">\(\frac{N（N-1）}{4}\)</span> 个逆序对</li>
+<li>任何仅以交换相邻元素来排序的算法，其平均时间复杂度为 <span class="arithmatex">\(\Omega (N^2)\)</span> ( <span class="arithmatex">\(\Omega\)</span> 指的是下界)</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>要提高算法效率，需要
+* 每次消去不止一对逆序对
+* 每次尽量交换相隔较远的元素</p>
+</blockquote>
+</details>
+<h2 id="shell-sort">希尔排序 | Shell Sort<a class="headerlink" href="#shell-sort" title="Permanent link">👀</a></h2>
+<p><center><font face="JetBrains Mono" color=grey size=18>To Be Continued</font></center></p>
 
 
   
@@ -1015,6 +1163,42 @@
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+          
+          <a href="../Lec04/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 图" rel="prev">
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <div class="md-ellipsis">
+                <span class="md-footer__direction">
+                  上一页
+                </span>
+                图
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../../Triviality/Markdown/" class="md-footer__link md-footer__link--next" aria-label="下一页: Perface" rel="next">
+            <div class="md-footer__title">
+              <div class="md-ellipsis">
+                <span class="md-footer__direction">
+                  下一页
+                </span>
+                Perface
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
     
   
   <div class="md-footer-meta md-typeset">
