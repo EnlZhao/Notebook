@@ -32,7 +32,7 @@
 
 几种函数构造方法: 
 
-* 除留余数法 —— $f(x) = x ~~ \% ~~ TableSize; $ /* if x is an integer*/
+* 除留余数法 —— $f(x) = x ~~ \% ~~ TableSize; $ `/* if x is an integer*/`
     * TableSize 最好选择一个质数 —— good for random integer keys
 
     ??? example 
@@ -61,13 +61,13 @@
     ??? example
         比如按学号映射，同届前几位相同，将后四位选为 key
 
-* $f(x) = (\sum x[i]) ~~ \% ~~ TableSize; $ /* if x is a string*/
+* $f(x) = (\sum x[i]) ~~ \% ~~ TableSize; $ `/* if x is a string*/`
 
     ??? example
         $x = "abc" \Rightarrow \sum x[i] = 'a' + 'b' + 'c'$
 
-* $f(x) = (x[0] + x[1] * 27 + x[2] * 27^2 ) ~~ \% ~~ TableSize; $ // 变成 27 进制
-* $f(x) = (\sum x[N-i-1] * 32^i) ~~ \% ~~ TableSize$ ( *32 可以变为移位运算 )
+* $f(x) = (x[0] + x[1] * 27 + x[2] * 27^2 ) ~~ \% ~~ TableSize; $ `/* 变成 27 进制 */`
+* $f(x) = (\sum x[N-i-1] * 32^i) ~~ \% ~~ TableSize$ `/* *32 可以变为移位运算 */`
 
     ??? example
         ```c
@@ -215,7 +215,7 @@ void insert(int key) {
       * 增量函数 $f(i) = i^2$ —— 避免了 primary clustering, 但是导致有可能有空位但就是找不到
       * 若使用平方探测（或二次探测）, 且表的大小是素数，那么当表至少有一半是空的时候，总能插入一个新的元素
 
-        > 一些改进: If the table size is a prime of the form $4k + 3$ , then the quadratic probing  $f(i) = \pm i^2$ can probe the entire table.
+        > 一些改进: If the table size is a prime of the form $4k + 3$ , then the quadratic probing  $f(i) = \pm ~~ i^2$ can probe the entire table.
 
         ??? example "Find"
             ```c
@@ -248,12 +248,11 @@ void insert(int key) {
                 } 
             } 
             ```
-
-      1. 双重哈希 | Double Hashing —— 即 $f(i) = i \times hash_2(x)$; /* hash~2~(x) 是第二个 hash 函数 */ 
+      1. 双重哈希 | Double Hashing —— 即 $f(i) = i \times hash_2(x)$; `/* hash~2~(x) 是第二个 hash 函数 */ `
             * 一般选择 $hash_2(x) = R - (x \% R)$ ($R$ 为小于表大小的质数) 效果更好
             * 如果正确实现了双重哈希，模拟显示预期的探测次数几乎与随机冲突解决策略相同
             * 二次探测不需要使用第二个哈希函数，在实践中更简单快速
-      2. 再哈希
+      2. 再哈希: 
             * 使用二次探测，如果表的元素填的过满 (大约是装载密度 > 0.5 时)，那么操作时间会过长，且 Insert 可能失败，这可能发生在有太多的移动和插入混合的场合
             * 解决方法是再哈希: 
                 * 建立另外一个大约两倍大的表且使用一个相关的新哈希函数
