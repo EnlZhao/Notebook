@@ -924,6 +924,60 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    哈希函数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    解决冲突
+  </a>
+  
+    <nav class="md-nav" aria-label="解决冲突">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#separate-chaining" class="md-nav__link">
+    分离链接 | Separate Chaining
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#open-adressing" class="md-nav__link">
+    开放地址 | Open Adressing
+  </a>
+  
+    <nav class="md-nav" aria-label="开放地址 | Open Adressing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    双重哈希
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    再哈希
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -966,6 +1020,298 @@
 <p>重点: 设计哈希函数 + 如何解决冲突</p>
 </div>
 <h2 id="_1">哈希表 | 散列表<a class="headerlink" href="#_1" title="Permanent link">👀</a></h2>
+<ul>
+<li>哈希表把关键字 (或标识符 | identifier) 值映射到表中一个位置<ul>
+<li>支持查询、插入、删除等操作</li>
+</ul>
+</li>
+<li>
+<p>对于标识符 <span class="arithmatex">\(x\)</span> , 定义一个哈希函数 <span class="arithmatex">\(f(x) = x\)</span> 在哈希表 ht[] 中的位置<br />
+<img alt="2023-02-02-21-23-50" src="../../../Images/2023-02-02-21-23-50.png" /></p>
+<ul>
+<li>如图, ht 的大小为 <span class="arithmatex">\(b\)</span>（即 <span class="arithmatex">\(f(x)\)</span> 值域为 <span class="arithmatex">\([0, b-1]\)</span>），最多有 s 个槽</li>
+<li><span class="arithmatex">\(T\)</span> = <span class="arithmatex">\(x\)</span> 可能的不同值的个数</li>
+<li><span class="arithmatex">\(n\)</span> = ht 中不同标识符的个数</li>
+<li>标识符密度 (identifier density) = <span class="arithmatex">\(n/T\)</span></li>
+<li>装载密度 (loading density) = <span class="arithmatex">\(\lambda = n/(sb)\)</span></li>
+</ul>
+</li>
+<li>
+<p>冲突 (collision) &ndash; 当将两个不同的标识符散列到同一个桶中时 (i.e. <span class="arithmatex">\(i_1 \neq i_2\)</span> 但 <span class="arithmatex">\(f(i_1) = f(i_2)\)</span> )</p>
+</li>
+<li>溢出（overflow）: 当将一个新的标识符散列到一个满的桶时</li>
+</ul>
+<blockquote>
+<p>当 s = 1 时，碰撞和溢出将同时发生<br />
+没有溢出时，<span class="arithmatex">\(T_{search} = T_{insert} = T_{delete} = O(1)\)</span></p>
+</blockquote>
+<details class="example">
+<summary>Example</summary>
+<p><img alt="2023-02-02-21-47-21" src="../../../Images/2023-02-02-21-47-21.png" /></p>
+</details>
+<h2 id="_2">哈希函数<a class="headerlink" href="#_2" title="Permanent link">👀</a></h2>
+<div class="admonition abstract">
+<p class="admonition-title">Properties of f()</p>
+<ul>
+<li>函数必须易于计算且尽量减少碰撞的可能性</li>
+<li>函数应该是公正的 (unbiased)，即对任意 <span class="arithmatex">\(x\)</span> 和 <span class="arithmatex">\(i\)</span> 都有  <span class="arithmatex">\(Probability(f(x) = i) = 1/b\)</span> . 这种函数称为均匀哈希函数（uniform hash function）</li>
+</ul>
+</div>
+<p>几种函数构造方法: </p>
+<ul>
+<li>
+<p>除留余数法 &ndash; $f(x) = x ~~ \% ~~ TableSize; $ /<em> if x is an integer</em>/</p>
+<ul>
+<li>TableSize 最好选择一个质数 &ndash; good for random integer keys</li>
+</ul>
+<details class="example">
+<summary>Example</summary>
+<table>
+<thead>
+<tr>
+<th>关键字</th>
+<th>内部代码</th>
+<th>key MOD 100</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>key1</td>
+<td>511</td>
+<td>11</td>
+</tr>
+<tr>
+<td>key2</td>
+<td>512</td>
+<td>12</td>
+</tr>
+<tr>
+<td>key3</td>
+<td>411</td>
+<td>11</td>
+</tr>
+</tbody>
+</table>
+</details>
+</li>
+<li>
+<p>平方取中法 &ndash; 先计算关键字值的平方，然后取平方值的中间几位作为散列地址</p>
+<details class="example">
+<summary>Example</summary>
+<table>
+<thead>
+<tr>
+<th>关键字</th>
+<th>内部代码</th>
+<th>内部代码平方</th>
+<th>hash(key)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>key1</td>
+<td>511</td>
+<td>261121</td>
+<td>11</td>
+</tr>
+<tr>
+<td>key2</td>
+<td>512</td>
+<td>262144</td>
+<td>21</td>
+</tr>
+<tr>
+<td>key3</td>
+<td>411</td>
+<td>168921</td>
+<td>89</td>
+</tr>
+</tbody>
+</table>
+</details>
+</li>
+<li>
+<p>折叠法 &ndash; 将关键字分为位数相同的几部分，然后取这几部分的叠加和（舍去进位）作为散列地址 (用于关键字位数较多，并且关键字中每一位上数字分布大致均匀)</p>
+<details class="example">
+<summary>Example</summary>
+<p><img alt="2023-02-02-23-19-59" src="../../../Images/2023-02-02-23-19-59.png" /></p>
+</details>
+</li>
+<li>
+<p>数字分析法 &ndash; 当关键字的位数大于地址的位数，对关键字的各位分布进行分析，选出分布均匀的任意几位作为散列地址 (适用于所有关键字都已知的情况下，根据实际应用确定要选取的部分，尽量避免发生冲突)</p>
+<details class="example">
+<summary>Example</summary>
+<p>比如按学号映射，同届前几位相同，将后四位选为 key</p>
+</details>
+</li>
+<li>
+<p>&ndash; $f(x) = (\sum x[i]) ~~ \% ~~ TableSize; $ /<em> if x is a string</em>/</p>
+<details class="example">
+<summary>Example</summary>
+<p><span class="arithmatex">\(x = "abc" \Rightarrow \sum x[i] = 'a' + 'b' + 'c'\)</span></p>
+</details>
+</li>
+<li>
+<p>$f(x) = (x[0] + x[1] * 27 + x[2] * 27^2 ) ~~ \% ~~ TableSize; $ // 变成 27 进制</p>
+</li>
+<li>
+<p><span class="arithmatex">\(f(x) = (\sum x[N-i-1] * 32^i) ~~ \% ~~ TableSize\)</span> ( *32 可以变为移位运算 )</p>
+<details class="example">
+<summary>Example</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">Index</span><span class="w"> </span><span class="nf">Hash3</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">TableSize</span><span class="p">)</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="p">{</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">HashVal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="k">while</span><span class="p">(</span><span class="o">*</span><span class="n">x</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="sc">&#39;\0&#39;</span><span class="p">)</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">        </span><span class="n">HashVal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">HashVal</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="o">*</span><span class="n">x</span><span class="o">++</span><span class="p">;</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">HashVal</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">TableSize</span><span class="p">;</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="p">}</span>
+</code></pre></div>
+</details>
+</li>
+</ul>
+<h2 id="_3">解决冲突<a class="headerlink" href="#_3" title="Permanent link">👀</a></h2>
+<h3 id="separate-chaining">分离链接 | Separate Chaining<a class="headerlink" href="#separate-chaining" title="Permanent link">👀</a></h3>
+<ul>
+<li>将散列到相同值的元素保存在一个列表（链表）中</li>
+</ul>
+<details class="example">
+<summary>code</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">struct</span><span class="w">  </span><span class="nc">ListNode</span><span class="p">;</span><span class="w"> </span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">typedef</span><span class="w">  </span><span class="k">struct</span><span class="w">  </span><span class="nc">ListNode</span><span class="w">  </span><span class="o">*</span><span class="n">Position</span><span class="p">;</span><span class="w"> </span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="k">struct</span><span class="w">  </span><span class="nc">HashTbl</span><span class="p">;</span><span class="w"> </span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="k">typedef</span><span class="w">  </span><span class="k">struct</span><span class="w">  </span><span class="nc">HashTbl</span><span class="w">  </span><span class="o">*</span><span class="n">HashTable</span><span class="p">;</span><span class="w"> </span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="k">struct</span><span class="w">  </span><span class="nc">ListNode</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="n">ElementType</span><span class="w">  </span><span class="n">Element</span><span class="p">;</span><span class="w"> </span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="n">Position</span><span class="w">  </span><span class="n">Next</span><span class="p">;</span><span class="w"> </span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="p">};</span><span class="w"> </span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="k">typedef</span><span class="w">  </span><span class="n">Position</span><span class="w">  </span><span class="n">List</span><span class="p">;</span><span class="w"> </span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="cm">/* List *TheList will be an array of lists, allocated later */</span><span class="w"> </span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="cm">/* The lists use headers (for simplicity), */</span><span class="w"> </span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="cm">/* though this wastes space */</span><span class="w"> </span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="k">struct</span><span class="w">  </span><span class="nc">HashTbl</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">    </span><span class="kt">int</span><span class="w">  </span><span class="n">TableSize</span><span class="p">;</span><span class="w"> </span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">    </span><span class="n">List</span><span class="w">  </span><span class="o">*</span><span class="n">TheLists</span><span class="p">;</span><span class="w"> </span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="p">};</span><span class="w"> </span>
+</code></pre></div>
+<details class="example">
+<summary>Create an empty table</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">HashTable</span><span class="w">  </span><span class="nf">InitializeTable</span><span class="p">(</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">TableSize</span><span class="w"> </span><span class="p">)</span><span class="w"> </span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="p">{</span><span class="w">   </span><span class="n">HashTable</span><span class="w">  </span><span class="n">H</span><span class="p">;</span><span class="w"> </span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="kt">int</span><span class="w">  </span><span class="n">i</span><span class="p">;</span><span class="w"> </span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">TableSize</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">MinTableSize</span><span class="w"> </span><span class="p">)</span><span class="w"> </span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="p">{</span><span class="w"> </span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">        </span><span class="n">Error</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;Table size too small&quot;</span><span class="w"> </span><span class="p">);</span><span class="w">  </span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span><span class="w">  </span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="n">H</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">malloc</span><span class="p">(</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">HashTbl</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span><span class="w">  </span><span class="cm">/* Allocate table */</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">H</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="w"> </span><span class="p">)</span><span class="w">    </span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">        </span><span class="n">FatalError</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;Out of space!!!&quot;</span><span class="w"> </span><span class="p">);</span><span class="w"> </span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">    </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">TableSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">NextPrime</span><span class="p">(</span><span class="w"> </span><span class="n">TableSize</span><span class="w"> </span><span class="p">);</span><span class="w">  </span><span class="cm">/* Better be prime */</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">    </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">TheLists</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">malloc</span><span class="p">(</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="w"> </span><span class="n">List</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">TableSize</span><span class="w"> </span><span class="p">);</span><span class="w">  </span><span class="cm">/*Array of lists*/</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">TheLists</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="w"> </span><span class="p">)</span><span class="w">   </span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">        </span><span class="n">FatalError</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;Out of space!!!&quot;</span><span class="w"> </span><span class="p">);</span><span class="w"> </span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">TableSize</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="w"> </span><span class="p">)</span><span class="w"> </span>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">    </span><span class="p">{</span><span class="w">   </span><span class="cm">/* Allocate list headers */</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">        </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">TheLists</span><span class="p">[</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">malloc</span><span class="p">(</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">ListNode</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span><span class="w"> </span><span class="cm">/* Slow! */</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">TheLists</span><span class="p">[</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="w"> </span><span class="p">)</span><span class="w">  </span>
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="w">            </span><span class="n">FatalError</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;Out of space!!!&quot;</span><span class="w"> </span><span class="p">);</span><span class="w"> </span>
+<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="w">        </span><span class="k">else</span><span class="w">    </span>
+<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="w">            </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">TheLists</span><span class="p">[</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="p">]</span><span class="o">-&gt;</span><span class="n">Next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
+<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span>
+<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="w">    </span><span class="k">return</span><span class="w">  </span><span class="n">H</span><span class="p">;</span><span class="w"> </span>
+<a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a><span class="p">}</span><span class="w"> </span>
+</code></pre></div>
+</details>
+<details class="example">
+<summary>Find a key from a hash table</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">Position</span><span class="w">  </span><span class="nf">Find</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">ElementType</span><span class="w"> </span><span class="n">Key</span><span class="p">,</span><span class="w"> </span><span class="n">HashTable</span><span class="w"> </span><span class="n">H</span><span class="w"> </span><span class="p">)</span><span class="w"> </span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="p">{</span><span class="w"> </span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="n">Position</span><span class="w"> </span><span class="n">P</span><span class="p">;</span><span class="w"> </span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="n">List</span><span class="w"> </span><span class="n">L</span><span class="p">;</span><span class="w"> </span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="n">L</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">TheLists</span><span class="p">[</span><span class="w"> </span><span class="n">Hash</span><span class="p">(</span><span class="w"> </span><span class="n">Key</span><span class="p">,</span><span class="w"> </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">TableSize</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">];</span><span class="w"> </span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="n">P</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">L</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">;</span><span class="w"> </span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">    </span><span class="k">while</span><span class="p">(</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">NULL</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">P</span><span class="o">-&gt;</span><span class="n">Element</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">Key</span><span class="w"> </span><span class="p">)</span><span class="w">  </span><span class="cm">/* Probably need strcmp */</span><span class="w"> </span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">        </span><span class="n">P</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">P</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">;</span><span class="w"> </span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">P</span><span class="p">;</span><span class="w"> </span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="p">}</span><span class="w"> </span>
+</code></pre></div>
+</details>
+<details class="example">
+<summary>Insert a key into a hash table</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kt">void</span><span class="w">  </span><span class="nf">Insert</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">ElementType</span><span class="w"> </span><span class="n">Key</span><span class="p">,</span><span class="w"> </span><span class="n">HashTable</span><span class="w"> </span><span class="n">H</span><span class="w"> </span><span class="p">)</span><span class="w"> </span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="p">{</span><span class="w"> </span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="n">Position</span><span class="w">   </span><span class="n">Pos</span><span class="p">,</span><span class="w"> </span><span class="n">NewCell</span><span class="p">;</span><span class="w"> </span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="n">List</span><span class="w">  </span><span class="n">L</span><span class="p">;</span><span class="w"> </span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="n">Pos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Find</span><span class="p">(</span><span class="w"> </span><span class="n">Key</span><span class="p">,</span><span class="w"> </span><span class="n">H</span><span class="w"> </span><span class="p">);</span><span class="w"> </span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Pos</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="w"> </span><span class="p">)</span><span class="w"> </span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">    </span><span class="p">{</span><span class="w">   </span><span class="cm">/* Key is not found, then insert */</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">        </span><span class="n">NewCell</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">malloc</span><span class="p">(</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">ListNode</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span><span class="w"> </span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">NewCell</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="w"> </span><span class="p">)</span><span class="w">     </span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">            </span><span class="n">FatalError</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;Out of space!!!&quot;</span><span class="w"> </span><span class="p">);</span><span class="w"> </span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">        </span><span class="k">else</span><span class="w"> </span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">        </span><span class="p">{</span><span class="w"> </span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">            </span><span class="n">L</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">TheLists</span><span class="p">[</span><span class="w"> </span><span class="n">Hash</span><span class="p">(</span><span class="w"> </span><span class="n">Key</span><span class="p">,</span><span class="w"> </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">TableSize</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">];</span><span class="w"> </span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">            </span><span class="n">NewCell</span><span class="o">-&gt;</span><span class="n">Next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">L</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">;</span><span class="w"> </span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">            </span><span class="n">NewCell</span><span class="o">-&gt;</span><span class="n">Element</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Key</span><span class="p">;</span><span class="w"> </span><span class="cm">/* Probably need strcpy! */</span><span class="w"> </span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="w">            </span><span class="n">L</span><span class="o">-&gt;</span><span class="n">Next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">NewCell</span><span class="p">;</span><span class="w"> </span>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span>
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span>
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="p">}</span><span class="w"> </span>
+</code></pre></div>
+</details>
+<blockquote>
+<p>Tips: 将 TableSize 的大小设置为预期 keys 的数量几乎一样 (i.e. 使得装载密度 $\lambda \approx 1 $)</p>
+</blockquote>
+</details>
+<h3 id="open-adressing">开放地址 | Open Adressing<a class="headerlink" href="#open-adressing" title="Permanent link">👀</a></h3>
+<ul>
+<li>当有冲突发生时，选择下一个位置，直到找到空的为止</li>
+<li>即有多个哈希函数 <span class="arithmatex">\(h_0(x), h_1(x), \cdots\)</span>，其中 <span class="arithmatex">\(h_i(x) = (\mathrm{hash}(x)+f(i)) ~~ \% ~~ TableSize\)</span><ul>
+<li>其中 <span class="arithmatex">\(f(i)\)</span> 为增量函数，有多种选取的方式</li>
+</ul>
+</li>
+<li>通常情况下 <span class="arithmatex">\(\lambda &lt; 0.5\)</span> , 如果大于 0.5 就会引发大量的冲突</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">insert</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">key</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="n">index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hash</span><span class="p">(</span><span class="n">key</span><span class="p">);</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">  </span><span class="c1">// the counter of probing</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">collision</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">index</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">        </span><span class="n">index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">hash</span><span class="p">(</span><span class="n">key</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">i</span><span class="p">))</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">TableSize</span><span class="p">;</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">table</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">full</span><span class="p">)</span><span class="w"> </span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">            </span><span class="k">break</span><span class="p">;</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">        </span><span class="k">else</span><span class="w"> </span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">            </span><span class="n">i</span><span class="o">++</span><span class="p">;</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">table</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">full</span><span class="p">)</span><span class="w"> </span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">        </span><span class="n">Error</span><span class="p">(</span><span class="s">&quot;No space left&quot;</span><span class="p">);</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">    </span><span class="k">else</span><span class="w"> </span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">        </span><span class="n">insert</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">index</span><span class="p">;</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="p">}</span>
+</code></pre></div>
+<ol>
+<li>
+<p>线性探测 | Linear Probing <br />
+   * 增量函数 <span class="arithmatex">\(f(i) = i\)</span> &ndash; 会导致初次聚集（primary clustering），即一旦发生了冲突，那么后面的元素都会聚集在一起，搜索次数会变得越来越大<br />
+   * 使用线性探测的探测次数对于插入和不成功查找来说约为<span class="arithmatex">\(\dfrac{1}{2}\left(1+\dfrac{1}{(1-\lambda)^2}\right)\)</span><br />
+   *  对于成功的查找来说则需要 <span class="arithmatex">\(\dfrac{1}{2}\left(1+\dfrac{1}{1-\lambda}\right)\)</span> 次</p>
+<details class="example">
+<summary>Example</summary>
+<p><img alt="2023-02-03-14-29-21" src="../../../Images/2023-02-03-14-29-21.png" /><br />
+Average search time = 27 / 9 = 3</p>
+</details>
+</li>
+<li>
+<p>二次探测 | Quadratic Probing <br />
+   * 增量函数 <span class="arithmatex">\(f(i) = i^2\)</span> &ndash; 避免了 primary clustering, 但是导致有可能有空位但就是找不到<br />
+   * 若使用平方探测（或二次探测）, 且表的大小是素数，那么当表至少有一半是空的时候，总能插入一个新的元素</p>
+</li>
+</ol>
+<h4 id="_4">双重哈希<a class="headerlink" href="#_4" title="Permanent link">👀</a></h4>
+<h4 id="_5">再哈希<a class="headerlink" href="#_5" title="Permanent link">👀</a></h4>
 <p><center><font face="JetBrains Mono" color=grey size=18>To Be Continued</font></center></p>
 
 
