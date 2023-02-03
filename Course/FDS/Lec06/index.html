@@ -691,26 +691,6 @@
     开放地址 | Open Adressing
   </a>
   
-    <nav class="md-nav" aria-label="开放地址 | Open Adressing">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    双重哈希
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    再哈希
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
         
       </ul>
@@ -1072,26 +1052,6 @@
     开放地址 | Open Adressing
   </a>
   
-    <nav class="md-nav" aria-label="开放地址 | Open Adressing">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    双重哈希
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    再哈希
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
         
       </ul>
@@ -1415,10 +1375,12 @@
 </code></pre></div>
 <ol>
 <li>
-<p>线性探测 | Linear Probing <br />
-   * 增量函数 <span class="arithmatex">\(f(i) = i\)</span> &ndash; 会导致初次聚集（primary clustering），即一旦发生了冲突，那么后面的元素都会聚集在一起，搜索次数会变得越来越大<br />
-   * 使用线性探测的探测次数对于插入和不成功查找来说约为<span class="arithmatex">\(\dfrac{1}{2}\left(1+\dfrac{1}{(1-\lambda)^2}\right)\)</span><br />
-   *  对于成功的查找来说则需要 <span class="arithmatex">\(\dfrac{1}{2}\left(1+\dfrac{1}{1-\lambda}\right)\)</span> 次</p>
+<p>线性探测 | Linear Probing </p>
+<ul>
+<li>增量函数 <span class="arithmatex">\(f(i) = i\)</span> &ndash; 会导致初次聚集（primary clustering），即一旦发生了冲突，那么后面的元素都会聚集在一起，搜索次数会变得越来越大</li>
+<li>使用线性探测的探测次数对于插入和不成功查找来说约为<span class="arithmatex">\(\dfrac{1}{2}\left(1+\dfrac{1}{(1-\lambda)^2}\right)\)</span></li>
+<li>对于成功的查找来说则需要 <span class="arithmatex">\(\dfrac{1}{2}\left(1+\dfrac{1}{1-\lambda}\right)\)</span> 次</li>
+</ul>
 <details class="example">
 <summary>Example</summary>
 <p><img alt="2023-02-03-14-29-21" src="../../../Images/2023-02-03-14-29-21.png" /><br />
@@ -1426,13 +1388,15 @@ Average search time = 27 / 9 = 3</p>
 </details>
 </li>
 <li>
-<p>二次探测 | Quadratic Probing <br />
-   * 增量函数 <span class="arithmatex">\(f(i) = i^2\)</span> &ndash; 避免了 primary clustering, 但是导致有可能有空位但就是找不到<br />
-   * 若使用平方探测（或二次探测）, 且表的大小是素数，那么当表至少有一半是空的时候，总能插入一个新的元素</p>
+<p>二次探测 | Quadratic Probing </p>
+<ul>
+<li>增量函数 <span class="arithmatex">\(f(i) = i^2\)</span> &ndash; 避免了 primary clustering, 但是导致有可能有空位但就是找不到</li>
+<li>若使用平方探测（或二次探测）, 且表的大小是素数，那么当表至少有一半是空的时候，总能插入一个新的元素<br />
+  1. 双重哈希<br />
+  2. 再哈希</li>
+</ul>
 </li>
 </ol>
-<h4 id="_4">双重哈希<a class="headerlink" href="#_4" title="Permanent link">👀</a></h4>
-<h4 id="_5">再哈希<a class="headerlink" href="#_5" title="Permanent link">👀</a></h4>
 <p><center><font face="JetBrains Mono" color=grey size=18>To Be Continued</font></center></p>
 
 
