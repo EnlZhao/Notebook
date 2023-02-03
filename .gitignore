@@ -1,5 +1,5 @@
 site/
 *.sh
-docs/Icon
-docs/Images
+docs/Icon/
+docs/Images/
 
