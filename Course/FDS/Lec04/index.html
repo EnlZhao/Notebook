@@ -1638,13 +1638,13 @@
 <ul>
 <li>因为判定条件 T[V].Dist + Cvw &lt; T[W].Dist，T[i].Dist 要初始化为正无穷</li>
 <li>优化如下：<ul>
-<li>Implementation 1: 直接扫描所有未收录顶点 &ndash; <span class="arithmatex">\(O(|V|)\)</span> <ul>
-<li><span class="arithmatex">\(T = O(|V|^2 + |E|)\)</span> &ndash; 对于稠密图效果好</li>
+<li>Implementation 1: 直接扫描所有未收录顶点 —— <span class="arithmatex">\(O(|V|)\)</span> <ul>
+<li><span class="arithmatex">\(T = O(|V|^2 + |E|)\)</span> —— 对于稠密图效果好</li>
 </ul>
 </li>
-<li>Implementation 2: 将 dist 存在最小堆中 &ndash; <span class="arithmatex">\(O(log|V|)\)</span> <ul>
-<li>更新 T[W].Dist 的值 &ndash; <span class="arithmatex">\(O(log|V|)\)</span> </li>
-<li>$ T = O(|V|log|V| + |E|log|V|) = O(|E|log|V|) $  &ndash; 对稀疏图效果好(指 V 和 E 一个数量级)</li>
+<li>Implementation 2: 将 dist 存在最小堆中 —— <span class="arithmatex">\(O(log|V|)\)</span> <ul>
+<li>更新 T[W].Dist 的值 —— <span class="arithmatex">\(O(log|V|)\)</span> </li>
+<li>$ T = O(|V|log|V| + |E|log|V|) = O(|E|log|V|) $  —— 对稀疏图效果好(指 V 和 E 一个数量级)</li>
 </ul>
 </li>
 </ul>
@@ -2108,11 +2108,11 @@
 </ul>
 <h3 id="_10">欧拉回路 &amp; 欧拉路径<a class="headerlink" href="#_10" title="Permanent link">👀</a></h3>
 <ul>
-<li>欧拉路径 (Euler path | Euler tour) &mdash; 一笔画 | 包含所有边的简单路径<ul>
+<li>欧拉路径 (Euler path | Euler tour) —— 一笔画 | 包含所有边的简单路径<ul>
 <li>如果正好有两个度为奇数的顶点，欧拉路径就是可能的。必须从一个奇度的顶点开始 &ldquo;画&rdquo;</li>
 </ul>
 </li>
-<li>欧拉回路 (Euler curcit) &mdash; 一笔画并且结束点和起始点重合 | 包含所有边的简单环<ul>
+<li>欧拉回路 (Euler curcit) —— 一笔画并且结束点和起始点重合 | 包含所有边的简单环<ul>
 <li>只有当图连通且每个顶点度为偶数，欧拉回路才有可能</li>
 </ul>
 </li>
