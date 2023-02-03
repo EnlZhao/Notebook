@@ -81,7 +81,7 @@ void Shellsort( ElementType A[ ], int N )
 
 !!! question
     当增量元素不互质时，导致小增量可能不起作用, 如:
-    ![2023-02-01-18-28-03](../../../Images/2023-02-01-18-28-03.png)
+    ![2023-02-01-18-28-03](../../Images/2023-02-01-18-28-03.png)
 
 1. Hibbard 增量序列
       1. $h_k = 2^k - 1$ -- 相邻元素互质
@@ -164,7 +164,7 @@ void Shellsort( ElementType A[ ], int N )
 
 * 关键是合并两个有序列表变成一个有序列表 (可以递归进行、分而治之)
 * 递归算法: 
-    * 分而治之 <br> ![2023-02-01-21-34-59](../../../Images/2023-02-01-21-34-59.png)
+    * 分而治之 <br> ![2023-02-01-21-34-59](../../Images/2023-02-01-21-34-59.png)
     * $T(N) = T(N/2) + T(N/2) + O(N)$ $\rightarrow$ $T(N) = O(NlogN)$
     ??? example "code"
         ```c
@@ -398,7 +398,7 @@ void Quicksort(ElementType A[], int N)
 * 从低位（LSD，Least Significant Digit）到高位（MSD），对每一位进行进行排序 (次位优先)
 * 时间复杂度 $O(P(N+B))$ , 其中 $P$ 为轮数, $N$ 为元素个数, $B$ 为桶个数
 ??? example
-    ![2023-02-01-23-10-42](../../../Images/2023-02-01-23-10-42.png)
+    ![2023-02-01-23-10-42](../../Images/2023-02-01-23-10-42.png)
     <center><font face="JetBrains Mono" size=2 color=grey >图片摘自 MOOC</font></center>
     
     > 此问题中，P 即是 logB

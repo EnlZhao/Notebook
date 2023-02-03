@@ -19,6 +19,7 @@ nav:
       - 树: Course/FDS/Lec03.md
       - 图: Course/FDS/Lec04.md
       - 排序: Course/FDS/Lec05.md
+      - 哈希: Course/FDS/Lec06.md
   - Triviality: 
     - Markdown:
       - Perface: Triviality/Markdown/index.md
