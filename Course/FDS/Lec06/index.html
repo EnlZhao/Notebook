@@ -1428,7 +1428,7 @@ Average search time = 27 / 9 = 3</p>
 <a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="p">}</span><span class="w"> </span>
 </code></pre></div><br />
   1. 双重哈希 | Double Hashing —— 即 <span class="arithmatex">\(f(i) = i \times hash_2(x)\)</span>; <code>/* hash~2~(x) 是第二个 hash 函数 */</code>
-* 一般选择 <span class="arithmatex">\(hash_2(x) = R - (x \% R)\)</span> (<span class="arithmatex">\(R\)</span> 为小于表大小的质数) 效果更好
+* 一般选择 <span class="arithmatex">\(hash_2(x) = R - (x ~~ \% ~~ R)\)</span> (<span class="arithmatex">\(R\)</span> 为小于表大小的质数) 效果更好
 * 如果正确实现了双重哈希，模拟显示预期的探测次数几乎与随机冲突解决策略相同
 * 二次探测不需要使用第二个哈希函数，在实践中更简单快速<br />
   2. 再哈希: 
