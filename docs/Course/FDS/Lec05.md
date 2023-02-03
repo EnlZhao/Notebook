@@ -395,7 +395,7 @@ void Quicksort(ElementType A[], int N)
 
 ### 基数排序
 
-* 从低位（LSD，Least Significant Digit）到高位（MSB），对每一位进行进行排序 (次位优先)
+* 从低位（LSD，Least Significant Digit）到高位（MSD），对每一位进行进行排序 (次位优先)
 * 时间复杂度 $O(P(N+B))$ , 其中 $P$ 为轮数, $N$ 为元素个数, $B$ 为桶个数
 ??? example
     ![2023-02-01-23-10-42](../../Images/2023-02-01-23-10-42.png)

@@ -1,5 +1,5 @@
 site_name: 某兰的笔记本
-site_url: https://enl-z.github.io/Notebook/
+site_url: https://enl-z.cc/Notebook/
 edit_uri: tree/master/docs
 copyright: Copyright &copy; 2022-2023 <a href="https://github.com/enl-z" target="_blank" rel="noopener">某兰</a>
 site_author: Enl_Z
@@ -99,7 +99,7 @@ theme:
   language: zh # 一些提示性的文字会变成中文
 
 repo_url: https://github.com/enl-z/Notebook # 右上角点击跳转的链接
-repo_name: enl-z.github.io # 右上角的名字
+repo_name: enl-z.cc/Notebook # 右上角的名字
 ## [bottom-left corner]
 
 # [Extensions]
@@ -166,7 +166,7 @@ markdown_extensions:
   - pymdownx.magiclink:
       repo_url_shorthand: true
       user: Enl_Z
-      repo: enl-z.github.io
+      repo: enl-z.cc
   - toc:
       permalink:  👀 # ⚓︎ # 显示锚点
   - pymdownx.tasklist:
@@ -204,6 +204,6 @@ extra:
       link: tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=1613715141&website=www.oicqzone.com
       name: QQ 
     - icon: fontawesome/regular/chess-king
-      link: https://enl-z.github.io/
+      link: https://enl-z.cc/
       name: Blog
 
