@@ -1118,7 +1118,7 @@
 </ul>
 </li>
 <li>
-<p>冲突 (collision) &ndash; 当将两个不同的标识符散列到同一个桶中时 (i.e. <span class="arithmatex">\(i_1 \neq i_2\)</span> 但 <span class="arithmatex">\(f(i_1) = f(i_2)\)</span> )</p>
+<p>冲突 (collision) ——&gt; 当将两个不同的标识符散列到同一个桶中时 (i.e. <span class="arithmatex">\(i_1 \neq i_2\)</span> 但 <span class="arithmatex">\(f(i_1) = f(i_2)\)</span> )</p>
 </li>
 <li>溢出（overflow）: 当将一个新的标识符散列到一个满的桶时</li>
 </ul>
@@ -1141,9 +1141,9 @@
 <p>几种函数构造方法: </p>
 <ul>
 <li>
-<p>除留余数法 &ndash; $f(x) = x ~~ \% ~~ TableSize; $ /<em> if x is an integer</em>/</p>
+<p>除留余数法 —— $f(x) = x ~~ \% ~~ TableSize; $ /<em> if x is an integer</em>/</p>
 <ul>
-<li>TableSize 最好选择一个质数 &ndash; good for random integer keys</li>
+<li>TableSize 最好选择一个质数 —— good for random integer keys</li>
 </ul>
 <details class="example">
 <summary>Example</summary>
@@ -1176,7 +1176,7 @@
 </details>
 </li>
 <li>
-<p>平方取中法 &ndash; 先计算关键字值的平方，然后取平方值的中间几位作为散列地址</p>
+<p>平方取中法 —— 先计算关键字值的平方，然后取平方值的中间几位作为散列地址</p>
 <details class="example">
 <summary>Example</summary>
 <table>
@@ -1212,21 +1212,21 @@
 </details>
 </li>
 <li>
-<p>折叠法 &ndash; 将关键字分为位数相同的几部分，然后取这几部分的叠加和（舍去进位）作为散列地址 (用于关键字位数较多，并且关键字中每一位上数字分布大致均匀)</p>
+<p>折叠法 —— 将关键字分为位数相同的几部分，然后取这几部分的叠加和（舍去进位）作为散列地址 (用于关键字位数较多，并且关键字中每一位上数字分布大致均匀)</p>
 <details class="example">
 <summary>Example</summary>
 <p><img alt="2023-02-02-23-19-59" src="../../../Images/2023-02-02-23-19-59.png" /></p>
 </details>
 </li>
 <li>
-<p>数字分析法 &ndash; 当关键字的位数大于地址的位数，对关键字的各位分布进行分析，选出分布均匀的任意几位作为散列地址 (适用于所有关键字都已知的情况下，根据实际应用确定要选取的部分，尽量避免发生冲突)</p>
+<p>数字分析法 —— 当关键字的位数大于地址的位数，对关键字的各位分布进行分析，选出分布均匀的任意几位作为散列地址 (适用于所有关键字都已知的情况下，根据实际应用确定要选取的部分，尽量避免发生冲突)</p>
 <details class="example">
 <summary>Example</summary>
 <p>比如按学号映射，同届前几位相同，将后四位选为 key</p>
 </details>
 </li>
 <li>
-<p>&ndash; $f(x) = (\sum x[i]) ~~ \% ~~ TableSize; $ /<em> if x is a string</em>/</p>
+<p>$f(x) = (\sum x[i]) ~~ \% ~~ TableSize; $ /<em> if x is a string</em>/</p>
 <details class="example">
 <summary>Example</summary>
 <p><span class="arithmatex">\(x = "abc" \Rightarrow \sum x[i] = 'a' + 'b' + 'c'\)</span></p>
@@ -1377,7 +1377,7 @@
 <li>
 <p>线性探测 | Linear Probing </p>
 <ul>
-<li>增量函数 <span class="arithmatex">\(f(i) = i\)</span> &ndash; 会导致初次聚集（primary clustering），即一旦发生了冲突，那么后面的元素都会聚集在一起，搜索次数会变得越来越大</li>
+<li>增量函数 <span class="arithmatex">\(f(i) = i\)</span> —— 会导致初次聚集（primary clustering），即一旦发生了冲突，那么后面的元素都会聚集在一起，搜索次数会变得越来越大</li>
 <li>使用线性探测的探测次数对于插入和不成功查找来说约为<span class="arithmatex">\(\dfrac{1}{2}\left(1+\dfrac{1}{(1-\lambda)^2}\right)\)</span></li>
 <li>对于成功的查找来说则需要 <span class="arithmatex">\(\dfrac{1}{2}\left(1+\dfrac{1}{1-\lambda}\right)\)</span> 次</li>
 </ul>
@@ -1390,11 +1390,36 @@ Average search time = 27 / 9 = 3</p>
 <li>
 <p>二次探测 | Quadratic Probing </p>
 <ul>
-<li>增量函数 <span class="arithmatex">\(f(i) = i^2\)</span> &ndash; 避免了 primary clustering, 但是导致有可能有空位但就是找不到</li>
-<li>若使用平方探测（或二次探测）, 且表的大小是素数，那么当表至少有一半是空的时候，总能插入一个新的元素<br />
-  1. 双重哈希<br />
-  2. 再哈希</li>
+<li>增量函数 <span class="arithmatex">\(f(i) = i^2\)</span> —— 避免了 primary clustering, 但是导致有可能有空位但就是找不到</li>
+<li>
+<p>若使用平方探测（或二次探测）, 且表的大小是素数，那么当表至少有一半是空的时候，总能插入一个新的元素</p>
+<blockquote>
+<p>一些改进: If the table size is a prime of the form <span class="arithmatex">\(4k + 3\)</span> , then the quadratic probing  <span class="arithmatex">\(f(i) = \pm i^2\)</span> can probe the entire table.</p>
+</blockquote>
+<details class="example">
+<summary>code</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">Position</span><span class="w">  </span><span class="nf">Find</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">ElementType</span><span class="w"> </span><span class="n">Key</span><span class="p">,</span><span class="w"> </span><span class="n">HashTable</span><span class="w"> </span><span class="n">H</span><span class="w"> </span><span class="p">)</span><span class="w"> </span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="p">{</span><span class="w">   </span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="n">Position</span><span class="w">  </span><span class="n">CurrentPos</span><span class="p">;</span><span class="w"> </span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="kt">int</span><span class="w">  </span><span class="n">CollisionNum</span><span class="p">;</span><span class="w"> </span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span><span class="n">CollisionNum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span><span class="n">CurrentPos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Hash</span><span class="p">(</span><span class="w"> </span><span class="n">Key</span><span class="p">,</span><span class="w"> </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">TableSize</span><span class="w"> </span><span class="p">);</span><span class="w"> </span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">    </span><span class="k">while</span><span class="p">(</span><span class="w"> </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">TheCells</span><span class="p">[</span><span class="w"> </span><span class="n">CurrentPos</span><span class="w"> </span><span class="p">].</span><span class="n">Info</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">Empty</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">TheCells</span><span class="p">[</span><span class="w"> </span><span class="n">CurrentPos</span><span class="w"> </span><span class="p">].</span><span class="n">Element</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">Key</span><span class="w"> </span><span class="p">)</span><span class="w"> </span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">    </span><span class="p">{</span><span class="w"> </span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">        </span><span class="n">CurrentPos</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="o">++</span><span class="n">CollisionNum</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">CurrentPos</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">TableSize</span><span class="w"> </span><span class="p">)</span><span class="w">  </span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">            </span><span class="n">CurrentPos</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="n">H</span><span class="o">-&gt;</span><span class="n">TableSize</span><span class="p">;</span><span class="w"> </span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">CurrentPos</span><span class="p">;</span><span class="w"> </span>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="p">}</span><span class="w"> </span>
+</code></pre></div>
+</details>
+</li>
 </ul>
+<ol>
+<li>双重哈希 —— 即 <span class="arithmatex">\(f(i) = i * hash_2(x)\)</span> </li>
+<li>再哈希</li>
+</ol>
 </li>
 </ol>
 <p><center><font face="JetBrains Mono" color=grey size=18>To Be Continued</font></center></p>
