@@ -15,7 +15,7 @@
     * 标识符密度 (identifier density) = $n/T$
     * 装载密度 (loading density) = $\lambda = n/(sb)$
 
-* 冲突 (collision) -- 当将两个不同的标识符散列到同一个桶中时 (i.e. $i_1 \neq i_2$ 但 $f(i_1) = f(i_2)$ )
+* 冲突 (collision) ——> 当将两个不同的标识符散列到同一个桶中时 (i.e. $i_1 \neq i_2$ 但 $f(i_1) = f(i_2)$ )
 * 溢出（overflow）: 当将一个新的标识符散列到一个满的桶时
 
 > 当 s = 1 时，碰撞和溢出将同时发生
@@ -32,8 +32,8 @@
 
 几种函数构造方法: 
 
-* 除留余数法 -- $f(x) = x ~~ \% ~~ TableSize; $ /* if x is an integer*/
-    * TableSize 最好选择一个质数 -- good for random integer keys
+* 除留余数法 —— $f(x) = x ~~ \% ~~ TableSize; $ /* if x is an integer*/
+    * TableSize 最好选择一个质数 —— good for random integer keys
 
     ??? example 
         | 关键字  | 内部代码    | key MOD 100   |
@@ -42,7 +42,7 @@
         | key2    | 512         | 12            |
         | key3    | 411         | 11            |
 
-* 平方取中法 -- 先计算关键字值的平方，然后取平方值的中间几位作为散列地址
+* 平方取中法 —— 先计算关键字值的平方，然后取平方值的中间几位作为散列地址
 
     ??? example 
         | 关键字  | 内部代码    | 内部代码平方  | hash(key) |
@@ -51,17 +51,17 @@
         | key2    | 512         | 262144        | 21        |
         | key3    | 411         | 168921        | 89        |
 
-* 折叠法 -- 将关键字分为位数相同的几部分，然后取这几部分的叠加和（舍去进位）作为散列地址 (用于关键字位数较多，并且关键字中每一位上数字分布大致均匀)
+* 折叠法 —— 将关键字分为位数相同的几部分，然后取这几部分的叠加和（舍去进位）作为散列地址 (用于关键字位数较多，并且关键字中每一位上数字分布大致均匀)
 
     ??? example 
         ![2023-02-02-23-19-59](../../Images/2023-02-02-23-19-59.png)
 
-* 数字分析法 -- 当关键字的位数大于地址的位数，对关键字的各位分布进行分析，选出分布均匀的任意几位作为散列地址 (适用于所有关键字都已知的情况下，根据实际应用确定要选取的部分，尽量避免发生冲突)
+* 数字分析法 —— 当关键字的位数大于地址的位数，对关键字的各位分布进行分析，选出分布均匀的任意几位作为散列地址 (适用于所有关键字都已知的情况下，根据实际应用确定要选取的部分，尽量避免发生冲突)
 
     ??? example
         比如按学号映射，同届前几位相同，将后四位选为 key
 
-* -- $f(x) = (\sum x[i]) ~~ \% ~~ TableSize; $ /* if x is a string*/
+* $f(x) = (\sum x[i]) ~~ \% ~~ TableSize; $ /* if x is a string*/
 
     ??? example
         $x = "abc" \Rightarrow \sum x[i] = 'a' + 'b' + 'c'$
@@ -203,23 +203,64 @@ void insert(int key) {
 ```
 
 1. 线性探测 | Linear Probing 
-   * 增量函数 $f(i) = i$ -- 会导致初次聚集（primary clustering），即一旦发生了冲突，那么后面的元素都会聚集在一起，搜索次数会变得越来越大
-   * 使用线性探测的探测次数对于插入和不成功查找来说约为$\dfrac{1}{2}\left(1+\dfrac{1}{(1-\lambda)^2}\right)$
-   *  对于成功的查找来说则需要 $\dfrac{1}{2}\left(1+\dfrac{1}{1-\lambda}\right)$ 次
+      * 增量函数 $f(i) = i$ —— 会导致初次聚集（primary clustering），即一旦发生了冲突，那么后面的元素都会聚集在一起，搜索次数会变得越来越大
+      * 使用线性探测的探测次数对于插入和不成功查找来说约为$\dfrac{1}{2}\left(1+\dfrac{1}{(1-\lambda)^2}\right)$
+      *  对于成功的查找来说则需要 $\dfrac{1}{2}\left(1+\dfrac{1}{1-\lambda}\right)$ 次
     
     ??? example
         ![2023-02-03-14-29-21](../../Images/2023-02-03-14-29-21.png)
         Average search time = 27 / 9 = 3
 
 2. 二次探测 | Quadratic Probing 
-   * 增量函数 $f(i) = i^2$ -- 避免了 primary clustering, 但是导致有可能有空位但就是找不到
-   * 若使用平方探测（或二次探测）, 且表的大小是素数，那么当表至少有一半是空的时候，总能插入一个新的元素
+      * 增量函数 $f(i) = i^2$ —— 避免了 primary clustering, 但是导致有可能有空位但就是找不到
+      * 若使用平方探测（或二次探测）, 且表的大小是素数，那么当表至少有一半是空的时候，总能插入一个新的元素
 
+        > 一些改进: If the table size is a prime of the form $4k + 3$ , then the quadratic probing  $f(i) = \pm i^2$ can probe the entire table.
 
-#### 双重哈希
+        ??? example "Find"
+            ```c
+            Position  Find ( ElementType Key, HashTable H ) 
+            {   
+                Position  CurrentPos; 
+                int  CollisionNum; 
+                CollisionNum = 0; 
+                CurrentPos = Hash( Key, H->TableSize ); 
+                while( H->TheCells[ CurrentPos ].Info != Empty && H->TheCells[ CurrentPos ].Element != Key ) 
+                { 
+                    CurrentPos += 2 * ++CollisionNum - 1;  // h = h + 2i - 1
+                    if ( CurrentPos >= H->TableSize )  
+                        CurrentPos -= H->TableSize;   
+                } 
+                return CurrentPos; 
+            } 
+            ```
 
+        ??? example "Insert"
+            ```c
+            void  Insert ( ElementType Key, HashTable H ) 
+            { 
+                Position  Pos; 
+                Pos = Find( Key, H ); 
+                if ( H->TheCells[ Pos ].Info != Legitimate ) 
+                { /* OK to insert here */ 
+                    H->TheCells[ Pos ].Info = Legitimate; 
+                    H->TheCells[ Pos ].Element = Key; /* Probably need strcpy */ 
+                } 
+            } 
+            ```
 
-#### 再哈希
-
-
-<center><font face="JetBrains Mono" color=grey size=18>To Be Continued</font></center>
+      1. 双重哈希 | Double Hashing —— 即 $f(i) = i \times hash_2(x)$; /* hash~2~(x) 是第二个 hash 函数 */ 
+            * 一般选择 $hash_2(x) = R - (x \% R)$ ($R$ 为小于表大小的质数) 效果更好
+            * 如果正确实现了双重哈希，模拟显示预期的探测次数几乎与随机冲突解决策略相同
+            * 二次探测不需要使用第二个哈希函数，在实践中更简单快速
+      2. 再哈希
+            * 使用二次探测，如果表的元素填的过满 (大约是装载密度 > 0.5 时)，那么操作时间会过长，且 Insert 可能失败，这可能发生在有太多的移动和插入混合的场合
+            * 解决方法是再哈希: 
+                * 建立另外一个大约两倍大的表且使用一个相关的新哈希函数
+                * 扫描整个原始哈希表
+                * 计算每个(未删除的)元素的新哈希值并将其插入到新表中
+            * 如果表中有 N 个元素，那再哈希的时间复杂度 $T(N) = O(N)$ 
+            * 什么时候再哈希
+                * 只要表有一半满
+                * 插入操作失败时
+                * 当表达到一个特定的装载密度

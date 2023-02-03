@@ -723,7 +723,7 @@ typedef struct{
 !!! example
     ![image_2023-01-29-22-30-12](../../Images/2023-01-29-22-30-12.png)
 
-### 集合运算 -- Find
+### 集合运算 —— Find
 
 > 查找某个元素所在集合(用根节点表示)
 
@@ -741,7 +741,7 @@ int Find( SetType S[], ELementType X)
 }
 ```
 
-### 集合运算 -- Union
+### 集合运算 —— Union
 
 1. 分别找到 X1 和 X2 两个元素所在集合树的根节点
 2. 若不同根，则将其中一个根节点的父节点的数组下标设为另一根节点的数组下标
@@ -759,7 +759,7 @@ void Union( SetType S[], ElementType X1, ElementType X2)
 > ![image_2023-01-29-22-39-00](../../Images/2023-01-29-22-39-00.png)
 > <center><font face="JetBrains Mono" size=2 color=grey >图片摘自 MOOC</font></center>
 
-#### Smart Union -- Union-by-Size
+#### Smart Union —— Union-by-Size
 
 > * 按大小合并(union-by-size)始终将小的树合并到大的树上，进而减小树的高度
 > * 令 S[root] = -size (size 表示树的大小并初始化为 -1)
@@ -774,7 +774,7 @@ void Union( SetType S[], ElementType X1, ElementType X2)
 
 在数组中采用树的大小的负值来记录，以证明若使用按大小求并则连续 M 次运算需要 $O(M)$ 平均时间。这是因为当随机的 Union 执行时整个算法一般只有一些很小的集合（通常含一个元素）与大集合合并。
 
-#### Smart Union -- Union-by-Height
+#### Smart Union —— Union-by-Height
 
 > * 按高度合并(union-by-height)始终将浅的树成为深的树
 > * 同样保证了所有的树的深度最多是 $O(log N)$ 

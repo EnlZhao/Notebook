@@ -285,11 +285,11 @@ void Unweighted( Table T )
         ```
 * 因为判定条件 T[V].Dist + Cvw < T[W].Dist，T[i].Dist 要初始化为正无穷
 * 优化如下：
-    * Implementation 1: 直接扫描所有未收录顶点 -- $O(|V|)$ 
-        * $T = O(|V|^2 + |E|)$ -- 对于稠密图效果好
-    * Implementation 2: 将 dist 存在最小堆中 -- $O(log|V|)$ 
-        * 更新 T[W].Dist 的值 -- $O(log|V|)$ 
-        * $ T = O(|V|log|V| + |E|log|V|) = O(|E|log|V|) $  -- 对稀疏图效果好(指 V 和 E 一个数量级)
+    * Implementation 1: 直接扫描所有未收录顶点 —— $O(|V|)$ 
+        * $T = O(|V|^2 + |E|)$ —— 对于稠密图效果好
+    * Implementation 2: 将 dist 存在最小堆中 —— $O(log|V|)$ 
+        * 更新 T[W].Dist 的值 —— $O(log|V|)$ 
+        * $ T = O(|V|log|V| + |E|log|V|) = O(|E|log|V|) $  —— 对稀疏图效果好(指 V 和 E 一个数量级)
 
 #### 带负权图
 
@@ -736,9 +736,9 @@ void DFS ( Vertex V )  /* this is only a template */
 
 ### 欧拉回路 & 欧拉路径
 
-* 欧拉路径 (Euler path | Euler tour) --- 一笔画 | 包含所有边的简单路径
+* 欧拉路径 (Euler path | Euler tour) —— 一笔画 | 包含所有边的简单路径
     * 如果正好有两个度为奇数的顶点，欧拉路径就是可能的。必须从一个奇度的顶点开始 "画"
-* 欧拉回路 (Euler curcit) --- 一笔画并且结束点和起始点重合 | 包含所有边的简单环
+* 欧拉回路 (Euler curcit) —— 一笔画并且结束点和起始点重合 | 包含所有边的简单环
     * 只有当图连通且每个顶点度为偶数，欧拉回路才有可能
 * 对无向图
     * 欧拉回路的判定: 图连通且所有顶点的度为偶数
