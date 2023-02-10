@@ -16,12 +16,12 @@
       
       
       
-      <link rel="icon" href="../../../Icon/Avator.png">
+      <link rel="icon" href="../../../Icon/Avatar.jpg">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.6">
     
     
       
-        <title>Lec01 - 某兰的笔记本</title>
+        <title>Beginning - 某兰的笔记本</title>
       
     
     
@@ -103,6 +103,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#beginning" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -117,7 +122,7 @@
   <nav class="md-header__inner md-grid" aria-label="页眉">
     <a href="../../.." title="某兰的笔记本" class="md-header__button md-logo" aria-label="某兰的笔记本" data-md-component="logo">
       
-  <img src="../../../Icon/Avator.png" alt="logo">
+  <img src="../../../Icon/Avatar.jpg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -133,7 +138,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Lec01
+              Beginning
             
           </span>
         </div>
@@ -336,7 +341,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../../.." title="某兰的笔记本" class="md-nav__button md-logo" aria-label="某兰的笔记本" data-md-component="logo">
       
-  <img src="../../../Icon/Avator.png" alt="logo">
+  <img src="../../../Icon/Avatar.jpg" alt="logo">
 
     </a>
     某兰的笔记本
@@ -919,6 +924,30 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    第一个程序
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#string" class="md-nav__link">
+    字符串 | String
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -954,7 +983,75 @@
 
 
 
-
+<h1 id="beginning">Beginning<a class="headerlink" href="#beginning" title="Permanent link">👀</a></h1>
+<h2 id="_1">第一个程序<a class="headerlink" href="#_1" title="Permanent link">👀</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="p">{</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello World!&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
+</code></pre></div>
+<ul>
+<li><code>&lt;iostream&gt;</code> 为内置类型对象提供了输入输出支持，同时也支持文件的输入输出，类的设计者可以通过对 <code>iostream</code> 库的扩展来支持自定义类型的输入输出操作</li>
+<li>
+<p><code>using namespace std;</code> 告诉编译器使用 std 命名空间 (命名空间是 C++ 中一个相对新的概念)</p>
+<ul>
+<li><code>namespace</code> 是指标识符的各种可见范围，C++ 标准程序库中的所有标识符都被定义于一个名为 std 的 <code>namespace</code> 中</li>
+<li>由于 <code>namespace</code> 的概念，使用 C++ 标准程序库的任何标识符时，可以有三种选择：<ol>
+<li>直接指定标识符 —— 如 <code>std::ostream</code> 而不是 <code>ostream</code> (完整语句 A : <code>std::cout &lt;&lt; std::hex &lt;&lt; 5.0 &lt;&lt; std::endl;</code>)</li>
+<li>使用 <code>using</code> 关键字 —— 如 <code>using std::cout; using std::endl</code> (完整语句 A 改写为: <code>cout &lt;&lt; std::hex &lt;&lt; 5.0 &lt;&lt; endl;</code>)</li>
+<li>最方便的是使用 <code>using namespace std;</code>，这样命名空间 std 内定义的所有标识符都有效 (就像被声明为全局变量一样，完整语句 A 改写为：<code>cout &lt;&lt; hex &lt;&lt; 5.0 &lt;&lt; endl</code>)</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>
+<p>若输入则采用 <code>cin</code> 输入<br />
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="p">{</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">;</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">age</span><span class="p">;</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello World! I&#39;m &quot;</span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; today!&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="p">}</span>
+</code></pre></div></p>
+</li>
+</ul>
+<h2 id="string">字符串 | String<a class="headerlink" href="#string" title="Permanent link">👀</a></h2>
+<ul>
+<li>首先要加入库 <code>&lt;string&gt;</code></li>
+<li>定义字符串变量 —— <code>string str;</code></li>
+<li>初始化字符串变量 —— <code>string str = "Molan";</code></li>
+<li>输入输出字符串即使用 <code>cin</code>, <code>cout</code> —— <code>cin &gt;&gt; str; cout &lt;&lt; str;</code></li>
+<li>C++ 中的字符串变量支持类似整型变量的操作 —— <code>+</code> (拼接) ···</li>
+</ul>
+<p><div class="highlight"><span class="filename">b.cpp</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="p">{</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">;</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="n">string</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="n">name</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s">&quot; (Enl_Z) &quot;</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello World! &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; is &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; today!&quot;</span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="p">}</span>
+</code></pre></div><br />
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>$<span class="w"> </span>g++<span class="w"> </span>b.cpp<span class="p">;</span><span class="w"> </span>./a.out
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="m">18</span><span class="w"> </span>Molan
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>Hello<span class="w"> </span>World!<span class="w"> </span>Molan<span class="w"> </span><span class="o">(</span>Enl_Z<span class="o">)</span><span class="w"> </span>is<span class="w"> </span><span class="m">18</span><span class="w"> </span>today!
+</code></pre></div></p>
+<ul>
+<li><code>string</code> 不需要像 <code>char str[10]</code> 一样设置长度，直接使用 <code>string str;</code> 即可 (内部会自动调整长度，且字符串末尾无 <code>\0</code>)</li>
+<li><code>string</code> 变量支持赋值，即 <code>str1 = str2;</code> 是合法的</li>
+</ul>
+<blockquote>
+<p>采用 <code>string str("Hello");</code> 和 <code>string str = "Hello";</code> 是一样的 (此种初始化方法对其他变量也适用)</p>
+</blockquote>
 
 
   
