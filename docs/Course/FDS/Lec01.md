@@ -37,7 +37,7 @@
 !!! note 
       描述数据结构
 
-##### 抽象数据类型（Abstract Data Type）| ADT
+抽象数据类型（Abstract Data Type）| ADT
 
 1. 数据类型
       1. 数据对象集
