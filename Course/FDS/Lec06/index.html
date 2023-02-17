@@ -1141,7 +1141,7 @@
 <p>几种函数构造方法: </p>
 <ul>
 <li>
-<p>除留余数法 —— $f(x) = x ~~ \% ~~ TableSize; $ <code>/* if x is an integer*/</code></p>
+<p>除留余数法 —— <span class="arithmatex">\(f(x) = x ~~ \% ~~ TableSize;\)</span> <code>/* if x is an integer*/</code></p>
 <ul>
 <li>TableSize 最好选择一个质数 —— good for random integer keys</li>
 </ul>
@@ -1226,14 +1226,14 @@
 </details>
 </li>
 <li>
-<p>$f(x) = (\sum x[i]) ~~ \% ~~ TableSize; $ <code>/* if x is a string*/</code></p>
+<p><span class="arithmatex">\(f(x) = (\sum x[i]) ~~ \% ~~ TableSize;\)</span> <code>/* if x is a string*/</code></p>
 <details class="example">
 <summary>Example</summary>
 <p><span class="arithmatex">\(x = "abc" \Rightarrow \sum x[i] = 'a' + 'b' + 'c'\)</span></p>
 </details>
 </li>
 <li>
-<p>$f(x) = (x[0] + x[1] * 27 + x[2] * 27^2 ) ~~ \% ~~ TableSize; $ <code>/* 变成 27 进制 */</code></p>
+<p><span class="arithmatex">\(f(x) = (x[0] + x[1] * 27 + x[2] * 27^2 ) ~~ \% ~~ TableSize;\)</span> <code>/* 变成 27 进制 */</code></p>
 </li>
 <li>
 <p><span class="arithmatex">\(f(x) = (\sum x[N-i-1] * 32^i) ~~ \% ~~ TableSize\)</span> <code>/* *32 可以变为移位运算 */</code></p>
