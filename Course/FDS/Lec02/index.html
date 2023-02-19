@@ -1837,11 +1837,11 @@
 </details>
 <h3 id="_10">堆栈的链式存储实现<a class="headerlink" href="#_10" title="Permanent link">👀</a></h3>
 <ul>
-<li>栈的链式存储结构实际上就是一个单链表，叫做链栈。插入和删除操作只能在链栈的栈顶进行<blockquote>
-<p>用链表的头做栈的Top，单向链表的链尾不可做Top</p>
-</blockquote>
-</li>
+<li>栈的链式存储结构实际上就是一个单链表，叫做链栈。插入和删除操作只能在链栈的栈顶进行</li>
 </ul>
+<blockquote>
+<p>用链表的头做栈的 Top ，单向链表的链尾不可做 Top</p>
+</blockquote>
 <details class="example">
 <summary>堆栈的定义与操作-链式存储</summary>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">SNode</span><span class="w"> </span><span class="o">*</span><span class="n">PtrToSNode</span><span class="p">;</span>
@@ -1897,7 +1897,7 @@
 </details>
 <h3 id="_11">堆栈应用：表达式求值<a class="headerlink" href="#_11" title="Permanent link">👀</a></h3>
 <h4 id="_12">中缀表达式求值<a class="headerlink" href="#_12" title="Permanent link">👀</a></h4>
-<p><strong>基本策略</strong> ： 将中缀表达式转换为逆波兰表达式(后缀表达式)，然后求值</p>
+<p><strong>基本策略</strong> ： 将中缀表达式转换为逆波兰表达式 (后缀表达式) ，然后求值</p>
 <h4 id="_13">中缀表达式如何转换为逆波兰表达式<a class="headerlink" href="#_13" title="Permanent link">👀</a></h4>
 <blockquote>
 <p>从头到尾读取中缀表达式的每个对象，对不同对象按不同情况处理</p>
@@ -1916,39 +1916,39 @@
 <h2 id="queues">队列 | Queues<a class="headerlink" href="#queues" title="Permanent link">👀</a></h2>
 <div class="admonition abstract">
 <p class="admonition-title">Abstract</p>
-<p>队列：具有一定操作约束的线性表(插入和删除操作：只能在一段插入，而在另一端删除)<br><br />
-1. 数据插入：入队列<br><br />
-2. 数据删除：出队列<br><br />
-3. 先来先服务<br><br />
-4. 先进先出<br></p>
+<p>队列：具有一定操作约束的线性表 (插入和删除操作：只能在一段插入，而在另一端删除)<br />
+1. 数据插入：入队列<br />
+2. 数据删除：出队列<br />
+3. 先来先服务<br />
+4. 先进先出</p>
 </div>
 <h3 id="_14">队列的抽象数据类型描述<a class="headerlink" href="#_14" title="Permanent link">👀</a></h3>
 <ul>
-<li><strong>类型名称</strong> : 队列(Queue)</li>
-<li><strong>数据对象集</strong> : 一个有0个或多个元素的有穷线性表</li>
-<li><strong>操作集</strong> : 长度为MaxSize的队列Q <span class="arithmatex">\(\in\)</span> Queue，队列元素item <span class="arithmatex">\(\in\)</span> ElementType</li>
+<li><strong>类型名称</strong> : 队列 (Queue)</li>
+<li><strong>数据对象集</strong> : 一个有 0 个或多个元素的有穷线性表</li>
+<li><strong>操作集</strong> : 长度为 MaxSize 的队列 Q <span class="arithmatex">\(\in\)</span> Queue ，队列元素 item <span class="arithmatex">\(\in\)</span> ElementType</li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <ol>
-<li>Queue CreateQueue( int MaxSize ): 生成长度为MaxSize的空队列<br></li>
-<li>int IsFullQ( Queue Q, int MaxSize ): 判断队列Q是否已满<br></li>
-<li>void AddQ( Queue Q, ElementType item ): 将数据元素item插入队列Q中<br></li>
-<li>int IsEmptyQ( Queue Q ): 判断队列Q是否为空<br></li>
+<li>Queue CreateQueue( int MaxSize ): 生成长度为 MaxSize 的空队列</li>
+<li>int IsFullQ( Queue Q, int MaxSize ): 判断队列 Q 是否已满</li>
+<li>void AddQ( Queue Q, ElementType item ): 将数据元素 item 插入队列Q中</li>
+<li>int IsEmptyQ( Queue Q ): 判断队列 Q 是否为空</li>
 <li>ElementType DeleteQ( Queue Q ): 将队头数据元素从队列中删除并返回</li>
 </ol>
 </div>
 <h3 id="_15">队列的顺序存储实现<a class="headerlink" href="#_15" title="Permanent link">👀</a></h3>
 <ul>
-<li>队列的顺序存储结构通常用一个一维数组和一个记录队列头元素位置的变量front以及一个记录队列尾元素位置的变量rear组成</li>
+<li>队列的顺序存储结构通常用一个一维数组和一个记录队列头元素位置的变量 front 以及一个记录队列尾元素位置的变量 rear 组成</li>
 </ul>
 <h4 id="_16">一维数组队列<a class="headerlink" href="#_16" title="Permanent link">👀</a></h4>
 <p><img alt="image_11_50_01" src="../../../Images/2023-01-18-11-50-01.png" /></p>
 <h4 id="_17">顺环队列<a class="headerlink" href="#_17" title="Permanent link">👀</a></h4>
 <p><img alt="image_13_06_48" src="../../../Images/2023-01-18-13-06-48.png" /><br />
 判断顺环队列空和满可以用两种解决方案<br />
-1. 使用额外标记：Size或者Tag域<br />
-2. 仅使用n-1个数组空间(Front == Rear时为空)</p>
+1. 使用额外标记：Size 或者 Tag 域<br />
+2. 仅使用 n-1 个数组空间 (Front == Rear时为空)</p>
 <details class="example">
 <summary>队列的定义与操作-顺序存储</summary>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="k">typedef</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">Position</span><span class="p">;</span>
