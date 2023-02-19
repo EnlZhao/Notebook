@@ -672,14 +672,14 @@
         
           <li class="md-nav__item">
   <a href="#sn" class="md-nav__link">
-    空间复杂度S(n)
+    空间复杂度 S(n)
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#tn" class="md-nav__link">
-    时间复杂度T(n)
+    时间复杂度 T(n)
   </a>
   
 </li>
@@ -1217,14 +1217,14 @@
         
           <li class="md-nav__item">
   <a href="#sn" class="md-nav__link">
-    空间复杂度S(n)
+    空间复杂度 S(n)
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#tn" class="md-nav__link">
-    时间复杂度T(n)
+    时间复杂度 T(n)
   </a>
   
 </li>
@@ -1326,9 +1326,9 @@
 <h1 id="_1">算法分析和抽象数据类型<a class="headerlink" href="#_1" title="Permanent link">👀</a></h1>
 <h2 id="perface">Perface<a class="headerlink" href="#perface" title="Permanent link">👀</a></h2>
 <ul>
-<li>clock()：捕捉从程序开始运行到clock()被调用所耗费的时间。</li>
-<li>这个时间单位是clock tick，即”时钟打点“。</li>
-<li>常数CLK_TCK：机器时钟每秒所走的时钟打点数。</li>
+<li>clock() ：捕捉从程序开始运行到 clock() 被调用所耗费的时间。</li>
+<li>这个时间单位是 clock tick ，即”时钟打点“。</li>
+<li>常数 CLK_TCK ：机器时钟每秒所走的时钟打点数。</li>
 </ul>
 <details class="note">
 <summary>Note</summary>
@@ -1377,9 +1377,9 @@
 <ul>
 <li>只描述数据对象集和相关操作集”是什么“，并不涉及”如何做到“的问题</li>
 <li>其中的抽象可以从如下看<ul>
-<li>e.g：ElementType是通用数据类型（抽象)，需要double ，在前面define即可</li>
+<li>e.g：ElementType 是通用数据类型（抽象)，需要 double ，在前面 define 即可</li>
 <li>e.g：矩阵是用二维数组、一维数组还是十字链表实现的都不重要，只是实现一个矩阵</li>
-<li>e.g：Matrix Add中不在乎按行加还是按列加，用什么语言实现都不在乎</li>
+<li>e.g：Matrix Add 中不在乎按行加还是按列加，用什么语言实现都不在乎</li>
 </ul>
 </li>
 </ul>
@@ -1403,9 +1403,9 @@
 </li>
 </ol>
 <h3 id="_7">衡量算法的两个指标<a class="headerlink" href="#_7" title="Permanent link">👀</a></h3>
-<h4 id="sn">空间复杂度S(n)<a class="headerlink" href="#sn" title="Permanent link">👀</a></h4>
+<h4 id="sn">空间复杂度 S(n)<a class="headerlink" href="#sn" title="Permanent link">👀</a></h4>
 <p>根据算法写成的程序在执行时 <strong>占用存储单元的长度</strong> 。这个长度往往与输入数据的规模有关。空间复杂度过高的算法可能导致使用的内存超限，造成程序非正常中断。</p>
-<h4 id="tn">时间复杂度T(n)<a class="headerlink" href="#tn" title="Permanent link">👀</a></h4>
+<h4 id="tn">时间复杂度 T(n)<a class="headerlink" href="#tn" title="Permanent link">👀</a></h4>
 <p>根据算法写成的程序在执行时 <strong>耗费时间的长度</strong> 。这个长度往往也与输入数据的规模有关。</p>
 <h3 id="_8">复杂度的渐进表示法<a class="headerlink" href="#_8" title="Permanent link">👀</a></h3>
 <ol>
@@ -1492,31 +1492,31 @@
 </blockquote>
 <p>那么有：</p>
 <ol>
-<li>当<span class="arithmatex">\(f(n) = O(n^c)\)</span>，且<span class="arithmatex">\(c &lt; C_{crit}\)</span>时有： <span class="arithmatex">\(T(n) = \Theta(n^{C_{crit}})\)</span></li>
+<li>当 <span class="arithmatex">\(f(n) = O(n^c)\)</span> ，且 <span class="arithmatex">\(c &lt; C_{crit}\)</span> 时有： <span class="arithmatex">\(T(n) = \Theta(n^{C_{crit}})\)</span> </li>
 </ol>
 <details class="example">
 <summary>Example</summary>
 <p><span class="arithmatex">\(T(n) = 8T(\frac{n}{2}) + 1000n^2\)</span></p>
-<p>此时<span class="arithmatex">\(a=8, b=2, f(n)=1000n^2\)</span></p>
+<p>此时 <span class="arithmatex">\(a=8, b=2, f(n)=1000n^2\)</span></p>
 <p><span class="arithmatex">\(c=2&lt;3=log_ba=C_{crit}\)</span></p>
 <p>故 <span class="arithmatex">\(T(n)=\Theta(n^3)\)</span></p>
 </details>
 <ol start="2">
-<li>当<span class="arithmatex">\(f(n)=O(n^c)\)</span>, 且<span class="arithmatex">\(c &gt; C_{crit}\)</span>时有：<span class="arithmatex">\(T(n)=\Theta(f(n))\)</span></li>
+<li>当 <span class="arithmatex">\(f(n)=O(n^c)\)</span> , 且 <span class="arithmatex">\(c &gt; C_{crit}\)</span> 时有：<span class="arithmatex">\(T(n)=\Theta(f(n))\)</span></li>
 </ol>
 <details class="example">
 <summary>Example</summary>
 <p><span class="arithmatex">\(T(n) = 2T(\frac{n}{2}) + n^2\)</span></p>
-<p>此时<span class="arithmatex">\(a=2, b=2, f(n)=n^2\)</span></p>
+<p>此时 <span class="arithmatex">\(a=2, b=2, f(n)=n^2\)</span></p>
 <p><span class="arithmatex">\(c=2 &gt; 1=log_ba=C_{crit}\)</span></p>
-<p>故<span class="arithmatex">\(T(n)=\Theta(n^2)\)</span></p>
+<p>故 <span class="arithmatex">\(T(n)=\Theta(n^2)\)</span></p>
 </details>
 <ol start="3">
 <li>
-<p>当<span class="arithmatex">\(f(n)=O(n^c)\)</span>, 且<span class="arithmatex">\(c=C_{crit}\)</span>时：<span class="arithmatex">\(T(n)=\Theta(n^clog~n)\)</span></p>
+<p>当 <span class="arithmatex">\(f(n)=O(n^c)\)</span> , 且 <span class="arithmatex">\(c=C_{crit}\)</span> 时：<span class="arithmatex">\(T(n)=\Theta(n^clog~n)\)</span></p>
 </li>
 <li>
-<p>若存在非负整数<span class="arithmatex">\(k\)</span>，使得<span class="arithmatex">\(f(n)=\Theta(n^{C_{crit}}log_kn)\)</span>，那么<span class="arithmatex">\(T(n)=\Theta(n^{C_{crit}}log_{k+1}n)\)</span></p>
+<p>若存在非负整数 <span class="arithmatex">\(k\)</span> ，使得 <span class="arithmatex">\(f(n)=\Theta(n^{C_{crit}}log_kn)\)</span> ，那么 <span class="arithmatex">\(T(n)=\Theta(n^{C_{crit}}log_{k+1}n)\)</span></p>
 </li>
 </ol>
 <details class="quote">
