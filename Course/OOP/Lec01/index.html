@@ -1029,7 +1029,7 @@
 <li>输入输出字符串即使用 <code>cin</code>, <code>cout</code> —— <code>cin &gt;&gt; str; cout &lt;&lt; str;</code></li>
 <li>C++ 中的字符串变量支持类似整型变量的操作 —— <code>+</code> (拼接) ···</li>
 </ul>
-<p><div class="highlight"><span class="filename">b.cpp</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<div class="highlight"><span class="filename">b.cpp</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
 <a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
@@ -1040,11 +1040,11 @@
 <a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="n">name</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s">&quot; (Enl_Z) &quot;</span>
 <a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello World! &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; is &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; today!&quot;</span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
 <a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="p">}</span>
-</code></pre></div><br />
+</code></pre></div>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>$<span class="w"> </span>g++<span class="w"> </span>b.cpp<span class="p">;</span><span class="w"> </span>./a.out
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="m">18</span><span class="w"> </span>Molan
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>Hello<span class="w"> </span>World!<span class="w"> </span>Molan<span class="w"> </span><span class="o">(</span>Enl_Z<span class="o">)</span><span class="w"> </span>is<span class="w"> </span><span class="m">18</span><span class="w"> </span>today!
-</code></pre></div></p>
+</code></pre></div>
 <ul>
 <li><code>string</code> 不需要像 <code>char str[10]</code> 一样设置长度，直接使用 <code>string str;</code> 即可 (内部会自动调整长度，且字符串末尾无 <code>\0</code>)</li>
 <li><code>string</code> 变量支持赋值，即 <code>str1 = str2;</code> 是合法的</li>
