@@ -557,7 +557,7 @@
 !!! note
     1. Queue CreateQueue( int MaxSize ): 生成长度为 MaxSize 的空队列
     2. int IsFullQ( Queue Q, int MaxSize ): 判断队列 Q 是否已满
-    3. void AddQ( Queue Q, ElementType item ): 将数据元素 item 插入队列Q中
+    3. void AddQ( Queue Q, ElementType item ): 将数据元素 item 插入队列Q 中
     4. int IsEmptyQ( Queue Q ): 判断队列 Q 是否为空
     5. ElementType DeleteQ( Queue Q ): 将队头数据元素从队列中删除并返回
 
@@ -597,7 +597,7 @@
 
     bool IsFull( Queue Q )
     {
-        return ((Q->Rear+1)%Q->MaxSize == Q->Front);
+        return ((Q->Rear+1) % Q->MaxSize == Q->Front);
     }
 
     bool AddQ( Queue Q, ElementType X )
@@ -607,7 +607,7 @@
             return false;
         }
         else {
-            Q->Rear = (Q->Rear+1)%Q->MaxSize;
+            Q->Rear = (Q->Rear+1) % Q->MaxSize;
             Q->Data[Q->Rear] = X;
             return true;
         }
@@ -625,7 +625,7 @@
             return ERROR;
         }
         else  {
-            Q->Front =(Q->Front+1)%Q->MaxSize;
+            Q->Front =(Q->Front+1) % Q->MaxSize;
             return  Q->Data[Q->Front];
         }
     }
