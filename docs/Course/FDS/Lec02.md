@@ -5,8 +5,8 @@
 ### 线性表的抽象数据类型描述
 
 1.  `类型名称` : 线性表 | List
-2.  `数据对象集` :  线性表是n( $\ge$ 20)个元素构成的有序序列
-3.  `操作集` : 线性表 L $\epsilon$ List，整数 i 表示位置，元素 X $\epsilon$ ElementType.
+2.  `数据对象集` :  线性表是 n( $\ge$ 20) 个元素构成的有序序列
+3.  `操作集` : 线性表 L $\in$ List，整数 i 表示位置，元素 X $\in$ ElementType.
 
 ### 线性表的顺序存储实现
 
@@ -14,8 +14,14 @@
 
 * 主要操作实现
 
-??? example "初始化(建立空的顺序表)"
+??? example "初始化 (建立空的顺序表)"
     ```c
+    typedef int Position;
+    typedef struct LNode *List;
+    struct LNode {
+        ElementType Data[MAXSIZE];
+        Position Last;
+    };
     List MakeEmpty()
     {
         List Ptrl;
@@ -41,7 +47,7 @@
     }
     ```
 
-??? example "在第i(1 <= i <= n+1)个位置上插入新元素X"
+??? example "在第 i (1 <= i <= n+1) 个位置上插入新元素 X"
     ```c
     void Insert(ElementType X, int i, List L)
     {
@@ -126,7 +132,7 @@
     /*（1）按序号查找*/
     List FindKth(int K, List Ptrl)
     {
-    List p = Ptrl;
+        List p = Ptrl;
         while(p != NULL && i < k)
         {
             p = p->Next;
@@ -137,6 +143,7 @@
         else
             return NULL;
     }
+
     /*（2）按值查找*/
     List Find(ElementType X, List Ptrl)
     {
@@ -149,7 +156,7 @@
     }
     ```
 
-??? example "在第i-1(1 <= i <= n+1)个节点后插入一个值为X的新节点"
+??? example "在第 i-1 (1 <= i <= n+1) 个节点后插入一个值为 X 的新节点"
     ```c
     List Insert(ElementType X, List Ptrl)
     {
@@ -239,12 +246,13 @@
 !!! note
     链表中的节点可能同时隶属于多个链
 
-* 多重链表中节点的指针域会有多个，如前面的例子包含了Next和Sublist两个指针域；
+* 多重链表中节点的指针域会有多个，如前面的例子包含了 Next 和 Sublist 两个指针域；
 * 但包含两个指针域的链表并不一定是多重链表，比如双向链表
 
 !!! note
-    * 用一个标识域Tag来区分头节点和非0元素节点:<br>
-    * 头节点的标识值为“Head”，矩阵非0元素节点的标识值为“Term”<br>
+    * 用一个标识域 Tag 来区分头节点和非 0 元素节点:
+    * 头节点的标识值为 “Head” ，矩阵非 0 元素节点的标识值为 “Term” 
+
     ![image-20230118104550194](../../Images/image-20230118104550194.png)
 	
 ??? example "线性表的定义与操作-顺序表"
@@ -388,14 +396,14 @@
 
 ### 堆栈的抽象数据类型描述
 
-* **类型名称** : 堆栈(Stack)
-* **数据对象集** : 一个有0个或多个元素的有穷线性表
-* **操作集** : 长度为MaxSize的堆栈S $\in$ Stack，堆栈元素item $\in$ ElementType
+* **类型名称** : 堆栈 (Stack)
+* **数据对象集** : 一个有 0 个或多个元素的有穷线性表
+* **操作集** : 长度为 MaxSize 的堆栈 S $\in$ Stack ，堆栈元素 item $\in$ ElementType
 !!! note
-    1. Stack CreateStack( int MaxSize ): 生成空堆栈，其最大长度为MaxSize<br>
-    2. int IsFull( Stack S, int MaxSize ): 判断堆栈S是否已满<br>
-    3. void Push( Stack S, ElementType item ): 将元素item压入堆栈<br>
-    4. int IsEmpty( Stack S ): 判断堆栈S是否为空<br>
+    1. Stack CreateStack( int MaxSize ): 生成空堆栈，其最大长度为 MaxSize
+    2. int IsFull( Stack S, int MaxSize ): 判断堆栈 S 是否已满
+    3. void Push( Stack S, ElementType item ): 将元素 item 压入堆栈
+    4. int IsEmpty( Stack S ): 判断堆栈 S 是否为空
     5. ElementType Pop( Stack S ): 删除并返回栈顶元素
 
 ### 栈的顺序存储实现
@@ -457,7 +465,8 @@
 ### 堆栈的链式存储实现
 
 * 栈的链式存储结构实际上就是一个单链表，叫做链栈。插入和删除操作只能在链栈的栈顶进行
-> 用链表的头做栈的Top，单向链表的链尾不可做Top
+
+> 用链表的头做栈的 Top ，单向链表的链尾不可做 Top
 
 ??? example "堆栈的定义与操作-链式存储"
     ```c
@@ -516,7 +525,7 @@
 
 #### 中缀表达式求值
 
-**基本策略** ： 将中缀表达式转换为逆波兰表达式(后缀表达式)，然后求值
+**基本策略** ： 将中缀表达式转换为逆波兰表达式 (后缀表达式) ，然后求值
 
 #### 中缀表达式如何转换为逆波兰表达式
 
@@ -534,27 +543,27 @@
 ## 队列 | Queues
 
 !!! abstract
-    队列：具有一定操作约束的线性表(插入和删除操作：只能在一段插入，而在另一端删除)<br>
-    1. 数据插入：入队列<br>
-    2. 数据删除：出队列<br>
-    3. 先来先服务<br>
-    4. 先进先出<br>
+    队列：具有一定操作约束的线性表 (插入和删除操作：只能在一段插入，而在另一端删除)
+    1. 数据插入：入队列
+    2. 数据删除：出队列
+    3. 先来先服务
+    4. 先进先出
 
 ### 队列的抽象数据类型描述
 
-* **类型名称** : 队列(Queue)
-* **数据对象集** : 一个有0个或多个元素的有穷线性表
-* **操作集** : 长度为MaxSize的队列Q $\in$ Queue，队列元素item $\in$ ElementType
+* **类型名称** : 队列 (Queue)
+* **数据对象集** : 一个有 0 个或多个元素的有穷线性表
+* **操作集** : 长度为 MaxSize 的队列 Q $\in$ Queue ，队列元素 item $\in$ ElementType
 !!! note
-    1. Queue CreateQueue( int MaxSize ): 生成长度为MaxSize的空队列<br>
-    2. int IsFullQ( Queue Q, int MaxSize ): 判断队列Q是否已满<br>
-    3. void AddQ( Queue Q, ElementType item ): 将数据元素item插入队列Q中<br>
-    4. int IsEmptyQ( Queue Q ): 判断队列Q是否为空<br>
+    1. Queue CreateQueue( int MaxSize ): 生成长度为 MaxSize 的空队列
+    2. int IsFullQ( Queue Q, int MaxSize ): 判断队列 Q 是否已满
+    3. void AddQ( Queue Q, ElementType item ): 将数据元素 item 插入队列Q中
+    4. int IsEmptyQ( Queue Q ): 判断队列 Q 是否为空
     5. ElementType DeleteQ( Queue Q ): 将队头数据元素从队列中删除并返回
 
 ### 队列的顺序存储实现
 
-* 队列的顺序存储结构通常用一个一维数组和一个记录队列头元素位置的变量front以及一个记录队列尾元素位置的变量rear组成
+* 队列的顺序存储结构通常用一个一维数组和一个记录队列头元素位置的变量 front 以及一个记录队列尾元素位置的变量 rear 组成
 
 #### 一维数组队列
 
@@ -564,8 +573,8 @@
 
 ![image_13_06_48](../../Images/2023-01-18-13-06-48.png)
 判断顺环队列空和满可以用两种解决方案
-1. 使用额外标记：Size或者Tag域
-2. 仅使用n-1个数组空间(Front == Rear时为空)
+1. 使用额外标记：Size 或者 Tag 域
+2. 仅使用 n-1 个数组空间 (Front == Rear时为空)
 
 ??? example "队列的定义与操作-顺序存储"
     ```c

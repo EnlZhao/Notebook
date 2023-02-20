@@ -32,7 +32,7 @@
 
 几种函数构造方法: 
 
-* 除留余数法 —— $f(x) = x ~~ \% ~~ TableSize; $ `/* if x is an integer*/`
+* 除留余数法 —— $f(x) = x ~~ \% ~~ TableSize;$ `/* if x is an integer*/`
     * TableSize 最好选择一个质数 —— good for random integer keys
 
     ??? example 
@@ -61,12 +61,12 @@
     ??? example
         比如按学号映射，同届前几位相同，将后四位选为 key
 
-* $f(x) = (\sum x[i]) ~~ \% ~~ TableSize; $ `/* if x is a string*/`
+* $f(x) = (\sum x[i]) ~~ \% ~~ TableSize;$ `/* if x is a string*/`
 
     ??? example
         $x = "abc" \Rightarrow \sum x[i] = 'a' + 'b' + 'c'$
 
-* $f(x) = (x[0] + x[1] * 27 + x[2] * 27^2 ) ~~ \% ~~ TableSize; $ `/* 变成 27 进制 */`
+* $f(x) = (x[0] + x[1] * 27 + x[2] * 27^2 ) ~~ \% ~~ TableSize;$ `/* 变成 27 进制 */`
 * $f(x) = (\sum x[N-i-1] * 32^i) ~~ \% ~~ TableSize$ `/* *32 可以变为移位运算 */`
 
     ??? example

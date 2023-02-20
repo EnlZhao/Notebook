@@ -7,4 +7,7 @@
     * [:fontawesome-regular-file-pdf: 计组期末.pdf](/Notebook/files/计组期末.pdf){ .md-button }
     * [:fontawesome-regular-file-pdf: OS 期末.pdf](/Notebook/files/os期末.pdf){ .md-button }
 
+    > 只做学习交流使用，禁止被用于商业化用途
+
 <center><font face="JetBrains Mono" color=grey size=18>To Be Continued</font></center>
+
