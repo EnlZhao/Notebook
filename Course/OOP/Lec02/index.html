@@ -12,7 +12,7 @@
         <meta name="author" content="Enl_Z">
       
       
-        <link rel="canonical" href="https://enl-z.cc/Notebook/Course/OOP/Lec01/">
+        <link rel="canonical" href="https://enl-z.cc/Notebook/Course/OOP/Lec02/">
       
       
       
@@ -21,7 +21,7 @@
     
     
       
-        <title>Lecture 1 - 某兰的笔记本</title>
+        <title>Lecture 2 - 某兰的笔记本</title>
       
     
     
@@ -104,7 +104,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#lecture-1" class="md-skip">
+        <a href="#lecture-2" class="md-skip">
           跳转至
         </a>
       
@@ -138,7 +138,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Lecture 1
+              Lecture 2
             
           </span>
         </div>
@@ -927,48 +927,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    第一个程序
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#string" class="md-nav__link">
-    字符串 | String
-  </a>
-  
-    <nav class="md-nav" aria-label="字符串 | String">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#pointers-to-objects" class="md-nav__link">
-    Pointers to Objects
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#dynamic-memory-allocation" class="md-nav__link">
-    Dynamic memory allocation
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -986,7 +944,7 @@
 
 
   
-    <a href="https://github.com/enl-z/Notebook/tree/master/docs/Course/OOP/Lec01.md" title="编辑此页" class="md-content__button md-icon">
+    <a href="https://github.com/enl-z/Notebook/tree/master/docs/Course/OOP/Lec02.md" title="编辑此页" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
     </a>
@@ -995,7 +953,7 @@
     
       
     
-    <a href="https://github.com/enl-z/Notebook/tree/master/docs/Course/OOP/Lec01.md" title="View source of this page" class="md-content__button md-icon">
+    <a href="https://github.com/enl-z/Notebook/tree/master/docs/Course/OOP/Lec02.md" title="View source of this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
     </a>
@@ -1003,128 +961,7 @@
 
 
 
-<h1 id="lecture-1">Lecture 1<a class="headerlink" href="#lecture-1" title="Permanent link">👀</a></h1>
-<h2 id="_1">第一个程序<a class="headerlink" href="#_1" title="Permanent link">👀</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="p">{</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello World!&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
-</code></pre></div>
-<ul>
-<li><code>&lt;iostream&gt;</code> 为内置类型对象提供了输入输出支持，同时也支持文件的输入输出，类的设计者可以通过对 <code>iostream</code> 库的扩展来支持自定义类型的输入输出操作</li>
-<li>
-<p><code>using namespace std;</code> 告诉编译器使用 std 命名空间 (命名空间是 C++ 中一个相对新的概念)</p>
-<ul>
-<li><code>namespace</code> 是指标识符的各种可见范围，C++ 标准程序库中的所有标识符都被定义于一个名为 std 的 <code>namespace</code> 中</li>
-<li>由于 <code>namespace</code> 的概念，使用 C++ 标准程序库的任何标识符时，可以有三种选择：<ol>
-<li>直接指定标识符 —— 如 <code>std::ostream</code> 而不是 <code>ostream</code> (完整语句 A : <code>std::cout &lt;&lt; std::hex &lt;&lt; 5.0 &lt;&lt; std::endl;</code>)</li>
-<li>使用 <code>using</code> 关键字 —— 如 <code>using std::cout; using std::endl</code> (完整语句 A 改写为: <code>cout &lt;&lt; std::hex &lt;&lt; 5.0 &lt;&lt; endl;</code>)</li>
-<li>最方便的是使用 <code>using namespace std;</code>，这样命名空间 std 内定义的所有标识符都有效 (就像被声明为全局变量一样，完整语句 A 改写为：<code>cout &lt;&lt; hex &lt;&lt; 5.0 &lt;&lt; endl</code>)</li>
-</ol>
-</li>
-</ul>
-</li>
-<li>
-<p>若输入则采用 <code>cin</code> 输入<br />
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="p">{</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">;</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">age</span><span class="p">;</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello World! I&#39;m &quot;</span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; today!&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="p">}</span>
-</code></pre></div></p>
-</li>
-</ul>
-<h2 id="string">字符串 | String<a class="headerlink" href="#string" title="Permanent link">👀</a></h2>
-<ul>
-<li>首先要加入库 <code>&lt;string&gt;</code></li>
-<li>定义字符串变量 —— <code>string str;</code></li>
-<li>初始化字符串变量 —— <code>string str = "Molan";</code></li>
-<li>输入输出字符串即使用 <code>cin</code>, <code>cout</code> —— <code>cin &gt;&gt; str; cout &lt;&lt; str;</code></li>
-<li>C++ 中的字符串变量支持类似整型变量的操作 —— <code>+</code> (拼接) ···</li>
-</ul>
-<div class="highlight"><span class="filename">b.cpp</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="p">{</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">;</span>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="n">string</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="n">name</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s">&quot; (Enl_Z) &quot;</span>
-<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello World! &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; is &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; today!&quot;</span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
-<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="p">}</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>$<span class="w"> </span>g++<span class="w"> </span>b.cpp<span class="p">;</span><span class="w"> </span>./a.out
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="m">18</span><span class="w"> </span>Molan
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>Hello<span class="w"> </span>World!<span class="w"> </span>Molan<span class="w"> </span><span class="o">(</span>Enl_Z<span class="o">)</span><span class="w"> </span>is<span class="w"> </span><span class="m">18</span><span class="w"> </span>today!
-</code></pre></div>
-<ul>
-<li><code>string</code> 不需要像 <code>char str[10]</code> 一样设置长度，直接使用 <code>string str;</code> 即可 (内部会自动调整长度，且字符串末尾无 <code>\0</code>)</li>
-<li><code>string</code> 变量支持赋值，即 <code>str1 = str2;</code> 是合法的</li>
-</ul>
-<blockquote>
-<p>采用 <code>string str("Hello");</code> 和 <code>string str = "Hello";</code> 是一样的 (此种初始化方法对其他变量也适用)</p>
-</blockquote>
-<h3 id="pointers-to-objects">Pointers to Objects<a class="headerlink" href="#pointers-to-objects" title="Permanent link">👀</a></h3>
-<blockquote>
-<p>正交: 若有某个操作对某个数据类型是可用的，则理论上应满足其对所有数据类型可用 (如，取地址对整数可用则应对 <code>string</code> 也可用)</p>
-</blockquote>
-<ul>
-<li>Operators with Pointers<ul>
-<li><code>&amp;</code> : get address (e.g. <code>ps = &amp;s;</code> )</li>
-<li><code>*</code> : get the object (e.g. <code>(*ps).length()</code> )</li>
-<li><code>-&gt;</code> : call the function (e.g. <code>ps-&gt;length()</code> )</li>
-</ul>
-</li>
-<li>Two Ways to Access Objects<ul>
-<li><code>string s;</code><ul>
-<li><code>s</code> 本身就是对象</li>
-<li>此时，对象已经被创建并初始化为一个默认的值 (由类决定, 调用类的构造函数初始化)</li>
-</ul>
-</li>
-<li><code>string* ps;</code><ul>
-<li><code>ps</code> 是指向对象的指针</li>
-<li>此时，<code>ps</code> 的值还是未知的</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Assignment<ol>
-<li><code>string s1, s2;</code><ul>
-<li><code>s1 = s2;</code></li>
-</ul>
-</li>
-<li><code>string *ps1, ps2;</code><ul>
-<li><code>ps1= ps2</code></li>
-</ul>
-</li>
-</ol>
-</li>
-</ul>
-<h3 id="dynamic-memory-allocation">Dynamic memory allocation<a class="headerlink" href="#dynamic-memory-allocation" title="Permanent link">👀</a></h3>
-<blockquote>
-<p><code>new</code> 和 <code>delete</code> 都是运算符, c++ 中虽然也有 <code>malloc</code>，但最好不要再使用</p>
-</blockquote>
-<ul>
-<li><code>new</code><ul>
-<li><code>new int;</code> (类似于 <code>malloc(sizeof(int))</code> 申请一个 <code>int</code> 的空间)</li>
-<li><code>new Stash;</code> (<code>Stash</code> 是一个类，此处申请了一个 <code>Stash</code> 的空间，但不同 <code>malloc</code> 的是其还调用构造函数进行了初始化)</li>
-<li><code>new int[10]</code></li>
-</ul>
-</li>
-<li><code>delete</code><ul>
-<li><code>delete p;</code></li>
-<li><code>delete[] p;</code></li>
-</ul>
-</li>
-</ul>
+<h1 id="lecture-2">Lecture 2<a class="headerlink" href="#lecture-2" title="Permanent link">👀</a></h1>
 
 
   
