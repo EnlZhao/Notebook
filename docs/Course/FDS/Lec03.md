@@ -37,8 +37,8 @@
 
 ### 二叉树的几个重要性质
 
-1. 一个二叉树第i层的最大节点数为: 2^i-1^ , i $\ge$ 1
-2. 深度为k的二叉树有最大节点总数为: 2^k^ - 1 , k $\ge$ 1
+1. 一个二叉树第 i 层的最大节点数为: 2^i-1^ , i $\ge$ 1
+2. 深度为 k 的二叉树有最大节点总数为: 2^k^ - 1 , k $\ge$ 1
 3. 对任何非空二叉树，若 n~0~ 表示叶节点的个数、n~2~ 是度为2的非叶节点个数，那么两者满足关系 n~0~ = n~2~ + 1
    
 ## 二叉树的抽象数据类型
@@ -48,7 +48,7 @@
 
 * **操作集** : BT $\in$ BinTree，Item $\in$ ElementType, 重要操作有：
 !!! note
-    1. Boolean IsEmpty( BinTree BT ): 判断BT是否为空<br>
+    1. Bool IsEmpty( BinTree BT ): 判断 BT 是否为空<br>
     2. void Traversal( BinTree BT ): 遍历，按某顺序访问每个节点<br>
     3. BinTree CreateBinTree( ): 创建一个二叉树<br>
 
