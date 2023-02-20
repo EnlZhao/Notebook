@@ -30,7 +30,7 @@
 
 * 二叉树 (binary tree) : 通常指有根二叉树。每个节点至多有两个子节点的树。通常将子节点确定一个顺序，称左子节点和右子节点
 * 特殊二叉树
-    1. 满二叉树 (full/proper binary tree) : 每个节点的子节点均为 0 或 2 个 $leaves = nodes-\frac{nodes-1}{degree}$ 
+    1. 满二叉树 (full/proper binary tree) : 每个节点的子节点均为 0 或 2 个 $leaves = nodes-\frac{nodes-1}{2}$ 
     2. 完美二叉树(即满二叉树，perfect binary tree): 所有叶节点深度均相同的二叉树——深度为 k (k $\ge$ -1) 且有 2^k+1^ - 1 个节点
     3. 完全二叉树 (complete binary tree) : 仅最深两层节点的度可以小于2，且最深一层的节点都集中在该层最左边的连续位置上 || 所有节点的编号都与满二叉树中的编号相同的二叉树
     4. 斜二叉树 (skewed binary tree) : 没有任何左/右节点的树，称为右/左斜二叉树
