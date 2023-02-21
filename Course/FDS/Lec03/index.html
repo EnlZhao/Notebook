@@ -2099,17 +2099,17 @@ print的顺序 <span class="arithmatex">\(\Rightarrow\)</span> D E F B H G I C A
 <li>数组: <ul>
 <li>插入 —— 元素总是插入尾部          ~ <span class="arithmatex">\(\Theta (1)\)</span> </li>
 <li>删除 —— <ul>
-<li>查找最大(或最小)关键字        ~ <span class="arithmatex">\(\Theta (n)\)</span> </li>
-<li>从数组中删去需要移动的元素    ~ <span class="arithmatex">\(O(n)\)</span> </li>
+<li>查找最大 (或最小) 关键字      ~ <span class="arithmatex">\(\Theta (n)\)</span> </li>
+<li>从数组中删去需要移动的元素     ~ <span class="arithmatex">\(O(n)\)</span> </li>
 </ul>
 </li>
 </ul>
 </li>
 <li>链表:<ul>
-<li>插入 —— 元素总是插入链表头部      ~ <span class="arithmatex">\(\Theta (1)\)</span> </li>
+<li>插入 —— 元素总是插入链表头部       ~ <span class="arithmatex">\(\Theta (1)\)</span> </li>
 <li>删除 ——<ul>
-<li>查找最大(或最小)关键字        ~ <span class="arithmatex">\(\Theta (n)\)</span> </li>
-<li>删去节点                      ~ <span class="arithmatex">\(\Theta (1)\)</span> </li>
+<li>查找最大 (或最小) 关键字       ~ <span class="arithmatex">\(\Theta (n)\)</span> </li>
+<li>删去节点                     ~ <span class="arithmatex">\(\Theta (1)\)</span> </li>
 </ul>
 </li>
 </ul>
@@ -2117,10 +2117,10 @@ print的顺序 <span class="arithmatex">\(\Rightarrow\)</span> D E F B H G I C A
 <li>有序数组:<ul>
 <li>插入 —— <ul>
 <li>找到合适的位置                ~ <span class="arithmatex">\(O(n)\)</span> 或 <span class="arithmatex">\(O(log_2 n)\)</span> </li>
-<li>移动与元素并插入              ~ <span class="arithmatex">\(O(n)\)</span> </li>
+<li>移动元素并插入                ~ <span class="arithmatex">\(O(n)\)</span> </li>
 </ul>
 </li>
-<li>删除 —— 删去最后一个元素          ~ <span class="arithmatex">\(\Theta (1)\)</span></li>
+<li>删除 —— 删去最后一个元素           ~ <span class="arithmatex">\(\Theta (1)\)</span></li>
 </ul>
 </li>
 <li>有序链表: <ul>
@@ -2135,21 +2135,21 @@ print的顺序 <span class="arithmatex">\(\Rightarrow\)</span> D E F B H G I C A
 </ul>
 <h3 id="binary-heap">二叉堆 | binary heap<a class="headerlink" href="#binary-heap" title="Permanent link">👀</a></h3>
 <ul>
-<li>二叉堆是一种完全二叉树——任意节点的值都 <span class="arithmatex">\(\le\)</span> (或 <span class="arithmatex">\(\ge\)</span> ) 父节点的值(即最大最小堆)</li>
+<li>二叉堆是一种完全二叉树 —— 任意节点的值都 <span class="arithmatex">\(\le\)</span> (或 <span class="arithmatex">\(\ge\)</span> ) 父节点的值(即最大最小堆)</li>
 </ul>
 <div class="admonition info">
 <p class="admonition-title">引申</p>
 <ul>
 <li>D-heap | D-堆 是指每个节点有 d 个儿子<ul>
 <li>若D-堆使用数组存储，且一个节点的下标为 i </li>
-<li>其父节点的位置是 $\lceil (i + d - 2)/d \rceil $  </li>
+<li>其父节点的位置是 $\lfloor (i + d - 2)/d \rfloor $ (不小于其的最小整数)</li>
 <li>其第一个儿子位于 $ (i - 2)d + 2 $ </li>
 <li>最后一个儿子位于 $ (i - 1)d + 1 $ </li>
 </ul>
 </li>
 </ul>
 <details class="example">
-<summary>一道PTA例题</summary>
+<summary>一道 PTA 例题</summary>
 <p><img alt="image_2023-01-25-15-43-46" src="../../../Images/2023-01-25-15-43-46.png" /></p>
 </details>
 </div>
