@@ -1862,13 +1862,13 @@ print的顺序 <span class="arithmatex">\(\Rightarrow\)</span> D E F B H G I C A
 </code></pre></div><br />
 <div class="highlight"><span class="filename">BuildTree</span><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">Tree</span><span class="w"> </span><span class="nf">BulidTree</span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">TreeNode</span><span class="w"> </span><span class="n">T</span><span class="p">[])</span>
 <a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="p">{</span>
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="err">……</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="err">···</span>
 <a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">    </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">N</span><span class="p">);</span>
 <a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
 <a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">    </span><span class="p">{</span>
 <a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
 <a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">        </span><span class="p">{</span>
-<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">            </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%c %c %C</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">T</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">Element</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">cl</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">cr</span><span class="p">);</span>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">            </span><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%c %c %c</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">T</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">Element</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">cl</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">cr</span><span class="p">);</span>
 <a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">cl</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="sc">&#39;-&#39;</span><span class="p">)</span>
 <a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="w">            </span><span class="p">{</span>
 <a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="w">                </span><span class="n">T</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">Left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cl</span><span class="o">-</span><span class="sc">&#39;0&#39;</span><span class="p">;</span>
@@ -1913,7 +1913,7 @@ print的顺序 <span class="arithmatex">\(\Rightarrow\)</span> D E F B H G I C A
 </details>
 <h2 id="binary-search-treebst">二叉搜索树 | Binary Search Tree(BST)<a class="headerlink" href="#binary-search-treebst" title="Permanent link">👀</a></h2>
 <blockquote>
-<p>二叉搜索树，也称二叉排序树或二叉查找树</p>
+<p>二叉搜索树，也称二叉排序树或二叉查找树 (中序遍历一定满足递增)</p>
 </blockquote>
 <ul>
 <li>一棵二叉树可以为空；如果不为空，满足以下性质：<ol>
@@ -1988,11 +1988,13 @@ print的顺序 <span class="arithmatex">\(\Rightarrow\)</span> D E F B H G I C A
 </ul>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">Position</span><span class="w"> </span><span class="nf">FindMax</span><span class="p">(</span><span class="w"> </span><span class="n">BinTree</span><span class="w"> </span><span class="n">BST</span><span class="p">)</span>
 <a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="p">{</span>
-<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="w"> </span><span class="n">BST</span><span class="w"> </span><span class="p">)</span>
-<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="w">        </span><span class="k">while</span><span class="p">(</span><span class="n">BST</span><span class="o">-&gt;</span><span class="n">Right</span><span class="p">)</span>
-<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="w">            </span><span class="n">BST</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BST</span><span class="o">-&gt;</span><span class="n">Right</span><span class="p">;</span>
-<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">BST</span><span class="p">;</span>
-<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="p">}</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="w"> </span><span class="o">!</span><span class="n">BST</span><span class="w"> </span><span class="p">)</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="w">    </span><span class="k">else</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="w">        </span><span class="k">while</span><span class="p">(</span><span class="w"> </span><span class="n">BST</span><span class="o">-&gt;</span><span class="n">Right</span><span class="w"> </span><span class="p">)</span>
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="w">            </span><span class="n">BST</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BST</span><span class="o">-&gt;</span><span class="n">Right</span><span class="p">;</span>
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">BST</span><span class="p">;</span>
+<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="p">}</span>
 </code></pre></div>
 <h4 id="insert">Insert()<a class="headerlink" href="#insert" title="Permanent link">👀</a></h4>
 <ul>
