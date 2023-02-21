@@ -1654,20 +1654,18 @@
 <div class="admonition example">
 <p class="admonition-title">Example</p>
 <p><img alt="image-01-18-21-26-21" src="../../../Images/2023-01-18-21-26-21.png" /><br><br />
- 完全二叉树的叶子节点数: <span class="arithmatex">\(n_0 = \frac{n+1}{2}\)</span> <br><br />
-       1. 当n为偶数时，<span class="arithmatex">\(n_0 = \frac{n}{2}\)</span> <br><br />
+ 完全二叉树的叶子节点数: <span class="arithmatex">\(n_0 = \frac{n+1}{2}\)</span> <br />
+       1. 当n为偶数时，<span class="arithmatex">\(n_0 = \frac{n}{2}\)</span> <br />
        2. 当n为奇数时，<span class="arithmatex">\(n_0 = \frac{n+1}{2}\)</span></p>
 </div>
 <ul>
-<li>非根节点(序号i &gt; 1)的父节点的序号是 $\lfloor \frac{i}{2} \rfloor $ (不超过 i/2 的最大整数)；<ul>
-<li>节点(序号为i)的左孩子节点的序号是 2i (2i <span class="arithmatex">\(\le\)</span> n，否则没有左孩子)</li>
-<li>节点(序号为i)的右孩子节点的序号是 2i+1 (2i+1 <span class="arithmatex">\(\le\)</span> n，否则没有右孩子)</li>
+<li>非根节点 (序号 i &gt; 1) 的父节点的序号是 $\lfloor \frac{i}{2} \rfloor $ (不超过 i/2 的最大整数) <ul>
+<li>节点 (序号为 i ) 的左孩子节点的序号是 2i (2i <span class="arithmatex">\(\le\)</span> n，否则没有左孩子) </li>
+<li>节点 (序号为 i ) 的右孩子节点的序号是 2i+1 (2i+1 <span class="arithmatex">\(\le\)</span> n，否则没有右孩子) <br />
+2. 一般二叉树: 也可以采用上述结构，但会造成空间浪费</li>
 </ul>
 </li>
 </ul>
-<ol start="2">
-<li>一般二叉树: 也可以采用上述结构，但会造成空间浪费</li>
-</ol>
 <details class="example">
 <summary>Example</summary>
 <p><img alt="image_2023-01-19-15-24-54" src="../../../Images/2023-01-19-15-24-54.png" /></p>
@@ -1825,20 +1823,17 @@ print的顺序 <span class="arithmatex">\(\Rightarrow\)</span> D E F B H G I C A
 <li>结构数组表示二叉树: 静态链表</li>
 </ul>
 <p><img alt="image_2023-01-24-21-58-11" src="../../../Images/2023-01-24-21-58-11.png" /></p>
-<details class="example">
-<summary>code</summary>
-<div class="highlight"><span class="filename">二叉树表示</span><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="cp">#define MaxTree 10</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="cp">#define ElementType char</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="cp">#define Tree int</span>
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="cp">#define Null -1</span>
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="k">struct</span><span class="w"> </span><span class="nc">TreeNode</span>
-<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="p">{</span>
-<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">    </span><span class="n">ElementType</span><span class="w"> </span><span class="n">Element</span><span class="p">;</span>
-<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">    </span><span class="n">Tree</span><span class="w"> </span><span class="n">Left</span><span class="p">;</span>
-<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">    </span><span class="n">Tree</span><span class="w"> </span><span class="n">Right</span><span class="p">;</span>
-<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="p">}</span><span class="n">T1</span><span class="p">[</span><span class="n">MaxTree</span><span class="p">],</span><span class="w"> </span><span class="n">T2</span><span class="p">[</span><span class="n">MaxTree</span><span class="p">];</span>
+<div class="highlight"><span class="filename">二叉树表示</span><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="w">    </span><span class="cp">#define MaxTree 10</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span><span class="cp">#define ElementType char</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="cp">#define Tree int</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="cp">#define Null -1</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">TreeNode</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">        </span><span class="n">ElementType</span><span class="w"> </span><span class="n">Element</span><span class="p">;</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">        </span><span class="n">Tree</span><span class="w"> </span><span class="n">Left</span><span class="p">;</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">        </span><span class="n">Tree</span><span class="w"> </span><span class="n">Right</span><span class="p">;</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">    </span><span class="p">}</span><span class="n">T1</span><span class="p">[</span><span class="n">MaxTree</span><span class="p">],</span><span class="w"> </span><span class="n">T2</span><span class="p">[</span><span class="n">MaxTree</span><span class="p">];</span>
 </code></pre></div>
-</details>
 <h3 id="_11">程序框架搭建<a class="headerlink" href="#_11" title="Permanent link">👀</a></h3>
 <div class="highlight"><span class="filename">Pseudocode: main_function</span><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">    </span><span class="p">{</span>
