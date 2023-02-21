@@ -2142,7 +2142,7 @@ print的顺序 <span class="arithmatex">\(\Rightarrow\)</span> D E F B H G I C A
 <ul>
 <li>D-heap | D-堆 是指每个节点有 d 个儿子<ul>
 <li>若D-堆使用数组存储，且一个节点的下标为 i </li>
-<li>其父节点的位置是 $\lfloor (i + d - 2)/d \rfloor $ (不小于其的最小整数)</li>
+<li>其父节点的位置是 $\lfloor (i + d - 2)/d \rfloor $ (不大于其的最大整数)</li>
 <li>其第一个儿子位于 $ (i - 2)d + 2 $ </li>
 <li>最后一个儿子位于 $ (i - 1)d + 1 $ </li>
 </ul>
