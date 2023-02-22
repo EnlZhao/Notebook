@@ -1645,11 +1645,11 @@
 <h2 id="_9">基数排序<a class="headerlink" href="#_9" title="Permanent link">👀</a></h2>
 <div class="admonition abstract">
 <p class="admonition-title">Abstract</p>
-<p>这之上的排序算法都有一个共同点 &mdash; 仅仅基于比较大小决定排序位置，所有这些算法时间复杂度最坏情况下界都是 <span class="arithmatex">\(NlogN\)</span> </p>
+<p>这之上的排序算法都有一个共同点 &mdash; 仅仅基于比较大小决定排序位置，所有这些算法时间复杂度都需要进行 <span class="arithmatex">\(\Omega (NlogN)\)</span></p>
 </div>
 <h3 id="_10">桶排序<a class="headerlink" href="#_10" title="Permanent link">👀</a></h3>
 <ul>
-<li>如果输入数据都小于 M，则可以用一个大小为 M 的数组来记录某个值出现了多少次，这个数组称为桶（bucket</li>
+<li>如果输入数据都小于 M，则可以用一个大小为 M 的数组来记录某个值出现了多少次，这个数组称为桶 (bucket)</li>
 <li>桶初始化为 0，遍历输入数据，将每个数据对应的桶加 1</li>
 <li>最后遍历桶中的所有元素，对于 bucket[x] = y，将 x 输出 y 次</li>
 <li>时间复杂度 <span class="arithmatex">\(O(N+M)\)</span> (如果 N <span class="arithmatex">\(\ll\)</span> M, 用基数排序)</li>
