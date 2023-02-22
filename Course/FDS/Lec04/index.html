@@ -2140,7 +2140,7 @@
 <p><img alt="2023-02-01-15-19-47" src="../../../Images/2023-02-01-15-19-47.png" /><br />
 <img alt="2023-02-01-15-20-59" src="../../../Images/2023-02-01-15-20-59.png" /></p>
 <blockquote>
-<p>back edge: ( <span class="arithmatex">\(u, v\)</span> ) <span class="arithmatex">\(\in\)</span> tree and <span class="arithmatex">\(u\)</span> (or <span class="arithmatex">\(v\)</span> ) is an ancestor of <span class="arithmatex">\(v\)</span> (or <span class="arithmatex">\(u\)</span> )<br />
+<p>back edge: ( <span class="arithmatex">\(u, v\)</span> ) <span class="arithmatex">\(\notin\)</span> tree and <span class="arithmatex">\(u\)</span> (or <span class="arithmatex">\(v\)</span> ) is an ancestor of <span class="arithmatex">\(v\)</span> (or <span class="arithmatex">\(u\)</span> )<br />
 Note: If <span class="arithmatex">\(u\)</span> is an ancestor of <span class="arithmatex">\(v\)</span> , then Num( <span class="arithmatex">\(v\)</span> ) &lt; Num( <span class="arithmatex">\(v\)</span> )</p>
 </blockquote>
 </details>
@@ -2157,7 +2157,7 @@ Note: If <span class="arithmatex">\(u\)</span> is an ancestor of <span class="ar
 <li>如果 u 不是 root，则 u 是割点当且仅当存在一个儿子 v，满足 Num[u] <span class="arithmatex">\(\leq\)</span> low[v]</li>
 </ul>
 </li>
-<li>计算 Low 并检验是否割点 (忽略对根的检验)<br />
+<li>计算 Low 并检验是否割点 (忽略对根的检验) <br />
 <div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">AssignLow</span><span class="p">(</span><span class="n">Vertex</span><span class="w"> </span><span class="n">V</span><span class="p">)</span>
 <a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="p">{</span>
 <a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="w">    </span><span class="n">Vertex</span><span class="w"> </span><span class="n">W</span><span class="p">;</span>
