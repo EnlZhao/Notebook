@@ -35,13 +35,13 @@
 
 !!! abstract
       * AOV 网络 —— 定点表示活动，边表示先后关系
-      * 若存在一条从 i 到 j 的路径，则称 i 为 j  的前驱(predecessor), j 是 i 的后继(successor)
-      * 若存在一条边 < i, j >，则称 i 是 j 的直接前驱(immediate predecessor)，j 是 i 的直接后继
+      * 若存在一条从 i 到 j 的路径，则称 i 为 j  的前驱 (predecessor), j 是 i 的后继 (successor)
+      * 若存在一条边 < i, j >，则称 i 是 j 的直接前驱 (immediate predecessor) ，j 是 i 的直接后继
 
 ### 拓扑序
 
-* 若在图中从 V 到 W 有一条有向路径，则 V 一定排在 W 之前。满足此条件的顶点序列称为一个拓扑序(获得一个拓扑序的过程就是拓扑排序)
-* AOV 如果有合理的拓扑序，则必定是有向无环图(Directed Acyclic Graph, DAG)
+* 若在图中从 V 到 W 有一条有向路径，则 V 一定排在 W 之前。满足此条件的顶点序列称为一个拓扑序 (获得一个拓扑序的过程就是拓扑排序)
+* AOV 如果有合理的拓扑序，则必定是有向无环图 (Directed Acyclic Graph, DAG)
 > ![2023-01-30-18-22-40](../../Images/2023-01-30-18-22-40.png)
 > 如果有向图中出现环，一定不可能得到一个合理的拓扑序
 
@@ -52,7 +52,7 @@ void Topsort(Graph G)
 {
       int Counter;
       Vertex V, W;
-      for(Counter = 0; Counter < NUmVertex; Counter ++)
+      for(Counter = 0; Counter < NumVertex; Counter ++)
       {
             V = FindNeVertexOfDegreeZero();     /* O(|V|) */
             if(V == NotAVertex)
@@ -112,7 +112,7 @@ void Topsort( Graph G )
     /* 遍历图，得到Indegree[] */
     for (V=0; V<Graph->Nv; V++)
           for (W=Graph->G[V].FirstEdge; W; W=W->Next)
-                Indegree[W->AdjV]++; /* 对有向边<V, W->AdjV>累计终点的入度 */
+                Indegree[W->AdjV] ++; /* 对有向边<V, W->AdjV>累计终点的入度 */
                 
     /* 将所有入度为0的顶点入列 */
     for (V=0; V<Graph->Nv; V++)
@@ -122,12 +122,12 @@ void Topsort( Graph G )
     /* 下面进入拓扑排序 */ 
     cnt = 0; 
     while( !IsEmpty(Q) ){
-          V = DeleteQ(Q); /* 弹出一个入度为0的顶点 */
-          TopOrder[cnt++] = V; /* 将之存为结果序列的下一个元素 */
+          V = DeleteQ(Q); /* 弹出一个入度为 0 的顶点 */
+          TopOrder[cnt ++] = V; /* 将之存为结果序列的下一个元素 */
           /* 对V的每个邻接点W->AdjV */
           for ( W=Graph->G[V].FirstEdge; W; W=W->Next )
                 if ( --Indegree[W->AdjV] == 0 )/* 若删除V使得W->AdjV入度为0 */
-                AddQ(Q, W->AdjV); /* 则该顶点入列 */ 
+                    AddQ(Q, W->AdjV); /* 则该顶点入列 */ 
     } /* while结束*/
     
     if ( cnt != Graph->Nv )
@@ -140,41 +140,45 @@ void Topsort( Graph G )
 ## 最短路算法
 
 !!! abstract "最短路径问题的抽象"
-    在网络中，求两个不同顶点之间的所有路径中，边的权值之和最小的那一条路径。这条路径即两点之间的最短路径(Shortest Path), 第一个顶点为源点(Source), 最后一个顶点为终点(Destination)
+    在网络中，求两个不同顶点之间的所有路径中，边的权值之和最小的那一条路径。这条路径即两点之间的最短路径 (Shortest Path) , 第一个顶点为源点 (Source) , 最后一个顶点为终点 (Destination)
 
 ### 问题分类
 
 1. 单源最短路径: 从固定源点出发，求其到所有其他顶点的最短路径
-      1. (有向)无权图
-      2. (有向)有权图
+      1. (有向) 无权图
+      2. (有向) 有权图
 2. 多源最短路径: 求任意两顶点间的最短路径
 
 ### 无权图的单源最短路
 
-> 按照递增(递减)的顺序找出到各顶点的最短路
-> 采用 BFS(Breadth-first search)
+> 按照递增 (递减) 的顺序找出到各顶点的最短路
+> 采用 BFS (Breadth-first search)
 
 !!! note "Implementation"
     ```c
-    Table[i].Dist = distance from s to vi  /* initialized to be  except fors */
+    Table[i].Dist = distance from s to vi  /* initialized to be Infinity except for s */
     Table[i].Known = 1 if vi is checked; or 0 if not
     Table[ i ].Path = for tracking the path   /* initialized to be 0 */
     ```
 1. Normal:
 ```c
 void Unweighted( Table T )
-{   int  CurrDist;
+{   
+    int  CurrDist;
     Vertex  V, W;
-    for ( CurrDist = 0; CurrDist < NumVertex; CurrDist ++ ) {
+    for ( CurrDist = 0; CurrDist < NumVertex; CurrDist ++ ) 
+    {
         for ( each vertex V )
-	if ( !T[ V ].Known && T[ V ].Dist == CurrDist ) {
-	    T[ V ].Known = true;
-	    for ( each W adjacent to V )
-	        if ( T[ W ].Dist == Infinity ) {
-		T[ W ].Dist = CurrDist + 1;
-		T[ W ].Path = V;
-	        } /* end-if Dist == Infinity */
-	} /* end-if !Known && Dist == CurrDist */
+	        if ( !T[ V ].Known && T[ V ].Dist == CurrDist ) 
+            {
+	            T[ V ].Known = true;
+	            for ( each W adjacent to V )
+	                if ( T[ W ].Dist == Infinity ) 
+                    {
+		                T[ W ].Dist = CurrDist + 1;
+		                T[ W ].Path = V;
+	                } /* end-if Dist == Infinity */
+	        } /* end-if !Known && Dist == CurrDist */
     }  /* end-for CurrDist */
 }
 ```
@@ -185,22 +189,50 @@ void Unweighted( Table T )
 {   /* T is initialized with the source vertex S given */
     Queue  Q;
     Vertex  V, W;
-    Q = CreateQueue (NumVertex );  MakeEmpty( Q );
+    Q = CreateQueue (NumVertex );  
+    MakeEmpty( Q );
     Enqueue( S, Q ); /* Enqueue the source vertex */
-    while ( !IsEmpty( Q ) ) {
+    while ( !IsEmpty( Q ) ) 
+    {
         V = Dequeue( Q );
         T[ V ].Known = true; /* not really necessary */
         for ( each W adjacent to V )
-	if ( T[ W ].Dist == Infinity ) {
-	    T[ W ].Dist = T[ V ].Dist + 1;
-	    T[ W ].Path = V;
-	    Enqueue( W, Q );
-	} /* end-if Dist == Infinity */
+            if ( T[ W ].Dist == Infinity ) 
+            {
+                T[ W ].Dist = T[ V ].Dist + 1;
+                T[ W ].Path = V;
+                Enqueue( W, Q );
+            } /* end-if Dist == Infinity */
     } /* end-while */
     DisposeQueue( Q ); /* free memory */
 }
 ```
 > $T = O(|V|+|E|)$ 
+
+??? example "邻接表存储 - 无权图的单源最短路算法"
+    ```c
+    /* dist[]和path[]全部初始化为-1 */
+    void Unweighted ( LGraph Graph, int dist[], int path[], Vertex S )
+    {
+        Queue Q;
+        Vertex V;
+        PtrToAdjVNode W;
+        
+        Q = CreateQueue( Graph->Nv ); /* 创建空队列, MaxSize为外部定义的常数 */
+        dist[S] = 0; /* 初始化源点 */
+        AddQ (Q, S);
+
+        while( !IsEmpty(Q) ){
+            V = DeleteQ(Q);
+            for ( W=Graph->G[V].FirstEdge; W; W=W->Next ) /* 对V的每个邻接点W->AdjV */
+                if ( dist[W->AdjV]==-1 ) { /* 若W->AdjV未被访问过 */
+                    dist[W->AdjV] = dist[V]+1; /* W->AdjV到S的距离更新 */
+                    path[W->AdjV] = V; /* 将V记录在S到W->AdjV的路径上 */
+                    AddQ(Q, W->AdjV);
+                }
+        } /* while结束*/
+    }
+    ```
 
 ### 有权图的单源最短路
 
@@ -230,8 +262,8 @@ void Unweighted( Table T )
                       if(!T[W].Known)
                             if(T[V].Dist + Cvw < T[W].Dist)
                             {
-                                  Decrease(T[W].Dist to T[V].Dist + Cvw);
-                                  T[W].Path = V;
+                                Decrease(T[W].Dist to T[V].Dist + Cvw);
+                                T[W].Path = V;
                             }/* end-if update W */
           }/* end-for(;;) */
     }
@@ -291,6 +323,70 @@ void Unweighted( Table T )
         * 更新 T[W].Dist 的值 —— $O(log|V|)$ 
         * $ T = O(|V|log|V| + |E|log|V|) = O(|E|log|V|) $  —— 对稀疏图效果好(指 V 和 E 一个数量级)
 
+??? example "邻接矩阵存储 - 有权图的单源最短路算法"
+    ```c
+    Vertex FindMinDist( MGraph Graph, int dist[], int collected[] )
+    { 
+        /* 返回未被收录顶点中dist最小者 */
+        Vertex MinV, V;
+        int MinDist = INFINITY;
+
+        for (V=0; V<Graph->Nv; V++) 
+        {
+            if ( collected[V]==false && dist[V]<MinDist) 
+            {
+                /* 若V未被收录，且dist[V]更小 */
+                MinDist = dist[V]; /* 更新最小距离 */
+                MinV = V; /* 更新对应顶点 */
+            }
+        }
+        if (MinDist < INFINITY) /* 若找到最小dist */
+            return MinV; /* 返回对应的顶点下标 */
+        else 
+            return ERROR;  /* 若这样的顶点不存在，返回错误标记 */
+    }
+
+    bool Dijkstra( MGraph Graph, int dist[], int path[], Vertex S )
+    {
+        int collected[MaxVertexNum];
+        Vertex V, W;
+
+        /* 初始化：此处默认邻接矩阵中不存在的边用 INFINITY 表示 */
+        for ( V=0; V<Graph->Nv; V++ ) {
+            dist[V] = Graph->G[S][V];
+            if ( dist[V] < INFINITY )
+                path[V] = S;
+            else
+                path[V] = -1;
+            collected[V] = false;
+        }
+        /* 先将起点收入集合 */
+        dist[S] = 0;
+        collected[S] = true;
+
+        while (1) {
+            /* V = 未被收录顶点中 dist 最小者 */
+            V = FindMinDist( Graph, dist, collected );
+            if ( V == ERROR ) /* 若这样的V不存在 */
+                break;      /* 算法结束 */
+            collected[V] = true;  /* 收录V */
+            for( W=0; W<Graph->Nv; W++ ) /* 对图中的每个顶点W */
+                /* 若W是V的邻接点并且未被收录 */
+                if ( collected[W]==false && Graph->G[V][W]<INFINITY ) 
+                {
+                    if ( Graph->G[V][W]<0 ) /* 若有负边 */
+                        return false; /* 不能正确解决，返回错误标记 */
+                    /* 若收录V使得dist[W]变小 */
+                    if ( dist[V]+Graph->G[V][W] < dist[W] ) {
+                        dist[W] = dist[V]+Graph->G[V][W]; /* 更新dist[W] */
+                        path[W] = V; /* 更新S到W的路径 */
+                    }
+                }
+        } /* while结束*/
+        return true; /* 算法执行完毕，返回正确标记 */
+    }
+    ```
+
 #### 带负权图
 
 时间复杂度 $T = O(|V| \times |E|)$
@@ -321,16 +417,16 @@ void  WeightedNegative( Table T )
 
 #### 无环图 | Acyclic Graph
 
-> 此部分主要是其在 AOE(Activity On Edge) 网络的应用 
+> 此部分主要是其在 AOE (Activity On Edge) 网络的应用 
 > 一般用于安排项目的工序
 
 * 每个结点存储一个最早完成时间和最晚完成时间
-* 每条边存在一个持续时间(边权 C )和一个松弛时间
+* 每条边存在一个持续时间 (边权 C ) 和一个松弛时间
 * 相关计算:
-    * EC(earliest completion): 最早完成时间，从前往后计算
-    * LC(latest completion): 最晚完成时间，用需要最长的时间从后向前依次减去
+    * EC (earliest completion): 最早完成时间，从前往后计算
+    * LC (latest completion): 最晚完成时间，用需要最长的时间从后向前依次减去
     * Slack Time: 松弛时间 | 机动时间，最早完成的时间和要求的最晚完成的时间之间的时间
-    * Critical Path: 关键路径，可能不止一条但找出一条路径上所有点都是关键点（松弛时间为0）的就行
+    * Critical Path: 关键路径，可能不止一条但找出一条路径上所有点都是关键点（松弛时间为 0）的就行
 
 ??? quote 
     ![2023-01-31-22-04-18](../../Images/2023-01-31-22-04-18.png)
@@ -377,10 +473,10 @@ void  WeightedNegative( Table T )
 * 是一棵树，且：
     * 无回路
     * 连通的
-    * |V|个顶点一定有|V|-1条边
+    * |V|个顶点一定有|V| -1条边
 * 是生成树
     * 包含全部顶点
-    * |V|-1条边都在图中
+    * |V| -1条边都在图中
 * 边的权重和最小
 
 > 向生成树中任加一条边都一定构成回路
@@ -388,7 +484,7 @@ void  WeightedNegative( Table T )
 
 ### Prim 算法
 
-> 稠密图一般用次算法，每次寻找的是和已经收罗进最小生成树所有顶点相邻的边
+> 稠密图一般用此算法，每次寻找的是和已经收罗进最小生成树所有顶点相邻的边
 > 类似 Dijkstra 算法, $T = O( |V| ^2 )$ 
 
 ??? example "code"
@@ -400,8 +496,10 @@ void  WeightedNegative( Table T )
         Vertex MinV, V;
         WeightType MinDist = INFINITY;
 
-        for (V=0; V<Graph->Nv; V++) {
-            if ( dist[V]!=0 && dist[V]<MinDist) {
+        for (V=0; V<Graph->Nv; V++) 
+        {
+            if ( dist[V]!=0 && dist[V]<MinDist) 
+            {
                 /* 若V未被收录，且dist[V]更小 */
                 MinDist = dist[V]; /* 更新最小距离 */
                 MinV = V; /* 更新对应顶点 */
@@ -409,11 +507,13 @@ void  WeightedNegative( Table T )
         }
         if (MinDist < INFINITY) /* 若找到最小dist */
             return MinV; /* 返回对应的顶点下标 */
-        else return ERROR;  /* 若这样的顶点不存在，返回-1作为标记 */
+        else 
+            return ERROR;  /* 若这样的顶点不存在，返回-1作为标记 */
     }
 
     int Prim( MGraph Graph, LGraph MST )
-    { /* 将最小生成树保存为邻接表存储的图MST，返回最小权重和 */
+    { 
+        /* 将最小生成树保存为邻接表存储的图 MST，返回最小权重和 */
         WeightType dist[MaxVertexNum], TotalWeight;
         Vertex parent[MaxVertexNum], V, W;
         int VCount;
@@ -673,40 +773,42 @@ void DFS ( Vertex V )  /* this is only a template */
 
         ??? quote "通过 DFS 建立的最小生成树"
             ![2023-02-01-15-19-47](../../Images/2023-02-01-15-19-47.png)
-            ![2023-02-01-15-20-59](../../Images/2023-02-01-15-20-59.png)
+            ![2023-02-22-17-17-57](../../Images/2023-02-22-17-17-57.png)
+
+            > back edge: ( $u, v$ ) $\notin$ tree and $u$ (or $v$ ) is an ancestor of $v$ (or $u$ )
+            > Note: If $u$ is an ancestor of $v$ , then Num( $u$ ) < Num( $v$ )
     * Num[v] 表示 v 第一次被访问的时间戳，即 DFS 时第几个被访问（从0开始）
     * 追溯值 low[x]
-        * 对于从 x 到 y 的边，如果 < x, y > 在树上，则 low[x] = min(Num[x], low[y])
+        * 对于图中从 x 到 y 的边 : 
+        * 如果 < x, y > 在树上，则 low[x] = min(Num[x], low[y])
         * 如果 < x, y > 不在树上，则 low[x] = min(Num[x], Num[y])
     * 寻找割点：
         * 如果 u 是 root，则 u 是割点当且仅当 u 有至少两个儿子
         * 如果 u 不是 root，则 u 是割点当且仅当存在一个儿子 v，满足 Num[u] $\leq$ low[v]
-    * 计算 Low 并检验是否割点 (忽略对根的检验)
+    * 计算 Low 并检验是否割点 (忽略对根的检验) 
     ```c
+    /* Assign Low; also check for articulation points */
     void AssignLow(Vertex V)
     {
         Vertex W;
-        Low[V] = Num[V];    
-        for(each W adjacent to V)
+
+        Low[V] = Num[V];    /* Rule 1 */
+        for each W adjacent to V
         {
-            if(Num[W] < Num[V])
+            if(Num[W] > Num[V]) /* Forward edge */
             {
                 AssignLow(W);
                 if(Low[W] >= Num[V])
-                {
                     printf("%v is an articulation point\n", v);
-                }
                 Low[V] = Min(Low[V], Low[W]);
             }
-            else
-                if(Parent[V] != W)
-                {
-                    Low[V] = Min(Low[V], Num[W]);
-                }
+            else if(Parent[V] != W) /* Back edge */
+                Low[V] = Min(Low[V], Num[W]);   /* Rule 2 */
+
         }
     }
     ```
-    * 在一次 DFS 中对割点的检测（忽略对根的检测）
+    * 在一次 DFS 中对割点的检测 (忽略对根的检测)
     ```c
     void FindArt(Vertex V)
     {
@@ -745,5 +847,6 @@ void DFS ( Vertex V )  /* this is only a template */
     * 欧拉路径的判定: 图连通且有且仅有两个顶点的度数是奇数
 * 有向图
     * 欧拉回路的判定: 弱连通且所有顶点的出度等于入度
-    * 欧拉路径的判定: 弱连通且当且仅当 G 是弱连通的且有且仅有一个顶点的出度比入度大 1，有且仅有一个顶点的入度比出度大 1，其余顶点的出度等于入度
+    * 欧拉路径的判定: 弱连通且有且仅有一个顶点的出度比入度大 1 及一个顶点的入度比出度大 1，其余顶点的出度等于入度
+    > 弱连通 —— 将有向图的所有有向边替换为无向边得到的图是连通
 * DFS 遍历整张图即可求得路径

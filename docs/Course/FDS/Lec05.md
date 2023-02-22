@@ -61,19 +61,20 @@
 ```c
 void Shellsort( ElementType A[ ], int N ) 
 { 
-      int  i, j, Increment; 
-      ElementType  Tmp; 
-      for ( Increment = N / 2; Increment > 0; Increment /= 2 )  
-	/*h sequence */
-	for ( i = Increment; i < N; i++ ) { /* insertion sort */
-	      Tmp = A[ i ]; 
-	      for ( j = i; j >= Increment; j - = Increment ) 
-		if( Tmp < A[ j - Increment ] ) 
-		      A[ j ] = A[ j - Increment ]; 
-		else 
-		      break; 
-		A[ j ] = Tmp; 
-	} /* end for-I and for-Increment loops */
+    int  i, j, Increment; 
+    ElementType  Tmp; 
+    for( Increment = N / 2; Increment > 0; Increment /= 2 )  
+        /*h sequence */
+        for( i = Increment; i < N; i++ ) 
+        { /* insertion sort */
+            Tmp = A[ i ]; 
+            for ( j = i; j >= Increment; j - = Increment ) 
+                if( Tmp < A[ j - Increment ] ) 
+                    A[ j ] = A[ j - Increment ]; 
+                else 
+                    break; 
+            A[ j ] = Tmp; 
+        } /* end for-I and for-Increment loops */
 }
 ```
 
@@ -142,7 +143,7 @@ void Shellsort( ElementType A[ ], int N )
     }
     
     void PercDown( ElementType A[], int p, int N )
-    { /* 改编代码4.24的PercDown( MaxHeap H, int p )    */
+    { 
     /* 将N个元素的数组中以A[p]为根的子堆调整为最大堆 */
         int Parent, Child;
         ElementType X;
@@ -274,7 +275,7 @@ void Quicksort(ElementType A[], int N)
 ```
 > 分而治之: 
 > 快速排序的最好情况 —— 每次正好中分 —— $T(N) = O(NlogN)$
-> 两个主要步骤: 选主元、子集划分
+> 两个主要步骤: <u>选主元</u>、<u>子集划分</u>
 
 ### 选主元
 
@@ -370,11 +371,11 @@ void Quicksort(ElementType A[], int N)
 ## 基数排序
 
 !!! abstract 
-    这之上的排序算法都有一个共同点 --- 仅仅基于比较大小决定排序位置，所有这些算法时间复杂度最坏情况下界都是 $NlogN$ 
+    这之上的排序算法都有一个共同点 --- 仅仅基于比较大小决定排序位置，所有这些算法时间复杂度都需要进行 $\Omega (NlogN)$ 次比较 & 只用到比较的任何排序算法在最坏情况下都需要 $\lceil log(N!) \rceil$ 次比较并平均需要 $log(N!)$ 次比较
 
 ### 桶排序
 
-* 如果输入数据都小于 M，则可以用一个大小为 M 的数组来记录某个值出现了多少次，这个数组称为桶（bucket
+* 如果输入数据都小于 M，则可以用一个大小为 M 的数组来记录某个值出现了多少次，这个数组称为桶 (bucket)
 * 桶初始化为 0，遍历输入数据，将每个数据对应的桶加 1
 * 最后遍历桶中的所有元素，对于 bucket[x] = y，将 x 输出 y 次
 * 时间复杂度 $O(N+M)$ (如果 N $\ll$ M, 用基数排序)

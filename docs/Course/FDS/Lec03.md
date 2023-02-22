@@ -59,17 +59,18 @@
 1. 完全二叉树: 从上到下、从左至右顺序存储n个节点的完全二叉树的节点父子关系；
 !!! example
      ![image-01-18-21-26-21](../../Images/2023-01-18-21-26-21.png)<br>
-     完全二叉树的叶子节点数: $n_0 = \frac{n+1}{2}$ <br>
-           1. 当n为偶数时，$n_0 = \frac{n}{2}$ <br>
+     完全二叉树的叶子节点数: $n_0 = \frac{n+1}{2}$ 
+           1. 当n为偶数时，$n_0 = \frac{n}{2}$ 
            2. 当n为奇数时，$n_0 = \frac{n+1}{2}$
 
-* 非根节点(序号i > 1)的父节点的序号是 $\lfloor \frac{i}{2} \rfloor $ (不超过 i/2 的最大整数)；
-    * 节点(序号为i)的左孩子节点的序号是 2i (2i $\le$ n，否则没有左孩子)
-    * 节点(序号为i)的右孩子节点的序号是 2i+1 (2i+1 $\le$ n，否则没有右孩子)
-  
+* 非根节点 (序号 i > 1) 的父节点的序号是 $\lfloor \frac{i}{2} \rfloor $ (不超过 i/2 的最大整数) 
+    * 节点 (序号为 i ) 的左孩子节点的序号是 2i (2i $\le$ n，否则没有左孩子) 
+    * 节点 (序号为 i ) 的右孩子节点的序号是 2i+1 (2i+1 $\le$ n，否则没有右孩子) 
 2. 一般二叉树: 也可以采用上述结构，但会造成空间浪费
+
 ??? example
     ![image_2023-01-19-15-24-54](../../Images/2023-01-19-15-24-54.png)
+
 * 链表存储(每个节点的结构可以如下表示)
 
 !!! note
@@ -207,8 +208,7 @@
 
 ![image_2023-01-24-21-58-11](../../Images/2023-01-24-21-58-11.png)
 
-??? example "code"
-    ```c title="二叉树表示"
+```c title="二叉树表示"
     #define MaxTree 10
     #define ElementType char
     #define Tree int
@@ -219,7 +219,7 @@
         Tree Left;
         Tree Right;
     }T1[MaxTree], T2[MaxTree];
-    ```
+```
 
 ### 程序框架搭建
 
@@ -252,13 +252,13 @@
     ```c title="BuildTree"
     Tree BulidTree(struct TreeNode T[])
     {
-        ……
+        ···
         scanf("%d\n", &N);
         if(N)
         {
             for(i=0; i<N; i++)
             {
-                scanf("%c %c %C\n", &T[i].Element, &cl, &cr);
+                scanf("%c %c %c\n", &T[i].Element, &cl, &cr);
                 if(cl != '-')
                 {
                     T[i].Left = cl-'0';
@@ -304,7 +304,7 @@
 
 ## 二叉搜索树 | Binary Search Tree(BST)
 
-> 二叉搜索树，也称二叉排序树或二叉查找树
+> 二叉搜索树，也称二叉排序树或二叉查找树 (中序遍历一定满足递增)
 
 * 一棵二叉树可以为空；如果不为空，满足以下性质：
     1. 非空左子树的所有键值小于其根节点的键值
@@ -322,6 +322,7 @@
       1. 若 X 小于根节点键值，只需在左子树中继续搜索
       2. 若大于，则在右子树中继续搜素
       3. 若相等，搜索完成，返回指向此节点的指针
+
 ??? example "code"
     ```c
     Position Find( ElementType X, BinTree BST )
@@ -377,10 +378,12 @@ Position FindMin( BinTree BST)
 ```c
 Position FindMax( BinTree BST)
 {
-    if( BST )
-        while(BST->Right)
+    if( !BST )
+        return NULL;
+    else
+        while( BST->Right )
             BST = BST->Right;
-        return BST;
+    return BST;
 }
 ```
 
@@ -394,8 +397,9 @@ BinTree Insert( ElementType X, BinTree BST)
     if( !BST )
     {
         BST = malloc(sizeof(struct TreeNode));
-        BSt->Data = X;
-        BST->Left = BST->Right = NULL;
+        BST->Data = X;
+        BST->Left = NULL;
+        BST->Right = NULL;
     }
     else
     {
@@ -416,40 +420,50 @@ BinTree Insert( ElementType X, BinTree BST)
     3. 要删除的节点有左右两颗子树：用另一节点替代被删除节点——右子树的最小元素 或者 左子树的最大元素
 
 ```c
-BinTree Delete( ELementType X, BinTree BST)
-{
-    Position Tmp;
-    if( !BST )
-        printf("要删除的元素未找到");
-    else if( X < BST->Data )
-        BST->Left = Delete( X, BST->Left);/*左子树递归删除*/
-    else if( X > BST->Right )
-        BST->Right = Delete( X, BST->Right);/*右子树递归删除*/
-    else
-        if( BST->Left && BST->Right )
-        {
-            Tmp = FindMin( BST->Right );
-                        /*在右子树中找到最小元素填充删除节点*/
-            BST->Data = Tmp->Data;
-            BST->Right = Delete( BST->Data, BST->Right);
+BinTree Delete( BinTree BST, ElementType X ) 
+{ 
+    Position Tmp; 
+
+    if( !BST ) 
+        printf("要删除的元素未找到"); 
+    else {
+        if( X < BST->Data ) 
+            BST->Left = Delete( BST->Left, X );   /* 从左子树递归删除 */
+        else if( X > BST->Data ) 
+            BST->Right = Delete( BST->Right, X ); /* 从右子树递归删除 */
+        else { /* BST就是要删除的结点 */
+            /* 如果被删除结点有左右两个子结点 */ 
+            if( BST->Left && BST->Right ) {
+                /* 从右子树中找最小的元素填充删除结点 */
+                Tmp = FindMin( BST->Right );
+                BST->Data = Tmp->Data;
+                /* 从右子树中删除最小元素 */
+                BST->Right = Delete( BST->Right, BST->Data );
+            }
+            else { /* 被删除结点有一个或无子结点 */
+                Tmp = BST; 
+                if( !BST->Left )       /* 只有右孩子或无子结点 */
+                    BST = BST->Right; 
+                else                   /* 只有左孩子 */
+                    BST = BST->Left;
+                free( Tmp );
+            }
         }
-        else	/*被删除节点有一个或无子节点*/
-        {
-            Tmp = BST;
-            if( !BST->Left)	/*有右孩子或无*/
-                BST = BST->Right;
-            else if( !BST->Right)/*有左孩子或无*/
-                BST = BST->Left;
-            free( Tmp );
-        }
+    }
     return BST;
 }
 ```
 
+??? info "引申 —— n 个节点组成多少不同的二叉搜索树"
+    [卡特兰数] : $C_0 = 1, C_n = C_{n-1} \times \frac{4n-2}{n+1}$
+
+    ??? quote
+        [CSDN - LeetCode96 n个节点组成的不同二叉搜索树](https://blog.csdn.net/noric_/article/details/120580336)
+
 ## 线索二叉树 | Threaded binary tree
 
-* Rule 1: 若节点的左子树为空，将其空左儿子指向中序遍历前驱(上一个遍历的节点)
-* Rule 2: 空右儿子指向中序遍历的后继(若前驱/后继均无，则引出为 NULL)
+* Rule 1: 若节点的左子树为空，将其空左儿子指向中序遍历前驱 (上一个遍历的节点)
+* Rule 2: 空右儿子指向中序遍历的后继 (若前驱/后继均无，则引出为 NULL)
 * Rule 3: 线索二叉树必须有一个头节点且其左儿子指向第一个节点
 
 ```c
@@ -457,9 +471,10 @@ typedef  struct  ThreadedTreeNode  *PtrTo  ThreadedNode;
 typedef  struct  PtrToThreadedNode  ThreadedTree;
 typedef  struct  ThreadedTreeNode {
     int     LeftThread;   /* if it is TRUE, then Left */
-    ThreadedTree  Left;      /* is a thread, not a child ptr.   */ 
-    ElementTypeElement;intRightThread; /* if it is TRUE, then Right */
-    ThreadedTree  Right;    /* is a thread, not a child ptr.   */
+    ThreadedTree  Left;      /* is a thread, not a child ptr. */ 
+    ElementType Element;
+    int     RightThread; /* if it is TRUE, then Right */
+    ThreadedTree  Right;    /* is a thread, not a child ptr. */
 }
 ```
 !!! quote
@@ -468,8 +483,8 @@ typedef  struct  ThreadedTreeNode {
 ## 优先队列 | Priority Queues
 
 !!! abstract
-    * 优先队列(priority queue)也称为堆(heap)
-    * 特殊的"队列"，取出元素的顺序是按照元素的优先级(关键字)大小，而不是元素进入队列的先后顺序
+    * 优先队列 (priority queue) 也称为堆 (heap)
+    * 特殊的"队列"，取出元素的顺序是按照元素的优先级 (关键字) 大小，而不是元素进入队列的先后顺序
 
 ??? example "堆的一些例子"
     ![image_2023-01-29-17-34-58](../../Images/2023-01-29-17-34-58.png)
@@ -480,18 +495,18 @@ typedef  struct  ThreadedTreeNode {
 * 数组: 
     * 插入 —— 元素总是插入尾部          ~ $\Theta (1)$ 
     * 删除 —— 
-        * 查找最大(或最小)关键字        ~ $\Theta (n)$ 
-        * 从数组中删去需要移动的元素    ~ $O(n)$ 
+        * 查找最大 (或最小) 关键字      ~ $\Theta (n)$ 
+        * 从数组中删去需要移动的元素     ~ $O(n)$ 
 * 链表:
-    * 插入 —— 元素总是插入链表头部      ~ $\Theta (1)$ 
+    * 插入 —— 元素总是插入链表头部       ~ $\Theta (1)$ 
     * 删除 ——
-        * 查找最大(或最小)关键字        ~ $\Theta (n)$ 
-        * 删去节点                      ~ $\Theta (1)$ 
+        * 查找最大 (或最小) 关键字       ~ $\Theta (n)$ 
+        * 删去节点                     ~ $\Theta (1)$ 
 * 有序数组:
     * 插入 —— 
         * 找到合适的位置                ~ $O(n)$ 或 $O(log_2 n)$ 
-        * 移动与元素并插入              ~ $O(n)$ 
-    * 删除 —— 删去最后一个元素          ~ $\Theta (1)$
+        * 移动元素并插入                ~ $O(n)$ 
+    * 删除 —— 删去最后一个元素           ~ $\Theta (1)$
 * 有序链表: 
     * 插入 —— 
         * 找到合适的位置                ~ $O(n)$ 
@@ -500,16 +515,16 @@ typedef  struct  ThreadedTreeNode {
  
 ### 二叉堆 | binary heap
 
-* 二叉堆是一种完全二叉树——任意节点的值都 $\le$ (或 $\ge$ ) 父节点的值(即最大最小堆)
+* 二叉堆是一种完全二叉树 —— 任意节点的值都 $\le$ (或 $\ge$ ) 父节点的值(即最大最小堆)
 
 !!! info "引申"
     * D-heap | D-堆 是指每个节点有 d 个儿子
-        * 若D-堆使用数组存储，且一个节点的下标为 i 
-        * 其父节点的位置是 $\lceil (i + d - 2)/d \rceil $  
-        * 其第一个儿子位于 $ (i - 2)d + 2 $ 
-        * 最后一个儿子位于 $ (i - 1)d + 1 $ 
+        * 若D-堆使用数组存储，且一个节点的下标为 i (根结点 i = 1)
+        * 其父节点的位置是 $\lfloor (i + d - 2)/d \rfloor$ (不大于其的最大整数)
+        * 其第一个儿子位于 $(i - 1)d + 2$ 
+        * 最后一个儿子位于 $id + 1$ 
     
-    ??? example "一道PTA例题"
+    ??? example "一道 PTA 例题"
         ![image_2023-01-25-15-43-46](../../Images/2023-01-25-15-43-46.png)
 
 ### 堆的操作
@@ -557,7 +572,8 @@ void Insert(MaxHeap H, ElementType item)
 3. 删除——将最后一个元素放到根节点，然后和儿子比较交换···
 ```c
 ElementType DeleteMax( MaxHeap H)
-{/*从最大堆H中取出键值为最大的元素，并删除一个节点*/
+{
+    /*从最大堆H中取出键值为最大的元素，并删除一个节点*/
     int Parent, Child;
     ElementType MaxItem, temp;
     if( IsEmpty(H))
@@ -574,6 +590,7 @@ ElementType DeleteMax( MaxHeap H)
         if((Child != H->Size) && 
         (H->Elements[Child] < H->Elements[Child+1]))
             Child ++;	/*Child指向左右子节点的较大者*/
+            
         if( temp >= H->Elements[Child])
             break;
         else	/*移动temp元素到下一层*/
@@ -585,7 +602,7 @@ ElementType DeleteMax( MaxHeap H)
 ```
 4. Percolate: 自上而下或自下而上堆化(将元素向上或向下移动)
       * 可以实现非最值元素的删除
-5. 构建一个堆——将已存在的 N 个元素按堆要求存放到一个一维数组
+5. 构建一个堆 —— 将已存在的 N 个元素按堆要求存放到一个一维数组
       * 通过插入操作，将 N 个元素相继插入到一个初始化为空的栈中，时间代价最大为 $O(NlogN)$ 
       * 时间复杂度为 $O(N)$ 的建立方法
           1. 将 N 个元素按输入顺序存入，先满足完全二叉树的结构特性
@@ -760,7 +777,7 @@ void Union( SetType S[], ElementType X1, ElementType X2)
 
 #### Smart Union —— Union-by-Size
 
-> * 按大小合并(union-by-size)始终将小的树合并到大的树上，进而减小树的高度
+> * 按大小合并 (union-by-size) 始终将小的树合并到大的树上，进而减小树的高度
 > * 令 S[root] = -size (size 表示树的大小并初始化为 -1)
 
 !!! note "Lemma"
@@ -775,7 +792,7 @@ void Union( SetType S[], ElementType X1, ElementType X2)
 
 #### Smart Union —— Union-by-Height
 
-> * 按高度合并(union-by-height)始终将浅的树成为深的树
+> * 按高度合并 (union-by-height) 始终将浅的树成为深的树
 > * 同样保证了所有的树的深度最多是 $O(log N)$ 
 
 ??? quote
