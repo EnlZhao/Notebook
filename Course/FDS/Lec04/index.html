@@ -2148,7 +2148,8 @@ Note: If <span class="arithmatex">\(u\)</span> is an ancestor of <span class="ar
 <ul>
 <li>Num[v] 表示 v 第一次被访问的时间戳，即 DFS 时第几个被访问（从0开始）</li>
 <li>追溯值 low[x]<ul>
-<li>对于从 x 到 y 的边，如果 &lt; x, y &gt; 在树上，则 low[x] = min(Num[x], low[y])</li>
+<li>对于图中从 x 到 y 的边 : </li>
+<li>如果 &lt; x, y &gt; 在树上，则 low[x] = min(Num[x], low[y])</li>
 <li>如果 &lt; x, y &gt; 不在树上，则 low[x] = min(Num[x], Num[y])</li>
 </ul>
 </li>
