@@ -208,7 +208,7 @@ void insert(int key) {
       *  对于成功的查找来说则需要 $\dfrac{1}{2}\left(1+\dfrac{1}{1-\lambda}\right)$ 次
     
     ??? example
-        ![2023-02-03-14-29-21](../../Images/2023-02-03-14-29-21.png)
+        ![2023-02-22-20-44-22](../../Images/2023-02-22-20-44-22.png)
         Average search time = 27 / 9 = 3
 
 2. 二次探测 | Quadratic Probing 
