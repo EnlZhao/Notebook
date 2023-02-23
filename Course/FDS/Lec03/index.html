@@ -2075,6 +2075,9 @@ print的顺序 <span class="arithmatex">\(\Rightarrow\)</span> D E F B H G I C A
 <li>Rule 2: 空右儿子指向中序遍历的后继 (若前驱/后继均无，则引出为 NULL)</li>
 <li>Rule 3: 线索二叉树必须有一个头节点且其左儿子指向第一个节点</li>
 </ul>
+<blockquote>
+<p>即当没有左 (或右) 儿子时, 其左 (或右) 儿子才会被换成 thread</p>
+</blockquote>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="k">typedef</span><span class="w">  </span><span class="k">struct</span><span class="w">  </span><span class="nc">ThreadedTreeNode</span><span class="w">  </span><span class="o">*</span><span class="n">PtrTo</span><span class="w">  </span><span class="n">ThreadedNode</span><span class="p">;</span>
 <a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="k">typedef</span><span class="w">  </span><span class="k">struct</span><span class="w">  </span><span class="nc">PtrToThreadedNode</span><span class="w">  </span><span class="n">ThreadedTree</span><span class="p">;</span>
 <a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="k">typedef</span><span class="w">  </span><span class="k">struct</span><span class="w">  </span><span class="nc">ThreadedTreeNode</span><span class="w"> </span><span class="p">{</span>
