@@ -1538,6 +1538,215 @@
 快速排序的最好情况 —— 每次正好中分 —— <span class="arithmatex">\(T(N) = O(NlogN)\)</span><br />
 两个主要步骤: <u>选主元</u>、<u>子集划分</u></p>
 </blockquote>
+<details class="example">
+<summary>一次划分过程</summary>
+<ul>
+<li>假设对以下十个数字快速排序<br />
+<table border = "2"><br />
+    <tr><br />
+        <td>6</td><br />
+        <td>1</td><br />
+        <td>2</td><br />
+        <td>7</td><br />
+        <td>9</td><br />
+        <td>3</td><br />
+        <td>4</td><br />
+        <td>5</td><br />
+        <td>10</td><br />
+        <td>8</td><br />
+    </tr><br />
+</table></li>
+<li>假如选取第一个数字为 pivot, 即 pivot = 6, 要使得 6 左边的数字都 <span class="arithmatex">\(\le\)</span> 6, 左边的数都 <span class="arithmatex">\(\ge\)</span> 6. 那么定义左边一个 &ldquo;哨兵&rdquo; i (i 从 1 开始), 右边为 j<br />
+<table border = "2"><br />
+    <tr><br />
+        <td bgcolor="red">6</td><br />
+        <td>1</td><br />
+        <td>2</td><br />
+        <td>7</td><br />
+        <td>9</td><br />
+        <td>3</td><br />
+        <td>4</td><br />
+        <td>5</td><br />
+        <td>10</td><br />
+        <td>8</td><br />
+    </tr><br />
+    <tr><br />
+        <td> </td><br />
+        <td bgcolor="yellow">i</td><br />
+        <td> </td><br />
+        <td> </td><br />
+        <td> </td><br />
+        <td> </td><br />
+        <td> </td><br />
+        <td> </td><br />
+        <td> </td><br />
+        <td bgcolor="yellow">j</td><br />
+    </tr><br />
+</table></li>
+<li>首先从右向左移动 j 直到找到小于 6 的数, 再从左向右找到大于 6 的数<br />
+<table border = "2"><br />
+    <tr><br />
+        <td bgcolor="red">6</td><br />
+        <td>1</td><br />
+        <td>2</td><br />
+        <td><font color="red">7</font></td><br />
+        <td>9</td><br />
+        <td>3</td><br />
+        <td>4</td><br />
+        <td><font color="red">5</font></td><br />
+        <td>10</td><br />
+        <td>8</td><br />
+    </tr><br />
+    <tr><br />
+        <td> </td><br />
+        <td> </td><br />
+        <td> </td><br />
+        <td bgcolor="yellow">i</td><br />
+        <td> </td><br />
+        <td> </td><br />
+        <td> </td><br />
+        <td bgcolor="yellow">j</td><br />
+        <td> </td><br />
+        <td> </td><br />
+    </tr><br />
+</table></li>
+<li>交换他们<br />
+<table border = "2"><br />
+    <tr><br />
+        <td bgcolor="red">6</td><br />
+        <td>1</td><br />
+        <td>2</td><br />
+        <td><font color="red">5</font></td><br />
+        <td>9</td><br />
+        <td>3</td><br />
+        <td>4</td><br />
+        <td><font color="red">7</font></td><br />
+        <td>10</td><br />
+        <td>8</td><br />
+    </tr><br />
+    <tr><br />
+        <td> </td><br />
+        <td> </td><br />
+        <td> </td><br />
+        <td bgcolor="yellow">i</td><br />
+        <td> </td><br />
+        <td> </td><br />
+        <td> </td><br />
+        <td bgcolor="yellow">j</td><br />
+        <td> </td><br />
+        <td> </td><br />
+    </tr><br />
+</table></li>
+<li>移动 &ldquo;哨兵&rdquo; (提醒 : <u>每次必须 j 先出发</u>)<br />
+<table border = "2"><br />
+    <tr><br />
+        <td bgcolor="red">6</td><br />
+        <td>1</td><br />
+        <td>2</td><br />
+        <td><font color="red">5</font></td><br />
+        <td>9</td><br />
+        <td>3</td><br />
+        <td><font color="red">4</font></td><br />
+        <td>7</td><br />
+        <td>10</td><br />
+        <td>8</td><br />
+    </tr><br />
+    <tr><br />
+        <td> </td><br />
+        <td> </td><br />
+        <td> </td><br />
+        <td bgcolor="yellow">i</td><br />
+        <td> </td><br />
+        <td> </td><br />
+        <td bgcolor="yellow">j</td><br />
+        <td> </td><br />
+        <td> </td><br />
+        <td> </td><br />
+    </tr><br />
+</table><br />
+<table border = "2"><br />
+    <tr><br />
+        <td bgcolor="red">6</td><br />
+        <td>1</td><br />
+        <td>2</td><br />
+        <td>5</td><br />
+        <td><font color="red">9</font></td><br />
+        <td>3</td><br />
+        <td><font color="red">4</font></td><br />
+        <td>7</td><br />
+        <td>10</td><br />
+        <td>8</td><br />
+    </tr><br />
+    <tr><br />
+        <td> </td><br />
+        <td> </td><br />
+        <td> </td><br />
+        <td> </td><br />
+        <td bgcolor="yellow">i</td><br />
+        <td> </td><br />
+        <td bgcolor="yellow">j</td><br />
+        <td> </td><br />
+        <td> </td><br />
+        <td> </td><br />
+    </tr><br />
+</table></li>
+<li>交换<br />
+<table border = "2"><br />
+    <tr><br />
+        <td bgcolor="red">6</td><br />
+        <td>1</td><br />
+        <td>2</td><br />
+        <td>5</td><br />
+        <td><font color="red">4</font></td><br />
+        <td>3</td><br />
+        <td><font color="red">9</font></td><br />
+        <td>7</td><br />
+        <td>10</td><br />
+        <td>8</td><br />
+    </tr><br />
+    <tr><br />
+        <td> </td><br />
+        <td> </td><br />
+        <td> </td><br />
+        <td> </td><br />
+        <td bgcolor="yellow">i</td><br />
+        <td> </td><br />
+        <td bgcolor="yellow">j</td><br />
+        <td> </td><br />
+        <td> </td><br />
+        <td> </td><br />
+    </tr><br />
+</table></li>
+<li>继续移动, 此时 j 向左移动发现 3 &lt; 6 停下. 移动 i , 此时 i 与 j 相遇 ——&gt; 第一次 &ldquo;探测&rdquo; 结束，将 pivot = 6 和 3 交换<br />
+<table border = "2"><br />
+    <tr><br />
+        <td>3</td><br />
+        <td>1</td><br />
+        <td>2</td><br />
+        <td>5</td><br />
+        <td>4</td><br />
+        <td bgcolor="red">6</td><br />
+        <td>9</td><br />
+        <td>7</td><br />
+        <td>10</td><br />
+        <td>8</td><br />
+    </tr><br />
+    <tr><br />
+        <td> </td><br />
+        <td> </td><br />
+        <td> </td><br />
+        <td> </td><br />
+        <td> </td><br />
+        <td bgcolor="yellow">i j</td><br />
+        <td> </td><br />
+        <td> </td><br />
+        <td> </td><br />
+        <td> </td><br />
+    </tr><br />
+</table></li>
+<li>随后以 6 为分界点拆分成两个序列 (&ldquo;3 1 2 5 4&rdquo; &amp; &ldquo;9 7 10 8&rdquo;) 再依次 &ldquo;探测&rdquo; ···</li>
+</ul>
+</details>
 <h3 id="_7">选主元<a class="headerlink" href="#_7" title="Permanent link">👀</a></h3>
 <ul>
 <li>错误方法: pivot = arr[0] (对于已经排列好顺序的组合仍会消耗掉 <span class="arithmatex">\(O(N^2)\)</span> 的时间)</li>
