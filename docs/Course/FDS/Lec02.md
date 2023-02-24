@@ -567,7 +567,7 @@
 
 #### 一维数组队列
 
-![image_11_50_01](../../Images/2023-01-18-11-50-01.png)
+![2023-02-23-12-31-55](../../Images/2023-02-23-12-31-55.png)
 
 #### 顺环队列
 
@@ -590,7 +590,8 @@
     {
         Queue Q = (Queue)malloc(sizeof(struct QNode));
         Q->Data = (ElementType *)malloc(MaxSize * sizeof(ElementType));
-        Q->Front = Q->Rear = 0;
+        Q->Front = 0;
+        Q->Rear = -1;
         Q->MaxSize = MaxSize;
         return Q;
     }

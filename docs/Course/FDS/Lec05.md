@@ -277,6 +277,215 @@ void Quicksort(ElementType A[], int N)
 > 快速排序的最好情况 —— 每次正好中分 —— $T(N) = O(NlogN)$
 > 两个主要步骤: <u>选主元</u>、<u>子集划分</u>
 
+* 一次划分过程: 
+<div>
+    假设对以下十个数字快速排序
+    <table border="2">
+        <tr>
+            <td>6</td>
+            <td>1</td>
+            <td>2</td>
+            <td>7</td>
+            <td>9</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>10</td>
+            <td>8</td>
+        </tr>
+    </table>
+    假如选取第一个数字为 pivot, 即 pivot = 6, 要使得 6 左边的数字都 <= 6, 左边的数都 >= 6. 那么定义左边一个 "哨兵" i (i 从 1 开始), 右边为 j
+    <table border="2">
+        <tr>
+            <td bgcolor="red">6</td>
+            <td>1</td>
+            <td>2</td>
+            <td>7</td>
+            <td>9</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>10</td>
+            <td>8</td>
+        </tr>
+        <tr>
+            <td> </td>
+            <td bgcolor="yellow">i</td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td bgcolor="yellow">j</td>
+        </tr>
+    </table>
+    首先从右向左移动 j 直到找到小于 6 的数, 再从左向右找到大于 6 的数
+    <table border="2">
+        <tr>
+            <td bgcolor="red">6</td>
+            <td>1</td>
+            <td>2</td>
+            <td><font color="red">7</font></td>
+            <td>9</td>
+            <td>3</td>
+            <td>4</td>
+            <td><font color="red">5</font></td>
+            <td>10</td>
+            <td>8</td>
+        </tr>
+        <tr>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td bgcolor="yellow">i</td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td bgcolor="yellow">j</td>
+            <td> </td>
+            <td> </td>
+        </tr>
+    </table>
+    交换他们
+    <table border="2">
+        <tr>
+            <td bgcolor="red">6</td>
+            <td>1</td>
+            <td>2</td>
+            <td><font color="red">5</font></td>
+            <td>9</td>
+            <td>3</td>
+            <td>4</td>
+            <td><font color="red">7</font></td>
+            <td>10</td>
+            <td>8</td>
+        </tr>
+        <tr>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td bgcolor="yellow">i</td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td bgcolor="yellow">j</td>
+            <td> </td>
+            <td> </td>
+        </tr>
+    </table>
+    移动 "哨兵" (提醒 : <u>每次必须 j 先出发</u>)
+    <table border="2">
+        <tr>
+            <td bgcolor="red">6</td>
+            <td>1</td>
+            <td>2</td>
+            <td><font color="red">5</font></td>
+            <td>9</td>
+            <td>3</td>
+            <td><font color="red">4</font></td>
+            <td>7</td>
+            <td>10</td>
+            <td>8</td>
+        </tr>
+        <tr>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td bgcolor="yellow">i</td>
+            <td> </td>
+            <td> </td>
+            <td bgcolor="yellow">j</td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+        </tr>
+        </br>
+        <tr>
+            <td bgcolor="red">6</td>
+            <td>1</td>
+            <td>2</td>
+            <td>5</td>
+            <td><font color="red">9</font></td>
+            <td>3</td>
+            <td><font color="red">4</font></td>
+            <td>7</td>
+            <td>10</td>
+            <td>8</td>
+        </tr>
+        <tr>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td bgcolor="yellow">i</td>
+            <td> </td>
+            <td bgcolor="yellow">j</td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+        </tr>
+    </table>
+    交换
+    <table border="2">
+        <tr>
+            <td bgcolor="red">6</td>
+            <td>1</td>
+            <td>2</td>
+            <td>5</td>
+            <td><font color="red">4</font></td>
+            <td>3</td>
+            <td><font color="red">9</font></td>
+            <td>7</td>
+            <td>10</td>
+            <td>8</td>
+        </tr>
+        <tr>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td bgcolor="yellow">i</td>
+            <td> </td>
+            <td bgcolor="yellow">j</td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+        </tr>
+    </table>
+    继续移动, 此时 j 向左移动发现 3 < 6 停下. 移动 i , 此时 i 与 j 相遇 ——> 第一次 "探测" 结束，将 pivot = 6 和 3 交换
+    <table border="2">
+        <tr>
+            <td>3</td>
+            <td>1</td>
+            <td>2</td>
+            <td>5</td>
+            <td>4</td>
+            <td bgcolor="red">6</td>
+            <td>9</td>
+            <td>7</td>
+            <td>10</td>
+            <td>8</td>
+        </tr>
+        <tr>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td bgcolor="yellow">i j</td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+        </tr>
+    </table>
+    随后以 6 为分界点拆分成两个序列 ("3 1 2 5 4" & "9 7 10 8") 再依次 "探测" ···
+</div>
+
+
+
 ### 选主元
 
 * 错误方法: pivot = arr[0] (对于已经排列好顺序的组合仍会消耗掉 $O(N^2)$ 的时间)
