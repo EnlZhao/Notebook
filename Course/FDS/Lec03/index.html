@@ -1626,7 +1626,10 @@
 <ol>
 <li>一个二叉树第 i 层的最大节点数为: 2<sup>i-1</sup> , i <span class="arithmatex">\(\ge\)</span> 1</li>
 <li>深度为 k 的二叉树有最大节点总数为: 2<sup>k</sup> - 1 , k <span class="arithmatex">\(\ge\)</span> 1</li>
-<li>对任何非空二叉树，若 n<sub>0</sub> 表示叶节点的个数、n<sub>2</sub> 是度为2的非叶节点个数，那么两者满足关系 n<sub>0</sub> = n<sub>2</sub> + 1</li>
+<li>对任何非空二叉树，若 n<sub>0</sub> 表示叶节点的个数、n<sub>2</sub> 是度为2的非叶节点个数，那么两者满足关系 n<sub>0</sub> = n<sub>2</sub> + 1<blockquote>
+<p>节点数目 = 所有节点的度数和 + 1</p>
+</blockquote>
+</li>
 </ol>
 <h2 id="_5">二叉树的抽象数据类型<a class="headerlink" href="#_5" title="Permanent link">👀</a></h2>
 <ul>
@@ -1659,7 +1662,7 @@
        2. 当n为奇数时，<span class="arithmatex">\(n_0 = \frac{n+1}{2}\)</span></p>
 </div>
 <ul>
-<li>非根节点 (序号 i &gt; 1) 的父节点的序号是 $\lfloor \frac{i}{2} \rfloor $ (不超过 i/2 的最大整数) <ul>
+<li>非根节点 (序号 i &gt; 1) 的父节点的序号是 <span class="arithmatex">\(\lfloor \frac{i}{2} \rfloor\)</span> (不超过 i/2 的最大整数) <ul>
 <li>节点 (序号为 i ) 的左孩子节点的序号是 2i (2i <span class="arithmatex">\(\le\)</span> n，否则没有左孩子) </li>
 <li>节点 (序号为 i ) 的右孩子节点的序号是 2i+1 (2i+1 <span class="arithmatex">\(\le\)</span> n，否则没有右孩子) <br />
 2. 一般二叉树: 也可以采用上述结构，但会造成空间浪费</li>
