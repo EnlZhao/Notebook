@@ -11,7 +11,9 @@ nav:
     - index.md
   - Course:
     - 计算机系统Ⅱ:
-      - Perface: Course/System/index.md
+      - Perface: Course/System2/index.md
+    - 计算机系统Ⅲ:
+      - Perface: Course/System3/index.md
     - 数据结构基础: 
       - Perface: Course/FDS/index.md
       - 算法分析和抽象数据类型: Course/FDS/Lec01.md
@@ -20,6 +22,8 @@ nav:
       - 图: Course/FDS/Lec04.md
       - 排序: Course/FDS/Lec05.md
       - 哈希: Course/FDS/Lec06.md
+    - 面向对象程序设计:
+      - Perface: Course/OOP/index.md
   - Triviality: 
     - Markdown:
       - Perface: Triviality/Markdown/index.md
