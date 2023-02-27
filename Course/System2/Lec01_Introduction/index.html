@@ -21,7 +21,7 @@
     
     
       
-        <title>Introduction - 某兰的笔记本</title>
+        <title>[Protected] Introduction - 某兰的笔记本</title>
       
     
     
@@ -138,7 +138,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Introduction
+              [Protected] Introduction
             
           </span>
         </div>
@@ -595,7 +595,7 @@
   
     <li class="md-nav__item">
       <a href="../../FDS/Lec01/" class="md-nav__link">
-        算法分析和抽象数据类型
+        [Protected] 算法分析和抽象数据类型
       </a>
     </li>
   
@@ -609,7 +609,7 @@
   
     <li class="md-nav__item">
       <a href="../../FDS/Lec02/" class="md-nav__link">
-        线性结构
+        [Protected] 线性结构
       </a>
     </li>
   
@@ -623,7 +623,7 @@
   
     <li class="md-nav__item">
       <a href="../../FDS/Lec03/" class="md-nav__link">
-        树
+        [Protected] 树
       </a>
     </li>
   
@@ -637,7 +637,7 @@
   
     <li class="md-nav__item">
       <a href="../../FDS/Lec04/" class="md-nav__link">
-        图
+        [Protected] 图
       </a>
     </li>
   
@@ -651,7 +651,7 @@
   
     <li class="md-nav__item">
       <a href="../../FDS/Lec05/" class="md-nav__link">
-        排序
+        [Protected] 排序
       </a>
     </li>
   
@@ -665,7 +665,7 @@
   
     <li class="md-nav__item">
       <a href="../../FDS/Lec06/" class="md-nav__link">
-        哈希
+        [Protected] 哈希
       </a>
     </li>
   
@@ -729,7 +729,7 @@
   
     <li class="md-nav__item">
       <a href="../../OOP/Lec01/" class="md-nav__link">
-        Beginning
+        [Protected] Beginning
       </a>
     </li>
   
@@ -878,7 +878,7 @@
   
     <li class="md-nav__item">
       <a href="../../../Triviality/Markdown/markdown/" class="md-nav__link">
-        Markdown
+        [Protected] Markdown
       </a>
     </li>
   
@@ -942,7 +942,7 @@
   
     <li class="md-nav__item">
       <a href="../../../Triviality/The%20Missing%20Semester/Vim/" class="md-nav__link">
-        Vim
+        [Protected] Vim
       </a>
     </li>
   
@@ -1045,7 +1045,7 @@
   
     <li class="md-nav__item">
       <a href="../../../Triviality/GitHub/Le1/" class="md-nav__link">
-        Basics
+        [Protected] Basics
       </a>
     </li>
   
@@ -1402,845 +1402,30 @@
 
 
 
-<h1 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">👀</a></h1>
-<div class="toc">
-<ul>
-<li><a href="#introduction">Introduction</a><ul>
-<li><a href="#interrupts-and-traps">Interrupts and Traps</a></li>
-<li><a href="#interrupt-handling">Interrupt Handling</a></li>
-<li><a href="#interrupt-drive-io-cycle">Interrupt-drive I/O Cycle</a></li>
-<li><a href="#io-from-system-call-to-devices-and-back">I/O: from System Call to Devices, and Back</a></li>
-<li><a href="#direct-memory-access-dma">Direct Memory Access | DMA</a></li>
-<li><a href="#storage-structure">Storage Structure</a></li>
-<li><a href="#storage-hierarchy">Storage Hierarchy</a><ul>
-<li><a href="#performance-of-storages">Performance of Storages</a></li>
-</ul>
-</li>
-<li><a href="#caching">Caching</a></li>
-<li><a href="#multiprocessor-systems">MUltiprocessor Systems</a><ul>
-<li><a href="#symmetric-multiprocessing-architecture">Symmetric Multiprocessing Architecture</a></li>
-<li><a href="#numa">NUMA</a></li>
-<li><a href="#clustered-systems">Clustered Systems</a></li>
-<li><a href="#distributed-systems">Distributed Systems</a></li>
-<li><a href="#special-purpose-systems">Special-Purpose Systems</a></li>
-<li><a href="#dual-mode-operation">Dual-mode operation**</a></li>
-<li><a href="#transition-between-modes">Transition between Modes</a></li>
-<li><a href="#timer">Timer</a></li>
-<li><a href="#process">Process | 进程</a><ul>
-<li><a href="#resource-management-process-management">Resource Management: Process Management</a></li>
-<li><a href="#process-management-activities">Process Management Activities</a></li>
-</ul>
-</li>
-<li><a href="#thread">Thread | 线程</a><ul>
-<li><a href="#from-process-to-thread">From Process to Thread</a></li>
-</ul>
-</li>
-<li><a href="#resource-management-memory-management">Resource Management: Memory Management | 内存管理</a></li>
-<li><a href="#resource-management-file-systems">Resource Management: File Systems | 文件系统</a></li>
-<li><a href="#resource-management-io-system-management">Resource Management: I/O System Management</a></li>
-<li><a href="#separate-policy-and-mechanism">Separate Policy and Mechanism</a></li>
-<li><a href="#virtualization">Virtualization</a></li>
-</ul>
-</li>
-<li><a href="#three-piecesintroduction">Three pieces中的Introduction</a><ul>
-<li><a href="#what-happens-when-a-program-runs">What happens when a program runs?</a></li>
-<li><a href="#all-about-virtualization">All about Virtualization</a></li>
-<li><a href="#virtualizing-the-cpu">Virtualizing The CPU</a></li>
-<li><a href="#virtualizing-memory">Virtualizing Memory</a></li>
-<li><a href="#concurrency">Concurrency | 并发</a></li>
-<li><a href="#io">I/O</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</div>
-<hr />
-<blockquote>
-<p>Introduction基本是系统Ⅱ中整个操作系统部分课上要讲的内容</p>
-</blockquote>
-<h3 id="interrupts-and-traps">Interrupts and Traps<a class="headerlink" href="#interrupts-and-traps" title="Permanent link">👀</a></h3>
-<ul>
-<li>Interrupt transfers control to the interrupt service routine </li>
-<li>
-<p><strong>interrupt vector</strong>: a table containing addresses of all the service routines</p>
-</li>
-<li>
-<p>incoming interrupts are disabled while serving another interrupt to prevent a lost interrupt</p>
-</li>
-<li>
-<p><strong>interrupt handler</strong> must save the (interrupted) execution states</p>
-</li>
-<li>
-<p>A trap is a <mark>software-generated</mark> interrupt, caused either by an error or a user request</p>
-</li>
-</ul>
-<blockquote>
-<p>error-&gt;比如除法指令被除数是0，user request-&gt;用户显式产生的trap比如系统调用，svc指令等</p>
-</blockquote>
-<ul>
-<li>
-<p>an <strong>interrupt</strong> is asynchronous; a <strong>trap</strong> is synchronous</p>
-</li>
-<li>
-<p>e.g., <strong>system call</strong>, divided-by-zero exception, general protection exception&hellip;</p>
-</li>
-<li>
-<p>Operating systems are usually <mark>interrupt-driven</mark>(有定时器中断，相应I/O中断等等)</p>
-</li>
-</ul>
-<blockquote>
-<p>用户态的程序不允许直接操控磁盘控制器，但又需要读取其中的文件，会通过运行在特权态的操作系统内核操作（系统调用）</p>
-</blockquote>
-<h3 id="interrupt-handling">Interrupt Handling<a class="headerlink" href="#interrupt-handling" title="Permanent link">👀</a></h3>
-<ul>
-<li>
-<p>Operating system preserves the execution state of the CPU</p>
-</li>
-<li>
-<p>save registers and the program counter (PC)</p>
-<blockquote>
-<p>保存上下文——寄存器和PC（保存到内存）</p>
-</blockquote>
-</li>
-<li>
-<p>OS determines which device caused the interrupt</p>
-</li>
-</ul>
-<ol>
-<li>
-<p><strong>polling</strong> </p>
-<blockquote>
-<p>polling方式的中断，不论什么类型中断都会均为<strong>跳转到一个统一的入口</strong>，然后由软件去查询寄存器从而知道中断的来源</p>
-</blockquote>
-</li>
-<li>
-<p><strong>vectored</strong> interrupt system</p>
-<blockquote>
-<p>硬件已经固定好（区分好中断类型，<strong>不需要软件再去查询</strong>），会<strong>直接跳转到对应地址</strong></p>
-</blockquote>
-</li>
-</ol>
-<ul>
-<li>OS handles the interrupt by calling the <strong>device’s driver（设备驱动程序）</strong></li>
-</ul>
-<blockquote>
-<p>宏内核的重要组件。而对于微内核，往往设备驱动程序放在操作系统内核范围外，为了安全性，常将设备驱动程序的大部分代码移到用户态。</p>
-</blockquote>
-<ul>
-<li>OS restores the CPU execution to the saved state</li>
-</ul>
-<h3 id="interrupt-drive-io-cycle">Interrupt-drive I/O Cycle<a class="headerlink" href="#interrupt-drive-io-cycle" title="Permanent link">👀</a></h3>
-<blockquote>
-<p>to be continued</p>
-</blockquote>
-<p><img alt="image-20221208031159242" src="https://gitee.com/enl-z/typora_-images/raw/master/202212080311349.png" /></p>
-<ul>
-<li><code>device driver initiates I/O</code>是通过<code>MMIO</code>|<code>Memory Map I/O</code>的方式，实际是通过<code>STORE</code>指令去操作外设的中断控制器的地址；</li>
-<li>因为initiates I/O，写磁盘是很慢的过程，CPU不会一直等到I/O请求完成，当磁盘写完后会有图中<code>4</code>以Interrupt的形式告诉CPU（中断控制器硬连线的方式）</li>
-</ul>
-<h3 id="io-from-system-call-to-devices-and-back">I/O: from System Call to Devices, and Back<a class="headerlink" href="#io-from-system-call-to-devices-and-back" title="Permanent link">👀</a></h3>
-<ul>
-<li>A program uses a <strong>system call</strong> to access system resources</li>
-<li>e.g., files, network</li>
-<li>
-<p>Operating system converts it to <mark>device access</mark> and <mark>issues I/O requests</mark></p>
-</li>
-<li>
-<p>I/O requests are sent to the device driver, then to the controller</p>
-</li>
-<li>
-<p>e.g., read disk blocks, send/receive packets&hellip;</p>
-</li>
-<li>
-<p>OS puts the program to wait (<mark>synchronous I/O</mark>) or returns to it without waiting (<mark>asynchronous I/O</mark>)</p>
-</li>
-<li>
-<p>OS may switches to another program when the requester is waiting</p>
-<blockquote>
-<p>即使是同步I/O, CPU也不是盲目等待状态。某一进程阻塞时，CPU可以调度另一进程</p>
-</blockquote>
-</li>
-<li>
-<p>I/O completes and the controller interrupts the OS</p>
-</li>
-<li>
-<p>OS processes the I/O, and then wakes up the program (synchronous I/O) or send its a signal (asynchronous I/O)</p>
-</li>
-</ul>
-<blockquote>
-<p>一种自上而下，一种自下而上</p>
-</blockquote>
-<h3 id="direct-memory-access-dma">Direct Memory Access | DMA<a class="headerlink" href="#direct-memory-access-dma" title="Permanent link">👀</a></h3>
-<ul>
-<li>DMA is used for high-speed I/O devices able to transmit information at close to memory speeds </li>
-<li>
-<p>e.g., Ethernet, hard disk, cd rom&hellip;</p>
-</li>
-<li>
-<p>Device driver sends an I/O descriptor the controller</p>
-</li>
-<li>
-<p><strong>I/O descriptor</strong>: operation type (e.g., send/receive), memory address&hellip;</p>
-</li>
-<li>
-<p><u>The controller transfers blocks of data between its <em>local buffer</em> and <em>main memory</em> <strong>without CPU intervention</strong></u>(提高效率)</p>
-</li>
-</ul>
-<blockquote>
-<p>CPU会告诉显卡需要的数据起始地址在哪，有多长，随后由DMA搬运数据。搬运结束会通过硬中断的方式告诉CPU</p>
-</blockquote>
-<ul>
-<li>only one interrupt is generated when whole I/O request completes</li>
-</ul>
-<blockquote>
-<p>磁盘控制器分为常见的HDD和SSD</p>
-</blockquote>
-<h3 id="storage-structure">Storage Structure<a class="headerlink" href="#storage-structure" title="Permanent link">👀</a></h3>
-<ul>
-<li>Main memory: the only large storage that CPU can directly access</li>
-<li>
-<p><strong>random access</strong>, and typically <strong>volatile</strong></p>
-</li>
-<li>
-<p><u>Secondary storage: large <strong>nonvolatile</strong> storage capacity</u></p>
-</li>
-<li>
-<p>Magnetic disks are most common second-storage devices (HDD)（系统Ⅲ）</p>
-<ul>
-<li>rigid metal or glass platters covered with magnetic recording material </li>
-</ul>
-</li>
-<li>
-<p>disk surface is logically divided into <strong>tracks</strong> and <strong>sectors</strong></p>
-</li>
-<li>
-<p>disk controller determines the interaction between OS and the device</p>
-</li>
-</ul>
-<h3 id="storage-hierarchy">Storage Hierarchy<a class="headerlink" href="#storage-hierarchy" title="Permanent link">👀</a></h3>
-<ul>
-<li>Storage systems can be organized in hierarchy</li>
-<li>speed</li>
-<li>cost</li>
-<li>volatility</li>
-</ul>
-<p><img alt="image-20221208123411382" src="https://gitee.com/enl-z/typora_-images/raw/master/202212081234500.png" /></p>
-<ul>
-<li><strong>Caching</strong>: copying information into faster storage system</li>
-<li>main memory can be viewed as a cache for secondary storage</li>
-<li>CPU has a cache for main memory</li>
-</ul>
-<h4 id="performance-of-storages">Performance of Storages<a class="headerlink" href="#performance-of-storages" title="Permanent link">👀</a></h4>
-<table>
-<thead>
-<tr>
-<th align="center">Level</th>
-<th align="center">1</th>
-<th align="center">2</th>
-<th align="center">3</th>
-<th align="center">4</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">Name</td>
-<td align="center">register</td>
-<td align="center">cache</td>
-<td align="center">main memory</td>
-<td align="center">disk storage</td>
-</tr>
-<tr>
-<td align="center">Typical size</td>
-<td align="center">&lt; 1 KB</td>
-<td align="center">&gt; 16 MB</td>
-<td align="center">&gt; 16 GB</td>
-<td align="center">&gt; 100 GB</td>
-</tr>
-<tr>
-<td align="center">Implementation technology</td>
-<td align="center">custom memory with multiple ports, CMOS</td>
-<td align="center">on-chip or off-chip CMOS SRAM</td>
-<td align="center">CMOS DRAM</td>
-<td align="center">magnetic disk</td>
-</tr>
-<tr>
-<td align="center">Access time(ns)</td>
-<td align="center">0.25-0.5</td>
-<td align="center">0.5-25</td>
-<td align="center">80-250</td>
-<td align="center">5,000.000</td>
-</tr>
-<tr>
-<td align="center">Bandwidth(MB/sec)</td>
-<td align="center">20,000-100,000</td>
-<td align="center">5000-10,000</td>
-<td align="center">1000-5000</td>
-<td align="center">20-150</td>
-</tr>
-<tr>
-<td align="center">Managed by</td>
-<td align="center">compiler</td>
-<td align="center">hardware</td>
-<td align="center">operating system</td>
-<td align="center">operating system</td>
-</tr>
-<tr>
-<td align="center">Backed by</td>
-<td align="center">cache</td>
-<td align="center">main memory</td>
-<td align="center">disk</td>
-<td align="center">CD or tape</td>
-</tr>
-</tbody>
-</table>
-<h3 id="caching">Caching<a class="headerlink" href="#caching" title="Permanent link">👀</a></h3>
-<ul>
-<li>Caching is an important principle, performed at many levels</li>
-<li>e.g., in hardware, operating system, user program&hellip;</li>
-<li><strong>Caching</strong>: data in use copied from slower to faster storage temporarily</li>
-<li>
-<p>faster storage (cache) is checked first to determine if data is there</p>
-</li>
-<li>
-<p>if it is, data is used directly from the cache (fast)</p>
-</li>
-<li>
-<p>if not, data is first copied to cache and used there</p>
-</li>
-<li>Cache is usually smaller than storage being cached</li>
-<li>Cache management is an important design problem</li>
-<li>e.g., cache size and replacement policy</li>
-</ul>
-<h2 id="multiprocessor-systems">MUltiprocessor Systems<a class="headerlink" href="#multiprocessor-systems" title="Permanent link">👀</a></h2>
-<ul>
-<li>
-<p>Most old systems have one single general-purpose processor</p>
-</li>
-<li>
-<p>e.g., smartphone, PC, server, mainframe</p>
-</li>
-<li>
-<p>most systems also have special-purpose processors as well</p>
-</li>
-<li>
-<p>Multiprocessor systems have grown in use and importance</p>
-</li>
-<li>
-<p>also known as parallel systems, tightly-coupled systems</p>
-</li>
-<li>
-<p>advantages: increased throughput, economy of scale, increased reliability &ndash; graceful degradation or fault tolerance</p>
-</li>
-<li>
-<p>two types: <mark>asymmetric multiprocessing</mark> and <mark>symmetric multiprocessing (SMP)</mark></p>
-</li>
-</ul>
-<h3 id="symmetric-multiprocessing-architecture">Symmetric Multiprocessing Architecture<a class="headerlink" href="#symmetric-multiprocessing-architecture" title="Permanent link">👀</a></h3>
-<blockquote>
-<p>各CPU有同等地位</p>
-</blockquote>
-<p><img alt="image-20221229091502728" src="https://gitee.com/enl-z/typora_-images/raw/master/202212290915782.png" /></p>
-<h3 id="numa">NUMA<a class="headerlink" href="#numa" title="Permanent link">👀</a></h3>
-<ul>
-<li>Non-Uniform Memory Access System</li>
-<li>Access local memory is fast, scale well</li>
-</ul>
-<blockquote>
-<p><u>每个CPU有自己的memory，但所有的memory是统一编制的，即CPU可以访问所有memory</u></p>
-</blockquote>
-<p><img alt="image-20221229091612517" src="https://gitee.com/enl-z/typora_-images/raw/master/202212290916554.png" /></p>
-<h3 id="clustered-systems">Clustered Systems<a class="headerlink" href="#clustered-systems" title="Permanent link">👀</a></h3>
-<ul>
-<li>Multiple systems work together <u>through high-speed network</u></li>
-<li>
-<p>usually sharing storage via a storage-area network (SAN)</p>
-</li>
-<li>
-<p>Clusters provide a high-availability service that can survive failures</p>
-</li>
-<li>asymmetric clustering has one machine in hot-standby mode</li>
-<li>
-<p>symmetric clustering has multiple nodes running applications, monitoring each other</p>
-</li>
-<li>
-<p>Some clusters are designed for high-performance computing (HPC)</p>
-</li>
-<li>applications must be written to use parallelization</li>
-</ul>
-<p><img alt="image-20221229091816153" src="https://gitee.com/enl-z/typora_-images/raw/master/202212290918214.png" /></p>
-<h3 id="distributed-systems">Distributed Systems<a class="headerlink" href="#distributed-systems" title="Permanent link">👀</a></h3>
-<ul>
-<li>
-<p>A collection of separate, possibly heterogeneous, systems inter-connected through networks</p>
-</li>
-<li>
-<p><strong>Network OS</strong> allows systems to exchange messages</p>
-</li>
-<li>
-<p>A <strong>distributed system</strong> creates the illusion of a single system</p>
-</li>
-</ul>
-<h3 id="special-purpose-systems">Special-Purpose Systems<a class="headerlink" href="#special-purpose-systems" title="Permanent link">👀</a></h3>
-<ul>
-<li>Real-time embedded systems most prevalent form of computers</li>
-<li>vary considerably</li>
-<li>use special purpose (limited purpose) real-time OS</li>
-</ul>
-<blockquote>
-<p>软实时：不严格在固定时间完成，硬实时（中断处理程序无嵌套）：严格按照要求在固定时间完成（不多不少）</p>
-</blockquote>
-<ul>
-<li>Multimedia systems</li>
-<li>
-<p>streams of data must be delivered according to time restrictions</p>
-</li>
-<li>
-<p>Handheld systems</p>
-</li>
-<li>
-<p>e.g., PDAs, smart phones</p>
-</li>
-<li>
-<p>limited CPU (?), memory(?), and power</p>
-</li>
-<li>
-<p>used to use reduced feature OS (?)</p>
-</li>
-</ul>
-<h3 id="dual-mode-operation">Dual-mode operation**<a class="headerlink" href="#dual-mode-operation" title="Permanent link">👀</a></h3>
-<ul>
-<li>Operating system is usually interrupt-driven </li>
-<li>
-<p>Efficiency, regain control (timer interrupt)</p>
-</li>
-<li>
-<p><strong><u>Dual-mode operation</u></strong> allows OS to protect itself and other system components</p>
-</li>
-<li>
-<p><strong>user mode</strong> and <strong>kernel mode</strong> (or <strong>other names</strong>)</p>
-</li>
-<li>
-<p>a <strong>mode</strong> bit distinguishes when CPU is running user code or kernel code</p>
-</li>
-<li>
-<p>some instructions designated as <strong><u>privileged</u></strong>, only executable in kernel</p>
-</li>
-<li>
-<p><strong><u>system call</u></strong> changes mode to kernel, return from call resets it to user</p>
-</li>
-</ul>
-<blockquote>
-<ol>
-<li>
-<p>分为两个模式是为了隔离，防止用户态程序去干扰操作系统内核的数据或数据结构。</p>
-</li>
-<li>
-<p>常用MMU部件（Memory Management Unit | 内存管理单元）来指定当CPU运行在特权态时可以访问所有物理地址空间，在用户态下只能访问有限空间达到二者的隔离</p>
-</li>
-<li>部分指令必须在特权态下运行，比如关闭中断，打开中断、配置MMU的指令</li>
-</ol>
-</blockquote>
-<h3 id="transition-between-modes">Transition between Modes<a class="headerlink" href="#transition-between-modes" title="Permanent link">👀</a></h3>
-<ul>
-<li><strong>System calls</strong>, <strong>exception</strong>, <strong>interrupts</strong> cause transitions between kernel/user modes</li>
-</ul>
-<p><img alt="image-20221211040343687" src="https://gitee.com/enl-z/typora_-images/raw/master/202212110403765.png" /></p>
-<h3 id="timer">Timer<a class="headerlink" href="#timer" title="Permanent link">👀</a></h3>
-<ul>
-<li>
-<p>Timer used to <u>prevent infinite loop or process hogging resources</u></p>
-</li>
-<li>
-<p>to enable a timer, set the hardware to interrupt after some period </p>
-</li>
-<li>
-<p>OS sets up a timer before scheduling process to regain control</p>
-<ul>
-<li>
-<p>the timer for scheduling is usually periodical(e.g., 250HZ)</p>
-</li>
-<li>
-<p><strong>tickless kernel</strong>: on-demand timer interrupts(<a href="https://lwn.net/Articles/549580/">Linux</a>)</p>
-</li>
-</ul>
-</li>
-</ul>
-<hr />
-<blockquote>
-<p><u>进程是资源分配的最小单元，线程是调度的最小单元</u></p>
-</blockquote>
-<h3 id="process">Process | 进程<a class="headerlink" href="#process" title="Permanent link">👀</a></h3>
-<blockquote>
-<p>Process is the unit of resource allocation</p>
-</blockquote>
-<h4 id="resource-management-process-management">Resource Management: Process Management<a class="headerlink" href="#resource-management-process-management" title="Permanent link">👀</a></h4>
-<ul>
-<li>
-<p>A <em>process</em> is a <mark>program in execution</mark></p>
-</li>
-<li>
-<p>program is a <mark>passive</mark> entity, <em>process</em> is an <mark>active</mark> entity</p>
-</li>
-<li>
-<p>a system has many processes running concurrently</p>
-</li>
-</ul>
-<blockquote>
-<p>不同进程之间是隔离的，即使是同一个program加载的进程</p>
-</blockquote>
-<ul>
-<li>
-<p>Process needs resources to accomplish its task</p>
-</li>
-<li>
-<p>OS reclaims all reusable resources upon process termination</p>
-</li>
-<li>
-<p>e.g., CPU, memory, I/O, files, initialization data</p>
-</li>
-<li>
-<p><u>进程是资源分配的最小单元，线程是调度的最小单元</u></p>
-</li>
-</ul>
-<blockquote>
-<p>操作系统内核会管理分配给每一个内核的CPU资源、memory资源、I/O资源……是通过分时复用的方式，时间片轮转，每一个process运行一段时间就开始根据优先级调度</p>
-</blockquote>
-<h4 id="process-management-activities">Process Management Activities<a class="headerlink" href="#process-management-activities" title="Permanent link">👀</a></h4>
-<ul>
-<li>
-<p>Process creation and termination | 创建和中止</p>
-</li>
-<li>
-<p>Processes suspension and resumption | 暂停和恢复</p>
-</li>
-<li>
-<p>Process synchronization primitives | 同步</p>
-</li>
-<li>
-<p>Process communication primitives | 通信</p>
-</li>
-<li>
-<p>Deadlock handling | 死锁</p>
-</li>
-</ul>
-<blockquote>
-<p>在硬件层面，不同的<code>cpu core</code>上有不同的<code>register set | 寄存器集合</code>；</p>
-<p>同时，不同<code>cpu core</code>上中断也是单独的，即每个core都可以响应任何权限内的中断。</p>
-</blockquote>
-<div align="center">
-    <font color="red"; size=4px>
-        考 试 & 考 研 重 点：进 程 状 态 的 切 换
-    </font>
-    <br>
-    <font color="orange"; size=2px>
-        详细状态切换后议
-    </font>
+<div id="mkdocs-encrypted-content" style="display:none">Wm8TNUJXpWtWjA1cPCQAbA==;Y6XhBGVzHOQGE7Ntq3pScMTGHMcBLeUzstOwouLTcBUFk2cv/0tMGpzVEu4xyi4wwMY4WNE4Idiq8ofJKIEjxWOSVENkdIHCeSvB8jBZ6lIqBDy15wLFnYf9x49mqetfs5Pwad96uPRPqnSze57QCPPwHstL/btN6/kzJD9WjmYhToG+JzB6hmByKqf9O+9uMC1hUXx4t+1B3+je0cZrKNrFG++PKwdvN6y4RUAVPeEvHvdxhqiHPnGoaprDKypiSxU+S7yWvNru2AqlXATCTAjfvyVeV0gXx07xAsLuphlETWqVxEVgP8h33YSDBIQzRejcKhuFgjRF/j2hrBIU4ubZR3I4OpQsP41xn3FHszRi0EiGV6b1XDy7WSg15GT/DPQpHAlJzfOwXy2AMPmjk3sI5UdhCA6jyNxAspPDToWXxJBV3mprsdhSQ455QSilfaian0w/Awh74DpNEgdmK94o4Zg9LyQlafd006J3YtWzNtC7DQYrwoljXvStnqdP+w/Zp93De2dEuhkQxAh/ziYHZIZ/mGBWZGl6C10k6B+DSJCdDXl45XaGdmA7M+aYjTMaGPvuEM0MuIMS5d7mHLtO1+y1VQLHUEG2UODAV7oKK1nFihnUHc9HFEGM4PCKSEX7dw5zhX1xrnJENUOUF6BmAiGcUSMwdEWGyEvopLI3oaJ71yiTywyQRbeh+pHU/opCnRBkGgju2zxz+xygoLc6C5bFWI7jApdVbJHuTbBmpvlUxFnP8VUFNLc7Wwj4D3y1UuiDMHoPxF/eOgIgyrHxdHMyzF0gJAk6XKLKqhowvZ1g3F8n4Nu04pOvM+5gjTCD7/4ItPyc4c+A9GWYYpYK+Z0+tl72BCAM1mZzc9HNvNH+NSArMht/qzUNpe4tZrE8SphBZFU7rDuCXzLIT6ZCk5BVGshaymC2zoA8mZ8JKTr+A9CYnuROuVY7NeKo8Wg5gNyCIY2S+2oKUTt/35BAWD45kii1bTPHqk7IxMRlJuHdzYN6qcgvkLOr1OOdkblfx9sAONmCh4g9jOkfrFXEV5ZjQmyz4IsvUk/DT7wbtuZM2i5B6qg4zc/AUSjj9qjrh0ima7D8adzSylotkvBZIc0uGLbdQxfXvPfrMID0c4KSo2wrmbqt6OyJPYB/iraad6+rhMJTeObAsth86L+tEtqaPEJLnHsfDTvFKOocyODS9mXFRpPt3jLhu3hYKAJWAvKDFasLMHj5uoEDpYWu0xIUJmTguiqBF8xU0Nxjq0jdTIa2sxafvmAH0yL4Qu7N9vQE74zdt1lWO2yn3MRQsJdZLz7WZOIkmUAiJ0mx60mxaTcFUBDmkMR24rIcO3mpm6BzZlN65Q5iim0j7cNMhRW2c+TkFw3VQQYrI7AQU7Tf+Z9wOEhiZmMUvRdN9ywzXPhVGk1Sb5wFiZlDHn5BFAsCjcQj1GJU3w0RmUAbBZmqIYo/+hKrrYZmUyBwLqveRR0htUUHmM8bYGE3QeEBEJjdzqw3YGv11UenojmbIp8/2fEqQsrgF7sLKYvNUEmILQS9pV0QwE5aEgliHGdo5dwyEcjR8OATUYecXwBn8Z+p4swJ/Jwcd/vueiGyM91ftD/sOvuOMpyedk9HQFJ68YBwBVyLDVF5LK6lzFiQSzoWifxokTUXcQF69srSYH+xjbk442qyp9DjVt/kJVTxFGtFaq04ESrcxb2GDFAUlzhO1Ldf64cUWipLo4fp/fGUJNKidD8G6MqBQiinjOg3w9oNl2xY+XGFRs4eBzTV/PGpNEtM1y4ejQV9ZHWoHS3BVDZeKu5yZeVy1a1tD4aGkS/WcRoEB8pmld3ida+brI6PjvRPgVwXlHcsVF9cPWTqJt1Jxfutf8LBbgjSO+2R6pGhd3b6M7CNmzN7nbqh+R8tmvHnEHN9BTRRYbXw9/DN+F6f50n6c9jYcNW+zFgztswZlfjqAM7JFaY545s7E3LksCtD025klmH5tIv1sWIr8Q6SsyQLzORVKObL/fBel7MSzU/hww8wtN73FWDlVsRlVV1VaVSXjj+a0lWsUH+Xygzh88oXVrfCOR4EhSTVVdFQtJT4ny/SHg6HXNYZ+kgdrPbhEDfWPX24uyR8Mq/ehko6P65XwrTp5oLeJ4pXtaB8iSLx3BYaXbdat6g1SIi9yzaOnrdyD2obI7zT2+SC4fjk7NtiAd9//IBSEnEPpK7gC32K7ozSkR38m1xrF1Hp2JTeuWu8vbC+v5Q1i3oVY95cNecPUMnjFkmdHTX898iDlW7wD50Tv+CWpWnqWahOHCWkHX/urD8952CKnSWEQfFNxUjminO6Mdg40I32MNS9RIYm4nwNVLDKJpBzencXOUiQO3NEyG/x6pGOCXeHimg7ycVGyID8D6X62WwBgZ9umQ0iYc/oj5FX06mxuNDl3szFJJn9ucpXcxP1NC2IlB788MyQ4PEPMRl12sCyu6aSraF03oADXRDbqfmkhQYuy5OB2u9ZyScn3h9rskKRJXlle1HuAVzAMWU+/nr55Kr5DgT7bKG8fiirE17MDwYVfe+gNz+rfD/yCLHXmDUKXlaqUqxSGbjz/0+wS2Bqem6D4ATeIusP/BBejhadQTFcEnKK6MF7mX/iOyvWFbkIcRYSNRHK9Sy8mIivoSJhDkfpeRB8sPt1Qwc8j5KEAn5r2Y0KpfCWva+APTUFD+x2xgVhl0jS8jwf2+++G0iEVDtFPE1HrjbKSVEOr6p+KFNQizL+DMDVun0Hh9xf3UwECou1vcN/QmL+VNkKpW+cDsmTyK27UKB2NHWTNQrt1okM7n6FsVCfV/+fl0wPoqY9uvfmmjAD9khsXusALoaqMMFO6pc5A86MI1fqB0wYQWxOvUflXx/jAGjnCiDbWmjTCJ/7rIIZgVvhzVxz+bHtknUrqprqsudUBqnJsy8bTwNqBg61lrQ0pNNDilBnZgNt5D4X1H4deQex/sIV/c52VTj8CmJMir+o353K5FllqsAUoO5aoN1ao1DMPgGNpyHadA0tf/NJc2ltekKxMkxHYkbfYqRCQ770J+asDlz8uh+v3aex+8BQAF7fxeAdN9j4tCyh6WO+G8aeitMDwiJQpx/aTwNzRpJDJT8bY+NmYnayKybBJJXpVbJdFvf0Hv5e4SsNUVmOxmiDpGB7BaK6Hw0DKSLQf0/b7Qh2OGJfUvGqDPR6468towFL4vNEWcOCLBg5RkmQ0fhN91Y1ACEOydGAQyzjz6gbB49fr1RxEmBvN0jkUn+IciM6vweBqLE48MaYtARBI9P8tXJXna1XiY0XfiD6a0Wp7T6zhoSZ1hvk8lZCEf445RjuCNoxymzW5TP296UezXU27o5AlH5Ke4hl1sIvRs/pnobv8cm9Zbib6dFM6nzvmcNrHPRE5kM/cilJPtIPgC+IttfJFoGOnmrkSaqp6Di1ljEytmpzDcy56T6PF9QDdQyzaOFLAsHWy2hV9Fhc5oP+euAQMoovVLS1Qyt25aA3uymAyY8bASdkVaRE+bmo6rBGSg43SEJGFlLVN+i+I3it2oiMLJ3/QqCtt8JO+SEAPqyVbDFawTQ53zjGIbGR3HG8p8KUbFi+juhLAyyfUzQIRsjccz8p/3dlYjRKZMrR0KwHVJrdBv10+qCRjbdEyKJIuk4E71vt3s6o+yGC+pEJCWgx38krfaQTUd5HQRiayt102jfEkjrZEIF/dSSP87A/bCA3/+heLXv3eoEZt9ShlVHMUcObnXkm/e0F9/LF4qwXS0uu99jJEGg5VkYC/515xkqQegfJoCPfRVVu15oqVyLpDkaC88eHPphVizEtjxOMGjT3UKqG2AEaSLZJBFL+AYExe0TtbViNq+a4LpLbgcHLrL8AXD4gcCA69oB1Oc9v3dlEK5FLtqqH7lZA6jA1/bP24PnEn9+ZDXX3OFfNBZEFaNCiGNIkIzVzy2Br6u/psWM6LMR/q2qmSXfpxGp/yMKOXONXM0GdlpkbydihcvsYI54AUL5sUl6pN3Re62cqwHC7+1kDnQ3dfBxEvZfRrH/ZoBA3W8ViNNP8wDNM1BmG+5n/tQSSbwMjN3d7y1N4lOcIfCLuR8azUJ2QeoE64+tmrKDpJwzXATYcm22b7zVgDUgJB6KvK8N/gTfL7XuNWJ369IWk0C76ZehqOd5GQirS7Hjo/DIQfBnEQNCIO/rITznyCAr1ae/hxJqr8d+puJVdM05VWMdAXYR63Me7VC40uRY1ob8ThewaRke7RL0ZrYDkDiC9NEaRZyPFuY+9sDfFZWrdLLLtltqUkbSA4ML756rIuX6SF+PuLuOYHrACV6oEZqWcxdeB6Fa6O4cv5OgzPBc6mhSP+xnzDWWcWZlV6fGvkCJIKSm4Tjq2ATnuFjSnQqZNw6yLb9EpC21NJqLUemCvjiKK9nzgM08CYuFR6rZoczjh5L+57nYXAnLb/pVYHJmyt1t+mKUdi2+RmL0O/lxq27q0InJeyd/HZY1ze7b/UTs03vk03BIOg5zH/WrfB5Yo7llhxKJ2gPqE46OwMmrb5oODXy+nHDdM45RCjAqJ5BdaEQ8D/D4LGmxsukguJvGXEUw/rTVp+9nxfhIrM1FlczA+3qnklNeTfOiYmkWouKz3F0nr/nGORMZ2PdGVK2q9FJO0AOK21NkxKD0sBhyp605LJobDzqeZ+CSpXxjMXnxEoCZwqDCZW1fAqxmCIY1ex1GdTEZyrYK54XNQ27DRWstpXUIWN6ts0W8wyrwhlpmYO+09Y74KOcnVXjpyJYpRcO1uWyducJGvCCoW8MWfyC0ikN6iStdCdDkrRuQ5mo79xyrIv5x/fLtPcfBJ2PvGHtKB8W4gYJRwHaE+tfx5PknhBJ9LfWDiaTll/ePItNb+SCvCOilqqIv+A6WLPBLfzaVyBVoy4tiXzXWYGyhHe3eJVhQZhuaeYrsBpoCIU9JsfFL7DCvG5vek5I+5u1GCTZnaf00z67lB6V6Fy2bLkBXh0rFZS1LLsJ9kshj37SuSwxgXQm40vf5/Qz67Iig1NreaELqdjA17xp3Hmtr3ltiZY6eRl3T34QsXpXy+4p00N5kOSTTpwF1V1XCTHJjWF1tU97z7i+k/aHVktzfb6HrKv1QdhGPdzbYZJW+ypktxDg2xmlIafK+DJeB5I2bnhv3hp/Tq3I6D349ktWYaWHyILVpYAsEesw6G94m/cvPAWr5tVtXYxfrVjGKo0HDTzfUnbDA0j77FJCPpae8a4hm60krsLNI0pojZnxqNNT8CwNb+uqL6r6bA5Zyi7Lf+R9RCkdMZYZiLVcv27/ttBNF+UpbPjouul48woQdJnlbhAFPRuInuNLH5e7c7PpIzMwESIMRV/lnNxWXWnrTMMJ1jIdUB6GK66AXi3HdwmfAEHlHBiwPvKivpaUCkRrLeQO6ERTpJ0rQb3Dv9S007dtAbph3JTYEszy7Mw8jXHn4P94D+rKsXeqbyjETu8gWjHneuTK//kzMZHRWVmLjAMx973hV2ZSrgOKIkRh3ECSW/N9k5riaHMoZLrXW70XxULMYugcZ0s++ZLAqCf+vEefLKwojJP1LEkhsxQuND00Vku0GO2dotHhzugoCVXuuvtXCfJ2yMJ0Y1u7nlTdYVoIs+Gp3WYU/GK+9UAmpTSYGNRsgjq45BLyq7Ker54cLp0gDxfhyjZ1MqD4R/AaVW/TEYnALPXtpXDBSM+iDFvU7ity+THHhuUUs5dLA0QcrDwtANAtt6SPw/qat7HZuKWQ6qINRbkYbN324yAoL5x6hWUt9R2COa9iNeDhzRHvJk8hA86LLm1VrDx0ZfFRAi9GvyXAsrP8B4zkSd/U5vE4EHBFxRTW0QusoHtBCZaSt7hbMMQ4rdeXpY2KBmpTIUifhHUyfb5HYcjA4+DlsRzF21GwqWguwXAbVPdOeoJrwoZMRAzsxpvSmIhPMfB3UIAwnf5h/KHg+n7H41u4k+p/EED0kF1DTVKQGFnmaZCmEa9QawT7qTRx3b9wWxC42j94YilAXbu8rb+hJLcnqAKxFUvOUHkBUqcFdjCW6hcj0zGvnXCQW4lgMjUWgN4LLZRpN0l4jR9Lc2hTZgITjIpE9ife4FLhQZ55y1l7LGSaCj7J9W+F/GoG/Om1mbIb5lsTAhUYt/jjzcm1s2nZLhfguYCGBP7HTT8D5Hw58YypFi4oBzFtF5uzZbCVriQEP2TMmtLSBFIW4nYh0wqnKa8ZDT/t8HI0KCa2T/iVnsXePVy0NAKJpsBfRLbIRmggCq2mz/hI5BIP9XEgxL2J+vt/o7zIH4dNYNcYX1ImpEENWzdQ/2pbLtQrw9mULyaChwo/cODgHwS37kl8VjODtVP0FIQL0eKPcnSbddsfH6JD8r5F/9b/PdMv06zwNawNcSg/75Oc+Hm8UGWVMXkMt1WP809KtiLCJuJJQiAW+NeIX5ujB/sDKfP/nikN92dJDQ3W5T5QFtuzDGrHyNznfQN0fKDY+zi+DRONZvdaW0kELLKswW8FLibWG87Yy1swvfpSRCrWD0TpZUUeSOG/VtcLgY/e25WwqVUZKoh1ThZEy2uiQm8R5KAG/oR1R/LT12skW//GypboiXeHxeOlJoa45XDlk5P/9XymtTUNYWE0q5Ta1SE3UGsGEreF46CVwN8n9ewEt++YaglH6vBbf5nG848bazfJQVPxnbVFX6xubUJDRKHYuziRobR88uMOnftTSnFnPKEVQAdIWtHJ5BYTc/XaJFQRqtkylDyuLKKqpdg0T70EK4zHBQxOjpx/a7JKGkxPqq9cep+5aLd3+sPhGmhk5TUpF5wct8tNQrQTlJIzKs9KugQsNJyNyc1YUqmybMv9Zy2ZZ8QUv14BCfkA3L7GQTg1iagK4LLdRuWc1PT3QNaHSALm1y46qrMs51prbKGRo5r3GheywPCz/OGosYkTbttpXMK9qyDzkYuM6F6tlWXMy9wp8GKUuMGr2PvBq6/ufNFlK6MjlqWoKQH+4iQksgGJl7fPUoY/wx4T5cxnLg4uoAHC+2SsOUlvWbhKx7dZ/pO+CoBJA7oJleDxkVpK9AC1HBc79p6IhEJ924jmwnpYXJtDLsT2iqoxUo/F2FUw/2NPVawD8D9usjWhVxCBGcEKMHEgzWQ2PWTb9VlFf8JXJWVoRFndLoBZtqChLJ1vu7rh6FcpC13yTGYGtTbZ15BBBBk4yl2RF9zS7QqPRsYIXKcSmWWZxouK6WNZPDH5NBelEoJZ6b06Vc9u/8U0BP1nbRhKjJlPHdGQssyyRcgI4BnWgGgTqD0OQq3h8Ouj2FZDDUrrRADS4F/2siEjhfI3XZtr344m1238X+bHAC7/z9bhiRxDW6l/o4mMmzDy9TWVJ/I3Gsg5rbTt5lGafDCrcDslM+ygoQGzohpdG1tZl6gtNi9+XhtLI6Ynw03SQIEP/1HKcv7IZcIBR4QsnmHJpOxB2qcvFjJMP+4dYRyLNojk5m9zzXclZZ9uHDX2eUWPH3s/5ITOF5XpHNii1/aNhMmM3CaBr0YLOzLF+kBnvwK0iJlxqlB+hhc0jSVwLk20q1mVhRQIDkYBC3y8JL1Hg0u5wQOnDjQjyvJKZr/pckG/xtSrN9pzCNJTzJlY3weMXjSwn+pnetAwhlrfaHNPbbMkFCe6km0aztkl5yZ2LsFs5E9apP3ZzcV7yTc2+CSGaOddBFoHz6mR4UKwc2Vw7F8R9EnMCiIYVL0ZU9WdJ3wFVUdNOGfYcKrQ9nm78XPT0XJqGj3+3COcieMn1v2pC2+egCTs8NBekz8zZGO+5xKPFNWXSwIgAPN3zLGykCyUYPgGsdqofTz5F/4grA9Dzv7ve7AJ0KSA5PAWdjGwmLgXGZFxYEWP/rlZwu0rN0M4PtYbvLVW/8cwhjoV/YBZZEl8W2M9l50PSubwqA9zKOLKuKiM2Gk17kK+Jt+KI/1mcxYuNF1s+Q/3TBTfemZ5w3hSNX/2x1sU+pmeqziA4KkRp9QN0mMVtrJn0VB8OULwVkr/dHlFDXQleO6uW7wvBoTq6B6dd3bH46Gi8w4MK4j7JX74sbjAJXTC2YVDu9jeu0RCOozfOiBJwOet/yLB8VX6mrMXdvVcwnuSCi3T45GnkBGR0IxAm9ugiUhG+JbEc1CxFEG7L22Z3rQ12BraIxsX/LXDeclHWdGCyqG2UIQIck7KCoRU2mYI3SkiVToG+SvD6g/A8vvJgy84+ms/TInS/ktkNifdOAoBTcx+cb7f64f9qzR3kRejFkVcGgFMY8RyHSmlih2BaF7dm25rWu+fv4QMyk5CEIfY7gBGn34YDfFJF5mo/YMboqp+0W+fWmghLSQM0vNFAzRkTo6vc5Ihq7LC2VHiB/unJZvDLaPRGAPjsWiOxWgPB4Pkf8m5uKn+iCijVpuyrSaYLYXFixYdf2xzW/cUyaUrvKc3DsEUoCs4HgJ29VcRT4pie9SWGaXTw8PUni/CxQIIEtHgmglYWwu0qUbHXaCayBkTXGwFVLOrpfPuZBaE68TsITGVtNbIw7/oN2rlkxcnMbkwZh647mRquxxyOv426kqW7PjWBFWh6CmeJJ4NIgWo2TVm5vcP9c+1ZnzhbbrFJd4burCePQnRdp4YxSKc1Klg5Z7anOzcxaFqKEePMBQtRsVTKqTPglyIoqUusHd+PalOyZ+g2MS+uwVNAEGNA2gkBsDlB2rxk8BO76CxeRRQ4uNiFNUkOSTDj38qz49FqpBSLpfemWZiKMz+MNcTWzJGg/VnfLDLVfsOzFZqeTKmkF7sdWLw0Gp+gRm64IC1kgevbVKLPbQD7d03Q9MgdlBpqeB7cjN/AcKpiOvcKwhFGqY8N3DkEaku0JLDziklrI4JaJEz1HNRVVouRWU/YnmsMRo8yioa0IU6Co0hWXUrVmzyFkkubEyu4jHfm4mbcpUlfX5gX7hOeOA0uqVFZ5PvuuBBQNI2ox/E2yVqbKoq38UizOH21Xp+Is2lGpj9QUVtQCUd5PQM4xJ94c6x6rGdHyGQRvxqhiro8rEPp9dQ5wFcauqvKf1jmCTBtIjU218IeqUcRcvUJJ5av5hBbGxGDp2uxaHf2cxVweBVoRWqWEPvt74iJ+WCmJAcVxDfaIaRUbwHWYyIW0coH1WUPzMMaJSm2XaSviSFtW0eMUG++SRhAzD3wIg6bCuXBl1SvCEnagnz1CMLoqh4F2g8wLJT78PQdXEMD4mMd2sCctM3mxZyg79ETrSLl3kQsCGLq9Vl15mp/E/l1Xyk19t1qkYt0TrHDe0Ka4HtAPtVJZQhKqowNV8O7lH9R7coH38bSYqTrxvhMePe5k2BXCjGbC3M30ywkpJki1D3oLArsdTdyzgKzEqflWj3vwXFHzggUTJYSMd2OMTIdrww9UnxacCT5I2TDixsHIJiyUZw9N5cg+/4bYS+P3WpAnRlc6G1e3DCsAC2U7PAyec9mKbVOcDmSvC+eIi2XF2mtb1Qx7+4x1ziv2b0OWpIhKf6b5rAH9O6Qq+50M0zLotidKkExRNGXGa/VmcR02ERkDfi6dWNnRwF7Mwo+cEUmIzP/NPz3XcxMtU3kMKqXLfDFISCUMjN3Yar7y3oL40o2VOYZleEtwB85DYFCTzHUyW72FltTeLMgaF5uZfu9kcx7V1zPM4ozxnAWAjKdYpVFENXQTCtwCqn8oeIEL7JQhTFm5Dpr6Bx3Z9YnVoXFmUvgRn42bghrtdCeosKT3OmiUWVvBlhrMAxwgfMzTpU41LZ+05Pxf9Fd2RE1BSx7op6p+DqANsZlZu7DwbWuRWCPfp30h6dRP3THJWsl5CJi0P5F0ySMxIseZDMiTkjaGIcjau0FNuXNblFsUjLzmcRSULguSBs71HhhrGovKkqjCiA9snkPhTAY8oMqyCwvvJFMEwj2xqpD289MmGdW5iTb5A7ZsUrhfu5roatM8r4UFFTv7MXw3rAAi0XVDbxH5g41Epx+ubGK+YHfaP8eifGCdQPI1v5j7PdOJrymPMF1pLCopYBOWnwybfb2oLx4ghEPJxBLz/+W5iwUHk559RiPKgU54z/O14drSgfZxxnNP+IWfNI4i8rreukbOnF7kxrTmkVfLflByTCeqtfdKI+DZ8cSgU2WF9Xu36nEN4obyGtf5BbcqHZ+KbiBXbrKf4TLHv8kJ67qW/gl9DNsbXMHbV5NVZh6D+nchRmPUOvZwe1m9N5/hX4Z6wh8ZaiFzSlNN8Cl6DVMt7/piYBTt3WFHbvCleBB/9m6gGHgWNpA1QfE85BJydMg1K5JOg0i/nWfHMmB4Pc0LNKh2pFuIPPHN40kb3mimLsLRBSKUIAvcffnz+tKssShfK19w2fUoWPn4KGIf+/VPTbtn8swjhXOiBB2eXp3swGtsIUBK9FIvlghJyDlFUz76uYuOnhwQFcxm9Utnj/8qKuoNGmBqn2qlOy72k314RsEv7UwMFZaYCV0qbnseO4XN4Ic2VtP6q2/RYQhPyeTEQ4RRHEuC4u1KVWL61LIYtWZFdEnVZodaN9CIVSaWtFABeqSU2UD36Au1idsBMFzfJfsIhBs6MNC8baHwNLyg/9S8XpiCUo9F4jFbyk8ZauOROcLYKHTx7HyT/yKxZZQC70sWb/D5N07T+XU5z2VbqR2/+wJvapHot14WbEtKeCxPQn4gBIpK3Mxc52caTyhsOYEs6WONbIUEVcn54K9W4xZqXQuEQ8TuopjTh6o1A6/auwwxB3R1CS0mcW0kJzBQ63OTBGW0dqepQpOhsg2clQCaz/JY4QjkLzwCCtO1BOFTiEknjsEY6C/ujlAqdOfMuDeLSwJwOZF0cvZ9xdnwIJMoyNMbem0/c4qh0gX8SWKPObM3DCVWYe/m/bzMrOEUqbRbyv3NyM6IFUybeqg9qwQoAgorTzw8QQGiQNjI1jDIsF7ai2SwY0h15xovTdD2jKdho1A+B5aG7UINObwpA6e2w0dowy0TcHDTWN1D+IysjYHws4ChTf0F5uE6MTlsMjV5SwQUeTElBdbiJWxmPlQjiAIkU7thPtlwjkyHJ4DCgQyt4zGvtD4V6fpYyrB88eociXCAjImE3QQ3O2oMkI8J/SnFiQijOG9SQLs6pDQvZrJX+Ceh9shAMlHe8H1CNhxO05q9K6OXGCgLu3NFOpLEXT9w/ZzE2Wp2+5jn2a5VBzxxNfFY30ODcdIeJo8vVoLvMCgNdEV9HFbTBKAXDRTghXhhjhooOC77eIJzUAK8Ws7rcrZigwrwtO/lxcGZeImkkTdmJSV+xF9av+UHLQn1uO4D7y2yKRVMdvcdejEJ2+QOku6K4H078jFFHJ+bj7+/7yjuhM1ybTg+7PotOBSw3lzKxoEe1k34569cgz5wE55g4RdLqesrLYILVhkz7XwIuXI9JcxwrBXj9JPjYPpLxBhngJ0Q9ns+Sd4L0VGpAXADkTKKOkLAFfeESnBcx5Y4kK+8uBZuy+XnlnabMdZK6r7ryqDtiod7WSg1qOgo7IhHQVUZrdkMg/i8NyqqbX1FKT3JnQo38In4bBlc+8GsB3I6N+MmeVX9ErPHQ3LEdWmrdmjmLQrVzic59OXkSjkwoyGprZYm/jOxowEh+gfRdsQRlxs3DLK90jYGjjm+hopbEO6ZT691VC+Q05Wh7+3SRwcXhLruz5CSf+xDdtUe0DZIqA9fFLUuHNAHmGpjeiOPunFUeAWBmlAOkjdbcD0QZLh92OmmdtY0sWzajOOx8+2wF9moOXVC6YWMSeb69YPq1Wsbs0LP1S44Xhmc0Rb0CdzJA7SgnClbgdxnZH0KhQo48ZZaVK4Eol6Xerzc7xxT18gaPANVL/hteW68wTtm7atE3WdrmHLFPQ6RFqxB3tkybt40CSNop0Y2VEob20M1m/bqjytIfpacKvpYbe92TkesjDYvanjJTkb6mWMaPOuwXUDPgskjE4LIdqGZCbnyRBo5SKdSIxbh9ARimGw2A6BYGOwEoqf7uZ8rea0tBXke/2mb0aeN4DiLy2ZjADNGuUFNQebw3g3PaFdwhtvEl5cUx6g7em6H5ZlIF6RQEGGY5bqbL7diJGIzTl8YEEBGtlbq73ECqaMssxFs5G22SobfjoGjAPWljRO63qhJMVRQi73KCrgUrBULygKVtTr0OLRvjXGK8l4mM3cJX1CH/uTIoE0diWGnShT3VCwSkf1+0UT5ZlEzAsKN8c7HsRIn6/22yeRxSI+ZNvTfww4tArifkWRTiD2y+N3wnYyNOdSSowog7auomL6T307RCqUTyw6GnMTIfMPfFGrVRe73HQ1wJQ+osCvTeBpw57hzT7fKLZvvqNJKV8G1oYeFr4WWk/kIpwFLl/4aH+GAaSFFMkA3EhrkKeD7FboOjeyTqAJgjGO/iXGk87CnztxTNe5uwQt4mKoeiFktAqaw08NCWdbb8Fzt6iEdZd6T7FHoabisJsaKjgxd0s3N/COtvOZ6c5IuKyw4zByfNR3wUCpkZaqF/n3NasbS7QswGmnTlWATD7vu5ai5QxjS5r8UW5Qv+MMVNH4fc6i5BmOBAwzSzYfFBbeofE7kGW6JLDd5ng70MqF6+pcgRBBz0zFRM2fgdEdnJrekVq1wMFZIu1pGzmpbftDjcELdKZbikYKdLkdVNPmE+NiDfyG409ZaHsa8HnoX26z+O6rSvz/uZMJy64K/hDweQltawg0yoRZEFFSaV5gofQqQxCYNgJpWZNQrzS82l0PQbdKB1n3l3ViToZ/gYGPAgFCK+394g5xIqG23CDaIqf/JpWUPd3QfJOrF5yJm7O/J+SxLfD/RXinituxa8ykanmUkWS22M0qT9SKTXgcvn+Pq53DZEHnZm4aRlgIdMi0E0X3teEwMCxL/fN7glMrIb0mXYHcr3ansXS/tgOzs1M8MIXc0fjZWZAyoX0MA1h35keykhD7BRp0ZNqugZfZEgjLhYd8VFKkFV6WzkbyZ/wI2QYxyPa4GqaG1NbF1eIIEIT6SIVIpCvz2mY8txeBkK/dln/RVa0QgzCf0URvPwl4amvcfP/nL0eayXCKciohhHgCqM6++hHvahviILTM/WgBOu28D0xD2YtyoKCIcx2O5Xdjdo0BSWG4Ag385tRziWT6wl3hOKYrUSqFcpSzXaTAy22KjyiNlwcOeV92BAVR/gLAbRuEcU/SBTkczpZSsyQN7P/BIqlmDaXaFPxSPw/mMxhoo7iEgg80QsD0C21Ysro6UfPY0yBynzU5ARYLTS2KwwPKm8WxuKQmMFu0PpSn78aW4VqaEzPG08zOVfTDX9+HyXckSrvqeuRIjHZD40/Lcowa9rrooGOwj3UhY3aw3BE4e8l+D5ANHVY5JkPA6CgTdHhSy8mnEKU2hCd8THWIYTWPVb0n/R89v5zTdLpxuq+AjYIgbfipgpAoo3rxR36FLJYPZYSh0ljfdvB3+IbPsRHojy8oMDykT2RdpRRxsHdYtx0sklLURpsnU5CLL/1rMR8MYVnRzjOdQs+Ylaf8WKWs3awEYhP9pmjSFuwHyTQUbxP88ywnTldtqMsflDWHmbP8StRXG68GuYDPHf8f1ygEUWlfe7LerMNilSOQY85RdW5DDN8IKXjg2KdW0dnwHlOirCOiDWt3sis5ud7BBd3EBpKe4qTqiUgLyTjag9c5FNpnjrKBqrwIDsT3Jlfm74Bp++/VHMuQyIhhQM4GvTDIVYJaVDARqufQxn/ywaHb2XGBtfyNh4AAojGpmcQXq6Bv7fwmMNsORB46iObIHynEJ3CkcJSxDqR0GrkzBgwJVL+8npzwtGE9fzr/T0FwxqzuD+sMWIY6K1FhGxdq3BrerrOECK8NUDRxP3xJEJoC5FavgbXmvfgNmEFiZK5g94ykdJ6Bi2ftR1rndH6TVB4dOzgCm3ZhA4jWY+/acsSOT5P8JlBnDJkJdQ1YFRlUOn4kYfo+4GEJMHJhoU5+OC43KQMBuKZ7fgdlKDO9kIkcyT7j20QSOyHLMHka+G1oM1oWNjZNLfZZl5/agdj+z2wCwYNEgmc6xcT7INkj8q+w7aEU807qtYpTNg5dpsxF/aQS3KHbMAURNJ3/W8NtSB17/AyzTarKpcX0oVoP/cvdwJNpOkm2PVpfE/QEmqngOlNagaEdaqMgAJgPsY4iTYyQCdbpv0DYVp7jH2eLKTbBJf4w/wMa3WW3MQLk5ps0Yc0VUA5Zt2y64BF4GHrIqRTpoxSLPPSmIJbbvoDpHI1Y0CcjkGQU7o2EvyvEC3mYyAp7BJIPkmr+lN2SGxGFtoR3StaI7RZcCAhEUxNXQMoHPJKl3voVSv4aodq18zlCuCkEtyx9teD2r2DEtxPUKQk4oKelqw2jX7iu+nAv1Aqex6JtZOFuup5opLvuquGvVFp02rsSvomhGfKav6MUCtOzMqYRTT6q4P1e/7T1xq3a5KSpfz+uVVZb//SzW1UEWTLds/nHFtsLJfdkBOvQpVaiF3l7DBVR/1PgM3wPrOOQgEj9dedA/kMj4v3PyvqY9Ys6xfzw9nFWU3wobGRRRWtWWJABtVN2KTHC5sh7PGnq9lG7/WR0n0SLVJMCnpqoyGd8FiDCQQoEExI3RKJ+NJ895SnkViEJ5IxdxG0dDGUjSyBoQllK0TDbPApbbPx1S43oYYXipt8lOOvMAk5pSg4v8UEks/WvXbIbg0JHWbCKB7zdhu6kRY4dEPeiJosNqztE5CCrN4CCFNBhDhyDghSDQgTKXOo/ZEGwNktIOTUFPQYc8eGA0wevjJtYAFfMAcmh0Xfil4n8YM0l8846K4lthkAh4YpX1oktqqZllb11S7+zkpvMjyhg//u+L5JDu/bLMI1YwV2FhZgQCkFoPEn2z2Ayzosat7ebVZMo+VsZMUp/HBRkma8BOfjlA92NHLEuNWNnvsMn5z6enPNbxt2Bmkt03xbzxjRI9bSy+cYQCfd39Mq0rwRx1Ns/iT+SjyJdhgNM6MH++vu63KuE6zfHqhG3zvpr8uyWviMQ0pxKX+Rp5sY2tLxloIyLrCmVEtZUZCWHLzBCZmrh+Mb3TNK+uaj1wa9dU/tJL7wOU7ec1oQ2U6kkF6cbuejT38bBLR10/2SjMQV8Bhd0uIsOzmu97gZy9t0Jiqy56qthXo6p3WxGi6R4dNL+30yBlK6yXbzMPvBuATcz8KNdjeOJ+5sukbRM4/W4iBx6dOSvK24i4VsLM3zjwqOtIk4Fz8UjkQ4osVuPoI2Ypo0RA7CXdDJm0alYNoj0fXhtScHLTW/E8P3PPjBK+SbbUxOT6Wu1JcILlkHhVThJrnDwLkN3jWoBfR6K4sX058YC/md8ugyWfcnS3G2dtMgp3u1CdZKPqrIltOrhZMIHsveEXWqvy9T3lUd2C0Doo8sPFic1HwT+6WJo+aJlgVTFALg7YSKZWV/1TzAoDXZJ2WepfjYAII/B5A3gE7cvuarIGnx83DUTXDMB6GIVsHJVVM/tEBOUW4R/ntOau2f8r5qcB4J31d+Xb9Mzgy1m3cSyxePtGzyC5gC37FTTJ0t6tIhombxPmYTAoNiKrXGJlzyeyvFGeh1EB9GFr+p46oNUr5ZIlL02P+k/OcUv+AmmoA8TQ3jRpnnQdwD1Efz71n/rutbm6B0KRCqgIDd3BPKte5UkAyIBuQCTp3O/ltkRMy+yOZrXEBVsXXGIT+RTwy93Yc+XbWmUYnLldaZ+33dpdiadwNBNrP7xeNY9DxSvVNFUqKEc0VG1mK5NtoaVKORY4h6WZbjy9LJg1KowQZ5B1nNCQlzhiLwjVIcs1OCWO1Ay5qLTKwE15AzG9u3MpEDz0S/034hkZAgdxsquINjftb8/sxR54M8H6NyM6zfQ3T9I9WsPW2E7uePl6V6cSQo1x1pTzqvzBQxVvbB9vtwoBYnCFB6213+iGU12AkIKhfPe/kUCIY9DL/hUty5PBsZHSnD4lp8sPcZD9oXoQ3FoHhmsOZGoEvDm6I5kDVtIDufx/lnO3nOGYthUVCd+jtA+wceY6Nw5eseKIJRKuG1wZdx3AkP9lkp+oaQC2HPtvBZQmSgVLetBx60jC6l5CEIWnyxyvGapQKfcawxcP670hpqQth822f8g13XFS5qiYhVyhuPtcEmAp47IAMrrZo8AJqmuEVHhtYKiLqNAu7UlUMWN/yIBo0RRJ1OmW8CyPKjHvmYczB+Gu78ThDDz0yswWwhTXp67uNTGinGIEU+oTXCoxFnCMr2UXTdoeYs0SWlN35vKV3VBY9bHcZfQgaVythNK+MBvrOw9jFwI/R+WP/n4urHUjKnKQ6EfdZY1zjP/rQzHUCmq2nQIGdYFgSZNmB887ESX3H5wjPgeXwXMZRfewkpMSxXiIFBTu/N+FuCzgsKbOxqHvQSGttX8GHSMlEPiQnnPweFhxTBbIwLIaMFX4Ej2KadwxmeksWTbyY8xW2FOPp0PhU2jNssLO66X3WEy37UqriFrTkyejLlDLJ52bstdsml/fwKjBXjCV+LepEwmuTn25ol92Jth/MOX2fOy24hkvYBVTKfG8w0F04PIrl9o9pJcfd2UxhUILf4RIoVqICMa18b0tNcMjVbfbMVPyV6qKIN1H2eTtzWhn85j/j5EWyFgWEylpY10EPaAO8gFOfOmX6+pNKsa9imB0H1JlE6QZ9i58ojKMeXfvehj+R64kQAw87GK9oYCT2+fPdo5+5LPRXx1rPVhXOAhCDsIH5RoyI1lRGtSAUlyKjhrKfc+TDlKfGqHgLXDwsepCx76W55mT3ANrJSneHIl6tcQrDKh/Ui/+Cng/0PcFV/QpO7T8A+FKRRPQ5FuDD1QRvzSQMxsS2koN1kvYlPnfK+6RSj5ha9lAoMVPAk2PQwfQzJTqNmyEW4ySMAj816Q7hK/W9Fy7yAs6gSIhlK+GRiHvZdHn41nVAAC1ruOYTWN/1w6xYgdGbStFzzBv7W22giSEKh8LGTz8Rn6gUe+QUNOK7TyRgae4HgaQ9wcUPzTRotGnOStVP9KKEJ8CwOEiM71RN+RPkpoiy91mUx7v26cErzp8T5aridLoY3zdMKkvVqBNXV+ZrACdc4wr3XbPELpCWayX0wB/Rvkh0s/IQ8KtfHOAZqy98GALuWMKBqDmuIYwX7L8Yry+DkM8k6osNSso7/soB/pj0sXiDD4x/82zjzZzKwvDkM5MlJUCyWMb6pmjXKNXQUTG8ySkzHIItTPqodNOmqXQB4P5qTwoRd7rJTzZ/+vb8Iu6omf4qOToeDpQfLW3f1HAOjiclY/blK+e0pY13P0iJiYzr4Sui72VSQSpAGuf0YofZqnIYIuEJB3sm/i2vxzyQt78/aaw+QvT1nhCnfSwLy4FZ56SKO7HmdwBzA8fCFiFU33MBqg1lXikNjjm1ynCnoeSdatJLAaHHP+2k+BoqyyHTgKgrY5hllr+QgnBcmUJR/BhZj2oMwlknNIUDpw9DezCr0WMz5g4/RwsadXvB/hPcQ+BBgPvpbwTUzmR2+4HkLGdgvV9jZ3lYqXgnE+TqkNflM38LGPsBIdvxLwxmGC16As6Uoky2owSmfWpdS54/WW3kqdHZ7e8+FUCmQUOz83SdSN9PStOVaKuNKEuc4DjW08qQksaRJLLal+3ye4WWY1hFASy2djZiP3xnAuZM66B5O16GfIJnmv2ku2CWBWkyrBnfqxYj4hiC4ko1ojxg7DhYwOVYTxLc9az6kfbzZueCntZGZrZRkGgVguqEPgDgzJJDOstUy2jvRoPUkCrL0aXXZj9OM5/3HKF2iJ0s8pHcTBGAkjJ21eaA1hI2o0z9RixV2amb1ZUbfNEPPQEcM7Cgv+0nF1nSjzYZctzdaXV7SC6g2KgzCQyvhDaXlpYnuTLgCl7BHCHN5jbLTzI0cu1/XM90Oix11XgnWe8KolfrEEdzHPnpOExDxdNForx0OPPptNiWamkcA3QREdEp0Xkv+1ncJUWtV9DFTF/aTbPg2WfOgJOPCrsNGCoIChNwGdho/nGlFDeJXKPDsrxaG3w+BMf4ADHVyYyrdiHIXzHr6YvB2qq2cgJqYDS6ZB9k7Zlu8fPdCOrnwFA+z6+ASI6P7QwXZj1nK4FjsuF3LieH7daCacBuA9Al55qUYeRfAWeukjkx190skzGD3gPK/NXtH364lmWzc8qEChs8vRXMygfoK/0CmH5+G97KvGRDSrZZfZ1dJ/Z5AkiW77f6drmZ44AwcYW6Co26l28z4gqpKpP6kfDbAB6vhVvgOa3VDGwRskeHG43wjPcPjzTE0ZlZL7Z0jBTR6lIo+TVhJGOltVSec8eoyHN+ALEPdEF1P39XC6Dj1mh2qbcWkECuBZO6hjy6henhruo42p3kvARfOOrsNIvvArzIVijwxnBuwIBuwJVSuyH53RrrbWqNZbpeJ/ai5oBfql67L3ABnbRLtfIiiL1oxQRvymCV688Auwyf785p8PBW11uTYiEwsOsFg1VEJazZ4j7B4ETjsV95w0jbv1PVZS7+Ebm/ROt9iEzOh/sxzB7ldW+3H6PnxVJD9pAUBBXYGIG0GD64fZIsBO7BpOKScH4qZcnuFHAwRhC6cJdBBa+8ZkNpog521/g/tdawhYJYWzE9nf7Yt50aVvC7YootNADr71wODDxdMKsB1LV2WB5/C0Fk6JxUC0cfyvni1zPh+8+MimBCyXz7KkIIZDR35Af6BYEko4viB8MobXWfQNnRCtk1H+/QWadntifqG5wD4/jb6tQ8AdX+leR39iyxWN1qqyDCPAvUVgepQEIVwWF3a9O/IfRPxLfCUAGv4q5eE2yqJZObP+cps2z+gsw2EZEjNgu/A8YmSfkxMKNtWFZN8ty1k20RlgeoTkphiU+Oyy7KiGB/2eo2YbA/Mzi18lDcg6ASQv8z+p5bIEs/3NBpvn0ItlqSBNPl7SeL71vyJYnktwXLtsOLUHMypZaeXb7yNvfxepiP2dVvs8xAV3C0HS+Pbm9KvZG7KEZBZvMFBJkqw5jS/sS7cqeBWNukbX+/Z9WefSXLVPfUKtu75+oviEnhbkUPXKQZbgxj/J62fTA/y2m/IVV7hX5jh2zrbMbmNyvhwK/XC3iUUe0mYB1aX5RW9N20KGv30v1VfvcassDyHYzUSK20COep3/BilK0qzUE+ujSYq1KIKfzHzGWW+SHT5o/2PtbU0oSGt8zwOAcTwS+0LT7S9fX+QUgGo2f1V2k4aGvYdxWtV2jx2xsVTWetHQnyJswpMQn1BCwyWYZTws1ErvYNR1MtW8BFZuJpct0En2fnYgIpkAGyEC01ZY4jBE0peGV33MP1e9t+o/Q/ApF6yO4IqL/YbbSc2pYDfaLblc/29+eQlEEENM2i3fE0xgc8iWpKAJtiZ5ar+CLlzIJpKyUibIBn2sF4vJgd+s4hODsjowkpHd+9zM6zjepwRkOFfgTg2EJeA5YnLlKeKIltPtPEjwhHY6Y3VmsZrL0LmPjjFxP7ZOTGQQ6HNrUUgaOUx/4mN0lz9feeaYjtcY6fQuM++c9LCHtI4a2G99Sgul4bumFYanlOc4JDnIE9EQXd6TP6mlsJitojvP8FIgSrtXItRxG1uOTSOEUqzoK0SJvBrnEHKOKhUlZIKbmbhdjC4LZsvn57V7LW2ytv5zR1T7euFhcz063aBLCcRjcEyQS4i5UQJ94fq3QwRWutesViIvhxq/jkS61zwlwcEuVtjyqDHWsmnrihowisYX5QAWcd4Knh/zxtkqhulJuXxbxSF45+qvDuLCqrOwwO2VhPgfWDwB7qlgh2RyNBxhNo0apSHYzdVNk1jWHMFkQTTWSYoP8DVsYrrFK8Es/h391FIy+Vb1ivgL5i73Rrf6+yBMNU3MosnEsilUKm0TcGBSn0D0vtNQJE0TmvbyoMPeTikq5D73CjeI5REiR0SExy+govntPFIwHR7TUJNZ0fTdaYHQPn7dfLKCoaqF3m9x/MT2L9c6rV7iFP+5Ri34X8Pe1IeG3J5OE6V/p1pKTDQHovc94mHpm7XvRuW8KGT2ZkpM+3nscVvcIsjmjzMbG08lNLonsXKl8qPPl2kfP5ehXpwseRKECCfJbnb6qjDgu/ZWnWbuSuSlMxyrm2K5XmTRDvN81EuGpCVerrJct3ax9BpZlYhe6C37kSD8Jg56SBbEITQyO6Mis6dKkJ876tVVsIWjPridGn5Pm8AeKJUlvLnXJcOizasCZ3ZdL27Agt/OWBhfRZvnMuMCpqL2ysjBINKJoLYTWsGXSmUgn1YHSc/u3+iuimZIpY5uSrA7FJ0qVi5T6pPrfLqubYH1mVHit24MvcUGeaIW3r8GjwZq5BQ+x0mXF2L3MhOHNRR8GEVN18jrWUmRXo/5XpZhtZAU8fiqG9W+w6hVu5uo+iKA1QVGh9eltoXNdb14qJlivcHuuDsm3rmNtOeWv1l+YId1SKl9i1D5e+LO0qyv7WsUlqnetal5BmKtOoohLZlFN1Wvzh41/gY3kLRFO4CIqHEc6dyIyMw5UPLYRj/Q6SLTGwDVUScG8pmMgkhJYS/kJ24yU/QnSpLYUVXSKVCHIfH6XpRF2FpU8jffRXXc13X7vOL2gsoOZA5kMTWhAapYwrN09McSWAdQ1/O6XiqgXOd6DKPQPjL87c/sCJd0wNWflCyCpKfDP2+Sb9mNkJcR24cfikgbWlgpBb2G5vncHNC98my0AkWPJmuBimMQ/mHoIDK/H2e8AVnv9/nO8ChIPSXyyZ9Wa/SyDQblHS/kV+YhAkj6BepXbii0zcDwOR9KMQrMpS4XurNgwHwrzDxwbetwVncVmHL5iQKNOA8Bm2XTGVaY7AZpOWVJSfevqfmU+S+qCM3mc6OUQXbOjUoBAs0ad8Wt1w9WAEj7GMYV4Gcl9MRn8Qd+X02YZbHvgDGUbLiKgHSX05DQKZ8L4wI+Vc4WJMndB5yXNDgyFoyBa67q1nasYqXoDTIRJcuitInuC8NpdhSzoNb2ah+ZGE7Kao2FQJ8UGgYlgcSdwGscddgJXZeNK6p/uKq5BhRJRPGSfvxIBYyUzT0sbtk0ZQheaA9aXiRD9pHyxuB2AMYKpVOJ873xY+8E2WXsZIt1Drwx/1nUx6TPqYnCXR9yztUw6k2KYcWf3J9z4vTzXcCe8TwIkUm0dzqFy5Xxf3acIOlb1C4e/rCDAr09pYz/WNYcM0IvHLdksiZZSpia81SpluKshI1uO0zT3hirAPzXF3uibJ8S6Z6zBmjF5Uje8IJZD+LWtXt4IYYndaa9jON9iPmub2/KdN/n99rfUkaBRad+0n2PfHCkUzJhbF4gsgi1th3bUcQxTfLNpODTW2FshLpB+msR/GEkNmIOChQ8dpYcCQi3Q+DTxRjna9GO/He92iAArLn2w4lwLvuWLSCKwLrlbPHGKiNKzC4WtjJwrsgvQg1JMijDWBUBr6Lgg5ZUK7X2Tyd6NG+M6VAj/zwuZOiIN3dlQ+oOUFlGE3VecVuiU5/IJ8xU++9NQY5SD369nWLf9QjvXbiyKw8lgdNcVR+PxZ61k4UDreosy11pAvumquE9gNf0YlwDGasdLqgCznTdk6r3OofO/aL5yMgduFLKp3jcUVW1h6U2qRBF66Y6Q5Xio8TR9Nt0x94tAKSqDQQX3lONNoe1nkCQjOTIRoVFDZ3/UQG0MVMC8bCSaLnqLZSAZ98c32WyO6Jdx9tRE3jeGCv5WSr98lPZQ8kvVpuMx2crEJrNbBHbLW/I6USstLxDKBn3LjAUJu/0hpmzKAUdo1x1e68sJKyVigqFwFxxcaxqdhkNaDO8QYFkCV8cTqVAnwgaqEIeC4IPGaqKZO0t+Sr5afG1EjGj8Nvp9mWNqVH8L8oguSznEnShDtyKo9EQtiI13Kw10ySC7iWWEkl7hHzW6ZOZbq7jOvR6ONom11JV8dzNhgpu9D7DDci6MQUCETBhGMLKvCMgWPQVyTciyr260VtsV5aIXa7zZcGQkkp398XkBuP2s7NzBz3xpKrci5E+KwfwoSFonfW4gDqIOlgGnHsuqEavYWM+6FfSG2SftskpdwfaSkwIbcIYMx+O/OSbOYcVK+jOoU4+HGtOi++e2jOX0GxRZsENu5qVt7QU5ryVYKedePKyXXONyauFE6BySLND8B1nSmPv+cOF2FkfH3NaCMb0O+tM8TFbSZ5TjzC2nAT012Ls3HyFI9JN7NIvwDZ4naYiAsdd1SbnL9h6yn8335sIGL2AeJKDBQcpHAvCCwX//FseM4Sh0RyBN03YKsVdp4baC1idXq6pkZ97BQAw6C1iQuGLk4kCoVpPorBInrZaBvRTKgVqpPErnZmQt8pyk+jG3MmjWg7HhfxObXWIYiMdGpZDUsRsdbQhgu22jSPVBcErtptrzjJaRo3xgsrfxRWUZY+EiElCB49uNrdoY8ohdrKvYNJ8k8C/d7tTf9s9v7gl7kMZwA5sWNqL7TcXYi9TMs+tCerj5zTpb1Zyh81peR1BA+zpoKgny4/aXqPnZMllhxMRLJuquMEVFq54zMg+I151/yMUC5muWUx6vMcUtX1QhnIhgveBpbucP6r/e9XWBtgEsUw7SpR7M6VlllMoT7pj0PW0E9h+cZwhfXCMGBAkaPaX6kpSjFgO1iUDM8wiO7HAx40ctPnOR7q5CX6EKQ40mlIdRqfahoX59h1q55qQ9YT3t1jlQQx0Ai/R5+4Zakj3aXr/0H6aA4ioJx02/7wDn2tn7yVvyMXbfMeJ6tmjkX9U2zxZF4Y0H/REsBY/Nay5fVzLQ2RUatRtEc8Fi3bPK/JiSPibA7Ocfh9pZt78bISU8ylSbXdMHsvNTcgo/FAId8lAsnq6wcdq1Tq4WoZ08JFHH+7faKVTsQ14mFC2mEYvi5p7w3QVSutByvV0OCN9pYx5l9F5WqPu3vc4hWGwByrYZwiyAWpakDHtb9wTf+V3hKkDHSDxkQ2eFsxPS4A4pjGrFravDqqGcx6Eux5y7hU5Uy5Uc+XqFkgMbLAuHG8n+Xn5hFcxV4OF8oTbaC6W7OjIETr+aEKRvaKDuqJylDicT6le9HaE5FpN3nIJ1FoVIH3bSQJbshIL0zme9cJbf2pYA4f4srF74Kc1oNUXO/l4qR3gGq60bsuO6yDUzUo2dt41eCenld7Fa8RCuKlLo/sghSAHXdaKjI6H0/ECfDXlTvMf8tbLjZ/A3/eDdGbUlkLS8e6cPbb0kUSU7gbNdR1Jyw32zSaFNbk2oPTpni0ElwP1hsdDPxLT1+S0ZWZ4t3FPnA77U/KTXqQ2KSxOqCiI1MiaH9iBUAtuYtJAdZSxMBmmQLueRGUqmwWWNcHbhRnjROm/SaGiMQ644c4bUh0GAp38L5AkDcJ9B/JgU9GDUt52XsRHCEMhjqM9rIWkurNLfvlJasObaKk4JHIQErbFtBZpAoOnm1t+HKmTTACKxATdYLPYHznXcjWwXS+dlrAxyiJFjnbzZ6FbMay0+GZ8IAQNGgIHtuso0D/v9ejFyVQGPVAHgnKCY0RTzMW4E4+EvTQByBczKr1dWYhWKdu/L2Rv1gLLHrDwpPpyQLNuSQdX9qjcLxz+tbt/ZnqMieAqjdmlJggeM0ebET0MOrt1RHw4kJ+IO0rCwJ5siCjBsRCVui/4EabOMbgrqk596m5AMObBCoZEwymL8DmXJBjJIf4M0i8oT+bbx9Xhy4qWdWZMVYYEexsgWW5UgYUJk48YO4U6yZOpG5tWTI+oiLh0lyD1c+Q9ACFAGETYzM2ySCpTMr4YQ5koZhe/p5GHz5LE7ieS2vC+hxvKELCtacAHKss6DwQIE04rOjF5VH+do96iaORs8L/bcLTeOOmvkOMly+MpQm2aL8nTGAIbIGy8nFVsH0YoUU8bbetIEMtnTHqtYeFvaOLL/p6sVLcaYqdouCTHlP38v+YaB0VE+Tb0mzpv3QUskMMun/Q7ttFslpznBkmEmoLLQuAJsASiAeMcMEAtDPmtJIsvsbOOncZxcvGpDqr+ZaGQ5GAiaV5jDdTVUfJLrkUinCUAIDeCKOI2Xa2PyNe3oiyE2FKFmLnfyaC7Zp4BgPnHIN8buvlg30RK9z5m4r6fy78PDOAKbTRrx3GuUxugtV1JgaIiHzFYjpd/a5Buvt3fHEviylE6Er+2GchQQImkEWR4nQkNYSekWWmAvqWZI4gUwlAxlFIVeetJoY2RBtLADPIHYTGOkzJdpoGq0thtPuRKMfw1ph7+ssvwvPUSZ1pMzVZrROTe9u8DLskLSiKZGHh+6MUWtn+XtBSOk+myiXc5y4HJxUvMCXTZ69snxtZzPmU041a5ZCQ0DToGNkdVPZzfNZRzCI0VPT2THNYVCtU4grpR5OXAQiEVF9jdYW+yiRImN4C5x6H5iISVQx6vGlFwV8sXBxH4N6pavE4Lh2A/DRfLuadyP+0O13fMms20K8uhkGT/Ac9GPzCj0W9zeBWkx7lSduq/KY4cyYuwoLNArKYy1tEQgP8/R6TZvazds3C1hlOGw8G85E4NXZWqa2yZZXWlnWdNQRizDyDw65Vycf6pLTOiRIsvLSRGVPn9WVap3BG1yYS9dWR0nyjX1m6fciRwzC7deW5Nm63xrmm5dD5Xk9pte1/SRUoDvGlcU9DBwk/c9ozDIlh5tX0eT1OhXOJ/2Ma5JXf/HbJPOzEmqoIablNNiEPdIEUZs8WGSj84NKckGbVJGfeJaUxjyJfqs5mTZCJ7ZlrnIGd/k6a5jLSIHba5Gv03ymyFaWSIVj0QLM9nlsectA47c9LxHR9kR4fg/LNM1kxa3ibcCzPQ735uby+auPew+Hxj6SKcQ2+kELwn1LemNlVi33Wx1oMX6KwxPf9r8C8N6TigSoGGhY+iAI/4e6YB9NYhs3zvJs/ymvHQjRTP9La1mdw7fD72TzQGNxTThdFeXIQLn09pvykJKrzF7H0uzDkcB/S30c9VSCe9JRMn/uUm92cJlVcn3r4dxt5YZHhECya0az/g0XqiVc/QQdLxQZWLoCmRSFbEv5BZf13hKL1csl6nIGxSabtHJyi8zxscz+SAfLsGCZ00iVG0mhZFmDcfGLGAFQl68aVbzKN8D3SB7Zew5cNr9GSgaphqEJnRYVzh9/Y+7ypzldjnp3Gqi9AAf8PxDjCvq40LnhmqlXrHou2u9zM0t3qHWx2JDpvMRJiLC7Gu72w9TtuU3BvYiHPVz+XW32MMTCNJYBHjiOPwHmzX50AychGiQQW3YKX/7Po4yGKM/WhR9cSFHr28on6o72e0Td62grX0bbukuRzqKcNz2U9czzu1xxPIzO9/R0ylu3Jt5q9b0Vkgg+CeB2h60qgD3bwNeC//RRXKpO+9dvFERND1UJKM8EzFyGtQ4VBPu+RCJ6yM9bKUPeEzl9cN05YAfYoXalI7Q5o1cRU+bmm07ZYWZoBx++zp+U2Zzs3XaG3yqboURLJlIppBY6RbO5BQthNoYNjohlAQh2M1pvRF6bACJmiG6eqEFRj5rS0Nzwp2jrpB8ONKtZR/G94bMM/XI/BIE0u/x5FQdXDr5Qlk+S/vN6HcSo8JpCN0yTEAYZeJ9AGtXbMxYq0319XF+z7xThp/rntJ7/bPWDOHhlx7hAkEyu7XwOVzYlJ9vAiX4OFnDVeLhqH+4bDy/YrXMdDswXbHuRcrd62r7h+PrJ9VM02+SzCdcgXyZ/Bd1m1mL3YCF+qAzyliQ6F1K3cpSnvoLDftYzByeQIJnfDoE3+hQi9FPwz0acd/Oj1OQtjzh2fOdiMzQ59P0DyXEqjFaJfnolcpWEqIQZrgcPmUee449atiJJmLfZuYyu9lcasjRPpjirSUYKkr9IVCoyQE5wxpVDJESpjSYuAAQCJ6vs5yc7Ff+g31I/lB9GXik4WAFnTbU/XvCyPSfCCLEkRW98X0PA02MDj0VYyJ8a0G9ALZjFL5qk++GO9QOY2h6A4V6fQN0D1XXl34aibJQOz2t8FpXBY2sr4YSCOgLHTFZakqr/V3cURNdADeW4qxBtKZjs/1NZ7ZE52whaHEL533GWvFZIWkewlW5iLxwca2l6TBJSuKhJhoJouc9UFp7UP9Ax+Q+PS0SZvliZfyVCd1ZW0TpVwYsORxPdC8tsiOxT9YSI1ytl2o71iK23lhDhHHXZceT9bhcapx79Js3mZShezPq+4oLTt1u6RwbbsXG8DB+HAnsRt3+bHYtUmv8MlMqmeRIhTauxZPL65fA4rOR8HSfgZbgKZJTozOl0xDuLnD49q5yddyQyCymptwERLl7V99dobR0VCKoQYdF6LcAvZamrucJeyoLHu6KesJ8ejDA0UGuRqKH9WqEIjNjPrv4131NvPRHUPZgZZeqEMo06/mcBrl4iRfkwwA25Foi0Qslj9ySA8ttZw8SJzwsR7NuVxya2tUjnD3ABfM2+vQBHGIjv7a/yHReTFSSUjbILQlWewInGSw5rHwHVtk4u96DhcnJDoeu5wqWUhL4zeUzVJWt4GJD2DN+Q4rPBEAf9Qy6xvWxWakJVwnsia3W7q6XxPTH3wFiFzsOkS1Cbg/FLZgz6sclPRNi/1WVsD2W2hutFeFIJ/LSRoUf0yj4kKJLeXtzT+Bno6Yc/jb8Vx4UOH8u6tRB1QTnacuDKqsfauFAm5rpAB5dF6pz9cIXAKE3FL5HoV3L2iyzsUqeCVf1lqTA/8zFoHiula58JXMQqpdWBLWEk8vhF7LcNt1AVmAyPr7zaU/mkTkk1khnpyPfDRqkkkNoGYi8E6aFu6e3Rj3GcsZS9RNjp5VRPYCJAMhVTfe2jlOaf0kb6sFPtveHC0MX9x1qf/lQ8vx7Dbc6t2rusT1xJvzNHWMZD1kdr4ndhT5PROYPPm56/F2PTD6K5VZa9Hd7aZEXgaUEnmG5S10/ZT0ti47urH6Y41DnbNsQRz6dyz//t/0RAMlPTm42/AuiKV1XDtMmHV/1G4Oq3syK0+PAVRCEyz3DAdVxo8XfBygJvgiV0AZCBzqnRJD7pSpCzGdkYZQSJOIQycWpkdFs37bVSL/pCJDK7BKge2NmpoPyq32Y+ViY+mBbYed1oqfL8+sgmlWdsiqW6t3cVQ4fTvAcWf43k4wYHOr4XS6plYfTIEP/1WJ9jkibolqiKqHeg1vWs8TEoDFjqWYX7pbOgNNdoia263V1skoWLhkDTMsmgxlguShdR+cqXRUz56C8/NVY1X87Jm9UjCymFVax/UN2eUBhohHRtMz62HacndhT/3m7xNyH/lWDIgJMsJkX7i3+jYx3li5wQc16IuLQX+tUP5MgFKAEnwuKSiqcntGxVwEzkExRZ6xWfnhAE3Zw0Pzvh21yqvuiq/TxnJn/zvucFxyARu4RklPPO01Wl3GnY8k6Dq0IgHjchSTHnr7kwuVoIhcs5sSPFMdu5wn6+Gslau/bnCt4/4TYdJFC8HBGDeq4p43pQPYu5XhA3xgENJOjIPshTAHuJmTw7yUujfPjsCmrHlZJrizIoKw51W6eSwFerkKgIdMz8CAKPOktQP0a9wTpFJ1+BCP2DPMM6doVZitfzjLsdh1tPuCohwmVJnhTSLjOG+ytZhjDoKurDPD46lF3qsb3rZ6sn9g9a9cWZcm9hk9kOzMR5Gpsk7Yjbgr3Y5ajlsmc8cQrLe1vNXXQGBRFB2AYovte9eqR7J2pIC3JKU0EGYEpGbLXccnqyOd0AmvblqeSF2qMxTKnPtNFWmDLfg0Lm9qtjqKG4ptv/XTFXFs/qdOrAGwbAYV2+U7IgVt+xcoJMvK562Wa/LAlojPikUrhiCeSewLqIX/Vv2b6HD5R7vWeqhahGasseVxnZRoY2cg37wFTIlMfAsQtBPq/REVPgLen2QjP8UOLBToMGVlCVWNvUbvg8bkQEO1+6MbOnSNLrgmr84gkUpVoDIka63/y6eFE1Y60T3rlreOY7eOuK2auNiAm8HBfzaYwE9UYwsU4swgCpgkUyJxF+UC8PQB6XWAt1qVIq+8+ZvMg4YQODTxgbRECeltn0p5LNtxBcsZqNj/FTBmDLdbQ33AhdeMGoRCqhhlFn4nh95AcSMYW26vqUXcfDTuEbtnYQ1x3GwQBJUO4kOOZnDsCOFqpEMuDohqoHx4Q9SJslEmqFz8G6lM/63rHVp7WChoDQ9RKxYIgKMsrTk9uB15X8xG2EZY9bjcQ1Zte7Ovi7gqJIHwZlD2b6ALA4SaAiUc88yk1E/T5wlOqpgHNY0JSJCePokLX2FFNi+e+sJRnEQk3X6oObwuXhIUlHbsk3q/8nC7QxoRvVzniJzW4fAXsGsLexjgNUM7dHBWvlPNbXS4dFWos00MyBgtlyxxHBI+0p+7syIBqfCTZy635udttMKaofXUQz0kOT1WekQmdmsMaMNj/brBjstHZh8ghZatmG33HZgjAUiWEKaP1/KZUtnRayVLcKmNyxzcvfSwTYSq5A2FPiUZCM9dqJ5/U0RrCI6HYoZA5jJfKg6EOIoC3fq+bjLR4rROvDmcdyVn3EqrYicOSEEqqP1DlxVd36FhG9+3SpaqlJdblhPkimSnvYm52qAHrbrY9WVxfd3ApWn6gj/Ok1B3uqG6qZwdWd3FPLrLiJgceIqv33ANaXnO8WLdtWIch0x2q8kRvRiFuYYnJlSrMuUfxkDfPBYpKTagVhZkOxp2TBSsmKgP4V45tgbl/y8khgUy2QRn8lHFhcmnh7yKWj6CxtYhUispZRdBGL+gdtCwlTpy+M71v/id7nS3eMzpL6mEdcRmjsxNGU3RYZa6g8m74S8Xb4GZL7mwCQT5iO2eCiD5L7jRnHa1ttN3rlGMsrrAOjF6M8jHS+a9Fe7F+vU8t5WPA/Ypx9XmOgmj1S718eD5n9+kCcjQmBbCUCWXGVJOXxZrO+N5XKmzEz0oNyows29RAHCyBrbPH3XzK5HIfqf72Qnv/F7IsvZmn86RtndEevTTdkHFiaWp3cRgr01W7XPuVJFUBUZxN4YM/+Hd2iILte7Qpt1aWfLc+mXqDQUsVcN5mqQmBn6UBnfIbfTBkIdV7cdy8vhGLRiqBYJBbQPT8gaIIDKmVy+o8CigRWRe0ATQ3IhEVPtObybUkfY2tI4iVYnO9sjkCjDdKEPOctoMS8yuLeUAqsQgKW0vuGlszmTKrcIW2MNDy5hBWOvJDyHY+kLgN38vnPzRiL8hzff9vVI07u5Rx+zx5gSdpLNbM2+Pd/ABACndcTFxO5MTR5jOuANEzFINycDrR7KdGDOpY6zV+qtT0qUA9CUY8PHz8Lp0nU2ytXJYQd44wWavaAGHXAw9MgBCHc96SS8omm4Elr+RQlBE5JMkg2C69Hp3vf+ZoqFS4DmAnOXyrkwn9ssUR9FmSbifnd+wt9yFUM7o4BX/Lj6YaGvaU8KTFeBTLD/ShtKkmllent81aqlSnFYKONTHyZqsw+PsavWm2eps76U4lT8KIe+vpcr37vsupC7BPJswfVVoFcGVjJ0e0bqYlwYDQFqb5ntNvX18kbsL9UYyrrcPDraagrJIyxYuFtVw0jhj3dU0JV7ehqJ1Gme5R6Wu4ChtQHzHRgcDUl8Qk3O1ph7MaP+T+D6q4+OVyJYIZEp8xPRTEfaweQ6MWUUoI+cTMEah1gU62Xm0Iz4WSV6L0ITfT7PwQi9q1SdeWCexCpS1+CdeG1qEyhntkOryEO9w7H6sleRaeKGZvwSkURzWApln9vrG2R1yNq+FvKzyUOITZQ1z13y2lyS5V1VfHYLwYGKJLq1UmrRUtZOnciDV32sVBcZxCL9VB7sSkQHxPrHrzesKoflANWwfQ7z8WiNYaak+fFuAANyo9Kw61yxR0Uq/n0gGA5Z4BvaQElQQil73RShhz0ThqZVAEqG23CSRARNY5Ryv4eOpMaW/SZ1ybDd6jjsjOE4nx1R0Iy/Axbmn+EijFeXAcwarPwrRMrX9kwZ1Vloj8D922d+iXONhBvkE4iw1H6UXcv5WdvqDs/pj6sDsiqL22kdlggEQiz2quAHWPVuKevDGZcATd93h+KDnMrpNdGsRqpd/vctYoX0Km7UMW5Li4vmNnmY3NpvX5QIEXKvgQNxYzw5gWwBMghvCeIEQJGqp1vMQ0o3uakCzHhyxPLFQrNiLabQpKXa0XMTzI0ZKy5XdzKXGnsYZMTprXfiuOyCAyZk4+y+lAeTOf3l2THc71qgzUhjdt48C/s/dZNFVOzCc58OQvbpXgkffzp5oixcgyfqtIdG7RBLq06ZU6CG31WJctIqxw95aT9leXATqPzM3YaKB0R9iuqU99WOcKGzKgLYbihAqB8zhkhp5yxgnOeyuXXw8nQuM1AWtgZgNwQ89uxv8TIQNUO0rm4L63NLX6vGbSqb2SLQ6HDfmuU/44fDFIHkLP60GSgrC/foKjRGFTO6Uw2jRnTwvN/2U7zGldlOaAIo84dWf6j+TXw6kyRCJMrcecXd6SROVy3nujsSulbYfBoyrCumyAKfBru3GQcYIwVZchFE7sPMFj7T09IQK/rvynCNxuVeI7Dn1SOngd/RTFhs9/Ia5kZz4ZMkovb/liLZU3zuJE+8fuMlECaTBuQNXrEqt/9L+/TxUfKpm5Lo3NgxWM0Mq9S8Y31QrEoJuH97JEPJZCJlJVoNTqE/dzqmg6K7nNpuiPZOuXPrxtXIcUN3m4+tJs0nuTDgVD02aCCqa0zv69T+nDpbl35ScxLww6MvDaFT2aDT/lLLsCTxri96XJW4h0+PNpTL6qRtl0rlICR0iptE/55txT74TmsFZiS9SMK+8quHqT+0xHjBoj/Z16A55pftwwWjhS12sLxb3C3A8baVTLO3erkXzJ8lSuBqrCYrzziNFur5zHqhQBhTd9lN5XeNvpjFlSPoZcb1lYcOP+MSEZiskqq2iCRxiKo+aC28CFkwFUi671/XACancs/dQyT4pKqHd4Ipg+53RGQJgbCa/GQvuUAGurDz+FocrMXum/9rLYPaDSgol8bsF6WyZdRO/wlZkY7wduDyWEnSbdQACfCvKzFSyGhc+nJCWW9xEPTP1lnJdB9uJOz3SX7RxoFmhX70M4zqR67c7FGq+Di+nin82KodngOFobA4zRbgp2psuWTP1jhwX/4SwM6UIhf6wYbrZDFWWdfM9LGLPsGDdoitiIkefGLCsjiVTwmDHMDk9h0ZgYleSMRDkrWvHdZWSynPl/e4RJSetbNVAwPxXu5unH3aZY4DDI82yTisNMsea8ugBEi3QdslmtX65cpQiXM4as/U1IGiKXJ1DxGIIyySiyHPEJwLQ8BXrk7N33qsmBlh1ZPOAt1aaijUdaU4dvDNwTKi90Ce1tp0MjnuXPyHkqWxYXqUUPb4UoOYX2ymutpfmZ3dANpSoLUM6gBMlIfxNB+S2a7sah5pDu+05/qrgz8tyUH326V5xU4CdeOUjZhrwFz8T3dJ0raF7ldrASpZCdAGiR3h0NJWsAs7XsYuJTTox2IZiIXkUHyBNRIQkS90DUGq3Bn4ZusBbRhyNDo1l/AG3c/9F36hFJEWxPhN3k2lpOCTU+thelTVnsB2aMxQCI00axhEQzHD5uNqSvCwluTPy0nWGpY4EaIsUDKaHIAKf6ATlBx5GUfrRhX+PyVY/hmsnfnPzaNIdhaMU3DU0aEB6FawiENcL/61EuPunKsZThUt7syfCBZ99GOmQrwRuPtKI2OBQt08OjSvWYoy9h6bvwVta1XoTM1O3yJqusJF7KuT0im2JSqsp6NXenb1D/K1VaOZZVERMKcPj+/PJdUqTKGCqeuAaJbwki4dgzSiX4Ra28hjPqr6KOkBx3HNfkBCq5KFKnE/Sm8LOhZS62mnl5lX8cpdlnUNKiIBXsriWaz+5loXNt/UwicavWoWreAtfV+TLT9zufWtcV0RH8/COyWpA60LqOX2euCsYklNRyJniMWBg6jf+6iky7vtUHAAx0aAE0TXTcDzZ28oTGTveXMjo4C+XB/WTrBDz2Szz6pEGECaYfnX7+xdYBSVuIvzYaWw1qQ0Wwl0BNkIZLui5QFZjYCtgrUTISq2f5f4693ORQIfD9urTKit/wd76R130XK7rLU7NZJMwO2HiE1Rw1cz6qDnx3ae7UDDqgAu0rEdfhiTUuhXVSo7IuyOPznWSx0iXXAttsopi2HPGOpZN1uuVJr2NH0gjVX1J6QjR6YVFNNdxxsWz9REJe6o/XgAmzfsT6GkCAv/te8ZKFRtPte7zfYSML+qOzifoqdAcgjonRneQmeSjdkrZ+zPfW7bF1BvSiroG3nw5fwxwEZXIeyuR8XmdJZPYfm9QnvX4/HlZc5sosl63TE0/nejO94m6TCzTJ5rnW9VgrWCzoNqZv8rmCL0CAQGzuj0y9i/MxSpT8RrCCclTnNHaI3iFtxP2nCbRLSo3O1goHYVUNjIjALhTFNZOVxHauYS/1mAX13C2JEXMZc/F8PisctdnCVSMlw8upN3SnsihOtqzlEZC/XW6+OxrS9XlhWrSAMyxnI+cUgl6AlCRhjKgpFKyvZf5JlB4WbXmXfOYALaJwHqV6OFcCEjxer1yPCXzlm77H07qggmJBGHYu/8f2W3uzBXrIwkd8C8gjqb6/k+gxZ++6HvN43IDianS+EF/Mzh0+IgDDCVpBmcNFoiwnMCSDUmU/Sx7jFXhPkl5/LiEu9fqaGPymyse1UKQ/uGqLJTm27KQ4vGCh+6xK65EwQ6FuWHt/GFMxzeSUe3Vs6lJeLQxY5B7Vyus9TLB3wbXS/LHTVVYgQAOYVlSdc4VsJIu0WQFWyiIEm/Y+HwB75alOVotBI+DDx8tquWL8L5Wzc774SIJjByNSbv/EzIG6pe51YLFn5Z5eG7eRatmPMv5at/IPwR+JKRHncBw/DFQyzthXtRbekPIpOALeGxexhf7eiW2vYkHAANV3mbE9dY9aaWhoybHutA+CSBQn6fk5cGW/+9V1CEtfoE+WUn7+M4mg1v2zl/ZqkoiYxQUSwAW7ykloyiPeRtonuJBUFtMdho2EpwekYxLw1Mj1iO0q1qL/OkkAOnpNhD7kw6mIkkzDyCrVRjwBXpjbhwNxcMml6EiMb48t+vUDTYXU7zbV5P96xbJKvZDH4XjeDPGsT9JDtK1AiVflEOvHUjNmx9j5PSXpokqp+KglcPcl/eOgBA+oEpROGlyCTUz3W8vlorWFXrV+CPDMrA6Qh4gjh8uIRuhkXtCi8mwBZhGVzAQC/72eQVirQa/iSwq84rSJxT22KTb895RpK7ByFh9jR74GBbbxZpD3FbNxg9F8lZlFjdwcp9uvQv9lB998/6yZwr29jUDkkVmfDw5td8YcGNIaagd7wbWAco7xa2pAz8xgavABU60kOpDPaZm5RjaUXTPnx0RxKl6rVWBop9W/iIrd2kM5z4y4siwLSX74tklr3QjXTTYotdy4L2S0fpr7XzNmb89hycuUHugSHbcTI+yA13Bc7V6FsC1o58ual41+zYBTKp+4W7ib8IxVij6JTB4PYz/OlH0N+HhYWoNUis68ASVIGAQ33S2bsYjSObTStdUExEyPy9yDErqxyi0qreuJTe5VIcpzXmRyVjLinyPEKggktcDxLq+DyMtPmJI9wU0VVHHirHd1AeobKYpm2vIyte2Lgb3skRtQr8Zm/OXfdROwDaSqO0AvhVnyEqlQ742G7cgzR5y9u2fpqqWdoCFzzBEUU0pxiG1BrZ5ASeAEqoIEuUhB+Nj0YcUmPm+j2CNK3dIV7Af9DEYuFG9+QT6HLm/hQa/STs88V8kc0f/yusrSCs84U5XhIAZC9OrKJHK8YjaSw1eKPwCqyUdVZcf+UeExj7tegEZMcygDucNhsTDXLfFI7YBcgMOfBA4FgEh+b5xiOjQmnoYF3wwefmvI/cDym1cRVRO8rZzRk95Rwj9/9mwbsBJhnF7WPX289/95D5QgcUb930Raj8X8TcXyNzKS9kdugkIDSDclTGKlRpXIefCkp4WMkq7HiA+JZxdjSrPbQTo2ibMYBry6IJt2C8YKdfYJrPSS+JcyIxM67HxQ6m9UtcQgQhNyJfJ+B+iLKk6j8ORD0N5B2r2PZzLtD3dxwrWAzV/xl7jrW2jG4TLNSRbs8u36wso85/rTFm5JknhbQXU/ymgClFRvOiklWvVyv8oWRhN4ByBs/tRCh6o7B8vhb9G/MJOaD1oQgsCbL4I2mk8ove2Wjkeq81D2wq+Dmp3gjrlKukdQ5qyN3sjSX7Cp1nukbdft2gS5CGjvvlLIasqqpig1t9O1uS9NHhC3Iexuk/6lD6Nu598JpnxJtpuo2wDHYXLbU9O/I8WApAR47ilmIe2arrqScDkFY2NOLmfc+Qm0j+970nVGAn2GSIKPzxGBg1YAII6cukESNUiHwze6G4lB0uJw5D9Ea6TaCIkGRQZduTJ8fund0OokcXC3BU5YlsZQ31emXPPjs3C77cFy3TfcFer8oZEuDvaFKHmYeoE2jTsfx3KTPDP+I6+NrqeIsX0330ey62jCJewyRPKFEzuAzbPIWBrEiBgtXFuKoeQFwenmyJDaPIEdLy3FfAT+HgkIGS0p5hrQ7vaylKZ+0Uq2GIdcoj3IDfUkzV3bKqm6rb99xNGOLl3Z80I95uP8JQRwWWBiw5yZjlxSnH0DowAmkoeYjnY0INv9rBqh3H1iE5HFx6Z50JcbngCKr7i146FfzpetcdxKRm/AbgSFUk58E8bWaWv2r6MKAj2zY6uCIvWHYSggmheTSrd4cWELubmuimMRk8sszMXGPh+xy9eZTc8PTHlUnEHJ8h0slED0JvKUrLZr+oinjpmd+HGuxt9o7DjRiMOfjOaBeuFI64gYWSAVpLtUH8qL35EUWCBemKmGFc1tqdql1aZ+Kkyf2vt/tYbGSWbQN4ASdrblVHhwZn0graIy8x6TzPcHM5/seq8/81AudlIaB912yXkgNtNCYvLTNLEpCFYVvJx8Q1uVoOBnILCyein1ym4eWaTAzPARBbn0rYvLfFD50pLyEuan+9Pn7KUXOQOI721Y/hQ4ZOYHvwUJM1IpAga/0wpVAmoca9famevnK6UR6p9JEieYmpgqSVuOERPRDs9nfEUmHVg4b7SBWs67avyd3BYMrhMW8lYn2xmer7UNw4WTjJ15pNvBWDgQMbTcTbSzgWTtG9t7BYV/C46eb8MocW9SoLwB1NFFRE2bNfosibhAsu1I0JqvirpvqBx+kb7o/4yzB2HhjK8eswTowoLtRbLsOWpD0H4NDhP+LjLKq2Bt7edOiURO7FJ+aNtcWSUlVPUyLKUjqk7KwHzgYFe4fscQZkGJJKOBT73RqBM8VXwncpI3s34omDonO9XAXLfkhd4Ps4z+cXIqja+n+ubQTqlPVqhnn3SMgIuU2IpsTt1t4sMCXd40u4oIw7vop1hZj/lVAbiWSJkuiWKfvYsLkwP0l3RiG2N73qGdizi5wldCn+m19qD+PAeTyiW0cLKLhHnmmu7RO7aVbi+jRQvakNnkQqnhEQwH7pJrzpvWTs6p2JFIbH6MOqjwJKKlGtH0010lSbwGMHq+HnlEnuLSp6DcscakWmh6yPg61DgXELWshlUgaWw67xZB5S33WYT9jCovwZNe8Is/pnEqTtzJxzcwZMoce35Bsa+yoATgJ6tOfGk/BzGK3lxjFSTf2gcG8LsqHAM1EXK0nHp9apTATZNW4/IWfPdXAe4bxKtccHx8kyFKyDm8ex/W8lEIZyyV/lx0T0mbmeC4MJv5PGpt71MFRxLEWJIbPJAttm+6qBIaTaNbpaAGhBzrQ4TDqZcrNBJhteen6NAA5EQXeVKZuvHyUstp/1W23oZ9HVHthBlx3y476W2BXcUHTxcF4cXT5n0CsMUpaeMFhd0zILK0IwyhEhwjNYrpxqHmOnPS3kyWQJBTzSAbqqHceOirKxZOj/6V4CRuplpkRr0sIKTX+sDKrEhP9EtrWCGoJzoirthhvd3IXHL+mLer274ss7LAVuAFEIhjrNsHgIZ4azhch6baReYG1DP6pWHhtxZIxZc+/9HTl5d+iiJFlWd9iPkSdnr84ehZdvv69JGppnqGjZtD7EiFr0hU17+Qv+yy0kNa6j2Wez6+Uo7+rkdRppvdzeNfo6p0EbN4UP9gE8+2HS+66mYW5tkXMuy24eMgSvzzuQLv9kDXUa5TMOUdJA3RrsuVkhyoXEGxy549sG133UBVwfo+WJaawf6DrT1OfdASkiQ5re60gdthTozpYqM0X655ScyPnB636ZHhnR3gomT1yKprPiAZB2UeCDzJVox5YmoE2cjGF3hM8HUZh8HjssSKqDsjxeNSIOaS6LCjrcpRXy6ot+Kijhg/fr3UtP9WGKpweBekM/x3Kt4vvDjzVqYNOaFZTPINns1U/GioT3sd8uT0xvvK7D6LTbkgHnCHTjBnalHW/yMH1U+yQ9FOGWNXtUKvSsY87EpYOsGzcbHbHbkZVbS7xHfYezJhNgSFIjTl7SP+MQL/O8AWKZc6u1l/0mT+AnxwfsAwnM6nFIYIIivwS+t6iBFH5OdLqDvv/svDg3f+jmPRs8INXOmtN2g7AU1hdjtjfaeLz2OBDK3+tWJJkzsaPJhvoZCEpZaF6qaSMVhdbuA4wUsIVRYUuzdR3RGzlThb3KMWOwLDwoVXA9kUQ0YTM6SWEka9UbrHDNV4RSiNouAGM/yiiS71sE0D1YZFeI06iiRlvr6wjtjXX8R/TMx1o94JIxQgL3tYzZtyw8kbEa3nq2yj2+/bbEcShXFu4XFx+BRDshXz+1sjJcKexcU/O/2d1ZCrFZcb4JLvhcxiNH7HEopFm0g+BwiWtSicn4UIOTp45iBWz9uV0fxtYBcc/Plh9MaOFTOvQD1hVoXzohGcP9bE9UFbJaUbAyo/IAjTBf//znBMvZslQEDLmuW2aiFFJhPDFckG5pDaEW6cKSrxYjWOkx1+T1LS9zSAJ8tPx3W+vv7BsXX6jFb9MUfyMlsyNDEIEhClk767juQmmicob03bV4UmbQy2VOEvB66UB00cHUvQVs95oTGhmuSoeHqLM6YhVNmVlUccLigPactz6/oiPYxIk771PEzXc6whMeRJ9kpMofmrVmI9hBb2IR28kJA4b2z53rD1bihi2PQT8YArwTIwJlQsUbEu9Ym5rFzguE7yHuLROEjw8hqX+AYoq2XTT3ptCmAfY02h7cNhfdPx8MagzgDP6CLz1TP1tKhsz3CsjmD3F8gCIn1aFnxFVS/44P8UnqLSu+8IrF4ZTOwJXXj8XLLEY4F8zXhx7b7i/HP5iMs1J0mEt0H4VcIY4ltM1kMy7D8nRxETVV1fT41tt2ir2rQHYwSvQCPs1AKdOm596Lsvmn+f5x4koNfxW+TgnHwzCv79d/5/T44/TTqxlCKIzn5fKbrzyMrRTHEEaC1a8uKifecJbaxfVHey4GAXYC2b+cQ0WBVbB3N53cJ0ochFn8UHk4ThBU+sXkGieGDKPRmU9X2zIFH5GI36ec4blEUdYNdX2wU6pSkVOcJ+a7eEfWpi+KiWAS/7DZIeiho2feMW1dOXbn+YgrpOqUg5eQKCPJQUbOQsGY6Au+GoTGJwa1Ee1PnxS/JkmKDMDbE+wnPbBHZnrDMmejr4oa4H9xn/HnwrCGf3PMEcbJwBeCUs3BuCY9cc4uUzyWOEfYLeJQ4sjmdw5E5Bg7eeFhTgJJaCXm+53AJS279KVJ+XDe+tZLRjYXLLAty2i8eDg2GlEmXKDOhxXGGcrePW3HjAEf/Lfb2TZx+HqdpfB+qRPscuvOCUjr250g6b/ByqvrVx6fbSepfmZaTjjKCUvfql+14/y/JJLPFsSjWIhboKMwpOVqwcDwGlV5Jpax2kQfJBdERgqm22xfFR2Dgz4tZ0f0wDi9wiwtnUSKGyKSHmbosnwmvfklERgSpBllYB9ZL80qcL0BWY0CbxAgPA6EbZMoRigaHZZRB/TUTbz0vhYGwE+J1QHQ+UOhSd+6tLfBaV7PhkPhXj5v+JLhswKkpLIfAN4hG1/s6zr7MHIomoMFUBnGr8hqFQ6MOI8rJgxrl5ZU65rKJQJuPv6MFHYamA4bGv76czxp+S2BZm8f4HCTuOq6sTXXZ1XxeQudfcQ23ZnhOBCUv7VAdF9IbnU9GblfynW3AY1IOsIl7OP6bIi1x2PT8SPfvrrZKriBrUeaPCPp09RBB0ftMHsCxshAcMbZ5AOL9Om6CRS/mazIyg0JQ/EQ7e2LXp4wcXDT6/5jmAhGsZmnYVwqEKk2UDpsV+tZOvunrFDd53ZI/jpI18m0EFIpGE1wmvGII118CInPf+CT3BeH2QK9LNq2wIeCUgfLrpSIrh2TpVrGCNUzpUeHnJgQ/3O4X2vVfAqBia9Gcpr+cQgvmiHSfpvkIYZ8ol9SCFAT4fR7004ME6iYL+vi0D/FWobBf2/pexrmyOjh63tSynUup9ZOljj1FCWPgy82EPEqA4l8sxcGOSOqweGCOlATqMEfJ+TlBDGqvDfJJRTY7JRAF21l5MYDQArZtv6Juy96qZM+sYZxjXEO5rn3H2Y8VdAqILtYU/V4mAdcg34mgOesCmrUElM6GGcmbrsU2IcK1fyrGQn0ouysJp3a7kOYpgyS0w9+rHa4XytlggHE7nCko5nkBASTT0Rq0NXP5rt8yAN0bnouxfFdX6DpzSwr40x4rUmx7KoslYuDz8kDOvHpnrasQD8Mpj8D3izYcVnFmHBLp4a6oQlfSfTC0b3q/IKAmZvd/MFnAGkGaOz6asbkbRhpVyjO61L/vvPx4Wg4REYErnJW6b9lhcBudFzyDVeNMuVQREXmedCVImY8B+kBheMIXVdwywpzQQLXU2nGzeuFNI3eto8H16nGj3asKTre5mGNYYdsUVHIqlDFeL4KkQY7RW7Di9kYyFeMpRs97jslQRWT5XSCYW3v2QhWt6CnG3Xp3uRqzDgUJuiCLDpz9FP9/GOs8b9F5Pb8KsIwZb969ZOtNTRuOD7aJj5xLdHsx9Glvg5R1iS/ZblCSpUlufTNB7edonIfGO8dm03dU3Op0+y0zUp0YapNj1lzJTjpWd7PtAE5DUu6puTQ9e06o+F6sYGbGIInMCksGmJ/13garuAkXrNIoH7MEo5UKoPIfZhLfH4BlnqEgxvpM7b1ozKmBRqjBYz0GTHBdfPXrZSsWAU8fLY/OjTueT9DXzNj73dJXIBerj0MBchlatNZNV2LgSjVtQrRJuaFl8TCsu2QHSesI+agFL6OYhtBfSz78FFO52/K7KjCUB2BovKLJ2imgUFbqNR3LtpW9Anc5wdxN+U+eFSwsg0A53/8K1iHNZC+uQzzdTd73yBJHKvI5CYej3ygxnwCEvreQJZWVyEB8pqfma+pKe1I6pZcpXJQzOFH21qcLYt9wYseMg3+nEEbtlp1JbWMD5KXKdJslZTKAqCx2BRKy+j7Aboc/tGlaC7qI2fFhTowr3bAmrfqui5yRqkI5saoYVKcU4UnCe+1a1mdA0BLEYYkeJZPjvcojKYm5q1hnqD907sC/F0GU3iXYYvYBoRcSMAzSSAOhq6N4AcSMwV4Nc/e+ErVkfvQIdkl/1qk1LQ4YizCqvYxMMNoTPH3Sc46ycvA7ctDu9S8rkseJ714CBKZhQT5GnbJ5RCEgdpO7xgsaIywws6D57eTUH52Kus3UTLpkeeGqRcC6T2BS7hH0nNtZRgrpburi2HeGEYkX+sHmtUlDHF1niV2uDGKt1CDhAutUskrxapwE5W0oapNq0/Tlf2bMCz7lpKrewCb93JIth1JGQg6EAnFuvUC3+yIokDVm+m7ALyosyT3XvG9CwU6poKkFQPYLzNZW13rTAE+DbrvfzS78rfaxEpYHH7gqQyfuLhswoccVnrbGXp52v3vRTb0GCr+cn3RmfGevI2Ah0FFlQf3d0oG502yj61swwKqdntE/bUOHZW7PErEQCKcJL2er8oHf5Dt8BNqkFrNzMQ4IUxbac5ouDp9LT8ljXzwO4TpeidS7wdJ3vAJO9oDl8kYXes4svuC2JFd6+d6GWUPu+hhncsNtfkWlFZMgJt98Ae5ULQ6b7S17hkry0TpQeSl8uao+5I4Uoy4TAwB7qfs0emyD0mH1jeXNAZzJ9T9M2TyjsHCpFKkYJaS8DyIijMwApi07CH0nMpVqXcmDtBGmx45OTMs2H4E6gLvSfkwBY90HIRklM3aXzfJdI5n+HBelRcMBq/SU/++TO+j1hkCMe3mqBFIKBqU0K6ZdIIb+cj0xIJNP4FwMUcFwukbBe5Fa95FhJx5KKplZ6dwSyn0cNduTlgd5ho87F2eygv9SF4VTXx12wDMlj/Sq0K72waqMWAZCsZ5xJ8wxLHAatHKgXvZC9itXxgJbtbbSwlYaGHtA1PtGEVOLekQf2Ss/gszgDlSX6NAR1U8GkAV7YCB0jOU7ULk6D1A1dsW4Ocv7R8DFdA/ITOBk/qk8H3Kqq99T5iB7Qqc/lKTY3Wi36YWG3kmlnJpOqw7kkNEAOruAesdIn2wgpuDboDHOxbaizgSdj7+FO9bEcMXwbJncnwg3fRHBFJNiblV57OTzPWhtPAItB+8viRcYQ3gqZ3/iuySmOCNw1F/W7ULFY0iOU9ymVLk7Ny6ZrDZayiy83SLgBK+qs9CCMhJm1JjQqrMVwjx5EGU2sIdG/eVBinvnFYvWD4qWcg9/0pSlPuRpvypxrhbB4kfuSgpA8npWH1TVeRGy9VgSxTuhs6Kf6wek7KGEyYkMUECdIQPPeY8k9P8/nt5YFvqxCVP1R5gL3KieU+WH6HSluP0e0rVfdZYkJayOIX7JxlwzLvCH0JJHnt2hMwWdX9Mvs/kKV5Nfv58c1A04LwGg0tGxnsDQ9goP7l5ryXn2jO+WV+UTZLzCxxqduZ4R3TFpfcKP9q74mEHYwTxfnIZacU7cS/Wo2rKSIcRznq9B5Le2XO14g77Dywiooh142FZZNrxdxC4vdZmGFkvlV/4UNGCXxaYPiIwHvhSm4BK0VTx7iLF90BWx/pgQbjfjszWJ6oFVaCU3OuS/QggGc4zvZAzvlgqi0MvDFjKIJxh2u+ukUKw3ULjHF37SEXDlRevTfOAOuPf5ySlDZf0aG+fztU/8d/z8kp/iDpaOy3HkDZ/6dzwfkZeBdebQF9s3XBzexn1gnWhuwH/5cFCn9LoDr3curRLUIK0On2bBtswddJXKxYccIvbDa+ZgwiqCAKPruhGqHbZj+/B75YpgC3HCvh9CFytOpoViXDVNkvmnj9SZi6QGkLeVtuqf2IK9DCoKilYgg8MN/pY5USuUL2+PhLyiVF2lNTCRgdOVSTwAp/LvIPjGPuLFwPQeuXVsucEEaovp9LK4vOF7BsFWxEMDxKDSdjqJBYWO900vt+4810LPLfGuqO/NDGYze5DuKuxaIoKHXOmjI8srr/rNS8oL2/2W9KfOm2N33z9n9zj8Bz0LfO6Eay8fUpq9t45oxCnmd9MDcUpBF3LxhKruKsACOfP3MhMQoM50kkNMAZPwFZDx6LhJvpZohctgPgaPZ4jHCOJiylaPWPQNsZr7YBV2+VeTqYtSZfJN55hM0x3oA/7bjIMGqQxLH58sY1PwitJ3DcYbBzZDcIEXGWCFiobqGC/V5rTf4irNUc0ojWwGSy9r4cyiS73EfKHPTQaWRXRE8JH/h9vFNYLvuSRkjyp848fADtRKkIBF7pyQPUSSXisWOCZ0ewMuwFjdQBBEEVLw2DPd0pxhFPG+EYiV8qq23Yw1339PM7JtlNbl76QWMW3YI+ddY6DzKCy1RiZ1zUVC3bZjxTuKHkEGZZHIxmtGAWI+i7HbOMbDzz1TOuRWgL+DT9Oio2e3cKdpuUoFPojKGipOuehCkNDJtGpTcWWT/x9xsF1PEJ5ib3UpbqyIXJhvMx2fPgSmPROlPkd/yUhQSImyc5yTM/OCh1dV3qA2ubhLTtKcxPtK8zuesW05Yn8zf0gAd04E7ZobneVIJH17hepjcxjrUBQrcaVTcJqtAYCUu0FBhSc6G4BYkbvHFCTlxuUZWlGwJ0sHQi2OuHL64/lS3BfIu1gt33RV5T91vdVxJGQqzFOdL2qX/FMLqEeXFn+eKkyIvKChju8qKIovDYhWKDRplnesijo0AzlYFKUD1AcIIhlDdNxFGMGbUMxZqPVwOqUeIBxiw7gLPW9ZuoivDYF4Qzo6PYA0GnI63ffJriz8H3zNkyEKdmVEJgv+4uuT3UMRpfgp6vxLU03F5OSgwIoapL348mdyxrwKG+/iA+bBjxwZ5z/Syz/WSFcEgFVnIgLnmENuleBaAgQAAdvDdhRdLhLBm/FgDs6e7UtasKD+GzbFmygLIUjCpALLn8VAPjP43HCo1LHQabVsv5mhZ8SS9cruN0FnGUKnH1gJhhfWskLtxk/AsbjGzqqeG8f2O3uWVpbGusPckTrmMhKzG2rqyRcTllU/Yu9rqvS7NKtacii+4lGyabbI5zy9P5xiVeKJ7Oe39shdTkd8CO+rcljfF6Z/wZKVHp7o7CuVWwhtiVuyhPH/qVIoPoipqsAD1wL3wyP6+WGpLrDvNt62efTdYTjkdNKjiUabfGiI7jJ4aPWuxpiUg6wGIhxLCTwCzzJ0xVgjuY06BMLZO9O7ydvRGYTPfaNCdg2OP5e7yxPA0J1A572qITTCROkWFqcSGofL9pvGFkfsLih4tW01+dco3O1BPUTr6IeMaBC8w6Kl4ye2Tec2vINq/oplMAjYI+rXJdzZgdgRQq8MS30n0I5gCRyaDyzAdvK9U7wIynIuPCZ5Lks94MVRJ5N0Vfd73/e0pBL1gaupIH/lhCEvZzuDsJUgF0wS0TZNXi5kFX0SgIBUQ6tGAn7wZZZE2NK8pEVH3LzhwqjhGzRM9Z71puZKFX37d9dI7cxJ0oE4Nzi2saMBodnrG46jellMDzC2QNOFRHq29b1jYAH+zhEf9vb2lgB0CWwiXBZmcDiqN1IcYI/aNtRErZFWCcMjI85mhB5QKDVv1AKcMURpom32Dp435RKXwM+UlTnTpECTAyEJiDSFFHCWI370szSDS9YJ/+Uf4OQr4rOxMxhoQ7+TeihiCY6/U+LthM8VVT+VhqWo+r1PrrAC1eMzEGCMJUMbHEs3pgHpzKo7IpGg9a8BXc7CWmtcUK4uuPVEqaa9VvA0QK0ss8GZanzCEhjnnbf4YxVMVGbqbR2E84ErdYk1HXXmmT+oG+/P6cP4Ys738/ahRTg/Y8qJlcxNU0YpQRSUv1rHHZNLnH/AwPMN0pEF9OuBdm7xqMvKe9GqZNCZ1ntAuKR+5DpBDBIEn79Cp5cxjEOQ26QfxAtDBMV7fQcdj7lW/iO2iewC41JzRxOqq1ARPXR63Jrje1NjsF9xnpth6mcOj0hfE5GI5/mv0o6g8KbZNpQU+yECIswFQD6JuGtOFsLFZ01/yTuRowyI/sII6vG91wn2BRoJ5ZiVkj+QLZWvCF64oL0+Ce+DAf8qAkFPqOnCsyaIBJOSCCXwQ0fxgIhBF6WZi05ALwrYsozRdZs1Y4m3o3Ul5lp38NRed4qfpHVOi59yasDLiHuzyLkV4UhBCxEqBU4i9Zu6bGouCsXuo4m/JQMD+WYijZcbyTBjnfso+2OX8FM9oCNwRjiuXVvU9trWzfyJ09iTnKcozWhXJ1YvaRFRPVCdzgg8+uEcsTi6bPE2yzUig1irmte/AK/1Ww0U7UeqkF1HZR+A5F3QaRxDrs9b8Ne9912PekL2paYYT7hDkpn0aWcE8o+lqHdRVt/66U0A02GQHEAfOzoXTHtgroI3XgoQ7hHAV+nU/VbeYH7KzbullXAJToMAeAjs2rX+Nmsa/HWF63rSNjGMrIbCVWKyDpQtwDb0bLpJtt2YwWftjPnE3mi9fC79SVoWJYY8196/a41HaEp5RCvVSXn3lNcW4l91pP7I8mMswASPMivF11cwBhIIQG/ib/KIqiCREUApa/LPxQuSpSFhYAQEpA9EFRkf2QvLmesQmRGd/d3sKF3MDsg8nB4ZzAmoyuoON/pQWUnnspK9LCevwbA9aVYePjUIv0SXUIEZF6ZOKkGvJMJYcOWpsr3GHvLXiICkX2uNMUbtzRdR0XXftFVEVeinEJtnfTwcgj0XTOUo53MyEiyQ7CmGzSjokrSbeD7i+BwB+0y/x8ybdtRpGxfbu4bln4XW5deVlXKyGb8kK6vPD9L+4ECvTs09ELvhCmeSME6nE56ONtVFpMrf4pjGNtE98KDrJzG6M9BRvWswwfSMRPC6aGZ4oWsc5yFwd3mHSNSUwZGpRHXreh+mk+EeoGvj/g3WH1MbWkn0PbrFOPb9yAGFHpv2lggHIyNed/C8lyxbeNjE+b/nkuqHOWPlRizuR8b7UAjWaQ731bBkCQhRsr/Z1zGfkaYbcEs3nFoofsNRgcvvTjkiHF5y5hJ77h2OyAzSLdvfHlNQea1USwpKh80zmiyAUjmZ6XdwBPzxGT090tXrDmb03m5kbFmtrKMx1tCaITfBOIc5PV0t7kZO7/aekkYFqomw6U34WEUx/gPCqXo2fGjyDzrKCJs5mTsv2ZFE/QEgnu8sk4niY5+mfnFP5yzI3iXUSr32XnDKLGXHJXi1pDiPcEyfmcoQBYHmbz+nHzvFYBtp3wdwNWi1MslKG9x4p6/SFzLcGHQtwHics6oHvCxxNC3VDS73+wI+dlBNiTiMvJ6YV0wMs2t5oiok5PLINCTcKsy4dH5ya8Oh1WVSgfKOATB+eHk0KQGG231TFQiRAECbzdnKa87x7Vf9ze6FMQ1bML/2IHGw6BgWUINL7nLPpA2usyFRwOAtJQkLmdBCsu2jkkoA5K6gCuhRH0sC/GcPxV1TaB3XM8Vc2kRCPhLLSarW64WI+fn6aZN8fnD6kKLumeBJ/a00eqo4cPzw9qeTC/nD4pNOVMPOZct5WL9mv/bYMEie6foNPoy2QELcoPwI6l+el36o8Y8bOVp0ad191G+PqqXivbVInBOhf4J7PsdPxaYQEFSSB05DLpRjaC8CfulGAfD8FVvOL6Lpj/0GvINZjkvnNuTrY5NTBBH5u7Jqy1+W6xK/JHYg6+hhGsA48rHXqXd/zWQJ3Mr5aUvaRKU+bdiW3bzJqe9ARQa+6LtY+DhLIr3yYdF8qP1n5j4RX7DdVWLMO9YIVZ3YEcluYFRga/6kNBh8El1PdbnlkijZ2ba0vDKo1q1hAKnCZFoqoDDXgrZyJRfiZvjKqJZJmtS5K80M9ora0kX/95SL8zHrvF0sFN91EKA8GY3UD9ck/ufb8GOATJnsFH6eOWGvijH/hoAfZpAooLCAxiEzifviPLS7kIklhAX8kRVFNSJqQ+aoNs7RToJcvR1x+noYa+v7jg+JAqruL/L5/gSCljEKNYx8yzNPaSnPxu2erR7PqUXF7NTSSM7qq0fQTf4AIaQmNZfs4UFGoqB4YUiFbN5gCXSEOw6g9w0hUs6zLtzisP3mxxhGGrrCcTAXAs4sHOXxI0zbCbuKAOz18uPDEhHSQSofenL6F8fzzn9KCO26lC7JzKztKsjj3zqUuEWSisEAw7pELxIfixGvXc2j2kUq2uXSHNqy/e0gFGypaYgVyCiIV1+JUt8XJNVYM06CdJdB0NsjY4U+JslkmtIoPrldYlMu4Cgt99tPSrazfdgTvTzzWlrVKphCiij5xeLv+zNSLf3O7PCA5ucjR2TvbIFiqosIYeK7GsfnNDRwb2NRdbTlAmbDBPRuvEE4Lrf23whGA5NztIlvv9YmavGYUXmHD9HGXXxcGTow0AQNd6joA+auN/QI6smhGRvOCtJT8yf1RcT6dRfPupgmUNZ4S4a3yexueibABxlm4O3AP4R9YDbzBFSTxTYzwCcLwBcfZkwZwOzeNQHdErqdab1bBSt7LVW65FSkfF4l/Y6w3yVIKujs+PfbMlJUSmjWYlYfodY+h7V7TryN/CKD3Yh7K1JWCAZti9c6Cg9S2k34rauy4A2n7DM3tB9vIf8kmliEfVNC0boTYK+Pzhm63uc84O+gsaO7lEbAh1plMF8jM1721qKxiaiQKdVGYanVljK0W/x3BnQrAu7WKxRGlj1HCgs7Inv18/LwyonmBSKthi4xU3yp4X/cHLbAv2MB6p14LHinT+mjx4D/AH98h5Q84eCyDjeTx5pchaAZNTyXNjBWFcmvXae41sHKlqU+UNjATcN9hCRsV0svnx/aeHqyTKlNlcdFGXY1hd9rK/rQQS6aeDl972YAfSigmdRSzYHj2yR1XgLBrv/r5iCWLqPF4EqWnNaV15UaF12sR6c6viE9OkhqBShl3MjEyepUxLVL3yKbM3mhFZWhIs27b7pzpMIpJffH66CgOEc+jkRv0G8WWG9S1nNt10PpR66ekyARsUGrdxdeJ/ZzSw7J5rsdWfCqHuhWZTVvWIinDbHW7We1wuKEBFgHl681cqaTE/ErHxxSWLzoWB5lAo/uThrorhU0qr69AkatuzApcrwatVjMRW29ar3+E9hkjy5ycMqHM6nExcHUj3E7nWOczEIdnGrC/Eau5lV5s8AdH2qlNZrdqD0Ya22l8IYS7zx7+CpbJVRsDQ5NaZ7fqtXvu/L40Yv44XKygfLesr7mni9NichjqOgh4tk2/ycvJn9X1Dapy9eXKZgafCeyB3mz7x9fGb8W5bVHF0q7CqIQgN3tzv49y+/jOQMa8/YeSGVfuFPF6EcZS9ikU9zf+x8Kww9NudRtogUlitPmb+Q7I7uoYLf6njSpmzz9qgW0T7jVFD4vtFNnXdjY6pKBQoKnzwPoqigLzRFQL8N81ti5c4wKKmCQTwUunWrs9q98OYiOyn+cEgucVwdTepZMZzz0khaV3eLE2wBB6oszyqWhd8ryYc5E8L13rrhQVHRMVfrlLR3YLE8/MGiWiSy+p5ng0muvKqoHv2s+0LHOl1l9HgRo5Qrm9i4/7BryPXxCp391oKO5e5GyIUVUgQJLMi4zxSsQ33ht446SmCCFIN3EcuVHPiaEodhXAr5iVUuIfXHO6lvcTxpVF4EWsdUNNdl5yaAyRwiJY6thnDqT9xOPQVRWyhIZxe4RpnK7qftQxtcMoZPHpoWljyDFyHPX9jRa12WSby9txF0q+CJ3MbSAXTxyDIa7YQ6YxN8VDd0Ua8cyId9Et4K7x44nRJbZUd3ou0wFzGhxoolBbCFfS7J36uh2zHLLSaa3TiPf/RHU4OpFHfV5Pp4TkBwgubQGE18GCTNRm9kMjbtoyiXQT3o9hvgHedP1yZywdWWBjgaJckBX5tM0VLmm/X4kIFjMcJ9YzG9Ob38ZANamaBYzRxns/dTmB0PD4NDH0rO678apyUroX8N2HaiOX2/OWCn967EY2KOLzhQiQLd8HLSN3UKevPBuUmZmQMgGQ1JLgghVjmSRuF8orYdJpYIRmXi2CR2wvJ/hXK4ALUhRlJsLkG5cuZF7IgbnzIsnuDCYZvMO12PvMNCECmbrPnzFXE/P0IvVrkScDoZiHPKgUDKdoTKpAbP8icFY9pPNw4ssnw5pU3Jev2SfiPZl8ISErTkPansXYeTRIEr33NarxWMoOekYTk8/L2TWgYxy8uUOaOAjfUOenvmD6EXtWgRcCIcF7i8b205NS7hM6TWkSOX9D0oGLkJsdqf/EoIqDqVDpBLILyOHqpqOeC4DnQzC5QOBHRD7v/6THzLa1VInYz18vrI28eTDGILzUboI1w/INOMBsK/dqFI+1nIhcPJbxq4GVFti5jxs+ds23MZ39nrEAZZsO+tb8xNAdr9Fmq5xA69vdVm9OCFkDIS6ijxMV1PVhgHeclkQhfQe2x0MvpXG9DDUeKXehyMGELKb91tBWFn5JIw1XkBDYvQdMw++lmWneSpmM0S5UcucwkDrW86lDwYpPNT7FpQPU6/2mjji8oMNeJzOzbGsA5k1MzfpE44/0OoaQeWs8E/GYT8hd+qaeHsmUbEni8/Xf/2A2cbBn/jLZK8pJJYRNG2KNE+kjOzI/ggS9QLm+O4QtwWd59DX47ugU2jO5sS0XkbbJxlqC+DYajtV2NMbka3VjU15XmGeeN0JCjj/OtqOn696xdGay5tLhNyAbISMUXyBktRszEUMeE5SvJwQR+j0rMN0ydSNGkALC74kGdoSSZGrOOBMCSxWiEjl0036MMe4xoH3BabeL/IPzLbtkiSBENxgwseFXX078UPvcgeeMj2Gyb54Apc2ljzR8eR733JICqULLT0myHAKbKtNw6HCSjo7urBEgl3N/qLGqaUjB2uidnLQSNwSKoWDxnGydQnIvThAVeET6QbZOpyQnYM/5sN8PUavMPf8FXPxtUjzD6HcB0AA8j9FfgQX+YwPnIb/QkrZYfb3RziN2cmS1UOsy2Oo17VUFbiLtbVNC+vu6L7dvdt8Y16pOR9KvuuTgRLfeGWxPJ4evLxdhunveP7g/eOwcit6R6fKwuYa+H33RkJqQdGlEhhiwFskERApzSS6bZaITB4wGJNN5RVMbUZ1rnTTNImBypS3z6b01JP8qL4ALHZM3kV8HSFVPGwXTe0V7DmQy5yo24vsToYFZZb7zvdV2rog1YfB6LpG8zaTFXXz5jfLVGwPRmToNTjQcv8DMudoaUvh1zH+GC1xrfXAGqVSgJwo9NdGl6c81Rc74PUvoRmChlrDUvZeZ49QyiwtYBZce1Syvc3Rz5682j/Y2gYyF5UIX04fBEpfPN2z7ch11reFYyQMgtXhJwXDM6dn0rc2sQGY4SbvO3ZlqgV5/OqYKVAifqqLEKqSi1VZglJfnk85m90MbsCN/cBiu8jKM85JCVEwVlUTwnL+ZbFTEvBEvwShU5aeYvx1qs/ziC4V/HuAO17I69jhdCz9dgButmK1XZAgNuNOMqDWFk97XttPr1UnUZlTizj+a8EpQM2yAQqrifBbzMiMsFYZ/UjmxkC1qQA71dfMlS2vu9+zZxBafg55uaW3gEtQS3RTitJ1lUXtPQ1B2+W+MkIeAPzC+1rSIhdLaolte/48ywgaSDlCqqnJms3LsCoAwI7/wD2dbPlDcTMIf9iBdE12qNNIeeUSRnwsssIO+h+D7ZqyjM/OCYOse41WMOZXXj1IB+HMYy2XcUwvJg5BxTsa7CA5IWzIghZ0VuicyXjKBN7C4YAqvu1l3M3HJU1HSw1+S9tP/Ff8hl+kPHO4Lc5fV+dkVxo3OLotDX1AUECO+kI118hA2gkRYaxdcPygS0afEW1rZllnWJ91BUT549Obu1IfQJKAWLnuSxUtIxaeRH0qWfMaH0scfrhe17femoEhpX+tQCJoFspO5ddW2HScXHSDUAb9Z0rMHLQMF7824DUYlNKw7qyh7hYGjZSAubKlOPByaCBeseyHeMp/Tx1cVyixi6Mmxkc5fQDzUT5Fv0YqaMTVEQw9nSH0TFo405l/YoyifegaKqTaaCPVNt7udU5yzq5K1MQM2vb3W97BDKevYTqk3SEauVo1k64ayPxpUZf/rPKXBMOzvM4f/hXYTEjJj05F7cqeNP7m2LGUM+nFFenDu0r+MaB60HMSXBJTlTBC94/zpSu8Hu2wWqqN3X/R1tLaWPSacOQIyKDMOVHy7+p9RUL9BnL6i6HITNBEBlPVy3x9gWpCrwHOUQNtSlBCOZ99v2paVh71gR+cMJryZp+RJcSpPIR+K2gjhYaeI0HysamYvClA8zoo6AsNsbPyPXVWj8oa58PZnI0nmWGVSGR/Y7USm62TUdr7FRLyAWIkMBH5BJgh3KlRQ6S5EC//2+xV6F1XUzNXht6eyR5y5LBEUo/77iI5MZOOLKSccwdR14qCOGYApcq4YjHMK1kgW9ziE/9jOTPkfe8w91eprwRZHgiNs+w9Ex8BlYLPmkxdpqBItnY+nW3IyoD3i4QMZiqMAZmBHeQRhiHVthBgSFURImqZj8Cknr9SCQD9CqmeL3e/Myg+ARxk5xrSIKisBN8vZR3lZbDQ5p6fCUQsHUTH39J9XJl4Q2WVwAXEugd4xwRUO5TCGwd45tFMS/QrSQCOxu4c7tjMmUlBbPYzwjATFzjd2WIuA6r3HBpsmEx7d7EEhUjV4Xxzt64qmGch20GzDeJ3l5PuKnlan7pfcRExPY0todlJe/NuHBGG0DBeTzIRZLDU/h2uOdAGq/b5AO+QVmHY8iX1N/2Vc6nSRV0wwGkwLrQraruVNjYILc9+pqrAeFGxS5ztFpM6rLCn5ttNaRCz5p06favrc7/4kUEFBmfLSxsOkXof/apVEk0j3CvkBMbza6ClR4QR1wJhGsyGq0kF1CcwocGesCAWG36fndzsYczq1e3AFCNFPvubQ0EqQqe80U1ZGzgN7VJumEgqVkGHUhq7C1NWrtYOwcA6ZiWYafUjkh6otviDjb6xbD4GT/IcgntSOiWODGHNIjdPlbpBBbjozgKBUU8UT+rY9Jp53MgN85W9w/uSOZEi2Qm31AHiKR//y6zrWMFZbb1PBugZ022i8mSparCEWxb9kzuMN4myjHxrgpqaU6jLDUnadJh6VdjUNdJET73ag0JO45Ie/TFPTEE+MSwMcEx9meHQBB4uA/oDs2LIITKBreU1VMH4pA7Y8ss2J69YZmb9V4ja4uXbdbAyZS6buJbvdjihHwbhfiOwU+c3DxPrBCdl6Mb2hBLTdLk3apFLqauaRFhr2lx41KnM7K01N1RdSk3gLMNmJxd1cC6czfbdulRhm9+hUsikSf/d0Fw+hFnipRLR0EJpVng0ZFcGPEfyX72YfdPDrI4ESONna5P9QPIi2LJFZGlCJEBZSwlqiJC1VRfia+i93W18PVBD35pZSsHt0CKmjiksoi9lBz1G+CvS/+LFmQ/7aFa1r0FY22DxcDhOZlKyPXE0boWX+vx94n2qswgW9dVcVemFKjW7qM+/WHY7HodySete+bDtlWIvAgZKRyCaBHoI7o8v33mgRomQ2YHn2Xh+N61yDZSsVbBGCpYksGVwMjjATNNqJbSnY8E2LNxAvBlD6v6QtOZGXWXJXv0uKW/ArhjUl2bovjbp/3F01XflnlQVMdzhhSFxRqYpjXIeE8Yuv9amMFZ3AJd+cPMjnGSnUEkgY9nZTRcKQzD0u7TgneywNxYuwvix2IkrzjV53sAEEW2SCTYpcHEcVKIBUiLPYR8pJoP27LCawVJ3RK0u8IVaonZ734H6EFBUlmZlFzf5Re7Sk9lJxnmQFK/e1aQUC1kQJ2+Veyk0DZKeC63VKHSWELZYOKiuGAKgGxQasIfhD4EpYX1s5kolf1DVpAPUWyR9mPAfwaCWmV19mqRvGFY6OlPGiajtbFx3mehuf+9C8AD/Zz2nWcdIUVaP6qsUYIi4NwS5bd3LLVYno0qTDeSj5PEWQ6STTh2GzHIYNw8fXmbG2Xw2u4h9/r142LbsHG/6CjadfV9FVkn4ZfbpQnPPyhTxQIUVTZ2Hg5BieCjpqGRIKUS94c4tecJespwUokrI89wgdSHXh487IT61ZSbW4x78VKQi6d86SlA0uel7Q+rsw9wNSefQBQJJqzCYITHI/fBWoGnbQdOBr5GkfVwwppCnoRYp7ca2oRTWU/Yn/tsFq+LYRS1a0GdutM279YPnA/c1tRx+dTE9GjfbTofgYhFTa7Lj+HIzPSHzNeqjxeHx1qepd0OIUZclhAouqQ8ByWbGa378xJw6duujibFCl6ay5FL68qCiWAezJl1DVkoOv5FzASE7qeUWGXVFmT1XXY+yKw/MzLZkB4onJKqNyRK9VdgW0qMOfdkhEsnkTwbR6V8SBerT8pRKg+ny29xm61wKE59SNd+pwskLWEK19kzJ6X3C7xO5zikMakB6IuHqP3RqP5InwQyoREJ6Cai7wO6QToKPuJnqNn2ej5JxwnnM/AxpLgneqKi6x3F0neA2rfOCk4EOJa0soW2DJliLzlCmCBr9MyV3fSv5VZIsm+RXzMh2z/n4mwazrleTZ7hTqfk87kn6eVRWt0OpRBiApkxDhxgp2CFnI4BDn1ZIPlZ8/0ieK9UpxVPe8AyHRan2CeSPhdkUH54dYaUCAagWKhlku9KqJtpXg4gDjVMl0d80cNc9qEnVFYTlidGy78HbGdNpserHeLqMMbqrev7QEGobtqUIajggrKw40Ytj7/4D8LeQKQvh/RrKYfUZU8sYwzTBg7hUllVkIqbc0soko+pMRdBsQuVIE4+sUjpiRaeEgRBUzw8auEvkBISioajHfa0mAwSCBC+EsPzI8rm2hMHVkYlLpC3kVcJ+vJttaVXG72wYA2DWrmoFDRiiO2YYoEN/21eIw4PP5Kvggl5s6uW/radu2750AS2n+Wh3acw6qiwb7BSCWp44WdPTSYTBJL8xSL3ZXa2qaTRC9tWzsYQ5jtaylnOlG4IQ+Xgs551ELpJ9fUP9DBdq9t2NI+47h6UlZNvSQJLOnqT7nBqVYkzcXWJnGLu1b4e5lFJa2vH2SZdqlxvI000CXrbhRvMk+QWDn5X81gsAIhfSR3rFsWt1HM1NATM+ts8yM5nXB/2IriqY6z2hZDNWHJ3SLM2cre+HBilljP9j0p8kdBOZFwEosj4ii87Fme2Q01tTqQRKl6F5vTcnPhkCdK+mWfbko+fOCAOj/T5aCPz4WzsW9FRM6li4uWzQ3JUrhiO6xTU+ZEAwL44N/DWVxSu5XGe88el62vpHBCi4QMP5PrGfbPA4cIe0seHt0eiQTW1TjrmuHoL1XsA6q54pyvwX71+swpLno3ygSSe+F4OalCu82zadTK2NLe+hPUDgOXz2wfmuLpchaow7QQr9be4HVRtOUGeHsW/DdQr0Og+d9Eq8wy3+mmUxzHsD8sd0TpwHNNLZzpeJjUxzOlXNJIXGmTZygmsRNzoRG/O3uMkaOx0XkL/AjmG1Gdux4XVA73qW86Y/gfR6clzp9c2Wp1R4KxOGpYAnDEb4WnvVwwCsvXXGO+d8vL082NCmNmGg5VuxQ8XY9Tmsfzk6mVib1IFoJ4JRP8uYNg+kXo4t47l8ftHnoQs8/IeBsEYr8yHKR3CkkszraS9zmWZcbM+NPwAr3D5V4QUL5sN0cME34ZG47SoMxp1Y3r2sMq7NyA/SyHfEMQvSOhvffMqaQEkYqGcqpNPXTTFVBOJ9TogtKf87c+55UBLbNMeSeJAGD/ju6S1msWdMnwSeTanaR/P4rqLSD3Ym6R6q8NnyfJ/2ZhL3kg57+WAomF0uz5VU5AgWOqfr8mK+xFm6UUFDk+92meHlrGRJ+PA49+jiKerl6XJctLQiOtei/PCChaeS/H8Hl919iVlzwq9bTLW7k0bZCX7tpffxPKNIWsPIHhcMNNjrUNItjMmJN5iIxpj4LdrjHBu9AQ7O/S1AGmnA3j0JOJsDTnNywoyvSOqfXnInqyzTgyYqlqXKUABXNGLTcavSQ9TZ07NvRuhOH9tlS9AYtCE7oQ+lrmnK8eRyEwhctsM2LnG58DMAn9XqsDwhbSf0cfjZk952FLD0JOXKj2O4R/+2vXmVJASGV2gJKOq3rbkSKAFfyq+wnfctSVj8PkL9IX4wMcU3Wer4rE/1Oo4U8bHohy7DbHgeJl4AkwUwFuxQ5o6HCWACUZbyNgwOqxHoTHROq00g7nUaYUtaU/juy1+KKtizkuxKCh6rxUoSswo6NE6rQ3KVHCfRhWIa7M2+xLQLxxbl/idZReIJfr97uC5kS7EY6HA/wdb8v354288W1+AzM6gXRvOwzzhUdga8ca+1CtplMFD4TapWjxNZ4LtF7/vHGl49+L2JcnpyvrFbn3bxGk2PTDu/kfxJ6PADHYzxpA0XmYW/Yty2QOw2j3IIq1JUxe9H1q4J/dTzVlYcfCsUgJ74TpvFOm2Y1XI4io9MlqnyKCxpLVcnuh5+nYwSpz2Mwckv9TcCOAq0CmLFE/s2XNxZfCIdMRsLS3eH/amz4J+wwKarG4CfNsWDX20VXa9MGYeKpzumbayS+1qaeN527PDzv0IYcw27QUbiyOsDce1Rx/2/nYjPKkHDI5GanHiKM91BeetF4YoqB9qSb33cEY9pYEwq8E863wnu8UpOLAiBTGJw+LA7gXyUpGpWbmuCkgj7w97zvhC7I+EH7QXIe0yng9B8z0rOZ5Wp2Z9MCmt1HjsuoekuggFL6YTq2qrVZXf7mT1UhSkKz4nS0nmjVp6aBXxxVa+V+94jkDu1vXiYxA3B/sWBHOH+7EZVjMuDm3FfsafUMeY/9DZKMoBPPT0LL9GTnGwElNHI8WFEVG/J+l+Hh18no0eCvO12igfNDGAcHOpvnWbvQfr/Prh7r8hl4WWeCxVF8MZ6JwksWXMqutc91Fl3X65XMLuvdosFvSNitcnV2tOUxYdjEIxsjBWC4wvVdg2gvfI0JVH2UE3JGkBm/Lpd8YcyfTKJFrkK61/j4FeFmfWMc+s/oFvsxfovxtaQXWgYJnkZDETK6TVduX1gPX3Tt2YqWJpqIn1LBOoMqHXKV6f2Lv6CzT+gTK1viquSoAfwRqd0CD1Jy9YJTTVDIMhXIdkKHTe7CZnoMlFW9kOY0az+B947vVfQ8+ymOsy6eQrI60D6y87cFuO5FLT/OLaIAiO92sATetb7S23noqTRf2Tn/j+B8OMJ0fk7jmSxCweJpxHothXa49lRJzav1Pzse2kMjxeJtKoQEng9BQE7h5P8h7AWyFGNmlp9FXY2cvdiPzrh811UVmC2TiZmY/Y0HyNHsJtj+4H4J7peS33Wm3ASx/WP7d+fJC06I0kTbXkg8rbJBxnlMeNhbeTfZUPfyUNJNXphWKVGrCRYRCAPex5u45Q3ftUxR+IH/1Ol5Zh3nf2Mej2sSj4laftriTgrAKXqu+fFSB6oJYj4/x5Z/D0N41HAjsnn5Kazycuu/e1LgGli15a6dqtdgwCwYYbXq+LasJzHNjDTr9OtrIFVjB7UZVO0EJELlDUHk6uZK0BtbfZnWH2oQuxetafcBNZ4Ru0RQgyItlwuqE0d8VddjqiTobfHN+BkO3PqyrOl1AUhex/RuHkU/fbYfE7pIjiZtljw8ywiHz+JzWlsm/dpkaTizLcYrnuXQgOUGNMUuCv/l2WWsMt1VPcrnSkqigZMsmuJOAtz63FY5KQ6aOXGEdEPD/ycrb1h31v9F9Z9gYN7YosIiY4WzVJU/SbXMksX+TvUzaCjEcA/1tvuFBisjKX0+lxVzZYHvS5NJDSOqv8SlUGyXHjE64xXzYbi3WTujXMeHLSFf2PC6tBfVgXZt9P1Sdmng62XHkZaJSNcx6D3jMOVaYcBs4/Ug1dn258sTRqFO22egPE1uzKrusWFwcHav7EkVjWQk984RDpe+qzAdYcZgtHSnFPDzMuR91wOcugLTrR4GpuMlsrOw8nxwlgTOQVV+uZmNeQpxo5nP7HRUKLKWe2huiQvNh+IWmAwukNjn8zyP2hT8Ojv/KJAB1UorDL6KqgXmu+R+CWQUEpMeMWxDrRF4zxMLQ1FjBbGzUPQxBbwpoNitmILGmSCmD0u193UrfG1DoCDnQSmAOBouNvWqRCwnXgheEb1kC4k1cyC8sZZhPF3jTveM8g/nfJ/RORp8V+WYE49oQg6qtR9WaJ4qH6MzsE12yLQ3Pc4ZmZD/U6qVfuHh6SBy2KARJVfb8aLSM+hn1+E26v/RNp81kd37+s3OkgSYnK+roeZse1uxxO1frFlWqgh6Ppd4lnr/DJad5+tyhY+IZy6L4RssBM4uLQlj/QW26i6E+3dqvfWUhKYXjk7HJFFyWgddASUefohbU5+7OjswVXA6UU5pyDQyXLu/at8TRzQCrf/Mp72u4q6gXHkUSS9qF42EBOfipQ2cbiR80xW8dpcluR/QYkryjP3U1+dAvr+LJAGOuCdlN/5tvQzKKpdZpAQUeE/dCcmvKMvruoRwcG8vOBeCdO8tU70gmukYRipxJaPrpzpfrJYC18bhvjkLXc0f+YRIKuB6b+LMVXwFdhJY1HmiTGBSCBMOxkPucKQxuy5AZ1xEgun8FPOSiZDZ2cJU68PQzP02Srhtxv1JCfk7e0i2N2dDx82nx/a+XNgcUlnoZ5B/o0E7Np7HGt5jbaKrTDsZUYdhoBcqahfXSy9llvUpYxO5lYnSF+Mm3ansTTlLKTTpyzMLrZ5kyQwVKQ/Jth9O1vrWHtbnrEkmHuAKxC5JqBXkaGqcyH6rqccB2TZU5knpSa3ZYDLARzpPZQxsABXpx31/pIInBn3mWe7YbfPrjOgKQSYx56V/ZRq1EkriOVeXQhz11WdJ+L6qHef1AnF+wOtsPRrs+lsfdQRuBIrp/eax1NnwcxHzqFpowrWZTihrZXkn9t9zAPHCnRCbet9iAKmQGXc7bXk+onseHtbx8lCgQkpaI9BlK5JhALiTXW7OQXYPkh1SdtSpwUJgRnQi9XWigSv9rejJzMi297mLhl2MWCYgsqIirnwLFp/jYW0RS2WjarXPElV972CNSjFablRGvPYlICuLlx9cqeS4oITPaCzqIxVtF/d6GnxlwOZiPnbix/pYrKMmzvXU+/5xabJtA123P3rCrf/yXsG69911GjYEPr1W1Gut2fhhWcOp0jyv0RVBspgv0GXlbhjgFy/w8oegKfYLPls32JDJBa0SHaDY8L37whJt9tyog/0SO6tWmLpLK7lSKs/lGiib9N5W7B1yKsTRfL8aXvQdQaCNppoze/RfNACD/tlMO5KcPGPtpBLa2apL6cOWe3lmvQp/G3f+/wGFVkC0HCT9ZRFPCbTimHjM2RBa1DSZB48Pftu38wslefAzYGrsoKdPGwmE8TpUjHzDcnIbTEBiWh+xy9AkSsHhcCmKJ6E5IMO0GI2wCi16KbdMqS7gM7J3Z5q+gOnx+BcsnpfSzzce3SR6lByekBeAnbLiVtSdoCFiQKIZoWJ4bpkE+GqOizrikhCiHIEIyFy103rSxuKPRA35jwBq0uFFOBWL5NTQZFJp9eldEXCGoYVM0EaO6+WIOy0W9p3QRfWMp5M3PRNCOrOum7gpQzhqKdfnLUeax6Shfmbk1kYwwUupkzDTCIEyFdD/+dn//ToZC1oMcG9VWmDU/gRD1pfEsr5qVmQK+4fU4T9CtCz9LSzVT+g4iO3OOfGabxqJyMZBzK7XQhHL3SnoaSFgcltqMEi0SMB0+iqhsuNGPKL1e2ofUtG7ZFOj6qXppZ3NUGnlbiRvgTNjfRaONxWVJ296+0ORs9sd/+4gsFcgVq2J/bdHils6AfzqcO1dI86KW6EkR1GfdoLDQVkXtNno7j5zsDA0f0D+o2G9Fp9a76sed5IsKXmJ8prtclG7v6uZR6LrcTwpIhjJ1B7mRAAtPjDWIX2P1wRjLS3JN0jia5XsJ4HJzGT/GUAJ9xPYsdLy9LHQQg8wMUzaxJK8CwhdqWyTqCrUYIISEVUwnQ64AMdtYUPUzws1zzK4+v+eRT8mtL9WB5vPc8cM/dDTzWZvmgE5a12WioH2nkFsf/7n2CxSnhmS85XulgwCVH9E7xJ6/Hcn+FlNG/P5Ex+f0c5QPVw/meGRft5/ZWDFzTaG6e+6wnSlLrs7qtRrLOifh9UXEW3GVMXdt2HzIq5aUdi6Fiqv1pgtkgbb5NM5evMFkfVS04J8WA99eKkhJuk22XV5xuyMmru9QC+TNx0sV4ud00MpZX1GU7YX/psf7aEIhdOxmURD5lBBea8O8oTlNILW6ZCAgSsCJrqSrZK+bBRQJ1P1Y0GUCodP7rXCiI35TFsM0tDKgPKNarXegdA+XCeY0dkwURB6yY1NkiOB4o13tbAVHwFfGP6TlUg2v6kgdMhQbMNw9CEyr4srbRxhBX+Tmzc7P1L1FQMz0yvY9ApBMsxg4dSQ2yYTJp/HKi2Hz/CYpUH5nZdta99f7qlN6oMwxIEHsamc4AhIOBofpU411WlnqQkHob0B/QRKU6YKq3UGuZ1RTPFI096VxNtYxbbcvqfD9E5PTjfske7NBeB7UDOOSXtkQMJJmI//w0aDRzA0u5CR2bB31ECQnPyLhHjs8OTFxzsZgm84jLP6ymtqrwanF/riut6RMVenplzOblNOExWjQsrnf1zd/gwjTSiICQeEhmUv3Out1IP5QNJLTJYu63sPwLR9bwAiSs/yrx4wSqjp3ZdybKRlR90g2A9TGt/ta/pQlLBWKcHcJwBSrW5yEtkG6ra+Fnz4jCN5yqUHA2dg6WmZvBuGkK6kG7BMgaGNyk66HMqfi8jKYQGJcEyczVVb5uAvFDqeDFP9RlGbmUhhq5a4j6pzfwGAWsD0urZF57b1Fs7sp1EtLSF3nR0j+QhSaQOEEbzC3UXe0Rye/Nte1Ck+NafgaTW7RJ9HbjI60fxz0+NsjUFsE7Q/rKMB8vs/bCmd+usso3IGMfW1NfHID8E2RZWRmj6F30lGy6efo77aAYYDvV5uJU+EEvNfkGyIofhHNyCr3uCex0Z6JU6Y4BKv9jG8zvNGI5OxwlwwNbAaiDL5gmnOvqxl6qRGB6HMajFc6ElTVkNOK1OlM148MKcXd/rUO75+4IMzm+us+mbtu1g8wZpkH3e+GvVA9KFJTUysRkPDGzko5rwzISwMjPnWj1HXOODrueFiDoWbHEN4+44Lt6iLMKvKfTZq2R5qIjbUrkZNq5kMRJwW055nSSJTVotTd1VLT+m5qUXfhpTOu21UOeI5VQXGF7Ko3IT2tvdNPt7SsPS+4oepiENorMtgUjLKA1o5ibWf62uxkC8IRY9Lb+xy7k6diWsaYoPGVisBjVy5LJV6hp0UNDR/WK800p+GUMH7u8Fi2E+u4uwXs1Cq4iX7Vy5L9/gKe7Lf1UgbyCiheI7a7Gdb3M8bUCfP557PluM7rOFij8SgjNxUaGUEhapJAIRpS4ZvHqDma4pAN9PA6yWQ/4vviflMf/qKwn/h30Y+VwB9Xp6PpGOKPdA1ZW4wCT/dmDdvOp8JXCZa711DWiywJqXy7bzsXao15dEsALQF+5blm0VPeBOXlO0tg9XBDaKPQ+6opi2tssHVe4JBDbg4rfcEi0Vplm4vSsFKnvTjcwCJp5vdOZUAozvNgmDX5dOnZ2z8/t56oF/yjDsUc0NceQOn1hiaif80LPYqM9aekd9heXUUolOr3rYJ5GoBcSmdQrIHjtlAgRxDawY+49ou7lO4nXqkiL6teepVyOecu1YBiOEfM0Zb8vFOiVcnBTPZVw+7l9/tYR2zGo13TCWaxThRUKSrmn88AacojzjFW3k3eVIpPe2zpbBvxGU2nMuPc05wv7HJkKNLUaesVkRdOkOJGu+/Ipenx584itF1O2ExOqud259A79jnw05UQiNtKqU2ifJ6UGfC86IyiHoy1NbeIRRv/I2Lg3W0ai31wf9t023Men5wFHN8mH0R8mu0ruCR/r0V4EvmRGE8j6PHbHC73sg8PfU48GwnytSIDybwoR2FzR1nJrv2ZnQDsFl+2CwuOAkWVLdZpBbkCZ5m9wbajUDeQZWFPv5nq+sI6HOjCF17IoZvbKIZ6YY8c2SpL2wujz7vrCX2Nq5qpseXkIUdG5zdaP0+Dv7Py+wLDt6MQE5QZbfQH7jS1UDnmQMTzI2ASFvttJZVZogcQNVkqZdArWD+MSETGDFKxeyhj36aogj6Fz0dAdl15sW8YSq5HKwiwiiM/vbRbyNsW4EgjEYbH6Jv15bvpKnZ7L7CQMPZldZ6tEWG0zuT6LYYbdEtFQW652lnqJl/i1qLSyL+geM8y18b48PVjtx458JtPhKnmkt7PsTMMtL14Qd58ZJoYfINJBeiljbMVMMX3pbuufJ2OHd59ryM6yhYZI62u5iGY6oJYAEytzHmyIeChvlzcsOy6/XkWBwL50zQha4L66Ld5dM8K4O0i/03uMjEr1ygZrVH8qRdfxGJZe6CjNhQQv8CCrcqAFjMmGhSciFpvje/uU9Qljj75nz4+nOoyrdFjOKSOrwjKKAzwiX3WKuQ84ebHN7R20IPa3C1qnO404ZXj3cMWKWJs1P4iqIdq2rfAA840YIEaF4LRgBmaTrurGCYfwZa9dXXx+U/wmsRNFbqosZGc+DoNzJEoIdonnNs4ZgrPKf3L0NvQQEoFXQcJvReZIEKZnvV+cCxp+fuugLW/YLOLFI538LPlwAAQqzWPBHcRKWrVkzriZOcrF6ehb17djNvxaFGV9q4YPtpYGeRBgaajRuuPHbofUb5qubRXDLjX+R3jJvy0icMgmhFGnz4FiaKOUZJCNC9xx9vz1jucUUgd4eiYY5tZPF6/Jh6SZNWvQ0D+knWaUR1Vx/CZ7ZUE8k5DFR+3qTd0WKD0KWh/OPHRXRif0dqURUeFBs7oTDRPYtXWmwoH5o1Z1yYqu9brYXATEWRGpaLXPk0xR4b8nDKvzcdZy56WQ9s01K4hM0bkMyxNmutb+KYbantnrn+g+VTTJMo45YeRG+k8vTLwJ33dri+hi47Mr7DaYmdAiAoFXptUdCifPWvIXpVahVR0Xb0ebGVrh35Sf2zc2N96Rj8SEn6PtWOe/gEO3L+t6b04FoBFUr0j/jeHGD7swSf+QmT3cYQnmgAdysm8d9tPameQd5QnahUxl65zrCZhrhzYEZiJsO91XZfrGLILqTDxUktWyexNzXKM7NNBZQ2GYGwi3FFSDzbCQLuHkn9dOkGeaPChyTL4i0xC8GqdcwIuxQzC7iQKesutlah9eyCO8mYiHILNBsx74ZlaPzcMwDvXHPjI9QZWHPdpa1H0baws5f/idtWZ4kZog+aYjq5bkiocfG7wmD6f3vNkLgoF+3lHRl7aBnuNvMWlXgA+9rEslE1TFcRD0fWUCd6wS/YEF6wO/44nLVYjGAlyxrxiCVpb8WJjqye3TTdxplmfkpV2F/fp1Ef2Cgypgy6ok1s/2YpS7p5VU+7UOVwpjfKyPB5J+PUZYKKpTI1rnTSVJjc5wuoKCxJriskkV3H6nr/+PqvpgSSKdUuWW6QyAVcnrOsK39a1eDL4Zrt3F4IWWYb3GNKAA6KD90JlGnveTTFhWaIkAlrW5vwOHkMm3gg+Aicym+xcBlIpU/BN14O+sTvsJ0BET7PteCSu795JUL2Cr5n6v6ho6JyKGb9HNVJAe4SlEsZzSx6e3fzlwvAN00jlC3S9b2hVA5iXfvYoc2y5NRgxbtN09t3tAS2gagLSUpm3LMDt5BbOpvRWz0OQgm7E8tdlhP+TTmgug/bHwI9dbeZHyXN7W3LEuQblBdpXXHWOkYJ1lkXmWW9CsRMV25EjNs6EBs9fRZu5Wl2a9uKO7qrW6dhfSUmEkm8dw+boyzMUnW8rHhSMObTYtbenTVUCRuAgapL5IDDiXne85pjHkgWEx401E9AnzpqrO90B/sBu6JHGMXaEGIW2OKwWnKqcPNmYiqOnrNyPQkHwcymvte6vTQW8wagD3fXVfbARyza9MPCpAp9EiYNAsufPWRa1wbm8HH70P5Yl/PEWkV/oT/aL1782DUNUTMEIKG+A/9jCV+ODE1usUsJPofuB5Dmo/RS1zvhO56hwc/ljU1abcsz2UW1cR2pVzr6iMk435uiYurDA0GtjkRCbqSCaFA4n6xWtkYFq5z7nt2TX6pn+F4nzIarv/qZwQEgFE55pfWsPvat14ttMjHctO+u6+QXYzjJfqdWPgR5Cmk4a8FwU2CDMHg5IOaVOV2Hc0l0GNB3kwvZY8XM5X3M+ziEFmYP6Wyt4ksMq0322fcMTH39FEi2OmmnjKaBE98KPcZx/cyItBTq/vBWy3BMLIUJmzBcAKF470RI7220NR/dJwlJpT0YCOhgxQwwWVsZVcnt3e70WV+Ky4aZn4PasqSPJpywoKKIuNiRm2PsxvJqdP3N3QTqSoVUYgsn1+RqfpuCfJm3OCAmdvF1iyWR0aaa48ciev5d511xRr2M7gGPiUvRlCEtzQfM1Mfbd5YZoZ2LMYfiZf0Jud0GmUL7DWSqHSpFYQe4msmFCsjiQFBmZ1ZHnrGoxwxVMTfIzzus5tP6tABqs0+zUtXCr68TrGiZvbCkpH4hUBqgdcQWogh6IQdNWrpumxWaHTKKmjggeh8j0nWN3/6bsrONO/hjUu9MTwJGWDIUOPGrWzsEw57Tfpv+Nc7QFBOsfqfEW+hHzbLWFdvwAm6eV74GpWHx+yp5iawQHjfTIPROAGmOSXLni3t2YjDxY+P0/Wt/Dy/N0K1BSVUmp0aTF01UyHgIvNrjzrp054uWPy5IER1fSUJuEBzZeVHL1MhleEgqnwyP1DkpDVGRor5SDQEEzA0hC96Iu2DA/KjK1B5Nf1nqwXhsmbekiiyo8acH2tWvBrb5v2Dmh4w8Aya/Epn1M9vvfOPIuypL04nt7WRwyH8cVWzRw5WihSYJ/PE6+rUBhneIUL6rk0kAcdEG7w2sBY9Dl0eSXd7qEIFOhST1F8hundxBIvsHGfkSN1ZOTdO2R3s+vEuzBF/pwd9mDO7Fff6YO6u59q9n2VqtY8CGrB1wlhWc2SuR89SqfhvDJEBxHfJrNvWBvoXEjiG1URtjuqKIPwBV7pChggVsHrxNnn5kiLYlutDmFMVEGv+Zg/2o7JRBCUD+nlDHVLduc3cQr3qVvW6x5+HfQ9lhT8mvvp01/YCCBiDL2sn1zH0D5yXZqjB+Gwtp6nvsWvjxobMFhEOF9a60B8PMsmpje1AUNR5RA+Bgw61JCbvyiji0GdXnubgjUWyOSD7SmNAAS/EXSbLd6xh0xPaUPtYBdo+hRkpoJbiuez6dLpGcCrTmJAJxJ+YNplflglNr8rgDx0i9wVQCzun6vafH5BXHqK11Fj1kUhp7pEujqD9m5XFhZOxIXwgGKnt3z4U0L2XgPZc56y5ZPPQb+mreb8w4x4F98AaLqAygN7KTzlEGIVT3QE7KL81QBUZhflcqeeGLiyEL1dETyJxV3LtEYG0PtqDV4ts2fOjQbuirgtbNIUsig+n2BGR9UXOmuoIrn2OTJq35z+2tG8V+EYAHuW6uGFakHKxnS4IO04kPXhoaOtkJFqZneLXtF8KRKQlbdxwK0I/AYMoUJHyIoJi6h6g+3AnfRxjrdV/PPnN5xNvyz+HqNCe1RxJyXmaAvE5XX5Smu4PmjHXNeuT12ww5o24G++60JW72QBXtnbayTvzTKwjIBTStpplf2mnVwmjtwNWPDMXnOTXQHgySz4StxIKEq5nXywrXSndx/g0y7cmPldw9XTnReUXqLb+YnCKYMlSQLh4QneL8sFIO+mhGPgsjMj3y5bYSeQM7NfLp9o1uUK+rNOvwx3HNVj77tB+ojnSn/lmhPfH18a/NGd0V2lsVaHMO9P4+pzIUWvtcAtFqU9liRVQFjvr+VUo1/VHLs5/Uy3kpOaRrY4hCsaKTH5/XLml1HX/OBC86g44fcc+2NGtjach3lrhTNL5ccJ91PQmXzzHeiniMcBM6hYdVjhiYj/FN/ZSNCf43ESLOHdFW2vmiCN6khyK35yZS9zHXml/t9rpPjso7dTAbhiJKbVZiHOnlVhZcp3kt9KzeLjlIHciEoOp+92jVoKeavATOXJFX9c0DXuX75vFG7N5PckqivthvF3WGDkeGey+mn8nmRIRkcg6WS0goyGMZw99bUDMxAiE4RP3CG00Jm5jsqLixmU2x5neQxSMvghESRKPIArpR14VK/v1TERvu69vi31UGwqztCXR+qWFrYz05ijhQLdqkwzjb6rkzqOLW8v3QErSuBnNhHDLE/xVh0S+arDIf1XEiEQJUqdpwwANfCaMo5LIG+IL/IuOppB219OQWjlCss19m9HNNzYIz9MNlGczTLExp0BgMYU34+wgO8e5JtThn+H34I+00E7VPHBw4YUnON1ZtQDOkrfX29ouKl1JLPAz1EA7QR4AQto51j4NGLuYVEjAjXnjOpSivZMGsjmoYHu1qNGQRFINmkUY+xlqlgdmqNKJ76+d46TWN7qGleuZ3mSXsG0Xc1e4tro3OQL9KjUCl6ypdd59iDSY49ebgEqrpYatA34zgr0JkCu/tuMQDaEqPF+LfsMb7bOCwdd5V9q6phYxoJFTVBJliMo18lt9m5FRtH2yjeNrNaUytMHe1ecKwXEIp1BcluUnzl5cE61yoSifWrnMWJNnCAS8ObWbuYxev8RPvCnEkSGiVfmCravjDQ2rnwsw5YpdUqPa3/cP9LuZDKnZsRzPpY6sZQaIvmoWOe5RLnhYMLpKgK5hzhMAbWMUNBY+JW3SqC6qJgK71oGHLo0KFERiAhxfkGxycPASKf3xs+h6Htpxx8lk9xE0x/YlrSVn8GO8nXjfNAHQAh2+F6zzZNW9dA8OL13ggCY/Ndzcq6UQi/o6ayZbHkCYY45OJcPTpRo4Q8LYdasI/KzLG8oMWgJRB7rtV6gR82iEWHhaccqyUN1IaAGTqi5h1lJVjuETaUd9yFswUAO4m1Qrlcx+eiFgOp+zwjE0CIY8xGooega6aR1fg3BNhbUk/OqE6FVB9K9bIEdwMq+F3gIK1shvnMoiNMAiNSQz5E2nwJF8D0q4nvoW34QUli+9Ag7QO0FNcAMT1lAkdgTgfEPxvdCG7ee2T2tQdP+R3lBpVT55keKmLBlr3BcJEUypubrrEPrxqzSKmVAtEMYsQbSKQbPw+LtuUdZmIWRxyRifx/OWddA4fhiiA8hVzD6ufEjrhIJfH/Rn0cVaAWjimE/nwKhPwRgKG4OAeTAa/E6LDZUbAdz+dL7mEx8KQJXLVWdani8FzxQK5eLEquGuZSW5lnELc9eXbeBTKNgneDcqmkqr8mEJKgKtQWXakARkT3CM8d7NaV+84AqhWcZo65FFjDqqLdnF2xwDI9BKgTX//9wjn7GAxp42yp8/YY0lejgSTdsRLzyc08SLR+3OIZ9DpZuXMK9WHVS8v2kdVB48w5R8brBDk9AB/ZYOL5fMwEelvS3NAn7ha/LRgt7u6TCY6rfj6Q3aq28OhaG8UmJYjVgEH9wv0FURBHlq2KAAmt/aUrK/edasfacnothbEStIibhrcDgKYB/Bkdp82JlV4nKljfKQNES0Ls79ME5nVQ25hcVhS6r0tsr+jcfIC4L121HEp3A5TrixikRnRteih9g9vmMHP/zvg+Wv7wZf5/dQkCvutYevmvhNH/rW0Cp8epN4Euwh56Tyq7N0iZUhogdfH6VpT/fJFIa6nyrwBK7l9z641zki6SKvl7ER8/UA0gS+gTGUKj74xA00h+AEjq4AOjnOSiHiTqsDf78KHC1JjMFVabPDymEDEcQrp5De/h5YBFFi88+ZL3gbSqw/9jC0HoHTiEEgLCVC47/OIOXnUUiNNPP8eV7mwy99yGnFoEwy1oc6DGq7kEeJaiv8l71w/vfc+Ln2aAaYGGdmsX7U539eOqlGEXNZ7WE5ktHzS6BTh5dJfAVmbMN9tvMoLpiwKWWNSDjOwUSLM+sKa5remN8ABBFRMTYfaegwqBr5gptXqLtTrfuPdcILeeqO8WYFD3UkF7vHQqlRQLXCxmHgYvxvkFMPzBQvLk1DKECuyOTo4Pu+c3C/MT2vHPyN/BsvLso3AOF7WpDewm9iYXKNF8wKXh4UsgP9B1MVEEvMerVexvewz232SV9j9fNuiEW1TCgV5RlceBAUBYkXDEVt85u+TphTdwqUO96WMXlgh3GZNn3vvREy/LcLI12CRsw4mDoMHOlt4yPItvR2dzHL47bSGxqbxU7p4eNL0nke4X92UuiDn4ibI0N+qNYdJvXuZH9tctFXplvWtFNc3MrBBuoULvLMpbNUIiFZ25sPHmUAn9Xq8FVF1U0ZZVsEwFqfEYVjx8qVTqhw1wJ2QmkETas88D5zA8T0XzewHiuG3ELs9Qr10BB4H+9KU3FBo7+seppiRKcc6IMTVJ3985d2Ll+H3RDGhow2muF8KdU9uG41v/VWI+llgjkRmzBoSUKvZ5ihe9UyU+2Jptb7CttcOkaC2Qu8h/nn4cIlYFXGyz8S8LqG83oDNFLbygElSNY2n+zUL0PG8o0WUyhf2f1Bw9l1nq2DxlFuiWC1el3BFDpZeblhgKg21J9t4OKhRQviflDAszktY+NdhNWk/I6WH+rNF5hd1eFnjfBgUpAQVHmuL9cIUW3nS0K9kkwEyfMIZhMJ3EhD26mOd69ea7OR5zb75sIc+SRUJkiSws4CFqB3o+OqrUmzk2ptXRuN0cPJmxoSV/Ip6QXxGKY+XWtYEpWqbFOys7TjdpvyuC/DJVtDH39GupLtCAO6tAqo2QVdBrILH53qHp1/OX0IPRaNpa868mqnp9kS2ZDrjGMFYL4aiYQf7atmfuw/b/+yCyL3hMoyCH7JL2fbpld5eZ+Ad35PikG3rtmwStR6l03yUgfsOIanTFVWfof0ya+uUR8hyJ5cHm454Vt093/4Qhjkt7kZ69ipYU59h3/BxKS5D5F6RkkYajI6/sDp3Uqm8OwVSaa0yPdeFI5vhvPBhjOaGwDpICzh5/0gn66fE4c1IsCKmpZeXtV27uyb9PzhjJ1Td77N4ldJFB87Xwa6mfafiJJihIwteeA==;^</div>
+<div id="mkdocs-decrypted-content">
+    <form id="mkdocs-decrypt-form">
+        <h1>This content is protected with AES encryption. </h1>
+        <p>Contact your administrator for access to this page.</p>
+        <input type="password" id="mkdocs-content-password" placeholder="Use CTRL+ENTER to provide global password" />
+        
+        <p id="mkdocs-decrypt-msg"></p>
+    </form>
 </div>
 
-<p><img alt="image-20221211065826923" src="https://gitee.com/enl-z/typora_-images/raw/master/202212110658983.png" /></p>
-<h3 id="thread">Thread | 线程<a class="headerlink" href="#thread" title="Permanent link">👀</a></h3>
-<h4 id="from-process-to-thread">From Process to Thread<a class="headerlink" href="#from-process-to-thread" title="Permanent link">👀</a></h4>
-<ul>
-<li>
-<p>Single-threaded process has one program counter </p>
-</li>
-<li>
-<p><strong>program counter</strong> specifies location of next instruction to execute</p>
-</li>
-<li>
-<p>processor executes instructions sequentially, one at a time, until completion</p>
-</li>
-</ul>
-<blockquote>
-<p>线程之间是不隔离的</p>
-</blockquote>
-<ul>
-<li>
-<p>Multi-threaded process has <strong>one program counter per thread</strong></p>
-</li>
-<li>
-<p>Quiz: What are the benefits of using thread instead of process?</p>
-</li>
-</ul>
-<blockquote>
-<p>不同的进程间要共享数据，如果是线程间共享，那数据会很庞大；</p>
-<p>引入线程，线程可以被调度，只需要load/store再实现同步就可以实现共享。</p>
-</blockquote>
-<ul>
-<li><u>一个进程中的多个线程共享了memory、global data、heap；不共享stack</u></li>
-<li><u>每个线程有自己的栈和PC</u></li>
-<li><u>线程和线程的栈不是隔离的，是可以直接访问到</u></li>
-</ul>
-<h3 id="resource-management-memory-management">Resource Management: Memory Management | 内存管理<a class="headerlink" href="#resource-management-memory-management" title="Permanent link">👀</a></h3>
-<ul>
-<li>
-<p>Memory is the main storage directly accessible to CPU </p>
-</li>
-<li>
-<p>data needs to be kept in memory before and after processing</p>
-</li>
-<li>
-<p>all instructions should be in memory in order to execute</p>
-</li>
-<li>
-<p>Memory management determines what is in memory to <strong>optimize CPU utilization</strong> and <strong>response time</strong>, <strong>provides a virtual view of memory for programmer</strong></p>
-</li>
-<li>
-<p>Memory management activities:</p>
-</li>
-<li>
-<p>keeping track of which parts of memory are being used and by whom</p>
-</li>
-<li>
-<p>deciding which processes and data to move into and out of memory</p>
-</li>
-<li>
-<p>allocating and deallocating memory space as needed</p>
-</li>
-</ul>
-<blockquote>
-<p>管理CPU，管理Memory，做好同步占去操作系统内核的大部分工作</p>
-</blockquote>
-<h3 id="resource-management-file-systems">Resource Management: File Systems | 文件系统<a class="headerlink" href="#resource-management-file-systems" title="Permanent link">👀</a></h3>
-<blockquote>
-<ul>
-<li>
-<p>介绍较少,系统Ⅲ</p>
-</li>
-<li>
-<p>将平时所使用的可视化的文件路径映射到物理存储介质上</p>
-</li>
-</ul>
-</blockquote>
-<ul>
-<li>
-<p>OS provides a uniform, logical view of data storage</p>
-</li>
-<li>
-<p><strong>file</strong> is a logical storage unit that abstracts physical properties</p>
-<ul>
-<li>
-<p>files are usually organized into <strong>directories</strong>(目录)</p>
-</li>
-<li>
-<p><strong>access control</strong> determines who can access the file</p>
-</li>
-</ul>
-</li>
-<li>
-<p>File system management activities:</p>
-</li>
-<li>
-<p>creating and deleting files and directories</p>
-</li>
-<li>
-<p>primitives to manipulate files and directories</p>
-</li>
-<li>
-<p>mapping files onto secondary storage</p>
-</li>
-<li>
-<p>backup files onto stable (non-volatile) storage media</p>
-</li>
-</ul>
-<h3 id="resource-management-io-system-management">Resource Management: I/O System Management<a class="headerlink" href="#resource-management-io-system-management" title="Permanent link">👀</a></h3>
-<blockquote>
-<p>帮助用户态程序和外设打交道</p>
-</blockquote>
-<ul>
-<li>
-<p>I/O subsystem hides peculiarities of hardware devices from the user</p>
-</li>
-<li>
-<p>I/O subsystem is responsible for:</p>
-</li>
-<li>
-<p>manage I/O memory</p>
-<ul>
-<li>
-<p><strong>buffering</strong>: to store data temporarily while it is being transferred</p>
-</li>
-<li>
-<p><strong>caching</strong>: to store parts of data in faster storage for performance</p>
-</li>
-<li>
-<p><strong>spooling</strong>: the overlapping of output of one job with input of other jobs</p>
-</li>
-</ul>
-</li>
-<li>
-<p>OS May provide general <strong>device-driver</strong> interfaces(每一类设备都有对应的设备驱动程序)</p>
-</li>
-<li>
-<p>good for programmers: object-oriented design pattern</p>
-</li>
-<li>
-<p>bad from the security perspective: function pointers are heavily used</p>
-</li>
-</ul>
-<p><img alt="image-20221220231706811" src="https://gitee.com/enl-z/typora_-images/raw/master/202212202317884.png" /></p>
-<h3 id="separate-policy-and-mechanism">Separate Policy and Mechanism<a class="headerlink" href="#separate-policy-and-mechanism" title="Permanent link">👀</a></h3>
-<ul>
-<li>Mechanism(机制): <strong>how</strong> question about a system | 怎么实现</li>
-<li>How does an operating system performs a context switch</li>
-</ul>
-<blockquote>
-<p>不同的调度器实现不同的Policy</p>
-</blockquote>
-<ul>
-<li>Policy(策略): <strong>which</strong> question </li>
-<li>
-<p>Which process should the process to be switched</p>
-</li>
-<li>
-<p>Any other examples about mechanism &amp; policy?</p>
-</li>
-<li>
-<p>Advantages &amp; Disadvantages</p>
-</li>
-<li>Advantages of separation:<ul>
-<li>增加整个的灵活性.</li>
-</ul>
-</li>
-</ul>
-<h3 id="virtualization">Virtualization<a class="headerlink" href="#virtualization" title="Permanent link">👀</a></h3>
-<ul>
-<li><strong>Abstract</strong> the hardware of a single computer (CPU/Memory/IO &hellip;) into different environments</li>
-</ul>
-<p><img alt="image-20221221104000986" src="https://gitee.com/enl-z/typora_-images/raw/master/202212211040058.png" /></p>
-<h2 id="three-piecesintroduction">Three pieces中的Introduction<a class="headerlink" href="#three-piecesintroduction" title="Permanent link">👀</a></h2>
-<h3 id="what-happens-when-a-program-runs">What happens when a program runs?<a class="headerlink" href="#what-happens-when-a-program-runs" title="Permanent link">👀</a></h3>
-<ul>
-<li>Execute instructions (obviously)</li>
-<li>
-<p>fetch, decode, and execute</p>
-</li>
-<li>
-<p>Others things are happening in the backend</p>
-</li>
-<li>
-<p>make the program to run</p>
-</li>
-<li>
-<p>allow many programs to use/share memory</p>
-</li>
-<li>
-<p>allow may programs to interact with devices</p>
-</li>
-</ul>
-<h3 id="all-about-virtualization">All about Virtualization<a class="headerlink" href="#all-about-virtualization" title="Permanent link">👀</a></h3>
-<ul>
-<li>
-<p>Virtualization</p>
-</li>
-<li>
-<p>OS transforms the physical resources into easy-to-use virtual form</p>
-</li>
-<li>
-<p>Interaction: system calls - interfaces between program and OS</p>
-</li>
-<li>
-<p>Managing: resources manager</p>
-</li>
-</ul>
-<h3 id="virtualizing-the-cpu">Virtualizing The CPU<a class="headerlink" href="#virtualizing-the-cpu" title="Permanent link">👀</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sys/time.h&gt;</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;assert.h&gt;</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;common.h&quot;</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">{</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">argc</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">        </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;usage: cpu &lt;string&gt;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">        </span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">    </span><span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">        </span><span class="n">Spin</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">str</span><span class="p">);</span>
-<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="p">}</span>
-</code></pre></div>
-<h3 id="virtualizing-memory">Virtualizing Memory<a class="headerlink" href="#virtualizing-memory" title="Permanent link">👀</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;unistd.h&gt;</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;common.h&quot;</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="p">{</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="n">assert</span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span>
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;(%d) memory address of p: %08x</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">getpid</span><span class="p">(),</span><span class="w"> </span><span class="p">(</span><span class="kt">unsigned</span><span class="p">)</span><span class="w"> </span><span class="n">p</span><span class="p">);</span>
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">    </span><span class="cm">/* getpid系统调用,打印当前运行程序对应的进程号 */</span>
-<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">    </span><span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">    </span><span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">        </span><span class="n">Spin</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">        </span><span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
-<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;(%d) p: %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">getpid</span><span class="p">(),</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="p">);</span>
-<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="p">}</span>
-</code></pre></div>
-<h3 id="concurrency">Concurrency | 并发<a class="headerlink" href="#concurrency" title="Permanent link">👀</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="cp">#include</span><span class="cpf">&quot;common.h&quot;</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="k">volatile</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">counter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="kt">int</span><span class="w"> </span><span class="n">loops</span><span class="p">;</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="nf">worker</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">arg</span><span class="p">)</span><span class="w"> </span>
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="p">{</span>
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
-<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">loops</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span>
-<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">        </span><span class="n">counter</span><span class="o">++</span><span class="p">;</span>
-<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
-<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="p">}</span>
-<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
-<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="p">{</span>
-<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">argc</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
-<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="w">        </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;usage: threads &lt;value&gt;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="w">        </span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="w">    </span><span class="n">loops</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">atoi</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
-<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="w">    </span><span class="n">pthread_t</span><span class="w"> </span><span class="n">p1</span><span class="p">,</span><span class="w"> </span><span class="n">p2</span><span class="p">;</span>
-<a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Initial value : %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">counter</span><span class="p">);</span>
-<a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a>
-<a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a><span class="w">    </span><span class="n">Pthread_create</span><span class="p">(</span><span class="o">&amp;</span><span class="n">p1</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="n">worker</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span>
-<a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a><span class="w">    </span><span class="n">Pthread_create</span><span class="p">(</span><span class="o">&amp;</span><span class="n">p2</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="n">worker</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span>
-<a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a><span class="w">    </span><span class="n">Pthread_join</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span>
-<a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a><span class="w">    </span><span class="n">Pthread_join</span><span class="p">(</span><span class="n">p2</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span>
-<a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Final value : %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">counter</span><span class="p">);</span>
-<a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a>
-<a id="__codelineno-2-33" name="__codelineno-2-33" href="#__codelineno-2-33"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<a id="__codelineno-2-34" name="__codelineno-2-34" href="#__codelineno-2-34"></a><span class="p">}</span>
-</code></pre></div>
-<h3 id="io">I/O<a class="headerlink" href="#io" title="Permanent link">👀</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;unistd.h&gt;</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;assert.h&gt;</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;fcntl.h&gt;</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sys/types.h&gt;</span>
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="p">{</span>
-<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">open</span><span class="p">(</span><span class="s">&quot;/tmp/file&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">O_WRONLY</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">O_CREAT</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">O_TRUNC</span><span class="p">,</span><span class="w"> </span><span class="n">S_IRWXU</span><span class="p">);</span>
-<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">    </span><span class="n">assert</span><span class="p">(</span><span class="n">fd</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">-1</span><span class="p">);</span>
-<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="n">intrc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">write</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;hello world</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">13</span><span class="p">);</span>
-<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">    </span><span class="n">assert</span><span class="p">(</span><span class="n">rc</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">13</span><span class="p">);</span>
-<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">    </span><span class="n">close</span><span class="p">(</span><span class="n">fd</span><span class="p">);</span>
-<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="p">}</span>
-</code></pre></div>
+<script type="text/javascript">
+var encryptcontent_path = "Notebook/Course/System2/Lec01_Introduction/";
+var decryption_failure_message = "Invalid password.";
+</script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/core.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/enc-base64.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/cipher-core.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/pad-nopadding.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/md5.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/aes.js"></script>
+<script type="text/javascript" src="../../../assets/javascripts/decrypt-contents.js" defer></script>
+
 
 
   

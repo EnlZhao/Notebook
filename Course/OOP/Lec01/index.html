@@ -25,7 +25,7 @@
     
     
       
-        <title>Beginning - 某兰的笔记本</title>
+        <title>[Protected] Beginning - 某兰的笔记本</title>
       
     
     
@@ -142,7 +142,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Beginning
+              [Protected] Beginning
             
           </span>
         </div>
@@ -603,7 +603,7 @@
   
     <li class="md-nav__item">
       <a href="../../FDS/Lec01/" class="md-nav__link">
-        算法分析和抽象数据类型
+        [Protected] 算法分析和抽象数据类型
       </a>
     </li>
   
@@ -617,7 +617,7 @@
   
     <li class="md-nav__item">
       <a href="../../FDS/Lec02/" class="md-nav__link">
-        线性结构
+        [Protected] 线性结构
       </a>
     </li>
   
@@ -631,7 +631,7 @@
   
     <li class="md-nav__item">
       <a href="../../FDS/Lec03/" class="md-nav__link">
-        树
+        [Protected] 树
       </a>
     </li>
   
@@ -645,7 +645,7 @@
   
     <li class="md-nav__item">
       <a href="../../FDS/Lec04/" class="md-nav__link">
-        图
+        [Protected] 图
       </a>
     </li>
   
@@ -659,7 +659,7 @@
   
     <li class="md-nav__item">
       <a href="../../FDS/Lec05/" class="md-nav__link">
-        排序
+        [Protected] 排序
       </a>
     </li>
   
@@ -673,7 +673,7 @@
   
     <li class="md-nav__item">
       <a href="../../FDS/Lec06/" class="md-nav__link">
-        哈希
+        [Protected] 哈希
       </a>
     </li>
   
@@ -748,12 +748,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Beginning
+          [Protected] Beginning
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Beginning
+        [Protected] Beginning
       </a>
       
         
@@ -1057,7 +1057,7 @@
   
     <li class="md-nav__item">
       <a href="../../../Triviality/Markdown/markdown/" class="md-nav__link">
-        Markdown
+        [Protected] Markdown
       </a>
     </li>
   
@@ -1121,7 +1121,7 @@
   
     <li class="md-nav__item">
       <a href="../../../Triviality/The%20Missing%20Semester/Vim/" class="md-nav__link">
-        Vim
+        [Protected] Vim
       </a>
     </li>
   
@@ -1224,7 +1224,7 @@
   
     <li class="md-nav__item">
       <a href="../../../Triviality/GitHub/Le1/" class="md-nav__link">
-        Basics
+        [Protected] Basics
       </a>
     </li>
   
@@ -1441,399 +1441,30 @@
 
 
 
-<h1 id="beginning">Beginning<a class="headerlink" href="#beginning" title="Permanent link">👀</a></h1>
-<h2 id="_1">第一个程序<a class="headerlink" href="#_1" title="Permanent link">👀</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="p">{</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello World!&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
-</code></pre></div>
-<ul>
-<li><code>&lt;iostream&gt;</code> 为内置类型对象提供了输入输出支持，同时也支持文件的输入输出，类的设计者可以通过对 <code>iostream</code> 库的扩展来支持自定义类型的输入输出操作</li>
-<li>
-<p><code>using namespace std;</code> 告诉编译器使用 std 命名空间 (命名空间是 C++ 中一个相对新的概念)</p>
-<ul>
-<li><code>namespace</code> 是指标识符的各种可见范围，C++ 标准程序库中的所有标识符都被定义于一个名为 std 的 <code>namespace</code> 中</li>
-<li>由于 <code>namespace</code> 的概念，使用 C++ 标准程序库的任何标识符时，可以有三种选择：<ol>
-<li>直接指定标识符 —— 如 <code>std::ostream</code> 而不是 <code>ostream</code> (完整语句 A : <code>std::cout &lt;&lt; std::hex &lt;&lt; 5.0 &lt;&lt; std::endl;</code>)</li>
-<li>使用 <code>using</code> 关键字 —— 如 <code>using std::cout; using std::endl</code> (完整语句 A 改写为: <code>cout &lt;&lt; std::hex &lt;&lt; 5.0 &lt;&lt; endl;</code>)</li>
-<li>最方便的是使用 <code>using namespace std;</code>，这样命名空间 std 内定义的所有标识符都有效 (就像被声明为全局变量一样，完整语句 A 改写为：<code>cout &lt;&lt; hex &lt;&lt; 5.0 &lt;&lt; endl</code>)</li>
-</ol>
-</li>
-</ul>
-</li>
-<li>
-<p>若输入则采用 <code>cin</code> 输入<br />
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="p">{</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">;</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">age</span><span class="p">;</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello World! I&#39;m &quot;</span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; today!&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="p">}</span>
-</code></pre></div></p>
-</li>
-</ul>
-<h2 id="string">字符串 | String<a class="headerlink" href="#string" title="Permanent link">👀</a></h2>
-<ul>
-<li>首先要加入库 <code>&lt;string&gt;</code></li>
-<li>定义字符串变量 —— <code>string str;</code></li>
-<li>初始化字符串变量 —— <code>string str = "Molan";</code></li>
-<li>输入输出字符串即使用 <code>cin</code>, <code>cout</code> —— <code>cin &gt;&gt; str; cout &lt;&lt; str;</code></li>
-<li>C++ 中的字符串变量支持类似整型变量的操作 —— <code>+</code> (拼接) ···</li>
-</ul>
-<div class="highlight"><span class="filename">b.cpp</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="p">{</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">age</span><span class="p">;</span>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="n">string</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="n">name</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s">&quot; (Enl_Z) &quot;</span>
-<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello World! &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; is &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; today!&quot;</span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
-<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="p">}</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>$<span class="w"> </span>g++<span class="w"> </span>b.cpp<span class="p">;</span><span class="w"> </span>./a.out
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="m">18</span><span class="w"> </span>Molan
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>Hello<span class="w"> </span>World!<span class="w"> </span>Molan<span class="w"> </span><span class="o">(</span>Enl_Z<span class="o">)</span><span class="w"> </span>is<span class="w"> </span><span class="m">18</span><span class="w"> </span>today!
-</code></pre></div>
-<ul>
-<li><code>string</code> 不需要像 <code>char str[10]</code> 一样设置长度，直接使用 <code>string str;</code> 即可 (内部会自动调整长度，且字符串末尾无 <code>\0</code>)</li>
-<li><code>string</code> 变量支持赋值，即 <code>str1 = str2;</code> 是合法的</li>
-</ul>
-<blockquote>
-<p>采用 <code>string str("Hello");</code> 和 <code>string str = "Hello";</code> 是一样的 (此种初始化方法对其他变量也适用)</p>
-</blockquote>
-<h3 id="pointers-to-objects">Pointers to Objects<a class="headerlink" href="#pointers-to-objects" title="Permanent link">👀</a></h3>
-<blockquote>
-<p>正交: 若有某个操作对某个数据类型是可用的，则理论上应满足其对所有数据类型可用 (如，取地址对整数可用则应对 <code>string</code> 也可用)</p>
-</blockquote>
-<ul>
-<li>Operators with Pointers<ul>
-<li><code>&amp;</code> : get address (e.g. <code>ps = &amp;s;</code> )</li>
-<li><code>*</code> : get the object (e.g. <code>(*ps).length()</code> )</li>
-<li><code>-&gt;</code> : call the function (e.g. <code>ps-&gt;length()</code> )</li>
-</ul>
-</li>
-<li>Two Ways to Access Objects<ul>
-<li><code>string s;</code><ul>
-<li><code>s</code> is the object itself</li>
-<li>此时，对象已经被创建并初始化为一个默认的值 (由类决定, 调用类的构造函数初始化)</li>
-</ul>
-</li>
-<li><code>string* ps;</code><ul>
-<li><code>ps</code> is a pointer to an object</li>
-<li>In this time, the value of <code>ps</code> is still unknown</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Assignment<ol>
-<li><code>string s1, s2;</code><ul>
-<li><code>s1 = s2;</code></li>
-</ul>
-</li>
-<li><code>string *ps1, ps2;</code><ul>
-<li><code>ps1= ps2</code></li>
-</ul>
-</li>
-</ol>
-</li>
-</ul>
-<h3 id="dynamic-memory-allocation">Dynamic memory allocation<a class="headerlink" href="#dynamic-memory-allocation" title="Permanent link">👀</a></h3>
-<blockquote>
-<p><code>new</code> 和 <code>delete</code> 都是运算符, c++ 中虽然也有 <code>malloc</code>，但最好不要再使用</p>
-</blockquote>
-<ul>
-<li>
-<p><code>new</code></p>
-<ul>
-<li><code>new int;</code> (类似于 <code>malloc(sizeof(int))</code> 申请一个 <code>int</code> 的空间)</li>
-<li><code>new Stash;</code> (<code>Stash</code> 是一个类，此处申请了一个 <code>Stash</code> 的空间，但不同 <code>malloc</code> 的是其还调用构造函数进行了初始化)</li>
-<li><code>new int[10]</code></li>
-</ul>
-<blockquote>
-<p><code>new</code> is the way to allocate memory as a program runs. Pointers become the only access to that memory.<br />
-<code>new</code> 没有空间的时候不会返回 <code>NULL</code> 而是抛异常</p>
-</blockquote>
-</li>
-<li>
-<p><code>delete</code> —— 调用析构函数, 在析构函数中用于释放类内部动态分配得到的资源  (由于内置类型没有析构函数，所以 <code>delete</code> 内置类型指针时，什么也不需要做)</p>
-<ul>
-<li><code>delete p;</code></li>
-<li><code>delete[] p;</code><blockquote>
-<p><code>delete</code> enables you to return memory to the memory pool when you are finished with it.</p>
-</blockquote>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="dynamic-arrays">Dynamic Arrays<a class="headerlink" href="#dynamic-arrays" title="Permanent link">👀</a></h3>
-<ul>
-<li><code>int * psome = new int[10];</code><ul>
-<li>The <code>new</code> operator returns the address of the first element of the block.</li>
-</ul>
-</li>
-<li><code>delete [] psome;</code><ul>
-<li>The presence of the brackets tells the program that it should free the whole array, not just the element (<code>delete</code> 无法指定数量，即方括号内无法填入数字)</li>
-</ul>
-</li>
-</ul>
-<details class="example">
-<summary>Example</summary>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">a</span><span class="o">++</span><span class="p">;</span><span class="w"> </span><span class="k">delete</span><span class="p">[]</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
-</code></pre></div><br />
-此时 <code>delete[] a;</code> 会出错，因为 <code>a++</code> 后在这张表中没有 <code>a</code> 这一项，而是有 <code>a-1</code></p>
-</details>
-<h3 id="tips-for-new-delete">Tips for new &amp; delete<a class="headerlink" href="#tips-for-new-delete" title="Permanent link">👀</a></h3>
-<ul>
-<li>Don&rsquo;t use <code>delete</code> to free memory that <code>new</code> didn&rsquo;t allocate</li>
-<li>Don&rsquo;t use <code>delete</code> to free the same block of memory</li>
-<li>Use <code>delete []</code> if you used <code>new[]</code></li>
-<li>Use <code>delete</code>(without brackets) if you used <code>new</code> to allocate a single entity</li>
-<li>It is safe to apply delete to the null pointer (nothing happens)</li>
-</ul>
-<h2 id="class">Class<a class="headerlink" href="#class" title="Permanent link">👀</a></h2>
-<h3 id="reference">reference<a class="headerlink" href="#reference" title="Permanent link">👀</a></h3>
-<ul>
-<li>Reference is a new way to manipulate objects in C++<ul>
-<li>在 c 中 <code>char c; char &amp;r = c;</code> //a reference to a character</li>
-<li><code>r</code> is regarded as a reference to a character <code>c</code></li>
-</ul>
-</li>
-<li>若变量是本地或全局变量，在声明变量的时候，必须对其做绑定</li>
-<li>如果是参数列表或成员变量，不需要给出绑定</li>
-</ul>
-<h4 id="rules-of-references">Rules of references<a class="headerlink" href="#rules-of-references" title="Permanent link">👀</a></h4>
-<ul>
-<li>References must be initialized when defined</li>
-<li>As a function argument<ul>
-<li><code>void f(int &amp;x)</code></li>
-<li><code>f(y);</code> //initialized when function is called </li>
-</ul>
-</li>
-<li>Bindings don&rsquo;t change at run time (即不可以解绑)</li>
-<li>The target of a reference must have a location (即引用的对象只能是左值)<ul>
-<li><code>void func(int &amp;);</code></li>
-<li><code>func(i * 3);</code>    //warning or error!</li>
-</ul>
-</li>
-</ul>
-<h4 id="points-vs-references">Points vs. References<a class="headerlink" href="#points-vs-references" title="Permanent link">👀</a></h4>
-<ul>
-<li>References<ul>
-<li>can&rsquo;t be null</li>
-<li>are dependent on an existing variable, they are an alias for an variable</li>
-<li>can&rsquo;t change to a new &ldquo;address&rdquo; location</li>
-</ul>
-</li>
-<li>Pointers<ul>
-<li>can be set to a null</li>
-<li>pointer is independent of existing objects</li>
-<li>can change to point to a different address</li>
-</ul>
-</li>
-</ul>
-<h4 id="restrictions">Restrictions<a class="headerlink" href="#restrictions" title="Permanent link">👀</a></h4>
-<ul>
-<li>No references to references (e.g. <code>int i; int &amp;r = i; int &amp;k = r;</code> ×)</li>
-<li>No pointers to references (e.g. <code>int&amp;* p;</code> ×) (Allow reference to pointer —— <code>void f(int*&amp; p);</code>)</li>
-<li>No arrays of references </li>
-</ul>
-<h3 id="point">Point | 点<a class="headerlink" href="#point" title="Permanent link">👀</a></h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">C 版本 struct</label><label for="__tabbed_1_2">C++ 版本</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">Point</span><span class="p">{</span>
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
-<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
-<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="p">}</span><span class="w"> </span><span class="n">Point</span><span class="p">;</span>
-<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
-<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="kt">void</span><span class="w"> </span><span class="nf">print</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Point</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="p">)</span>
-<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="p">{</span>
-<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; , &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">y</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
-<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="p">}</span>
-<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="kt">void</span><span class="w"> </span><span class="nf">move</span><span class="p">(</span><span class="n">Point</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">dx</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">dy</span><span class="p">)</span>
-<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="p">{</span>
-<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">    </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">x</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">dx</span><span class="p">;</span>
-<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">    </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">y</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">dy</span><span class="p">;</span>
-<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="p">}</span>
-<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
-<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="p">{</span>
-<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="w">    </span><span class="n">Point</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
-<a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="w">    </span><span class="n">a</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
-<a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a><span class="w">    </span><span class="n">a</span><span class="p">.</span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
-<a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a><span class="w">    </span><span class="c1">//也可以写作 </span>
-<a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a><span class="w">    </span><span class="c1">//Point a = {1, 1}, b = {1, 1};</span>
-<a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a><span class="w">    </span><span class="n">move</span><span class="p">(</span><span class="o">&amp;</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
-<a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a><span class="w">    </span><span class="n">print</span><span class="p">(</span><span class="o">&amp;</span><span class="n">a</span><span class="p">);</span>
-<a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a><span class="w">    </span><span class="n">print</span><span class="p">(</span><span class="o">&amp;</span><span class="n">b</span><span class="p">);</span>
-<a id="__codelineno-5-28" name="__codelineno-5-28" href="#__codelineno-5-28"></a><span class="p">}</span>
-</code></pre></div>
+<div id="mkdocs-encrypted-content" style="display:none">8MIW1CNlZDPjIStLIaBxDw==;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;^</div>
+<div id="mkdocs-decrypted-content">
+    <form id="mkdocs-decrypt-form">
+        <h1>This content is protected with AES encryption. </h1>
+        <p>Contact your administrator for access to this page.</p>
+        <input type="password" id="mkdocs-content-password" placeholder="Use CTRL+ENTER to provide global password" />
+        
+        <p id="mkdocs-decrypt-msg"></p>
+    </form>
 </div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Point</span><span class="p">{</span><span class="w">   </span>
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
-<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
-<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">print</span><span class="p">()</span>
-<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">        </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; , &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
-<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="p">}</span><span class="w"> </span><span class="p">;</span>
-<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>
-<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="kt">void</span><span class="w"> </span><span class="nf">move</span><span class="p">(</span><span class="n">Point</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">dx</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">dy</span><span class="p">)</span>
-<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="p">{</span>
-<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="w">    </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">x</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">dx</span><span class="p">;</span>
-<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="w">    </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">y</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">dy</span><span class="p">;</span>
-<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="p">}</span>
-<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
-<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="p">{</span>
-<a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a><span class="w">    </span><span class="n">Point</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
-<a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a><span class="w">    </span><span class="n">a</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
-<a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a><span class="w">    </span><span class="n">a</span><span class="p">.</span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
-<a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a><span class="w">    </span><span class="n">move</span><span class="p">(</span><span class="o">&amp;</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
-<a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a><span class="w">    </span><span class="n">a</span><span class="p">.</span><span class="n">print</span><span class="p">();</span>
-<a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a><span class="w">    </span><span class="n">b</span><span class="p">.</span><span class="n">print</span><span class="p">();</span>
-<a id="__codelineno-6-26" name="__codelineno-6-26" href="#__codelineno-6-26"></a><span class="p">}</span>
-</code></pre></div>
-</div>
-</div>
-</div>
-<ul>
-<li>其中，无需使用 <code>typedef</code> 也可以直接声明 <code>Point a, b;</code></li>
-<li>C++ 支持将函数也写入结构体中 (如 print 函数，只是此时不需要 const Point *p)</li>
-<li>而对于 <code>move</code> 也具有另一种写法 (即不带 body 的函数) </li>
-</ul>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="err">···</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Point</span><span class="p">{</span><span class="w">   </span>
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">        </span><span class="kt">float</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">        </span><span class="kt">float</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
-<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">        </span><span class="kt">void</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">ix</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">iy</span><span class="p">)</span>
-<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">        </span><span class="p">{</span>
-<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">            </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ix</span><span class="p">;</span>
-<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">            </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">iy</span><span class="p">;</span>
-<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">        </span><span class="p">}</span>
-<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">        </span><span class="kt">void</span><span class="w"> </span><span class="nf">print</span><span class="p">()</span>
-<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">        </span><span class="p">{</span>
-<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">            </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; , &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
-<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="w">        </span><span class="p">}</span>
-<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">        </span><span class="kt">void</span><span class="w"> </span><span class="nf">move</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">dx</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">dy</span><span class="p">);</span>
-<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="p">;</span>
-<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>
-<a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">Point::move</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">dx</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">dy</span><span class="p">)</span><span class="w">       </span><span class="c1">//struct 中不带 body ，所以需要另给出 body</span>
-<a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a><span class="w">        </span><span class="n">x</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">dx</span><span class="p">;</span>
-<a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a><span class="w">        </span><span class="n">y</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">dy</span><span class="p">;</span>
-<a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a>
-<a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
-<a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a><span class="w">        </span><span class="n">Point</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
-<a id="__codelineno-7-26" name="__codelineno-7-26" href="#__codelineno-7-26"></a><span class="w">        </span><span class="n">a</span><span class="p">.</span><span class="n">init</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
-<a id="__codelineno-7-27" name="__codelineno-7-27" href="#__codelineno-7-27"></a><span class="w">        </span><span class="n">b</span><span class="p">.</span><span class="n">init</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
-<a id="__codelineno-7-28" name="__codelineno-7-28" href="#__codelineno-7-28"></a><span class="w">        </span><span class="n">a</span><span class="p">.</span><span class="n">move</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
-<a id="__codelineno-7-29" name="__codelineno-7-29" href="#__codelineno-7-29"></a><span class="w">        </span><span class="n">a</span><span class="p">.</span><span class="n">print</span><span class="p">();</span>
-<a id="__codelineno-7-30" name="__codelineno-7-30" href="#__codelineno-7-30"></a><span class="w">        </span><span class="n">b</span><span class="p">.</span><span class="n">print</span><span class="p">();</span>
-<a id="__codelineno-7-31" name="__codelineno-7-31" href="#__codelineno-7-31"></a><span class="w">    </span><span class="p">}</span>
-</code></pre></div>
-* 上述表示 C 中 struct 中支持成员变量，C++ 中不仅支持成员变量也支持成员函数 (这就是 C++ 的类)
-* C++ 中 struct 和 class 基本是通用的，唯有几个细节不同</p>
-<details>
-<summary>struct vs. class</summary>
-<ul>
-<li>使用 class 时，类中的成员默认都是 private 属性的；而使用 struct 时，结构体中的成员默认都是 public 属性的</li>
-<li>class 继承默认是 private 继承，而 struct 继承默认是 public 继承</li>
-<li>class 可以使用模板，而 struct 不能</li>
-</ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Point</span><span class="p">{</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="k">public</span><span class="o">:</span>
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">init</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">);</span>
-<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">move</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">dx</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">dy</span><span class="p">);</span>
-<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">print</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
-<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>
-<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="k">private</span><span class="o">:</span>
-<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
-<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
-<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="p">};</span>
-</code></pre></div>
-<blockquote>
-<p><a href="https://zhuanlan.zhihu.com/p/47808468">知乎 - 参考</a><br />
-<a href="https://blog.csdn.net/alidada_blog/article/details/83419757">CSDN - 参考</a></p>
-</blockquote>
-</details>
-<h4 id="resolver">::resolver<a class="headerlink" href="#resolver" title="Permanent link">👀</a></h4>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">S::f</span><span class="p">()</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="p">{</span>
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="o">::</span><span class="n">f</span><span class="p">();</span><span class="w">  </span><span class="c1">//Would be recursive otherwise</span>
-<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">    </span><span class="o">::</span><span class="n">a</span><span class="o">++</span><span class="p">;</span><span class="w">  </span><span class="c1">// Select the global a</span>
-<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">    </span><span class="n">a</span><span class="o">--</span><span class="p">;</span><span class="w">    </span><span class="c1">//  The a at class scope</span>
-<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="p">}</span>
-</code></pre></div>
-<ul>
-<li>&lt; Class Name &gt; :: &lt; function name &gt; (:: 是符号, not operator)</li>
-<li>:: &lt; function name &gt;</li>
-<li><code>::f();</code> 在当前语境下，若不加 &lsquo;::&rsquo; 表示调用自己。加上 &lsquo;::&rsquo; 表示 f 不是自己，是 free 的函数</li>
-<li>同理, <code>::a++;</code> 也表示全局变量 a; <code>a--;</code> 指成员变量 a</li>
-</ul>
-<h3 id="stash">Stash<a class="headerlink" href="#stash" title="Permanent link">👀</a></h3>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Stash 是一种容器，可以保存任意数据类型的变量 (将任意数据类型的变量看作字节数组)</p>
-</div>
-<h4 id="this">this<a class="headerlink" href="#this" title="Permanent link">👀</a></h4>
-<blockquote>
-<p>为什么成员函数不需要引入类似 <code>Point *p</code>, 也能识别是哪个变量</p>
-</blockquote>
-<ul>
-<li>Realized with <code>this</code> </li>
-<li><code>this</code> is a hidden parameter for all member functions, with the type of the struct</li>
-</ul>
-<details class="example">
-<summary>Example</summary>
-<p><code>void Stash::init(int sz)</code><br />
-&ndash;&gt; can be regarded as<br />
-<code>void Stash::init(Stash *this, int sz)</code></p>
-</details>
-<ul>
-<li>To call the function, we must specify a variable</li>
-</ul>
-<details class="example">
-<summary>Example</summary>
-<p><code>Stash a;</code><br />
-<code>a.init(10);</code><br />
-&ndash;&gt; can be regarded as<br />
-<code>Stash::init(&amp;a, 10);</code></p>
-</details>
-<ul>
-<li>Inside member functions, you can use <code>this</code> as the pointer to the variable that calls the function</li>
-<li><code>this</code> is a natural local variable of all structs member functions that <u>you can not define, but you can use it directly</u></li>
-</ul>
-<details class="example">
-<summary>this 的一种用法</summary>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Stash</span><span class="p">{</span>
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
-<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
-<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
-<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">        </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
-<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">        </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
-<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="p">}</span>
-</code></pre></div>
-</details>
+
+<script type="text/javascript">
+var encryptcontent_path = "Notebook/Course/OOP/Lec01/";
+var decryption_failure_message = "Invalid password.";
+</script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/core.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/enc-base64.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/cipher-core.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/pad-nopadding.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/md5.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/aes.js"></script>
+<script type="text/javascript" src="../../../assets/javascripts/decrypt-contents.js" defer></script>
+
 
 
   
@@ -1911,7 +1542,7 @@
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="上一页: Perface" rel="prev">
+          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="上一页: [Protected] Perface" rel="prev">
             <div class="md-footer__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
             </div>
@@ -1920,20 +1551,20 @@
                 <span class="md-footer__direction">
                   上一页
                 </span>
-                Perface
+                [Protected] Perface
               </div>
             </div>
           </a>
         
         
           
-          <a href="../../Crypto/" class="md-footer__link md-footer__link--next" aria-label="下一页: Perface" rel="next">
+          <a href="../../Crypto/" class="md-footer__link md-footer__link--next" aria-label="下一页: [Protected] Perface" rel="next">
             <div class="md-footer__title">
               <div class="md-ellipsis">
                 <span class="md-footer__direction">
                   下一页
                 </span>
-                Perface
+                [Protected] Perface
               </div>
             </div>
             <div class="md-footer__button md-icon">
