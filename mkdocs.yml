@@ -116,6 +116,8 @@ plugins:
 #      minify_html: true
   - search:
       separator: '[\s\u200b\-]'
+  - encryptcontent:
+      global_password: 'ZJU'
   - tags # 给单篇文章添加标签 https://squidfunk.github.io/mkdocs-material/setup/setting-up-tags/?h=tags
 
 markdown_extensions:
