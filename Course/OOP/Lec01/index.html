@@ -21,7 +21,7 @@
     
     
       
-        <title>Lecture 1 - 某兰的笔记本</title>
+        <title>Beginning - 某兰的笔记本</title>
       
     
     
@@ -104,7 +104,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#lecture-1" class="md-skip">
+        <a href="#beginning" class="md-skip">
           跳转至
         </a>
       
@@ -138,7 +138,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Lecture 1
+              Beginning
             
           </span>
         </div>
@@ -427,6 +427,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_2" tabindex="0" aria-expanded="false">
@@ -620,6 +622,50 @@
     </li>
   
 
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" >
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../">面向对象程序设计</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="面向对象程序设计" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          面向对象程序设计
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
             
           
         </ul>
@@ -962,6 +1008,107 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#dynamic-arrays" class="md-nav__link">
+    Dynamic Arrays
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tips-for-new-delete" class="md-nav__link">
+    Tips for new &amp; delete
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#class" class="md-nav__link">
+    Class
+  </a>
+  
+    <nav class="md-nav" aria-label="Class">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reference" class="md-nav__link">
+    reference
+  </a>
+  
+    <nav class="md-nav" aria-label="reference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rules-of-references" class="md-nav__link">
+    Rules of references
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#points-vs-references" class="md-nav__link">
+    Points vs. References
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#restrictions" class="md-nav__link">
+    Restrictions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#point" class="md-nav__link">
+    Point | 点
+  </a>
+  
+    <nav class="md-nav" aria-label="Point | 点">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#resolver" class="md-nav__link">
+    ::resolver
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stash" class="md-nav__link">
+    Stash
+  </a>
+  
+    <nav class="md-nav" aria-label="Stash">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#this" class="md-nav__link">
+    this
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1003,7 +1150,7 @@
 
 
 
-<h1 id="lecture-1">Lecture 1<a class="headerlink" href="#lecture-1" title="Permanent link">👀</a></h1>
+<h1 id="beginning">Beginning<a class="headerlink" href="#beginning" title="Permanent link">👀</a></h1>
 <h2 id="_1">第一个程序<a class="headerlink" href="#_1" title="Permanent link">👀</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
@@ -1085,13 +1232,13 @@
 </li>
 <li>Two Ways to Access Objects<ul>
 <li><code>string s;</code><ul>
-<li><code>s</code> 本身就是对象</li>
+<li><code>s</code> is the object itself</li>
 <li>此时，对象已经被创建并初始化为一个默认的值 (由类决定, 调用类的构造函数初始化)</li>
 </ul>
 </li>
 <li><code>string* ps;</code><ul>
-<li><code>ps</code> 是指向对象的指针</li>
-<li>此时，<code>ps</code> 的值还是未知的</li>
+<li><code>ps</code> is a pointer to an object</li>
+<li>In this time, the value of <code>ps</code> is still unknown</li>
 </ul>
 </li>
 </ul>
@@ -1113,18 +1260,286 @@
 <p><code>new</code> 和 <code>delete</code> 都是运算符, c++ 中虽然也有 <code>malloc</code>，但最好不要再使用</p>
 </blockquote>
 <ul>
-<li><code>new</code><ul>
+<li>
+<p><code>new</code></p>
+<ul>
 <li><code>new int;</code> (类似于 <code>malloc(sizeof(int))</code> 申请一个 <code>int</code> 的空间)</li>
 <li><code>new Stash;</code> (<code>Stash</code> 是一个类，此处申请了一个 <code>Stash</code> 的空间，但不同 <code>malloc</code> 的是其还调用构造函数进行了初始化)</li>
 <li><code>new int[10]</code></li>
 </ul>
+<blockquote>
+<p><code>new</code> is the way to allocate memory as a program runs. Pointers become the only access to that memory.<br />
+<code>new</code> 没有空间的时候不会返回 <code>NULL</code> 而是抛异常</p>
+</blockquote>
 </li>
-<li><code>delete</code><ul>
+<li>
+<p><code>delete</code> —— 调用析构函数, 在析构函数中用于释放类内部动态分配得到的资源  (由于内置类型没有析构函数，所以 <code>delete</code> 内置类型指针时，什么也不需要做)</p>
+<ul>
 <li><code>delete p;</code></li>
-<li><code>delete[] p;</code></li>
+<li><code>delete[] p;</code><blockquote>
+<p><code>delete</code> enables you to return memory to the memory pool when you are finished with it.</p>
+</blockquote>
+</li>
 </ul>
 </li>
 </ul>
+<h3 id="dynamic-arrays">Dynamic Arrays<a class="headerlink" href="#dynamic-arrays" title="Permanent link">👀</a></h3>
+<ul>
+<li><code>int * psome = new int[10];</code><ul>
+<li>The <code>new</code> operator returns the address of the first element of the block.</li>
+</ul>
+</li>
+<li><code>delete [] psome;</code><ul>
+<li>The presence of the brackets tells the program that it should free the whole array, not just the element (<code>delete</code> 无法指定数量，即方括号内无法填入数字)</li>
+</ul>
+</li>
+</ul>
+<details class="example">
+<summary>Example</summary>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">a</span><span class="o">++</span><span class="p">;</span><span class="w"> </span><span class="k">delete</span><span class="p">[]</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
+</code></pre></div><br />
+此时 <code>delete[] a;</code> 会出错，因为 <code>a++</code> 后在这张表中没有 <code>a</code> 这一项，而是有 <code>a-1</code></p>
+</details>
+<h3 id="tips-for-new-delete">Tips for new &amp; delete<a class="headerlink" href="#tips-for-new-delete" title="Permanent link">👀</a></h3>
+<ul>
+<li>Don&rsquo;t use <code>delete</code> to free memory that <code>new</code> didn&rsquo;t allocate</li>
+<li>Don&rsquo;t use <code>delete</code> to free the same block of memory</li>
+<li>Use <code>delete []</code> if you used <code>new[]</code></li>
+<li>Use <code>delete</code>(without brackets) if you used <code>new</code> to allocate a single entity</li>
+<li>It is safe to apply delete to the null pointer (nothing happens)</li>
+</ul>
+<h2 id="class">Class<a class="headerlink" href="#class" title="Permanent link">👀</a></h2>
+<h3 id="reference">reference<a class="headerlink" href="#reference" title="Permanent link">👀</a></h3>
+<ul>
+<li>Reference is a new way to manipulate objects in C++<ul>
+<li>在 c 中 <code>char c; char &amp;r = c;</code> //a reference to a character</li>
+<li><code>r</code> is regarded as a reference to a character <code>c</code></li>
+</ul>
+</li>
+<li>若变量是本地或全局变量，在声明变量的时候，必须对其做绑定</li>
+<li>如果是参数列表或成员变量，不需要给出绑定</li>
+</ul>
+<h4 id="rules-of-references">Rules of references<a class="headerlink" href="#rules-of-references" title="Permanent link">👀</a></h4>
+<ul>
+<li>References must be initialized when defined</li>
+<li>As a function argument<ul>
+<li><code>void f(int &amp;x)</code></li>
+<li><code>f(y);</code> //initialized when function is called </li>
+</ul>
+</li>
+<li>Bindings don&rsquo;t change at run time (即不可以解绑)</li>
+<li>The target of a reference must have a location (即引用的对象只能是左值)<ul>
+<li><code>void func(int &amp;);</code></li>
+<li><code>func(i * 3);</code>    //warning or error!</li>
+</ul>
+</li>
+</ul>
+<h4 id="points-vs-references">Points vs. References<a class="headerlink" href="#points-vs-references" title="Permanent link">👀</a></h4>
+<ul>
+<li>References<ul>
+<li>can&rsquo;t be null</li>
+<li>are dependent on an existing variable, they are an alias for an variable</li>
+<li>can&rsquo;t change to a new &ldquo;address&rdquo; location</li>
+</ul>
+</li>
+<li>Pointers<ul>
+<li>can be set to a null</li>
+<li>pointer is independent of existing objects</li>
+<li>can change to point to a different address</li>
+</ul>
+</li>
+</ul>
+<h4 id="restrictions">Restrictions<a class="headerlink" href="#restrictions" title="Permanent link">👀</a></h4>
+<ul>
+<li>No references to references (e.g. <code>int i; int &amp;r = i; int &amp;k = r;</code> ×)</li>
+<li>No pointers to references (e.g. <code>int&amp;* p;</code> ×) (Allow reference to pointer —— <code>void f(int*&amp; p);</code>)</li>
+<li>No arrays of references </li>
+</ul>
+<h3 id="point">Point | 点<a class="headerlink" href="#point" title="Permanent link">👀</a></h3>
+<p>=== “C 版本 struct”<br />
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">Point</span><span class="p">{</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="p">}</span><span class="w"> </span><span class="n">Point</span><span class="p">;</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="kt">void</span><span class="w"> </span><span class="nf">print</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Point</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="p">)</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="p">{</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; , &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">y</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="p">}</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="kt">void</span><span class="w"> </span><span class="nf">move</span><span class="p">(</span><span class="n">Point</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">dx</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">dy</span><span class="p">)</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="p">{</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">    </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">x</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">dx</span><span class="p">;</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">    </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">y</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">dy</span><span class="p">;</span>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="p">}</span>
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="p">{</span>
+<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="w">    </span><span class="n">Point</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="w">    </span><span class="n">a</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a><span class="w">    </span><span class="n">a</span><span class="p">.</span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a><span class="w">    </span><span class="n">move</span><span class="p">(</span><span class="o">&amp;</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+<a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a><span class="w">    </span><span class="n">print</span><span class="p">(</span><span class="o">&amp;</span><span class="n">a</span><span class="p">);</span>
+<a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a><span class="w">    </span><span class="n">print</span><span class="p">(</span><span class="o">&amp;</span><span class="n">b</span><span class="p">);</span>
+<a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a><span class="p">}</span>
+</code></pre></div></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">C++ 版本</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Point</span><span class="p">{</span><span class="w">   </span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">print</span><span class="p">()</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">        </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; , &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="p">}</span><span class="w"> </span><span class="p">;</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="kt">void</span><span class="w"> </span><span class="nf">move</span><span class="p">(</span><span class="n">Point</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">dx</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">dy</span><span class="p">)</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="p">{</span>
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="w">    </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">x</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">dx</span><span class="p">;</span>
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="w">    </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">y</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">dy</span><span class="p">;</span>
+<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="p">}</span>
+<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="p">{</span>
+<a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a><span class="w">    </span><span class="n">Point</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a><span class="w">    </span><span class="n">a</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a><span class="w">    </span><span class="n">a</span><span class="p">.</span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a><span class="w">    </span><span class="n">move</span><span class="p">(</span><span class="o">&amp;</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+<a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a><span class="w">    </span><span class="n">a</span><span class="p">.</span><span class="n">print</span><span class="p">();</span>
+<a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a><span class="w">    </span><span class="n">b</span><span class="p">.</span><span class="n">print</span><span class="p">();</span>
+<a id="__codelineno-6-26" name="__codelineno-6-26" href="#__codelineno-6-26"></a><span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<ul>
+<li>其中，无需使用 <code>typedef</code> 也可以直接声明 <code>Point a, b;</code></li>
+<li>C++ 支持将函数也写入结构体中 (如 print 函数，只是此时不需要 const Point *p)</li>
+<li>而对于 <code>move</code> 也具有另一种写法 (即不带 body 的函数) </li>
+</ul>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="err">···</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Point</span><span class="p">{</span><span class="w">   </span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">        </span><span class="kt">float</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">        </span><span class="kt">float</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">        </span><span class="kt">void</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">ix</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">iy</span><span class="p">)</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">            </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ix</span><span class="p">;</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">            </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">iy</span><span class="p">;</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">        </span><span class="kt">void</span><span class="w"> </span><span class="nf">print</span><span class="p">()</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">            </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; , &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">        </span><span class="kt">void</span><span class="w"> </span><span class="nf">move</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">dx</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">dy</span><span class="p">);</span>
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="p">;</span>
+<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>
+<a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">Point::move</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">dx</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">dy</span><span class="p">)</span><span class="w">       </span><span class="c1">//struct 中不带 body ，所以需要另给出 body</span>
+<a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a><span class="w">        </span><span class="n">x</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">dx</span><span class="p">;</span>
+<a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a><span class="w">        </span><span class="n">y</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">dy</span><span class="p">;</span>
+<a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a>
+<a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a><span class="w">        </span><span class="n">Point</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<a id="__codelineno-7-26" name="__codelineno-7-26" href="#__codelineno-7-26"></a><span class="w">        </span><span class="n">a</span><span class="p">.</span><span class="n">init</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<a id="__codelineno-7-27" name="__codelineno-7-27" href="#__codelineno-7-27"></a><span class="w">        </span><span class="n">b</span><span class="p">.</span><span class="n">init</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<a id="__codelineno-7-28" name="__codelineno-7-28" href="#__codelineno-7-28"></a><span class="w">        </span><span class="n">a</span><span class="p">.</span><span class="n">move</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+<a id="__codelineno-7-29" name="__codelineno-7-29" href="#__codelineno-7-29"></a><span class="w">        </span><span class="n">a</span><span class="p">.</span><span class="n">print</span><span class="p">();</span>
+<a id="__codelineno-7-30" name="__codelineno-7-30" href="#__codelineno-7-30"></a><span class="w">        </span><span class="n">b</span><span class="p">.</span><span class="n">print</span><span class="p">();</span>
+<a id="__codelineno-7-31" name="__codelineno-7-31" href="#__codelineno-7-31"></a><span class="w">    </span><span class="p">}</span>
+</code></pre></div>
+* 上述表示 C 中 struct 中支持成员变量，C++ 中不仅支持成员变量也支持成员函数 (这就是 C++ 的类)
+* C++ 中 struct 和 class 基本是通用的，唯有几个细节不同</p>
+<details>
+<summary>struct vs. class</summary>
+<ul>
+<li>使用 class 时，类中的成员默认都是 private 属性的；而使用 struct 时，结构体中的成员默认都是 public 属性的</li>
+<li>class 继承默认是 private 继承，而 struct 继承默认是 public 继承</li>
+<li>class 可以使用模板，而 struct 不能</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Point</span><span class="p">{</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="k">public</span><span class="o">:</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">init</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">);</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">move</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">dx</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">dy</span><span class="p">);</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">print</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="k">private</span><span class="o">:</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="p">};</span>
+</code></pre></div>
+<blockquote>
+<p><a href="https://zhuanlan.zhihu.com/p/47808468">知乎 - 参考</a><br />
+<a href="https://blog.csdn.net/alidada_blog/article/details/83419757">CSDN - 参考</a></p>
+</blockquote>
+</details>
+<h4 id="resolver">::resolver<a class="headerlink" href="#resolver" title="Permanent link">👀</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">S::f</span><span class="p">()</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="p">{</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="o">::</span><span class="n">f</span><span class="p">();</span><span class="w">  </span><span class="c1">//Would be recursive otherwise</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">    </span><span class="o">::</span><span class="n">a</span><span class="o">++</span><span class="p">;</span><span class="w">  </span><span class="c1">// Select the global a</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">    </span><span class="n">a</span><span class="o">--</span><span class="p">;</span><span class="w">    </span><span class="c1">//  The a at class scope</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="p">}</span>
+</code></pre></div>
+<ul>
+<li>&lt; Class Name &gt; :: &lt; function name &gt; (:: 是符号, not operator)</li>
+<li>:: &lt; function name &gt;</li>
+<li><code>::f();</code> 在当前语境下，若不加 &lsquo;::&rsquo; 表示调用自己。加上 &lsquo;::&rsquo; 表示 f 不是自己，是 free 的函数</li>
+<li>同理, <code>::a++;</code> 也表示全局变量 a; <code>a--;</code> 指成员变量 a</li>
+</ul>
+<h3 id="stash">Stash<a class="headerlink" href="#stash" title="Permanent link">👀</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Stash 是一种容器，可以保存任意数据类型的变量 (将任意数据类型的变量看作字节数组)</p>
+</div>
+<h4 id="this">this<a class="headerlink" href="#this" title="Permanent link">👀</a></h4>
+<blockquote>
+<p>为什么成员函数不需要引入类似 <code>Point *p</code>, 也能识别是哪个变量</p>
+</blockquote>
+<ul>
+<li>Realized with <code>this</code> </li>
+<li><code>this</code> is a hidden parameter for all member functions, with the type of the struct</li>
+</ul>
+<details class="example">
+<summary>Example</summary>
+<p><code>void Stash::init(int sz)</code><br />
+&ndash;&gt; can be regarded as<br />
+<code>void Stash::init(Stash *this, int sz)</code></p>
+</details>
+<ul>
+<li>To call the function, we must specify a variable</li>
+</ul>
+<details class="example">
+<summary>Example</summary>
+<p><code>Stash a;</code><br />
+<code>a.init(10);</code><br />
+&ndash;&gt; can be regarded as<br />
+<code>Stash::init(&amp;a, 10);</code></p>
+</details>
+<ul>
+<li>Inside member functions, you can use <code>this</code> as the pointer to the variable that calls the function</li>
+<li><code>this</code> is a natural local variable of all structs member functions that <u>you can not define, but you can use it directly</u></li>
+</ul>
+<details class="example">
+<summary>this 的一种用法</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Stash</span><span class="p">{</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">init</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">        </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">        </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="p">}</span>
+</code></pre></div>
+</details>
 
 
   
