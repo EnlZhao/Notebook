@@ -190,6 +190,8 @@ Hello World! Molan (Enl_Z) is 18 today!
         Point a, b;
         a.x = b.x = 1;
         a.y = b.y = 1;
+        //也可以写作 
+        //Point a = {1, 1}, b = {1, 1};
         move(&a, 2, 2);
         print(&a);
         print(&b);
