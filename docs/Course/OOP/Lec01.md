@@ -167,6 +167,7 @@ Hello World! Molan (Enl_Z) is 18 today!
 ### Point | 点
 
 === “C 版本 struct”
+
     ```c++ 
     #include <iostream>
     using namespace std;
@@ -198,6 +199,7 @@ Hello World! Molan (Enl_Z) is 18 today!
     }
     ```
 === "C++ 版本"
+
     ```c++ 
     #include <iostream>
     using namespace std;
