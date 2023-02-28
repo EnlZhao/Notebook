@@ -597,7 +597,7 @@
   
     <li class="md-nav__item">
       <a href="../../FDS/Lec01/" class="md-nav__link">
-        算法分析和抽象数据类型
+        [Protected] 算法分析和抽象数据类型
       </a>
     </li>
   
@@ -1149,6 +1149,33 @@
     Amortized Analysis | 摊还分析
   </a>
   
+    <nav class="md-nav" aria-label="Amortized Analysis | 摊还分析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aggregate-analysis" class="md-nav__link">
+    Aggregate Analysis
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accounting-method" class="md-nav__link">
+    Accounting Method
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#potential-method" class="md-nav__link">
+    Potential Method
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1242,6 +1269,33 @@ Any simgle operation might take <span class="arithmatex">\(O(N)\)</span> time</p
 <li>Step 4: Make <span class="arithmatex">\(T_R\)</span> the right child of the root of <span class="arithmatex">\(T_L\)</span> </li>
 </ul>
 <h2 id="amortized-analysis">Amortized Analysis | 摊还分析<a class="headerlink" href="#amortized-analysis" title="Permanent link">👀</a></h2>
+<ul>
+<li>worst-case bound <span class="arithmatex">\(\ge\)</span> amortized bound <span class="arithmatex">\(\ge\)</span> average-case bound</li>
+<li>分析方法: <ul>
+<li>Aggregate analysis | 聚合分析</li>
+<li>Accounting method | 核算法</li>
+<li>Potential method | 势能方法 (Highest-level)</li>
+</ul>
+</li>
+</ul>
+<h3 id="aggregate-analysis">Aggregate Analysis<a class="headerlink" href="#aggregate-analysis" title="Permanent link">👀</a></h3>
+<p>Show that for all n, a sequence of n operations takes <u>worst-case</u> time <span class="arithmatex">\(T(n)\)</span> in total. In the worst case, the average cost, or <u>amortized cost</u> per operation is <span class="arithmatex">\(\frac{T(n)}{n}\)</span> </p>
+<details class="example">
+<summary>Stack with MultiPop(int k, Stack S)</summary>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">Algorithm</span><span class="p">{</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">IsEmpty</span><span class="p">(</span><span class="n">S</span><span class="p">)</span><span class="w"> </span><span class="n">$$</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">        </span><span class="n">Pop</span><span class="p">(</span><span class="n">S</span><span class="p">);</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">        </span><span class="n">k</span><span class="w"> </span><span class="o">--</span><span class="p">;</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
+</code></pre></div>
+* Consider a sequence of <span class="arithmatex">\(n\)</span> Push, Pop, and MultiPop operations on an initially empty stack. (sizeof(S) <span class="arithmatex">\(\le n\)</span> )<br />
+    * <br />
+    * <span class="arithmatex">\(T_{amortized} ~ = ~ O(n) / n ~ = ~ O(1)\)</span></p>
+</details>
+<h3 id="accounting-method">Accounting Method<a class="headerlink" href="#accounting-method" title="Permanent link">👀</a></h3>
+<h3 id="potential-method">Potential Method<a class="headerlink" href="#potential-method" title="Permanent link">👀</a></h3>
 <p><center><font face="JetBrains Mono" size=2 color=grey >图片摘自 MOOC</font></center></p>
 
 
