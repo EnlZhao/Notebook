@@ -230,3 +230,25 @@
 * The compiler allocates all the storage for a scope at the opening brace of that scope
 * The constructor call doesn't happen until the sequence point where the object is defined
 
+??? note "编程规范"
+    * Declarations vs. Definitions
+        * cpp file —— compile unit
+        * Only declarations are allowed to be in .h (). Declarations are as follows: 
+            * extern variables
+            * function prototypes
+            * class/struct declaration
+            * inline function
+            * Others are Definitions
+    * Standard header file structure
+        * All .h files should look like this: 
+        ```c++
+        #ifdef  HEADER_FLAG
+        #define HEADER_FLAG
+        //Type declaration here
+        #endif  //HEADER_FLAG
+        ```
+    * Tips for header
+        * One class declaration per header file
+        * Associated with one source file in the same prefix of file name
+        * The contents of a header file is surrounded with `#ifdef #define #endif` 
+  

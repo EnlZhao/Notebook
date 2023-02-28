@@ -1,7 +1,3 @@
----
-password: 'ZJU'
----
-
 # 数学基础
 
 * 整除:
@@ -14,43 +10,33 @@ password: 'ZJU'
     * 当 a、b 互素时，一定存在整数 x、y 使得 a * x + b * y = 1 成立
 * 模 (mod) 运算与同余 (congruent)
     * 同余: a、b、n 都是整数，且 n != 0, 当 a-b 是 n 的倍数时，即 a = b + n * k (k 为整数)，我们称 a、b 对于模 n 同余, 记作 a $\equiv$ b (mod n)
-    * 同余相关命题:
-        1. 
-
-## 逆元(inverse)
-
-### 加法逆元 $a + b = 0 \mod n$
-    * $明文 + 密钥 \equiv 密文 \mod n$，$密文 + 密钥逆元\equiv 明文 \mod n$
-
-### 乘法逆元 $a * b = 1 \mod n$
-    
-* $明文\times密钥 \equiv 密文 \mod n$，$密文\times密钥逆元\equiv 明文 \mod n$
-    * 充要条件 $\gcd(a,n)=1$
-    * 求法：扩展欧几里得
+    * 同余相关命题 (设 a, b, c, d, n 均为整数，且 n != 0):
+        1. 当且仅当 n | a 时，a $\equiv$ 0 (mod n)
+        2. a $\equiv$ a (mod n)
+        3. 当且仅当 b $\equiv$ a (mod n) 时，有 a $\equiv$ b (mod n)
+        4. 若 a $\equiv$ b 且 b $\equiv$ c (mod n), 则有 a $\equiv$ c (mod n)
+        5. 若 a $\equiv$ b (mod n) 且 c $\equiv$ d (mod n), 则有 a + c $\equiv$ b + d, a - c $\equiv$ b - d, a * c $\equiv$ b * d (mod n)
+* 逆元(inverse)
+    * 加法模逆元: 若 a + b $\equiv$ 0 (mod n), 则称 a 是 b (或 b 是 a) 的加法模 n 逆元
+        * 明文 + 密钥 $\equiv$ 密文 (mod n), 密文 + 密钥逆元 $\equiv$ 明文 (mod n)
+    * 乘法模逆元: 若 a * b $\equiv$ 1 (mod n), 则称 a 是 b (或 b 是 a) 的乘法模 n 逆元。a 的乘法逆元记作 a^-1^ 。
+        * 明文 $\times$ 密钥 $\equiv$ 密文 (mod n), 密文 $\times$ 密钥逆元 $\equiv$ 明文 (mod n)
+        * 充要条件 gcd(a, n) = 1
+        * 求法：扩展欧几里得
 
 !!! example "求 13 模 35 的乘法逆元"
-    设 13 模 35 的乘法逆元为 x, 则 13 * x 
+    设 13 模 35 的乘法逆元为 x, 则 13 * x $\equiv$ 1 (mod 35)
+    * 由于上式成立充要条件为 gcd(13, 35) = 1, 则一定存在 x, y 满足 13 * x + 35 * y = 1.
+    * 则由扩展欧几里得法 (extended Euclidean algorithm) 可以解出 x 和 y
+        * 35 = 2 * 13 + 9
+        * 13 = 1 * 9 + 4
+        * 9  = 2 * 4 + 1 ——>
+        * 1 = 9 - 2 * 4 = 35 - 2 * 13 - (13 - 1 * 9) * 2 = 35 * 3 - 8 * 13
+        * 其中, x = -8, y = 3. 又 -8 $\equiv$ (-35 + 27) $\equiv$ 27 (mod 35)
+        * 13 * (-8) $\equiv$ 1 mod 35;
+        * 13 * (-35 * 27) $\equiv$ 13 * (-35) + 13 * 27 = 13 * 27 = 1 mod 35
+        * 所以 13 模 35 的乘法逆元为 27
 
-## 拓展欧几里得
-
-拓展欧几里得可以用来求乘法逆元，下面是一个例子：
-
-```plaintext
-例如求 13 * x ≡ 1 (mod 35)
-35 = 2*13+ 9
-13 = 1*9 + 4
-9  = 2*4 + 1
-
-1 = 9-(2*4) 
-  = (35 - 2*13) - (2*(13-1*9))
-  = 35 - 2*13 - 2*(13-1*(35-2*13))
-  = 35 - 2*13 - 2*13 + 2*(35-2*13)
-  = 3*35 - 8*13
-所以 (-8)*13 ≡ 1 (mod 35)
-又因为 -8 ≡ 27 (mod 35)
-所以 13*27 ≡ 1 (mod 35)
-13在模35的情况下，乘法逆元为27
-```
 
 ## 裴蜀定理 gcd(x,y) = ax + by
 

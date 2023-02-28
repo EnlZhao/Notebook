@@ -265,6 +265,7 @@ struct Point{
         b.print();
     }
 ```
+
 * 上述表示 C 中 struct 中支持成员变量，C++ 中不仅支持成员变量也支持成员函数 (这就是 C++ 的类)
 * C++ 中 struct 和 class 基本是通用的，唯有几个细节不同
 
