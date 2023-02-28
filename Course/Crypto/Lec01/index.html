@@ -15,13 +15,17 @@
         <link rel="canonical" href="https://enl-z.cc/Notebook/Course/Crypto/Lec01/">
       
       
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../../../Triviality/Markdown/">
       
       <link rel="icon" href="../../../Icon/Avatar.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.6">
     
     
       
-        <title>数学基础 - 某兰的笔记本</title>
+        <title>[Protected] 数学基础 - 某兰的笔记本</title>
       
     
     
@@ -138,7 +142,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              数学基础
+              [Protected] 数学基础
             
           </span>
         </div>
@@ -246,6 +250,8 @@
         
   
   
+    
+  
 
 
   
@@ -257,7 +263,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../System2/" class="md-tabs__link">
+      <a href="../../System2/" class="md-tabs__link md-tabs__link--active">
         Course
       </a>
     </li>
@@ -412,14 +418,16 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
       
       
         
@@ -437,7 +445,7 @@
         
       
       
-        <label class="md-nav__link" for="__nav_2" tabindex="0" aria-expanded="false">
+        <label class="md-nav__link" for="__nav_2" tabindex="0" aria-expanded="true">
           Course
           <span class="md-nav__icon md-icon"></span>
         </label>
@@ -773,19 +781,23 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2_6" type="checkbox" id="__nav_2_6" >
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2_6" type="checkbox" id="__nav_2_6" checked>
       
       
         
           
             
+          
+        
           
         
       
@@ -794,6 +806,10 @@
         
         <div class="md-nav__link md-nav__link--index ">
           <a href="../">密码学</a>
+          
+            <label for="__nav_2_6">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
           
         </div>
       
@@ -804,6 +820,75 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          [Protected] 数学基础
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        [Protected] 数学基础
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#gcdxy-ax-by" class="md-nav__link">
+    裴蜀定理 gcd(x,y) = ax + by
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    中国剩余定理
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#euler" class="md-nav__link">
+    Euler准则
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
             
           
         </ul>
@@ -1174,122 +1259,30 @@
 
 
 
-<h1 id="_1">数学基础<a class="headerlink" href="#_1" title="Permanent link">👀</a></h1>
-<ul>
-<li>整除:<ul>
-<li>设 a、b 均为整数，且 a != 0, 若存在整数 k 使得 b = a * k, 则称 a 整除 b, 记作 a | b</li>
-</ul>
-</li>
-<li>最大公约数 (greatest common divisor)<ul>
-<li>设 a、b 为整数，且a、b中至少有一个不等于 0，令 d = gcd(a, b)，则一定存在整数 x、y 使得下式成立：a * x + b * y = d</li>
-</ul>
-</li>
-<li>素数与互素<ul>
-<li>互素 (relatively prime): 对于整数 a、b, 若 gcd(a, b) = 1, 则称 a、b 互素</li>
-<li>素数相关定理: 任一整数 a(a &gt; 0) 都能唯一分解成 a = p<sub>1</sub> * p<sub>2</sub> * ··· * p<sub>t</sub> (p<sub>i</sub> 是素数)</li>
-<li>当 a、b 互素时，一定存在整数 x、y 使得 a * x + b * y = 1 成立</li>
-</ul>
-</li>
-<li>模 (mod) 运算与同余 (congruent)<ul>
-<li>同余: a、b、n 都是整数，且 n != 0, 当 a-b 是 n 的倍数时，即 a = b + n * k (k 为整数)，我们称 a、b 对于模 n 同余, 记作 a <span class="arithmatex">\(\equiv\)</span> b (mod n)</li>
-<li>同余相关命题 (设 a, b, c, d, n 均为整数，且 n != 0):<ol>
-<li>当且仅当 n | a 时，a <span class="arithmatex">\(\equiv\)</span> 0 (mod n)</li>
-<li>a <span class="arithmatex">\(\equiv\)</span> a (mod n)</li>
-<li>当且仅当 b <span class="arithmatex">\(\equiv\)</span> a (mod n) 时，有 a <span class="arithmatex">\(\equiv\)</span> b (mod n)</li>
-<li>若 a <span class="arithmatex">\(\equiv\)</span> b 且 b <span class="arithmatex">\(\equiv\)</span> c (mod n), 则有 a <span class="arithmatex">\(\equiv\)</span> c (mod n)</li>
-<li>若 a <span class="arithmatex">\(\equiv\)</span> b (mod n) 且 c <span class="arithmatex">\(\equiv\)</span> d (mod n), 则有 a + c <span class="arithmatex">\(\equiv\)</span> b + d, a - c <span class="arithmatex">\(\equiv\)</span> b - d, a * c <span class="arithmatex">\(\equiv\)</span> b * d (mod n)</li>
-</ol>
-</li>
-</ul>
-</li>
-<li>逆元(inverse)<ul>
-<li>加法模逆元: 若 a + b <span class="arithmatex">\(\equiv\)</span> 0 (mod n), 则称 a 是 b (或 b 是 a) 的加法模 n 逆元<ul>
-<li>明文 + 密钥 <span class="arithmatex">\(\equiv\)</span> 密文 (mod n), 密文 + 密钥逆元 <span class="arithmatex">\(\equiv\)</span> 明文 (mod n)</li>
-</ul>
-</li>
-<li>乘法模逆元: 若 a * b <span class="arithmatex">\(\equiv\)</span> 1 (mod n), 则称 a 是 b (或 b 是 a) 的乘法模 n 逆元。a 的乘法逆元记作 a<sup>-1</sup> 。<ul>
-<li>明文 <span class="arithmatex">\(\times\)</span> 密钥 <span class="arithmatex">\(\equiv\)</span> 密文 (mod n), 密文 <span class="arithmatex">\(\times\)</span> 密钥逆元 <span class="arithmatex">\(\equiv\)</span> 明文 (mod n)</li>
-<li>充要条件 gcd(a, n) = 1</li>
-<li>求法：扩展欧几里得</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<div class="admonition example">
-<p class="admonition-title">求 13 模 35 的乘法逆元</p>
-<p>设 13 模 35 的乘法逆元为 x, 则 13 * x <span class="arithmatex">\(\equiv\)</span> 1 (mod 35)
-* 由于上式成立充要条件为 gcd(13, 35) = 1, 则一定存在 x, y 满足 13 * x + 35 * y = 1.
-* 则由扩展欧几里得法 (extended Euclidean algorithm) 可以解出 x 和 y<br />
-    * 35 = 2 * 13 + 9<br />
-    * 13 = 1 * 9 + 4<br />
-    * 9  = 2 * 4 + 1 ——&gt;<br />
-    * 1 = 9 - 2 * 4 = 35 - 2 * 13 - (13 - 1 * 9) * 2 = 35 * 3 - 8 * 13<br />
-    * 其中, x = -8, y = 3. 又 -8 <span class="arithmatex">\(\equiv\)</span> (-35 + 27) <span class="arithmatex">\(\equiv\)</span> 27 (mod 35)<br />
-    * 13 * (-8) <span class="arithmatex">\(\equiv\)</span> 1 mod 35;<br />
-    * 13 * (-35 * 27) <span class="arithmatex">\(\equiv\)</span> 13 * (-35) + 13 * 27 = 13 * 27 = 1 mod 35<br />
-    * 所以 13 模 35 的乘法逆元为 27</p>
+<div id="mkdocs-encrypted-content" style="display:none">h2URRep9D07kjU5ojB8TRw==;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;^</div>
+<div id="mkdocs-decrypted-content">
+    <form id="mkdocs-decrypt-form">
+        <h1>This content is protected with AES encryption. </h1>
+        <p>Contact your administrator for access to this page.</p>
+        <input type="password" id="mkdocs-content-password" placeholder="Use CTRL+ENTER to provide global password" />
+        
+        <p id="mkdocs-decrypt-msg"></p>
+    </form>
 </div>
-<h2 id="gcdxy-ax-by">裴蜀定理 gcd(x,y) = ax + by<a class="headerlink" href="#gcdxy-ax-by" title="Permanent link">👀</a></h2>
-<p>根据欧几里得算法</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x0</span><span class="p">;</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y0</span><span class="p">;</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="k">while</span><span class="p">(</span><span class="n">y</span><span class="p">){</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="o">/</span><span class="n">x</span><span class="p">;</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="o">%</span><span class="n">x</span><span class="p">;</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">r</span><span class="p">;</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="p">}</span>
-</code></pre></div>
-<p>证明，在每一轮循环中，都有</p>
-<div class="arithmatex">\[
-\begin{aligned}
-&amp;x_i = a_{i1}x_0+b_{i1}y_0\\
-&amp;y_i = a_{i2}x_0+b_{i2}y_0\\
-\end{aligned}
-\]</div>
-<p>使用数学归纳法</p>
-<ol>
-<li>i = 1时，<span class="arithmatex">\(x = x_0\)</span>，<span class="arithmatex">\(y = y_0\)</span>，即<span class="arithmatex">\(a_{i1}=1,b_{i1}=0,a_{i2}=0,b_{i2}=1\)</span></li>
-<li>i &gt;= 1时，若i满足上述条件，则<br />
-   - <span class="arithmatex">\(y_{i+1} = x_i = a_{i1}x_0 + b_{i1}y_0\)</span>，<span class="arithmatex">\(a_{(i+1)2}=a_{i1},b_{(i+1)2}=b_{i1}\)</span><br />
-   - <span class="arithmatex">\(x_{i+1}=y_{i}\%x_{i}=(a_{i2}x_0+b_{i2}y)-k*(a_{i1}x_0+b_{i1}y_0)=(a_{i2}-ka_{i1})x_0+(b_{i2}-kb_{i1})y_0\)</span>，<span class="arithmatex">\(a_{(i+1)1}=a_{i2}-ka_{i1}\)</span>，<span class="arithmatex">\(b_{(i+1)1}=b_{i2}-kb_{i1}\)</span></li>
-</ol>
-<p>Q.E.D</p>
-<h2 id="_2">中国剩余定理<a class="headerlink" href="#_2" title="Permanent link">👀</a></h2>
-<p>设<span class="arithmatex">\(m_1,m_2,m_3,...,m_r\)</span>两两互素，则以下同余方程组<br />
-<span class="arithmatex">\(x\equiv a_i\mod m_i,\ i=1,2,3,...,r\)</span><br />
-模<span class="arithmatex">\(M=m_1m_2m_3...m_r\)</span>的唯一解为<br />
-<span class="arithmatex">\(x=\sum\limits^{r}_{i=1}a_i*M_i*(M_i^{-1}{\rm \ mod\ }m_i)\mod M\)</span>，其中<span class="arithmatex">\(M_i=M/m_i\)</span><br />
-（1）先证明x为同余方程的解<br />
-因为<span class="arithmatex">\(M_i\equiv 0\mod m_j(i\ne j)\)</span>，所以<span class="arithmatex">\(x\equiv a_j\mod m_j\)</span><br />
-（2）再证明x是唯一解<br />
-假设上述同余方程组有两个解<span class="arithmatex">\(0\le x_1,x_2&lt; M\)</span>，<br />
-则</p>
-<div class="arithmatex">\[  
-\begin{aligned}
-x_1&amp;\equiv a_i\mod m_i\\
-x_2&amp;\equiv a_i\mod m_i\\
-\to x_1-x_2&amp;\equiv 0 \mod m_i
-\end{aligned}
-\]</div>
-<p>又因为<span class="arithmatex">\(m_1,m_2,m_3,...,m_r\)</span>两两互素，所以<span class="arithmatex">\(x_1 = k*M+x_2\)</span>，与假设矛盾<br />
-Q.E.D</p>
-<h2 id="euler">Euler准则<a class="headerlink" href="#euler" title="Permanent link">👀</a></h2>
-<p>对于整数x和奇素数p，x是模p的平方剩余（<span class="arithmatex">\(y^2\equiv x \mod p\)</span>） 的充要条件是 <span class="arithmatex">\(x^{(p-1)/2}\equiv 1 \mod p\)</span>  </p>
-<p>证明：<br />
-（1）必要性<br />
-因为gcd(x,p)=1, <span class="arithmatex">\(y^2\equiv x\mod p\)</span>，<br />
-所以gcd(y,p)=1<br />
-根据费马小定理，<span class="arithmatex">\(y^{p-1}\equiv 1 \mod p\)</span><br />
-所以 <span class="arithmatex">\(x^{(p-1)/2}\equiv 1\mod p\)</span><br />
-（2）充分性<br />
-不妨设<span class="arithmatex">\(x\in Z_p\)</span>，因为<span class="arithmatex">\(Z_p^{*}\)</span>={1,2,3,&hellip;,p-1}在模p乘法下是循环群，所以一定存在<span class="arithmatex">\(Z_p^*\)</span>的一个生成元b，使得 <span class="arithmatex">\(x\equiv b^i\mod p\)</span><br />
-因为 <span class="arithmatex">\(x^{(p-1)/2}\equiv 1\mod p\)</span><br />
-所以 <span class="arithmatex">\(b^{i(p-1)/2}=(b^{p-1})^{i/2}\equiv 1\mod p\)</span><br />
-又因为 <span class="arithmatex">\(b^{p-1}\equiv 1\mod p\)</span>，所以i为偶数<br />
-所以x模p的平方根必有整数解，其值为<span class="arithmatex">\(\pm b^{i/2}\)</span><br />
-Q.E.D  </p>
+
+<script type="text/javascript">
+var encryptcontent_path = "Notebook/Course/Crypto/Lec01/";
+var decryption_failure_message = "Invalid password.";
+</script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/core.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/enc-base64.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/cipher-core.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/pad-nopadding.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/md5.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/aes.js"></script>
+<script type="text/javascript" src="../../../assets/javascripts/decrypt-contents.js" defer></script>
+
 
 
   
@@ -1362,6 +1355,42 @@ Q.E.D  </p>
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+          
+          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="上一页: Perface" rel="prev">
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <div class="md-ellipsis">
+                <span class="md-footer__direction">
+                  上一页
+                </span>
+                Perface
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../../Triviality/Markdown/" class="md-footer__link md-footer__link--next" aria-label="下一页: Perface" rel="next">
+            <div class="md-footer__title">
+              <div class="md-ellipsis">
+                <span class="md-footer__direction">
+                  下一页
+                </span>
+                Perface
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
     
   
   <div class="md-footer-meta md-typeset">
