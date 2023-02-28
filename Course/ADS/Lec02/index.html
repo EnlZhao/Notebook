@@ -700,18 +700,12 @@
             
           
         
-          
-        
       
       
         
         
         <div class="md-nav__link md-nav__link--index ">
           <a href="../">高级数据结构与算法分析</a>
-          
-            <label for="__nav_2_4">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
           
         </div>
       
@@ -722,20 +716,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Lec01/" class="md-nav__link">
-        AVL Trees
-      </a>
-    </li>
-  
-
             
           
         </ul>
@@ -764,18 +744,12 @@
             
           
         
-          
-        
       
       
         
         
         <div class="md-nav__link md-nav__link--index ">
           <a href="../../OOP/">面向对象程序设计</a>
-          
-            <label for="__nav_2_5">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
           
         </div>
       
@@ -786,20 +760,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../OOP/Lec01/" class="md-nav__link">
-        Beginning
-      </a>
-    </li>
-  
-
             
           
         </ul>
@@ -1151,6 +1111,48 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#splay-trees" class="md-nav__link">
+    Splay Trees | 伸展树
+  </a>
+  
+    <nav class="md-nav" aria-label="Splay Trees | 伸展树">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#find" class="md-nav__link">
+    Find
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deletions" class="md-nav__link">
+    Deletions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amortized-analysis" class="md-nav__link">
+    Amortized Analysis | 摊还分析
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1186,6 +1188,61 @@
 
 
 <h1 id="splay-trees-amortized-analysis">Splay Trees &amp; Amortized Analysis<a class="headerlink" href="#splay-trees-amortized-analysis" title="Permanent link">👀</a></h1>
+<h2 id="splay-trees">Splay Trees | 伸展树<a class="headerlink" href="#splay-trees" title="Permanent link">👀</a></h2>
+<div class="admonition abstract">
+<p class="admonition-title">Splay Tree - Definition</p>
+<p>A relatively simple date structure, known as splay tree, that guarantees that any m consecutive tree operations take at most <span class="arithmatex">\(O(Mlog~N)\)</span> time.</p>
+<blockquote>
+<p>It means that the <u>amortized</u> time is <span class="arithmatex">\(O(log~N)\)</span> <br />
+Any simgle operation might take <span class="arithmatex">\(O(N)\)</span> time</p>
+</blockquote>
+</div>
+<h3 id="find">Find<a class="headerlink" href="#find" title="Permanent link">👀</a></h3>
+<ul>
+<li>伸展树的核心想法是: 一个节点被访问后，通过一系列 AVL Tree 的旋转方法将它转至根节点</li>
+<li>尝试单旋:<ul>
+<li><img alt="2023-02-28-20-49-07" src="../../../Images/2023-02-28-20-49-07.png" /></li>
+<li>发现 K<sub>3</sub> 沉到了更底部</li>
+</ul>
+</li>
+<li>
+<p>给出新的旋转方法: <br />
+    &gt; For any nonroot node X, denote its parent by P and grandparent by G: </p>
+<ul>
+<li>Case 1: P is the root ——&gt; Rotate X and P</li>
+<li>
+<p>Case 2: P is not the root </p>
+<ul>
+<li>Zig-zag:<br />
+<img alt="2023-02-28-20-59-53" src="../../../Images/2023-02-28-20-59-53.png" /></li>
+<li>Zig-zig:<br />
+<img alt="2023-02-28-21-03-17" src="../../../Images/2023-02-28-21-03-17.png" /></li>
+</ul>
+<blockquote>
+<p>第一个为 LR， 第二个为两次 LL
+* 那么对于开始的图形，使用 Splay 得到<br />
+<img alt="2023-02-28-21-05-58" src="../../../Images/2023-02-28-21-05-58.png" /></p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>Splaying not only moves the accessed node to the root, but also roughly halves the depth of most nodes on the path.</p>
+</blockquote>
+</li>
+</ul>
+<details class="example">
+<summary>举个栗子</summary>
+<p><img alt="2023-02-28-21-08-15" src="../../../Images/2023-02-28-21-08-15.png" /></p>
+</details>
+<h3 id="deletions">Deletions<a class="headerlink" href="#deletions" title="Permanent link">👀</a></h3>
+<ul>
+<li>Step 1: Find X (X will be at the root)</li>
+<li>Step 2: Remove X (There will be two subtrees <span class="arithmatex">\(T_L\)</span> and <span class="arithmatex">\(T_R\)</span> )</li>
+<li>Step 3: FindMax( <span class="arithmatex">\(T_L\)</span> ) (The largest element will be the root of <span class="arithmatex">\(T_L\)</span> , and has no right child)</li>
+<li>Step 4: Make <span class="arithmatex">\(T_R\)</span> the right child of the root of <span class="arithmatex">\(T_L\)</span> </li>
+</ul>
+<h2 id="amortized-analysis">Amortized Analysis | 摊还分析<a class="headerlink" href="#amortized-analysis" title="Permanent link">👀</a></h2>
+<p><center><font face="JetBrains Mono" size=2 color=grey >图片摘自 MOOC</font></center></p>
 
 
   
