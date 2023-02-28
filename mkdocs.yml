@@ -122,11 +122,11 @@ plugins:
   - search:
       separator: '[\s\u200b\-]'
   - encryptcontent:
-    title_prefix: '[LOCK]'
-    summary: 'This content is protected with AES encryption supported by unverbuggt@github's plugin'
-    placeholder: 'Provide password and press ENTER'
-    decryption_failure_message: 'Invalid password'
-    encryption_info_message: 'Contact me(Enl_Z) via methods provided in the comments section for access to this page'
+      title_prefix: '[LOCK]'
+      summary: 'This content is protected with AES encryption supported by unverbuggt@github's plugin'
+      placeholder: 'Provide password and press ENTER'
+      decryption_failure_message: 'Invalid password'
+      encryption_info_message: 'Contact me(Enl_Z) via methods provided in the comments section for access to this page'
   - tags # 给单篇文章添加标签 https://squidfunk.github.io/mkdocs-material/setup/setting-up-tags/?h=tags
 
 markdown_extensions:
