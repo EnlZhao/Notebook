@@ -1717,7 +1717,7 @@
 <li>C++ 支持将函数也写入结构体中 (如 print 函数，只是此时不需要 const Point *p)</li>
 <li>而对于 <code>move</code> 也具有另一种写法 (即不带 body 的函数) </li>
 </ul>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="err">···</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="err">···</span>
 <a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Point</span><span class="p">{</span><span class="w">   </span>
 <a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">        </span><span class="kt">float</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
 <a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">        </span><span class="kt">float</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
@@ -1749,8 +1749,10 @@
 <a id="__codelineno-7-30" name="__codelineno-7-30" href="#__codelineno-7-30"></a><span class="w">        </span><span class="n">b</span><span class="p">.</span><span class="n">print</span><span class="p">();</span>
 <a id="__codelineno-7-31" name="__codelineno-7-31" href="#__codelineno-7-31"></a><span class="w">    </span><span class="p">}</span>
 </code></pre></div>
-* 上述表示 C 中 struct 中支持成员变量，C++ 中不仅支持成员变量也支持成员函数 (这就是 C++ 的类)
-* C++ 中 struct 和 class 基本是通用的，唯有几个细节不同</p>
+<ul>
+<li>上述表示 C 中 struct 中支持成员变量，C++ 中不仅支持成员变量也支持成员函数 (这就是 C++ 的类)</li>
+<li>C++ 中 struct 和 class 基本是通用的，唯有几个细节不同</li>
+</ul>
 <details>
 <summary>struct vs. class</summary>
 <ul>

@@ -1396,6 +1396,38 @@
 <li>The compiler allocates all the storage for a scope at the opening brace of that scope</li>
 <li>The constructor call doesn&rsquo;t happen until the sequence point where the object is defined</li>
 </ul>
+<details class="note">
+<summary>编程规范</summary>
+<ul>
+<li>Declarations vs. Definitions<ul>
+<li>cpp file —— compile unit</li>
+<li>Only declarations are allowed to be in .h (). Declarations are as follows: <ul>
+<li>extern variables</li>
+<li>function prototypes</li>
+<li>class/struct declaration</li>
+<li>inline function</li>
+<li>Others are Definitions</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Standard header file structure<ul>
+<li>All .h files should look like this: <br />
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="cp">#ifdef  HEADER_FLAG</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="cp">#define HEADER_FLAG</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="c1">//Type declaration here</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="cp">#endif  </span><span class="c1">//HEADER_FLAG</span>
+</code></pre></div></li>
+</ul>
+</li>
+<li>Tips for header<ul>
+<li>One class declaration per header file</li>
+<li>Associated with one source file in the same prefix of file name</li>
+<li>The contents of a header file is surrounded with <code>#ifdef #define #endif</code> </li>
+</ul>
+</li>
+</ul>
+</details>
 
 
   

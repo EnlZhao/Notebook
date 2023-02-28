@@ -1092,40 +1092,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#inverse" class="md-nav__link">
-    逆元(inverse)
-  </a>
-  
-    <nav class="md-nav" aria-label="逆元(inverse)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#a-b-0-mod-n" class="md-nav__link">
-    加法逆元 \(a + b = 0 \mod n\)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#a-b-1-mod-n" class="md-nav__link">
-    乘法逆元 \(a * b = 1 \mod n\)
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    拓展欧几里得
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#gcdxy-ax-by" class="md-nav__link">
     裴蜀定理 gcd(x,y) = ax + by
   </a>
@@ -1133,7 +1099,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     中国剩余定理
   </a>
   
@@ -1200,56 +1166,54 @@
 </li>
 <li>模 (mod) 运算与同余 (congruent)<ul>
 <li>同余: a、b、n 都是整数，且 n != 0, 当 a-b 是 n 的倍数时，即 a = b + n * k (k 为整数)，我们称 a、b 对于模 n 同余, 记作 a <span class="arithmatex">\(\equiv\)</span> b (mod n)</li>
-<li>同余相关命题:<ol>
-<li></li>
+<li>同余相关命题 (设 a, b, c, d, n 均为整数，且 n != 0):<ol>
+<li>当且仅当 n | a 时，a <span class="arithmatex">\(\equiv\)</span> 0 (mod n)</li>
+<li>a <span class="arithmatex">\(\equiv\)</span> a (mod n)</li>
+<li>当且仅当 b <span class="arithmatex">\(\equiv\)</span> a (mod n) 时，有 a <span class="arithmatex">\(\equiv\)</span> b (mod n)</li>
+<li>若 a <span class="arithmatex">\(\equiv\)</span> b 且 b <span class="arithmatex">\(\equiv\)</span> c (mod n), 则有 a <span class="arithmatex">\(\equiv\)</span> c (mod n)</li>
+<li>若 a <span class="arithmatex">\(\equiv\)</span> b (mod n) 且 c <span class="arithmatex">\(\equiv\)</span> d (mod n), 则有 a + c <span class="arithmatex">\(\equiv\)</span> b + d, a - c <span class="arithmatex">\(\equiv\)</span> b - d, a * c <span class="arithmatex">\(\equiv\)</span> b * d (mod n)</li>
 </ol>
 </li>
 </ul>
 </li>
+<li>逆元(inverse)<ul>
+<li>加法模逆元: 若 a + b <span class="arithmatex">\(\equiv\)</span> 0 (mod n), 则称 a 是 b (或 b 是 a) 的加法模 n 逆元<ul>
+<li>明文 + 密钥 <span class="arithmatex">\(\equiv\)</span> 密文 (mod n), 密文 + 密钥逆元 <span class="arithmatex">\(\equiv\)</span> 明文 (mod n)</li>
 </ul>
-<h2 id="inverse">逆元(inverse)<a class="headerlink" href="#inverse" title="Permanent link">👀</a></h2>
-<h3 id="a-b-0-mod-n">加法逆元 <span class="arithmatex">\(a + b = 0 \mod n\)</span><a class="headerlink" href="#a-b-0-mod-n" title="Permanent link">👀</a></h3>
-<div class="highlight"><pre><span></span><code>* $明文 + 密钥 \equiv 密文 \mod n$，$密文 + 密钥逆元\equiv 明文 \mod n$
-</code></pre></div>
-<h3 id="a-b-1-mod-n">乘法逆元 <span class="arithmatex">\(a * b = 1 \mod n\)</span><a class="headerlink" href="#a-b-1-mod-n" title="Permanent link">👀</a></h3>
-<ul>
-<li><span class="arithmatex">\(明文\times密钥 \equiv 密文 \mod n\)</span>，<span class="arithmatex">\(密文\times密钥逆元\equiv 明文 \mod n\)</span><ul>
-<li>充要条件 <span class="arithmatex">\(\gcd(a,n)=1\)</span></li>
+</li>
+<li>乘法模逆元: 若 a * b <span class="arithmatex">\(\equiv\)</span> 1 (mod n), 则称 a 是 b (或 b 是 a) 的乘法模 n 逆元。a 的乘法逆元记作 a<sup>-1</sup> 。<ul>
+<li>明文 <span class="arithmatex">\(\times\)</span> 密钥 <span class="arithmatex">\(\equiv\)</span> 密文 (mod n), 密文 <span class="arithmatex">\(\times\)</span> 密钥逆元 <span class="arithmatex">\(\equiv\)</span> 明文 (mod n)</li>
+<li>充要条件 gcd(a, n) = 1</li>
 <li>求法：扩展欧几里得</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
 <div class="admonition example">
 <p class="admonition-title">求 13 模 35 的乘法逆元</p>
-<p>设 13 模 35 的乘法逆元为 x, 则 13 * x </p>
+<p>设 13 模 35 的乘法逆元为 x, 则 13 * x <span class="arithmatex">\(\equiv\)</span> 1 (mod 35)
+* 由于上式成立充要条件为 gcd(13, 35) = 1, 则一定存在 x, y 满足 13 * x + 35 * y = 1.
+* 则由扩展欧几里得法 (extended Euclidean algorithm) 可以解出 x 和 y<br />
+    * 35 = 2 * 13 + 9<br />
+    * 13 = 1 * 9 + 4<br />
+    * 9  = 2 * 4 + 1 ——&gt;<br />
+    * 1 = 9 - 2 * 4 = 35 - 2 * 13 - (13 - 1 * 9) * 2 = 35 * 3 - 8 * 13<br />
+    * 其中, x = -8, y = 3. 又 -8 <span class="arithmatex">\(\equiv\)</span> (-35 + 27) <span class="arithmatex">\(\equiv\)</span> 27 (mod 35)<br />
+    * 13 * (-8) <span class="arithmatex">\(\equiv\)</span> 1 mod 35;<br />
+    * 13 * (-35 * 27) <span class="arithmatex">\(\equiv\)</span> 13 * (-35) + 13 * 27 = 13 * 27 = 1 mod 35<br />
+    * 所以 13 模 35 的乘法逆元为 27</p>
 </div>
-<h2 id="_2">拓展欧几里得<a class="headerlink" href="#_2" title="Permanent link">👀</a></h2>
-<p>拓展欧几里得可以用来求乘法逆元，下面是一个例子：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>例如求 13 * x ≡ 1 (mod 35)
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>35 = 2*13+ 9
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>13 = 1*9 + 4
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>9  = 2*4 + 1
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>1 = 9-(2*4) 
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>  = (35 - 2*13) - (2*(13-1*9))
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>  = 35 - 2*13 - 2*(13-1*(35-2*13))
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>  = 35 - 2*13 - 2*13 + 2*(35-2*13)
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>  = 3*35 - 8*13
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>所以 (-8)*13 ≡ 1 (mod 35)
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>又因为 -8 ≡ 27 (mod 35)
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>所以 13*27 ≡ 1 (mod 35)
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>13在模35的情况下，乘法逆元为27
-</code></pre></div>
 <h2 id="gcdxy-ax-by">裴蜀定理 gcd(x,y) = ax + by<a class="headerlink" href="#gcdxy-ax-by" title="Permanent link">👀</a></h2>
 <p>根据欧几里得算法</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x0</span><span class="p">;</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y0</span><span class="p">;</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="k">while</span><span class="p">(</span><span class="n">y</span><span class="p">){</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="o">/</span><span class="n">x</span><span class="p">;</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="o">%</span><span class="n">x</span><span class="p">;</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">r</span><span class="p">;</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x0</span><span class="p">;</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y0</span><span class="p">;</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="k">while</span><span class="p">(</span><span class="n">y</span><span class="p">){</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="o">/</span><span class="n">x</span><span class="p">;</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="o">%</span><span class="n">x</span><span class="p">;</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">r</span><span class="p">;</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="p">}</span>
 </code></pre></div>
 <p>证明，在每一轮循环中，都有</p>
 <div class="arithmatex">\[
@@ -1266,7 +1230,7 @@
    - <span class="arithmatex">\(x_{i+1}=y_{i}\%x_{i}=(a_{i2}x_0+b_{i2}y)-k*(a_{i1}x_0+b_{i1}y_0)=(a_{i2}-ka_{i1})x_0+(b_{i2}-kb_{i1})y_0\)</span>，<span class="arithmatex">\(a_{(i+1)1}=a_{i2}-ka_{i1}\)</span>，<span class="arithmatex">\(b_{(i+1)1}=b_{i2}-kb_{i1}\)</span></li>
 </ol>
 <p>Q.E.D</p>
-<h2 id="_3">中国剩余定理<a class="headerlink" href="#_3" title="Permanent link">👀</a></h2>
+<h2 id="_2">中国剩余定理<a class="headerlink" href="#_2" title="Permanent link">👀</a></h2>
 <p>设<span class="arithmatex">\(m_1,m_2,m_3,...,m_r\)</span>两两互素，则以下同余方程组<br />
 <span class="arithmatex">\(x\equiv a_i\mod m_i,\ i=1,2,3,...,r\)</span><br />
 模<span class="arithmatex">\(M=m_1m_2m_3...m_r\)</span>的唯一解为<br />
