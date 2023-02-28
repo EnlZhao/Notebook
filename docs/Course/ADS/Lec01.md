@@ -17,8 +17,8 @@
     ![2023-02-28-14-08-30](../../Images/2023-02-28-14-08-30.png)
         * Cause Fibonacci sequence: $F_0 = 1, ~ F_1 = 1, ~ F_i = F_{i-1} + F_{i-2}$ for $i > 1$
         * $n_h = n_{h-1} + n_{h-2} + 1 ~~ \Rightarrow ~~ n_h = F_{h+2} - 1 (h \ge 0)$ 
-        * $F_i ~ \approx ~ \frac{1}{\sqrt{5}} ( \frac{1+\sqrt{5}}{2} )^i ~~ \Rightarrow ~~ n_h ~ \approx ~ \frac{1}{\sqrt{5}} ( \frac{1+\sqrt{5}}{2} )^{h+2} - 1 ~~ \Rightarrow ~~ h = O(ln ~ n_h)$ 
-        * $n \ge n_h ~~ \Rightarrow ~~ h = O(ln ~ n)$ 
+        * $F_i ~ \approx ~ \frac{1}{\sqrt{5}} ( \frac{1+\sqrt{5}}{2} )^i ~~ \Rightarrow ~~ n_h ~ \approx ~ \frac{1}{\sqrt{5}} ( \frac{1+\sqrt{5}}{2} )^{h+2} - 1 ~~ \Rightarrow ~~ h = O(log ~ n_h)$ 
+        * $n \ge n_h ~~ \Rightarrow ~~ h = O(log ~ n)$ 
 
 ## Rotation
 

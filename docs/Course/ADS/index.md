@@ -17,4 +17,9 @@
         * External Sorting
         * ···
   
+??? quote "Acknowledgement"
+    ZJU - ADS 课程组
+    
+    > 笔记中部分黄底图片摘自 ZJU-ADS 课程 PPT 中
+
 <center><font face="JetBrains Mono" color=grey size=18>To Be Continued</font></center>

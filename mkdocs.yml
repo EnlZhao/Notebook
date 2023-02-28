@@ -24,12 +24,14 @@ nav:
       - 哈希: Course/FDS/Lec06.md
     - 高级数据结构与算法分析:
       - Perface: Course/ADS/index.md
-      - AVL Trees: Course/ADS/Lec01.md
+    #  - AVL Trees: Course/ADS/Lec01.md
+    #  - AVL Trees: Course/ADS/Lec02.md
     - 面向对象程序设计:
       - Perface: Course/OOP/index.md
-      - Beginning: Course/OOP/Lec01.md
+    #  - Beginning: Course/OOP/Lec01.md
     - 密码学:
       - Perface: Course/Crypto/index.md
+      - 数学基础: Course/Crypto/Lec01.md
   - Triviality: 
     - Markdown:
       - Perface: Triviality/Markdown/index.md
@@ -119,7 +121,7 @@ plugins:
 #      minify_html: true
   - search:
       separator: '[\s\u200b\-]'
-#  - encryptcontent:
+  - encryptcontent
 #      global_password: 'ZJU'
   - tags # 给单篇文章添加标签 https://squidfunk.github.io/mkdocs-material/setup/setting-up-tags/?h=tags
 
