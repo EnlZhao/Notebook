@@ -1507,7 +1507,9 @@ Any simgle operation might take <span class="arithmatex">\(O(N)\)</span> time</p
 <p><span class="arithmatex">\(T\)</span> 即 <span class="arithmatex">\(D(i)\)</span> , <span class="arithmatex">\(log~S(i) called &lt;u&gt;Rank&lt;/u&gt; of the subtree \approx Height of the tree\)</span> </p>
 </blockquote>
 <ul>
-<li><span class="arithmatex">\(\Phi(T) = \sum\limits_{i \in T} Rank(i)\)</span> <ul>
+<li>
+<p><span class="arithmatex">\(\Phi(T) = \sum\limits_{i \in T} Rank(i)\)</span> </p>
+<ul>
 <li>Zig: <br><img alt="2023-03-01-12-15-00" src="../../../Images/2023-03-01-12-15-00.png" /><ul>
 <li><span class="arithmatex">\(\hat{c_i} = 1 + R_2(X) - R_1(X) + R_2(P) - R_1(P)\)</span></li>
 <li><span class="arithmatex">\(\le 1 + R_2(X) - R_1(X)\)</span> ( <span class="arithmatex">\(R_2(X)\)</span> 表示旋转后的这个点的秩函数)</li>
@@ -1520,13 +1522,17 @@ Any simgle operation might take <span class="arithmatex">\(O(N)\)</span> time</p
 <li><span class="arithmatex">\(\le 2(R_2(X) - R_1(X))\)</span> </li>
 </ul>
 <blockquote>
-<p><span class="arithmatex">\((a+b)^2 \ge 4ab ~~ \Rightarrow ~~ 2log~(a+b) \ge 2 + log~a + log~b\)</span> <br />
-    * Zig-zig: <br><img alt="2023-02-28-21-03-17" src="../../../Images/2023-02-28-21-03-17.png" />
-* <span class="arithmatex">\(\hat{c_i} = 2 + R_2(X) - R_1(X) + R_2(P) - R_1(P) + R_2(G) - R_1(G)\)</span>
-* <span class="arithmatex">\(\le 3(R_2(X) - R_1(X))\)</span> 
-* [Theorem] : The amortized time to splay a tree with root <span class="arithmatex">\(T\)</span> at node <span class="arithmatex">\(X\)</span> is at most <span class="arithmatex">\(3(R(T) - R(X)) + 1 = O(log~N)\)</span> </p>
+<p><span class="arithmatex">\((a+b)^2 \ge 4ab ~~ \Rightarrow ~~ 2log~(a+b) \ge 2 + log~a + log~b\)</span> </p>
 </blockquote>
 </li>
+<li>
+<p>Zig-zig: <br><img alt="2023-02-28-21-03-17" src="../../../Images/2023-02-28-21-03-17.png" /></p>
+<ul>
+<li><span class="arithmatex">\(\hat{c_i} = 2 + R_2(X) - R_1(X) + R_2(P) - R_1(P) + R_2(G) - R_1(G)\)</span></li>
+<li><span class="arithmatex">\(\le 3(R_2(X) - R_1(X))\)</span> </li>
+</ul>
+</li>
+<li>[Theorem] : The amortized time to splay a tree with root <span class="arithmatex">\(T\)</span> at node <span class="arithmatex">\(X\)</span> is at most <span class="arithmatex">\(3(R(T) - R(X)) + 1 = O(log~N)\)</span> </li>
 </ul>
 </li>
 </ul>
