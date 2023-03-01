@@ -19,7 +19,9 @@ password: ADS@Molan@2002
     * ![2023-02-28-20-49-07](../../Images/2023-02-28-20-49-07.png)
     * 发现 K~3~ 沉到了更底部
 * 给出新的旋转方法: 
+
     > For any nonroot node X, denote its parent by P and grandparent by G: 
+    
     * Case 1: P is the root ——> Rotate X and P
     * Case 2: P is not the root 
         * Zig-zag:
@@ -28,6 +30,7 @@ password: ADS@Molan@2002
             ![2023-02-28-21-03-17](../../Images/2023-02-28-21-03-17.png)
 
         > 第一个为 LR， 第二个为两次 LL
+
 * 那么对于开始的图形，使用 Splay 得到
     ![2023-02-28-21-05-58](../../Images/2023-02-28-21-05-58.png)
     
@@ -114,12 +117,13 @@ Show that for all n, a sequence of n operations takes *worst-case* time $T(n)$ i
     * $\sum\limits_{i=1}^n \hat{c_i} = \sum\limits_{i=1}^n O(1) = O(n) \ge (\sum\limits_{i=1}^n c_i) ~~ \Rightarrow ~~ T_{amortized} = O(n)/n = O(1)$
 
 [example] : Splay Trees: $T_{amortized} = O(log N)$ 
+
 * $D_i$ = the root of the resulting tree
 * $\Phi(D_i)$ : must increase by at most $O(log N)$ over $n$ steps, AND will also cancel out the number of rotations (zig: 1; zig-zag: 2; zig-zig: 2)
 * $\Phi(T) = \sum\limits_{i \in T} log~S(i)$ where $S(i)$ is the number of descendants of $i$ ( $i$ itself included)
 
 > $T$ 即 $D(i)$ , $log~S(i) called <u>Rank</u> of the subtree \approx Height of the tree$ 
-`
+
 * $\Phi(T) = \sum\limits_{i \in T} Rank(i)$ 
     * Zig: <br>![2023-03-01-12-15-00](../../Images/2023-03-01-12-15-00.png)
         * $\hat{c_i} = 1 + R_2(X) - R_1(X) + R_2(P) - R_1(P)$
@@ -127,7 +131,9 @@ Show that for all n, a sequence of n operations takes *worst-case* time $T(n)$ i
     * Zig-zag: <br>![2023-02-28-20-59-53](../../Images/2023-02-28-20-59-53.png)
         * $\hat{c_i} = 2 + R_2(X) - R_1(X) + R_2(P) - R_1(P) + R_2(G) - R_1(G)$
         * $\le 2(R_2(X) - R_1(X))$ 
+
         > $(a+b)^2 \ge 4ab ~~ \Rightarrow ~~ 2log~(a+b) \ge 2 + log~a + log~b$ 
+
     * Zig-zig: <br>![2023-02-28-21-03-17](../../Images/2023-02-28-21-03-17.png)
         * $\hat{c_i} = 2 + R_2(X) - R_1(X) + R_2(P) - R_1(P) + R_2(G) - R_1(G)$
         * $\le 3(R_2(X) - R_1(X))$ 
