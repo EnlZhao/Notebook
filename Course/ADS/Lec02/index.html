@@ -15,17 +15,13 @@
         <link rel="canonical" href="https://enl-z.cc/Notebook/Course/ADS/Lec02/">
       
       
-        <link rel="prev" href="../Lec01/">
-      
-      
-        <link rel="next" href="../../OOP/">
       
       <link rel="icon" href="../../../Icon/Avatar.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.6">
     
     
       
-        <title>[LOCK]Splay Trees - 某兰的笔记本</title>
+        <title>Splay Trees & Amortized Analysis - 某兰的笔记本</title>
       
     
     
@@ -142,7 +138,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              [LOCK]Splay Trees
+              Splay Trees & Amortized Analysis
             
           </span>
         </div>
@@ -250,8 +246,6 @@
         
   
   
-    
-  
 
 
   
@@ -263,7 +257,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../System2/" class="md-tabs__link md-tabs__link--active">
+      <a href="../../System2/" class="md-tabs__link">
         Course
       </a>
     </li>
@@ -418,16 +412,14 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
       
       
         
@@ -445,7 +437,7 @@
         
       
       
-        <label class="md-nav__link" for="__nav_2" tabindex="0" aria-expanded="true">
+        <label class="md-nav__link" for="__nav_2" tabindex="0" aria-expanded="false">
           Course
           <span class="md-nav__icon md-icon"></span>
         </label>
@@ -693,23 +685,19 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" checked>
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" >
       
       
         
           
             
-          
-        
           
         
           
@@ -745,115 +733,6 @@
       <a href="../Lec01/" class="md-nav__link">
         AVL Trees
       </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-    
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          [LOCK]Splay Trees
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        [LOCK]Splay Trees
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#splay-trees" class="md-nav__link">
-    Splay Trees | 伸展树
-  </a>
-  
-    <nav class="md-nav" aria-label="Splay Trees | 伸展树">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#find" class="md-nav__link">
-    Find
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#deletions" class="md-nav__link">
-    Deletions
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#amortized-analysis" class="md-nav__link">
-    Amortized Analysis | 摊还分析
-  </a>
-  
-    <nav class="md-nav" aria-label="Amortized Analysis | 摊还分析">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#aggregate-analysis" class="md-nav__link">
-    Aggregate Analysis
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#accounting-method" class="md-nav__link">
-    Accounting Method
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#potential-method" class="md-nav__link">
-    Potential Method
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1355,30 +1234,189 @@
 
 
 
-<div id="mkdocs-encrypted-content" style="display:none">UMOa2gr3HHJL2d6iPZsOQA==;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;^</div>
-<div id="mkdocs-decrypted-content">
-    <form id="mkdocs-decrypt-form">
-        <h1>AES encryption supported by unverbuggt@github's plugin</h1>
-        <p>Contact me(Enl_Z) via methods provided in the comments section for access to this page</p>
-        <input type="password" id="mkdocs-content-password" placeholder="Provide password and press ENTER" />
-        
-        <p id="mkdocs-decrypt-msg"></p>
-    </form>
+<h1 id="splay-trees-amortized-analysis">Splay Trees &amp; Amortized Analysis<a class="headerlink" href="#splay-trees-amortized-analysis" title="Permanent link">👀</a></h1>
+<h2 id="splay-trees">Splay Trees | 伸展树<a class="headerlink" href="#splay-trees" title="Permanent link">👀</a></h2>
+<div class="admonition abstract">
+<p class="admonition-title">Splay Tree - Definition</p>
+<p>A relatively simple date structure, known as splay tree, that guarantees that any m consecutive tree operations take at most <span class="arithmatex">\(O(Mlog~N)\)</span> time.</p>
+<blockquote>
+<p>It means that the <u>amortized</u> time is <span class="arithmatex">\(O(log~N)\)</span> <br />
+Any simgle operation might take <span class="arithmatex">\(O(N)\)</span> time</p>
+</blockquote>
 </div>
-
-<script type="text/javascript">
-var encryptcontent_path = "Notebook/Course/ADS/Lec02/";
-var decryption_failure_message = "Invalid password";
-</script>
-
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/core.js"></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/enc-base64.js"></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/cipher-core.js"></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/pad-nopadding.js"></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/md5.js"></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/aes.js"></script>
-<script type="text/javascript" src="../../../assets/javascripts/decrypt-contents.js" defer></script>
-
+<h3 id="find">Find<a class="headerlink" href="#find" title="Permanent link">👀</a></h3>
+<ul>
+<li>伸展树的核心想法是: 一个节点被访问后，通过一系列 AVL Tree 的旋转方法将它转至根节点</li>
+<li>尝试单旋:<ul>
+<li><img alt="2023-02-28-20-49-07" src="../../../Images/2023-02-28-20-49-07.png" /></li>
+<li>发现 K<sub>3</sub> 沉到了更底部</li>
+</ul>
+</li>
+<li>
+<p>给出新的旋转方法: </p>
+<blockquote>
+<p>For any nonroot node X, denote its parent by P and grandparent by G: </p>
+</blockquote>
+<ul>
+<li>Case 1: P is the root ——&gt; Rotate X and P</li>
+<li>
+<p>Case 2: P is not the root </p>
+<ul>
+<li>Zig-zag:<br />
+<img alt="2023-02-28-20-59-53" src="../../../Images/2023-02-28-20-59-53.png" /></li>
+<li>Zig-zig:<br />
+<img alt="2023-02-28-21-03-17" src="../../../Images/2023-02-28-21-03-17.png" /></li>
+</ul>
+<blockquote>
+<p>第一个为 LR， 第二个为两次 LL</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>
+<p>那么对于开始的图形，使用 Splay 得到<br />
+<img alt="2023-02-28-21-05-58" src="../../../Images/2023-02-28-21-05-58.png" /></p>
+<blockquote>
+<p>Splaying not only moves the accessed node to the root, but also roughly halves the depth of most nodes on the path.</p>
+</blockquote>
+</li>
+</ul>
+<details class="example">
+<summary>举个栗子</summary>
+<p><img alt="2023-02-28-21-08-15" src="../../../Images/2023-02-28-21-08-15.png" /></p>
+</details>
+<h3 id="deletions">Deletions<a class="headerlink" href="#deletions" title="Permanent link">👀</a></h3>
+<ul>
+<li>Step 1: Find X (X will be at the root)</li>
+<li>Step 2: Remove X (There will be two subtrees <span class="arithmatex">\(T_L\)</span> and <span class="arithmatex">\(T_R\)</span> )</li>
+<li>Step 3: FindMax( <span class="arithmatex">\(T_L\)</span> ) (The largest element will be the root of <span class="arithmatex">\(T_L\)</span> , and has no right child)</li>
+<li>Step 4: Make <span class="arithmatex">\(T_R\)</span> the right child of the root of <span class="arithmatex">\(T_L\)</span> </li>
+</ul>
+<h2 id="amortized-analysis">Amortized Analysis | 摊还分析<a class="headerlink" href="#amortized-analysis" title="Permanent link">👀</a></h2>
+<details class="abstract">
+<summary>Abstract</summary>
+<p>Almost the most difficult question in ADS</p>
+</details>
+<ul>
+<li>worst-case bound <span class="arithmatex">\(\ge\)</span> amortized bound <span class="arithmatex">\(\ge\)</span> average-case bound</li>
+<li>分析方法: <ul>
+<li>Aggregate analysis | 聚合分析</li>
+<li>Accounting method | 核算法</li>
+<li>Potential method | 势能方法 (Highest-level)</li>
+</ul>
+</li>
+</ul>
+<h3 id="aggregate-analysis">Aggregate Analysis<a class="headerlink" href="#aggregate-analysis" title="Permanent link">👀</a></h3>
+<p>Show that for all n, a sequence of n operations takes <em>worst-case</em> time <span class="arithmatex">\(T(n)\)</span> in total. In the worst case, the average cost, or <em>amortized cost</em> per operation is <span class="arithmatex">\(\frac{T(n)}{n}\)</span> </p>
+<details class="example">
+<summary>Stack with MultiPop(int k, Stack S)</summary>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">Algorithm</span><span class="p">{</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">IsEmpty</span><span class="p">(</span><span class="n">S</span><span class="p">)</span><span class="w"> </span><span class="n">$$</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">        </span><span class="n">Pop</span><span class="p">(</span><span class="n">S</span><span class="p">);</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">        </span><span class="n">k</span><span class="w"> </span><span class="o">--</span><span class="p">;</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
+</code></pre></div>
+* Consider a sequence of <span class="arithmatex">\(n\)</span> Push, Pop, and MultiPop operations on an initially empty stack. (sizeof(S) <span class="arithmatex">\(\le n\)</span> )<br />
+    * <span class="arithmatex">\(n\)</span> 次操作, push 的操作 <span class="arithmatex">\(\le n\)</span> (pop 必须要有 push), 最多的费用 <span class="arithmatex">\(\approx 2n-2\)</span><br />
+    * <span class="arithmatex">\(T_{amortized} ~ = ~ O(n) / n ~ = ~ O(1)\)</span></p>
+</details>
+<h3 id="accounting-method">Accounting Method<a class="headerlink" href="#accounting-method" title="Permanent link">👀</a></h3>
+<ul>
+<li>When an operation’s <em>amortized cost</em> <span class="arithmatex">\(\hat{c_i}\)</span> exceeds its <em>actual cost</em> <span class="arithmatex">\(c_i\)</span> , we assign the difference to specific objects in the data structure as <em>credit</em> (namely <span class="arithmatex">\(\Delta _i\)</span>). Credit can help <em>pay</em> for later operations whose amortized cost is less than their actual cost.</li>
+<li>&ldquo;劫富济贫&rdquo;，将时间划分</li>
+</ul>
+<details class="example">
+<summary>柱状图表示各情况的时间费用</summary>
+<p><img alt="2023-03-01-10-20-57" src="../../../Images/2023-03-01-10-20-57.png" /></p>
+</details>
+<ul>
+<li><span class="arithmatex">\(\frac{\sum \hat{c_i}}{n} ~ = \frac{\sum c_i}{n} + \frac{\sum \Delta _i}{n} ~ \le ~ A\)</span> </li>
+<li>若希望 <span class="arithmatex">\(\frac{\sum \hat{c_i}}{n} \le A\)</span> (A 为某个数值)， 虽然 <span class="arithmatex">\(\Delta _i\)</span> 取值都有可能，但如果 <span class="arithmatex">\(\frac{\sum \Delta _i}{n} \ge 0\)</span> .</li>
+<li>此时如果可以证明 <span class="arithmatex">\(\frac{max \sum \hat{c_i}}{n} \le A ~ \approx ~ \frac{\sum c_i}{n} \le A\)</span> (其实就等价于计算最大的摊还费用 <span class="arithmatex">\(\le A\)</span> , 即 <em>worst-case</em> 下费用 <span class="arithmatex">\(\le A\)</span> )</li>
+</ul>
+<details class="example">
+<summary>Stack with MultiPop(int k, Stack S)</summary>
+<ul>
+<li><span class="arithmatex">\(c_i\)</span> for Push: 1; Pop: 1; MultiPop: min(sizeof(S), k)</li>
+<li><span class="arithmatex">\(\hat{c_i}\)</span> for Push: 2; Pop: 0; MultiPop: 0</li>
+</ul>
+<p>Starting from an empty stack —— <em>Credits</em> for
+* Push: +1; Pop: -1; MultiPop: -1 for each +1 ( <span class="arithmatex">\(\sum Credits \ge 0\)</span> )
+* sizeof(S) <span class="arithmatex">\(\ge 0 ~~ \Rightarrow ~~ Credits \ge 0\)</span>
+* <span class="arithmatex">\(\Rightarrow ~~ O(n) = \sum\limits_{i=1}^n \hat{c_i} \ge \sum\limits_{i=1}^n c_i\)</span> 
+* <span class="arithmatex">\(\Rightarrow ~~ T_{amortized} = O(n)/n = O(1)\)</span></p>
+</details>
+<h3 id="potential-method">Potential Method<a class="headerlink" href="#potential-method" title="Permanent link">👀</a></h3>
+<ul>
+<li>Take a closer look at the <em>credit</em> —— <span class="arithmatex">\(\hat{c_i} - c_i = Credit = \Phi(D_i) - \Phi(D_{i-1})\)</span> ( <span class="arithmatex">\(\Phi \rightarrow Potential ~ function\)</span>  )</li>
+<li><span class="arithmatex">\(\sum\limits_{i=1}^n \hat{c_i} = \sum\limits_{i=1}^n (c_i + \Phi (D_i) - \Phi (D_{i-1})) = (\sum\limits_{i=1}^n c_i) + \Phi (D_n) - \Phi (D_0)\)</span></li>
+<li>其中, <span class="arithmatex">\(\Phi (D_n) - \Phi (D_0) \ge 0\)</span> (我们希望做到 <span class="arithmatex">\(\Phi (D_0) = 0  ~,~ \Phi(D_n) \ge 0\)</span> , <span class="arithmatex">\(\Phi(D_0)\)</span> 是常数也没有问题)</li>
+<li>In general, a good potential function should always assume its minimum at the start of the sequence</li>
+</ul>
+<details class="example">
+<summary>Stack with MultiPop(int k, Stack S)</summary>
+<ul>
+<li><span class="arithmatex">\(D_i\)</span> = the stack that results after the <em>i</em> -th operation </li>
+<li><span class="arithmatex">\(\Phi (D_i)\)</span> = the number of objects in the stack <span class="arithmatex">\(D_i\)</span><br />
+        * <span class="arithmatex">\(\Phi (D_i) \ge 0 = \Phi (D_0)\)</span><ul>
+<li>Push: <span class="arithmatex">\(\Phi (D_i) - \Phi (D_{i-1}) = (sizeof(S) + 1) - sizeof(S) = 1\)</span><ul>
+<li><span class="arithmatex">\(\hat{c_i} = c_i + \Phi (D_i) - \Phi (D_{i-1}) = 1 + 1 = 2\)</span></li>
+</ul>
+</li>
+<li>Pop: <span class="arithmatex">\(\Phi (D_i) - \Phi (D_{i-1}) = (sizeof(S) - 1) - sizeof(S) = -1\)</span><ul>
+<li><span class="arithmatex">\(\hat{c_i} = c_i + \Phi (D_i) - \Phi (D_{i-1}) = 1 - 1 = 0\)</span></li>
+</ul>
+</li>
+<li>MultiPop: <span class="arithmatex">\(\Phi (D_i) - \Phi (D_{i-1}) = (sizeof(S) - k' ) - sizeof(S) = -k'\)</span><ul>
+<li><span class="arithmatex">\(\hat{c_i} = c_i + \Phi (D_i) - \Phi (D_{i-1}) = k' - k' = 0\)</span></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><span class="arithmatex">\(\sum\limits_{i=1}^n \hat{c_i} = \sum\limits_{i=1}^n O(1) = O(n) \ge (\sum\limits_{i=1}^n c_i) ~~ \Rightarrow ~~ T_{amortized} = O(n)/n = O(1)\)</span></li>
+</ul>
+</details>
+<p>[example] : Splay Trees: <span class="arithmatex">\(T_{amortized} = O(log N)\)</span> </p>
+<ul>
+<li><span class="arithmatex">\(D_i\)</span> = the root of the resulting tree</li>
+<li><span class="arithmatex">\(\Phi(D_i)\)</span> : must increase by at most <span class="arithmatex">\(O(log N)\)</span> over <span class="arithmatex">\(n\)</span> steps, AND will also cancel out the number of rotations (zig: 1; zig-zag: 2; zig-zig: 2)</li>
+<li><span class="arithmatex">\(\Phi(T) = \sum\limits_{i \in T} log~S(i)\)</span> where <span class="arithmatex">\(S(i)\)</span> is the number of descendants of <span class="arithmatex">\(i\)</span> ( <span class="arithmatex">\(i\)</span> itself included)</li>
+</ul>
+<blockquote>
+<p><span class="arithmatex">\(T\)</span> 即 <span class="arithmatex">\(D(i)\)</span> , <span class="arithmatex">\(log~S(i) called &lt;u&gt;Rank&lt;/u&gt; of the subtree \approx Height of the tree\)</span> </p>
+</blockquote>
+<ul>
+<li>
+<p><span class="arithmatex">\(\Phi(T) = \sum\limits_{i \in T} Rank(i)\)</span> </p>
+<ul>
+<li>Zig: <br><img alt="2023-03-01-12-15-00" src="../../../Images/2023-03-01-12-15-00.png" /><ul>
+<li><span class="arithmatex">\(\hat{c_i} = 1 + R_2(X) - R_1(X) + R_2(P) - R_1(P)\)</span></li>
+<li><span class="arithmatex">\(\le 1 + R_2(X) - R_1(X)\)</span> ( <span class="arithmatex">\(R_2(X)\)</span> 表示旋转后的这个点的秩函数)</li>
+</ul>
+</li>
+<li>
+<p>Zig-zag: <br><img alt="2023-02-28-20-59-53" src="../../../Images/2023-02-28-20-59-53.png" /></p>
+<ul>
+<li><span class="arithmatex">\(\hat{c_i} = 2 + R_2(X) - R_1(X) + R_2(P) - R_1(P) + R_2(G) - R_1(G)\)</span></li>
+<li><span class="arithmatex">\(\le 2(R_2(X) - R_1(X))\)</span> </li>
+</ul>
+<blockquote>
+<p><span class="arithmatex">\((a+b)^2 \ge 4ab ~~ \Rightarrow ~~ 2log~(a+b) \ge 2 + log~a + log~b\)</span> </p>
+</blockquote>
+</li>
+<li>
+<p>Zig-zig: <br><img alt="2023-02-28-21-03-17" src="../../../Images/2023-02-28-21-03-17.png" /></p>
+<ul>
+<li><span class="arithmatex">\(\hat{c_i} = 2 + R_2(X) - R_1(X) + R_2(P) - R_1(P) + R_2(G) - R_1(G)\)</span></li>
+<li><span class="arithmatex">\(\le 3(R_2(X) - R_1(X))\)</span> </li>
+</ul>
+</li>
+<li>[Theorem] : The amortized time to splay a tree with root <span class="arithmatex">\(T\)</span> at node <span class="arithmatex">\(X\)</span> is at most <span class="arithmatex">\(3(R(T) - R(X)) + 1 = O(log~N)\)</span> </li>
+</ul>
+</li>
+</ul>
 
 
   
@@ -1451,42 +1489,6 @@ var decryption_failure_message = "Invalid password";
       
         <footer class="md-footer">
   
-    
-      
-      <nav class="md-footer__inner md-grid" aria-label="页脚" >
-        
-          
-          <a href="../Lec01/" class="md-footer__link md-footer__link--prev" aria-label="上一页: AVL Trees" rel="prev">
-            <div class="md-footer__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-            </div>
-            <div class="md-footer__title">
-              <div class="md-ellipsis">
-                <span class="md-footer__direction">
-                  上一页
-                </span>
-                AVL Trees
-              </div>
-            </div>
-          </a>
-        
-        
-          
-          <a href="../../OOP/" class="md-footer__link md-footer__link--next" aria-label="下一页: Perface" rel="next">
-            <div class="md-footer__title">
-              <div class="md-ellipsis">
-                <span class="md-footer__direction">
-                  下一页
-                </span>
-                Perface
-              </div>
-            </div>
-            <div class="md-footer__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-            </div>
-          </a>
-        
-      </nav>
     
   
   <div class="md-footer-meta md-typeset">
