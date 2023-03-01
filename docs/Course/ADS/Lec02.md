@@ -1,7 +1,3 @@
----
-password: ADS@Molan@2002
----
-
 # Splay Trees & Amortized Analysis
 
 ## Splay Trees | 伸展树

@@ -25,10 +25,11 @@ nav:
     - 高级数据结构与算法分析:
       - Perface: Course/ADS/index.md
       - AVL Trees: Course/ADS/Lec01.md
-      - Splay Trees: Course/ADS/Lec02.md
+    #  - Splay Trees: Course/ADS/Lec02.md
     - 面向对象程序设计:
       - Perface: Course/OOP/index.md
-    #  - Beginning: Course/OOP/Lec01.md
+    #  - Lecture01: Course/OOP/Lec01.md
+    #  - Lecture02: Course/OOP/Lec02.md
     - 密码学:
       - Perface: Course/Crypto/index.md
     #  - 数学基础: Course/Crypto/Lec01.md
