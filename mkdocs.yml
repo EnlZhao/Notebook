@@ -24,14 +24,14 @@ nav:
       - 哈希: Course/FDS/Lec06.md
     - 高级数据结构与算法分析:
       - Perface: Course/ADS/index.md
-    #  - AVL Trees: Course/ADS/Lec01.md
-    #  - AVL Trees: Course/ADS/Lec02.md
+      - AVL Trees: Course/ADS/Lec01.md
+      - Splay Trees: Course/ADS/Lec02.md
     - 面向对象程序设计:
       - Perface: Course/OOP/index.md
     #  - Beginning: Course/OOP/Lec01.md
     - 密码学:
       - Perface: Course/Crypto/index.md
-      - 数学基础: Course/Crypto/Lec01.md
+    #  - 数学基础: Course/Crypto/Lec01.md
   - Triviality: 
     - Markdown:
       - Perface: Triviality/Markdown/index.md
@@ -122,11 +122,11 @@ plugins:
   - search:
       separator: '[\s\u200b\-]'
   - encryptcontent:
-      - title_prefix: '[LOCK]'
-      - summary: 'This content is protected with AES encryption supported by unverbuggt@github's plugin'
-      - placeholder: 'Provide password and press ENTER'
-      - decryption_failure_message: 'Invalid password'
-      - encryption_info_message: 'Contact me(Enl_Z) via methods provided in the comments section for access to this page'
+      title_prefix: '[LOCK]'
+      summary: AES encryption supported by unverbuggt@github's plugin
+      placeholder: Provide password and press ENTER
+      decryption_failure_message: Invalid password
+      encryption_info_message: Contact me(Enl_Z) via methods provided in the comments section for access to this page
   - tags # 给单篇文章添加标签 https://squidfunk.github.io/mkdocs-material/setup/setting-up-tags/?h=tags
 
 markdown_extensions:
