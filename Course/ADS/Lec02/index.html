@@ -1506,34 +1506,23 @@ Any simgle operation might take <span class="arithmatex">\(O(N)\)</span> time</p
 <summary>Stack with MultiPop(int k, Stack S)</summary>
 <ul>
 <li><span class="arithmatex">\(D_i\)</span> = the stack that results after the <em>i</em> -th operation </li>
-<li>
-<p><span class="arithmatex">\(\Phi (D_i)\)</span> = the number of objects in the stack <span class="arithmatex">\(D_i\)</span></p>
-<div class="highlight"><pre><span></span><code>* $\Phi (D_i) \ge 0 = \Phi (D_0)$
-</code></pre></div>
-<ul>
-<li>
-<p>Push: <span class="arithmatex">\(\Phi (D_i) - \Phi (D_{i-1}) = (sizeof(S) + 1) - sizeof(S) = 1\)</span></p>
-<ul>
+<li><span class="arithmatex">\(\Phi (D_i)\)</span> = the number of objects in the stack <span class="arithmatex">\(D_i\)</span><ul>
+<li>则 <span class="arithmatex">\(\Phi (D_i) \ge 0 = \Phi (D_0)\)</span></li>
+<li>Push: <span class="arithmatex">\(\Phi (D_i) - \Phi (D_{i-1}) = (sizeof(S) + 1) - sizeof(S) = 1\)</span><ul>
 <li><span class="arithmatex">\(\hat{c_i} = c_i + \Phi (D_i) - \Phi (D_{i-1}) = 1 + 1 = 2\)</span></li>
 </ul>
 </li>
-<li>
-<p>Pop: <span class="arithmatex">\(\Phi (D_i) - \Phi (D_{i-1}) = (sizeof(S) - 1) - sizeof(S) = -1\)</span></p>
-<ul>
+<li>Pop: <span class="arithmatex">\(\Phi (D_i) - \Phi (D_{i-1}) = (sizeof(S) - 1) - sizeof(S) = -1\)</span><ul>
 <li><span class="arithmatex">\(\hat{c_i} = c_i + \Phi (D_i) - \Phi (D_{i-1}) = 1 - 1 = 0\)</span></li>
 </ul>
 </li>
-<li>
-<p>MultiPop: <span class="arithmatex">\(\Phi (D_i) - \Phi (D_{i-1}) = (sizeof(S) - k' ) - sizeof(S) = -k'\)</span></p>
-<ul>
+<li>MultiPop: <span class="arithmatex">\(\Phi (D_i) - \Phi (D_{i-1}) = (sizeof(S) - k' ) - sizeof(S) = -k'\)</span><ul>
 <li><span class="arithmatex">\(\hat{c_i} = c_i + \Phi (D_i) - \Phi (D_{i-1}) = k' - k' = 0\)</span></li>
 </ul>
 </li>
 </ul>
 </li>
-<li>
-<p><span class="arithmatex">\(\sum\limits_{i=1}^n \hat{c_i} = \sum\limits_{i=1}^n O(1) = O(n) \ge (\sum\limits_{i=1}^n c_i) ~~ \Rightarrow ~~ T_{amortized} = O(n)/n = O(1)\)</span></p>
-</li>
+<li><span class="arithmatex">\(\sum\limits_{i=1}^n \hat{c_i} = \sum\limits_{i=1}^n O(1) = O(n) \ge (\sum\limits_{i=1}^n c_i) ~~ \Rightarrow ~~ T_{amortized} = O(n)/n = O(1)\)</span></li>
 </ul>
 </details>
 <p>[example] : Splay Trees: <span class="arithmatex">\(T_{amortized} = O(log N)\)</span> </p>
