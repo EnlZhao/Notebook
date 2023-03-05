@@ -15,13 +15,17 @@
         <link rel="canonical" href="https://enl-z.cc/Notebook/Course/ADS/Lec02/">
       
       
+        <link rel="prev" href="../Lec01/">
+      
+      
+        <link rel="next" href="../../OOP/">
       
       <link rel="icon" href="../../../Icon/Avatar.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.6">
     
     
       
-        <title>Splay Trees & Amortized Analysis - 某兰的笔记本</title>
+        <title>Splay Trees - 某兰的笔记本</title>
       
     
     
@@ -138,7 +142,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Splay Trees & Amortized Analysis
+              Splay Trees
             
           </span>
         </div>
@@ -246,6 +250,8 @@
         
   
   
+    
+  
 
 
   
@@ -257,7 +263,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../System2/" class="md-tabs__link">
+      <a href="../../System2/" class="md-tabs__link md-tabs__link--active">
         Course
       </a>
     </li>
@@ -412,14 +418,16 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
       
       
         
@@ -437,7 +445,7 @@
         
       
       
-        <label class="md-nav__link" for="__nav_2" tabindex="0" aria-expanded="false">
+        <label class="md-nav__link" for="__nav_2" tabindex="0" aria-expanded="true">
           Course
           <span class="md-nav__icon md-icon"></span>
         </label>
@@ -685,19 +693,23 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" >
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" checked>
       
       
         
           
             
+          
+        
           
         
           
@@ -733,6 +745,115 @@
       <a href="../Lec01/" class="md-nav__link">
         AVL Trees
       </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Splay Trees
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Splay Trees
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#splay-trees" class="md-nav__link">
+    Splay Trees | 伸展树
+  </a>
+  
+    <nav class="md-nav" aria-label="Splay Trees | 伸展树">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#find" class="md-nav__link">
+    Find
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deletions" class="md-nav__link">
+    Deletions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amortized-analysis" class="md-nav__link">
+    Amortized Analysis | 摊还分析
+  </a>
+  
+    <nav class="md-nav" aria-label="Amortized Analysis | 摊还分析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aggregate-analysis" class="md-nav__link">
+    Aggregate Analysis
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accounting-method" class="md-nav__link">
+    Accounting Method
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#potential-method" class="md-nav__link">
+    Potential Method
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1509,6 +1630,42 @@ Any simgle operation might take <span class="arithmatex">\(O(N)\)</span> time</p
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+          
+          <a href="../Lec01/" class="md-footer__link md-footer__link--prev" aria-label="上一页: AVL Trees" rel="prev">
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <div class="md-ellipsis">
+                <span class="md-footer__direction">
+                  上一页
+                </span>
+                AVL Trees
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../OOP/" class="md-footer__link md-footer__link--next" aria-label="下一页: Perface" rel="next">
+            <div class="md-footer__title">
+              <div class="md-ellipsis">
+                <span class="md-footer__direction">
+                  下一页
+                </span>
+                Perface
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
     
   
   <div class="md-footer-meta md-typeset">
