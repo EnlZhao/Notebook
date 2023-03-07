@@ -18,14 +18,14 @@
         <link rel="prev" href="../">
       
       
-        <link rel="next" href="../Lec02/">
+        <link rel="next" href="../../OOP/">
       
       <link rel="icon" href="../../../Icon/Avatar.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.6">
     
     
       
-        <title>AVL Trees - 某兰的笔记本</title>
+        <title>AVL & Splay - 某兰的笔记本</title>
       
     
     
@@ -108,7 +108,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#avl-trees" class="md-skip">
+        <a href="#avl-splay-amortized-analysis" class="md-skip">
           跳转至
         </a>
       
@@ -142,7 +142,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              AVL Trees
+              AVL & Splay
             
           </span>
         </div>
@@ -712,8 +712,6 @@
         
           
         
-          
-        
       
       
         
@@ -752,12 +750,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          AVL Trees
+          AVL & Splay
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        AVL Trees
+        AVL & Splay
       </a>
       
         
@@ -776,13 +774,21 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#avl-trees" class="md-nav__link">
+    AVL Trees
+  </a>
+  
+    <nav class="md-nav" aria-label="AVL Trees">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#maximum-height" class="md-nav__link">
     Maximum Height
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#rotation" class="md-nav__link">
     Rotation
   </a>
@@ -822,25 +828,90 @@
     </nav>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#splay-trees-amortized-analysis" class="md-nav__link">
+    Splay Trees &amp; Amortized Analysis
+  </a>
+  
+    <nav class="md-nav" aria-label="Splay Trees &amp; Amortized Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#splay-trees" class="md-nav__link">
+    Splay Trees | 伸展树
+  </a>
+  
+    <nav class="md-nav" aria-label="Splay Trees | 伸展树">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#find" class="md-nav__link">
+    Find
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deletions" class="md-nav__link">
+    Deletions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#amortized-analysis" class="md-nav__link">
+    Amortized Analysis | 摊还分析
+  </a>
+  
+    <nav class="md-nav" aria-label="Amortized Analysis | 摊还分析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aggregate-analysis" class="md-nav__link">
+    Aggregate Analysis
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accounting-method" class="md-nav__link">
+    Accounting Method
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#potential-method" class="md-nav__link">
+    Potential Method
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
     </ul>
   
 </nav>
       
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Lec02/" class="md-nav__link">
-        Splay Trees
-      </a>
     </li>
   
 
@@ -1266,13 +1337,21 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#avl-trees" class="md-nav__link">
+    AVL Trees
+  </a>
+  
+    <nav class="md-nav" aria-label="AVL Trees">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#maximum-height" class="md-nav__link">
     Maximum Height
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#rotation" class="md-nav__link">
     Rotation
   </a>
@@ -1305,6 +1384,85 @@
   <a href="#rl" class="md-nav__link">
     RL
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#splay-trees-amortized-analysis" class="md-nav__link">
+    Splay Trees &amp; Amortized Analysis
+  </a>
+  
+    <nav class="md-nav" aria-label="Splay Trees &amp; Amortized Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#splay-trees" class="md-nav__link">
+    Splay Trees | 伸展树
+  </a>
+  
+    <nav class="md-nav" aria-label="Splay Trees | 伸展树">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#find" class="md-nav__link">
+    Find
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deletions" class="md-nav__link">
+    Deletions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#amortized-analysis" class="md-nav__link">
+    Amortized Analysis | 摊还分析
+  </a>
+  
+    <nav class="md-nav" aria-label="Amortized Analysis | 摊还分析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aggregate-analysis" class="md-nav__link">
+    Aggregate Analysis
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accounting-method" class="md-nav__link">
+    Accounting Method
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#potential-method" class="md-nav__link">
+    Potential Method
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1349,7 +1507,8 @@
 
 
 
-<h1 id="avl-trees">AVL Trees<a class="headerlink" href="#avl-trees" title="Permanent link">👀</a></h1>
+<h1 id="avl-splay-amortized-analysis">AVL &amp; Splay &amp; Amortized Analysis<a class="headerlink" href="#avl-splay-amortized-analysis" title="Permanent link">👀</a></h1>
+<h2 id="avl-trees">AVL Trees<a class="headerlink" href="#avl-trees" title="Permanent link">👀</a></h2>
 <blockquote>
 <p>Adelson-Velskii-Landis (AVL) Trees (1962)</p>
 </blockquote>
@@ -1364,7 +1523,7 @@
 <li>The balanced factor <span class="arithmatex">\(BF\)</span> (node) = <span class="arithmatex">\(h_L - h_R\)</span>. In an AVL tree, <span class="arithmatex">\(BF\)</span> (node) = -1, 0, or 1</li>
 </ul>
 </div>
-<h2 id="maximum-height">Maximum Height<a class="headerlink" href="#maximum-height" title="Permanent link">👀</a></h2>
+<h3 id="maximum-height">Maximum Height<a class="headerlink" href="#maximum-height" title="Permanent link">👀</a></h3>
 <ul>
 <li>Let <span class="arithmatex">\(n_h\)</span> be the minimum number of nodes in a balanced binary tree with height <span class="arithmatex">\(h\)</span><ul>
 <li>结点数最小时: <br />
@@ -1380,8 +1539,8 @@
 </ul>
 </li>
 </ul>
-<h2 id="rotation">Rotation<a class="headerlink" href="#rotation" title="Permanent link">👀</a></h2>
-<h3 id="rr">RR<a class="headerlink" href="#rr" title="Permanent link">👀</a></h3>
+<h3 id="rotation">Rotation<a class="headerlink" href="#rotation" title="Permanent link">👀</a></h3>
+<h4 id="rr">RR<a class="headerlink" href="#rr" title="Permanent link">👀</a></h4>
 <blockquote>
 <p>Single Rotation</p>
 </blockquote>
@@ -1391,7 +1550,7 @@
 不平衡的 &ldquo;发现者&rdquo; 是 Mar, “麻烦结点” Nov 在发现者的右子树的右边，因而叫 “RR 插入”，需要 &ldquo;RR 旋转&rdquo; 即右单旋</p>
 </details>
 <p><img alt="2023-02-28-15-13-50" src="../../../Images/2023-02-28-15-13-50.png" /></p>
-<h3 id="ll">LL<a class="headerlink" href="#ll" title="Permanent link">👀</a></h3>
+<h4 id="ll">LL<a class="headerlink" href="#ll" title="Permanent link">👀</a></h4>
 <blockquote>
 <p>Single Rotation</p>
 </blockquote>
@@ -1401,7 +1560,7 @@
 &ldquo;发现者&rdquo; 是 Mar, “麻烦结点” Apr 在发现者的左子树的左边，因而叫 “LL 插入”，需要 &ldquo;LL 旋转&rdquo; 即左单旋</p>
 </details>
 <p><img alt="2023-02-28-15-31-40" src="../../../Images/2023-02-28-15-31-40.png" /></p>
-<h3 id="lr">LR<a class="headerlink" href="#lr" title="Permanent link">👀</a></h3>
+<h4 id="lr">LR<a class="headerlink" href="#lr" title="Permanent link">👀</a></h4>
 <blockquote>
 <p>Double Rotation</p>
 </blockquote>
@@ -1411,7 +1570,7 @@
 &ldquo;发现者&rdquo; 是 May, “麻烦结点” Jan 在发现者的左子树的右边，因而叫 “LR 插入”，需要 &ldquo;LR 旋转&rdquo;</p>
 </details>
 <p><img alt="2023-02-28-15-40-29" src="../../../Images/2023-02-28-15-40-29.png" /></p>
-<h3 id="rl">RL<a class="headerlink" href="#rl" title="Permanent link">👀</a></h3>
+<h4 id="rl">RL<a class="headerlink" href="#rl" title="Permanent link">👀</a></h4>
 <blockquote>
 <p>Double Rotation</p>
 </blockquote>
@@ -1421,6 +1580,195 @@
 &ldquo;发现者&rdquo; 是 Aug, “麻烦结点” Feb 在发现者的右子树的左边，因而叫 “RL 插入”，需要 &ldquo;RL 旋转&rdquo;</p>
 </details>
 <p><img alt="2023-02-28-16-01-05" src="../../../Images/2023-02-28-16-01-05.png" /></p>
+<h2 id="splay-trees-amortized-analysis">Splay Trees &amp; Amortized Analysis<a class="headerlink" href="#splay-trees-amortized-analysis" title="Permanent link">👀</a></h2>
+<h3 id="splay-trees">Splay Trees | 伸展树<a class="headerlink" href="#splay-trees" title="Permanent link">👀</a></h3>
+<div class="admonition abstract">
+<p class="admonition-title">Splay Tree - Definition</p>
+<p>A relatively simple date structure, known as splay tree, that guarantees that any m consecutive tree operations take at most <span class="arithmatex">\(O(Mlog~N)\)</span> time.</p>
+<blockquote>
+<p>It means that the <u>amortized</u> time is <span class="arithmatex">\(O(log~N)\)</span> <br />
+Any simgle operation might take <span class="arithmatex">\(O(N)\)</span> time</p>
+</blockquote>
+</div>
+<h4 id="find">Find<a class="headerlink" href="#find" title="Permanent link">👀</a></h4>
+<ul>
+<li>伸展树的核心想法是: 一个节点被访问后，通过一系列 AVL Tree 的旋转方法将它转至根节点</li>
+<li>尝试单旋:<ul>
+<li><img alt="2023-02-28-20-49-07" src="../../../Images/2023-02-28-20-49-07.png" /></li>
+<li>发现 K<sub>3</sub> 沉到了更底部</li>
+</ul>
+</li>
+<li>
+<p>给出新的旋转方法: </p>
+<blockquote>
+<p>For any nonroot node X, denote its parent by P and grandparent by G: </p>
+</blockquote>
+<ul>
+<li>Case 1: P is the root ——&gt; Rotate X and P</li>
+<li>
+<p>Case 2: P is not the root </p>
+<ul>
+<li>Zig-zag:<br />
+<img alt="2023-02-28-20-59-53" src="../../../Images/2023-02-28-20-59-53.png" /></li>
+<li>Zig-zig:<br />
+<img alt="2023-02-28-21-03-17" src="../../../Images/2023-02-28-21-03-17.png" /></li>
+</ul>
+<blockquote>
+<p>第一个为 LR， 第二个为两次 LL</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>
+<p>那么对于开始的图形，使用 Splay 得到<br />
+<img alt="2023-02-28-21-05-58" src="../../../Images/2023-02-28-21-05-58.png" /></p>
+<blockquote>
+<p>Splaying not only moves the accessed node to the root, but also roughly halves the depth of most nodes on the path.</p>
+</blockquote>
+</li>
+</ul>
+<details class="example">
+<summary>举个栗子</summary>
+<p><img alt="2023-02-28-21-08-15" src="../../../Images/2023-02-28-21-08-15.png" /></p>
+</details>
+<h4 id="deletions">Deletions<a class="headerlink" href="#deletions" title="Permanent link">👀</a></h4>
+<ul>
+<li>Step 1: Find X (X will be at the root)</li>
+<li>Step 2: Remove X (There will be two subtrees <span class="arithmatex">\(T_L\)</span> and <span class="arithmatex">\(T_R\)</span> )</li>
+<li>Step 3: FindMax( <span class="arithmatex">\(T_L\)</span> ) (The largest element will be the root of <span class="arithmatex">\(T_L\)</span> , and has no right child)</li>
+<li>Step 4: Make <span class="arithmatex">\(T_R\)</span> the right child of the root of <span class="arithmatex">\(T_L\)</span> </li>
+</ul>
+<h3 id="amortized-analysis">Amortized Analysis | 摊还分析<a class="headerlink" href="#amortized-analysis" title="Permanent link">👀</a></h3>
+<details class="abstract">
+<summary>Abstract</summary>
+<p>Almost the most difficult question in ADS</p>
+</details>
+<ul>
+<li>worst-case bound <span class="arithmatex">\(\ge\)</span> amortized bound <span class="arithmatex">\(\ge\)</span> average-case bound</li>
+<li>分析方法: <ul>
+<li>Aggregate analysis | 聚合分析</li>
+<li>Accounting method | 核算法</li>
+<li>Potential method | 势能方法 (Highest-level)</li>
+</ul>
+</li>
+</ul>
+<h4 id="aggregate-analysis">Aggregate Analysis<a class="headerlink" href="#aggregate-analysis" title="Permanent link">👀</a></h4>
+<p>Show that for all n, a sequence of n operations takes <em>worst-case</em> time <span class="arithmatex">\(T(n)\)</span> in total. In the worst case, the average cost, or <em>amortized cost</em> per operation is <span class="arithmatex">\(\frac{T(n)}{n}\)</span> </p>
+<details class="example">
+<summary>Stack with MultiPop(int k, Stack S)</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">Algorithm</span><span class="p">{</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">IsEmpty</span><span class="p">(</span><span class="n">S</span><span class="p">)</span><span class="w"> </span><span class="n">$$</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">        </span><span class="n">Pop</span><span class="p">(</span><span class="n">S</span><span class="p">);</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">        </span><span class="n">k</span><span class="w"> </span><span class="o">--</span><span class="p">;</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
+</code></pre></div>
+<ul>
+<li>Consider a sequence of <span class="arithmatex">\(n\)</span> Push, Pop, and MultiPop operations on an initially empty stack. (sizeof(S) <span class="arithmatex">\(\le n\)</span> )<ul>
+<li><span class="arithmatex">\(n\)</span> 次操作, push 的操作 <span class="arithmatex">\(\le n\)</span> (pop 必须要有 push), 最多的费用 <span class="arithmatex">\(\approx 2n-2\)</span></li>
+<li><span class="arithmatex">\(T_{amortized} ~ = ~ O(n) / n ~ = ~ O(1)\)</span></li>
+</ul>
+</li>
+</ul>
+</details>
+<h4 id="accounting-method">Accounting Method<a class="headerlink" href="#accounting-method" title="Permanent link">👀</a></h4>
+<ul>
+<li>When an operation’s <em>amortized cost</em> <span class="arithmatex">\(\hat{c_i}\)</span> exceeds its <em>actual cost</em> <span class="arithmatex">\(c_i\)</span> , we assign the difference to specific objects in the data structure as <em>credit</em> (namely <span class="arithmatex">\(\Delta _i\)</span>). Credit can help <em>pay</em> for later operations whose amortized cost is less than their actual cost.</li>
+<li>&ldquo;劫富济贫&rdquo;，将时间划分</li>
+</ul>
+<details class="example">
+<summary>柱状图表示各情况的时间费用</summary>
+<p><img alt="2023-03-01-10-20-57" src="../../../Images/2023-03-01-10-20-57.png" /></p>
+</details>
+<ul>
+<li><span class="arithmatex">\(\frac{\sum \hat{c_i}}{n} ~ = \frac{\sum c_i}{n} + \frac{\sum \Delta _i}{n} ~ \le ~ A\)</span> </li>
+<li>若希望 <span class="arithmatex">\(\frac{\sum \hat{c_i}}{n} \le A\)</span> (A 为某个数值)， 虽然 <span class="arithmatex">\(\Delta _i\)</span> 取值都有可能，但如果 <span class="arithmatex">\(\frac{\sum \Delta _i}{n} \ge 0\)</span> .</li>
+<li>此时如果可以证明 <span class="arithmatex">\(\frac{max \sum \hat{c_i}}{n} \le A ~ \approx ~ \frac{\sum c_i}{n} \le A\)</span> (其实就等价于计算最大的摊还费用 <span class="arithmatex">\(\le A\)</span> , 即 <em>worst-case</em> 下费用 <span class="arithmatex">\(\le A\)</span> )</li>
+</ul>
+<details class="example">
+<summary>Stack with MultiPop(int k, Stack S)</summary>
+<ul>
+<li><span class="arithmatex">\(c_i\)</span> for Push: 1; Pop: 1; MultiPop: min(sizeof(S), k)</li>
+<li><span class="arithmatex">\(\hat{c_i}\)</span> for Push: 2; Pop: 0; MultiPop: 0</li>
+</ul>
+<p>Starting from an empty stack —— <em>Credits</em> for</p>
+<ul>
+<li>Push: +1; Pop: -1; MultiPop: -1 for each +1 ( <span class="arithmatex">\(\sum Credits \ge 0\)</span> )</li>
+<li>sizeof(S) <span class="arithmatex">\(\ge 0 ~~ \Rightarrow ~~ Credits \ge 0\)</span></li>
+<li><span class="arithmatex">\(\Rightarrow ~~ O(n) = \sum\limits_{i=1}^n \hat{c_i} \ge \sum\limits_{i=1}^n c_i\)</span> </li>
+<li><span class="arithmatex">\(\Rightarrow ~~ T_{amortized} = O(n)/n = O(1)\)</span></li>
+</ul>
+</details>
+<h4 id="potential-method">Potential Method<a class="headerlink" href="#potential-method" title="Permanent link">👀</a></h4>
+<ul>
+<li>Take a closer look at the <em>credit</em> —— <span class="arithmatex">\(\hat{c_i} - c_i = Credit = \Phi(D_i) - \Phi(D_{i-1})\)</span> ( <span class="arithmatex">\(\Phi \rightarrow Potential ~ function\)</span>  )</li>
+<li><span class="arithmatex">\(\sum\limits_{i=1}^n \hat{c_i} = \sum\limits_{i=1}^n (c_i + \Phi (D_i) - \Phi (D_{i-1})) = (\sum\limits_{i=1}^n c_i) + \Phi (D_n) - \Phi (D_0)\)</span></li>
+<li>其中, <span class="arithmatex">\(\Phi (D_n) - \Phi (D_0) \ge 0\)</span> (我们希望做到 <span class="arithmatex">\(\Phi (D_0) = 0  ~,~ \Phi(D_n) \ge 0\)</span> , <span class="arithmatex">\(\Phi(D_0)\)</span> 是常数也没有问题)</li>
+<li>In general, a good potential function should always assume its minimum at the start of the sequence</li>
+</ul>
+<details class="example">
+<summary>Stack with MultiPop(int k, Stack S)</summary>
+<ul>
+<li><span class="arithmatex">\(D_i\)</span> = the stack that results after the <em>i</em> -th operation </li>
+<li><span class="arithmatex">\(\Phi (D_i)\)</span> = the number of objects in the stack <span class="arithmatex">\(D_i\)</span><ul>
+<li>则 <span class="arithmatex">\(\Phi (D_i) \ge 0 = \Phi (D_0)\)</span></li>
+<li>Push: <span class="arithmatex">\(\Phi (D_i) - \Phi (D_{i-1}) = (sizeof(S) + 1) - sizeof(S) = 1\)</span><ul>
+<li><span class="arithmatex">\(\hat{c_i} = c_i + \Phi (D_i) - \Phi (D_{i-1}) = 1 + 1 = 2\)</span></li>
+</ul>
+</li>
+<li>Pop: <span class="arithmatex">\(\Phi (D_i) - \Phi (D_{i-1}) = (sizeof(S) - 1) - sizeof(S) = -1\)</span><ul>
+<li><span class="arithmatex">\(\hat{c_i} = c_i + \Phi (D_i) - \Phi (D_{i-1}) = 1 - 1 = 0\)</span></li>
+</ul>
+</li>
+<li>MultiPop: <span class="arithmatex">\(\Phi (D_i) - \Phi (D_{i-1}) = (sizeof(S) - k' ) - sizeof(S) = -k'\)</span><ul>
+<li><span class="arithmatex">\(\hat{c_i} = c_i + \Phi (D_i) - \Phi (D_{i-1}) = k' - k' = 0\)</span></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><span class="arithmatex">\(\sum\limits_{i=1}^n \hat{c_i} = \sum\limits_{i=1}^n O(1) = O(n) \ge (\sum\limits_{i=1}^n c_i) ~~ \Rightarrow ~~ T_{amortized} = O(n)/n = O(1)\)</span></li>
+</ul>
+</details>
+<p>[example] : Splay Trees: <span class="arithmatex">\(T_{amortized} = O(log N)\)</span> </p>
+<ul>
+<li><span class="arithmatex">\(D_i\)</span> = the root of the resulting tree</li>
+<li><span class="arithmatex">\(\Phi(D_i)\)</span> : must increase by at most <span class="arithmatex">\(O(log N)\)</span> over <span class="arithmatex">\(n\)</span> steps, AND will also cancel out the number of rotations (zig: 1; zig-zag: 2; zig-zig: 2)</li>
+<li><span class="arithmatex">\(\Phi(T) = \sum\limits_{i \in T} log~S(i)\)</span> where <span class="arithmatex">\(S(i)\)</span> is the number of descendants of <span class="arithmatex">\(i\)</span> ( <span class="arithmatex">\(i\)</span> itself included)</li>
+</ul>
+<blockquote>
+<p><span class="arithmatex">\(T\)</span> 即 <span class="arithmatex">\(D(i)\)</span> , <span class="arithmatex">\(log~S(i)\)</span> called <u>Rank</u> of the subtree <span class="arithmatex">\(\approx\)</span> Height of the tree</p>
+</blockquote>
+<ul>
+<li>
+<p><span class="arithmatex">\(\Phi(T) = \sum\limits_{i \in T} Rank(i)\)</span> </p>
+<ul>
+<li>Zig: <br><img alt="2023-03-01-12-15-00" src="../../../Images/2023-03-01-12-15-00.png" /><ul>
+<li><span class="arithmatex">\(\hat{c_i} = 1 + R_2(X) - R_1(X) + R_2(P) - R_1(P)\)</span></li>
+<li><span class="arithmatex">\(\le 1 + R_2(X) - R_1(X)\)</span> ( <span class="arithmatex">\(R_2(X)\)</span> 表示旋转后的这个点的秩函数)</li>
+</ul>
+</li>
+<li>
+<p>Zig-zag: <br><img alt="2023-02-28-20-59-53" src="../../../Images/2023-02-28-20-59-53.png" /></p>
+<ul>
+<li><span class="arithmatex">\(\hat{c_i} = 2 + R_2(X) - R_1(X) + R_2(P) - R_1(P) + R_2(G) - R_1(G)\)</span></li>
+<li><span class="arithmatex">\(\le 2(R_2(X) - R_1(X))\)</span> </li>
+</ul>
+<blockquote>
+<p><span class="arithmatex">\((a+b)^2 \ge 4ab ~~ \Rightarrow ~~ 2log~(a+b) \ge 2 + log~a + log~b\)</span> </p>
+</blockquote>
+</li>
+<li>
+<p>Zig-zig: <br><img alt="2023-02-28-21-03-17" src="../../../Images/2023-02-28-21-03-17.png" /></p>
+<ul>
+<li><span class="arithmatex">\(\hat{c_i} = 2 + R_2(X) - R_1(X) + R_2(P) - R_1(P) + R_2(G) - R_1(G)\)</span></li>
+<li><span class="arithmatex">\(\le 3(R_2(X) - R_1(X))\)</span> </li>
+</ul>
+</li>
+<li>[Theorem] : The amortized time to splay a tree with root <span class="arithmatex">\(T\)</span> at node <span class="arithmatex">\(X\)</span> is at most <span class="arithmatex">\(3(R(T) - R(X)) + 1 = O(log~N)\)</span> </li>
+</ul>
+</li>
+</ul>
 
 
   
@@ -1514,13 +1862,13 @@
         
         
           
-          <a href="../Lec02/" class="md-footer__link md-footer__link--next" aria-label="下一页: Splay Trees" rel="next">
+          <a href="../../OOP/" class="md-footer__link md-footer__link--next" aria-label="下一页: Perface" rel="next">
             <div class="md-footer__title">
               <div class="md-ellipsis">
                 <span class="md-footer__direction">
                   下一页
                 </span>
-                Splay Trees
+                Perface
               </div>
             </div>
             <div class="md-footer__button md-icon">
