@@ -15,13 +15,17 @@
         <link rel="canonical" href="https://enl-z.cc/Notebook/Course/ADS/Lec02/">
       
       
+        <link rel="prev" href="../Lec01/">
+      
+      
+        <link rel="next" href="../../OOP/">
       
       <link rel="icon" href="../../../Icon/Avatar.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.6">
     
     
       
-        <title>Red-Black & B+ - 某兰的笔记本</title>
+        <title>[LOCK]Red-Black & B+ - 某兰的笔记本</title>
       
     
     
@@ -138,7 +142,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Red-Black & B+
+              [LOCK]Red-Black & B+
             
           </span>
         </div>
@@ -246,6 +250,8 @@
         
   
   
+    
+  
 
 
   
@@ -257,7 +263,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../System2/" class="md-tabs__link">
+      <a href="../../System2/" class="md-tabs__link md-tabs__link--active">
         Course
       </a>
     </li>
@@ -412,14 +418,16 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
       
       
         
@@ -437,7 +445,7 @@
         
       
       
-        <label class="md-nav__link" for="__nav_2" tabindex="0" aria-expanded="false">
+        <label class="md-nav__link" for="__nav_2" tabindex="0" aria-expanded="true">
           Course
           <span class="md-nav__icon md-icon"></span>
         </label>
@@ -685,19 +693,23 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" >
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" checked>
       
       
         
           
             
+          
+        
           
         
           
@@ -733,6 +745,95 @@
       <a href="../Lec01/" class="md-nav__link">
         AVL & Splay
       </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          [LOCK]Red-Black & B+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        [LOCK]Red-Black & B+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#red-black-tree" class="md-nav__link">
+    Red-Black Tree
+  </a>
+  
+    <nav class="md-nav" aria-label="Red-Black Tree">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#black-height" class="md-nav__link">
+    Black-height
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#insert" class="md-nav__link">
+    Insert
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete" class="md-nav__link">
+    Delete
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#b-tree" class="md-nav__link">
+    B+ Tree
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1234,71 +1335,30 @@
 
 
 
-<h1 id="red-black-b">Red-Black &amp; B+<a class="headerlink" href="#red-black-b" title="Permanent link">👀</a></h1>
-<h2 id="red-black-tree">Red-Black Tree<a class="headerlink" href="#red-black-tree" title="Permanent link">👀</a></h2>
-<div class="admonition note">
-<p class="admonition-title">[Definition]</p>
-<ul>
-<li>A red-black tree is a binary search tree that satifies the following red-black properties;<ol>
-<li>Every node is either red or black</li>
-<li>The root is black</li>
-<li>Every leaf (NIL) is black (红黑树的叶结点是 NULL 指针)</li>
-<li>If a node is red, then both its children are black</li>
-<li>For each node, all simple paths from the node to descendant leaves contain the same number of black nodes</li>
-</ol>
-</li>
-</ul>
+<div id="mkdocs-encrypted-content" style="display:none">dAVydqr6zE4/cDJniHpMtg==;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;^</div>
+<div id="mkdocs-decrypted-content">
+    <form id="mkdocs-decrypt-form">
+        <h1>AES encryption supported by unverbuggt@github's plugin</h1>
+        <p>Contact me(Enl_Z) via methods provided in the comments section for access to this page</p>
+        <input type="password" id="mkdocs-content-password" placeholder="Provide password and press ENTER" />
+        
+        <p id="mkdocs-decrypt-msg"></p>
+    </form>
 </div>
-<h3 id="black-height">Black-height<a class="headerlink" href="#black-height" title="Permanent link">👀</a></h3>
-<ul>
-<li>[Definition] : The black-height (黑高) of any node x, denoted by bh(x), is the number of black nodes on any simple path from x (x not included) down to a leaf, bh(Tree) = bh(root)</li>
-<li>
-<p>[Lemma] : A red-black tree with N internal nodes has height at most 2ln(N + 1)</p>
-<details class="info">
-<summary>Proof</summary>
-<p><img alt="2023-03-07-19-26-39" src="../../../Images/2023-03-07-19-26-39.png" /></p>
-</details>
-</li>
-</ul>
-<h3 id="insert">Insert<a class="headerlink" href="#insert" title="Permanent link">👀</a></h3>
-<blockquote>
-<p>can be done iteratively</p>
-</blockquote>
-<ul>
-<li>Sketch of the idea: <u>Insert &amp; color red</u><br />
-<img alt="2023-03-07-20-12-24" src="../../../Images/2023-03-07-20-12-24.png" /></li>
-<li><span class="arithmatex">\(T = O(h) = O(lnN)\)</span> </li>
-</ul>
-<h3 id="delete">Delete<a class="headerlink" href="#delete" title="Permanent link">👀</a></h3>
-<ul>
-<li>Delete a leaf node : Reset its parent link to NIL</li>
-<li>Delete a degree 1 node : Replace the node by its single child</li>
-<li>Delete a degree 2 node :<ul>
-<li>Replace the node by the largest one in its left subtree or the smallest one in its right subtree</li>
-<li>Delete the replacing node from the subtree</li>
-</ul>
-</li>
-</ul>
-<h2 id="b-tree">B+ Tree<a class="headerlink" href="#b-tree" title="Permanent link">👀</a></h2>
-<div class="admonition note">
-<p class="admonition-title">Definition</p>
-<p>A B+ tree of order M is a tree with the following structural properties:</p>
-<ol>
-<li>The root is either a leaf or has between 2 and M children</li>
-<li>All nonleaf nodes (except the root) have between <span class="arithmatex">\(\lceil\)</span> M/2 <span class="arithmatex">\(\rceil\)</span> and M children</li>
-<li>All leaves are at the same depth</li>
-</ol>
-<blockquote>
-<p>Assume each nonroot leaf also has between <span class="arithmatex">\(\lceil\)</span> M/2 <span class="arithmatex">\(\rceil\)</span> and M children</p>
-</blockquote>
-</div>
-<ul>
-<li>[Example] : A B++ tree of order 4 —— (2-3-4 tree)<br />
-<img alt="2023-03-07-21-07-14" src="../../../Images/2023-03-07-21-07-14.png" /></li>
-<li>All the actual data stored at the leaves</li>
-<li>Each interior node contains M pointers th the children (空余的指针指向 NULL)</li>
-<li>And M-1 smallest key values in the subtrees except the 1<sup>st</sup> one</li>
-</ul>
+
+<script type="text/javascript">
+var encryptcontent_path = "Notebook/Course/ADS/Lec02/";
+var decryption_failure_message = "Invalid password";
+</script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/core.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/enc-base64.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/cipher-core.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/pad-nopadding.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/md5.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/aes.js"></script>
+<script type="text/javascript" src="../../../assets/javascripts/decrypt-contents.js" defer></script>
+
 
 
   
@@ -1371,6 +1431,42 @@
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+          
+          <a href="../Lec01/" class="md-footer__link md-footer__link--prev" aria-label="上一页: AVL &amp; Splay" rel="prev">
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <div class="md-ellipsis">
+                <span class="md-footer__direction">
+                  上一页
+                </span>
+                AVL & Splay
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../OOP/" class="md-footer__link md-footer__link--next" aria-label="下一页: Perface" rel="next">
+            <div class="md-footer__title">
+              <div class="md-ellipsis">
+                <span class="md-footer__direction">
+                  下一页
+                </span>
+                Perface
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
     
   
   <div class="md-footer-meta md-typeset">
