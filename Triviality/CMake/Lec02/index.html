@@ -12,20 +12,16 @@
         <meta name="author" content="Enl_Z">
       
       
-        <link rel="canonical" href="https://enl-z.cc/Notebook/Triviality/CMake/Lec01/">
+        <link rel="canonical" href="https://enl-z.cc/Notebook/Triviality/CMake/Lec02/">
       
       
-        <link rel="prev" href="../">
-      
-      
-        <link rel="next" href="../../GitHub/">
       
       <link rel="icon" href="../../../Icon/Avatar.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.6">
     
     
       
-        <title>准备&试编译 - 某兰的笔记本</title>
+        <title>CMake Note - 某兰的笔记本</title>
       
     
     
@@ -108,7 +104,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#cmake-note" class="md-skip">
           跳转至
         </a>
       
@@ -142,7 +138,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              准备&试编译
+              CMake Note
             
           </span>
         </div>
@@ -273,8 +269,6 @@
         
   
   
-    
-  
 
 
   
@@ -286,7 +280,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../Markdown/" class="md-tabs__link md-tabs__link--active">
+      <a href="../../Markdown/" class="md-tabs__link">
         Triviality
       </a>
     </li>
@@ -887,16 +881,14 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
       
       
         
@@ -908,7 +900,7 @@
         
       
       
-        <label class="md-nav__link" for="__nav_3" tabindex="0" aria-expanded="true">
+        <label class="md-nav__link" for="__nav_3" tabindex="0" aria-expanded="false">
           Triviality
           <span class="md-nav__icon md-icon"></span>
         </label>
@@ -1052,16 +1044,14 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" checked>
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" >
       
       
         
@@ -1097,66 +1087,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          准备&试编译
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../Lec01/" class="md-nav__link">
         准备&试编译
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    安装
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    配置
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    试编译
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1305,22 +1240,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    单个源文件
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    安装
+    多个源文件
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    配置
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    试编译
+    自定义编译选项
   </a>
   
 </li>
@@ -1344,7 +1279,7 @@
 
 
   
-    <a href="https://github.com/enl-z/Notebook/tree/master/docs/Triviality/CMake/Lec01.md" title="编辑此页" class="md-content__button md-icon">
+    <a href="https://github.com/enl-z/Notebook/tree/master/docs/Triviality/CMake/Lec02.md" title="编辑此页" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
     </a>
@@ -1353,7 +1288,7 @@
     
       
     
-    <a href="https://github.com/enl-z/Notebook/tree/master/docs/Triviality/CMake/Lec01.md" title="View source of this page" class="md-content__button md-icon">
+    <a href="https://github.com/enl-z/Notebook/tree/master/docs/Triviality/CMake/Lec02.md" title="View source of this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
     </a>
@@ -1361,74 +1296,134 @@
 
 
 
-<h1 id="_1">安装 &amp; 配置 &amp; 最简单的试编译<a class="headerlink" href="#_1" title="Permanent link">👀</a></h1>
-<div class="admonition abstract">
-<p class="admonition-title">Abstract</p>
-<p>苯人使用的是 Windows + bash + VSCode</p>
-</div>
-<h2 id="_2">安装<a class="headerlink" href="#_2" title="Permanent link">👀</a></h2>
-<ul>
-<li>需要安装 <a href="https://cmake.org/download/">CMake</a>、<a href="https://sourceforge.net/projects/mingw/">MinGW</a><blockquote>
-<p>具体安装教程不再赘述</p>
+<h1 id="cmake-note">CMake Note<a class="headerlink" href="#cmake-note" title="Permanent link">👀</a></h1>
+<blockquote>
+<p><code>CMakeLists.txt</code></p>
 </blockquote>
-</li>
-</ul>
-<h2 id="_3">配置<a class="headerlink" href="#_3" title="Permanent link">👀</a></h2>
+<h2 id="_1">单个源文件<a class="headerlink" href="#_1" title="Permanent link">👀</a></h2>
+<blockquote>
+<p>只有一个源文件 <code>main.c</code></p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c"># CMake 最低版本号要求</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="err">cmake_minimum_required</span><span class="w"> </span><span class="err">(VERSION</span><span class="w"> </span><span class="err">2.6)</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c"># 项目信息</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="err">project</span><span class="w"> </span><span class="err">(Example1)</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c"># 指定生成目标</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="err">add_exectutable(Example</span><span class="w"> </span><span class="err">main.c)</span>
+</code></pre></div>
 <ul>
-<li>将 CMake 和 MinGW 配置到系统路径</li>
-<li>在 <code>bash</code> 中使用 <code>gcc --version</code> 和 <code>cmake --version</code> 检验是否配置到系统路径<ul>
-<li>当出现版本信息的时候即配置成功</li>
+<li>CMake 中的命令是不区分大小写的，命令由命令名称、小括号和参数组成 (参数之间使用空格进行间隔)</li>
+<li>对于上述 CMakeLists.txt<ul>
+<li><code>cmake_minimum_required</code> : 是指定运行所需的 CMake 的最低版本</li>
+<li><code>project</code> : 参数值 <code>Example1</code> ，表示项目的名称是 <code>Example1</code></li>
+<li><code>add_executable</code> : 表示将 main.c 源文件编译成一个名为 <code>Example</code> 的可执行文件</li>
 </ul>
 </li>
-<li>VSCode 配置<ul>
-<li>安装一些插件 —— <code>CMake</code> &amp; <code>CMake Tools</code></li>
-<li>在 VSCode 中 <code>ctrl+shift+p</code> 输入 <code>&gt; CMake: 配置</code>， 会出现下列编译工具链选择框 (若未出现可能是未配置系统路径 or VSCode 重启试试) <br><img alt="2023-03-09-16-39-43" src="../../../Images/2023-03-09-16-39-43.png" /></li>
+<li>编译项目<ul>
+<li>在当前目录执行 <code>cmake .</code> 得到 <code>Makefile</code> 后使用 <code>make</code> 命令得到 <code>Example1</code> 可执行文件</li>
 </ul>
 </li>
 </ul>
-<h2 id="_4">试编译<a class="headerlink" href="#_4" title="Permanent link">👀</a></h2>
-<ul>
-<li>
-<p>在文件夹中创建一个 <code>main.cpp</code> 和 <code>CMakeLists.txt</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$<span class="w"> </span>cmake<span class="w"> </span>.
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>$<span class="w"> </span>make
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>$<span class="w"> </span>./Example<span class="w"> </span><span class="c1">#执行文件</span>
+</code></pre></div>
+<h2 id="_2">多个源文件<a class="headerlink" href="#_2" title="Permanent link">👀</a></h2>
 <ol>
-<li>Internet 里有一种方法是和之前一样 <code>&gt; CMake: 配置</code> 选择编译工具链，随后会自动当前目录下生成一个 <code>build</code> 文件夹，输入 <code>cmake ..</code> (若电脑安装了 VS)</li>
-</ol>
-<div class="admonition note">
-<p class="admonition-title">踩坑</p>
-<ul>
-<li>可能是我的有很多工作区的原因，在我的电脑中这种方法有时不成功。我便采用下一种方法。</li>
-<li>注意: 因为 windows 中 cmake 默认使用 nmake 程序 (所以输入 <code>cmake ..</code> 时会提示找不到 nmake), 因此需要指明 cmake 要生成 MinGW, make 使用的 makefile 文件: <code>cmake -G "MinGW Makefiles .."</code></li>
-<li>如果此时出现问题 </li>
-</ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>CMake<span class="w"> </span>Error:<span class="w"> </span>Error:<span class="w"> </span>generator<span class="w"> </span>:<span class="w"> </span>MinGW<span class="w"> </span>Makefiles
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Does<span class="w"> </span>not<span class="w"> </span>match<span class="w"> </span>the<span class="w"> </span>generator<span class="w"> </span>used<span class="w"> </span>**previously:<span class="w"> </span>NMake**<span class="w"> </span>Makefiles
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Either<span class="w"> </span>remove<span class="w"> </span>the<span class="w"> </span>CMakeCache.txt<span class="w"> </span>file<span class="w"> </span>and<span class="w"> </span>CMakeFiles<span class="w"> </span>directory<span class="w"> </span>or<span class="w"> </span>choose<span class="w"> </span>a<span class="w"> </span>different<span class="w"> </span>binary<span class="w"> </span>directory.
-</code></pre></div>
-<ul>
-<li>原因: cmake 会在上一次执行文件的基础上直接执行，但上次使用的是 nmake 所以会出错。将 build 全部删除再执行就可以了</li>
-</ul>
-</div>
-<ol start="2">
 <li>
-<p>第二种办法，可以在 <code>bash</code> 中 </p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$<span class="w"> </span>mkdir<span class="w"> </span>build
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>build
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>$<span class="w"> </span>cmake<span class="w"> </span>-G<span class="s2">&quot;MinGW Makefiles&quot;</span><span class="w"> </span>..
-</code></pre></div>
-</li>
-</ol>
+<p>同一目录，多个源文件 (Assume 此时源代码所在目录为 <code>Example2</code>)</p>
+<ul>
+<li>假设工程目录为：</li>
+<li><code>bash
+     Example2
+     |
+     +--- main.c
+     |
+     +--- Function.c
+     |
+     +--- Function.h</code></li>
+<li>此时 <code>CMakeLists.txt</code> 修改为</li>
+<li><code>makefile
+     # CMake 最低版本号要求
+     cmake_minimum_required (VERSION 2.6)
+     # 项目信息
+     project (Example2)
+     # 指定生成目标
+     add_exectutable(Example main.c Function.c)</code></li>
+<li>但若将所有的源文件都按照上述形式加入会很麻烦 ——&gt; 可以使用 <code>aux_source_directory</code> 命令，该命令会查找指定目录下的所有源文件然后将结果存进指定变量名 (<code>aux_source_directory(&lt;dir&gt; &lt;variable&gt;)</code>)</li>
+<li>此时 <code>CMakeLists.txt</code> 修改为</li>
+<li><code>makefile
+     # CMake 最低版本号要求
+     cmake_minimum_required (VERSION 2.6)
+     # 项目信息
+     project (Example2)
+     # 查找当前目录下的所有源文件并将名称保存到 DIR_SRCS 变量
+     aux_source_directory(. DIR_SRCS)
+     # 指定生成目标
+     add_exectutable(Example $(DIR_SRCS))</code></li>
+</ul>
 </li>
 <li>
-<p>执行后，项目会生成在 build 文件夹中，使用 <code>make</code> 即可生成可执行文件，随后执行即可</p>
-<details class="note">
-<summary>踩坑 again</summary>
+<p>多个目录，多个源文件 (此时源代码所在目录是 <code>Example3</code>)</p>
 <ul>
-<li>使用 MinGW 一般会显示没有 make, 原因是 <code>MinGW/bin</code> 中执行文件名不是 <code>make</code> 而是 <code>mingw32-make</code> (maybe)</li>
-<li>总之要么用 <code>mingw32-make</code> 代替 <code>make</code> 指令 or 拷贝一个 <code>mingw32-make</code> 并重命名为 <code>make</code></li>
-</ul>
-</details>
+<li>工程目录如下：</li>
+<li>
+<p><code>bash
+     Example3
+     |
+     +--- main.c
+     |
+     +--- math/
+        |
+        +--- Function.c
+        |
+        +--- FUnction.h</code></p>
+<ul>
+<li>此时需要分别在项目根目录 <code>Example3</code> 和 <code>math</code> 目录中各编写一个 <code>CMakeLists.txt</code>。 为方便可以先将 <code>math</code> 中的文件编译成静态库再由 <code>main</code> 函数调用</li>
+<li>
+<p>根目录中的 <code>CMakeLists.txt</code></p>
+<ul>
+<li>
+<p><code>makefile
+     # CMake 最低版本号要求
+     cmake_minimum_required (VERSION 2.6)
+     # 项目信息
+     project (Example3)
+     # 查找当前目录下的所有源文件并将名称保存到 DIR_SRCS 变量
+     aux_source_directory(. DIR_SRCS)
+     # 添加 math 子目录
+     add_subdirectory(math)
+     # 指定生成目标
+     add_exectutable(Example $(DIR_SRCS))
+     # 添加链接库
+     target_link_libraries(Example Functions)</code></p>
+</li>
+<li>
+<p><code>add_subdirectory(math)</code> 指明本项目包含一个子目录 <code>math</code> ，此时 <code>math</code> 中的 <code>CMakeLists.txt</code> 和源代码也会被处理</p>
+</li>
+<li><code>target_link_libraries</code> 指明可执行文件 <code>main</code> 需要链接一个名为 <code>Functions</code> 的链接库<br />
+         *   子目录下的 <code>CMakeLists.txt</code></li>
+<li>
+<p><code>makefile
+     # 查找当前目录下的所有源文件并将名称保存到 DIR_LIB_SRCS 变量
+     aux_source_directory(. DIR_LIB_SRCS)
+     # 生成链接库
+     add_library (Functions $(DIR_LIB_SRCS))</code></p>
+</li>
+<li>
+<p><code>add_library</code> 将 <code>math</code> 目录中的源文件编译成静态链接库</p>
 </li>
 </ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="_3">自定义编译选项<a class="headerlink" href="#_3" title="Permanent link">👀</a></h2>
+<blockquote>
+<p>此时源代码所在目录是 <code>Example4</code></p>
+</blockquote>
 
 
   
@@ -1501,42 +1496,6 @@
       
         <footer class="md-footer">
   
-    
-      
-      <nav class="md-footer__inner md-grid" aria-label="页脚" >
-        
-          
-          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="上一页: Perface" rel="prev">
-            <div class="md-footer__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-            </div>
-            <div class="md-footer__title">
-              <div class="md-ellipsis">
-                <span class="md-footer__direction">
-                  上一页
-                </span>
-                Perface
-              </div>
-            </div>
-          </a>
-        
-        
-          
-          <a href="../../GitHub/" class="md-footer__link md-footer__link--next" aria-label="下一页: Perface" rel="next">
-            <div class="md-footer__title">
-              <div class="md-ellipsis">
-                <span class="md-footer__direction">
-                  下一页
-                </span>
-                Perface
-              </div>
-            </div>
-            <div class="md-footer__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-            </div>
-          </a>
-        
-      </nav>
     
   
   <div class="md-footer-meta md-typeset">
