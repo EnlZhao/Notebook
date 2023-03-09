@@ -24,15 +24,15 @@ nav:
       - 哈希: Course/FDS/Lec06.md
     - 高级数据结构与算法分析:
       - Perface: Course/ADS/index.md
-      - AVL Trees: Course/ADS/Lec01.md
-    #  - Splay Trees: Course/ADS/Lec02.md
+      - AVL & Splay: Course/ADS/Lec01.md
+      - Red-Black & B+: Course/ADS/Lec02.md
     - 面向对象程序设计:
       - Perface: Course/OOP/index.md
     #  - Lecture01: Course/OOP/Lec01.md
     #  - Lecture02: Course/OOP/Lec02.md
     - 密码学:
       - Perface: Course/Crypto/index.md
-    #  - 数学基础: Course/Crypto/Lec01.md
+      - 数学基础: Course/Crypto/Lec01.md
   - Triviality: 
     - Markdown:
       - Perface: Triviality/Markdown/index.md
@@ -40,6 +40,9 @@ nav:
     - Missing Semester: 
       - Perface: Triviality/The Missing Semester/index.md
       - Vim: Triviality/The Missing Semester/Vim.md
+    - CMake: 
+      - Perface: Triviality/CMake/index.md
+      - 准备&试编译: Triviality/CMake/Lec01.md
   - Tools: 
     - GitHub: 
       - Perface: Triviality/GitHub/index.md
