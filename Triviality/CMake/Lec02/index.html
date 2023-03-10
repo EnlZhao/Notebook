@@ -1410,34 +1410,42 @@
 <li>
 <p>同一目录，多个源文件 (Assume 此时源代码所在目录为 <code>Example2</code>)</p>
 <ul>
-<li>假设工程目录为：</li>
-<li><code>bash
-     Example2
-     |
-     +--- main.c
-     |
-     +--- Function.c
-     |
-     +--- Function.h</code></li>
-<li>此时 <code>CMakeLists.txt</code> 修改为</li>
-<li><code>makefile
-     # CMake 最低版本号要求
-     cmake_minimum_required (VERSION 2.6)
-     # 项目信息
-     project (Example2)
-     # 指定生成目标
-     add_exectutable(Example main.c Function.c)</code></li>
-<li>但若将所有的源文件都按照上述形式加入会很麻烦 ——&gt; 可以使用 <code>aux_source_directory</code> 命令，该命令会查找指定目录下的所有源文件然后将结果存进指定变量名 (<code>aux_source_directory(&lt;dir&gt; &lt;variable&gt;)</code>)</li>
-<li>此时 <code>CMakeLists.txt</code> 修改为</li>
-<li><code>makefile
-     # CMake 最低版本号要求
-     cmake_minimum_required (VERSION 2.6)
-     # 项目信息
-     project (Example2)
-     # 查找当前目录下的所有源文件并将名称保存到 DIR_SRCS 变量
-     aux_source_directory(. DIR_SRCS)
-     # 指定生成目标
-     add_exectutable(Example $(DIR_SRCS))</code></li>
+<li>
+<p>假设工程目录为：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Example2
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="p">|</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>+---<span class="w"> </span>main.c
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="p">|</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>+---<span class="w"> </span>Function.c
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="p">|</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>+---<span class="w"> </span>Function.h
+</code></pre></div>
+</li>
+<li>
+<p>此时 <code>CMakeLists.txt</code> 修改为</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c"># CMake 最低版本号要求</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="err">cmake_minimum_required</span><span class="w"> </span><span class="err">(VERSION</span><span class="w"> </span><span class="err">2.6)</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="c"># 项目信息</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="err">project</span><span class="w"> </span><span class="err">(Example2)</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="c"># 指定生成目标</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="err">add_exectutable(Example</span><span class="w"> </span><span class="err">main.c</span><span class="w"> </span><span class="err">Function.c)</span>
+</code></pre></div>
+</li>
+<li>
+<p>但若将所有的源文件都按照上述形式加入会很麻烦 ——&gt; 可以使用 <code>aux_source_directory</code> 命令，该命令会查找指定目录下的所有源文件然后将结果存进指定变量名 (<code>aux_source_directory(&lt;dir&gt; &lt;variable&gt;)</code>)</p>
+</li>
+<li>
+<p>此时 <code>CMakeLists.txt</code> 修改为</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c"># CMake 最低版本号要求</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="err">cmake_minimum_required</span><span class="w"> </span><span class="err">(VERSION</span><span class="w"> </span><span class="err">2.6)</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="c"># 项目信息</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="err">project</span><span class="w"> </span><span class="err">(Example2)</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="c"># 查找当前目录下的所有源文件并将名称保存到 DIR_SRCS 变量</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="err">aux_source_directory(.</span><span class="w"> </span><span class="err">DIR_SRCS)</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="c"># 指定生成目标</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="err">add_exectutable(Example</span><span class="w"> </span><span class="k">$(</span><span class="nv">DIR_SRCS</span><span class="k">)</span><span class="err">)</span>
+</code></pre></div>
+</li>
 </ul>
 <details class="note">
 <summary>Problem</summary>
@@ -1450,53 +1458,53 @@
 <li>
 <p>多个目录，多个源文件 (此时源代码所在目录是 <code>Example3</code>)</p>
 <ul>
-<li>工程目录如下：</li>
 <li>
-<p><code>bash
-     Example3
-     |
-     +--- main.c
-     |
-     +--- math/
-        |
-        +--- Function.c
-        |
-        +--- FUnction.h</code></p>
+<p>工程目录如下：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Example3
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="p">|</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>+---<span class="w"> </span>main.c
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="p">|</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>+---<span class="w"> </span>math/
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="p">|</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">    </span>+---<span class="w"> </span>Function.c
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">    </span><span class="p">|</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">    </span>+---<span class="w"> </span>FUnction.h
+</code></pre></div>
 <ul>
 <li>此时需要分别在项目根目录 <code>Example3</code> 和 <code>math</code> 目录中各编写一个 <code>CMakeLists.txt</code>。 为方便可以先将 <code>math</code> 中的文件编译成静态库再由 <code>main</code> 函数调用</li>
 <li>
 <p>根目录中的 <code>CMakeLists.txt</code></p>
+<div class="highlight"><pre><span></span><code>```makefile
+# CMake 最低版本号要求
+cmake_minimum_required (VERSION 2.6)
+# 项目信息
+project (Example3)
+# 查找当前目录下的所有源文件并将名称保存到 DIR_SRCS 变量
+aux_source_directory(. DIR_SRCS)
+# 添加 math 子目录
+add_subdirectory(math)
+# 指定生成目标
+add_exectutable(Example $(DIR_SRCS))
+# 添加链接库
+target_link_libraries(Example Functions)
+```
+</code></pre></div>
 <ul>
-<li>
-<p><code>makefile
-     # CMake 最低版本号要求
-     cmake_minimum_required (VERSION 2.6)
-     # 项目信息
-     project (Example3)
-     # 查找当前目录下的所有源文件并将名称保存到 DIR_SRCS 变量
-     aux_source_directory(. DIR_SRCS)
-     # 添加 math 子目录
-     add_subdirectory(math)
-     # 指定生成目标
-     add_exectutable(Example $(DIR_SRCS))
-     # 添加链接库
-     target_link_libraries(Example Functions)</code></p>
+<li><code>add_subdirectory(math)</code> 指明本项目包含一个子目录 <code>math</code> ，此时 <code>math</code> 中的 <code>CMakeLists.txt</code> 和源代码也会被处理</li>
+<li><code>target_link_libraries</code> 指明可执行文件 <code>main</code> 需要链接一个名为 <code>Functions</code> 的链接库</li>
+</ul>
 </li>
 <li>
-<p><code>add_subdirectory(math)</code> 指明本项目包含一个子目录 <code>math</code> ，此时 <code>math</code> 中的 <code>CMakeLists.txt</code> 和源代码也会被处理</p>
-</li>
-<li><code>target_link_libraries</code> 指明可执行文件 <code>main</code> 需要链接一个名为 <code>Functions</code> 的链接库<br />
-         *   子目录下的 <code>CMakeLists.txt</code></li>
-<li>
-<p><code>makefile
-     # 查找当前目录下的所有源文件并将名称保存到 DIR_LIB_SRCS 变量
-     aux_source_directory(. DIR_LIB_SRCS)
-     # 生成链接库
-     add_library (Functions $(DIR_LIB_SRCS))</code></p>
-</li>
-<li>
-<p><code>add_library</code> 将 <code>math</code> 目录中的源文件编译成静态链接库</p>
-</li>
+<p>子目录下的 <code>CMakeLists.txt</code></p>
+<div class="highlight"><pre><span></span><code>```makefile
+# 查找当前目录下的所有源文件并将名称保存到 DIR_LIB_SRCS 变量
+aux_source_directory(. DIR_LIB_SRCS)
+# 生成链接库
+add_library (Functions $(DIR_LIB_SRCS))
+```
+</code></pre></div>
+<ul>
+<li><code>add_library</code> 将 <code>math</code> 目录中的源文件编译成静态链接库</li>
 </ul>
 </li>
 </ul>
