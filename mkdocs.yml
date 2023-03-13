@@ -8,7 +8,8 @@ site_description: 某兰的笔记
 # Pages
 nav: 
   - Hello: 
-    - index.md
+    - Hello: index.md
+    - 友链: link.md
   - Course:
     - 计算机系统Ⅱ:
       - Perface: Course/System2/index.md
@@ -28,8 +29,8 @@ nav:
       - Red-Black & B+: Course/ADS/Lec02.md
     - 面向对象程序设计:
       - Perface: Course/OOP/index.md
-    #  - Lecture01: Course/OOP/Lec01.md
-    #  - Lecture02: Course/OOP/Lec02.md
+      - Lecture01: Course/OOP/Lec01.md
+      - Lecture02: Course/OOP/Lec02.md
     - 密码学:
       - Perface: Course/Crypto/index.md
       - 数学基础: Course/Crypto/Lec01.md
@@ -43,6 +44,7 @@ nav:
     - CMake: 
       - Perface: Triviality/CMake/index.md
       - 准备&试编译: Triviality/CMake/Lec01.md
+      - 初体验: Triviality/CMake/Lec02.md
   - Tools: 
     - GitHub: 
       - Perface: Triviality/GitHub/index.md
@@ -75,13 +77,11 @@ theme:
   palette:
     - scheme: default
       primary: indigo
-    #  accent: indigo
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
     - scheme: slate
       primary: black
-    #  accent: indigo
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
@@ -121,8 +121,6 @@ repo_name: enl-z.cc/Notebook # 右上角的名字
 
 # [Extensions]
 plugins:
-#  - minify:
-#      minify_html: true
   - search:
       separator: '[\s\u200b\-]'
   - encryptcontent:
@@ -210,6 +208,7 @@ extra_css:
   - mkdocs/extra_css/tasklist.css
   - mkdocs/extra_css/counter.css
   - mkdocs/extra_css/giscus.css
+  - mkdocs/extra_css/flink.css
 
 extra: 
   vssue: Enl_Z

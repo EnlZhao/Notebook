@@ -15,7 +15,7 @@
     * 当出现版本信息的时候即配置成功
 * VSCode 配置
     * 安装一些插件 —— `CMake` & `CMake Tools`
-    * 在 VSCode 中 `ctrl+shift+p` 输入 `> CMake: 配置`， 会出现下列编译工具链选择框 (若未出现可能是为配置系统路径 or VSCode 重启试试) <br>![2023-03-09-16-39-43](../../Images/2023-03-09-16-39-43.png)
+    * 在 VSCode 中 `ctrl+shift+p` 输入 `> CMake: 配置`， 会出现下列编译工具链选择框 (若未出现可能是未配置系统路径 or VSCode 重启试试) <br>![2023-03-09-16-39-43](../../Images/2023-03-09-16-39-43.png)
 
 ## 试编译
 
@@ -37,13 +37,19 @@
         * 原因: cmake 会在上一次执行文件的基础上直接执行，但上次使用的是 nmake 所以会出错。将 build 全部删除再执行就可以了
 
     2. 第二种办法，可以在 `bash` 中 
+
         ```bash
         $ mkdir build
         $ cd build
         $ cmake -G"MinGW Makefiles" ..
         ```
+        
 * 执行后，项目会生成在 build 文件夹中，使用 `make` 即可生成可执行文件，随后执行即可
 
     ??? note "踩坑 again"
         * 使用 MinGW 一般会显示没有 make, 原因是 `MinGW/bin` 中执行文件名不是 `make` 而是 `mingw32-make` (maybe)
         * 总之要么用 `mingw32-make` 代替 `make` 指令 or 拷贝一个 `mingw32-make` 并重命名为 `make`
+
+??? info "Tips"
+    * 上述建 build 文件夹不是必须的，但使用 build 会使项目更有序；
+    * 也可也直接使用 `cmake -G"MinGW Makefiles" .` 之前的 `..` 意思是上一级目录中的 `CMakeLists.txt`
