@@ -9,11 +9,11 @@
 
 <div class="flink-list">
     <div class="flink-list-item">
-        <a href="https://zju-zhz.github.io/" title="朱镐哲的个人网站" target="_blank">
+        <a href="https://zju-zhz.github.io/" title="朱镐哲" target="_blank">
             <div class="flink-item-icon">
                 <img src="../Images/zhz.png" alt="zhz">
             </div>
-            <div class="flink-item-name">朱镐哲的个人网站</div>
+            <div class="flink-item-name">凰亦</div>
             <div class="flink-item-desc">😘 小朱 😘</div>
         </a>
     </div>
@@ -28,7 +28,7 @@
                 <img src="../Icon/薛总.jpg" alt="薛总">
             </div>
             <div class="flink-item-name">薛总</div>
-            <div class="flink-item-desc">仓库怎么空空 🙇 苟富贵</div>
+            <div class="flink-item-desc">仓库怎么空空? 🙇 !苟富贵!</div>
         </a>
     </div>
 </div>

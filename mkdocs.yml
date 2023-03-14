@@ -195,7 +195,6 @@ markdown_extensions:
   - nl2br
   
 extra_javascript:
-  #- https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML
   - mkdocs/javascripts/mathjax.js
   - https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js
   - mkdocs/javascripts/katex.js
@@ -204,7 +203,6 @@ extra_javascript:
 
 extra_css:
   - https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css
-  - mkdocs/stylesheets/extra.css  
   - mkdocs/extra_css/tasklist.css
   - mkdocs/extra_css/counter.css
   - mkdocs/extra_css/giscus.css
