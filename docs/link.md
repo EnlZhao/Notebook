@@ -51,4 +51,16 @@
 
 ## Social media
 
+<div class="flink-list">
+    <div class="flink-list-item">
+        <a href="tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=571007008&website=www.oicqzone.com" title="尊尊的 QQ" target="_blank">
+            <div class="flink-item-icon">
+                <img src="../Icon/王尊.jpg" alt="Mr. Wang">
+            </div>
+            <div class="flink-item-name">Mr. Wang</div>
+            <div class="flink-item-desc">地质大佬，在线征友</div>
+        </a>
+    </div>
+</div>
+    
 <center><font face="JetBrains Mono" color=grey size=18>To Be Continued</font></center>

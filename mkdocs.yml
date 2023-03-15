@@ -34,6 +34,7 @@ nav:
     - 密码学:
       - Perface: Course/Crypto/index.md
       - 数学基础: Course/Crypto/Lec01.md
+      - 古典密码: Course/Crypto/Lec02.md
   - Triviality: 
     - Markdown:
       - Perface: Triviality/Markdown/index.md
