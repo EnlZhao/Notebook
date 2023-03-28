@@ -1345,33 +1345,20 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    用途
-  </a>
-  
-    <nav class="md-nav" aria-label="用途">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
     加密过程
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
     检验过程
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     实现
   </a>
   
@@ -1379,7 +1366,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     结构体定义
   </a>
   
@@ -1412,7 +1399,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     破解
   </a>
   
@@ -1475,24 +1462,22 @@
 
 
 <h1 id="md5">MD5<a class="headerlink" href="#md5" title="Permanent link">👀</a></h1>
-<p>MD5是将明文处理成16byte的哈希摘要</p>
-<h2 id="_1">用途<a class="headerlink" href="#_1" title="Permanent link">👀</a></h2>
-<p>md5常与其他算法结合，用于数字签名，如邮件发送</p>
-<h3 id="_2">加密过程<a class="headerlink" href="#_2" title="Permanent link">👀</a></h3>
+<p>MD5 是将明文处理成 16byte 的哈希摘要</p>
+<h3 id="_1">加密过程<a class="headerlink" href="#_1" title="Permanent link">👀</a></h3>
 <div class="arithmatex">\[
 \begin{aligned}
 \rm m&amp;={\rm md5}(letter)\\
 \rm m'&amp;={\rm rsa}(m,\rm private\ key)
 \end{aligned}
 \]</div>
-<h3 id="_3">检验过程<a class="headerlink" href="#_3" title="Permanent link">👀</a></h3>
+<h3 id="_2">检验过程<a class="headerlink" href="#_2" title="Permanent link">👀</a></h3>
 <div class="arithmatex">\[
 \begin{aligned}
 \rm md5(letter) == \rm rsa(m', public\ key)\\
 \end{aligned}
 \]</div>
-<h2 id="_4">实现<a class="headerlink" href="#_4" title="Permanent link">👀</a></h2>
-<h3 id="_5">结构体定义<a class="headerlink" href="#_5" title="Permanent link">👀</a></h3>
+<h2 id="_3">实现<a class="headerlink" href="#_3" title="Permanent link">👀</a></h2>
+<h3 id="_4">结构体定义<a class="headerlink" href="#_4" title="Permanent link">👀</a></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">_MD5_CTX</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="p">{</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">state</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
@@ -1505,18 +1490,18 @@
 <h3 id="update">Update<a class="headerlink" href="#update" title="Permanent link">👀</a></h3>
 <p>每64个字节为一组，进行处理更新</p>
 <h3 id="final">Final<a class="headerlink" href="#final" title="Permanent link">👀</a></h3>
-<p>因为不是所有的明文都是64字节的倍数，所以需要对缺失的内容进行补充，补充的内容包括<strong>填充物</strong>和<strong>明文长度</strong></p>
+<p>因为不是所有的明文都是64字节的倍数，所以需要对缺失的内容进行补充，补充的内容包括填充物和明文长度</p>
 <ul>
 <li>填充物<br />
   0x80, 0x00, 0x00, &hellip;, 0x00</li>
 <li>规则<img alt="" src="https://s2.loli.net/2022/03/14/EfzviXS4w7OZ8BG.png" /></li>
 </ul>
-<h2 id="_6">破解<a class="headerlink" href="#_6" title="Permanent link">👀</a></h2>
+<h2 id="_5">破解<a class="headerlink" href="#_5" title="Permanent link">👀</a></h2>
 <p>MD5的破解关键在于找到Collision</p>
 <h3 id="collision">Collision<a class="headerlink" href="#collision" title="Permanent link">👀</a></h3>
 <p><span class="arithmatex">\({\rm md5}(x)={\rm md5}(x') \ \ (x\ne x')\)</span></p>
 <h3 id="rainbow-table">rainbow table<a class="headerlink" href="#rainbow-table" title="Permanent link">👀</a></h3>
-<p>一种较弱的MD5破解方法，关键在于<strong>预计算</strong></p>
+<p>一种较弱的MD5破解方法，关键在于 预计算</p>
 <ul>
 <li>找N组数据</li>
 <li>对N组数据分别使用MD5处理K轮</li>
