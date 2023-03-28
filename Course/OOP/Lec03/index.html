@@ -15,13 +15,17 @@
         <link rel="canonical" href="https://enl-z.cc/Notebook/Course/OOP/Lec03/">
       
       
+        <link rel="prev" href="../Lec02/">
+      
+      
+        <link rel="next" href="../../Crypto/">
       
       <link rel="icon" href="../../../Icon/Avatar.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.6">
     
     
       
-        <title>Container | 容器 - 某兰的笔记本</title>
+        <title>[LOCK]Lecture03 - 某兰的笔记本</title>
       
     
     
@@ -138,7 +142,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Container | 容器
+              [LOCK]Lecture03
             
           </span>
         </div>
@@ -246,6 +250,8 @@
         
   
   
+    
+  
 
 
   
@@ -257,7 +263,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../System2/" class="md-tabs__link">
+      <a href="../../System2/" class="md-tabs__link md-tabs__link--active">
         Course
       </a>
     </li>
@@ -432,14 +438,16 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
       
       
         
@@ -457,7 +465,7 @@
         
       
       
-        <label class="md-nav__link" for="__nav_2" tabindex="0" aria-expanded="false">
+        <label class="md-nav__link" for="__nav_2" tabindex="0" aria-expanded="true">
           Course
           <span class="md-nav__icon md-icon"></span>
         </label>
@@ -801,19 +809,23 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2_5" type="checkbox" id="__nav_2_5" >
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2_5" type="checkbox" id="__nav_2_5" checked>
       
       
         
           
             
+          
+        
           
         
           
@@ -865,6 +877,87 @@
       <a href="../Lec02/" class="md-nav__link">
         Lecture02
       </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          [LOCK]Lecture03
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        [LOCK]Lecture03
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#stl" class="md-nav__link">
+    STL
+  </a>
+  
+    <nav class="md-nav" aria-label="STL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vector" class="md-nav__link">
+    vector
+  </a>
+  
+    <nav class="md-nav" aria-label="vector">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-vector-operations" class="md-nav__link">
+    Basic Vector Operations
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1412,145 +1505,30 @@
 
 
 
-<h1 id="container">Container | 容器<a class="headerlink" href="#container" title="Permanent link">👀</a></h1>
-<h2 id="stl">STL<a class="headerlink" href="#stl" title="Permanent link">👀</a></h2>
-<div class="admonition abstract">
-<p class="admonition-title">Abstract</p>
-<p>在 C++ 中，容器是 STL 中的模板提供的</p>
+<div id="mkdocs-encrypted-content" style="display:none">Mz4Slb47VtLTUriKU+uM/Q==;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;^</div>
+<div id="mkdocs-decrypted-content">
+    <form id="mkdocs-decrypt-form">
+        <h1>AES encryption supported by unverbuggt@github's plugin</h1>
+        <p>Contact me(Enl_Z) via methods provided in the comments section for access to this page</p>
+        <input type="password" id="mkdocs-content-password" placeholder="Provide password and press ENTER" />
+        
+        <p id="mkdocs-decrypt-msg"></p>
+    </form>
 </div>
-<ul>
-<li>STL = Standard Template Library</li>
-<li>Part of the ISO Standard C++ Library</li>
-<li>Data Structures and algorithms for C++</li>
-</ul>
-<details class="success">
-<summary>Why use STL</summary>
-<ul>
-<li>Reduce development time</li>
-<li>Code readability</li>
-<li>Robustness</li>
-<li>Portable code</li>
-<li>Maintainable code</li>
-<li>Easy</li>
-</ul>
-</details>
-<ul>
-<li>Library includes:<ul>
-<li>A pair class (pairs of anything, int/int, int/char, etc)</li>
-<li>Containers<ul>
-<li>vector (expandable array)</li>
-<li>deque (expandable array, expands at both ends)</li>
-<li>list (double-linked)</li>
-<li>sets and maps</li>
-</ul>
-</li>
-<li>Basic Algorithms (sort, search, etc)</li>
-</ul>
-</li>
-<li>All identifiers in library are in std namespace (<code>using namespace std;</code>)</li>
-<li>The three parts of STL<ul>
-<li>Containers</li>
-<li>Algorithms</li>
-<li>Iterators</li>
-</ul>
-</li>
-<li>Top 3 data structures<ul>
-<li>map<ul>
-<li>Any key type, any value type</li>
-<li>sorted</li>
-</ul>
-</li>
-<li>vector<ul>
-<li>like c array, but auto-extending</li>
-</ul>
-</li>
-<li>list<ul>
-<li>doubly-linked list</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>All Sequential Containers<ul>
-<li>vector: variable array</li>
-<li>deque: dual-end queue</li>
-<li>list: double-linked-list</li>
-<li>forward_list: as it</li>
-<li>array: as &ldquo;array&rdquo;</li>
-<li>string: char.array</li>
-</ul>
-</li>
-</ul>
-<h3 id="vector">vector<a class="headerlink" href="#vector" title="Permanent link">👀</a></h3>
-<details class="example">
-<summary>Example</summary>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1">// Use namespace so that you can refer to vectors in C++ library</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;vector&gt;</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">{</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w">  </span><span class="c1">//Just declare a vector of ints(no need to worry about size)</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">1000</span><span class="p">;</span><span class="w"> </span><span class="n">a</span><span class="o">++</span><span class="p">)</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">        </span><span class="n">x</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">a</span><span class="p">);</span><span class="w"> </span><span class="c1">//Add elements</span>
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">    </span><span class="cm">/* Have a pre-defined iterator for vector class, can use it to print out the items in vector */</span>
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">    </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;::</span><span class="n">iterator</span><span class="w"> </span><span class="n">p</span><span class="p">;</span><span class="w">    </span>
-<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">end</span><span class="p">();</span><span class="w"> </span><span class="n">p</span><span class="o">++</span><span class="p">)</span>
-<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">        </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="p">;</span>
-<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="p">}</span>
-</code></pre></div>
-<ul>
-<li><code>vector&lt;int&gt; x;</code> 中 <code>x</code> 是变量的名字，<code>&lt;int&gt;</code> 表示要在 vector 里面放 <code>int</code>类型的数据</li>
-<li><code>::iterator</code> 表示 vector 中的类 <code>iterator</code>，可以对 <code>vector of int</code> 枚举, 拿出来的每一个都应该是 <code>int</code></li>
-<li><code>begin</code> 会返回一个枚举器，用这个枚举器可以枚举容器中的每一个元素</li>
-</ul>
-</details>
-<ul>
-<li>It is able to increase its internal capacity as required: as more items are added, it simply makes enough room for them</li>
-<li>It keeps its own private count of how many items it is currently storing. Its size method returns the number of objects currently in it</li>
-<li>In maintains the order of items you insert into it. You can later retrieve them in the same order.</li>
-</ul>
-<h4 id="basic-vector-operations">Basic Vector Operations<a class="headerlink" href="#basic-vector-operations" title="Permanent link">👀</a></h4>
-<ul>
-<li>Constructors <ul>
-<li><code>vector&lt;ElementType&gt; c;</code></li>
-<li><code>vector&lt;ElementType&gt; c1(c2);  //c1 可以得到 c2 里的所有内容</code></li>
-</ul>
-</li>
-<li>Simple Methods<ul>
-<li><code>V.size(); //num items</code></li>
-<li><code>V.empty(); //Judge if empty</code></li>
-<li><code>==, !=, &lt;, &gt;, &lt;=, &gt;= //比较两个 vector 的大小，依次拿对应元素比较</code></li>
-<li><code>V.swap(v2); //swap 两个 vector 的全部内容</code></li>
-</ul>
-</li>
-<li>Iterators<ul>
-<li><code>I.begin(); //first positiion</code></li>
-<li><code>I.end();  //last position</code></li>
-</ul>
-</li>
-<li>Element access<ul>
-<li><code>V.at(index)</code></li>
-<li><code>V[index]</code></li>
-<li><code>V.front(); //first item</code></li>
-<li><code>V.back();  //last item</code></li>
-</ul>
-</li>
-<li>Add/Remove/Find<ul>
-<li><code>V.push_back(e);</code></li>
-<li><code>V.pop_back(e);</code></li>
-<li><code>V.insert(position, e);</code></li>
-<li><code>V.erase(position);</code></li>
-<li><code>V.clear();</code></li>
-<li><code>V.find(first, last, item);</code></li>
-</ul>
-</li>
-</ul>
+
+<script type="text/javascript">
+var encryptcontent_path = "Notebook/Course/OOP/Lec03/";
+var decryption_failure_message = "Invalid password";
+</script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/core.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/enc-base64.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/cipher-core.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/pad-nopadding.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/md5.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/aes.js"></script>
+<script type="text/javascript" src="../../../assets/javascripts/decrypt-contents.js" defer></script>
+
 
 
   
@@ -1623,6 +1601,42 @@
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+          
+          <a href="../Lec02/" class="md-footer__link md-footer__link--prev" aria-label="上一页: Lecture02" rel="prev">
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <div class="md-ellipsis">
+                <span class="md-footer__direction">
+                  上一页
+                </span>
+                Lecture02
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../Crypto/" class="md-footer__link md-footer__link--next" aria-label="下一页: Perface" rel="next">
+            <div class="md-footer__title">
+              <div class="md-ellipsis">
+                <span class="md-footer__direction">
+                  下一页
+                </span>
+                Perface
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
     
   
   <div class="md-footer-meta md-typeset">
