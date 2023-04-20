@@ -191,7 +191,7 @@ Show that for all n, a sequence of n operations takes *worst-case* time $T(n)$ i
 * $\Phi(T) = \sum\limits_{i \in T} Rank(i)$ 
     * Zig: <br>![2023-03-01-12-15-00](../../Images/2023-03-01-12-15-00.png)
         * $\hat{c_i} = 1 + R_2(X) - R_1(X) + R_2(P) - R_1(P)$
-        * $\le 1 + R_2(X) - R_1(X)$ ( $R_2(X)$ 表示旋转后的这个点的秩函数)
+        * $\le 1 + R_2(X) - R_1(X)$ ( $R_2(X)$ 表示旋转后的这个点的势函数)
     * Zig-zag: <br>![2023-02-28-20-59-53](../../Images/2023-02-28-20-59-53.png)
         * $\hat{c_i} = 2 + R_2(X) - R_1(X) + R_2(P) - R_1(P) + R_2(G) - R_1(G)$
         * $\le 2(R_2(X) - R_1(X))$ 
