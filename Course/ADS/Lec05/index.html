@@ -12,21 +12,27 @@
         <meta name="author" content="Enl_Z">
       
       
+        <link rel="canonical" href="https://enl-z.cc/Notebook/Course/ADS/Lec05/">
       
       
-      <link rel="icon" href="/Notebook/Icon/Avatar.png">
+        <link rel="prev" href="../Lec04/">
+      
+      
+        <link rel="next" href="../Lec06/">
+      
+      <link rel="icon" href="../../../Icon/Avatar.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.6">
     
     
       
-        <title>某兰的笔记本</title>
+        <title>[LOCK]Divide and Conquer - 某兰的笔记本</title>
       
     
     
-      <link rel="stylesheet" href="/Notebook/assets/stylesheets/main.558e4712.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.558e4712.min.css">
       
         
-        <link rel="stylesheet" href="/Notebook/assets/stylesheets/palette.2505c338.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.2505c338.min.css">
       
       
 
@@ -55,15 +61,15 @@
     
       <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
     
-      <link rel="stylesheet" href="/Notebook/mkdocs/extra_css/tasklist.css">
+      <link rel="stylesheet" href="../../../mkdocs/extra_css/tasklist.css">
     
-      <link rel="stylesheet" href="/Notebook/mkdocs/extra_css/counter.css">
+      <link rel="stylesheet" href="../../../mkdocs/extra_css/counter.css">
     
-      <link rel="stylesheet" href="/Notebook/mkdocs/extra_css/giscus.css">
+      <link rel="stylesheet" href="../../../mkdocs/extra_css/giscus.css">
     
-      <link rel="stylesheet" href="/Notebook/mkdocs/extra_css/flink.css">
+      <link rel="stylesheet" href="../../../mkdocs/extra_css/flink.css">
     
-    <script>__md_scope=new URL("/Notebook/",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -101,6 +107,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#divide-and-conquer" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -113,9 +124,9 @@
 
 <header class="md-header md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="/Notebook/." title="某兰的笔记本" class="md-header__button md-logo" aria-label="某兰的笔记本" data-md-component="logo">
+    <a href="../../.." title="某兰的笔记本" class="md-header__button md-logo" aria-label="某兰的笔记本" data-md-component="logo">
       
-  <img src="/Notebook/Icon/Avatar.png" alt="logo">
+  <img src="../../../Icon/Avatar.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -131,7 +142,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              [LOCK]Divide and Conquer
             
           </span>
         </div>
@@ -229,7 +240,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="/Notebook/." class="md-tabs__link">
+      <a href="../../.." class="md-tabs__link">
         Hello
       </a>
     </li>
@@ -238,6 +249,8 @@
       
         
   
+  
+    
   
 
 
@@ -250,7 +263,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="/Notebook/Course/System2/" class="md-tabs__link">
+      <a href="../../System2/" class="md-tabs__link md-tabs__link--active">
         Course
       </a>
     </li>
@@ -273,7 +286,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="/Notebook/Triviality/Markdown/" class="md-tabs__link">
+      <a href="../../../Triviality/Markdown/" class="md-tabs__link">
         Triviality
       </a>
     </li>
@@ -296,7 +309,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="/Notebook/Triviality/GitHub/" class="md-tabs__link">
+      <a href="../../../Triviality/GitHub/" class="md-tabs__link">
         Tools
       </a>
     </li>
@@ -332,9 +345,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/Notebook/." title="某兰的笔记本" class="md-nav__button md-logo" aria-label="某兰的笔记本" data-md-component="logo">
+    <a href="../../.." title="某兰的笔记本" class="md-nav__button md-logo" aria-label="某兰的笔记本" data-md-component="logo">
       
-  <img src="/Notebook/Icon/Avatar.png" alt="logo">
+  <img src="../../../Icon/Avatar.png" alt="logo">
 
     </a>
     某兰的笔记本
@@ -382,7 +395,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="/Notebook/.">Hello</a>
+          <a href="../../..">Hello</a>
           
             <label for="__nav_1">
               <span class="md-nav__icon md-icon"></span>
@@ -405,7 +418,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Notebook/link/" class="md-nav__link">
+      <a href="../../../link/" class="md-nav__link">
         友链
       </a>
     </li>
@@ -425,14 +438,16 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
       
       
         
@@ -450,7 +465,7 @@
         
       
       
-        <label class="md-nav__link" for="__nav_2" tabindex="0" aria-expanded="false">
+        <label class="md-nav__link" for="__nav_2" tabindex="0" aria-expanded="true">
           Course
           <span class="md-nav__icon md-icon"></span>
         </label>
@@ -486,7 +501,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="/Notebook/Course/System2/">计算机系统Ⅱ</a>
+          <a href="../../System2/">计算机系统Ⅱ</a>
           
         </div>
       
@@ -530,7 +545,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="/Notebook/Course/System3/">计算机系统Ⅲ</a>
+          <a href="../../System3/">计算机系统Ⅲ</a>
           
         </div>
       
@@ -586,7 +601,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="/Notebook/Course/FDS/">数据结构基础</a>
+          <a href="../../FDS/">数据结构基础</a>
           
             <label for="__nav_2_3">
               <span class="md-nav__icon md-icon"></span>
@@ -609,7 +624,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Notebook/Course/FDS/Lec01/" class="md-nav__link">
+      <a href="../../FDS/Lec01/" class="md-nav__link">
         算法分析和抽象数据类型
       </a>
     </li>
@@ -623,7 +638,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Notebook/Course/FDS/Lec02/" class="md-nav__link">
+      <a href="../../FDS/Lec02/" class="md-nav__link">
         线性结构
       </a>
     </li>
@@ -637,7 +652,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Notebook/Course/FDS/Lec03/" class="md-nav__link">
+      <a href="../../FDS/Lec03/" class="md-nav__link">
         树
       </a>
     </li>
@@ -651,7 +666,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Notebook/Course/FDS/Lec04/" class="md-nav__link">
+      <a href="../../FDS/Lec04/" class="md-nav__link">
         图
       </a>
     </li>
@@ -665,7 +680,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Notebook/Course/FDS/Lec05/" class="md-nav__link">
+      <a href="../../FDS/Lec05/" class="md-nav__link">
         排序
       </a>
     </li>
@@ -679,7 +694,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Notebook/Course/FDS/Lec06/" class="md-nav__link">
+      <a href="../../FDS/Lec06/" class="md-nav__link">
         哈希
       </a>
     </li>
@@ -698,14 +713,16 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" >
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" checked>
       
       
         
@@ -732,7 +749,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="/Notebook/Course/ADS/">高级数据结构与算法分析</a>
+          <a href="../">高级数据结构与算法分析</a>
           
             <label for="__nav_2_4">
               <span class="md-nav__icon md-icon"></span>
@@ -755,7 +772,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Notebook/Course/ADS/Lec01/" class="md-nav__link">
+      <a href="../Lec01/" class="md-nav__link">
         AVL & Splay
       </a>
     </li>
@@ -769,7 +786,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Notebook/Course/ADS/Lec02/" class="md-nav__link">
+      <a href="../Lec02/" class="md-nav__link">
         [LOCK]Red-Black & B+
       </a>
     </li>
@@ -783,7 +800,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Notebook/Course/ADS/Lec03/" class="md-nav__link">
+      <a href="../Lec03/" class="md-nav__link">
         [LOCK]Heap
       </a>
     </li>
@@ -797,7 +814,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Notebook/Course/ADS/Lec04/" class="md-nav__link">
+      <a href="../Lec04/" class="md-nav__link">
         [LOCK]Backtracking
       </a>
     </li>
@@ -809,11 +826,52 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="/Notebook/Course/ADS/Lec05/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          [LOCK]Divide and Conquer
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         [LOCK]Divide and Conquer
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#substitution-method" class="md-nav__link">
+    Substitution method
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -825,7 +883,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Notebook/Course/ADS/Lec06/" class="md-nav__link">
+      <a href="../Lec06/" class="md-nav__link">
         [LOCK]Dynamic Programming
       </a>
     </li>
@@ -839,7 +897,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Notebook/Course/ADS/Lec07/" class="md-nav__link">
+      <a href="../Lec07/" class="md-nav__link">
         [LOCK]Greedy
       </a>
     </li>
@@ -884,7 +942,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="/Notebook/Course/OOP/">面向对象程序设计</a>
+          <a href="../../OOP/">面向对象程序设计</a>
           
             <label for="__nav_2_5">
               <span class="md-nav__icon md-icon"></span>
@@ -907,7 +965,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Notebook/Course/OOP/Lec01/" class="md-nav__link">
+      <a href="../../OOP/Lec01/" class="md-nav__link">
         Lecture01
       </a>
     </li>
@@ -921,7 +979,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Notebook/Course/OOP/Lec02/" class="md-nav__link">
+      <a href="../../OOP/Lec02/" class="md-nav__link">
         Lecture02
       </a>
     </li>
@@ -935,7 +993,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Notebook/Course/OOP/Lec03/" class="md-nav__link">
+      <a href="../../OOP/Lec03/" class="md-nav__link">
         [LOCK]Lecture03
       </a>
     </li>
@@ -978,7 +1036,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="/Notebook/Course/Crypto/">密码学</a>
+          <a href="../../Crypto/">密码学</a>
           
             <label for="__nav_2_6">
               <span class="md-nav__icon md-icon"></span>
@@ -1001,7 +1059,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Notebook/Course/Crypto/Lec01/" class="md-nav__link">
+      <a href="../../Crypto/Lec01/" class="md-nav__link">
         [LOCK]数学基础
       </a>
     </li>
@@ -1015,7 +1073,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Notebook/Course/Crypto/Lec02/" class="md-nav__link">
+      <a href="../../Crypto/Lec02/" class="md-nav__link">
         [LOCK]古典密码
       </a>
     </li>
@@ -1099,7 +1157,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="/Notebook/Triviality/Markdown/">Markdown</a>
+          <a href="../../../Triviality/Markdown/">Markdown</a>
           
             <label for="__nav_3_1">
               <span class="md-nav__icon md-icon"></span>
@@ -1122,7 +1180,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Notebook/Triviality/Markdown/markdown/" class="md-nav__link">
+      <a href="../../../Triviality/Markdown/markdown/" class="md-nav__link">
         Markdown
       </a>
     </li>
@@ -1163,7 +1221,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="/Notebook/Triviality/The%20Missing%20Semester/">Missing Semester</a>
+          <a href="../../../Triviality/The%20Missing%20Semester/">Missing Semester</a>
           
             <label for="__nav_3_2">
               <span class="md-nav__icon md-icon"></span>
@@ -1186,7 +1244,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Notebook/Triviality/The%20Missing%20Semester/Vim/" class="md-nav__link">
+      <a href="../../../Triviality/The%20Missing%20Semester/Vim/" class="md-nav__link">
         Vim
       </a>
     </li>
@@ -1229,7 +1287,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="/Notebook/Triviality/CMake/">CMake</a>
+          <a href="../../../Triviality/CMake/">CMake</a>
           
             <label for="__nav_3_3">
               <span class="md-nav__icon md-icon"></span>
@@ -1252,7 +1310,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Notebook/Triviality/CMake/Lec01/" class="md-nav__link">
+      <a href="../../../Triviality/CMake/Lec01/" class="md-nav__link">
         准备&试编译
       </a>
     </li>
@@ -1266,7 +1324,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Notebook/Triviality/CMake/Lec02/" class="md-nav__link">
+      <a href="../../../Triviality/CMake/Lec02/" class="md-nav__link">
         初体验
       </a>
     </li>
@@ -1346,7 +1404,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="/Notebook/Triviality/GitHub/">GitHub</a>
+          <a href="../../../Triviality/GitHub/">GitHub</a>
           
             <label for="__nav_4_1">
               <span class="md-nav__icon md-icon"></span>
@@ -1369,7 +1427,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/Notebook/Triviality/GitHub/Le1/" class="md-nav__link">
+      <a href="../../../Triviality/GitHub/Le1/" class="md-nav__link">
         Basics
       </a>
     </li>
@@ -1407,6 +1465,23 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#substitution-method" class="md-nav__link">
+    Substitution method
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1418,7 +1493,110 @@
             <div class="md-content" data-md-component="content">
               <article class="md-content__inner md-typeset">
                 
-  <h1>404 - Not found</h1>
+  
+                  
+  
+
+
+
+  
+    <a href="https://github.com/enl-z/Notebook/tree/master/docs/Course/ADS/Lec05.md" title="编辑此页" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/enl-z/Notebook/tree/master/docs/Course/ADS/Lec05.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
+    </a>
+  
+
+
+
+<div id="mkdocs-encrypted-content" style="display:none">/m1aiv3Dps7ecRvBsPjzNw==;46qnq45U0cR9IMGBlwp9s9fxPPsCu2iw04BrEVO1vZoThMIVG7SSvzzcc4ltuZ26E+2P0RAIgd+/JxsNwfASeMgEEHm5ffIa7CJiT5Qj8MnUKv5Sj61NtF5hiFGmrBWUig+C7BacDv7gWxSfEXT9aGOMhSGNo0Za+C6DZBMFbt0zWCQ7TY+DN7l49AewEp6Y998MvFQ8k6c1u//jNZYx05c9SyeXgrJlacL+3eoR5WY+t2rg0rQtemdnz7E6Fsn0/d8KtfbOOd/U8hodepkwiGIQWiX9YTWedJ4+tbcEoqoTsNjvQR6LfQ9rhq0xv3It6ArQFoxDyEpTxk/rzRm7WsQeWCorvvHsAFG/kudxN8BPEfbL1s1VxFLO3HKnzXqVh/xMpvPvYTOhTyxMuOvTXEjdeKMhMuggaSjbN4dXvZs202vSJtACJLLPMedQJ3gUR4o9fPZ4kLv1tBoz60sEkvup9xGZ5Tyw64zR5xv6NscpEREgQ2D0GciPRre3l7GdbmNf1CTv0v6t3AscVu3IFI/1EvLjzelWcktSBodGVvOGJEMw4hfkDn2ZTo0SvA6VzGd2HHFb1/fFY5we3lNfs7GYoqxgfdfNTZHigfu06+1NxYHgSYaDJ6hwC7xoMayiFZ2PozlMHoQfACZfu1Au2Sm9syBx/p+hHu5WlJNEY0Pp+0xZdAOtTsUlc869bIbrjZbYZropjQBte2XhFWeQbjbn/6Hj6cWKBfXeSa+xBm11Ddey4Cq29cGnkvTDNA0EVW28h4yL75Rw2S46OdUHGcqYrEIv3GJVF/eCRiaFzAkz2qsPLbNSwLvMsZlvnkuQF+lZKl3D8jFBywiT0vI9wF2V2fr5BEGqvJfek5EaS8FSIN1vRWwWCVA7za/PHfvcgtVwSIwyh5fnjgAetEuW4sEjKxdbSBMhjIU0UXDRa+kRzN81kQzZ8WMdy9vWacLorGzQmLoekzVkWBgTZ4IGn5eNz60RXV5MWMvxYxCeOhK2sh1M3sU5wzawWsRNYt3qVreNKdGFm7ImWs5sdDfB3rnbe39BPMBnm7EulA9D/hYWMH9SE8T+9+NFZXd9tX93aVROMoWHVIw1ebd1xDmgV6jHe+ORu+vl4BjHSX3b+5l2jkFAiMQf3+0V5H0CyJePrd5XnaG3oAsm3O5YZFKPPJZ2JkWDLg/QIyToQel7XUoeePaZfL8Z0ILkMqs+4C5xznyxtw4zXrw+XbTQeQXL8hGD3LL9m380zZiS/TYLJV99px+OEylaB4e1PkwtQR3akpYYhK2xMWtsluC7Jb9Y6MsDBhTS1mDDI+GM2PxuVsunZkc68ceNTHIySzzRcRum17JaIihlAc0Egohd7nWQRL4DedO3w6M9kCF7yjcWQyiv/TQi9pO4ixiJHmxW1Y80GJ1QlB+HlopgbCtSCfdTk7ME0Wc5C3zWdhZDHoP3CKGtrZn21+Hms9Cpz6784oBR1TeVJfTmL4xXqpul2AZJzNFwDbbILJrBaPVjp/25BvHu/jYTw3Fn3lDgwcl8WUpMVKmmjjTBP3zfqJbUdbWFhpJyV+qaiKEfJTXTsWtL9y6jmx5/C1v4iy05da4gJwG6ZI3vK4zcICpsrlGxzjOOmukahDJ82YdZrgVbwccfKPBRUoZPljSI4zzopaAUyMY7jj6fdOKALdkLwlv77KbUjIXlQsC5d3Xfe+O6YaNjonHLHL/x6pc1B7PYYoSfdm3tO4SmnbuHYZHkpUoLnX+QCmRQyiIdk/gXnI44JWPORpAleiTP2n86BRnPEDE0QNRVjZeFGEa0rPpcFfmthXFjbqO6QO7dnzld2RY8QdCAibtq5t8sqJ+EGysWGpOr73lFtB4viqTaqEfJh5/e+b8/R62oNjswr+3CGtorb6DCp5Nq9vJ+XYE77uba0pb60Cq5xtHUtf5PVET6/DohyS2A3MoJHaG9kfljtNF6zPCdtPoUPJSu4no60a/NY7vG6ruez/DzYx2YatVFN//+3M5YkVssIJdDfGGJ8IMxniGXGO2Qgzmw3l7p64n5U2f3fBJ8Wu+/9+DtiLAp42Bw4qvDAHIIZsCJOHiHQjPJqIa2DgbMhtEmekAXEdeSIfXBLX/VrIjeHo/maQdYGfait/tzF+44xVZOvGOLu9A7TJrfAdHAwsJJbjo8QeaaSvgmBhCmVoibJM9lO7h0TubbH1pBQCXtqG7AdAUDOG1tgtvESa/Wje0QMAS7dzT4maWrkD7pNYXJIRQzKXuhoLATdH3bABo6ZhIMomS38/DTEbDeYXCM93XY2tqUb7wnW94HTLO3h//gKhO1Ob0rgO+ruBltGUhqwBqcnfIxLtV6XDiQof6hLOK/t9IUQM3hUcjTaPmapoQReqkLNg4DDscndAQIJsM5b4x0XQR8VeIzLPPVjmNl+uTDZnp2u+lzZ4zBCJz30uvT/9L9kNlqIDoPCrg400hvMM/nqD6FP57HWcgkBzP+Z8+HWz9rDGQ3QSnkWVcAEHzDNxt44gcga3TqELM/ZI24VBFGifzJ9bL73OGKuk2MOVrzsZhzSC45LU5Cb36R0RKxSJNqK7qx4Jb9PRZ7uRwflq0MIA61cxo67j6FpI9IyFg8vHrxa51PIX6ZVhpHrchlxNARy8esxplcc4wjfXTyfEF7gw3VOVFgQ/YFgQjQTW40hy2/Qx8gspbmxMLNXOWJtj3yvWg1xhGgd8zEtH3uZFmSANs5trktw4UzAhthiAUWFUSwNwv37DkqoZ0phuej2/SqBOHqatx3lZ+Qv/YrXOFxV3rk8gkoIfdkMHMEMLSC6xLK0Ud2hQWsYeJGT+XXSSaUXoIWyXthGp6t6ODg8vs/8oOj4wxItl46mxjXHJdksG3wQmzvddl2W+dnOCjEB1XP+GalQyIUm2XmIfUK+0zjUrJrz1ag96rnF8Gzmfssc7xZqt2y1o0thTwK4w3fYcbNrVve9eOuXqsP7n2rPJh4amshsuAaKw8B3O0xSw9+nebkzvUJunWP7E9NDky/3oh8XG5rJ2zH2+d5tWow4TloxTFmnaadXWGemmvHqrHhnTaHWcR4hcQqO7xAxh4xSEHjuL/I143zcTTTmX9pdKDf9OojFJNV0xHqxp5xUm/4sBy7PtJdAO7oEDJ+anpLHXJWuRXG4FbVXoDQNICL7EIcHkHXzhQv2dBRUU0avLClLXbAjjo6r1BMYauBAfq1h4LKwwUgfNTnJBjXVOQQkYN9AOAPXJciqbUysdKorFvfgBTwh6Ce4tknf5dGcbTULM2hpX0HRWYyuMNFlhkOilF/vEaBQSbAbnOVq+YJckY+PJoj9cyy604zztNuHndg2URUr+FvmGFx3LUuYVb9r+uh046J0Q3MfHfXADd61MAW1mNtIO5/2cAWBuw1MvTSLo+HqRClkTRf/PdyFg==;^</div>
+<div id="mkdocs-decrypted-content">
+    <form id="mkdocs-decrypt-form">
+        <h1>AES encryption supported by unverbuggt@github's plugin</h1>
+        <p>Contact me(Enl_Z) via methods provided in the comments section for access to this page</p>
+        <input type="password" id="mkdocs-content-password" placeholder="Provide password and press ENTER" />
+        
+        <p id="mkdocs-decrypt-msg"></p>
+    </form>
+</div>
+
+<script type="text/javascript">
+var encryptcontent_path = "Notebook/Course/ADS/Lec05/";
+var decryption_failure_message = "Invalid password";
+</script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/core.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/enc-base64.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/cipher-core.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/pad-nopadding.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/md5.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/aes.js"></script>
+<script type="text/javascript" src="../../../assets/javascripts/decrypt-contents.js" defer></script>
+
+
+
+  
+
+
+
+
+                
+  <!-- Giscus -->
+  <hr/>
+
+  <script src="https://giscus.app/client.js"
+  data-repo="enl-z/DSG"
+  data-repo-id="R_kgDOI2exGA"
+  data-category="Announcements"
+  data-category-id="DIC_kwDOI2exGM4CT6Lt"
+  data-mapping="url"
+  data-reactions-enabled="1"
+  data-emit-metadata="0"
+  data-input-position="bottom"
+  data-theme="preferred_color_scheme"
+  data-lang="zh-CN"
+  data-loading="lazy"
+  crossorigin="anonymous"
+  async>
+</script>
+
+
+
+  <!-- Reload on palette change -->
+  <script>
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object")
+      if (palette.color.scheme === "slate") {
+        var giscus = document.querySelector("script[src*=giscus]")
+        giscus.setAttribute("data-theme", "dark") 
+      }
+
+    /* Register event handlers after documented loaded */
+    document.addEventListener("DOMContentLoaded", function() {
+      var ref = document.querySelector("[data-md-component=palette]")
+      ref.addEventListener("change", function() {
+        var palette = __md_get("__palette")
+        if (palette && typeof palette.color === "object") {
+          var theme = palette.color.scheme === "slate" ? "dark" : "light"
+
+          /* Instruct Giscus to change theme */
+          var frame = document.querySelector(".giscus-frame")
+          frame.contentWindow.postMessage(
+            { giscus: { setConfig: { theme } } },
+            "https://giscus.app"
+          )
+        }
+      })
+    })
+  </script>
 
               </article>
             </div>
@@ -1435,6 +1613,42 @@
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+          
+          <a href="../Lec04/" class="md-footer__link md-footer__link--prev" aria-label="上一页: [LOCK]Backtracking" rel="prev">
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <div class="md-ellipsis">
+                <span class="md-footer__direction">
+                  上一页
+                </span>
+                [LOCK]Backtracking
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../Lec06/" class="md-footer__link md-footer__link--next" aria-label="下一页: [LOCK]Dynamic Programming" rel="next">
+            <div class="md-footer__title">
+              <div class="md-ellipsis">
+                <span class="md-footer__direction">
+                  下一页
+                </span>
+                [LOCK]Dynamic Programming
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
     
   
   <div class="md-footer-meta md-typeset">
@@ -1490,16 +1704,16 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "/Notebook/", "features": ["navigation.tracking", "navigation.tabs", "navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.top", "search.suggest", "search.highlight", "content.code.annotate", "header.autohide", "toc.separate", "toc.follow", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "search.highlight", "search.share", "search.suggest"], "search": "/Notebook/assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tracking", "navigation.tabs", "navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.top", "search.suggest", "search.highlight", "content.code.annotate", "header.autohide", "toc.separate", "toc.follow", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "search.highlight", "search.share", "search.suggest"], "search": "../../../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="/Notebook/assets/javascripts/bundle.51d95adb.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.51d95adb.min.js"></script>
       
-        <script src="/Notebook/mkdocs/javascripts/mathjax.js"></script>
+        <script src="../../../mkdocs/javascripts/mathjax.js"></script>
       
         <script src="https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
       
-        <script src="/Notebook/mkdocs/javascripts/katex.js"></script>
+        <script src="../../../mkdocs/javascripts/katex.js"></script>
       
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
