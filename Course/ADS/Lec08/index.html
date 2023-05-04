@@ -12,27 +12,23 @@
         <meta name="author" content="Enl_Z">
       
       
-        <link rel="canonical" href="https://note.enl-z.cc/Course/System3/">
+        <link rel="canonical" href="https://note.enl-z.cc/Course/ADS/Lec08/">
       
       
-        <link rel="prev" href="../System2/">
       
-      
-        <link rel="next" href="../FDS/">
-      
-      <link rel="icon" href="../../Icon/Avatar.png">
+      <link rel="icon" href="../../../Icon/Avatar.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.6">
     
     
       
-        <title>计算机系统Ⅲ - 某兰的笔记本</title>
+        <title>[LOCK]NP - Completeness - 某兰的笔记本</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.558e4712.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.558e4712.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.2505c338.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.2505c338.min.css">
       
       
 
@@ -61,15 +57,15 @@
     
       <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
     
-      <link rel="stylesheet" href="../../mkdocs/extra_css/tasklist.css">
+      <link rel="stylesheet" href="../../../mkdocs/extra_css/tasklist.css">
     
-      <link rel="stylesheet" href="../../mkdocs/extra_css/counter.css">
+      <link rel="stylesheet" href="../../../mkdocs/extra_css/counter.css">
     
-      <link rel="stylesheet" href="../../mkdocs/extra_css/giscus.css">
+      <link rel="stylesheet" href="../../../mkdocs/extra_css/giscus.css">
     
-      <link rel="stylesheet" href="../../mkdocs/extra_css/flink.css">
+      <link rel="stylesheet" href="../../../mkdocs/extra_css/flink.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -108,7 +104,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#iii" class="md-skip">
+        <a href="#np-completeness" class="md-skip">
           跳转至
         </a>
       
@@ -124,9 +120,9 @@
 
 <header class="md-header md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../.." title="某兰的笔记本" class="md-header__button md-logo" aria-label="某兰的笔记本" data-md-component="logo">
+    <a href="../../.." title="某兰的笔记本" class="md-header__button md-logo" aria-label="某兰的笔记本" data-md-component="logo">
       
-  <img src="../../Icon/Avatar.png" alt="logo">
+  <img src="../../../Icon/Avatar.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -142,7 +138,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              计算机系统Ⅲ
+              [LOCK]NP - Completeness
             
           </span>
         </div>
@@ -240,7 +236,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
+      <a href="../../.." class="md-tabs__link">
         Hello
       </a>
     </li>
@@ -249,8 +245,6 @@
       
         
   
-  
-    
   
 
 
@@ -263,7 +257,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../System2/" class="md-tabs__link md-tabs__link--active">
+      <a href="../../System2/" class="md-tabs__link">
         Course
       </a>
     </li>
@@ -286,7 +280,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../Triviality/Markdown/" class="md-tabs__link">
+      <a href="../../../Triviality/Markdown/" class="md-tabs__link">
         Triviality
       </a>
     </li>
@@ -309,7 +303,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../Triviality/GitHub/" class="md-tabs__link">
+      <a href="../../../Triviality/GitHub/" class="md-tabs__link">
         Tools
       </a>
     </li>
@@ -345,9 +339,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="某兰的笔记本" class="md-nav__button md-logo" aria-label="某兰的笔记本" data-md-component="logo">
+    <a href="../../.." title="某兰的笔记本" class="md-nav__button md-logo" aria-label="某兰的笔记本" data-md-component="logo">
       
-  <img src="../../Icon/Avatar.png" alt="logo">
+  <img src="../../../Icon/Avatar.png" alt="logo">
 
     </a>
     某兰的笔记本
@@ -395,7 +389,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../..">Hello</a>
+          <a href="../../..">Hello</a>
           
             <label for="__nav_1">
               <span class="md-nav__icon md-icon"></span>
@@ -418,7 +412,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../link/" class="md-nav__link">
+      <a href="../../../link/" class="md-nav__link">
         友链
       </a>
     </li>
@@ -438,16 +432,14 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
       
       
         
@@ -465,7 +457,7 @@
         
       
       
-        <label class="md-nav__link" for="__nav_2" tabindex="0" aria-expanded="true">
+        <label class="md-nav__link" for="__nav_2" tabindex="0" aria-expanded="false">
           Course
           <span class="md-nav__icon md-icon"></span>
         </label>
@@ -501,7 +493,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../System2/">计算机系统Ⅱ</a>
+          <a href="../../System2/">计算机系统Ⅱ</a>
           
         </div>
       
@@ -525,16 +517,14 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" checked>
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
       
       
         
@@ -546,8 +536,8 @@
       
         
         
-        <div class="md-nav__link md-nav__link--index md-nav__link--active">
-          <a href="./">计算机系统Ⅲ</a>
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../System3/">计算机系统Ⅲ</a>
           
         </div>
       
@@ -603,7 +593,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../FDS/">数据结构基础</a>
+          <a href="../../FDS/">数据结构基础</a>
           
             <label for="__nav_2_3">
               <span class="md-nav__icon md-icon"></span>
@@ -626,7 +616,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../FDS/Lec01/" class="md-nav__link">
+      <a href="../../FDS/Lec01/" class="md-nav__link">
         算法分析和抽象数据类型
       </a>
     </li>
@@ -640,7 +630,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../FDS/Lec02/" class="md-nav__link">
+      <a href="../../FDS/Lec02/" class="md-nav__link">
         线性结构
       </a>
     </li>
@@ -654,7 +644,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../FDS/Lec03/" class="md-nav__link">
+      <a href="../../FDS/Lec03/" class="md-nav__link">
         树
       </a>
     </li>
@@ -668,7 +658,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../FDS/Lec04/" class="md-nav__link">
+      <a href="../../FDS/Lec04/" class="md-nav__link">
         图
       </a>
     </li>
@@ -682,7 +672,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../FDS/Lec05/" class="md-nav__link">
+      <a href="../../FDS/Lec05/" class="md-nav__link">
         排序
       </a>
     </li>
@@ -696,7 +686,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../FDS/Lec06/" class="md-nav__link">
+      <a href="../../FDS/Lec06/" class="md-nav__link">
         哈希
       </a>
     </li>
@@ -749,7 +739,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../ADS/">高级数据结构与算法分析</a>
+          <a href="../">高级数据结构与算法分析</a>
           
             <label for="__nav_2_4">
               <span class="md-nav__icon md-icon"></span>
@@ -772,7 +762,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ADS/Lec01/" class="md-nav__link">
+      <a href="../Lec01/" class="md-nav__link">
         AVL & Splay
       </a>
     </li>
@@ -786,7 +776,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ADS/Lec02/" class="md-nav__link">
+      <a href="../Lec02/" class="md-nav__link">
         [LOCK]Red-Black & B+
       </a>
     </li>
@@ -800,7 +790,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ADS/Lec03/" class="md-nav__link">
+      <a href="../Lec03/" class="md-nav__link">
         [LOCK]Heap
       </a>
     </li>
@@ -814,7 +804,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ADS/Lec04/" class="md-nav__link">
+      <a href="../Lec04/" class="md-nav__link">
         [LOCK]Backtracking
       </a>
     </li>
@@ -828,7 +818,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ADS/Lec05/" class="md-nav__link">
+      <a href="../Lec05/" class="md-nav__link">
         [LOCK]Divide and Conquer
       </a>
     </li>
@@ -842,7 +832,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ADS/Lec06/" class="md-nav__link">
+      <a href="../Lec06/" class="md-nav__link">
         Dynamic Programming
       </a>
     </li>
@@ -856,7 +846,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ADS/Lec07/" class="md-nav__link">
+      <a href="../Lec07/" class="md-nav__link">
         [LOCK]Greedy
       </a>
     </li>
@@ -901,7 +891,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../OOP/">面向对象程序设计</a>
+          <a href="../../OOP/">面向对象程序设计</a>
           
             <label for="__nav_2_5">
               <span class="md-nav__icon md-icon"></span>
@@ -924,7 +914,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../OOP/Lec01/" class="md-nav__link">
+      <a href="../../OOP/Lec01/" class="md-nav__link">
         Beginning
       </a>
     </li>
@@ -938,7 +928,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../OOP/Lec02/" class="md-nav__link">
+      <a href="../../OOP/Lec02/" class="md-nav__link">
         Step in Object-Oriented
       </a>
     </li>
@@ -952,7 +942,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../OOP/Lec03/" class="md-nav__link">
+      <a href="../../OOP/Lec03/" class="md-nav__link">
         [LOCK]Container
       </a>
     </li>
@@ -995,7 +985,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../Crypto/">密码学</a>
+          <a href="../../Crypto/">密码学</a>
           
             <label for="__nav_2_6">
               <span class="md-nav__icon md-icon"></span>
@@ -1018,7 +1008,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Crypto/Lec01/" class="md-nav__link">
+      <a href="../../Crypto/Lec01/" class="md-nav__link">
         [LOCK]数学基础
       </a>
     </li>
@@ -1032,7 +1022,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Crypto/Lec02/" class="md-nav__link">
+      <a href="../../Crypto/Lec02/" class="md-nav__link">
         [LOCK]古典密码
       </a>
     </li>
@@ -1116,7 +1106,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../Triviality/Markdown/">Markdown</a>
+          <a href="../../../Triviality/Markdown/">Markdown</a>
           
             <label for="__nav_3_1">
               <span class="md-nav__icon md-icon"></span>
@@ -1139,7 +1129,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Triviality/Markdown/markdown/" class="md-nav__link">
+      <a href="../../../Triviality/Markdown/markdown/" class="md-nav__link">
         Markdown
       </a>
     </li>
@@ -1180,7 +1170,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../Triviality/The%20Missing%20Semester/">Missing Semester</a>
+          <a href="../../../Triviality/The%20Missing%20Semester/">Missing Semester</a>
           
             <label for="__nav_3_2">
               <span class="md-nav__icon md-icon"></span>
@@ -1203,7 +1193,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Triviality/The%20Missing%20Semester/Vim/" class="md-nav__link">
+      <a href="../../../Triviality/The%20Missing%20Semester/Vim/" class="md-nav__link">
         Vim
       </a>
     </li>
@@ -1246,7 +1236,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../Triviality/CMake/">CMake</a>
+          <a href="../../../Triviality/CMake/">CMake</a>
           
             <label for="__nav_3_3">
               <span class="md-nav__icon md-icon"></span>
@@ -1269,7 +1259,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Triviality/CMake/Lec01/" class="md-nav__link">
+      <a href="../../../Triviality/CMake/Lec01/" class="md-nav__link">
         准备&试编译
       </a>
     </li>
@@ -1283,7 +1273,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Triviality/CMake/Lec02/" class="md-nav__link">
+      <a href="../../../Triviality/CMake/Lec02/" class="md-nav__link">
         初体验
       </a>
     </li>
@@ -1363,7 +1353,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../Triviality/GitHub/">GitHub</a>
+          <a href="../../../Triviality/GitHub/">GitHub</a>
           
             <label for="__nav_4_1">
               <span class="md-nav__icon md-icon"></span>
@@ -1386,7 +1376,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Triviality/GitHub/Le1/" class="md-nav__link">
+      <a href="../../../Triviality/GitHub/Le1/" class="md-nav__link">
         Basics
       </a>
     </li>
@@ -1427,6 +1417,35 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#post-correspondence-problem" class="md-nav__link">
+    Post Correspondence Problem
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-class-np" class="md-nav__link">
+    The class NP
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#np-complete-problems-the-hardest" class="md-nav__link">
+    NP - Complete Problems --- the hardest
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1444,7 +1463,7 @@
 
 
   
-    <a href="https://github.com/enl-z/Notebook/tree/master/docs/Course/System3/index.md" title="编辑此页" class="md-content__button md-icon">
+    <a href="https://github.com/enl-z/Notebook/tree/master/docs/Course/ADS/Lec08.md" title="编辑此页" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
     </a>
@@ -1453,7 +1472,7 @@
     
       
     
-    <a href="https://github.com/enl-z/Notebook/tree/master/docs/Course/System3/index.md" title="View source of this page" class="md-content__button md-icon">
+    <a href="https://github.com/enl-z/Notebook/tree/master/docs/Course/ADS/Lec08.md" title="View source of this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
     </a>
@@ -1461,12 +1480,30 @@
 
 
 
-<h1 id="iii">计算机系统Ⅲ<a class="headerlink" href="#iii" title="Permanent link">👀</a></h1>
-<div class="admonition abstract">
-<p class="admonition-title">Abstract</p>
-<p>计算机系统Ⅱ 是 ZJU 计算机系统系列课程之一，包括操作系统后半部分和计算机体系结构内容</p>
+<div id="mkdocs-encrypted-content" style="display:none">/34P7XEqexX1+JMk/Li77w==;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;^</div>
+<div id="mkdocs-decrypted-content">
+    <form id="mkdocs-decrypt-form">
+        <h1>AES encryption supported by unverbuggt@github's plugin</h1>
+        <p>Contact me(Enl_Z) via methods provided in the comments section for access to this page</p>
+        <input type="password" id="mkdocs-content-password" placeholder="Provide password and press ENTER" />
+        
+        <p id="mkdocs-decrypt-msg"></p>
+    </form>
 </div>
-<p><center><font face="JetBrains Mono" color=grey size=18>To Be Continued</font></center></p>
+
+<script type="text/javascript">
+var encryptcontent_path = "Course/ADS/Lec08/";
+var decryption_failure_message = "Invalid password";
+</script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/core.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/enc-base64.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/cipher-core.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/pad-nopadding.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/md5.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/aes.js"></script>
+<script type="text/javascript" src="../../../assets/javascripts/decrypt-contents.js" defer></script>
+
 
 
   
@@ -1540,42 +1577,6 @@
         <footer class="md-footer">
   
     
-      
-      <nav class="md-footer__inner md-grid" aria-label="页脚" >
-        
-          
-          <a href="../System2/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 计算机系统Ⅱ" rel="prev">
-            <div class="md-footer__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-            </div>
-            <div class="md-footer__title">
-              <div class="md-ellipsis">
-                <span class="md-footer__direction">
-                  上一页
-                </span>
-                计算机系统Ⅱ
-              </div>
-            </div>
-          </a>
-        
-        
-          
-          <a href="../FDS/" class="md-footer__link md-footer__link--next" aria-label="下一页: 数据结构基础" rel="next">
-            <div class="md-footer__title">
-              <div class="md-ellipsis">
-                <span class="md-footer__direction">
-                  下一页
-                </span>
-                数据结构基础
-              </div>
-            </div>
-            <div class="md-footer__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-            </div>
-          </a>
-        
-      </nav>
-    
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -1630,16 +1631,16 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tracking", "navigation.tabs", "navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.top", "search.suggest", "search.highlight", "content.code.annotate", "header.autohide", "toc.separate", "toc.follow", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "search.highlight", "search.share", "search.suggest"], "search": "../../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tracking", "navigation.tabs", "navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.top", "search.suggest", "search.highlight", "content.code.annotate", "header.autohide", "toc.separate", "toc.follow", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "search.highlight", "search.share", "search.suggest"], "search": "../../../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.51d95adb.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.51d95adb.min.js"></script>
       
-        <script src="../../mkdocs/javascripts/mathjax.js"></script>
+        <script src="../../../mkdocs/javascripts/mathjax.js"></script>
       
         <script src="https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
       
-        <script src="../../mkdocs/javascripts/katex.js"></script>
+        <script src="../../../mkdocs/javascripts/katex.js"></script>
       
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
