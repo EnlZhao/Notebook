@@ -1488,34 +1488,35 @@
 </div>
 </div>
 <hr />
-<div class="tx-switch">
-    <button class="button1" data-md-color-primary="red" style="background-color:red">red</button>
-    <button class="button1" data-md-color-primary="pink" style="background-color:pink;color:black">pink</button>
-    <button class="button1" data-md-color-primary="purple" style="background-color:purple">purple</button>
-    <button class="button1" data-md-color-primary="indigo" style="background-color:indigo">indigo</button>
-    <button class="button1" data-md-color-primary="blue" style="background-color:blue">blue</button>
-    <button class="button1" data-md-color-primary="cyan" style="background-color:cyan;color:black">cyan</button>
-    <button class="button1" data-md-color-primary="teal" style="background-color:teal">teal</button>
-    <button class="button1" data-md-color-primary="green" style="background-color:green">green</button>
-    <button class="button1" data-md-color-primary="lime" style="background-color:lime;color:black">lime</button>
-    <button class="button1" data-md-color-primary="orange" style="background-color:orange;color:black">orange</button>
-    <button class="button1" data-md-color-primary="brown" style="background-color:brown;border-radius:3px">brown</button>
-    <button class="button1" data-md-color-primary="grey" style="background-color:grey">grey</button>
-    <button class="button1" data-md-color-primary="black" style="background-color:black">black</button>
-    <button class="button1" data-md-color-primary="white" style="background-color:white;color:black">white</button>
-    </div>
-
-<div class="highlight"><pre><span></span><code>&lt;script&gt;
-var buttons = document.querySelectorAll(&quot;button[data-md-color-primary]&quot;)
-buttons.forEach(function(button) {
-        button.addEventListener(&quot;click&quot;, function() {
-        var attr = this.getAttribute(&quot;data-md-color-primary&quot;)
-        document.body.setAttribute(&quot;data-md-color-primary&quot;, attr)
-        localStorage.setItem(&quot;data-md-color-primary&quot;,attr);
-        })
-})
-&lt;/script&gt;
-</code></pre></div>
+<div class="admonition success">
+<p class="admonition-title">主题颜色</p>
+<p><div class="tx-switch"><br />
+    <button class="button1" data-md-color-primary="red" style="background-color:red">red</button><br />
+    <button class="button1" data-md-color-primary="pink" style="background-color:pink;color:black">pink</button><br />
+    <button class="button1" data-md-color-primary="purple" style="background-color:purple">purple</button><br />
+    <button class="button1" data-md-color-primary="indigo" style="background-color:indigo">indigo</button><br />
+    <button class="button1" data-md-color-primary="blue" style="background-color:blue">blue</button><br />
+    <button class="button1" data-md-color-primary="cyan" style="background-color:cyan;color:black">cyan</button><br />
+    <button class="button1" data-md-color-primary="teal" style="background-color:teal">teal</button><br />
+    <button class="button1" data-md-color-primary="green" style="background-color:green">green</button><br />
+    <button class="button1" data-md-color-primary="lime" style="background-color:lime;color:black">lime</button><br />
+    <button class="button1" data-md-color-primary="orange" style="background-color:orange;color:black">orange</button><br />
+    <button class="button1" data-md-color-primary="brown" style="background-color:brown;border-radius:3px">brown</button><br />
+    <button class="button1" data-md-color-primary="grey" style="background-color:grey">grey</button><br />
+    <button class="button1" data-md-color-primary="black" style="background-color:black">black</button><br />
+    <button class="button1" data-md-color-primary="white" style="background-color:white;color:black">white</button><br />
+    </div><br />
+    <script><br />
+    var buttons = document.querySelectorAll(&ldquo;button[data-md-color-primary]&rdquo;)<br />
+    buttons.forEach(function(button) {<br />
+            button.addEventListener(&ldquo;click&rdquo;, function() {<br />
+            var attr = this.getAttribute(&ldquo;data-md-color-primary&rdquo;)<br />
+            document.body.setAttribute(&ldquo;data-md-color-primary&rdquo;, attr)<br />
+            localStorage.setItem(&ldquo;data-md-color-primary&rdquo;,attr);<br />
+            })<br />
+    })<br />
+    </script></p>
+</div>
 
   <hr>
 <div class="md-source-file">
