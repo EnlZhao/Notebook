@@ -1452,9 +1452,6 @@
               <article class="md-content__inner md-typeset">
                 
                   
-  
-
-
 
   
     <a href="https://github.com/enl-z/Notebook/tree/master/docs/index.md" title="编辑此页" class="md-content__button md-icon">
@@ -1504,19 +1501,18 @@
         <button class="button1" data-md-color-primary="grey" style="background-color:grey">grey</button>
         <button class="button1" data-md-color-primary="black" style="background-color:black">black</button>
         <button class="button1" data-md-color-primary="white" style="background-color:white;color:black">white</button>
-    </div>
-<div class="highlight"><pre><span></span><code>&lt;script&gt;
-    var buttons = document.querySelectorAll(&quot;button[data-md-color-primary]&quot;)
+</div>
+<script>
+    var buttons = document.querySelectorAll("button[data-md-color-primary]")
     buttons.forEach(function (button) {
-        button.addEventListener(&quot;click&quot;, function () {
-            var attr = this.getAttribute(&quot;data-md-color-primary&quot;)
-            document.body.setAttribute(&quot;data-md-color-primary&quot;, attr)
-            localStorage.setItem(&quot;data-md-color-primary&quot;, attr);
+        button.addEventListener("click", function () {
+            var attr = this.getAttribute("data-md-color-primary")
+            document.body.setAttribute("data-md-color-primary", attr)
+            localStorage.setItem("data-md-color-primary", attr);
             updateScheme();
         })
     })
-&lt;/script&gt;
-</code></pre></div>
+</script>
 
   <hr>
 <div class="md-source-file">
@@ -1524,6 +1520,10 @@
     
       最后更新:
       <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-02-03T07:37:45+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-02-03</span>
+      
+        <br>
+        创建日期:
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-01-12T13:48:14+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-01-12</span>
       
     
   </small>
@@ -1674,6 +1674,8 @@
         <script src="js/timeago.min.js"></script>
       
         <script src="js/timeago_mkdocs_material.js"></script>
+      
+        <script src="overrides/assets/javascripts/extra.js"></script>
       
         <script src="mkdocs/javascripts/mathjax.js"></script>
       
