@@ -15,13 +15,17 @@
         <link rel="canonical" href="https://note.enl-z.cc/Course/OOP/Lec05/">
       
       
+        <link rel="prev" href="../Lec04/">
+      
+      
+        <link rel="next" href="../../Crypto/">
       
       <link rel="icon" href="../../../Icon/Avatar.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.6">
     
     
       
-        <title>Lec05 - 某兰的笔记本</title>
+        <title>[LOCK]Functions - 某兰的笔记本</title>
       
     
     
@@ -106,7 +110,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#-" class="md-skip">
+        <a href="#functions" class="md-skip">
           跳转至
         </a>
       
@@ -140,7 +144,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Lec05
+              [LOCK]Functions
             
           </span>
         </div>
@@ -248,6 +252,8 @@
         
   
   
+    
+  
 
 
   
@@ -259,7 +265,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../System2/" class="md-tabs__link">
+      <a href="../../System2/" class="md-tabs__link md-tabs__link--active">
         Course
       </a>
     </li>
@@ -434,14 +440,16 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
       
       
         
@@ -459,7 +467,7 @@
         
       
       
-        <label class="md-nav__link" for="__nav_2" tabindex="0" aria-expanded="false">
+        <label class="md-nav__link" for="__nav_2" tabindex="0" aria-expanded="true">
           Course
           <span class="md-nav__icon md-icon"></span>
         </label>
@@ -867,19 +875,23 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2_5" type="checkbox" id="__nav_2_5" >
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2_5" type="checkbox" id="__nav_2_5" checked>
       
       
         
           
             
+          
+        
           
         
           
@@ -963,6 +975,61 @@
       <a href="../Lec04/" class="md-nav__link">
         [LOCK]Object Interactive
       </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          [LOCK]Functions
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        [LOCK]Functions
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#const" class="md-nav__link">
+    Const
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1435,6 +1502,21 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#const" class="md-nav__link">
+    Const
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1465,20 +1547,41 @@
 
 
 
-<h1 id="-">&mdash;<a class="headerlink" href="#-" title="Permanent link">👀</a></h1>
-<p>password: 21<a class="magiclink magiclink-github magiclink-mention" href="https://github.com/ZJU" title="GitHub User: ZJU">@ZJU</a><a class="magiclink magiclink-github magiclink-mention" href="https://github.com/OOP" title="GitHub User: OOP">@OOP</a></p>
-<h1 id="-_1">&mdash;<a class="headerlink" href="#-_1" title="Permanent link">👀</a></h1>
+<div id="mkdocs-encrypted-content" style="display:none">CpFSA5agRwH84x3wya5msA==;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;^</div>
+<div id="mkdocs-decrypted-content">
+    <form id="mkdocs-decrypt-form">
+        <h1>AES encryption supported by unverbuggt@github's plugin</h1>
+        <p>Contact me(Enl_Z) via methods provided in the comments section for access to this page</p>
+        <input type="password" id="mkdocs-content-password" placeholder="Provide password and press ENTER" />
+        
+        <p id="mkdocs-decrypt-msg"></p>
+    </form>
+</div>
+
+<script type="text/javascript">
+var encryptcontent_path = "Course/OOP/Lec05/";
+var decryption_failure_message = "Invalid password";
+</script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/core.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/enc-base64.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/cipher-core.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/pad-nopadding.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/md5.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/aes.js"></script>
+<script type="text/javascript" src="../../../assets/javascripts/decrypt-contents.js" defer></script>
+
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-05-05T02:47:05+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-05-05</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-05-05T05:52:51+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-05-05</span>
       
         <br>
         创建日期:
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-05-05T02:47:05+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-05-05</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2023-05-05T05:52:51+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-05-05</span>
       
     
   </small>
@@ -1490,7 +1593,7 @@
 
 
 <div id="__comments">
-    <!-- 主题颜色 -->
+    <!-- 主题颜色 
     <div class="mdx-switch">
         <button data-md-color-scheme="default"><code>default</code></button>
         <button data-md-color-scheme="slate"><code>slate</code></button>
@@ -1507,7 +1610,6 @@
             })
         })
     </script>
-
 <div class="mdx-switch">
     <button data-md-color-primary="red" style="background-color:red"><code>red</code></button>
     <button data-md-color-primary="pink" style="background-color: pink"><code>pink</code></button>
@@ -1540,6 +1642,7 @@
             })
         })
     </script>
+    -->
     <!-- Giscus -->
 </div>
 <script src="https://giscus.app/client.js" data-repo="enl-z/DSG" data-repo-id="R_kgDOI2exGA" data-category="Q&A"
@@ -1564,6 +1667,42 @@
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+          
+          <a href="../Lec04/" class="md-footer__link md-footer__link--prev" aria-label="上一页: [LOCK]Object Interactive" rel="prev">
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <div class="md-ellipsis">
+                <span class="md-footer__direction">
+                  上一页
+                </span>
+                [LOCK]Object Interactive
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../Crypto/" class="md-footer__link md-footer__link--next" aria-label="下一页: 密码学" rel="next">
+            <div class="md-footer__title">
+              <div class="md-ellipsis">
+                <span class="md-footer__direction">
+                  下一页
+                </span>
+                密码学
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
     
   
   <div class="md-footer-meta md-typeset">
