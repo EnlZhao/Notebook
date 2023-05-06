@@ -1,4 +1,8 @@
-# Step in Object-Oriented
+---
+date: 2023-03-03 14:00
+---
+
+# Step in Object-Oriented 
 
 > Objects = Attributes + Services
 
@@ -225,10 +229,51 @@
         ```
         * 因为 c 出了括号就结束了，所以先被析构
 
+??? info "Global objects"
+    * Consider
+
+    ```c++
+    #include "X.h"
+    X global_x1(1, 2);
+    X global_x2(3, 4);
+    ```
+
+    * Constructors are called before entering `main()`
+        * Order controlled by appearance in file
+        * In this case, `global_x1` before `global_x2`
+        * `main()` is no longer the first function called
+    * Destructors called when
+        * `main()` exits
+        * `exit()` is called
+
 ## Storage allocation
 
 * The compiler allocates all the storage for a scope at the opening brace of that scope
 * The constructor call doesn't happen until the sequence point where the object is defined
+  
+## Initialization
+
+### Initializer list
+
+!!! note "code"
+    ```c++
+    class Point{
+    Private:
+        const float x, y;
+        Point(float xa = 0.0, float ya = 0.0): x(xa), y(ya){}
+    };
+    ```
+
+    > `Point(float xa = 0.0, float ya = 0.0): x(xa), y(ya){}` 中 `: x(xa), y(ya)` 即初始化列表形式
+
+* Can initialize any type of data
+    * pseduo-constructor calls for built-in types
+    * No need to perform assignment within body of constructor
+* Order of initialization is order of **declaration**
+    * Not the order in in list!
+    * Destoryed in reverse order of declaration
+
+### Others
 
 ??? note "编程规范"
     * Declarations vs. Definitions
@@ -251,4 +296,3 @@
         * One class declaration per header file
         * Associated with one source file in the same prefix of file name
         * The contents of a header file is surrounded with `#ifdef #define #endif` 
-  
