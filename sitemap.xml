@@ -26,6 +26,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://note.enl-z.cc/Course/</loc>
+         <lastmod>2023-05-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://note.enl-z.cc/Course/ADS/</loc>
          <lastmod>2023-05-12</lastmod>
          <changefreq>daily</changefreq>
