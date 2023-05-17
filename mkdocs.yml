@@ -11,6 +11,7 @@ nav:
     - Hello: index.md
     - 友链: link.md
   - Course:
+    - 前言: Course/abstract.md
     - 计算机系统Ⅱ:
       - 计算机系统Ⅱ: Course/System2/index.md
     - 计算机系统Ⅲ:
@@ -32,6 +33,7 @@ nav:
       - Divide and Conquer: Course/ADS/Lec05.md
       - Dynamic Programming: Course/ADS/Lec06.md
       - Greedy: Course/ADS/Lec07.md
+      - NP - Completeness: Course/ADS/Lec08.md
     - 面向对象程序设计:
       - 面向对象程序设计: Course/OOP/index.md
       - Beginning: Course/OOP/Lec01.md
@@ -85,15 +87,25 @@ theme:
     quote: octicons/quote-16
   palette:
     - scheme: default
-      primary: indigo
+      primary: DustyPeony 
       toggle:
-        icon: material/brightness-7
-        name: Switch to dark mode
-    - scheme: slate
-      primary: black
+        icon: material/toggle-switch
+        name: Switch to Dark_Pink mode
+    - scheme: slate  #Kleinland
+      primary: Kleinland #slate
       toggle:
-        icon: material/brightness-4
-        name: Switch to light mode
+        icon: material/toggle-switch-off-outline
+        name: Switch to Light_Pink mode
+    - scheme: default 
+      primary: Kleinland 
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to Dark_Blue mode
+    - scheme: slate 
+      primary: DustyPeony 
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to Light_Blue mode
   # 导航栏
   features:
     - navigation.tracking # 在url中使用标题定位锚点
@@ -139,9 +151,9 @@ plugins:
       decryption_failure_message: Invalid password
       encryption_info_message: Contact me(Enl_Z) via methods provided in the comments section for access to this page
   #- tags # 给单篇文章添加标签 https://squidfunk.github.io/mkdocs-material/setup/setting-up-tags/?h=tags
-  - git-revision-date-localized: # 显示最后一次修改时间
-      type: timeago
-      enable_creation_date: true
+  #- git-revision-date-localized: # 显示最后一次修改时间
+  #    type: timeago
+  #    enable_creation_date: true
 
 markdown_extensions:
   - toc:  #锚点
@@ -208,11 +220,11 @@ markdown_extensions:
   
 extra_javascript:
   - 'overrides/assets/javascripts/extra.js'
-  - mkdocs/javascripts/mathjax.js
+  #- mkdocs/javascripts/mathjax.js
   - https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js
   - mkdocs/javascripts/katex.js
-  - https://polyfill.io/v3/polyfill.min.js?features=es6
-  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  #- https://polyfill.io/v3/polyfill.min.js?features=es6
+  #- https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
 extra_css:
   - https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css
@@ -220,6 +232,7 @@ extra_css:
   - mkdocs/extra_css/counter.css
   - mkdocs/extra_css/giscus.css
   - mkdocs/extra_css/flink.css
+  - mkdocs/extra_css/extra.css
 
 extra: 
   vssue: Enl_Z

@@ -1,0 +1,20 @@
+[data-md-color-scheme="DustyPeony"]{
+    --md-primary-fg-color: #E1B4B1; 
+    --md-primary-fg-color--light: #EABDD1;
+    --md-primary-fg-color--dark: #C291A4;
+}
+[data-md-color-primary="DustyPeony"]{
+    --md-primary-fg-color: #E1B4B1; 
+    --md-primary-fg-color--light: #EABDD1;
+    --md-primary-fg-color--dark: #C291A4;
+}
+[data-md-color-scheme="Kleinland"]{
+    --md-primary-fg-color: #002fa7; 
+    --md-primary-fg-color--light: #003bd1;
+    --md-primary-fg-color--dark: #002686;
+}
+[data-md-color-primary="Kleinland"]{
+    --md-primary-fg-color: #002fa7; 
+    --md-primary-fg-color--light: #003bd1;
+    --md-primary-fg-color--dark: #002686;
+}
