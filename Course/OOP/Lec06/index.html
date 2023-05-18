@@ -11,7 +11,7 @@
 <link href="../Lec05/" rel="prev"/>
 <link href="../../Crypto/" rel="next"/>
 <link href="../../../Icon/Avatar.png" rel="icon"/>
-<meta content="mkdocs-1.4.2, mkdocs-material-9.0.6" name="generator"/>
+<meta content="mkdocs-1.4.3, mkdocs-material-9.0.6" name="generator"/>
 <title>Inheritance &amp; Polymorphism - 某兰的笔记本</title>
 <link href="../../../assets/stylesheets/main.558e4712.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
@@ -661,7 +661,8 @@
         Square : draw()
         Square : erase()
     Shape : draw()
-    Shape : erase()</code></pre>
+    Shape : erase()
+</code></pre>
 </div>
 </div>
 </input></input></div>
@@ -810,12 +811,14 @@
 <li>It is to say: Students are human beings. You are students. So you are human beings.</li>
 </ul>
 <pre class="mermaid"><code>    graph LR
-        A[HumanBeing] --&gt; B[Students]</code></pre>
+        A[HumanBeing] --&gt; B[Students]
+</code></pre>
 <ul>
 <li>Upcasting is the act of converting from a Derived reference or pointer to a Base class reference or pointer</li>
 </ul>
 <pre class="mermaid"><code>    graph LR
-        A[Base] --&gt; B[Derived]</code></pre>
+        A[Base] --&gt; B[Derived]
+</code></pre>
 <details class="example">
 <summary>Upcasting examples</summary>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="n">Manager</span><span class="w"> </span><span class="n">peter</span><span class="p">(</span><span class="s">"Peter"</span><span class="p">,</span><span class="w"> </span><span class="s">"123-45-6789"</span><span class="p">,</span><span class="w"> </span><span class="s">"VP"</span><span class="p">);</span>
@@ -959,5 +962,7 @@
 <script src="https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
 <script src="../../../mkdocs/javascripts/katex.js"></script>
 <script src="https://unpkg.com/mermaid@8.7.0/dist/mermaid.min.js"></script>
-</body>
+<script>window.mermaidConfig = {default: {
+    startOnLoad: false
+}}</script></body>
 </html>
