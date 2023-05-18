@@ -40,7 +40,8 @@ nav:
       - Step in Object-Oriented: Course/OOP/Lec02.md
       - Container: Course/OOP/Lec03.md
       - Object Interactive: Course/OOP/Lec04.md
-      - Functions: Course/OOP/Lec05.md
+      - Key Words: Course/OOP/Lec05.md
+      - Inheritance & Polymorphism: Course/OOP/Lec06.md
     - 密码学:
       - 密码学: Course/Crypto/index.md
       - 数学基础: Course/Crypto/Lec01.md
@@ -150,6 +151,7 @@ plugins:
       placeholder: Provide password and press ENTER
       decryption_failure_message: Invalid password
       encryption_info_message: Contact me(Enl_Z) via methods provided in the comments section for access to this page
+  - mermaid2
   #- tags # 给单篇文章添加标签 https://squidfunk.github.io/mkdocs-material/setup/setting-up-tags/?h=tags
   #- git-revision-date-localized: # 显示最后一次修改时间
   #    type: timeago
@@ -169,7 +171,7 @@ markdown_extensions:
       custom_fences:
           - name: mermaid
             class: mermaid
-            format: !!python/name:pymdownx.superfences.fence_code_format
+            format: !!python/name:mermaid2.fence_mermaid_custom
   #按钮
   - attr_list
   #代码块
@@ -223,6 +225,7 @@ extra_javascript:
   #- mkdocs/javascripts/mathjax.js
   - https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js
   - mkdocs/javascripts/katex.js
+  - https://unpkg.com/mermaid@8.7.0/dist/mermaid.min.js
   #- https://polyfill.io/v3/polyfill.min.js?features=es6
   #- https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
