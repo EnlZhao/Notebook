@@ -1,44 +1,20 @@
 
-<!doctype html>
-<html lang="zh" class="no-js">
-  <head>
-    
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width,initial-scale=1">
-      
-        <meta name="description" content="某兰的笔记">
-      
-      
-        <meta name="author" content="Enl_Z">
-      
-      
-        <link rel="canonical" href="https://note.enl-z.cc/Course/ADS/Lec08/">
-      
-      
-        <link rel="prev" href="../Lec07/">
-      
-      
-        <link rel="next" href="../../OOP/">
-      
-      <link rel="icon" href="../../../Icon/Avatar.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.6">
-    
-    
-      
-        <title>[LOCK]NP - Completeness - 某兰的笔记本</title>
-      
-    
-    
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.558e4712.min.css">
-      
-        
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.2505c338.min.css">
-      
-      
+<!DOCTYPE html>
 
-    
-    
-
+<html class="no-js" lang="zh">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="某兰的笔记" name="description"/>
+<meta content="Enl_Z" name="author"/>
+<link href="https://note.enl-z.cc/Course/ADS/Lec08/" rel="canonical"/>
+<link href="../Lec07/" rel="prev"/>
+<link href="../../OOP/" rel="next"/>
+<link href="../../../Icon/Avatar.png" rel="icon"/>
+<meta content="mkdocs-1.4.2, mkdocs-material-9.0.6" name="generator"/>
+<title>[LOCK]NP - Completeness - 某兰的笔记本</title>
+<link href="../../../assets/stylesheets/main.558e4712.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
 <script>
     MathJax = {
         tex: {
@@ -46,1638 +22,643 @@
         }
     };
 </script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+<script async="" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
 </script>
-
-    
-      
-        
-        
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=JetBrains+Mono:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"JetBrains Mono";--md-code-font:"JetBrains Mono"}</style>
-      
-    
-    
-      <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
-    
-      <link rel="stylesheet" href="../../../mkdocs/extra_css/tasklist.css">
-    
-      <link rel="stylesheet" href="../../../mkdocs/extra_css/counter.css">
-    
-      <link rel="stylesheet" href="../../../mkdocs/extra_css/giscus.css">
-    
-      <link rel="stylesheet" href="../../../mkdocs/extra_css/flink.css">
-    
-      <link rel="stylesheet" href="../../../mkdocs/extra_css/extra.css">
-    
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
-    
-      
-  
-
-
-  
-  
-
-
-  
-    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-  
-
-    
-    
-    
-  </head>
-  
-  
-    
-    
-      
-    
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="DustyPeony" data-md-color-accent="">
-  
-    
-    
-      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
-    
-    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
-    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" for="__drawer"></label>
-    <div data-md-component="skip">
-      
-        
-        <a href="#np-completeness" class="md-skip">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=JetBrains+Mono:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"JetBrains Mono";--md-code-font:"JetBrains Mono"}</style>
+<link href="https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" rel="stylesheet"/>
+<link href="../../../mkdocs/extra_css/tasklist.css" rel="stylesheet"/>
+<link href="../../../mkdocs/extra_css/counter.css" rel="stylesheet"/>
+<link href="../../../mkdocs/extra_css/giscus.css" rel="stylesheet"/>
+<link href="../../../mkdocs/extra_css/flink.css" rel="stylesheet"/>
+<link href="../../../mkdocs/extra_css/extra.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+</head>
+<body data-md-color-accent="" data-md-color-primary="DustyPeony" data-md-color-scheme="default" dir="ltr">
+<script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#np-completeness">
           跳转至
         </a>
-      
-    </div>
-    <div data-md-component="announce">
-      
-    </div>
-    
-    
-      
-
-  
-
+</div>
+<div data-md-component="announce">
+</div>
 <header class="md-header md-header--lifted" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../../.." title="某兰的笔记本" class="md-header__button md-logo" aria-label="某兰的笔记本" data-md-component="logo">
-      
-  <img src="../../../Icon/Avatar.png" alt="logo">
-
-    </a>
-    <label class="md-header__button md-icon" for="__drawer">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
-    </label>
-    <div class="md-header__title" data-md-component="header-title">
-      <div class="md-header__ellipsis">
-        <div class="md-header__topic">
-          <span class="md-ellipsis">
+<nav aria-label="页眉" class="md-header__inner md-grid">
+<a aria-label="某兰的笔记本" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="某兰的笔记本">
+<img alt="logo" src="../../../Icon/Avatar.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
             某兰的笔记本
           </span>
-        </div>
-        <div class="md-header__topic" data-md-component="header-topic">
-          <span class="md-ellipsis">
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
             
               [LOCK]NP - Completeness
             
           </span>
-        </div>
-      </div>
-    </div>
-    
-      <form class="md-header__option" data-md-component="palette">
-        
-          
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="DustyPeony" data-md-color-accent=""  aria-label="Switch to Dark_Pink mode"  type="radio" name="__palette" id="__palette_1">
-          
-            <label class="md-header__button md-icon" title="Switch to Dark_Pink mode" for="__palette_4" hidden>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
-            </label>
-          
-        
-          
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="Kleinland" data-md-color-accent=""  aria-label="Switch to Light_Pink mode"  type="radio" name="__palette" id="__palette_2">
-          
-            <label class="md-header__button md-icon" title="Switch to Light_Pink mode" for="__palette_1" hidden>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
-            </label>
-          
-        
-          
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="Kleinland" data-md-color-accent=""  aria-label="Switch to Dark_Blue mode"  type="radio" name="__palette" id="__palette_3">
-          
-            <label class="md-header__button md-icon" title="Switch to Dark_Blue mode" for="__palette_2" hidden>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
-            </label>
-          
-        
-          
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="DustyPeony" data-md-color-accent=""  aria-label="Switch to Light_Blue mode"  type="radio" name="__palette" id="__palette_4">
-          
-            <label class="md-header__button md-icon" title="Switch to Light_Blue mode" for="__palette_3" hidden>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
-            </label>
-          
-        
-      </form>
-    
-    
-    
-      <label class="md-header__button md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
-      </label>
-      <div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
-      <label class="md-search__icon md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-      </label>
-      <nav class="md-search__options" aria-label="查找">
-        
-          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
-          </a>
-        
-        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
-        </button>
-      </nav>
-      
-        <div class="md-search__suggest" data-md-component="search-suggest"></div>
-      
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="search-result">
-          <div class="md-search-result__meta">
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to Dark_Pink mode" class="md-option" data-md-color-accent="" data-md-color-media="" data-md-color-primary="DustyPeony" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_4" hidden="" title="Switch to Dark_Pink mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"></path></svg>
+</label>
+<input aria-label="Switch to Light_Pink mode" class="md-option" data-md-color-accent="" data-md-color-media="" data-md-color-primary="Kleinland" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to Light_Pink mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"></path></svg>
+</label>
+<input aria-label="Switch to Dark_Blue mode" class="md-option" data-md-color-accent="" data-md-color-media="" data-md-color-primary="Kleinland" data-md-color-scheme="default" id="__palette_3" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to Dark_Blue mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"></path></svg>
+</label>
+<input aria-label="Switch to Light_Blue mode" class="md-option" data-md-color-accent="" data-md-color-media="" data-md-color-primary="DustyPeony" data-md-color-scheme="slate" id="__palette_4" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_3" hidden="" title="Switch to Light_Blue mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"></path></svg>
+</label>
+</form>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="搜索" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="搜索" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="查找" class="md-search__options">
+<a aria-label="分享" class="md-search__icon md-icon" data-clipboard="" data-clipboard-text="" data-md-component="search-share" href="javascript:void(0)" tabindex="-1" title="分享">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"></path></svg>
+</a>
+<button aria-label="清空当前内容" class="md-search__icon md-icon" tabindex="-1" title="清空当前内容" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+<div class="md-search__suggest" data-md-component="search-suggest"></div>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
             正在初始化搜索引擎
           </div>
-          <ol class="md-search-result__list" role="presentation"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
+<ol class="md-search-result__list" role="presentation"></ol>
 </div>
-    
-    
-      <div class="md-header__source">
-        <a href="https://github.com/enl-z/Notebook" title="前往仓库" class="md-source" data-md-component="source">
-  <div class="md-source__icon md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
-  </div>
-  <div class="md-source__repository">
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/enl-z/Notebook" title="前往仓库">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
     note.enl-z.cc
   </div>
 </a>
-      </div>
-    
-  </nav>
-  
-    
-      
-<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
-  <div class="md-tabs__inner md-grid">
-    <ul class="md-tabs__list">
-      
-        
-  
-  
-
-
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../../.." class="md-tabs__link">
+</div>
+</nav>
+<nav aria-label="标签" class="md-tabs" data-md-component="tabs">
+<div class="md-tabs__inner md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../..">
         Hello
       </a>
-    </li>
-  
-
-      
-        
-  
-  
-    
-  
-
-
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../../abstract/" class="md-tabs__link md-tabs__link--active">
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link md-tabs__link--active" href="../../abstract/">
         Course
       </a>
-    </li>
-  
-
-      
-        
-  
-  
-
-
-  
-  
-  
-    
-
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../../../Triviality/Markdown/" class="md-tabs__link">
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../Triviality/Markdown/">
         Triviality
       </a>
-    </li>
-  
-
-  
-
-      
-        
-  
-  
-
-
-  
-  
-  
-    
-
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../../../Triviality/GitHub/" class="md-tabs__link">
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../Triviality/GitHub/">
         Tools
       </a>
-    </li>
-  
-
-  
-
-      
-    </ul>
-  </div>
+</li>
+</ul>
+</div>
 </nav>
-    
-  
 </header>
-    
-    <div class="md-container" data-md-component="container">
-      
-      
-        
-      
-      <main class="md-main" data-md-component="main">
-        <div class="md-main__inner md-grid">
-          
-            
-              
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-
-  
-
-
-<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
-  <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="某兰的笔记本" class="md-nav__button md-logo" aria-label="某兰的笔记本" data-md-component="logo">
-      
-  <img src="../../../Icon/Avatar.png" alt="logo">
-
-    </a>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="导航栏" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="某兰的笔记本" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="某兰的笔记本">
+<img alt="logo" src="../../../Icon/Avatar.png"/>
+</a>
     某兰的笔记本
   </label>
-  
-    <div class="md-nav__source">
-      <a href="https://github.com/enl-z/Notebook" title="前往仓库" class="md-source" data-md-component="source">
-  <div class="md-source__icon md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
-  </div>
-  <div class="md-source__repository">
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/enl-z/Notebook" title="前往仓库">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
     note.enl-z.cc
   </div>
 </a>
-    </div>
-  
-  <ul class="md-nav__list" data-md-scrollfix>
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-      
-      
-      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
-      
-      
-        
-          
-            
-          
-        
-          
-        
-      
-      
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../..">Hello</a>
-          
-            <label for="__nav_1">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
-      
-      <nav class="md-nav" aria-label="Hello" data-md-level="1">
-        <label class="md-nav__title" for="__nav_1">
-          <span class="md-nav__icon md-icon"></span>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" id="__nav_1" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../..">Hello</a>
+<label for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="Hello" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
           Hello
         </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../link/" class="md-nav__link">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../link/">
         友链
       </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-    
-  
-  
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-      
-      
-      
-      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
-      
-      
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
-      
-        <label class="md-nav__link" for="__nav_2" tabindex="0" aria-expanded="true">
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<label aria-expanded="true" class="md-nav__link" for="__nav_2" tabindex="0">
           Course
           <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Course" data-md-level="1">
-        <label class="md-nav__title" for="__nav_2">
-          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Course" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
           Course
         </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../abstract/" class="md-nav__link">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../abstract/">
         前言
       </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-      
-      
-      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
-      
-      
-        
-          
-            
-          
-        
-      
-      
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../System2/">计算机系统Ⅱ</a>
-          
-        </div>
-      
-      <nav class="md-nav" aria-label="计算机系统Ⅱ" data-md-level="2">
-        <label class="md-nav__title" for="__nav_2_2">
-          <span class="md-nav__icon md-icon"></span>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" id="__nav_2_2" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../System2/">计算机系统Ⅱ</a>
+</div>
+<nav aria-label="计算机系统Ⅱ" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_2">
+<span class="md-nav__icon md-icon"></span>
           计算机系统Ⅱ
         </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-      
-      
-      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" >
-      
-      
-        
-          
-            
-          
-        
-      
-      
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../System3/">计算机系统Ⅲ</a>
-          
-        </div>
-      
-      <nav class="md-nav" aria-label="计算机系统Ⅲ" data-md-level="2">
-        <label class="md-nav__title" for="__nav_2_3">
-          <span class="md-nav__icon md-icon"></span>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" id="__nav_2_3" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../System3/">计算机系统Ⅲ</a>
+</div>
+<nav aria-label="计算机系统Ⅲ" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_3">
+<span class="md-nav__icon md-icon"></span>
           计算机系统Ⅲ
         </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-      
-      
-      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" >
-      
-      
-        
-          
-            
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
-      
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../FDS/">数据结构基础</a>
-          
-            <label for="__nav_2_4">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
-      
-      <nav class="md-nav" aria-label="数据结构基础" data-md-level="2">
-        <label class="md-nav__title" for="__nav_2_4">
-          <span class="md-nav__icon md-icon"></span>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" id="__nav_2_4" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../FDS/">数据结构基础</a>
+<label for="__nav_2_4">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="数据结构基础" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_4">
+<span class="md-nav__icon md-icon"></span>
           数据结构基础
         </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../FDS/Lec01/" class="md-nav__link">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../FDS/Lec01/">
         算法分析和抽象数据类型
       </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../FDS/Lec02/" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../FDS/Lec02/">
         线性结构
       </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../FDS/Lec03/" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../FDS/Lec03/">
         树
       </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../FDS/Lec04/" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../FDS/Lec04/">
         图
       </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../FDS/Lec05/" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../FDS/Lec05/">
         排序
       </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../FDS/Lec06/" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../FDS/Lec06/">
         哈希
       </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-    
-  
-  
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-      
-      
-      
-      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2_5" type="checkbox" id="__nav_2_5" checked>
-      
-      
-        
-          
-            
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
-      
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../">高级数据结构与算法分析</a>
-          
-            <label for="__nav_2_5">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
-      
-      <nav class="md-nav" aria-label="高级数据结构与算法分析" data-md-level="2">
-        <label class="md-nav__title" for="__nav_2_5">
-          <span class="md-nav__icon md-icon"></span>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5" id="__nav_2_5" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../">高级数据结构与算法分析</a>
+<label for="__nav_2_5">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="高级数据结构与算法分析" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_5">
+<span class="md-nav__icon md-icon"></span>
           高级数据结构与算法分析
         </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Lec01/" class="md-nav__link">
-        AVL & Splay
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Lec01/">
+        AVL &amp; Splay
       </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Lec02/" class="md-nav__link">
-        [LOCK]Red-Black & B+
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Lec02/">
+        [LOCK]Red-Black &amp; B+
       </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Lec03/" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Lec03/">
         [LOCK]Heap
       </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Lec04/" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Lec04/">
         [LOCK]Backtracking
       </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Lec05/" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Lec05/">
         [LOCK]Divide and Conquer
       </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Lec06/" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Lec06/">
         [LOCK]Dynamic Programming
       </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Lec07/" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Lec07/">
         [LOCK]Greedy
       </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-    
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
           [LOCK]NP - Completeness
           <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
         [LOCK]NP - Completeness
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
+<nav aria-label="目录" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
       目录
     </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#post-correspondence-problem" class="md-nav__link">
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#post-correspondence-problem">
     Post Correspondence Problem
   </a>
-  
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#the-class-np" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#the-class-np">
     The class NP
   </a>
-  
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#np-complete-problems-the-hardest" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#np-complete-problems-the-hardest">
     NP - Complete Problems --- the hardest
   </a>
-  
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#a-formal-language-framework" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#a-formal-language-framework">
     A Formal-language Framework
   </a>
-  
 </li>
-      
-    </ul>
-  
+</ul>
 </nav>
-      
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-      
-      
-      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2_6" type="checkbox" id="__nav_2_6" >
-      
-      
-        
-          
-            
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
-      
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../OOP/">面向对象程序设计</a>
-          
-            <label for="__nav_2_6">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
-      
-      <nav class="md-nav" aria-label="面向对象程序设计" data-md-level="2">
-        <label class="md-nav__title" for="__nav_2_6">
-          <span class="md-nav__icon md-icon"></span>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6" id="__nav_2_6" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../OOP/">面向对象程序设计</a>
+<label for="__nav_2_6">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="面向对象程序设计" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_6">
+<span class="md-nav__icon md-icon"></span>
           面向对象程序设计
         </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../OOP/Lec01/" class="md-nav__link">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../OOP/Lec01/">
         Beginning
       </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../OOP/Lec02/" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../OOP/Lec02/">
         Step in Object-Oriented
       </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../OOP/Lec03/" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../OOP/Lec03/">
         Container
       </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../OOP/Lec04/" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../OOP/Lec04/">
         Object Interactive
       </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../OOP/Lec05/" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../OOP/Lec05/">
         Key Words
       </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../OOP/Lec06/" class="md-nav__link">
-        [LOCK]Inheritance & Polymorphism
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../OOP/Lec06/">
+        [LOCK]Inheritance &amp; Polymorphism
       </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-      
-      
-      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_2_7" type="checkbox" id="__nav_2_7" >
-      
-      
-        
-          
-            
-          
-        
-          
-        
-          
-        
-      
-      
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../Crypto/">密码学</a>
-          
-            <label for="__nav_2_7">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
-      
-      <nav class="md-nav" aria-label="密码学" data-md-level="2">
-        <label class="md-nav__title" for="__nav_2_7">
-          <span class="md-nav__icon md-icon"></span>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_7" id="__nav_2_7" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../Crypto/">密码学</a>
+<label for="__nav_2_7">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="密码学" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_7">
+<span class="md-nav__icon md-icon"></span>
           密码学
         </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Crypto/Lec01/" class="md-nav__link">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Crypto/Lec01/">
         [LOCK]数学基础
       </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Crypto/Lec02/" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Crypto/Lec02/">
         [LOCK]古典密码
       </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-      
-      
-      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
-      
-      
-        
-          
-        
-          
-        
-          
-        
-      
-      
-        <label class="md-nav__link" for="__nav_3" tabindex="0" aria-expanded="false">
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<label aria-expanded="false" class="md-nav__link" for="__nav_3" tabindex="0">
           Triviality
           <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Triviality" data-md-level="1">
-        <label class="md-nav__title" for="__nav_3">
-          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Triviality" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
           Triviality
         </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-      
-      
-      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" >
-      
-      
-        
-          
-            
-          
-        
-          
-        
-      
-      
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../Triviality/Markdown/">Markdown</a>
-          
-            <label for="__nav_3_1">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
-      
-      <nav class="md-nav" aria-label="Markdown" data-md-level="2">
-        <label class="md-nav__title" for="__nav_3_1">
-          <span class="md-nav__icon md-icon"></span>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" id="__nav_3_1" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../Triviality/Markdown/">Markdown</a>
+<label for="__nav_3_1">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="Markdown" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_1">
+<span class="md-nav__icon md-icon"></span>
           Markdown
         </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../Triviality/Markdown/markdown/" class="md-nav__link">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Triviality/Markdown/markdown/">
         Markdown
       </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-      
-      
-      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
-      
-      
-        
-          
-            
-          
-        
-          
-        
-      
-      
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../Triviality/The%20Missing%20Semester/">Missing Semester</a>
-          
-            <label for="__nav_3_2">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
-      
-      <nav class="md-nav" aria-label="Missing Semester" data-md-level="2">
-        <label class="md-nav__title" for="__nav_3_2">
-          <span class="md-nav__icon md-icon"></span>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" id="__nav_3_2" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../Triviality/The%20Missing%20Semester/">Missing Semester</a>
+<label for="__nav_3_2">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="Missing Semester" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_2">
+<span class="md-nav__icon md-icon"></span>
           Missing Semester
         </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../Triviality/The%20Missing%20Semester/Vim/" class="md-nav__link">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Triviality/The%20Missing%20Semester/Vim/">
         Vim
       </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-      
-      
-      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" >
-      
-      
-        
-          
-            
-          
-        
-          
-        
-          
-        
-      
-      
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../Triviality/CMake/">CMake</a>
-          
-            <label for="__nav_3_3">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
-      
-      <nav class="md-nav" aria-label="CMake" data-md-level="2">
-        <label class="md-nav__title" for="__nav_3_3">
-          <span class="md-nav__icon md-icon"></span>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" id="__nav_3_3" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../Triviality/CMake/">CMake</a>
+<label for="__nav_3_3">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="CMake" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_3">
+<span class="md-nav__icon md-icon"></span>
           CMake
         </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../Triviality/CMake/Lec01/" class="md-nav__link">
-        准备&试编译
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Triviality/CMake/Lec01/">
+        准备&amp;试编译
       </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../Triviality/CMake/Lec02/" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Triviality/CMake/Lec02/">
         初体验
       </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-      
-      
-      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
-      
-      
-        
-          
-        
-      
-      
-        <label class="md-nav__link" for="__nav_4" tabindex="0" aria-expanded="false">
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<label aria-expanded="false" class="md-nav__link" for="__nav_4" tabindex="0">
           Tools
           <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Tools" data-md-level="1">
-        <label class="md-nav__title" for="__nav_4">
-          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Tools" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
           Tools
         </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-      
-      
-      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_4_1" type="checkbox" id="__nav_4_1" >
-      
-      
-        
-          
-            
-          
-        
-          
-        
-      
-      
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../Triviality/GitHub/">GitHub</a>
-          
-            <label for="__nav_4_1">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
-      
-      <nav class="md-nav" aria-label="GitHub" data-md-level="2">
-        <label class="md-nav__title" for="__nav_4_1">
-          <span class="md-nav__icon md-icon"></span>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_1" id="__nav_4_1" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../Triviality/GitHub/">GitHub</a>
+<label for="__nav_4_1">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-label="GitHub" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_1">
+<span class="md-nav__icon md-icon"></span>
           GitHub
         </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../Triviality/GitHub/Le1/" class="md-nav__link">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Triviality/GitHub/Le1/">
         Basics
       </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-  </ul>
+</li>
+</ul>
 </nav>
-                  </div>
-                </div>
-              </div>
-            
-            
-              
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="目录" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
       目录
     </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#post-correspondence-problem" class="md-nav__link">
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#post-correspondence-problem">
     Post Correspondence Problem
   </a>
-  
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#the-class-np" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#the-class-np">
     The class NP
   </a>
-  
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#np-complete-problems-the-hardest" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#np-complete-problems-the-hardest">
     NP - Complete Problems --- the hardest
   </a>
-  
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#a-formal-language-framework" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#a-formal-language-framework">
     A Formal-language Framework
   </a>
-  
 </li>
-      
-    </ul>
-  
+</ul>
 </nav>
-                  </div>
-                </div>
-              </div>
-            
-          
-          
-            <div class="md-content" data-md-component="content">
-              <article class="md-content__inner md-typeset">
-                
-                  
-
-  
-    <a href="https://github.com/enl-z/Notebook/tree/master/docs/Course/ADS/Lec08.md" title="编辑此页" class="md-content__button md-icon">
-      
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
-    </a>
-  
-  
-    
-      
-    
-    <a href="https://github.com/enl-z/Notebook/tree/master/docs/Course/ADS/Lec08.md" title="View source of this page" class="md-content__button md-icon">
-      
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"/></svg>
-    </a>
-  
-
-
-
-<div id="mkdocs-encrypted-content" style="display:none">bNeDBUxN7/woi+ap9WfIYw==;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;^</div>
-<div id="mkdocs-decrypted-content">
-    <form id="mkdocs-decrypt-form">
-        <h1>AES encryption supported by unverbuggt@github's plugin</h1>
-        <p>Contact me(Enl_Z) via methods provided in the comments section for access to this page</p>
-        <input type="password" id="mkdocs-content-password" placeholder="Provide password and press ENTER" />
-        
-        <p id="mkdocs-decrypt-msg"></p>
-    </form>
 </div>
-
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<a class="md-content__button md-icon" href="https://github.com/enl-z/Notebook/tree/master/docs/Course/ADS/Lec08.md" title="编辑此页">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
+</a>
+<a class="md-content__button md-icon" href="https://github.com/enl-z/Notebook/tree/master/docs/Course/ADS/Lec08.md" title="View source of this page">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"></path></svg>
+</a>
+<div id="mkdocs-encrypted-content" style="display:none">zmbw0L79XPHZp4zQn5npkA==;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;^</div>
+<div id="mkdocs-decrypted-content">
+<form id="mkdocs-decrypt-form">
+<h1>AES encryption supported by unverbuggt@github's plugin</h1>
+<p>Contact me(Enl_Z) via methods provided in the comments section for access to this page</p>
+<input id="mkdocs-content-password" placeholder="Provide password and press ENTER" type="password">
+<p id="mkdocs-decrypt-msg"></p>
+</input></form>
+</div>
 <script type="text/javascript">
 var encryptcontent_path = "Course/ADS/Lec08/";
 var decryption_failure_message = "Invalid password";
 </script>
-
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/core.js"></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/enc-base64.js"></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/cipher-core.js"></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/pad-nopadding.js"></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/md5.js"></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/aes.js"></script>
-<script type="text/javascript" src="../../../assets/javascripts/decrypt-contents.js" defer></script>
-
-
-
-  
-
-
-
+<script src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/core.js" type="text/javascript"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/enc-base64.js" type="text/javascript"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/cipher-core.js" type="text/javascript"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/pad-nopadding.js" type="text/javascript"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/md5.js" type="text/javascript"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/aes.js" type="text/javascript"></script>
+<script defer="" src="../../../assets/javascripts/decrypt-contents.js" type="text/javascript"></script>
 <div id="__comments">
-    <!-- 主题颜色 
+<!-- 主题颜色 
     <div class="mdx-switch">
         <button data-md-color-scheme="default"><code>default</code></button>
         <button data-md-color-scheme="slate"><code>slate</code></button>
@@ -1727,132 +708,87 @@ var decryption_failure_message = "Invalid password";
         })
     </script>
     -->
-    <!-- Giscus -->
+<!-- Giscus -->
 </div>
-<script src="https://giscus.app/client.js" data-repo="enl-z/DSG" data-repo-id="R_kgDOI2exGA" data-category="Q&A"
-    data-category-id="DIC_kwDOI2exGM4CT6Lv" data-mapping="url" data-strict="0" data-reactions-enabled="1"
-    data-emit-metadata="0" data-input-position="top" data-theme="preferred_color_scheme" data-lang="zh-CN"
-    crossorigin="anonymous" async>
+<script async="" crossorigin="anonymous" data-category="Q&amp;A" data-category-id="DIC_kwDOI2exGM4CT6Lv" data-emit-metadata="0" data-input-position="top" data-lang="zh-CN" data-mapping="url" data-reactions-enabled="1" data-repo="enl-z/DSG" data-repo-id="R_kgDOI2exGA" data-strict="0" data-theme="preferred_color_scheme" src="https://giscus.app/client.js">
         updateScheme();
     </script>
-                
-              </article>
-            </div>
-          
-          
-        </div>
-        
-          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+</article>
+</div>
+</div>
+<a class="md-top md-icon" data-md-component="top" hidden="" href="#">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
             回到页面顶部
           </a>
-        
-      </main>
-      
-        <footer class="md-footer">
-  
-    
-      
-      <nav class="md-footer__inner md-grid" aria-label="页脚" >
-        
-          
-          <a href="../Lec07/" class="md-footer__link md-footer__link--prev" aria-label="上一页: [LOCK]Greedy" rel="prev">
-            <div class="md-footer__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-            </div>
-            <div class="md-footer__title">
-              <div class="md-ellipsis">
-                <span class="md-footer__direction">
+</main>
+<footer class="md-footer">
+<nav aria-label="页脚" class="md-footer__inner md-grid">
+<a aria-label="上一页: [LOCK]Greedy" class="md-footer__link md-footer__link--prev" href="../Lec07/" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
                   上一页
                 </span>
                 [LOCK]Greedy
               </div>
-            </div>
-          </a>
-        
-        
-          
-          <a href="../../OOP/" class="md-footer__link md-footer__link--next" aria-label="下一页: 面向对象程序设计" rel="next">
-            <div class="md-footer__title">
-              <div class="md-ellipsis">
-                <span class="md-footer__direction">
+</div>
+</a>
+<a aria-label="下一页: 面向对象程序设计" class="md-footer__link md-footer__link--next" href="../../OOP/" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
                   下一页
                 </span>
                 面向对象程序设计
               </div>
-            </div>
-            <div class="md-footer__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-            </div>
-          </a>
-        
-      </nav>
-    
-  
-  <div class="md-footer-meta md-typeset">
-    <div class="md-footer-meta__inner md-grid">
-      <div class="md-copyright">
-  
-    <div class="md-copyright__highlight">
-      Copyright &copy; 2022-2023 <a href="https://github.com/enl-z" target="_blank" rel="noopener">某兰</a>
-    </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+<div class="md-copyright__highlight">
+      Copyright © 2022-2023 <a href="https://github.com/enl-z" rel="noopener" target="_blank">某兰</a>
+</div>
   
   
     Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
       Material for MkDocs
     </a>
-  
 </div>
-      
-        <div class="md-social">
-  
-    
-    
-    <a href="https://github.com/enl-z" target="_blank" rel="noopener" title="GitHub" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
-    </a>
-  
-    
-    
-    <a href="mailto:EZhao1997@outlook.com" target="_blank" rel="noopener" title="Outlook" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M498.1 5.6c10.1 7 15.4 19.1 13.5 31.2l-64 416c-1.5 9.7-7.4 18.2-16 23s-18.9 5.4-28 1.6L284 427.7l-68.5 74.1c-8.9 9.7-22.9 12.9-35.2 8.1S160 493.2 160 480v-83.6c0-4 1.5-7.8 4.2-10.7l167.6-182.9c5.8-6.3 5.6-16-.4-22s-15.7-6.4-22-.7L106 360.8l-88.3-44.2C7.1 311.3.3 300.7 0 288.9s5.9-22.8 16.1-28.7l448-256c10.7-6.1 23.9-5.5 34 1.4z"/></svg>
-    </a>
-  
-    
-    
-    <a href="tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=1613715141&website=www.oicqzone.com" target="_blank" rel="noopener" title="QQ" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M433.754 420.445c-11.526 1.393-44.86-52.741-44.86-52.741 0 31.345-16.136 72.247-51.051 101.786 16.842 5.192 54.843 19.167 45.803 34.421-7.316 12.343-125.51 7.881-159.632 4.037-34.122 3.844-152.316 8.306-159.632-4.037-9.045-15.25 28.918-29.214 45.783-34.415-34.92-29.539-51.059-70.445-51.059-101.792 0 0-33.334 54.134-44.859 52.741-5.37-.65-12.424-29.644 9.347-99.704 10.261-33.024 21.995-60.478 40.144-105.779C60.683 98.063 108.982.006 224 0c113.737.006 163.156 96.133 160.264 214.963 18.118 45.223 29.912 72.85 40.144 105.778 21.768 70.06 14.716 99.053 9.346 99.704z"/></svg>
-    </a>
-  
-    
-    
-    <a href="https://enl-z.cc/" target="_blank" rel="noopener" title="Blog" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M391.9 464H55.95c-13.25 0-23.1 10.75-23.1 23.1S42.7 512 55.95 512h335.1c13.25 0 23.1-10.75 23.1-23.1S405.2 464 391.9 464zM448 216c0-11.82-3.783-23.51-11.08-33.17-10.3-14.39-27-22.88-44.73-22.88L247.9 160v-56H279c13.2 0 24.06-10.8 24.06-24s-9.96-24-23.16-24h-31.1V23.1C247.9 10.8 237.2 0 223.1 0s-23.2 10.8-23.2 23.1V56h-32c-13.2 0-23.97 10.8-23.97 24s10.77 24 23.97 24H199v56H55.95C24.72 160 0 185.3 0 215.9c0 5.7.89 11.5 2.704 17.1L68.45 432h50.5L48.33 218.4c-.24-.8-.35-1.5-.35-2.3 0-3.8 2.95-8.1 7.97-8.1h335.9c6.076 0 8.115 5.494 8.115 8.113a7.42 7.42 0 0 1-.24 1.887L328.8 432h50.62l65.1-199.2c2.68-5.5 3.48-11.1 3.48-16.8z"/></svg>
-    </a>
-  
+<div class="md-social">
+<a class="md-social__link" href="https://github.com/enl-z" rel="noopener" target="_blank" title="GitHub">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</a>
+<a class="md-social__link" href="mailto:EZhao1997@outlook.com" rel="noopener" target="_blank" title="Outlook">
+<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M498.1 5.6c10.1 7 15.4 19.1 13.5 31.2l-64 416c-1.5 9.7-7.4 18.2-16 23s-18.9 5.4-28 1.6L284 427.7l-68.5 74.1c-8.9 9.7-22.9 12.9-35.2 8.1S160 493.2 160 480v-83.6c0-4 1.5-7.8 4.2-10.7l167.6-182.9c5.8-6.3 5.6-16-.4-22s-15.7-6.4-22-.7L106 360.8l-88.3-44.2C7.1 311.3.3 300.7 0 288.9s5.9-22.8 16.1-28.7l448-256c10.7-6.1 23.9-5.5 34 1.4z"></path></svg>
+</a>
+<a class="md-social__link" href="tencent://AddContact/?fromId=45&amp;fromSubId=1&amp;subcmd=all&amp;uin=1613715141&amp;website=www.oicqzone.com" rel="noopener" target="_blank" title="QQ">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M433.754 420.445c-11.526 1.393-44.86-52.741-44.86-52.741 0 31.345-16.136 72.247-51.051 101.786 16.842 5.192 54.843 19.167 45.803 34.421-7.316 12.343-125.51 7.881-159.632 4.037-34.122 3.844-152.316 8.306-159.632-4.037-9.045-15.25 28.918-29.214 45.783-34.415-34.92-29.539-51.059-70.445-51.059-101.792 0 0-33.334 54.134-44.859 52.741-5.37-.65-12.424-29.644 9.347-99.704 10.261-33.024 21.995-60.478 40.144-105.779C60.683 98.063 108.982.006 224 0c113.737.006 163.156 96.133 160.264 214.963 18.118 45.223 29.912 72.85 40.144 105.778 21.768 70.06 14.716 99.053 9.346 99.704z"></path></svg>
+</a>
+<a class="md-social__link" href="https://enl-z.cc/" rel="noopener" target="_blank" title="Blog">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M391.9 464H55.95c-13.25 0-23.1 10.75-23.1 23.1S42.7 512 55.95 512h335.1c13.25 0 23.1-10.75 23.1-23.1S405.2 464 391.9 464zM448 216c0-11.82-3.783-23.51-11.08-33.17-10.3-14.39-27-22.88-44.73-22.88L247.9 160v-56H279c13.2 0 24.06-10.8 24.06-24s-9.96-24-23.16-24h-31.1V23.1C247.9 10.8 237.2 0 223.1 0s-23.2 10.8-23.2 23.1V56h-32c-13.2 0-23.97 10.8-23.97 24s10.77 24 23.97 24H199v56H55.95C24.72 160 0 185.3 0 215.9c0 5.7.89 11.5 2.704 17.1L68.45 432h50.5L48.33 218.4c-.24-.8-.35-1.5-.35-2.3 0-3.8 2.95-8.1 7.97-8.1h335.9c6.076 0 8.115 5.494 8.115 8.113a7.42 7.42 0 0 1-.24 1.887L328.8 432h50.62l65.1-199.2c2.68-5.5 3.48-11.1 3.48-16.8z"></path></svg>
+</a>
 </div>
-      
-    </div>
-  </div>
+</div>
+</div>
 </footer>
-      
-    </div>
-    <div class="md-dialog" data-md-component="dialog">
-      <div class="md-dialog__inner md-typeset"></div>
-    </div>
-    
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tracking", "navigation.tabs", "navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.top", "search.suggest", "search.highlight", "content.code.annotate", "header.autohide", "toc.separate", "toc.follow", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "search.highlight", "search.share", "search.suggest"], "search": "../../../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
-    
-    
-      <script src="../../../assets/javascripts/bundle.51d95adb.min.js"></script>
-      
-        <script src="../../../overrides/assets/javascripts/extra.js"></script>
-      
-        <script src="https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
-      
-        <script src="../../../mkdocs/javascripts/katex.js"></script>
-      
-    
-  </body>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tracking", "navigation.tabs", "navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.top", "search.suggest", "search.highlight", "content.code.annotate", "header.autohide", "toc.separate", "toc.follow", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "search.highlight", "search.share", "search.suggest"], "search": "../../../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+<script src="../../../assets/javascripts/bundle.51d95adb.min.js"></script>
+<script src="../../../overrides/assets/javascripts/extra.js"></script>
+<script src="https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+<script src="../../../mkdocs/javascripts/katex.js"></script>
+<script src="https://unpkg.com/mermaid@8.7.0/dist/mermaid.min.js"></script>
+</body>
 </html>
