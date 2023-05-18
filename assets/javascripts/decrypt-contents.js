@@ -120,7 +120,7 @@ function decrypt_action(password_input, encrypted_content, decrypted_content) {
         // encrypted_content.parentNode.removeChild(encrypted_content);
         // any post processing on the decrypted content should be done here
         if (typeof MathJax === 'object') { MathJax.typesetPromise(); };
-        
+        if (typeof mermaid === 'object') { mermaid.contentLoaded(); };
         
         
         return true
