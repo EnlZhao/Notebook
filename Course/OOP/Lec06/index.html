@@ -427,6 +427,11 @@
     Up-casting | 向上造型
   </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#virtual-functions">
+    Virtual functions
+  </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -617,6 +622,11 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#up-casting">
     Up-casting | 向上造型
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#virtual-functions">
+    Virtual functions
   </a>
 </li>
 </ul>
@@ -941,8 +951,8 @@ Shape : erase()
 </details>
 </details>
 </li>
-<li>
-<p>Virtual functions</p>
+</ul>
+<h3 id="virtual-functions">Virtual functions<a class="headerlink" href="#virtual-functions" title="Permanent link">👀</a></h3>
 <ul>
 <li>Non-virtual functions<ul>
 <li>Compiler generates <code>static</code>, or direct call to stated type</li>
@@ -954,8 +964,6 @@ Shape : erase()
 <li>Objects carry a pack of their virtual functions</li>
 <li>Compiler checks pack and <em>dynamically</em> calls the right function</li>
 <li>If compiler knows the functions at compile time, it will generate a static call</li>
-</ul>
-</li>
 </ul>
 </li>
 </ul>
@@ -1112,11 +1120,95 @@ Shape : erase()
 <a href="#__codelineno-13-3" id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="n">elly</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">circ</span><span class="p">;</span>
 </code></pre></div>
 <ul>
-<li>Area of <code>circ</code> is sliced off (Only the part of <code>circ</code> that fits in <code>elly</code> gets copied)</li>
+<li>Area of <code>circ</code> is <u>sliced off</u> (Only the part of <code>circ</code> that fits in <code>elly</code> gets copied)</li>
 <li>但 <code>VPTR</code> 并未改变 -&gt; <code>VPTR</code> 构造出后就不会再改变 (除非暴力修改)</li>
 </ul>
 </li>
+<li>
+<p>Virtuals and reference arguments</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">func</span><span class="p">(</span><span class="n">Ellipse</span><span class="o">&amp;</span><span class="w"> </span><span class="n">elly</span><span class="p">)</span>
+<a href="#__codelineno-14-2" id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="p">{</span>
+<a href="#__codelineno-14-3" id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="w">    </span><span class="n">elly</span><span class="p">.</span><span class="n">render</span><span class="p">();</span><span class="w">  </span><span class="c1">// 动态绑定</span>
+<a href="#__codelineno-14-4" id="__codelineno-14-4" name="__codelineno-14-4"></a><span class="p">}</span>
+<a href="#__codelineno-14-5" id="__codelineno-14-5" name="__codelineno-14-5"></a><span class="p">...</span>
+<a href="#__codelineno-14-6" id="__codelineno-14-6" name="__codelineno-14-6"></a><span class="n">Circle</span><span class="w"> </span><span class="n">circ</span><span class="p">(</span><span class="mf">10F</span><span class="p">);</span>
+<a href="#__codelineno-14-7" id="__codelineno-14-7" name="__codelineno-14-7"></a><span class="n">func</span><span class="p">(</span><span class="n">circ</span><span class="p">);</span>
+</code></pre></div>
+<ul>
+<li>References act like pointers</li>
 </ul>
+</li>
+<li>
+<p>Virtual destructors</p>
+<ul>
+<li>Make destructors virtual if they might be inherited</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="10:2"><input checked="checked" id="__tabbed_10_1" name="__tabbed_10" type="radio"/><input id="__tabbed_10_2" name="__tabbed_10" type="radio"/><div class="tabbed-labels"><label for="__tabbed_10_1">code</label><label for="__tabbed_10_2">Explanation</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="n">Shape</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Ellipse</span><span class="p">(</span><span class="mf">10.0F</span><span class="p">,</span><span class="w"> </span><span class="mf">20.0F</span><span class="p">);</span>
+<a href="#__codelineno-15-2" id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="err">···</span>
+<a href="#__codelineno-15-3" id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="k">delete</span><span class="w"> </span><span class="n">p</span><span class="p">;</span><span class="w">   </span><span class="c1">// 先析构（调用 destructor）再回收内存</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<ul>
+<li><code>delete p;</code> 做的两件事情<ol>
+<li><code>p-&gt;destructor();</code> -&gt; 存在绑定问题, 若 p 的静态类型（Shape）的析构函数不是 <code>virtual</code> 则只在此处执行静态绑定，只执行 <code>Shape</code> 类的析构(但实际 p 指向的对象是 <code>Ellipse</code>, 此时 <code>Ellipse</code> 的析构未做)；但若是 <code>virtual</code> 编译器会在此处动态绑定，才会做有效的析构</li>
+<li><code>free</code> </li>
+</ol>
+</li>
+<li>[Note] : 除非保证自己的类不会被继承，就将类的析构函数设置为 <code>virtual</code> -&gt; 这个类就会有 <code>VPTR</code> 和 <code>vtable</code></li>
+<li>那么其实 c++ 的每个类都应该有 <code>vtable</code> -&gt; 通过 <code>VPTR</code> 和 <code>vtable</code> 的关系，我们建立了一种对象和类之间的关联 —— 可以实现 RTTI (Run Time Type Identification) | 但 c++ 暂不支持 RTTI </li>
+</ul>
+</div>
+</div>
+</div>
+<ul>
+<li>Want <code>Ellipse::~Ellipse()</code> to be called<ul>
+<li>Must declare <code>Shape::~Shape()</code> virtual</li>
+<li>It will call <code>Shape::~Shape()</code> automatically</li>
+</ul>
+</li>
+<li>If <code>Shape::~Shape</code> is not virtual, only <code>Shape::~Shape()</code> will be invoked</li>
+</ul>
+</li>
+<li>
+<p>Overriding —— overriding redefines the body of a virtual function</p>
+<ul>
+<li>指子类和父类有同名函数（函数名称相同、参数表也相同，且父类中声明 <code>virtual</code>）</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a>class Base
+<a href="#__codelineno-16-2" id="__codelineno-16-2" name="__codelineno-16-2"></a>{
+<a href="#__codelineno-16-3" id="__codelineno-16-3" name="__codelineno-16-3"></a>public:
+<a href="#__codelineno-16-4" id="__codelineno-16-4" name="__codelineno-16-4"></a>    virtual void f();
+<a href="#__codelineno-16-5" id="__codelineno-16-5" name="__codelineno-16-5"></a>}
+<a href="#__codelineno-16-6" id="__codelineno-16-6" name="__codelineno-16-6"></a>class Derived : public Base
+<a href="#__codelineno-16-7" id="__codelineno-16-7" name="__codelineno-16-7"></a>{
+<a href="#__codelineno-16-8" id="__codelineno-16-8" name="__codelineno-16-8"></a>public:
+<a href="#__codelineno-16-9" id="__codelineno-16-9" name="__codelineno-16-9"></a>    virtual void f();
+<a href="#__codelineno-16-10" id="__codelineno-16-10" name="__codelineno-16-10"></a>    // override Base::f()
+<a href="#__codelineno-16-11" id="__codelineno-16-11" name="__codelineno-16-11"></a>}
+</code></pre></div>
+<ul>
+<li>父类中有 <code>virtual</code>, 子类可以不加 <code>virtual</code>. 但习惯上还是加上 <code>virtual</code>，以免子类的继承者忘记加上 <code>virtual</code> 导致无法动态绑定</li>
+</ul>
+</li>
+</ul>
+<details class="info" open="open">
+<summary>Overloading vs. Overriding</summary>
+<ul>
+<li>Overloading<ul>
+<li>在一个层级上，均在子类 or 父类 or free 函数中有同名函数（函数名称相同，参数表不同）</li>
+</ul>
+</li>
+<li>Overriding<ul>
+<li>指子类和父类有同名函数（函数名称相同、参数表也相同，且父类中声明 <code>virtual</code>）</li>
+<li>返回类型也要求相同，但可以是父类返回类型的子类型</li>
+</ul>
+</li>
+</ul>
+</details>
 <div id="__comments">
 <!-- 主题颜色 
     <div class="mdx-switch">
