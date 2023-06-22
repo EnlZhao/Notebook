@@ -9,7 +9,7 @@
 <meta content="Enl_Z" name="author"/>
 <link href="https://note.enl-z.cc/Course/OOP/Lec06/" rel="canonical"/>
 <link href="../Lec05/" rel="prev"/>
-<link href="../../Crypto/" rel="next"/>
+<link href="../Lec07/" rel="next"/>
 <link href="../../../Icon/Avatar.png" rel="icon"/>
 <meta content="mkdocs-1.4.3, mkdocs-material-9.0.6" name="generator"/>
 <title>Inheritance &amp; Polymorphism - 某兰的笔记本</title>
@@ -426,10 +426,21 @@
 <a class="md-nav__link" href="#up-casting">
     Up-casting | 向上造型
   </a>
-</li>
+<nav aria-label="Up-casting | 向上造型" class="md-nav">
+<ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#virtual-functions">
     Virtual functions
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#overriding">
+    Overriding
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#abstract-base-classes">
+    Abstract base classes
   </a>
 </li>
 </ul>
@@ -437,6 +448,19 @@
 </li>
 </ul>
 </nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#multiple-inheritance">
+    Multiple Inheritance
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Lec07/">
+        Copt Ctor &amp; Overloaded Operators
+      </a>
 </li>
 </ul>
 </nav>
@@ -623,14 +647,33 @@
 <a class="md-nav__link" href="#up-casting">
     Up-casting | 向上造型
   </a>
-</li>
+<nav aria-label="Up-casting | 向上造型" class="md-nav">
+<ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#virtual-functions">
     Virtual functions
   </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#overriding">
+    Overriding
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#abstract-base-classes">
+    Abstract base classes
+  </a>
+</li>
 </ul>
 </nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#multiple-inheritance">
+    Multiple Inheritance
+  </a>
 </li>
 </ul>
 </nav>
@@ -952,7 +995,7 @@ Shape : erase()
 </details>
 </li>
 </ul>
-<h3 id="virtual-functions">Virtual functions<a class="headerlink" href="#virtual-functions" title="Permanent link">👀</a></h3>
+<h4 id="virtual-functions">Virtual functions<a class="headerlink" href="#virtual-functions" title="Permanent link">👀</a></h4>
 <ul>
 <li>Non-virtual functions<ul>
 <li>Compiler generates <code>static</code>, or direct call to stated type</li>
@@ -966,6 +1009,20 @@ Shape : erase()
 <li>If compiler knows the functions at compile time, it will generate a static call</li>
 </ul>
 </li>
+<li>
+<p>Calls up the chain （如何在子类中调用父类函数）—— use <code>Base::f()</code> </p>
+<ul>
+<li>No need to copy the old stuff!</li>
+</ul>
+<details class="example">
+<summary>code</summary>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">Derived::f</span><span class="p">()</span>
+<a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="p">{</span>
+<a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="w">    </span><span class="n">Base</span><span class="o">::</span><span class="n">f</span><span class="p">();</span><span class="w">  </span><span class="c1">// call to base class</span>
+<a href="#__codelineno-7-4" id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="p">}</span>
+</code></pre></div>
+</details>
+</li>
 </ul>
 <div class="admonition question">
 <p class="admonition-title">How virtuals work in C++</p>
@@ -975,16 +1032,16 @@ Shape : erase()
 <div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio"><input id="__tabbed_6_2" name="__tabbed_6" type="radio"><div class="tabbed-labels"><label for="__tabbed_6_1">code</label><label for="__tabbed_6_2">分布</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Shape</span><span class="p">{</span>
-<a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="k">public</span><span class="o">:</span>
-<a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="w">    </span><span class="n">Shape</span><span class="p">();</span>
-<a href="#__codelineno-7-4" id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="o">~</span><span class="n">Shape</span><span class="p">();</span>
-<a href="#__codelineno-7-5" id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">render</span><span class="p">();</span>
-<a href="#__codelineno-7-6" id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">move</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">XYPos</span><span class="o">&amp;</span><span class="p">);</span>
-<a href="#__codelineno-7-7" id="__codelineno-7-7" name="__codelineno-7-7"></a><span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">resize</span><span class="p">();</span>
-<a href="#__codelineno-7-8" id="__codelineno-7-8" name="__codelineno-7-8"></a><span class="k">protected</span><span class="o">:</span>
-<a href="#__codelineno-7-9" id="__codelineno-7-9" name="__codelineno-7-9"></a><span class="w">    </span><span class="n">XYPos</span><span class="w"> </span><span class="n">center</span><span class="p">;</span>
-<a href="#__codelineno-7-10" id="__codelineno-7-10" name="__codelineno-7-10"></a><span class="p">};</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Shape</span><span class="p">{</span>
+<a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="k">public</span><span class="o">:</span>
+<a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="w">    </span><span class="n">Shape</span><span class="p">();</span>
+<a href="#__codelineno-8-4" id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="o">~</span><span class="n">Shape</span><span class="p">();</span>
+<a href="#__codelineno-8-5" id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">render</span><span class="p">();</span>
+<a href="#__codelineno-8-6" id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">move</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">XYPos</span><span class="o">&amp;</span><span class="p">);</span>
+<a href="#__codelineno-8-7" id="__codelineno-8-7" name="__codelineno-8-7"></a><span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">resize</span><span class="p">();</span>
+<a href="#__codelineno-8-8" id="__codelineno-8-8" name="__codelineno-8-8"></a><span class="k">protected</span><span class="o">:</span>
+<a href="#__codelineno-8-9" id="__codelineno-8-9" name="__codelineno-8-9"></a><span class="w">    </span><span class="n">XYPos</span><span class="w"> </span><span class="n">center</span><span class="p">;</span>
+<a href="#__codelineno-8-10" id="__codelineno-8-10" name="__codelineno-8-10"></a><span class="p">};</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -997,14 +1054,14 @@ Shape : erase()
 <div class="tabbed-set tabbed-alternate" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio"><input id="__tabbed_7_2" name="__tabbed_7" type="radio"><div class="tabbed-labels"><label for="__tabbed_7_1">code</label><label for="__tabbed_7_2">分布</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Ellipse</span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Shape</span><span class="p">{</span>
-<a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="k">public</span><span class="o">:</span>
-<a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="w">    </span><span class="n">Ellipse</span><span class="w"> </span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">majr</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">minr</span><span class="p">);</span>
-<a href="#__codelineno-8-4" id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">render</span><span class="p">();</span>
-<a href="#__codelineno-8-5" id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="k">protected</span><span class="o">:</span>
-<a href="#__codelineno-8-6" id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">major_axis</span><span class="p">;</span>
-<a href="#__codelineno-8-7" id="__codelineno-8-7" name="__codelineno-8-7"></a><span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">minor_axis</span><span class="p">;</span>
-<a href="#__codelineno-8-8" id="__codelineno-8-8" name="__codelineno-8-8"></a><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Ellipse</span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Shape</span><span class="p">{</span>
+<a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="k">public</span><span class="o">:</span>
+<a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="w">    </span><span class="n">Ellipse</span><span class="w"> </span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">majr</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">minr</span><span class="p">);</span>
+<a href="#__codelineno-9-4" id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">render</span><span class="p">();</span>
+<a href="#__codelineno-9-5" id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="k">protected</span><span class="o">:</span>
+<a href="#__codelineno-9-6" id="__codelineno-9-6" name="__codelineno-9-6"></a><span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">major_axis</span><span class="p">;</span>
+<a href="#__codelineno-9-7" id="__codelineno-9-7" name="__codelineno-9-7"></a><span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">minor_axis</span><span class="p">;</span>
+<a href="#__codelineno-9-8" id="__codelineno-9-8" name="__codelineno-9-8"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -1024,39 +1081,39 @@ Shape : erase()
 <div class="tabbed-set tabbed-alternate" data-tabs="8:2"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio"><input id="__tabbed_8_2" name="__tabbed_8" type="radio"><div class="tabbed-labels"><label for="__tabbed_8_1">code</label><label for="__tabbed_8_2">Output</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
-<a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
-<a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="k">class</span><span class="w"> </span><span class="nc">A</span>
-<a href="#__codelineno-9-4" id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="p">{</span>
-<a href="#__codelineno-9-5" id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="k">public</span><span class="o">:</span>
-<a href="#__codelineno-9-6" id="__codelineno-9-6" name="__codelineno-9-6"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
-<a href="#__codelineno-9-7" id="__codelineno-9-7" name="__codelineno-9-7"></a><span class="w">    </span><span class="n">A</span><span class="p">(){</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"A()"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
-<a href="#__codelineno-9-8" id="__codelineno-9-8" name="__codelineno-9-8"></a><span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">f</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"A::f()"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
-<a href="#__codelineno-9-9" id="__codelineno-9-9" name="__codelineno-9-9"></a><span class="p">};</span>
-<a href="#__codelineno-9-10" id="__codelineno-9-10" name="__codelineno-9-10"></a><span class="k">class</span><span class="w"> </span><span class="nc">B</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">A</span>
-<a href="#__codelineno-9-11" id="__codelineno-9-11" name="__codelineno-9-11"></a><span class="p">{</span>
-<a href="#__codelineno-9-12" id="__codelineno-9-12" name="__codelineno-9-12"></a><span class="k">public</span><span class="o">:</span>
-<a href="#__codelineno-9-13" id="__codelineno-9-13" name="__codelineno-9-13"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
-<a href="#__codelineno-9-14" id="__codelineno-9-14" name="__codelineno-9-14"></a><span class="w">    </span><span class="n">B</span><span class="p">(){</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span><span class="w"> </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"B()"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
-<a href="#__codelineno-9-15" id="__codelineno-9-15" name="__codelineno-9-15"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">f</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"B::f()"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
-<a href="#__codelineno-9-16" id="__codelineno-9-16" name="__codelineno-9-16"></a><span class="p">};</span>
-<a href="#__codelineno-9-17" id="__codelineno-9-17" name="__codelineno-9-17"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
-<a href="#__codelineno-9-18" id="__codelineno-9-18" name="__codelineno-9-18"></a><span class="p">{</span>
-<a href="#__codelineno-9-19" id="__codelineno-9-19" name="__codelineno-9-19"></a><span class="w">    </span><span class="n">B</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
-<a href="#__codelineno-9-20" id="__codelineno-9-20" name="__codelineno-9-20"></a><span class="w">    </span><span class="n">A</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">b</span><span class="p">;</span><span class="w">  </span><span class="c1">// Upcasting</span>
-<a href="#__codelineno-9-21" id="__codelineno-9-21" name="__codelineno-9-21"></a>
-<a href="#__codelineno-9-22" id="__codelineno-9-22" name="__codelineno-9-22"></a><span class="w">    </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="o">**</span><span class="n">vp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="o">**</span><span class="p">)</span><span class="n">p</span><span class="p">;</span>
-<a href="#__codelineno-9-23" id="__codelineno-9-23" name="__codelineno-9-23"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">pf</span><span class="p">)()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="p">)())(</span><span class="o">*</span><span class="p">(</span><span class="o">*</span><span class="n">vp</span><span class="p">));</span>
-<a href="#__codelineno-9-24" id="__codelineno-9-24" name="__codelineno-9-24"></a><span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"------"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
-<a href="#__codelineno-9-25" id="__codelineno-9-25" name="__codelineno-9-25"></a><span class="w">    </span><span class="n">pf</span><span class="p">();</span>
-<a href="#__codelineno-9-26" id="__codelineno-9-26" name="__codelineno-9-26"></a><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
+<a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="k">class</span><span class="w"> </span><span class="nc">A</span>
+<a href="#__codelineno-10-4" id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="p">{</span>
+<a href="#__codelineno-10-5" id="__codelineno-10-5" name="__codelineno-10-5"></a><span class="k">public</span><span class="o">:</span>
+<a href="#__codelineno-10-6" id="__codelineno-10-6" name="__codelineno-10-6"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<a href="#__codelineno-10-7" id="__codelineno-10-7" name="__codelineno-10-7"></a><span class="w">    </span><span class="n">A</span><span class="p">(){</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"A()"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a href="#__codelineno-10-8" id="__codelineno-10-8" name="__codelineno-10-8"></a><span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">f</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"A::f()"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a href="#__codelineno-10-9" id="__codelineno-10-9" name="__codelineno-10-9"></a><span class="p">};</span>
+<a href="#__codelineno-10-10" id="__codelineno-10-10" name="__codelineno-10-10"></a><span class="k">class</span><span class="w"> </span><span class="nc">B</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">A</span>
+<a href="#__codelineno-10-11" id="__codelineno-10-11" name="__codelineno-10-11"></a><span class="p">{</span>
+<a href="#__codelineno-10-12" id="__codelineno-10-12" name="__codelineno-10-12"></a><span class="k">public</span><span class="o">:</span>
+<a href="#__codelineno-10-13" id="__codelineno-10-13" name="__codelineno-10-13"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<a href="#__codelineno-10-14" id="__codelineno-10-14" name="__codelineno-10-14"></a><span class="w">    </span><span class="n">B</span><span class="p">(){</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span><span class="w"> </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"B()"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a href="#__codelineno-10-15" id="__codelineno-10-15" name="__codelineno-10-15"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">f</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"B::f()"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a href="#__codelineno-10-16" id="__codelineno-10-16" name="__codelineno-10-16"></a><span class="p">};</span>
+<a href="#__codelineno-10-17" id="__codelineno-10-17" name="__codelineno-10-17"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<a href="#__codelineno-10-18" id="__codelineno-10-18" name="__codelineno-10-18"></a><span class="p">{</span>
+<a href="#__codelineno-10-19" id="__codelineno-10-19" name="__codelineno-10-19"></a><span class="w">    </span><span class="n">B</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<a href="#__codelineno-10-20" id="__codelineno-10-20" name="__codelineno-10-20"></a><span class="w">    </span><span class="n">A</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">b</span><span class="p">;</span><span class="w">  </span><span class="c1">// Upcasting</span>
+<a href="#__codelineno-10-21" id="__codelineno-10-21" name="__codelineno-10-21"></a>
+<a href="#__codelineno-10-22" id="__codelineno-10-22" name="__codelineno-10-22"></a><span class="w">    </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="o">**</span><span class="n">vp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="o">**</span><span class="p">)</span><span class="n">p</span><span class="p">;</span>
+<a href="#__codelineno-10-23" id="__codelineno-10-23" name="__codelineno-10-23"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">pf</span><span class="p">)()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="p">)())(</span><span class="o">*</span><span class="p">(</span><span class="o">*</span><span class="n">vp</span><span class="p">));</span>
+<a href="#__codelineno-10-24" id="__codelineno-10-24" name="__codelineno-10-24"></a><span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"------"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<a href="#__codelineno-10-25" id="__codelineno-10-25" name="__codelineno-10-25"></a><span class="w">    </span><span class="n">pf</span><span class="p">();</span>
+<a href="#__codelineno-10-26" id="__codelineno-10-26" name="__codelineno-10-26"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a>A()10
-<a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a>B()20
-<a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a>------
-<a href="#__codelineno-10-4" id="__codelineno-10-4" name="__codelineno-10-4"></a>B::f()
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a>A()10
+<a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a>B()20
+<a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a>------
+<a href="#__codelineno-11-4" id="__codelineno-11-4" name="__codelineno-11-4"></a>B::f()
 </code></pre></div>
 <ul>
 <li><code>p</code> 指向 <code>VPTR</code>, <code>*p</code> 指向 <code>vtable</code></li>
@@ -1074,29 +1131,29 @@ Shape : erase()
 <div class="tabbed-set tabbed-alternate" data-tabs="9:2"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio"><input id="__tabbed_9_2" name="__tabbed_9" type="radio"/><div class="tabbed-labels"><label for="__tabbed_9_1">code</label><label for="__tabbed_9_2">Output</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="p">...</span>
-<a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">A</span>
-<a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="p">{</span>
-<a href="#__codelineno-11-4" id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="k">public</span><span class="o">:</span>
-<a href="#__codelineno-11-5" id="__codelineno-11-5" name="__codelineno-11-5"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
-<a href="#__codelineno-11-6" id="__codelineno-11-6" name="__codelineno-11-6"></a><span class="w">    </span><span class="n">A</span><span class="p">(){</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"A()"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"> </span><span class="n">f</span><span class="p">();</span><span class="w"> </span><span class="p">}</span>
-<a href="#__codelineno-11-7" id="__codelineno-11-7" name="__codelineno-11-7"></a><span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">f</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"A::f()"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
-<a href="#__codelineno-11-8" id="__codelineno-11-8" name="__codelineno-11-8"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">g</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">f</span><span class="p">();}</span>
-<a href="#__codelineno-11-9" id="__codelineno-11-9" name="__codelineno-11-9"></a><span class="p">};</span>
-<a href="#__codelineno-11-10" id="__codelineno-11-10" name="__codelineno-11-10"></a><span class="p">...</span>
-<a href="#__codelineno-11-11" id="__codelineno-11-11" name="__codelineno-11-11"></a><span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span>
-<a href="#__codelineno-11-12" id="__codelineno-11-12" name="__codelineno-11-12"></a><span class="p">{</span>
-<a href="#__codelineno-11-13" id="__codelineno-11-13" name="__codelineno-11-13"></a><span class="w">    </span><span class="n">B</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
-<a href="#__codelineno-11-14" id="__codelineno-11-14" name="__codelineno-11-14"></a><span class="w">    </span><span class="n">A</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">b</span><span class="p">;</span>
-<a href="#__codelineno-11-15" id="__codelineno-11-15" name="__codelineno-11-15"></a><span class="w">    </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">g</span><span class="p">();</span>
-<a href="#__codelineno-11-16" id="__codelineno-11-16" name="__codelineno-11-16"></a><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="p">...</span>
+<a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">A</span>
+<a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="p">{</span>
+<a href="#__codelineno-12-4" id="__codelineno-12-4" name="__codelineno-12-4"></a><span class="k">public</span><span class="o">:</span>
+<a href="#__codelineno-12-5" id="__codelineno-12-5" name="__codelineno-12-5"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<a href="#__codelineno-12-6" id="__codelineno-12-6" name="__codelineno-12-6"></a><span class="w">    </span><span class="n">A</span><span class="p">(){</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"A()"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"> </span><span class="n">f</span><span class="p">();</span><span class="w"> </span><span class="p">}</span>
+<a href="#__codelineno-12-7" id="__codelineno-12-7" name="__codelineno-12-7"></a><span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">f</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"A::f()"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a href="#__codelineno-12-8" id="__codelineno-12-8" name="__codelineno-12-8"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">g</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">f</span><span class="p">();}</span>
+<a href="#__codelineno-12-9" id="__codelineno-12-9" name="__codelineno-12-9"></a><span class="p">};</span>
+<a href="#__codelineno-12-10" id="__codelineno-12-10" name="__codelineno-12-10"></a><span class="p">...</span>
+<a href="#__codelineno-12-11" id="__codelineno-12-11" name="__codelineno-12-11"></a><span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span>
+<a href="#__codelineno-12-12" id="__codelineno-12-12" name="__codelineno-12-12"></a><span class="p">{</span>
+<a href="#__codelineno-12-13" id="__codelineno-12-13" name="__codelineno-12-13"></a><span class="w">    </span><span class="n">B</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<a href="#__codelineno-12-14" id="__codelineno-12-14" name="__codelineno-12-14"></a><span class="w">    </span><span class="n">A</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">b</span><span class="p">;</span>
+<a href="#__codelineno-12-15" id="__codelineno-12-15" name="__codelineno-12-15"></a><span class="w">    </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">g</span><span class="p">();</span>
+<a href="#__codelineno-12-16" id="__codelineno-12-16" name="__codelineno-12-16"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a>A()10
-<a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a>A::f()
-<a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a>B()20
-<a href="#__codelineno-12-4" id="__codelineno-12-4" name="__codelineno-12-4"></a>B::f()
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a>A()10
+<a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a>A::f()
+<a href="#__codelineno-13-3" id="__codelineno-13-3" name="__codelineno-13-3"></a>B()20
+<a href="#__codelineno-13-4" id="__codelineno-13-4" name="__codelineno-13-4"></a>B::f()
 </code></pre></div>
 </div>
 </div>
@@ -1115,9 +1172,9 @@ Shape : erase()
 <ul>
 <li>
 <p>What happens if</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="n">Ellipse</span><span class="w"> </span><span class="nf">elly</span><span class="p">(</span><span class="mf">10F</span><span class="p">,</span><span class="w"> </span><span class="mf">20F</span><span class="p">);</span>
-<a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="n">Circle</span><span class="w"> </span><span class="nf">circ</span><span class="p">(</span><span class="mf">30F</span><span class="p">);</span>
-<a href="#__codelineno-13-3" id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="n">elly</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">circ</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="n">Ellipse</span><span class="w"> </span><span class="nf">elly</span><span class="p">(</span><span class="mf">10F</span><span class="p">,</span><span class="w"> </span><span class="mf">20F</span><span class="p">);</span>
+<a href="#__codelineno-14-2" id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="n">Circle</span><span class="w"> </span><span class="nf">circ</span><span class="p">(</span><span class="mf">30F</span><span class="p">);</span>
+<a href="#__codelineno-14-3" id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="n">elly</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">circ</span><span class="p">;</span>
 </code></pre></div>
 <ul>
 <li>Area of <code>circ</code> is <u>sliced off</u> (Only the part of <code>circ</code> that fits in <code>elly</code> gets copied)</li>
@@ -1126,13 +1183,13 @@ Shape : erase()
 </li>
 <li>
 <p>Virtuals and reference arguments</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">func</span><span class="p">(</span><span class="n">Ellipse</span><span class="o">&amp;</span><span class="w"> </span><span class="n">elly</span><span class="p">)</span>
-<a href="#__codelineno-14-2" id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="p">{</span>
-<a href="#__codelineno-14-3" id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="w">    </span><span class="n">elly</span><span class="p">.</span><span class="n">render</span><span class="p">();</span><span class="w">  </span><span class="c1">// 动态绑定</span>
-<a href="#__codelineno-14-4" id="__codelineno-14-4" name="__codelineno-14-4"></a><span class="p">}</span>
-<a href="#__codelineno-14-5" id="__codelineno-14-5" name="__codelineno-14-5"></a><span class="p">...</span>
-<a href="#__codelineno-14-6" id="__codelineno-14-6" name="__codelineno-14-6"></a><span class="n">Circle</span><span class="w"> </span><span class="n">circ</span><span class="p">(</span><span class="mf">10F</span><span class="p">);</span>
-<a href="#__codelineno-14-7" id="__codelineno-14-7" name="__codelineno-14-7"></a><span class="n">func</span><span class="p">(</span><span class="n">circ</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">func</span><span class="p">(</span><span class="n">Ellipse</span><span class="o">&amp;</span><span class="w"> </span><span class="n">elly</span><span class="p">)</span>
+<a href="#__codelineno-15-2" id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="p">{</span>
+<a href="#__codelineno-15-3" id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="w">    </span><span class="n">elly</span><span class="p">.</span><span class="n">render</span><span class="p">();</span><span class="w">  </span><span class="c1">// 动态绑定</span>
+<a href="#__codelineno-15-4" id="__codelineno-15-4" name="__codelineno-15-4"></a><span class="p">}</span>
+<a href="#__codelineno-15-5" id="__codelineno-15-5" name="__codelineno-15-5"></a><span class="p">...</span>
+<a href="#__codelineno-15-6" id="__codelineno-15-6" name="__codelineno-15-6"></a><span class="n">Circle</span><span class="w"> </span><span class="n">circ</span><span class="p">(</span><span class="mf">10F</span><span class="p">);</span>
+<a href="#__codelineno-15-7" id="__codelineno-15-7" name="__codelineno-15-7"></a><span class="n">func</span><span class="p">(</span><span class="n">circ</span><span class="p">);</span>
 </code></pre></div>
 <ul>
 <li>References act like pointers</li>
@@ -1146,9 +1203,9 @@ Shape : erase()
 <div class="tabbed-set tabbed-alternate" data-tabs="10:2"><input checked="checked" id="__tabbed_10_1" name="__tabbed_10" type="radio"/><input id="__tabbed_10_2" name="__tabbed_10" type="radio"/><div class="tabbed-labels"><label for="__tabbed_10_1">code</label><label for="__tabbed_10_2">Explanation</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="n">Shape</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Ellipse</span><span class="p">(</span><span class="mf">10.0F</span><span class="p">,</span><span class="w"> </span><span class="mf">20.0F</span><span class="p">);</span>
-<a href="#__codelineno-15-2" id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="err">···</span>
-<a href="#__codelineno-15-3" id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="k">delete</span><span class="w"> </span><span class="n">p</span><span class="p">;</span><span class="w">   </span><span class="c1">// 先析构（调用 destructor）再回收内存</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="n">Shape</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Ellipse</span><span class="p">(</span><span class="mf">10.0F</span><span class="p">,</span><span class="w"> </span><span class="mf">20.0F</span><span class="p">);</span>
+<a href="#__codelineno-16-2" id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="err">···</span>
+<a href="#__codelineno-16-3" id="__codelineno-16-3" name="__codelineno-16-3"></a><span class="k">delete</span><span class="w"> </span><span class="n">p</span><span class="p">;</span><span class="w">   </span><span class="c1">// 先析构（调用 destructor）再回收内存</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -1173,22 +1230,25 @@ Shape : erase()
 <li>If <code>Shape::~Shape</code> is not virtual, only <code>Shape::~Shape()</code> will be invoked</li>
 </ul>
 </li>
+</ul>
+<h4 id="overriding">Overriding<a class="headerlink" href="#overriding" title="Permanent link">👀</a></h4>
+<ul>
 <li>
-<p>Overriding —— overriding redefines the body of a virtual function</p>
+<p>overriding redefines the body of a virtual function</p>
 <ul>
 <li>指子类和父类有同名函数（函数名称相同、参数表也相同，且父类中声明 <code>virtual</code>）</li>
 </ul>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a>class Base
-<a href="#__codelineno-16-2" id="__codelineno-16-2" name="__codelineno-16-2"></a>{
-<a href="#__codelineno-16-3" id="__codelineno-16-3" name="__codelineno-16-3"></a>public:
-<a href="#__codelineno-16-4" id="__codelineno-16-4" name="__codelineno-16-4"></a>    virtual void f();
-<a href="#__codelineno-16-5" id="__codelineno-16-5" name="__codelineno-16-5"></a>}
-<a href="#__codelineno-16-6" id="__codelineno-16-6" name="__codelineno-16-6"></a>class Derived : public Base
-<a href="#__codelineno-16-7" id="__codelineno-16-7" name="__codelineno-16-7"></a>{
-<a href="#__codelineno-16-8" id="__codelineno-16-8" name="__codelineno-16-8"></a>public:
-<a href="#__codelineno-16-9" id="__codelineno-16-9" name="__codelineno-16-9"></a>    virtual void f();
-<a href="#__codelineno-16-10" id="__codelineno-16-10" name="__codelineno-16-10"></a>    // override Base::f()
-<a href="#__codelineno-16-11" id="__codelineno-16-11" name="__codelineno-16-11"></a>}
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Base</span>
+<a href="#__codelineno-17-2" id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="p">{</span>
+<a href="#__codelineno-17-3" id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="k">public</span><span class="o">:</span>
+<a href="#__codelineno-17-4" id="__codelineno-17-4" name="__codelineno-17-4"></a><span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">f</span><span class="p">();</span>
+<a href="#__codelineno-17-5" id="__codelineno-17-5" name="__codelineno-17-5"></a><span class="p">}</span>
+<a href="#__codelineno-17-6" id="__codelineno-17-6" name="__codelineno-17-6"></a><span class="k">class</span><span class="w"> </span><span class="nc">Derived</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Base</span>
+<a href="#__codelineno-17-7" id="__codelineno-17-7" name="__codelineno-17-7"></a><span class="p">{</span>
+<a href="#__codelineno-17-8" id="__codelineno-17-8" name="__codelineno-17-8"></a><span class="k">public</span><span class="o">:</span>
+<a href="#__codelineno-17-9" id="__codelineno-17-9" name="__codelineno-17-9"></a><span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">f</span><span class="p">();</span>
+<a href="#__codelineno-17-10" id="__codelineno-17-10" name="__codelineno-17-10"></a><span class="w">    </span><span class="c1">// override Base::f()</span>
+<a href="#__codelineno-17-11" id="__codelineno-17-11" name="__codelineno-17-11"></a><span class="p">}</span>
 </code></pre></div>
 <ul>
 <li>父类中有 <code>virtual</code>, 子类可以不加 <code>virtual</code>. 但习惯上还是加上 <code>virtual</code>，以免子类的继承者忘记加上 <code>virtual</code> 导致无法动态绑定</li>
@@ -1203,10 +1263,205 @@ Shape : erase()
 </ul>
 </li>
 <li>Overriding<ul>
-<li>指子类和父类有同名函数（函数名称相同、参数表也相同，且父类中声明 <code>virtual</code>）</li>
+<li>指子类和父类有同名函数（函数名称相同、参数表也相同，且<u>父类中声明 <code>virtual</code></u>）</li>
 <li>返回类型也要求相同，但可以是父类返回类型的子类型</li>
 </ul>
 </li>
+</ul>
+</details>
+<div class="admonition note">
+<p class="admonition-title">Name</p>
+<p>父类中发生重载，比如父类中有多个 <u><code>virtual</code></u> 的函数 <code>func()</code>, 而子类只 override 了其中的一个。那么其余的重载函数便不在子类存在了 | Name Hiding</p>
+<details class="example" open="open">
+<summary>code</summary>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-18-1" id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Expr</span>
+<a href="#__codelineno-18-2" id="__codelineno-18-2" name="__codelineno-18-2"></a><span class="p">{</span>
+<a href="#__codelineno-18-3" id="__codelineno-18-3" name="__codelineno-18-3"></a><span class="k">public</span><span class="o">:</span>
+<a href="#__codelineno-18-4" id="__codelineno-18-4" name="__codelineno-18-4"></a><span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="n">Expr</span><span class="o">*</span><span class="w"> </span><span class="n">new_expr</span><span class="p">();</span>
+<a href="#__codelineno-18-5" id="__codelineno-18-5" name="__codelineno-18-5"></a><span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="n">Expr</span><span class="o">&amp;</span><span class="w"> </span><span class="nf">clone</span><span class="p">();</span>
+<a href="#__codelineno-18-6" id="__codelineno-18-6" name="__codelineno-18-6"></a><span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="n">Expr</span><span class="w">  </span><span class="nf">self</span><span class="p">();</span>
+<a href="#__codelineno-18-7" id="__codelineno-18-7" name="__codelineno-18-7"></a><span class="p">};</span>
+<a href="#__codelineno-18-8" id="__codelineno-18-8" name="__codelineno-18-8"></a><span class="k">class</span><span class="w"> </span><span class="nc">Binary</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Expr</span>
+<a href="#__codelineno-18-9" id="__codelineno-18-9" name="__codelineno-18-9"></a><span class="p">{</span>
+<a href="#__codelineno-18-10" id="__codelineno-18-10" name="__codelineno-18-10"></a><span class="k">public</span><span class="o">:</span>
+<a href="#__codelineno-18-11" id="__codelineno-18-11" name="__codelineno-18-11"></a><span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="n">Binary</span><span class="o">*</span><span class="w"> </span><span class="n">new_expr</span><span class="p">();</span><span class="w"> </span><span class="c1">// OK</span>
+<a href="#__codelineno-18-12" id="__codelineno-18-12" name="__codelineno-18-12"></a><span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="n">Binary</span><span class="o">&amp;</span><span class="w"> </span><span class="nf">clone</span><span class="p">();</span><span class="w">    </span><span class="c1">// OK</span>
+<a href="#__codelineno-18-13" id="__codelineno-18-13" name="__codelineno-18-13"></a><span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="n">Binary</span><span class="w">  </span><span class="nf">self</span><span class="p">();</span><span class="w">     </span><span class="c1">// Error</span>
+<a href="#__codelineno-18-14" id="__codelineno-18-14" name="__codelineno-18-14"></a><span class="p">};</span>
+</code></pre></div>
+<ul>
+<li>父类返回类型是 pointer or reference 的时候，子类可以是父类返回类型的子类型</li>
+<li>但父类返回类型是对象本身的时候，子类返回类型不能是子类的（会被 sliced off）</li>
+</ul>
+</details>
+<details class="quote">
+<summary>Quote</summary>
+<p><a href="https://blog.csdn.net/wangdingqiaoit/article/details/46502399">CSDN - c++ Why name hiding</a></p>
+</details>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tips</p>
+<ul>
+<li>Never redefine an inherited non-virtual function<ul>
+<li>Non-virtual functions are statically bound</li>
+<li>No dynamic dispatch</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>默认参数只是出现在头文件中，不是静态绑定（若在子类中修改，结果不一定符合预期）</li>
+</ul>
+<p>Never redefine an inherited default parameter value</p>
+<details class="example">
+<summary>Example</summary>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-19-1" id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Base</span>
+<a href="#__codelineno-19-2" id="__codelineno-19-2" name="__codelineno-19-2"></a><span class="p">{</span>
+<a href="#__codelineno-19-3" id="__codelineno-19-3" name="__codelineno-19-3"></a><span class="k">public</span><span class="o">:</span>
+<a href="#__codelineno-19-4" id="__codelineno-19-4" name="__codelineno-19-4"></a><span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<a href="#__codelineno-19-5" id="__codelineno-19-5" name="__codelineno-19-5"></a><span class="p">};</span>
+<a href="#__codelineno-19-6" id="__codelineno-19-6" name="__codelineno-19-6"></a><span class="k">class</span><span class="w"> </span><span class="nc">Derived</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Base</span>
+<a href="#__codelineno-19-7" id="__codelineno-19-7" name="__codelineno-19-7"></a><span class="p">{</span>
+<a href="#__codelineno-19-8" id="__codelineno-19-8" name="__codelineno-19-8"></a><span class="k">public</span><span class="o">:</span>
+<a href="#__codelineno-19-9" id="__codelineno-19-9" name="__codelineno-19-9"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w">  </span>
+<a href="#__codelineno-19-10" id="__codelineno-19-10" name="__codelineno-19-10"></a><span class="p">};</span>
+<a href="#__codelineno-19-11" id="__codelineno-19-11" name="__codelineno-19-11"></a><span class="err">···</span>
+<a href="#__codelineno-19-12" id="__codelineno-19-12" name="__codelineno-19-12"></a><span class="kt">void</span><span class="w"> </span><span class="n">func</span><span class="p">(</span><span class="n">Base</span><span class="o">&amp;</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
+<a href="#__codelineno-19-13" id="__codelineno-19-13" name="__codelineno-19-13"></a><span class="p">{</span>
+<a href="#__codelineno-19-14" id="__codelineno-19-14" name="__codelineno-19-14"></a><span class="w">    </span><span class="n">b</span><span class="p">.</span><span class="n">f</span><span class="p">();</span><span class="w">  </span><span class="c1">// output 0</span>
+<a href="#__codelineno-19-15" id="__codelineno-19-15" name="__codelineno-19-15"></a><span class="p">}</span>
+<a href="#__codelineno-19-16" id="__codelineno-19-16" name="__codelineno-19-16"></a><span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span>
+<a href="#__codelineno-19-17" id="__codelineno-19-17" name="__codelineno-19-17"></a><span class="p">{</span>
+<a href="#__codelineno-19-18" id="__codelineno-19-18" name="__codelineno-19-18"></a><span class="w">    </span><span class="n">Derived</span><span class="w"> </span><span class="n">d</span><span class="p">;</span>
+<a href="#__codelineno-19-19" id="__codelineno-19-19" name="__codelineno-19-19"></a><span class="w">    </span><span class="n">func</span><span class="p">(</span><span class="n">d</span><span class="p">);</span>
+<a href="#__codelineno-19-20" id="__codelineno-19-20" name="__codelineno-19-20"></a><span class="p">}</span>
+</code></pre></div>
+<ul>
+<li>虽然预期是传进去子类，应该打印 1，但由于编译器在编译 <code>func</code> 的时候见到的是静态绑定的 <code>Base</code> 类型，还是会打印 0</li>
+</ul>
+</details>
+</li>
+</ul>
+</div>
+<h4 id="abstract-base-classes">Abstract base classes<a class="headerlink" href="#abstract-base-classes" title="Permanent link">👀</a></h4>
+<ul>
+<li>An <em>abstract base class</em> has pure virtual functions | 纯虚函数<ul>
+<li>Only interface defined</li>
+<li>No function body given</li>
+</ul>
+</li>
+<li><em>Abstract base classes cannot be instantiated</em> | 不能被实例化<ul>
+<li>Must derive a new class/classes</li>
+<li>Must supply definitions for all pure virtuals before class can be instantiated</li>
+</ul>
+</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="11:2"><input checked="checked" id="__tabbed_11_1" name="__tabbed_11" type="radio"/><input id="__tabbed_11_2" name="__tabbed_11" type="radio"/><div class="tabbed-labels"><label for="__tabbed_11_1">code</label><label for="__tabbed_11_2">explanation</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-20-1" id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">XYPos</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">···</span><span class="w"> </span><span class="p">};</span><span class="w"> </span><span class="c1">// x, y point</span>
+<a href="#__codelineno-20-2" id="__codelineno-20-2" name="__codelineno-20-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">Shape</span>
+<a href="#__codelineno-20-3" id="__codelineno-20-3" name="__codelineno-20-3"></a><span class="p">{</span>
+<a href="#__codelineno-20-4" id="__codelineno-20-4" name="__codelineno-20-4"></a><span class="k">public</span><span class="o">:</span>
+<a href="#__codelineno-20-5" id="__codelineno-20-5" name="__codelineno-20-5"></a><span class="w">    </span><span class="n">Shape</span><span class="p">();</span>
+<a href="#__codelineno-20-6" id="__codelineno-20-6" name="__codelineno-20-6"></a><span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">draw</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">  </span><span class="c1">// pure virtual fucntion</span>
+<a href="#__codelineno-20-7" id="__codelineno-20-7" name="__codelineno-20-7"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">move</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">XYPos</span><span class="o">&amp;</span><span class="p">);</span>
+<a href="#__codelineno-20-8" id="__codelineno-20-8" name="__codelineno-20-8"></a><span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">resize</span><span class="p">();</span>
+<a href="#__codelineno-20-9" id="__codelineno-20-9" name="__codelineno-20-9"></a><span class="k">protected</span><span class="o">:</span>
+<a href="#__codelineno-20-10" id="__codelineno-20-10" name="__codelineno-20-10"></a><span class="w">    </span><span class="n">XYPos</span><span class="w"> </span><span class="n">center</span><span class="p">;</span>
+<a href="#__codelineno-20-11" id="__codelineno-20-11" name="__codelineno-20-11"></a><span class="p">};</span>
+<a href="#__codelineno-20-12" id="__codelineno-20-12" name="__codelineno-20-12"></a><span class="k">class</span><span class="w"> </span><span class="nc">Circle</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Shape</span>
+<a href="#__codelineno-20-13" id="__codelineno-20-13" name="__codelineno-20-13"></a><span class="p">{</span>
+<a href="#__codelineno-20-14" id="__codelineno-20-14" name="__codelineno-20-14"></a><span class="k">public</span><span class="o">:</span>
+<a href="#__codelineno-20-15" id="__codelineno-20-15" name="__codelineno-20-15"></a><span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">draw</span><span class="p">();</span><span class="w">     </span><span class="c1">// override</span>
+<a href="#__codelineno-20-16" id="__codelineno-20-16" name="__codelineno-20-16"></a><span class="w">    </span><span class="err">···</span>
+<a href="#__codelineno-20-17" id="__codelineno-20-17" name="__codelineno-20-17"></a><span class="p">};</span>
+<a href="#__codelineno-20-18" id="__codelineno-20-18" name="__codelineno-20-18"></a><span class="k">class</span><span class="w"> </span><span class="nc">Rectangle</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Shape</span>
+<a href="#__codelineno-20-19" id="__codelineno-20-19" name="__codelineno-20-19"></a><span class="p">{</span>
+<a href="#__codelineno-20-20" id="__codelineno-20-20" name="__codelineno-20-20"></a><span class="k">public</span><span class="o">:</span>
+<a href="#__codelineno-20-21" id="__codelineno-20-21" name="__codelineno-20-21"></a><span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">draw</span><span class="p">();</span><span class="w">     </span><span class="c1">// override</span>
+<a href="#__codelineno-20-22" id="__codelineno-20-22" name="__codelineno-20-22"></a><span class="w">    </span><span class="err">···</span>
+<a href="#__codelineno-20-23" id="__codelineno-20-23" name="__codelineno-20-23"></a><span class="p">};</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<ul>
+<li><code>virtual function() = 0;</code> 即可将此函数标记为 纯虚函数 | pure virtual function</li>
+<li>一旦一个类中有一个纯虚函数，这个类就称为抽象类（不能用于制造对象）</li>
+<li><code>Shape</code> 的存在是为了让 <code>Circle</code> 和 <code>Rectangle</code> 继承，提供一个共同的接口</li>
+</ul>
+</div>
+</div>
+</div>
+<ul>
+<li>Why use<ul>
+<li>Modeling</li>
+<li>Force correct behavior</li>
+<li>Define interface without defining implementation</li>
+</ul>
+</li>
+<li>When use<ul>
+<li>Not enough information is available</li>
+<li>When designing for interf inheritance</li>
+</ul>
+</li>
+<li><u>Protocol/Interface classes</u> are <u>abstract base classes</u> with<ul>
+<li>All non-static member functions are pure virtual except for the destructor</li>
+<li>Virtual destructor with empty body</li>
+<li>No non-static member variables, inherited or otherwise<ul>
+<li>May contain static members</li>
+</ul>
+</li>
+<li>即继承子类实现接口的规范的公开函数，但接口并不提供任何函数的实现</li>
+</ul>
+</li>
+</ul>
+<h2 id="multiple-inheritance">Multiple Inheritance<a class="headerlink" href="#multiple-inheritance" title="Permanent link">👀</a></h2>
+<p><img alt="" src="../../../Images/2023-06-21-22-35-48.png"/></p>
+<blockquote>
+<p>C++ 是唯一支持多继承的语言</p>
+</blockquote>
+<div class="tabbed-set tabbed-alternate" data-tabs="12:2"><input checked="checked" id="__tabbed_12_1" name="__tabbed_12" type="radio"/><input id="__tabbed_12_2" name="__tabbed_12" type="radio"/><div class="tabbed-labels"><label for="__tabbed_12_1">code</label><label for="__tabbed_12_2">explanation</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-21-1" id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Employee</span>
+<a href="#__codelineno-21-2" id="__codelineno-21-2" name="__codelineno-21-2"></a><span class="p">{</span>
+<a href="#__codelineno-21-3" id="__codelineno-21-3" name="__codelineno-21-3"></a><span class="k">protected</span><span class="o">:</span>
+<a href="#__codelineno-21-4" id="__codelineno-21-4" name="__codelineno-21-4"></a><span class="w">    </span><span class="n">string</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<a href="#__codelineno-21-5" id="__codelineno-21-5" name="__codelineno-21-5"></a><span class="w">    </span><span class="n">EmpID</span><span class="w"> </span><span class="n">id</span><span class="p">;</span>
+<a href="#__codelineno-21-6" id="__codelineno-21-6" name="__codelineno-21-6"></a><span class="p">}</span>
+<a href="#__codelineno-21-7" id="__codelineno-21-7" name="__codelineno-21-7"></a><span class="k">class</span><span class="w"> </span><span class="nc">MTS</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Employee</span>
+<a href="#__codelineno-21-8" id="__codelineno-21-8" name="__codelineno-21-8"></a><span class="p">{</span>
+<a href="#__codelineno-21-9" id="__codelineno-21-9" name="__codelineno-21-9"></a><span class="k">protected</span><span class="o">:</span>
+<a href="#__codelineno-21-10" id="__codelineno-21-10" name="__codelineno-21-10"></a><span class="w">    </span><span class="n">Degrees</span><span class="w"> </span><span class="n">degree_info</span><span class="p">;</span>
+<a href="#__codelineno-21-11" id="__codelineno-21-11" name="__codelineno-21-11"></a><span class="p">};</span>
+<a href="#__codelineno-21-12" id="__codelineno-21-12" name="__codelineno-21-12"></a><span class="k">class</span><span class="w"> </span><span class="nc">Consultant</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">MTS</span><span class="p">,</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Temporary</span>
+<a href="#__codelineno-21-13" id="__codelineno-21-13" name="__codelineno-21-13"></a><span class="p">{</span>
+<a href="#__codelineno-21-14" id="__codelineno-21-14" name="__codelineno-21-14"></a><span class="w">    </span><span class="err">···</span>
+<a href="#__codelineno-21-15" id="__codelineno-21-15" name="__codelineno-21-15"></a><span class="p">};</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<ul>
+<li><code>Consultant</code> picks up the attributes of both <code>MTS</code> and <code>Temporary</code><ul>
+<li><code>name, id, employer, degree_info</code></li>
+</ul>
+</li>
+<li>注意继承父类用逗号隔开，且每一个父类前面都要加 <code>public</code> 表示继承多个父类的 <code>public</code></li>
+<li>多态继承的出现是为了解决 C++ 没有单根结构的问题</li>
+</ul>
+</div>
+</div>
+</div>
+<details class="bug">
+<summary>多继承的问题</summary>
+<p><img alt="" src="../../../Images/2023-06-21-23-58-46.png"/></p>
+<ol>
+<li>对于父类 A, 其有两个子类 B 和 C, D 有同时继承 B 和 C</li>
+<li>此时若 A 中有一变量 i，D 调用 i 时，会出现二义性，即不知道是调用 B 中的 i 还是 C 中的 i</li>
+</ol>
+<ul>
+<li>为了解决此问题，C++ 提出虚继承（virtual public），比如 B 和 C 虚继承 A，那么将不会把 A 中的变量链接到 B 和 C 中而是 B 指向一个 A，C 指向一个 A，这样 D 中的 B 和 C 会指向同一个 A，就不会出现二义性了</li>
+<li>后来提出的 <code>模板</code> 是更好的解决方案 —— 不要使用多继承</li>
 </ul>
 </details>
 <div id="__comments">
@@ -1288,13 +1543,13 @@ Shape : erase()
               </div>
 </div>
 </a>
-<a aria-label="下一页: 密码学" class="md-footer__link md-footer__link--next" href="../../Crypto/" rel="next">
+<a aria-label="下一页: Copt Ctor &amp; Overloaded Operators" class="md-footer__link md-footer__link--next" href="../Lec07/" rel="next">
 <div class="md-footer__title">
 <div class="md-ellipsis">
 <span class="md-footer__direction">
                   下一页
                 </span>
-                密码学
+                Copt Ctor &amp; Overloaded Operators
               </div>
 </div>
 <div class="md-footer__button md-icon">
