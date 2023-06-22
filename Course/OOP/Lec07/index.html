@@ -734,11 +734,11 @@ which statement is RIGHT for the line in the function <code>f()</code>?<br/>
 <p>unary and binary operators can be overloaded</p>
 </blockquote>
 <ul>
-<li>’+  -  *  /  %  ^  &amp;  |  ~’</li>
-<li>’=  &lt;  &gt;  +=  -=  *=  /=  %=  ^=  &amp;=  |=’</li>
-<li>’&lt;&lt;  &gt;&gt;  &gt;&gt;=  &lt;&lt;=  ==  !=  &lt;=  &gt;=  &amp;&amp;  ||  !  ++  –‘</li>
-<li>’,  -&gt;*  -&gt;  ()  []’</li>
-<li>‘new  new[]  delete  delete[]’</li>
+<li><code>+  -  *  /  %  ^  &amp;  |  ~</code></li>
+<li><code>=  &lt;  &gt;  +=  -=  *=  /=  %=  ^=  &amp;=  |=</code></li>
+<li><code>&lt;&lt;  &gt;&gt;  &gt;&gt;=  &lt;&lt;=  ==  !=  &lt;=  &gt;=  &amp;&amp;  ||  !  ++  --</code></li>
+<li><code>,  -&gt;*  -&gt;  ()  []</code></li>
+<li><code>new  new[]  delete  delete[]</code></li>
 </ul>
 <blockquote>
 <p>operators that cannot be overloaded</p>
@@ -746,9 +746,113 @@ which statement is RIGHT for the line in the function <code>f()</code>?<br/>
 <ul>
 <li><code>.  .*  ::  ?:</code></li>
 <li><code>sizeof  typeid</code></li>
-<li>‘static_cast  dynamic_cast  const_cast  reinterpret_cast’</li>
+<li><code>static_cast  dynamic_cast  const_cast  reinterpret_cast</code></li>
 </ul>
 </details>
+<ul>
+<li>Restrictions<ul>
+<li>Only existing operators can be overloaded (you can’t create a ** operator for exponentiation)</li>
+<li>Operators must be overloaded on a class or enumeration type</li>
+<li>Overloaded operators must<ul>
+<li>Preserve number of operands</li>
+<li>Preserve precedence</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="c-overloaded">C++ overloaded<a class="headerlink" href="#c-overloaded" title="Permanent link">👀</a></h3>
+<ul>
+<li>Just a function with an operator name ( Use the opertaor keyword as a prefix to name operator *(···) ) </li>
+<li>Can be a member function <ul>
+<li>Implicit first argument <code>const String String::operator +(const String &amp;that);</code></li>
+<li><code>string a, b; a + b;</code> -&gt; be like <code>a.operator+(b);</code></li>
+</ul>
+</li>
+<li>Can be a global function<ul>
+<li>Both arguments explicit <code>const String operator +(const String &amp;s1, const String &amp;s2);</code></li>
+</ul>
+</li>
+<li>加 <code>const</code> 是为了防止 <code>a + b = c</code> 这种情况发生</li>
+</ul>
+<h4 id="for-member-functions">For Member functions<a class="headerlink" href="#for-member-functions" title="Permanent link">👀</a></h4>
+<ul>
+<li>Implicit first argument</li>
+<li>Developer must have access to the class definition</li>
+<li>Members have full access to the all data in the class</li>
+<li>No type conversion performed on receiver</li>
+</ul>
+<p><div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Integer</span>
+<a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="p">{</span>
+<a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="k">public</span><span class="o">:</span>
+<a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="w">    </span><span class="n">Integer</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="o">:</span><span class="n">i</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+<a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Integer</span><span class="w"> </span><span class="k">operator</span><span class="w"> </span><span class="o">+</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Integer</span><span class="w"> </span><span class="o">&amp;</span><span class="n">that</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="w">    </span><span class="p">{</span>
+<a href="#__codelineno-6-7" id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">Integer</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">that</span><span class="p">.</span><span class="n">i</span><span class="p">);</span>
+<a href="#__codelineno-6-8" id="__codelineno-6-8" name="__codelineno-6-8"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-6-9" id="__codelineno-6-9" name="__codelineno-6-9"></a><span class="k">private</span><span class="o">:</span>
+<a href="#__codelineno-6-10" id="__codelineno-6-10" name="__codelineno-6-10"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<a href="#__codelineno-6-11" id="__codelineno-6-11" name="__codelineno-6-11"></a><span class="p">};</span>
+<a href="#__codelineno-6-12" id="__codelineno-6-12" name="__codelineno-6-12"></a><span class="n">Integer</span><span class="w"> </span><span class="nf">x</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">y</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span><span class="w"> </span><span class="n">z</span><span class="p">;</span>
+<a href="#__codelineno-6-13" id="__codelineno-6-13" name="__codelineno-6-13"></a><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w">  </span><span class="c1">// x.operator+(y)</span>
+<a href="#__codelineno-6-14" id="__codelineno-6-14" name="__codelineno-6-14"></a><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w">  </span><span class="c1">// 此时会把 3 构造成一个 Integer 对象</span>
+<a href="#__codelineno-6-15" id="__codelineno-6-15" name="__codelineno-6-15"></a><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w">  </span><span class="c1">// 此时不会把 3 变成 Integer 对象，但会尝试把 y 变成 int</span>
+</code></pre></div><br/>
+* For binary operators(+, -, *, etc) member functions require one argument<br/>
+* For unary operators(++, –, -, !, etc) member functions require no arguments<br/>
+    * <code>const Interger Interger::operator-() const{ return Integer(-i); }</code><br/>
+    * <code>z = -x</code></p>
+<h4 id="for-global-function">For global function<a class="headerlink" href="#for-global-function" title="Permanent link">👀</a></h4>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="k">const</span><span class="w"> </span><span class="n">Integer</span><span class="w"> </span><span class="k">operator</span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Integer</span><span class="o">&amp;</span><span class="w"> </span><span class="n">rhs</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Integer</span><span class="o">&amp;</span><span class="w"> </span><span class="n">lhs</span><span class="p">);</span>
+<a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="n">Integer</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+<a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w"> </span><span class="c1">// -&gt; operator+ (x, y)</span>
+</code></pre></div>
+<ul>
+<li>Explicit first argument</li>
+<li>Developer dose not need special access to classes</li>
+<li>May need to be a friend</li>
+<li>Type conversions performed on both arguments</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">conversions</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1">code</label><label for="__tabbed_3_2">explanation</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+<a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+<a href="#__codelineno-8-4" id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<ul>
+<li>前三个左右两个变量都会尝试构造成 <code>Integer</code></li>
+<li>最后一个先进行 <code>3 + 4</code>, 随后把结果尝试构造成 <code>Integer</code></li>
+</ul>
+</div>
+</div>
+</input></input></div>
+</div>
+<ul>
+<li>
+<p>Global operators</p>
+<ul>
+<li>binary operators requires two arguments</li>
+<li>unary operators require one</li>
+<li>If you don’t have access to private data members, then the global function must use the public interface or use <code>friend</code></li>
+</ul>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Integer</span>
+<a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="p">{</span>
+<a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="w">    </span><span class="k">friend</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Integer</span><span class="w"> </span><span class="k">operator</span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Integer</span><span class="o">&amp;</span><span class="w"> </span><span class="n">rhs</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Integer</span><span class="o">&amp;</span><span class="w"> </span><span class="n">lhs</span><span class="p">);</span>
+<a href="#__codelineno-9-4" id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="w">    </span><span class="err">···</span>
+<a href="#__codelineno-9-5" id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="p">};</span>
+<a href="#__codelineno-9-6" id="__codelineno-9-6" name="__codelineno-9-6"></a><span class="k">const</span><span class="w"> </span><span class="n">Integer</span><span class="w"> </span><span class="k">operator</span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Integer</span><span class="o">&amp;</span><span class="w"> </span><span class="n">rhs</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Integer</span><span class="o">&amp;</span><span class="w"> </span><span class="n">lhs</span><span class="p">)</span>
+<a href="#__codelineno-9-7" id="__codelineno-9-7" name="__codelineno-9-7"></a><span class="p">{</span>
+<a href="#__codelineno-9-8" id="__codelineno-9-8" name="__codelineno-9-8"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">Integer</span><span class="p">(</span><span class="n">lhs</span><span class="p">.</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">rhs</span><span class="p">.</span><span class="n">i</span><span class="p">);</span>
+<a href="#__codelineno-9-9" id="__codelineno-9-9" name="__codelineno-9-9"></a><span class="p">}</span>
+</code></pre></div>
+</li>
+</ul>
 <div id="__comments">
 <!-- 主题颜色 
     <div class="mdx-switch">
