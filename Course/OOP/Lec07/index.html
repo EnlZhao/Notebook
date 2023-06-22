@@ -1023,6 +1023,17 @@ which statement is RIGHT for the line in the function <code>f()</code>?<br/>
 </ul>
 </li>
 </ul>
+<details class="tip">
+<summary>Tip</summary>
+<ul>
+<li>Pass in an object it you want to store it</li>
+<li>Pass in a reference or pointer if you want to do something to it</li>
+<li>Pass in a const reference or pointer if you want to get the values</li>
+<li>Pass out an object if you create it in the function</li>
+<li>Pass out a reference or pointer of the passed in only</li>
+<li>Never new something and return its pointer</li>
+</ul>
+</details>
 <h4 id="the-prototypes-of-operators">The prototypes of operators<a class="headerlink" href="#the-prototypes-of-operators" title="Permanent link">👀</a></h4>
 <ul>
 <li><code>+ - * / % ^ &amp; | ~</code><ul>
@@ -1349,6 +1360,51 @@ xyz = abc;  // error!</code></p>
 </ul>
 </li>
 </ul>
+<details class="info">
+<summary>延申 - LValue vs. RValue</summary>
+<ul>
+<li>可以简单认为能出现在赋值号左边的都是左值：变量本身、引用；<code>*, []</code>运算的结果</li>
+<li>只能出现在赋值号右边的都是右值：字面量；表达式</li>
+<li>引用只能接受左值 -&gt; 引用是左值的别名</li>
+<li>调用函数时的传参相当于参数变量在调用时的初始化</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">右值引用</p>
+<ul>
+<li><code>int x = 20;</code> 左值</li>
+<li><code>int&amp;&amp; rx = x * 2;</code> x*2 的结果是一个右值，rx 延长其声明周期；rx 是右值引用（对右值的引用）-&gt; 相当于把右值先固定下来</li>
+<li><code>int y = rx + 2;</code> 因此你可以重用它：42</li>
+<li><code>rx = 100;</code> 一旦你初始化一个右值引用变量，该变量就成为了一个左值，可以被赋值</li>
+<li><code>int&amp;&amp; rrx1 = x;</code> ERROR：右值引用无法被左值初始化</li>
+<li><code>const int&amp;&amp; rrx2 = x</code> ERROR: 右值引用无法被左值初始化</li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">右值引用的用途</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-21-1" id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="c1">// 接收左值 </span>
+<a href="#__codelineno-21-2" id="__codelineno-21-2" name="__codelineno-21-2"></a><span class="kt">void</span><span class="w"> </span><span class="nf">func</span><span class="p">(</span><span class="kt">int</span><span class="o">&amp;</span><span class="w"> </span><span class="n">lref</span><span class="p">)</span>
+<a href="#__codelineno-21-3" id="__codelineno-21-3" name="__codelineno-21-3"></a><span class="p">{</span>
+<a href="#__codelineno-21-4" id="__codelineno-21-4" name="__codelineno-21-4"></a><span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"lvalue ref"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<a href="#__codelineno-21-5" id="__codelineno-21-5" name="__codelineno-21-5"></a><span class="p">}</span>
+<a href="#__codelineno-21-6" id="__codelineno-21-6" name="__codelineno-21-6"></a><span class="c1">// 接收右值 -- 为了节省内存，右值引用可以接收右值，而不是拷贝一份</span>
+<a href="#__codelineno-21-7" id="__codelineno-21-7" name="__codelineno-21-7"></a><span class="kt">void</span><span class="w"> </span><span class="nf">func</span><span class="p">(</span><span class="kt">int</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">rref</span><span class="p">)</span>
+<a href="#__codelineno-21-8" id="__codelineno-21-8" name="__codelineno-21-8"></a><span class="p">{</span>
+<a href="#__codelineno-21-9" id="__codelineno-21-9" name="__codelineno-21-9"></a><span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"rvalue ref"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<a href="#__codelineno-21-10" id="__codelineno-21-10" name="__codelineno-21-10"></a><span class="p">}</span>
+<a href="#__codelineno-21-11" id="__codelineno-21-11" name="__codelineno-21-11"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<a href="#__codelineno-21-12" id="__codelineno-21-12" name="__codelineno-21-12"></a><span class="p">{</span>
+<a href="#__codelineno-21-13" id="__codelineno-21-13" name="__codelineno-21-13"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<a href="#__codelineno-21-14" id="__codelineno-21-14" name="__codelineno-21-14"></a><span class="w">    </span><span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="p">);</span><span class="w">    </span><span class="c1">// lvalue ref</span>
+<a href="#__codelineno-21-15" id="__codelineno-21-15" name="__codelineno-21-15"></a><span class="w">    </span><span class="n">func</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span><span class="w">   </span><span class="c1">// rvalue ref</span>
+<a href="#__codelineno-21-16" id="__codelineno-21-16" name="__codelineno-21-16"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a href="#__codelineno-21-17" id="__codelineno-21-17" name="__codelineno-21-17"></a><span class="p">}</span>
+</code></pre></div>
+<ul>
+<li>如果是左值引用，也要先放到一个变量中才能传递</li>
+<li>而右值引用不需要有，可以加速运算，减少内存拷贝</li>
+</ul>
+</div>
+</details>
 <div id="__comments">
 <!-- 主题颜色 
     <div class="mdx-switch">
