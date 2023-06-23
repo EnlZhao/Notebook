@@ -822,6 +822,102 @@
 </code></pre></div>
 </details>
 </div>
+<ul>
+<li>
+<p>Templates can use multiple types</p>
+<p>```c++<br/>
+template <class class="" key,="" value=""><br/>
+class HashTable <br/>
+{<br/>
+    const Value&amp; lookup(const Key&amp;) const;<br/>
+    void install(const Key&amp;, const Value&amp;);<br/>
+    …<br/>
+};</class></p>
+</li>
+<li>
+<p>Templates nest — they’re just new types</p>
+<ul>
+<li><code>Vector&lt;Vector&lt;double *&gt; &gt;</code></li>
+</ul>
+</li>
+<li>
+<p>Type arguments can be complicated</p>
+<ul>
+<li><code>Vector&lt; int (*)(Vector&lt;double&gt;&amp;, int) &gt;</code> — 一个 <code>Vector</code> 里面是函数指针，指针指向的函数的参数是 <code>Vector&lt;double&gt;&amp;</code> 和 <code>int</code>，返回值是 <code>int</code></li>
+</ul>
+</li>
+<li>
+<p>Expression parameters</p>
+<ul>
+<li>Template arguments can be <em>constant</em> expressions</li>
+<li>Non-Type parameters<ul>
+<li>can have a default argument</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="o">&gt;</span>
+<a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">Vector</span><span class="w"> </span>
+<a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="p">{</span>
+<a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="w">    </span><span class="p">...</span>
+<a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="k">private</span><span class="o">:</span>
+<a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="n">data</span><span class="p">[</span><span class="n">size</span><span class="p">];</span><span class="w">   </span><span class="c1">// fixed size array</span>
+<a href="#__codelineno-6-7" id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="p">};</span>
+</code></pre></div>
+<details class="note" open="open">
+<summary>Usage:Non-type parameters</summary>
+<ul>
+<li>Usage<ul>
+<li><code>Vector&lt;int, 100&gt; v;</code></li>
+<li><code>Vector&lt;int, 50 * 2&gt; v;</code></li>
+<li><code>Vector&lt;int&gt; v;</code> — uses default <code>size = 100</code></li>
+</ul>
+</li>
+<li>Summary<ul>
+<li>Embedding sizes not necessarily a good idea</li>
+<li>Can make code faster</li>
+<li>Makes use more complicated — size argument appears everywhere</li>
+<li>Can lead to code bloat</li>
+</ul>
+</li>
+</ul>
+</details>
+</li>
+</ul>
+<div class="admonition bug">
+<p class="admonition-title">Template programming</p>
+<ul>
+<li>一个类模板的全部都应该在一个头文件中，而不是声明和定义分开放在两个文件中，否则编译器会链接失败</li>
+<li>大多数情况下，类模板的函数都做成 <code>inline</code></li>
+</ul>
+</div>
+<details class="info" open="open">
+<summary>Templates and Inheritance</summary>
+<ul>
+<li>Templates can inherit from non-template classes</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Derived</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Base</span>
+<a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="p">{</span>
+<a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="w">    </span><span class="p">...</span>
+<a href="#__codelineno-7-4" id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="p">};</span>
+</code></pre></div>
+<ul>
+<li>Templates can inherit from template classes | 当实例化 Derived 时，还需要同步实例化 Base</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">Derived</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Base</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span>
+<a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="p">{</span>
+<a href="#__codelineno-8-4" id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="w">    </span><span class="p">...</span>
+<a href="#__codelineno-8-5" id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="p">};</span>
+</code></pre></div>
+<ul>
+<li>Non-template classes can inherit from template classes</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Derived</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Base</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span>
+<a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="p">{</span>
+<a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="w">    </span><span class="p">...</span>
+<a href="#__codelineno-9-4" id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="p">};</span>
+</code></pre></div>
+</details>
 <div id="__comments">
 <!-- 主题颜色 
     <div class="mdx-switch">
