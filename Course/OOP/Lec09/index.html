@@ -8,9 +8,11 @@
 <meta content="某兰的笔记" name="description"/>
 <meta content="Enl_Z" name="author"/>
 <link href="https://note.enl-z.cc/Course/OOP/Lec09/" rel="canonical"/>
+<link href="../Lec08/" rel="prev"/>
+<link href="../../Crypto/" rel="next"/>
 <link href="../../../Icon/Avatar.png" rel="icon"/>
 <meta content="mkdocs-1.4.3, mkdocs-material-9.0.6" name="generator"/>
-<title>Lec09 - 某兰的笔记本</title>
+<title>Exception Handling - 某兰的笔记本</title>
 <link href="../../../assets/stylesheets/main.558e4712.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
 <script>
@@ -40,6 +42,9 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
+<a class="md-skip" href="#exceptions">
+          跳转至
+        </a>
 </div>
 <div data-md-component="announce">
 </div>
@@ -61,7 +66,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Lec09
+              Exception Handling
             
           </span>
 </div>
@@ -139,7 +144,7 @@
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../abstract/">
+<a class="md-tabs__link md-tabs__link--active" href="../../abstract/">
         Course
       </a>
 </li>
@@ -203,9 +208,9 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
-<label aria-expanded="false" class="md-nav__link" for="__nav_2" tabindex="0">
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<label aria-expanded="true" class="md-nav__link" for="__nav_2" tabindex="0">
           Course
           <span class="md-nav__icon md-icon"></span>
 </label>
@@ -352,8 +357,8 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6" id="__nav_2_6" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6" id="__nav_2_6" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
 <a href="../">面向对象程序设计</a>
 <label for="__nav_2_6">
@@ -405,6 +410,53 @@
 <a class="md-nav__link" href="../Lec08/">
         Templates
       </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Exception Handling
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        Exception Handling
+      </a>
+<nav aria-label="目录" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#throw">
+    throw | 抛出异常
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#exception-handlers">
+    Exception Handlers
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#failure-in-ctors-dtors">
+    Failure in Ctors &amp; Dtors
+  </a>
+<nav aria-label="Failure in Ctors &amp; Dtors" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#failure-in-ctors">
+    Failure in Ctors
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#failure-in-dtors">
+    Failure in Dtors
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -571,6 +623,41 @@
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
 <nav aria-label="目录" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#throw">
+    throw | 抛出异常
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#exception-handlers">
+    Exception Handlers
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#failure-in-ctors-dtors">
+    Failure in Ctors &amp; Dtors
+  </a>
+<nav aria-label="Failure in Ctors &amp; Dtors" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#failure-in-ctors">
+    Failure in Ctors
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#failure-in-dtors">
+    Failure in Dtors
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
 </nav>
 </div>
 </div>
@@ -583,6 +670,420 @@
 <a class="md-content__button md-icon" href="https://github.com/enl-z/Notebook/tree/master/docs/Course/OOP/Lec09.md" title="View source of this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"></path></svg>
 </a>
+<h1 id="exceptions">Exceptions | 异常<a class="headerlink" href="#exceptions" title="Permanent link">👀</a></h1>
+<details class="example">
+<summary>Vector</summary>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">code</label><label for="__tabbed_1_2">problem</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">Vector</span>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="p">{</span>
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="k">private</span><span class="o">:</span>
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="o">*</span><span class="n">elem</span><span class="p">;</span>
+<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">sz</span><span class="p">;</span>
+<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="k">public</span><span class="o">:</span>
+<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="w">    </span><span class="n">Vector</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">sz</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="p">...</span><span class="w"> </span>
+<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="w">    </span><span class="o">~</span><span class="n">Vector</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">delete</span><span class="p">[]</span><span class="w"> </span><span class="n">elem</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="o">&amp;</span><span class="k">operator</span><span class="p">[](</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
+<a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="nf">size</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">sz</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="p">};</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<ul>
+<li><code>T &amp;operator[](int i);</code> 是可能发生越界的，如何处理：</li>
+<li>
+<ol>
+<li>Return random memory object — <code>return elem[i];</code></li>
+<li>
+<p>Return a special error value</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="k">if</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">size</span><span class="p">())</span>
+<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="p">{</span>
+<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">    </span><span class="c1">// WRONG - T 不一定有这种构造函数，且原本就可能有这样正常的内容</span>
+<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="o">*</span><span class="n">error_marker</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">T</span><span class="p">(</span><span class="s">"some magic value"</span><span class="p">);</span>
+<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="n">error_marker</span><span class="p">;</span>
+<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="p">}</span>
+<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="k">return</span><span class="w"> </span><span class="n">elem</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</code></pre></div>
+<ul>
+<li>But this throws the baby out with the bath!</li>
+<li><code>x = v[2] + v[4]; //Not safe code</code></li>
+</ul>
+</li>
+</ol>
+<p>Choice: </p>
+<ol start="3">
+<li>
+<p>Just die!</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="k">if</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">size</span><span class="p">())</span>
+<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="p">{</span>
+<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">    </span><span class="n">exit</span><span class="p">(</span><span class="mi">22</span><span class="p">);</span>
+<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="p">}</span>
+<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="k">return</span><span class="w"> </span><span class="n">elem</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</code></pre></div>
+</li>
+<li>
+<p>Die gracefully (with autopsy)</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="n">assert</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">size</span><span class="p">());</span>
+<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="k">return</span><span class="w"> </span><span class="n">elem</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</code></pre></div>
+<ul>
+<li><code>assert</code> 做接口检查，在调用函数时会检查传入参数是否合法，若不合法则直接退出程序</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</div>
+</div>
+</input></input></div>
+</details>
+<ul>
+<li>When to use exceptions?<ul>
+<li>Many times, you don’t know what should be done</li>
+<li>Solution: turf the problem to the caller | 将问题向上报<ul>
+<li>Make caller responsible for handling the problem</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="throw"><code>throw</code> | 抛出异常<a class="headerlink" href="#throw" title="Permanent link">👀</a></h2>
+<ul>
+<li>
+<p>How to raise an exception — <code>throw</code></p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="n">T</span><span class="w"> </span><span class="o">&amp;</span><span class="n">Vector</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="k">operator</span><span class="p">[](</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">)</span>
+<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="p">{</span>
+<a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">size</span><span class="p">())</span>
+<a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="w">    </span><span class="p">{</span>
+<a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="w">        </span><span class="c1">// throw is a keyword</span>
+<a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="w">        </span><span class="c1">// exception is raised at this point</span>
+<a href="#__codelineno-4-8" id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">something</span><span class="w"> </span><span class="o">&gt;&gt;</span>
+<a href="#__codelineno-4-9" id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-4-10" id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">elem</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<a href="#__codelineno-4-11" id="__codelineno-4-11" name="__codelineno-4-11"></a><span class="p">}</span>
+</code></pre></div>
+</li>
+<li>
+<p>What do you throw?</p>
+<ul>
+<li>What do you have? ← Data</li>
+<li>Define a class to represent the error</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">VectorIndexError</span>
+<a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="p">{</span>
+<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="k">public</span><span class="o">:</span>
+<a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="w">    </span><span class="n">VectorIndexError</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">m_badValue</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+<a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="w">    </span><span class="o">~</span><span class="n">VectorIndexError</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
+<a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">diagnostic</span><span class="p">()</span><span class="w"> </span>
+<a href="#__codelineno-5-7" id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="w">    </span><span class="p">{</span>
+<a href="#__codelineno-5-8" id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="w">        </span><span class="n">cerr</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"index "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">m_badValue</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">" is out of range"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<a href="#__codelineno-5-9" id="__codelineno-5-9" name="__codelineno-5-9"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-5-10" id="__codelineno-5-10" name="__codelineno-5-10"></a><span class="k">private</span><span class="o">:</span>
+<a href="#__codelineno-5-11" id="__codelineno-5-11" name="__codelineno-5-11"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">m_badValue</span><span class="p">;</span>
+<a href="#__codelineno-5-12" id="__codelineno-5-12" name="__codelineno-5-12"></a><span class="p">};</span>
+</code></pre></div>
+</li>
+<li>
+<p>How to raise it?</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="n">T</span><span class="w"> </span><span class="o">&amp;</span><span class="n">Vector</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="k">operator</span><span class="p">[](</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">)</span>
+<a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="p">{</span>
+<a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">size</span><span class="p">())</span>
+<a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="w">    </span><span class="p">{</span>
+<a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="w">        </span><span class="c1">// VectorIndexError e(i);</span>
+<a href="#__codelineno-6-7" id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="w">        </span><span class="c1">// throw e;</span>
+<a href="#__codelineno-6-8" id="__codelineno-6-8" name="__codelineno-6-8"></a><span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="n">VectorIndexError</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+<a href="#__codelineno-6-9" id="__codelineno-6-9" name="__codelineno-6-9"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-6-10" id="__codelineno-6-10" name="__codelineno-6-10"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">elem</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<a href="#__codelineno-6-11" id="__codelineno-6-11" name="__codelineno-6-11"></a><span class="p">}</span>
+</code></pre></div>
+</li>
+<li>
+<p>What about your caller</p>
+<ol>
+<li>
+<p>Case 1) Don’t care — Code never even suspects a problem</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">func</span><span class="p">()</span>
+<a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="p">{</span>
+<a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="w">    </span><span class="n">Vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="p">(</span><span class="mi">12</span><span class="p">);</span>
+<a href="#__codelineno-7-4" id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="w">    </span><span class="n">v</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+<a href="#__codelineno-7-5" id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">v</span><span class="p">[</span><span class="mi">42</span><span class="p">];</span><span class="w">  </span><span class="c1">// Out of range</span>
+<a href="#__codelineno-7-6" id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="w">    </span><span class="c1">// Control never gets here</span>
+<a href="#__codelineno-7-7" id="__codelineno-7-7" name="__codelineno-7-7"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<a href="#__codelineno-7-8" id="__codelineno-7-8" name="__codelineno-7-8"></a><span class="p">}</span>
+</code></pre></div>
+</li>
+<li>
+<p>Case 2) Care deeply</p>
+<p>``` c++<br/>
+void outer()<br/>
+{<br/>
+    try<br/>
+    {<br/>
+        func(); // func() throws an exception<br/>
+        func2();// won’t be called<br/>
+    }<br/>
+    catch(VectorIndexError &amp;e)<br/>
+    {<br/>
+        e.diagnostic();<br/>
+        //This exception does not propagate<br/>
+    }<br/>
+    cout &lt;&lt; “Control is here after exception”;<br/>
+}</p>
+</li>
+<li>
+<p>Case 3) Mildly interested</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">outer</span><span class="p">()</span>
+<a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="p">{</span>
+<a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="w">    </span><span class="n">string</span><span class="w"> </span><span class="n">err</span><span class="p">(</span><span class="s">"exception caught"</span><span class="p">);</span>
+<a href="#__codelineno-8-4" id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="w">    </span><span class="k">try</span>
+<a href="#__codelineno-8-5" id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="w">    </span><span class="p">{</span>
+<a href="#__codelineno-8-6" id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="w">        </span><span class="n">func</span><span class="p">();</span><span class="w"> </span><span class="c1">// func() throws an exception</span>
+<a href="#__codelineno-8-7" id="__codelineno-8-7" name="__codelineno-8-7"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-8-8" id="__codelineno-8-8" name="__codelineno-8-8"></a><span class="w">    </span><span class="k">catch</span><span class="p">(</span><span class="n">VectorIndexError</span><span class="p">)</span>
+<a href="#__codelineno-8-9" id="__codelineno-8-9" name="__codelineno-8-9"></a><span class="w">    </span><span class="p">{</span>
+<a href="#__codelineno-8-10" id="__codelineno-8-10" name="__codelineno-8-10"></a><span class="w">        </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">err</span><span class="p">;</span>
+<a href="#__codelineno-8-11" id="__codelineno-8-11" name="__codelineno-8-11"></a><span class="w">        </span><span class="k">throw</span><span class="p">;</span><span class="w">  </span><span class="c1">// propagate the exception</span>
+<a href="#__codelineno-8-12" id="__codelineno-8-12" name="__codelineno-8-12"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-8-13" id="__codelineno-8-13" name="__codelineno-8-13"></a><span class="p">}</span>
+</code></pre></div>
+</li>
+<li>
+<p>Case 4) Doesn’t care about the particulars ( <code>...</code> means “catch <strong>All</strong> exceptions” )</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">outer</span><span class="p">()</span>
+<a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="p">{</span>
+<a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="w">    </span><span class="k">try</span>
+<a href="#__codelineno-9-4" id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="w">    </span><span class="p">{</span>
+<a href="#__codelineno-9-5" id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="w">        </span><span class="n">func</span><span class="p">();</span><span class="w"> </span><span class="c1">// func() throws an exception</span>
+<a href="#__codelineno-9-6" id="__codelineno-9-6" name="__codelineno-9-6"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-9-7" id="__codelineno-9-7" name="__codelineno-9-7"></a><span class="w">    </span><span class="k">catch</span><span class="p">(...)</span>
+<a href="#__codelineno-9-8" id="__codelineno-9-8" name="__codelineno-9-8"></a><span class="w">    </span><span class="p">{</span>
+<a href="#__codelineno-9-9" id="__codelineno-9-9" name="__codelineno-9-9"></a><span class="w">        </span><span class="c1">// ... catches ALL exceptions!!</span>
+<a href="#__codelineno-9-10" id="__codelineno-9-10" name="__codelineno-9-10"></a><span class="w">        </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"exception caught"</span><span class="p">;</span>
+<a href="#__codelineno-9-11" id="__codelineno-9-11" name="__codelineno-9-11"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-9-12" id="__codelineno-9-12" name="__codelineno-9-12"></a><span class="p">}</span>
+</code></pre></div>
+</li>
+</ol>
+</li>
+</ul>
+<details class="note" open="open">
+<summary>Review</summary>
+<ul>
+<li>Throw statement raises the exception<ul>
+<li>Control propagates back to first handler for that exception</li>
+<li>Propagation follows the <strong>call</strong> chain</li>
+<li>Objects on <strong>stack</strong> are properly destroyed</li>
+</ul>
+</li>
+<li><code>throw exp</code>;<ul>
+<li>throws value for matching</li>
+</ul>
+</li>
+<li><code>throw</code>;<ul>
+<li><strong>reraises</strong> the exception being handled</li>
+<li>valid only within a handler</li>
+</ul>
+</li>
+</ul>
+</details>
+<h2 id="exception-handlers">Exception Handlers<a class="headerlink" href="#exception-handlers" title="Permanent link">👀</a></h2>
+<ul>
+<li>
+<p>Try block</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="k">try</span>
+<a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="p">{</span>
+<a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="w">    </span><span class="c1">// code that might throw an exception</span>
+<a href="#__codelineno-10-4" id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="p">}</span>
+<a href="#__codelineno-10-5" id="__codelineno-10-5" name="__codelineno-10-5"></a><span class="k">catch</span><span class="w"> </span><span class="p">...</span>
+<a href="#__codelineno-10-6" id="__codelineno-10-6" name="__codelineno-10-6"></a><span class="p">{</span>
+<a href="#__codelineno-10-7" id="__codelineno-10-7" name="__codelineno-10-7"></a><span class="w">    </span><span class="c1">// code that handles the exception</span>
+<a href="#__codelineno-10-8" id="__codelineno-10-8" name="__codelineno-10-8"></a><span class="p">}</span>
+<a href="#__codelineno-10-9" id="__codelineno-10-9" name="__codelineno-10-9"></a><span class="k">catch</span><span class="w"> </span><span class="p">...</span>
+<a href="#__codelineno-10-10" id="__codelineno-10-10" name="__codelineno-10-10"></a><span class="p">{</span>
+<a href="#__codelineno-10-11" id="__codelineno-10-11" name="__codelineno-10-11"></a><span class="w">    </span><span class="c1">// code that handles the exception</span>
+<a href="#__codelineno-10-12" id="__codelineno-10-12" name="__codelineno-10-12"></a><span class="p">}</span>
+</code></pre></div>
+<ul>
+<li>Establishes any number of handlers</li>
+<li>Not needed if you don’t use any handlers</li>
+<li>Shows where you expect to handle exceptions</li>
+<li>Costs cycles</li>
+</ul>
+</li>
+<li>
+<p>Exception handlers</p>
+<ul>
+<li>Select exception by type</li>
+<li>Can re-raise exception</li>
+<li>Two forms<ul>
+<li><code>catch (Type)</code></li>
+<li><code>catch (...)</code></li>
+</ul>
+</li>
+<li>Take a single argument (like a formal parameter)</li>
+</ul>
+</li>
+<li>
+<p>Selecting a handler</p>
+<ul>
+<li>Can have any number of handlers</li>
+<li>Handlers are checked in order of appearance<br/>
+1. Check for exact match<br/>
+2. Apply base class conversions (Reference and pointer types, only)<br/>
+3. Ellipses(…) matches any exception</li>
+</ul>
+</li>
+<li>
+<p>Inheritance can be used to structure exceptions</p>
+<details class="example">
+<summary>using inheritance</summary>
+<ul>
+<li>Hierachy of exception types</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">code - handlers</label><label for="__tabbed_2_2">using handlers</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">MathErr</span>
+<a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="p">{</span>
+<a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="w">    </span><span class="p">...</span>
+<a href="#__codelineno-11-4" id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">diagnostic</span><span class="p">();</span>
+<a href="#__codelineno-11-5" id="__codelineno-11-5" name="__codelineno-11-5"></a><span class="p">};</span>
+<a href="#__codelineno-11-6" id="__codelineno-11-6" name="__codelineno-11-6"></a><span class="k">class</span><span class="w"> </span><span class="nc">OverflowErr</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">MathErr</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
+<a href="#__codelineno-11-7" id="__codelineno-11-7" name="__codelineno-11-7"></a><span class="k">class</span><span class="w"> </span><span class="nc">UnderflowErr</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">MathErr</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
+<a href="#__codelineno-11-8" id="__codelineno-11-8" name="__codelineno-11-8"></a><span class="k">class</span><span class="w"> </span><span class="nc">ZeroDivideErr</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">MathErr</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="k">try</span>
+<a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="p">{</span>
+<a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="w">    </span><span class="c1">// code to exercise math options</span>
+<a href="#__codelineno-12-4" id="__codelineno-12-4" name="__codelineno-12-4"></a><span class="w">    </span><span class="k">throw</span><span class="w"> </span><span class="n">UnderflowErr</span><span class="p">();</span>
+<a href="#__codelineno-12-5" id="__codelineno-12-5" name="__codelineno-12-5"></a><span class="p">}</span>
+<a href="#__codelineno-12-6" id="__codelineno-12-6" name="__codelineno-12-6"></a><span class="n">catche</span><span class="p">(</span><span class="n">ZeroDivideErr</span><span class="w"> </span><span class="o">&amp;</span><span class="n">e</span><span class="p">)</span>
+<a href="#__codelineno-12-7" id="__codelineno-12-7" name="__codelineno-12-7"></a><span class="p">{</span>
+<a href="#__codelineno-12-8" id="__codelineno-12-8" name="__codelineno-12-8"></a><span class="w">    </span><span class="c1">// handle divide by zero</span>
+<a href="#__codelineno-12-9" id="__codelineno-12-9" name="__codelineno-12-9"></a><span class="p">}</span>
+<a href="#__codelineno-12-10" id="__codelineno-12-10" name="__codelineno-12-10"></a><span class="n">catche</span><span class="p">(</span><span class="n">MathErr</span><span class="w"> </span><span class="o">&amp;</span><span class="n">e</span><span class="p">)</span>
+<a href="#__codelineno-12-11" id="__codelineno-12-11" name="__codelineno-12-11"></a><span class="p">{</span>
+<a href="#__codelineno-12-12" id="__codelineno-12-12" name="__codelineno-12-12"></a><span class="w">    </span><span class="c1">// handle other math errors</span>
+<a href="#__codelineno-12-13" id="__codelineno-12-13" name="__codelineno-12-13"></a><span class="p">}</span>
+<a href="#__codelineno-12-14" id="__codelineno-12-14" name="__codelineno-12-14"></a><span class="n">catche</span><span class="p">(...)</span>
+<a href="#__codelineno-12-15" id="__codelineno-12-15" name="__codelineno-12-15"></a><span class="p">{</span>
+<a href="#__codelineno-12-16" id="__codelineno-12-16" name="__codelineno-12-16"></a><span class="w">    </span><span class="c1">// handle all other exceptions</span>
+<a href="#__codelineno-12-17" id="__codelineno-12-17" name="__codelineno-12-17"></a><span class="p">}</span>
+</code></pre></div>
+<ul>
+<li>异常应由窄到宽进行处理，即先处理子类异常，再处理父类异常，最后处理所有异常</li>
+</ul>
+</div>
+</div>
+</input></input></div>
+</details>
+</li>
+<li>
+<p>Exception and new</p>
+<ul>
+<li>new does NOT return 0 on failure</li>
+<li>new raises a bad_alloc exception on failure</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">func</span><span class="p">()</span>
+<a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="p">{</span>
+<a href="#__codelineno-13-3" id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="w">    </span><span class="k">try</span>
+<a href="#__codelineno-13-4" id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="w">    </span><span class="p">{</span>
+<a href="#__codelineno-13-5" id="__codelineno-13-5" name="__codelineno-13-5"></a><span class="w">        </span><span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<a href="#__codelineno-13-6" id="__codelineno-13-6" name="__codelineno-13-6"></a><span class="w">        </span><span class="p">{</span>
+<a href="#__codelineno-13-7" id="__codelineno-13-7" name="__codelineno-13-7"></a><span class="w">            </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">char</span><span class="p">[</span><span class="mi">10000000</span><span class="p">];</span>
+<a href="#__codelineno-13-8" id="__codelineno-13-8" name="__codelineno-13-8"></a><span class="w">        </span><span class="p">}</span>
+<a href="#__codelineno-13-9" id="__codelineno-13-9" name="__codelineno-13-9"></a><span class="w">        </span><span class="k">catch</span><span class="p">(</span><span class="n">bad_alloc</span><span class="w"> </span><span class="o">&amp;</span><span class="n">e</span><span class="p">)</span>
+<a href="#__codelineno-13-10" id="__codelineno-13-10" name="__codelineno-13-10"></a><span class="w">        </span><span class="p">{</span>
+<a href="#__codelineno-13-11" id="__codelineno-13-11" name="__codelineno-13-11"></a><span class="w">            </span><span class="n">cerr</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"out of memory"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<a href="#__codelineno-13-12" id="__codelineno-13-12" name="__codelineno-13-12"></a><span class="w">        </span><span class="p">}</span>
+<a href="#__codelineno-13-13" id="__codelineno-13-13" name="__codelineno-13-13"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-13-14" id="__codelineno-13-14" name="__codelineno-13-14"></a><span class="p">}</span>
+</code></pre></div>
+</li>
+</ul>
+<details class="info">
+<summary>补充</summary>
+<p><img alt="" src="../../../Images/2023-06-23-12-49-37.png"/></p>
+</details>
+<ul>
+<li>
+<p>Exception specifications</p>
+<ul>
+<li><u>Declare which exceptions a function might throw</u></li>
+<li>Part of function prototypes</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">func</span><span class="p">()</span><span class="w"> </span><span class="k">throw</span><span class="w"> </span><span class="p">(</span><span class="n">OverflowErr</span><span class="p">)</span>
+<a href="#__codelineno-14-2" id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="p">{</span>
+<a href="#__codelineno-14-3" id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="w">    </span><span class="p">...</span>
+<a href="#__codelineno-14-4" id="__codelineno-14-4" name="__codelineno-14-4"></a><span class="p">}</span>
+</code></pre></div>
+<ul>
+<li>Not checked at compile time</li>
+<li>At run time, if an exception not in the list propagates out, the <code>unexpected</code> exception is raised</li>
+</ul>
+</li>
+</ul>
+<h2 id="failure-in-ctors-dtors">Failure in Ctors &amp; Dtors<a class="headerlink" href="#failure-in-ctors-dtors" title="Permanent link">👀</a></h2>
+<h3 id="failure-in-ctors">Failure in Ctors<a class="headerlink" href="#failure-in-ctors" title="Permanent link">👀</a></h3>
+<ul>
+<li>No return value is possible</li>
+<li>Use an “uninitialized” flag</li>
+<li>Defer work to an Init() function</li>
+<li>
+<p>Better to throw an exception</p>
+</li>
+<li>
+<p>If a constructor can’t complete, throw an exception</p>
+<ul>
+<li>Dtors for objects whose ctor didn’t complete won’t be called</li>
+<li>Clean up allocated resources before throwing</li>
+</ul>
+</li>
+</ul>
+<details class="success" open="open">
+<summary>Suggest - Two stages construction</summary>
+<ul>
+<li>Do normal work in ctor<ul>
+<li>Initialize all member objects</li>
+<li>Initialize all primitive members</li>
+<li>Initialize all pointers to 0</li>
+<li><u>NEVER request any resources</u><ul>
+<li>File / Network connection / Memory</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Do additional work in Init() function<ul>
+<li>Request resources</li>
+<li>Do any other work that might fail</li>
+</ul>
+</li>
+</ul>
+</details>
+<h3 id="failure-in-dtors">Failure in Dtors<a class="headerlink" href="#failure-in-dtors" title="Permanent link">👀</a></h3>
+<p>Destructors are called when:<br/>
+* Normal call: object exists from scope<br/>
+* Durong exceptions: stack unwinding invokes dtors on objects as scope is existed</p>
+<ul>
+<li>Throwing an exception in a dtor that is itself being called as the result of an exception will invoke <code>std::terminate()</code><ul>
+<li>Allowing exceptions to escape from dtors should be avoided</li>
+</ul>
+</li>
+</ul>
+<details class="bug">
+<summary>catch</summary>
+<ul>
+<li><code>catch</code> exceptions by reference or pointer</li>
+<li><code>catch(BUG *e)</code> — we need <code>delete e</code> in the handler</li>
+<li><code>catch(BUG &amp;e)</code> — we need care when to destruct <code>e</code></li>
+</ul>
+</details>
 <div id="__comments">
 <!-- 主题颜色 
     <div class="mdx-switch">
@@ -648,6 +1149,34 @@
           </a>
 </main>
 <footer class="md-footer">
+<nav aria-label="页脚" class="md-footer__inner md-grid">
+<a aria-label="上一页: Templates" class="md-footer__link md-footer__link--prev" href="../Lec08/" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                  上一页
+                </span>
+                Templates
+              </div>
+</div>
+</a>
+<a aria-label="下一页: 密码学" class="md-footer__link md-footer__link--next" href="../../Crypto/" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                  下一页
+                </span>
+                密码学
+              </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
+</div>
+</a>
+</nav>
 <div class="md-footer-meta md-typeset">
 <div class="md-footer-meta__inner md-grid">
 <div class="md-copyright">
