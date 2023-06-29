@@ -995,6 +995,8 @@
 <li>Order of initialization is order of <strong>declaration</strong><ul>
 <li>Not the order in list!</li>
 <li>Destoryed in reverse order of declaration</li>
+<li>比如即便在 Initializer list 中 <code>Point(float xa = 0.0, float ya = 0.0): y(ya), x(xa){}</code>， <code>ya</code> 在 <code>xa</code> 之前声明，但是由于成员变量声明 <code>x</code> 在 <code>y</code> 之前，所以 <code>x</code> 会先被初始化</li>
+<li><code>Point(float xa = 0.0, float ya = 0.0): y(ya), x(y){}</code> 就不会符合 <code>x = y = ya</code></li>
 </ul>
 </li>
 </ul>
