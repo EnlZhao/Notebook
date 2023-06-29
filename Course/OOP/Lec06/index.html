@@ -748,7 +748,7 @@ Shape : erase()
 <div class="admonition abstract">
 <p class="admonition-title">What is Inheritance</p>
 <ul>
-<li>Language implementtions technique</li>
+<li>Language implementions technique</li>
 <li>Also an important component of the OOP design methodology</li>
 <li>Allows sharing of design for<ul>
 <li>Member variables</li>
@@ -853,8 +853,8 @@ Shape : erase()
 <ul>
 <li>继承的变量，最好使用继承的函数来操作</li>
 <li>父类的东西在子类中都存在，但子类无法直接使用父类中的 <code>private variable</code>，但是可以通过 <code>public function</code> 来操作</li>
-<li><code>name hide</code> (C++ 中特有的)，父类中重载的函数，如果在子类中重写了其中的一个那么父类的重载函数在子类中都不存在了 (如 main.cpp 中的 <code>m.print("Manager")</code> 就是错误的)</li>
-<li>父类的 <code>protected variable</code> 在子类中相当于子类的 <code>private variable</code></li>
+<li><u><code>name hide</code> (C++ 中特有的)，父类中重载的函数，如果在子类中重写了其中的一个那么父类的重载函数在子类中都不存在了 (如 main.cpp 中的 <code>m.print("Manager")</code> 就是错误的)</u></li>
+<li><u>父类的 <code>protected variable</code> 在子类中相当于子类的 <code>private variable</code></u></li>
 <li><u>子类的地址中，第一部分存的是父类的变量，第二部分才是自己的，故一般先初始化父类对象</u></li>
 <li><u>当用子类来看作一个父类的对象，只对子类地址前面的部分操作就是对父类的操作</u></li>
 <li>Scpoes and access in C++<br/>
