@@ -844,16 +844,20 @@
 </ul>
 <details class="example">
 <summary>Example</summary>
-<p><div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Y</span><span class="p">{</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Y</span><span class="p">{</span>
 <a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">f</span><span class="p">;</span>
 <a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
 <a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="w">    </span><span class="n">Y</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">);</span>
 <a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="p">}</span>
-</code></pre></div><br/>
-* 此时: <br/>
-    * <code>Y y1[] = {Y(1), Y(2), Y(3)};</code> √<br/>
-    * <code>Y y2[2] = {Y(1)};</code> × (Y 有构造函数且不是默认构造函数, 如代码需要给出两个构造函数)<br/>
-    * <code>Y y3[7];</code> × (同理，有默认构造函数才可以这么写)</p>
+</code></pre></div>
+<ul>
+<li>此时: <ul>
+<li><code>Y y1[] = {Y(1), Y(2), Y(3)};</code> √</li>
+<li><code>Y y2[2] = {Y(1)};</code> × (Y 有构造函数且不是默认构造函数, 如代码需要给出两个构造函数)</li>
+<li><code>Y y3[7];</code> × (同理，有默认构造函数才可以这么写)</li>
+</ul>
+</li>
+</ul>
 </details>
 </li>
 </ul>
@@ -933,8 +937,10 @@
 <a href="#__codelineno-8-5" id="__codelineno-8-5" name="__codelineno-8-5"></a>~31,17<span class="w">  </span><span class="c1"># 对应 d</span>
 <a href="#__codelineno-8-6" id="__codelineno-8-6" name="__codelineno-8-6"></a>~3,4<span class="w">    </span><span class="c1"># 对应 b</span>
 <a href="#__codelineno-8-7" id="__codelineno-8-7" name="__codelineno-8-7"></a>~1,2<span class="w">    </span><span class="c1"># 对应 a</span>
-</code></pre></div><br/>
-* 因为 c 出了括号就结束了，所以先被析构</p>
+</code></pre></div></p>
+<ul>
+<li>因为 c 出了括号就结束了，所以先被析构</li>
+</ul>
 </details>
 </li>
 </ul>
@@ -1008,16 +1014,20 @@
 </li>
 </ul>
 </li>
-<li>Standard header file structure<ul>
-<li>All .h files should look like this: <br/>
+<li>
+<ul>
+<li>All .h files should look like this: </li>
+</ul>
+<p>Standard header file structure</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="cp">#ifdef  HEADER_FLAG</span>
 <a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="cp">#define HEADER_FLAG</span>
 <a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="c1">//Type declaration here</span>
 <a href="#__codelineno-11-4" id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="cp">#endif  </span><span class="c1">//HEADER_FLAG</span>
-</code></pre></div></li>
-</ul>
+</code></pre></div>
 </li>
-<li>Tips for header<ul>
+<li>
+<p>Tips for header</p>
+<ul>
 <li>One class declaration per header file</li>
 <li>Associated with one source file in the same prefix of file name</li>
 <li>The contents of a header file is surrounded with <code>#ifdef #define #endif</code> </li>
