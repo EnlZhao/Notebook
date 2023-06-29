@@ -809,7 +809,7 @@
 <a href="#__codelineno-3-13" id="__codelineno-3-13" name="__codelineno-3-13"></a><span class="p">}</span>
 </code></pre></div>
 <ul>
-<li>此时若 Date 对象为 const，那么只能调用 const 成员函数，否则会报错</li>
+<li><u>成员函数声明尾部带有 const，那么只能调用带有 const 的成员函数且无法修改成员函数等</u></li>
 <li>Const member function usage<ul>
 <li>Repeat the <code>const</code> keyword in the function declaration and definition if the function is defined outside the class definition</li>
 <li><code>int get_day() const;</code> &amp; <code>int Date::get_day() const { ... }</code></li>
