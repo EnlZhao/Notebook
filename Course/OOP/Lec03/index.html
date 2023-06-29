@@ -926,13 +926,11 @@
 </details>
 <details class="warning">
 <summary>Pitfalls</summary>
-<ul>
-<li>Not using <code>empty()</code> on list&lt;&gt;<ul>
-<li>Slow <code>if(my_list.count() == 0) { }</code></li>
-<li>Fast <code>if(my_list.empty()) { }</code></li>
-</ul>
-</li>
-</ul>
+<!--
+* Not using <code>empty()</code> on list<>
+    * Slow <code>if(my_list.count() == 0) { }</code>
+    * Fast <code>if(my_list.empty()) { }</code>
+-->
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">WRONG</label><label for="__tabbed_2_2">RIGHT</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
