@@ -36,12 +36,12 @@ date: 2023-04-03 12:00
     * Algorithms
     * Iterators
 * Top 3 data structures
-    * map
+    * `map`
         * Any key type, any value type
         * sorted
-    * vector
+    * `vector`
         * like c array, but auto-extending
-    * list
+    * `list`
         * doubly-linked list
 * All Sequential Containers
     * vector: variable array
@@ -163,9 +163,11 @@ date: 2023-04-03 12:00
     * Note the termination condition for the for loop: `p != s.end()`
 
 ??? warning "Pitfalls"
+    <!--
     * Not using `empty()` on list<>
         * Slow `if(my_list.count() == 0) { }`
         * Fast `if(my_list.empty()) { }`
+    -->
 
     === "WRONG"
         * Using invalid iterator

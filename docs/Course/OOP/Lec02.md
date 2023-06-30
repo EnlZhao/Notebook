@@ -53,7 +53,7 @@ date: 2023-03-03 14:00
 * Guaranteed initialization with the constructor
     * If a class has a constructor, the compiler automatically calls that constructor at the point an object is created, before client programmers can get their hands on the object.
     * The name of the constructor is the same as the name of the class
-    * 在 class 中构造函数，函数名和类的名字一致 (无返回类型)
+    * `class` 中的构造函数，函数名和类的名字一致 (无返回类型)
 * Constructors with arguments
     * The constructor can have arguments to allow you to specify how an object is created, give it initialization values, and so on.
     * 当同名成员函数存在参数时，用类构造对象的时候要主动给出相应的值, 如 `Point a(1, 1);`
@@ -142,6 +142,7 @@ date: 2023-03-03 14:00
             Y(int a);
         }
         ```
+
         * 此时: 
             * `Y y1[] = {Y(1), Y(2), Y(3)};` √
             * `Y y2[2] = {Y(1)};` × (Y 有构造函数且不是默认构造函数, 如代码需要给出两个构造函数)
@@ -151,7 +152,7 @@ date: 2023-03-03 14:00
 
 * In C++, cleanuo is as important as initialization and is therefore guaranteed with the destructor
 * The destructor is named after the name of the class with a leading tidle (~). The destructor never has any arguments.
-    * Thedestructor is called automatically by the compiler when the objects goes out of scope.
+    * The destructor is called automatically by the compiler when the objects goes out of scope.
     * The only evidence for a destructor call is the closing brace of the scope that surrounds the object.
     * 如下，析构函数 `~Y();` 会在对象的空间被回收之前被自动调用.
 
@@ -227,6 +228,7 @@ date: 2023-03-03 14:00
         ~3,4    # 对应 b
         ~1,2    # 对应 a
         ```
+
         * 因为 c 出了括号就结束了，所以先被析构
 
 ??? info "Global objects"
@@ -270,8 +272,10 @@ date: 2023-03-03 14:00
     * pseduo-constructor calls for built-in types
     * No need to perform assignment within body of constructor
 * Order of initialization is order of **declaration**
-    * Not the order in in list!
+    * Not the order in Initializer list!
     * Destoryed in reverse order of declaration
+    * 比如即便在 Initializer list 中 `Point(float xa = 0.0, float ya = 0.0): y(ya), x(xa){}`， `ya` 在 `xa` 之前声明，但是由于成员变量声明 `x` 在 `y` 之前，所以 `x` 会先被初始化
+    * `Point(float xa = 0.0, float ya = 0.0): y(ya), x(y){}` 就不会符合 `x = y = ya`
 
 ### Others
 
@@ -284,14 +288,16 @@ date: 2023-03-03 14:00
             * class/struct declaration
             * inline function
             * Others are Definitions
-    * Standard header file structure
+    * Standard header file structure 
         * All .h files should look like this: 
+
         ```c++
         #ifdef  HEADER_FLAG
         #define HEADER_FLAG
         //Type declaration here
         #endif  //HEADER_FLAG
         ```
+
     * Tips for header
         * One class declaration per header file
         * Associated with one source file in the same prefix of file name

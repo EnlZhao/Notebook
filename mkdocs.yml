@@ -42,6 +42,12 @@ nav:
       - Object Interactive: Course/OOP/Lec04.md
       - Key Words: Course/OOP/Lec05.md
       - Inheritance & Polymorphism: Course/OOP/Lec06.md
+      - Copt Ctor & Overloaded Operators: Course/OOP/Lec07.md
+      - Templates: Course/OOP/Lec08.md
+      - Exception Handling: Course/OOP/Lec09.md
+      - Smart Pointers: Course/OOP/Lec10.md
+      - Class Design: Course/OOP/Lec11.md
+      - Streams & 继承构造函数: Course/OOP/Lec12.md
     - 密码学:
       - 密码学: Course/Crypto/index.md
       - 数学基础: Course/Crypto/Lec01.md

@@ -2,7 +2,7 @@
 date: 2023-03-03 14:00
 ---
 
-# Beginning
+# Beginning | 第一个程序
 
 !!! abstract
     OOP 三大特性 - 封装、继承、多态
@@ -309,7 +309,7 @@ void S::f()
 
 * < Class Name > :: < function name > (:: 是符号, not operator)
 * :: < function name >
-* `::f();` 在当前语境下，若不加 '::' 表示调用自己。加上 '::' 表示 f 不是自己，是 free 的函数
+* `::f();` 在当前语境下，若不加 '::' 表示调用自己。加上 '::' 表示 f 不是自己，是 free/global 的函数
 * 同理, `::a++;` 也表示全局变量 a; `a--;` 指成员变量 a
  
 ### Stash
@@ -352,6 +352,3 @@ void S::f()
         }
     }
     ```
-
-
-
