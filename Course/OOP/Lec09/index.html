@@ -1080,11 +1080,15 @@
 </ul>
 </details>
 <h3 id="failure-in-dtors">Failure in Dtors<a class="headerlink" href="#failure-in-dtors" title="Permanent link">👀</a></h3>
-<p>Destructors are called when:<br/>
-* Normal call: object exists from scope<br/>
-* Durong exceptions: stack unwinding invokes dtors on objects as scope is existed</p>
+<p>Destructors are called when:</p>
 <ul>
-<li>Throwing an exception in a dtor that is itself being called as the result of an exception will invoke <code>std::terminate()</code><ul>
+<li>Normal call: object exists from scope</li>
+<li>
+<p>Durong exceptions: stack unwinding invokes dtors on objects as scope is existed</p>
+</li>
+<li>
+<p>Throwing an exception in a dtor that is itself being called as the result of an exception will invoke <code>std::terminate()</code></p>
+<ul>
 <li>Allowing exceptions to escape from dtors should be avoided</li>
 </ul>
 </li>
