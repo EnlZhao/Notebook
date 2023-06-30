@@ -1397,7 +1397,7 @@ which statement is RIGHT for the line in the function <code>f()</code>?<br/>
 <p class="admonition-title">右值引用</p>
 <ul>
 <li><code>int x = 20;</code> 左值</li>
-<li><code>int&amp;&amp; rx = x * 2;</code> x*2 的结果是一个右值，rx 延长其声明周期；rx 是右值引用（对右值的引用）-&gt; 相当于把右值先固定下来</li>
+<li><code>int&amp;&amp; rx = x * 2;</code> x*2 的结果是一个右值，rx 延长其生命周期；rx 是右值引用（对右值的引用）-&gt; 相当于把右值先固定下来</li>
 <li><code>int y = rx + 2;</code> 因此你可以重用它：42</li>
 <li><code>rx = 100;</code> 一旦你初始化一个右值引用变量，该变量就成为了一个左值，可以被赋值</li>
 <li><code>int&amp;&amp; rrx1 = x;</code> ERROR：右值引用无法被左值初始化</li>
