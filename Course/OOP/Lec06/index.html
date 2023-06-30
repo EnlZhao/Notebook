@@ -1276,7 +1276,7 @@ Shape : erase()
 <a href="#__codelineno-17-11" id="__codelineno-17-11" name="__codelineno-17-11"></a><span class="p">}</span>
 </code></pre></div>
 <ul>
-<li>父类中有 <code>virtual</code>, 子类可以不加 <code>virtual</code>. 但习惯上还是加上 <code>virtual</code>，以免子类的继承者忘记加上 <code>virtual</code> 导致无法动态绑定</li>
+<li>父类中有 <code>virtual</code>, 子类可以不加 <code>virtual</code>. 但习惯上还是加上 <code>virtual</code>，以免子类的继承者忘记加上 <code>virtual</code> 导致无法动态绑定 (貌似并不需要，测试了一下，不加 <code>virtual</code> 也可以动态绑定)</li>
 </ul>
 </li>
 </ul>
@@ -1327,16 +1327,18 @@ Shape : erase()
 <div class="admonition tip">
 <p class="admonition-title">Tips</p>
 <ul>
-<li>Never redefine an inherited non-virtual function<ul>
+<li>
+<p>Never redefine an inherited non-virtual function</p>
+<ul>
 <li>Non-virtual functions are statically bound</li>
 <li>No dynamic dispatch</li>
 </ul>
 </li>
 <li>
+<p>Never redefine an inherited default parameter value</p>
 <ul>
 <li>默认参数只是出现在头文件中，不是静态绑定（若在子类中修改，结果不一定符合预期）</li>
 </ul>
-<p>Never redefine an inherited default parameter value</p>
 <details class="example">
 <summary>Example</summary>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-19-1" id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Base</span>
