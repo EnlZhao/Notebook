@@ -498,6 +498,49 @@
 <a class="md-nav__link" href="#_1">
     继承构造函数
   </a>
+<nav aria-label="继承构造函数" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#using">
+    using 声明
+  </a>
+<nav aria-label="using 声明" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+    隐式声明
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+    委派构造函数
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#vs">
+    浅拷贝 VS 深拷贝
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+    移动语义
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_5">
+    移动构造函数
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_6">
+    左值、右值和右值引用
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -729,6 +772,49 @@
 <a class="md-nav__link" href="#_1">
     继承构造函数
   </a>
+<nav aria-label="继承构造函数" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#using">
+    using 声明
+  </a>
+<nav aria-label="using 声明" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+    隐式声明
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+    委派构造函数
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#vs">
+    浅拷贝 VS 深拷贝
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+    移动语义
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_5">
+    移动构造函数
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_6">
+    左值、右值和右值引用
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -986,8 +1072,9 @@
 <li>Stream flags control formatting</li>
 </ul>
 <p><img alt="" src="../../../Images/2023-07-11-19-29-25.png"/></p>
-<div class="highlight"><pre><span></span><code>* 全部设置直接用 `or` 即可，不同 `flag` 占据不同 bit 位
-</code></pre></div>
+<ul>
+<li>全部设置直接用 <code>or</code> 即可，不同 <code>flag</code> 占据不同 bit 位</li>
+</ul>
 </details>
 <details class="example">
 <summary>Example</summary>
@@ -1115,10 +1202,10 @@
 <summary>More stream operations</summary>
 <ul>
 <li>
+<p><code>open(const char *, int flags, int)</code></p>
 <ul>
 <li>Open a specific file</li>
 </ul>
-<p><code>open(const char *, int flags, int)</code></p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="n">ifstream</span><span class="w"> </span><span class="n">in</span><span class="p">;</span>
 <a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="n">in</span><span class="p">.</span><span class="n">open</span><span class="p">(</span><span class="s">"file.txt"</span><span class="p">,</span><span class="w"> </span><span class="n">ios</span><span class="o">::</span><span class="n">in</span><span class="p">);</span>
 <a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">in</span><span class="p">)</span>
@@ -1133,6 +1220,300 @@
 </ul>
 </details>
 <h2 id="_1">继承构造函数<a class="headerlink" href="#_1" title="Permanent link">👀</a></h2>
+<ul>
+<li>类具有可派生性，派生类自动获得基类的成员变量和接口（虚函数和纯虚函数）</li>
+<li>基类的构造函数也没有被继承，因此</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">A</span>
+<a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="p">{</span>
+<a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="k">public</span><span class="o">:</span>
+<a href="#__codelineno-12-4" id="__codelineno-12-4" name="__codelineno-12-4"></a><span class="w">    </span><span class="n">A</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
+<a href="#__codelineno-12-5" id="__codelineno-12-5" name="__codelineno-12-5"></a><span class="p">};</span>
+<a href="#__codelineno-12-6" id="__codelineno-12-6" name="__codelineno-12-6"></a>
+<a href="#__codelineno-12-7" id="__codelineno-12-7" name="__codelineno-12-7"></a><span class="k">class</span><span class="w"> </span><span class="nc">B</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">A</span>
+<a href="#__codelineno-12-8" id="__codelineno-12-8" name="__codelineno-12-8"></a><span class="p">{</span>
+<a href="#__codelineno-12-9" id="__codelineno-12-9" name="__codelineno-12-9"></a><span class="k">public</span><span class="o">:</span>
+<a href="#__codelineno-12-10" id="__codelineno-12-10" name="__codelineno-12-10"></a><span class="w">    </span><span class="n">B</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">A</span><span class="p">(</span><span class="n">i</span><span class="p">),</span><span class="w"> </span><span class="n">d</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
+<a href="#__codelineno-12-11" id="__codelineno-12-11" name="__codelineno-12-11"></a><span class="k">private</span><span class="o">:</span>
+<a href="#__codelineno-12-12" id="__codelineno-12-12" name="__codelineno-12-12"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">d</span><span class="p">;</span>
+<a href="#__codelineno-12-13" id="__codelineno-12-13" name="__codelineno-12-13"></a><span class="p">};</span>
+</code></pre></div>
+<ul>
+<li>B 的构造函数起到了传递参数给 A 的构造函数的作用 ： 透传</li>
+<li>如果 A 具有不止一个构造函数，B 往往要设计对应的多个透传</li>
+</ul>
+<h3 id="using"><code>using</code> 声明<a class="headerlink" href="#using" title="Permanent link">👀</a></h3>
+<ul>
+<li>派生类用 <code>using</code> 声明来使基类的成员函数成为自己的<ul>
+<li>解决 <code>name hiding</code> 问题：非虚函数被 <code>using</code> 后成为派生类的函数</li>
+<li>解决构造函数重载问题</li>
+</ul>
+</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1">code</label><label for="__tabbed_3_2">explanation</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Base</span>
+<a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="p">{</span>
+<a href="#__codelineno-13-3" id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="k">public</span><span class="o">:</span>
+<a href="#__codelineno-13-4" id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span>
+<a href="#__codelineno-13-5" id="__codelineno-13-5" name="__codelineno-13-5"></a><span class="w">    </span><span class="p">{</span>
+<a href="#__codelineno-13-6" id="__codelineno-13-6" name="__codelineno-13-6"></a><span class="w">        </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"double</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+<a href="#__codelineno-13-7" id="__codelineno-13-7" name="__codelineno-13-7"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-13-8" id="__codelineno-13-8" name="__codelineno-13-8"></a><span class="p">};</span>
+<a href="#__codelineno-13-9" id="__codelineno-13-9" name="__codelineno-13-9"></a><span class="k">class</span><span class="w"> </span><span class="nc">Dereived</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Base</span><span class="w"> </span><span class="c1">// 不是 public 继承</span>
+<a href="#__codelineno-13-10" id="__codelineno-13-10" name="__codelineno-13-10"></a><span class="p">{</span>
+<a href="#__codelineno-13-11" id="__codelineno-13-11" name="__codelineno-13-11"></a><span class="k">public</span><span class="o">:</span><span class="w"> </span>
+<a href="#__codelineno-13-12" id="__codelineno-13-12" name="__codelineno-13-12"></a><span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">Base</span><span class="o">:</span><span class="n">f</span><span class="p">;</span>
+<a href="#__codelineno-13-13" id="__codelineno-13-13" name="__codelineno-13-13"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span>
+<a href="#__codelineno-13-14" id="__codelineno-13-14" name="__codelineno-13-14"></a><span class="w">    </span><span class="p">{</span>
+<a href="#__codelineno-13-15" id="__codelineno-13-15" name="__codelineno-13-15"></a><span class="w">        </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"int</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+<a href="#__codelineno-13-16" id="__codelineno-13-16" name="__codelineno-13-16"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-13-17" id="__codelineno-13-17" name="__codelineno-13-17"></a><span class="p">};</span>
+<a href="#__codelineno-13-18" id="__codelineno-13-18" name="__codelineno-13-18"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<a href="#__codelineno-13-19" id="__codelineno-13-19" name="__codelineno-13-19"></a><span class="p">{</span>
+<a href="#__codelineno-13-20" id="__codelineno-13-20" name="__codelineno-13-20"></a><span class="w">    </span><span class="n">Derived</span><span class="w"> </span><span class="n">d</span><span class="p">;</span>
+<a href="#__codelineno-13-21" id="__codelineno-13-21" name="__codelineno-13-21"></a><span class="w">    </span><span class="n">d</span><span class="p">.</span><span class="n">f</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+<a href="#__codelineno-13-22" id="__codelineno-13-22" name="__codelineno-13-22"></a><span class="w">    </span><span class="n">d</span><span class="p">.</span><span class="n">f</span><span class="p">(</span><span class="mf">4.5</span><span class="p">);</span>
+<a href="#__codelineno-13-23" id="__codelineno-13-23" name="__codelineno-13-23"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a href="#__codelineno-13-24" id="__codelineno-13-24" name="__codelineno-13-24"></a><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<ul>
+<li>因为没有 <code>public</code> 继承，在子类中父类的 <code>f(double)</code> 并不存在。就算使用 <code>public</code> 继承，由于重载，子类中还是只有一个 <code>f(int)</code></li>
+<li>因为 <code>using</code> 的存在，子类中有了父类的 <code>f(double)</code></li>
+</ul>
+</div>
+</div>
+</input></input></div>
+<h4 id="_2">隐式声明<a class="headerlink" href="#_2" title="Permanent link">👀</a></h4>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">A</span>
+<a href="#__codelineno-14-2" id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="p">{</span>
+<a href="#__codelineno-14-3" id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="w">    </span><span class="n">A</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"int</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a href="#__codelineno-14-4" id="__codelineno-14-4" name="__codelineno-14-4"></a><span class="w">    </span><span class="n">A</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">d</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
+<a href="#__codelineno-14-5" id="__codelineno-14-5" name="__codelineno-14-5"></a><span class="w">    </span><span class="n">A</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
+<a href="#__codelineno-14-6" id="__codelineno-14-6" name="__codelineno-14-6"></a><span class="p">};</span>
+<a href="#__codelineno-14-7" id="__codelineno-14-7" name="__codelineno-14-7"></a>
+<a href="#__codelineno-14-8" id="__codelineno-14-8" name="__codelineno-14-8"></a><span class="k">class</span><span class="w"> </span><span class="nc">B</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">A</span>
+<a href="#__codelineno-14-9" id="__codelineno-14-9" name="__codelineno-14-9"></a><span class="p">{</span>
+<a href="#__codelineno-14-10" id="__codelineno-14-10" name="__codelineno-14-10"></a><span class="k">public</span><span class="o">:</span>
+<a href="#__codelineno-14-11" id="__codelineno-14-11" name="__codelineno-14-11"></a><span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">A</span><span class="o">::</span><span class="n">A</span><span class="p">;</span>
+<a href="#__codelineno-14-12" id="__codelineno-14-12" name="__codelineno-14-12"></a><span class="p">};</span>
+<a href="#__codelineno-14-13" id="__codelineno-14-13" name="__codelineno-14-13"></a>
+<a href="#__codelineno-14-14" id="__codelineno-14-14" name="__codelineno-14-14"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<a href="#__codelineno-14-15" id="__codelineno-14-15" name="__codelineno-14-15"></a><span class="p">{</span>
+<a href="#__codelineno-14-16" id="__codelineno-14-16" name="__codelineno-14-16"></a><span class="w">    </span><span class="n">B</span><span class="w"> </span><span class="n">b</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<a href="#__codelineno-14-17" id="__codelineno-14-17" name="__codelineno-14-17"></a><span class="p">}</span>
+</code></pre></div>
+<ul>
+<li>继承构造函数是隐式声明的，如果没有用到就不产生代码</li>
+<li>隐式声明的好处就是不用到的就不产生实际代码，比如上述程序只会产生 <code>A(int i)</code> 代码</li>
+<li><code>using A::A</code> 表示把所有 A 都派生掉（<code>using</code> 不用给出参数表）</li>
+</ul>
+<details class="note" open="open">
+<summary>默认参数</summary>
+<ul>
+<li>
+<p>如果基类的函数具有默认参数值，<code>using</code> 的派生类无法得到默认参数值，就必须转为多个重载的函数</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">A</span>
+<a href="#__codelineno-15-2" id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="p">{</span>
+<a href="#__codelineno-15-3" id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="k">public</span><span class="o">:</span>
+<a href="#__codelineno-15-4" id="__codelineno-15-4" name="__codelineno-15-4"></a><span class="w">    </span><span class="n">A</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2.4</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
+<a href="#__codelineno-15-5" id="__codelineno-15-5" name="__codelineno-15-5"></a><span class="p">};</span>
+</code></pre></div>
+</li>
+<li>
+<p>实际上可以被看做是：</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="n">A</span><span class="p">(</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="p">);</span>
+<a href="#__codelineno-16-2" id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="n">A</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span>
+<a href="#__codelineno-16-3" id="__codelineno-16-3" name="__codelineno-16-3"></a><span class="n">A</span><span class="p">();</span>
+</code></pre></div>
+</li>
+<li>
+<p>那么，被 <code>using</code> 后就会产生相应的多个函数</p>
+</li>
+<li>即，默认参数无法被派生</li>
+</ul>
+</details>
+<ul>
+<li>多继承且多处继承构造函数时，可能出现的重载冲突只能通过主动定义派生类的构造函数来解决</li>
+<li>不能声明继承构造函数的情况：<ul>
+<li>基类的构造函数时私有的</li>
+<li>派生类是从基类中虚继承的</li>
+</ul>
+</li>
+<li>一旦声明了继承构造函数，就不会再生成自动默认构造函数</li>
+<li><u>自己主动定义的构造优先级大于继承的</u></li>
+</ul>
+<h3 id="_3">委派构造函数<a class="headerlink" href="#_3" title="Permanent link">👀</a></h3>
+<ul>
+<li>如果重载的多个版本的构造函数内要做相同的事情<ul>
+<li>显然代码复制是不良设计的突出表现</li>
+<li>在构造函数内调用某个函数的问题是它发生在初始化之后</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Info</span>
+<a href="#__codelineno-17-2" id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="p">{</span>
+<a href="#__codelineno-17-3" id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="k">public</span><span class="o">:</span>
+<a href="#__codelineno-17-4" id="__codelineno-17-4" name="__codelineno-17-4"></a><span class="w">    </span><span class="n">Info</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">Init</span><span class="p">();</span><span class="w"> </span><span class="p">}</span><span class="w">  </span><span class="c1">// 目标</span>
+<a href="#__codelineno-17-5" id="__codelineno-17-5" name="__codelineno-17-5"></a><span class="w">    </span><span class="n">Info</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Info</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;}</span><span class="w">   </span><span class="c1">// 委派</span>
+<a href="#__codelineno-17-6" id="__codelineno-17-6" name="__codelineno-17-6"></a><span class="w">    </span><span class="n">Info</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Info</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">e</span><span class="p">;}</span><span class="w">  </span><span class="c1">// 委派</span>
+<a href="#__codelineno-17-7" id="__codelineno-17-7" name="__codelineno-17-7"></a><span class="p">};</span>
+</code></pre></div>
+<hr/>
+<p>目标构造函数的执行先于委派构造函数<br/>
+构造函数不能同时委派和初始化列表 | 在构造函数内赋值不是最好的选择<br/>
+* 委派关系可以形成链接, 但要防止出现循环链接</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-18-1" id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Info</span>
+<a href="#__codelineno-18-2" id="__codelineno-18-2" name="__codelineno-18-2"></a><span class="p">{</span>
+<a href="#__codelineno-18-3" id="__codelineno-18-3" name="__codelineno-18-3"></a><span class="k">public</span><span class="o">:</span>
+<a href="#__codelineno-18-4" id="__codelineno-18-4" name="__codelineno-18-4"></a><span class="w">    </span><span class="n">Info</span><span class="p">()</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Info</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="sc">'a'</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1">// 委派</span>
+<a href="#__codelineno-18-5" id="__codelineno-18-5" name="__codelineno-18-5"></a><span class="w">    </span><span class="n">Info</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Info</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="sc">'a'</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1">// 委派</span>
+<a href="#__codelineno-18-6" id="__codelineno-18-6" name="__codelineno-18-6"></a><span class="w">    </span><span class="n">Info</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Info</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1">// 委派</span>
+<a href="#__codelineno-18-7" id="__codelineno-18-7" name="__codelineno-18-7"></a><span class="k">private</span><span class="o">:</span>
+<a href="#__codelineno-18-8" id="__codelineno-18-8" name="__codelineno-18-8"></a><span class="w">    </span><span class="n">Info</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">type</span><span class="p">(</span><span class="n">i</span><span class="p">),</span><span class="w"> </span><span class="n">name</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1">// 目标</span>
+<a href="#__codelineno-18-9" id="__codelineno-18-9" name="__codelineno-18-9"></a><span class="p">};</span>
+</code></pre></div>
+<h3 id="vs">浅拷贝 VS 深拷贝<a class="headerlink" href="#vs" title="Permanent link">👀</a></h3>
+<ul>
+<li>浅拷贝：编译器自动产生的拷贝构造函数，会执行 member-wise copy</li>
+</ul>
+<blockquote>
+<p>当有成员变量是指针时，这种拷贝是有害的, 所以必须编写自己的拷贝构造函数来实现深拷贝</p>
+</blockquote>
+<details class="example">
+<summary>Example</summary>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-19-1" id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">C</span>
+<a href="#__codelineno-19-2" id="__codelineno-19-2" name="__codelineno-19-2"></a><span class="p">{</span>
+<a href="#__codelineno-19-3" id="__codelineno-19-3" name="__codelineno-19-3"></a><span class="w">    </span><span class="n">C</span><span class="p">()</span><span class="o">:</span><span class="n">i</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span><span class="w"> </span>
+<a href="#__codelineno-19-4" id="__codelineno-19-4" name="__codelineno-19-4"></a><span class="w">    </span><span class="p">{</span><span class="w"> </span>
+<a href="#__codelineno-19-5" id="__codelineno-19-5" name="__codelineno-19-5"></a><span class="w">        </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"none argument constructor called"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<a href="#__codelineno-19-6" id="__codelineno-19-6" name="__codelineno-19-6"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-19-7" id="__codelineno-19-7" name="__codelineno-19-7"></a><span class="w">    </span><span class="c1">// 增加此拷贝构造函数，根据传入的 c，new 一个新的 int 给 i 变量</span>
+<a href="#__codelineno-19-8" id="__codelineno-19-8" name="__codelineno-19-8"></a><span class="w">    </span><span class="n">C</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">C</span><span class="o">&amp;</span><span class="w"> </span><span class="n">c</span><span class="p">)</span><span class="o">:</span><span class="n">i</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="o">*</span><span class="n">c</span><span class="p">.</span><span class="n">i</span><span class="p">))</span>
+<a href="#__codelineno-19-9" id="__codelineno-19-9" name="__codelineno-19-9"></a><span class="w">    </span><span class="p">{</span>
+<a href="#__codelineno-19-10" id="__codelineno-19-10" name="__codelineno-19-10"></a><span class="w">        </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"copy constructor called"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<a href="#__codelineno-19-11" id="__codelineno-19-11" name="__codelineno-19-11"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-19-12" id="__codelineno-19-12" name="__codelineno-19-12"></a><span class="w">    </span><span class="o">~</span><span class="n">C</span><span class="p">()</span>
+<a href="#__codelineno-19-13" id="__codelineno-19-13" name="__codelineno-19-13"></a><span class="w">    </span><span class="p">{</span>
+<a href="#__codelineno-19-14" id="__codelineno-19-14" name="__codelineno-19-14"></a><span class="w">        </span><span class="k">delete</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<a href="#__codelineno-19-15" id="__codelineno-19-15" name="__codelineno-19-15"></a><span class="w">        </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"destructor called"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<a href="#__codelineno-19-16" id="__codelineno-19-16" name="__codelineno-19-16"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-19-17" id="__codelineno-19-17" name="__codelineno-19-17"></a><span class="w">    </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<a href="#__codelineno-19-18" id="__codelineno-19-18" name="__codelineno-19-18"></a><span class="p">};</span>
+</code></pre></div>
+</details>
+<h3 id="_4">移动语义<a class="headerlink" href="#_4" title="Permanent link">👀</a></h3>
+<ul>
+<li>但拷贝函数中为指针成员分配新的内存再进行内容拷贝的方法有时候不是必须的</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio"><input id="__tabbed_4_2" name="__tabbed_4" type="radio"><div class="tabbed-labels"><label for="__tabbed_4_1">code</label><label for="__tabbed_4_2">explanation</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-20-1" id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">HasPtrMem</span>
+<a href="#__codelineno-20-2" id="__codelineno-20-2" name="__codelineno-20-2"></a><span class="p">{</span>
+<a href="#__codelineno-20-3" id="__codelineno-20-3" name="__codelineno-20-3"></a><span class="k">public</span><span class="o">:</span>
+<a href="#__codelineno-20-4" id="__codelineno-20-4" name="__codelineno-20-4"></a><span class="w">    </span><span class="n">HasPtrMem</span><span class="p">()</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">d</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+<a href="#__codelineno-20-5" id="__codelineno-20-5" name="__codelineno-20-5"></a><span class="w">    </span><span class="p">{</span>
+<a href="#__codelineno-20-6" id="__codelineno-20-6" name="__codelineno-20-6"></a><span class="w">        </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"Construct: "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">++</span><span class="n">n_cstr</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<a href="#__codelineno-20-7" id="__codelineno-20-7" name="__codelineno-20-7"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-20-8" id="__codelineno-20-8" name="__codelineno-20-8"></a><span class="w">    </span><span class="n">HasPtrMem</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">HasPtrMem</span><span class="o">&amp;</span><span class="w"> </span><span class="n">h</span><span class="p">)</span><span class="w"> </span>
+<a href="#__codelineno-20-9" id="__codelineno-20-9" name="__codelineno-20-9"></a><span class="w">    </span><span class="p">{</span>
+<a href="#__codelineno-20-10" id="__codelineno-20-10" name="__codelineno-20-10"></a><span class="w">        </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"Copy construct: "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">++</span><span class="n">n_cptr</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<a href="#__codelineno-20-11" id="__codelineno-20-11" name="__codelineno-20-11"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-20-12" id="__codelineno-20-12" name="__codelineno-20-12"></a><span class="w">    </span><span class="o">~</span><span class="n">HasPtrMem</span><span class="p">()</span>
+<a href="#__codelineno-20-13" id="__codelineno-20-13" name="__codelineno-20-13"></a><span class="w">    </span><span class="p">{</span>
+<a href="#__codelineno-20-14" id="__codelineno-20-14" name="__codelineno-20-14"></a><span class="w">        </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"Destruct: "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">++</span><span class="n">n_dstr</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<a href="#__codelineno-20-15" id="__codelineno-20-15" name="__codelineno-20-15"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-20-16" id="__codelineno-20-16" name="__codelineno-20-16"></a><span class="k">private</span><span class="o">:</span>
+<a href="#__codelineno-20-17" id="__codelineno-20-17" name="__codelineno-20-17"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">d</span><span class="p">;</span>
+<a href="#__codelineno-20-18" id="__codelineno-20-18" name="__codelineno-20-18"></a><span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n_cstr</span><span class="p">;</span>
+<a href="#__codelineno-20-19" id="__codelineno-20-19" name="__codelineno-20-19"></a><span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n_dstr</span><span class="p">;</span>
+<a href="#__codelineno-20-20" id="__codelineno-20-20" name="__codelineno-20-20"></a><span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n_cptr</span><span class="p">;</span>
+<a href="#__codelineno-20-21" id="__codelineno-20-21" name="__codelineno-20-21"></a><span class="p">};</span>
+<a href="#__codelineno-20-22" id="__codelineno-20-22" name="__codelineno-20-22"></a><span class="kt">int</span><span class="w"> </span><span class="n">HasPtrMem</span><span class="o">::</span><span class="n">n_cstr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a href="#__codelineno-20-23" id="__codelineno-20-23" name="__codelineno-20-23"></a><span class="kt">int</span><span class="w"> </span><span class="n">HasPtrMem</span><span class="o">::</span><span class="n">n_dstr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a href="#__codelineno-20-24" id="__codelineno-20-24" name="__codelineno-20-24"></a><span class="kt">int</span><span class="w"> </span><span class="n">HasPtrMem</span><span class="o">::</span><span class="n">n_cptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a href="#__codelineno-20-25" id="__codelineno-20-25" name="__codelineno-20-25"></a>
+<a href="#__codelineno-20-26" id="__codelineno-20-26" name="__codelineno-20-26"></a><span class="n">HasPtrMem</span><span class="w"> </span><span class="nf">GetTemp</span><span class="p">()</span>
+<a href="#__codelineno-20-27" id="__codelineno-20-27" name="__codelineno-20-27"></a><span class="p">{</span>
+<a href="#__codelineno-20-28" id="__codelineno-20-28" name="__codelineno-20-28"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">HasPtrMem</span><span class="p">();</span><span class="w"> </span><span class="c1">// Ⅰ</span>
+<a href="#__codelineno-20-29" id="__codelineno-20-29" name="__codelineno-20-29"></a><span class="p">}</span>
+<a href="#__codelineno-20-30" id="__codelineno-20-30" name="__codelineno-20-30"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<a href="#__codelineno-20-31" id="__codelineno-20-31" name="__codelineno-20-31"></a><span class="p">{</span>
+<a href="#__codelineno-20-32" id="__codelineno-20-32" name="__codelineno-20-32"></a><span class="w">    </span><span class="n">HasPtrMem</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GetTemp</span><span class="p">();</span><span class="w"> </span><span class="c1">// Ⅱ</span>
+<a href="#__codelineno-20-33" id="__codelineno-20-33" name="__codelineno-20-33"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a href="#__codelineno-20-34" id="__codelineno-20-34" name="__codelineno-20-34"></a><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<ul>
+<li>构造函数被调用 1 次，是在Ⅰ处，第一次调用拷贝构造函数是在 <code>GetTemp</code> return 的时候，将Ⅰ生成的变量拷贝构造出一个临时值，来当作 <code>GetTemp</code> 的返回值</li>
+<li>第二次拷贝构造函数是在Ⅱ处</li>
+<li>同时就有了于此对应的三次析构函数调用</li>
+<li>例子中用的是一个 int 类型的指针，而如果该指针指向的是非常大的堆内存数据的话，那没拷贝过程就会非常耗时，而且由于整个行为是透明且正确的，分析问题时也不易察觉</li>
+</ul>
+<p><img alt="" src="../../../Images/2023-07-12-11-04-44.png"/></p>
+</div>
+</div>
+</input></input></div>
+<h3 id="_5">移动构造函数<a class="headerlink" href="#_5" title="Permanent link">👀</a></h3>
+<ul>
+<li>通过移动构造函数可以解决上述问题（移动构造就是不复制任何的内存）</li>
+</ul>
+<details class="note" open="open">
+<summary>拷贝构造 vs 移动构造</summary>
+<p><img alt="" src="../../../Images/2023-07-12-11-14-33.png"/></p>
+</details>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio"><input id="__tabbed_5_2" name="__tabbed_5" type="radio"><div class="tabbed-labels"><label for="__tabbed_5_1">code</label><label for="__tabbed_5_2">explanation</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-21-1" id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="n">HasPtrMem</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">HasPtrMem</span><span class="o">&amp;</span><span class="w"> </span><span class="n">h</span><span class="p">)</span>
+<a href="#__codelineno-21-2" id="__codelineno-21-2" name="__codelineno-21-2"></a><span class="p">{</span>
+<a href="#__codelineno-21-3" id="__codelineno-21-3" name="__codelineno-21-3"></a><span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"Copy construct: "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">++</span><span class="n">n_cptr</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<a href="#__codelineno-21-4" id="__codelineno-21-4" name="__codelineno-21-4"></a><span class="p">}</span>
+<a href="#__codelineno-21-5" id="__codelineno-21-5" name="__codelineno-21-5"></a><span class="n">HasPteMem</span><span class="p">(</span><span class="n">HasPtrMem</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">h</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">d</span><span class="p">(</span><span class="n">h</span><span class="p">.</span><span class="n">d</span><span class="p">)</span>
+<a href="#__codelineno-21-6" id="__codelineno-21-6" name="__codelineno-21-6"></a><span class="p">{</span>
+<a href="#__codelineno-21-7" id="__codelineno-21-7" name="__codelineno-21-7"></a><span class="w">    </span><span class="n">h</span><span class="p">.</span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span><span class="w">  </span><span class="c1">// Ⅲ 注意对之前的 h 赋空指针</span>
+<a href="#__codelineno-21-8" id="__codelineno-21-8" name="__codelineno-21-8"></a><span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"Move construct: "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">++</span><span class="n">n_mvtr</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<a href="#__codelineno-21-9" id="__codelineno-21-9" name="__codelineno-21-9"></a><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<ul>
+<li>通过指针赋值的方式，将 d 的内存直接“偷”过来，避免了拷贝构造函数的调用</li>
+<li>注意Ⅲ，这里需要对之前的 h 赋空指针，因为在移动构造函数完成后，临时对象会被立即析构，如果不改变 d, 那临时对象被析构时，因偷来的 d 和原本的 d 指向同一块内存，会被释放，成为悬挂指针，导致错误</li>
+<li>为什么不用函数参数里带个指针或引用当返回结果？ — 代码编写效率及可读性差</li>
+</ul>
+</div>
+</div>
+</input></input></div>
+<ul>
+<li>
+<p>移动构造函数何时被触发？</p>
+<ul>
+<li>一旦用到的是个临时变量，那移动构造语义就可以得到执行</li>
+</ul>
+<details class="question">
+<summary>Question</summary>
+<ul>
+<li>在 C++ 中如何判断产生了临时对象？如何将其用于移动构造函数？是否只有临时变量可以用于移动构造？</li>
+<li>Answer:<ol>
+<li>如何判断产生了临时对象？ — 临时对象是指在表达式求值过程中产生的对象，它的生命周期仅仅是表达式的求值过程，表达式求值结束后，临时对象就会被销毁</li>
+<li>如何将其用于移动构造函数？ — 临时对象的生命周期结束后，会调用析构函数，而在析构函数中，会调用移动构造函数</li>
+<li>是否只有临时变量可以用于移动构造？ — 不是，只要是将要被销毁的对象，都可以用于移动构造</li>
+</ol>
+</li>
+</ul>
+</details>
+</li>
+</ul>
+<h3 id="_6">左值、右值和右值引用<a class="headerlink" href="#_6" title="Permanent link">👀</a></h3>
+<blockquote>
+<p>之前提过一点 <a href="../Lec07/#value-classes">最下面</a></p>
+</blockquote>
 <p><center><font color="grey" face="JetBrains Mono" size="18">TODO</font></center></p>
 <div id="__comments">
 <!-- 主题颜色 
