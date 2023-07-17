@@ -1679,16 +1679,45 @@
 <a href="#__codelineno-26-2" id="__codelineno-26-2" name="__codelineno-26-2"></a><span class="k">typedef</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">TR</span><span class="p">;</span>
 <a href="#__codelineno-26-3" id="__codelineno-26-3" name="__codelineno-26-3"></a><span class="n">TR</span><span class="o">&amp;</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 </code></pre></div>
-<blockquote>
-<p>在 C++11 中引入了一条所谓”引用折叠“的新语言规则<br/>
-| TR 的类型定义 | 声明 v 的类型 | v 的实际类型 |<br/>
-| ------------- | ------------- | ------------ |<br/>
-| T&amp;            | TR            | A&amp;           |<br/>
-| T&amp;            | TR&amp;           | A&amp;           |<br/>
-| T&amp;            | TR&amp;&amp;          | A&amp;           |<br/>
-| T&amp;&amp;           | TR            | A&amp;&amp;          |<br/>
-| T&amp;&amp;           | TR&amp;           | A&amp;           |</p>
-</blockquote>
+<ul>
+<li>在 C++11 中引入了一条所谓”引用折叠“的新语言规则</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>TR 的类型定义</th>
+<th>声明 v 的类型</th>
+<th>v 的实际类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>T&amp;</td>
+<td>TR</td>
+<td>A&amp;</td>
+</tr>
+<tr>
+<td>T&amp;</td>
+<td>TR&amp;</td>
+<td>A&amp;</td>
+</tr>
+<tr>
+<td>T&amp;</td>
+<td>TR&amp;&amp;</td>
+<td>A&amp;</td>
+</tr>
+<tr>
+<td>T&amp;&amp;</td>
+<td>TR</td>
+<td>A&amp;&amp;</td>
+</tr>
+<tr>
+<td>T&amp;&amp;</td>
+<td>TR&amp;</td>
+<td>A&amp;</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-27-1" id="__codelineno-27-1" name="__codelineno-27-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
