@@ -528,7 +528,8 @@
 <a class="md-nav__link" href="#_4">
     移动语义
   </a>
-</li>
+<nav aria-label="移动语义" class="md-nav">
+<ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_5">
     移动构造函数
@@ -537,6 +538,28 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_6">
     左值、右值和右值引用
+  </a>
+<nav aria-label="左值、右值和右值引用" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_7">
+    右值引用
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#stdmove">
+    std::move()
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#perfact-forwarding">
+    Perfact Forwarding | 完美转发
   </a>
 </li>
 </ul>
@@ -802,7 +825,8 @@
 <a class="md-nav__link" href="#_4">
     移动语义
   </a>
-</li>
+<nav aria-label="移动语义" class="md-nav">
+<ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_5">
     移动构造函数
@@ -811,6 +835,28 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_6">
     左值、右值和右值引用
+  </a>
+<nav aria-label="左值、右值和右值引用" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_7">
+    右值引用
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#stdmove">
+    std::move()
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#perfact-forwarding">
+    Perfact Forwarding | 完美转发
   </a>
 </li>
 </ul>
@@ -1459,7 +1505,7 @@
 </div>
 </div>
 </input></input></div>
-<h3 id="_5">移动构造函数<a class="headerlink" href="#_5" title="Permanent link">👀</a></h3>
+<h4 id="_5">移动构造函数<a class="headerlink" href="#_5" title="Permanent link">👀</a></h4>
 <ul>
 <li>通过移动构造函数可以解决上述问题（移动构造就是不复制任何的内存）</li>
 </ul>
@@ -1510,10 +1556,168 @@
 </details>
 </li>
 </ul>
-<h3 id="_6">左值、右值和右值引用<a class="headerlink" href="#_6" title="Permanent link">👀</a></h3>
+<h4 id="_6">左值、右值和右值引用<a class="headerlink" href="#_6" title="Permanent link">👀</a></h4>
 <blockquote>
-<p>之前提过一点 <a href="../Lec07/#value-classes">最下面</a></p>
+<p>之前提过一点 <a href="../Lec07/#value-classes">跳转页最下面</a></p>
 </blockquote>
+<ul>
+<li>在赋值表达式中，出现在等号左边的就是“左值”，而在等号右边的，就是“右值”</li>
+<li>可以取地址的、有名字的就是左值，反之就是右值</li>
+<li>在 C++11 中，右值是由两个概念构成的，一个是将亡值（xvalue, eXpiring, Value）, 另一个则是纯右值（prvalue, Pure Rvalue）</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">纯右值 vs 将亡值</p>
+<ul>
+<li>纯右值是 C++98 标准中右值的概念，讲的是用于辨识临时变量和一些不跟对象关联的值。比如非引用返回的函数返回的临时变量值就是一个纯右值。<ul>
+<li>一些运算表达式，比如 <code>1 + 2</code> 产生的临时变量值也是纯右值</li>
+<li>而不跟对象关联的字面量值，比如：<code>1</code>, <code></code>a<code></code>, <code>true</code> 也是纯右值</li>
+<li>此外，类型转换函数的返回值，lambda 表达式等，也都是右值</li>
+</ul>
+</li>
+<li>将亡值则是 C++11 新增的跟右值引用相关的表达式，这样表达式通常是将要被移动的对象（移为他用），比如返回右值引用 <code>T&amp;&amp;</code> 的函数返回值，<code>std::move</code> 的返回值，或者转换为 <code>T&amp;&amp;</code> 的类型转换函数的返回值等</li>
+</ul>
+</div>
+<h5 id="_7">右值引用<a class="headerlink" href="#_7" title="Permanent link">👀</a></h5>
+<ul>
+<li>右值引用就是对一个右值进行引用的类型。由于右值通常不具有名字，我们也只能通过引用的方式找到它的存在。通常情况下，我们只能从右值表达式获得其引用<ul>
+<li>比如：<code>T&amp;&amp; a = ReturnRvalue();</code></li>
+<li>在这个表达式中，假设 <code>ReturnRvalue()</code> 返回一个右值，那么我们就声明了一个名为 <code>a</code> 的右值引用，其值等于 <code>ReturnRvalue()</code> 的返回的临时变量的值</li>
+</ul>
+</li>
+<li>右值引用和左值引用都属于引用类型。无论是声明一个左值引用还是右值引用，都必须<u>立即进行初始化</u>。因引用类型本身并不拥有所绑定对象的内存，只是一个别名而已。（左值引用是具名变量值的别名，右值引用是 不具名/匿名 变量的别名）</li>
+</ul>
+<details class="info" open="open">
+<summary>example</summary>
+<ul>
+<li><code>T&amp;&amp; a = ReturnRvalue();</code> <ul>
+<li><code>ReturnRvalue()</code> 函数返回的右值在表达式语句结束后，其生命也就终结了（通常我们也称其具有表达式生命期），而通过右值引用的声明，该右值的生命周期将同右值引用类型变量 <code>a</code> 的生命期一样</li>
+</ul>
+</li>
+<li>故相比 <code>T  b = ReturnRvalue();</code><ul>
+<li>右值引用变量声明就会少一次对象的析构及一次对象的构造。因为 <code>a</code> 直接绑定了 <code>ReturnRvalue()</code> 返回的临时值，而 <code>b</code> 只是由临时值构造的，而临时值在表达式结束后会析构因此就会多一次析构和构造的开销</li>
+<li>能够声明右值引用 <code>a</code> 的前提是 <code>ReturnRvalue()</code> 返回的是一个右值。通常情况下，右值引用是不能够绑定到任何左值的。</li>
+</ul>
+</li>
+</ul>
+</details>
+<details class="info" open="open">
+<summary>More</summary>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio"><input id="__tabbed_6_2" name="__tabbed_6" type="radio"><div class="tabbed-labels"><label for="__tabbed_6_1">question</label><label for="__tabbed_6_2">explanation</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>相对的，在 C++98 标准中就已经出现的左值引用是否可以绑定到右值（由右值进行初始化）呢？比如：</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-22-1" id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ReturnRvalue</span><span class="p">();</span>
+<a href="#__codelineno-22-2" id="__codelineno-22-2" name="__codelineno-22-2"></a><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ReturnRvalue</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li><code>e</code> 的初始化会导致编译时错误，而 <code>f</code> 不会</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-23-1" id="__codelineno-23-1" name="__codelineno-23-1"></a><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ReturnRvalue</span><span class="p">();</span>
+<a href="#__codelineno-23-2" id="__codelineno-23-2" name="__codelineno-23-2"></a><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ReturnRvalue</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li>常量左值引用在 C++98 标准中开始就是个“万能”的引用类型</li>
+<li>可以接受非常量左值、常量左值、右值对其进行初始化</li>
+<li>而且在使用右值对其初始化时，常量左值引用还可以像右值引用一样将右值的生命期延长</li>
+<li>相比于右值引用所引用的右值，常量左值所应用的右值在其生命期中是只读权限</li>
+<li>相对的，非常量左值只能接受非常量左值对其初始化</li>
+</ul>
+</div>
+</div>
+</input></input></div>
+</details>
+<h4 id="stdmove"><code>std::move()</code><a class="headerlink" href="#stdmove" title="Permanent link">👀</a></h4>
+<ul>
+<li>在 C++11 中，<utility> 中提供了函数 <code>std::move()</code>，可以<u>将一个左值强制转化为右值引用</u>，继而我们可以通过右值引用使用该值，用于移动语义</utility></li>
+<li>被转化的左值，其生命期并未随左右值的转化而改变</li>
+<li><strong>在编写移动构造函数时</strong>，应总是使用 <code>std::move()</code> 转换拥有形如堆内存、文件句柄等资源的成员为右值。这样一来，如果成员支持移动构造的话，就可以实现其移动语义（即使成员无移动构造函数，也会调用拷贝构造，因为不会引起大的问题）</li>
+</ul>
+<blockquote>
+<p>移动语义一定是要改变临时变量的值</p>
+</blockquote>
+<ul>
+<li>
+<p><code>Moveable c(move(a));</code> </p>
+<ul>
+<li>这里的 <code>a</code> 本来是一个左值变量，通过 <code>std::move</code> 将其转换为右值</li>
+<li>这样一来，<code>a.i</code> 就被 <code>c</code> 的移动构造函数设置为指针空值。由于 <code>a</code> 的生命期实际要到所在函数结束才结束，那么随后对表达式 <code>*a.i</code> 进行运算时，就会发生严重的运行时错误</li>
+</ul>
+</li>
+<li>
+<p>在 C++11 中，拷贝/移动构造函数有以下 3 个版本：</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-24-1" id="__codelineno-24-1" name="__codelineno-24-1"></a><span class="n">T</span><span class="w"> </span><span class="n">Object</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;</span><span class="p">)</span>
+<a href="#__codelineno-24-2" id="__codelineno-24-2" name="__codelineno-24-2"></a><span class="n">T</span><span class="w"> </span><span class="n">Object</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="p">)</span>
+<a href="#__codelineno-24-3" id="__codelineno-24-3" name="__codelineno-24-3"></a><span class="n">T</span><span class="w"> </span><span class="n">Object</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;&amp;</span><span class="p">)</span>
+</code></pre></div>
+<ul>
+<li>其中常量左值引用的版本是一个拷贝构造函数版本，右值引用参数是一个移动构造函数版本</li>
+<li>默认情况下，编译器会为程序员隐式生成一个移动构造函数，但如果声明了自己定义的拷贝构造函数、拷贝赋值函数、移动构造函数、析构函数中的一个或者多个，编译器都不会再生成默认版本</li>
+<li>所以在 C++11 中，<u>拷贝构造函数、拷贝赋值函数、移动构造函数和移动赋值函数必须同时提供，或同时不提供，只声明其中一个的话，类都仅能实现一种语义</u></li>
+</ul>
+</li>
+</ul>
+<h3 id="perfact-forwarding">Perfact Forwarding | 完美转发<a class="headerlink" href="#perfact-forwarding" title="Permanent link">👀</a></h3>
+<ul>
+<li>完美转发，是指在模板函数中，完全依照模板的参数类型将参数传递给模板中调用的另一个函数</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-25-1" id="__codelineno-25-1" name="__codelineno-25-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<a href="#__codelineno-25-2" id="__codelineno-25-2" name="__codelineno-25-2"></a><span class="kt">void</span><span class="w"> </span><span class="n">IamForwarding</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">t</span><span class="p">)</span>
+<a href="#__codelineno-25-3" id="__codelineno-25-3" name="__codelineno-25-3"></a><span class="p">{</span>
+<a href="#__codelineno-25-4" id="__codelineno-25-4" name="__codelineno-25-4"></a><span class="w">    </span><span class="n">IrunCodeActually</span><span class="p">(</span><span class="n">t</span><span class="p">);</span>
+<a href="#__codelineno-25-5" id="__codelineno-25-5" name="__codelineno-25-5"></a><span class="p">}</span>
+</code></pre></div>
+<ul>
+<li>因为使用最基本类型转发，会在传参的时候产生一次额外的临时对象拷贝</li>
+<li>所以通常需要的是一个引用类型，就不会有拷贝的开销。其次需要考虑函数对类型的接受能力，因为目标函数可能需要既接受左值引用，又接受右值引用，如果转发函数只能接受其中的一部分，也不完美</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio"><input id="__tabbed_7_2" name="__tabbed_7" type="radio"><div class="tabbed-labels"><label for="__tabbed_7_1">考虑类型</label><label for="__tabbed_7_2">转发函数为</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-26-1" id="__codelineno-26-1" name="__codelineno-26-1"></a><span class="k">typedef</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="n">T</span><span class="p">;</span>
+<a href="#__codelineno-26-2" id="__codelineno-26-2" name="__codelineno-26-2"></a><span class="k">typedef</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">TR</span><span class="p">;</span>
+<a href="#__codelineno-26-3" id="__codelineno-26-3" name="__codelineno-26-3"></a><span class="n">TR</span><span class="o">&amp;</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</code></pre></div>
+<blockquote>
+<p>在 C++11 中引入了一条所谓”引用折叠“的新语言规则<br/>
+| TR 的类型定义 | 声明 v 的类型 | v 的实际类型 |<br/>
+| ------------- | ------------- | ------------ |<br/>
+| T&amp;            | TR            | A&amp;           |<br/>
+| T&amp;            | TR&amp;           | A&amp;           |<br/>
+| T&amp;            | TR&amp;&amp;          | A&amp;           |<br/>
+| T&amp;&amp;           | TR            | A&amp;&amp;          |<br/>
+| T&amp;&amp;           | TR&amp;           | A&amp;           |</p>
+</blockquote>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-27-1" id="__codelineno-27-1" name="__codelineno-27-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<a href="#__codelineno-27-2" id="__codelineno-27-2" name="__codelineno-27-2"></a><span class="kt">void</span><span class="w"> </span><span class="n">IamForwarding</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">t</span><span class="p">)</span>
+<a href="#__codelineno-27-3" id="__codelineno-27-3" name="__codelineno-27-3"></a><span class="p">{</span>
+<a href="#__codelineno-27-4" id="__codelineno-27-4" name="__codelineno-27-4"></a><span class="w">    </span><span class="n">IrunCodeActually</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&amp;&amp;&gt;</span><span class="p">(</span><span class="n">t</span><span class="p">));</span>
+<a href="#__codelineno-27-5" id="__codelineno-27-5" name="__codelineno-27-5"></a><span class="p">}</span>
+</code></pre></div>
+<ul>
+<li>
+<p>对于传入的右值引用</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-28-1" id="__codelineno-28-1" name="__codelineno-28-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">IamForwarding</span><span class="p">(</span><span class="n">X</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">t</span><span class="p">)</span>
+<a href="#__codelineno-28-2" id="__codelineno-28-2" name="__codelineno-28-2"></a><span class="p">{</span>
+<a href="#__codelineno-28-3" id="__codelineno-28-3" name="__codelineno-28-3"></a><span class="w">    </span><span class="n">IrunCodeActually</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">X</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">&amp;&amp;&gt;</span><span class="p">(</span><span class="n">t</span><span class="p">));</span>
+<a href="#__codelineno-28-4" id="__codelineno-28-4" name="__codelineno-28-4"></a><span class="p">}</span>
+</code></pre></div>
+</li>
+<li>
+<p>折叠后是</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-29-1" id="__codelineno-29-1" name="__codelineno-29-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">IamForwarding</span><span class="p">(</span><span class="n">X</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">t</span><span class="p">)</span>
+<a href="#__codelineno-29-2" id="__codelineno-29-2" name="__codelineno-29-2"></a><span class="p">{</span>
+<a href="#__codelineno-29-3" id="__codelineno-29-3" name="__codelineno-29-3"></a><span class="w">    </span><span class="n">IrunCodeActually</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">X</span><span class="o">&amp;&amp;&gt;</span><span class="p">(</span><span class="n">t</span><span class="p">));</span>
+<a href="#__codelineno-29-4" id="__codelineno-29-4" name="__codelineno-29-4"></a><span class="p">}</span>
+</code></pre></div>
+</li>
+</ul>
+</div>
+</div>
+</input></input></div>
 <p><center><font color="grey" face="JetBrains Mono" size="18">TODO</font></center></p>
 <div id="__comments">
 <!-- 主题颜色 
