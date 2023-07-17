@@ -161,9 +161,9 @@ plugins:
       encryption_info_message: Contact me(Enl_Z) via methods provided in the comments section for access to this page
   - mermaid2
   #- tags # 给单篇文章添加标签 https://squidfunk.github.io/mkdocs-material/setup/setting-up-tags/?h=tags
-  #- git-revision-date-localized: # 显示最后一次修改时间
-  #    type: timeago
-  #    enable_creation_date: true
+  - git-revision-date-localized: # 显示最后一次修改时间
+      type: timeago
+      enable_creation_date: true
 
 markdown_extensions:
   - toc:  #锚点
