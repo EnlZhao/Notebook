@@ -815,9 +815,31 @@
 <details class="info">
 <summary>Info</summary>
 <ul>
-<li>目前机器学习常分为监督学习（Supervised Learning）、半监督学习（Semi-supervised Learning）、无监督学习（Unsupervised Learning）和强化学习（Reinforcement Learning）</li>
+<li>目前机器学习常分为监督学习（Supervised Learning）、半监督学习（Semi-supervised Learning）、无监督学习（Unsupervised Learning）和强化学习（Reinforcement Learning）<ul>
+<li>通俗讲，监督的含义就是训练数据集和测试数据集有没有标签</li>
+</ul>
+</li>
 <li><strong><span class="arithmatex">\(\lceil\)</span>Supervised Learning<span class="arithmatex">\(\rfloor\)</span></strong>: <ul>
-<li>具有特征（feature）和标签（label）的数据集，通过学习特征和标签之间的关系，来预测新的数据的标签</li>
+<li>数据集中包含包含特征（feature）和标签（label），即最后预测结果是否正确是有标准答案做参考对比的</li>
+</ul>
+</li>
+<li><strong><span class="arithmatex">\(\lceil\)</span>Unsupervised Learning<span class="arithmatex">\(\rfloor\)</span></strong>: <ul>
+<li>数据集中只包含特征，没有标签，即最后预测结果是否正确是没有标准答案做参考对比的</li>
+</ul>
+</li>
+<li><strong><span class="arithmatex">\(\lceil\)</span>Semi-supervised Learning<span class="arithmatex">\(\rfloor\)</span></strong>: <ul>
+<li>数据集中一部分包含特征和标签，剩余部分不含标签，例如在图像识别中，手工标记出一部分含有西瓜的图片，将不完全标记的数据集用半监督学习算法进行训练，使模型能准确从一堆照片中识别出西瓜</li>
+<li>在半监督学习中，也包含两种学习方法<ol>
+<li>将没有标签和有标签的数据同等对待训练</li>
+<li>将没有标签的数据作为需要被预测的数据对待</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><strong><span class="arithmatex">\(\lceil\)</span>Reinforcement Learning<span class="arithmatex">\(\rfloor\)</span></strong>: <ul>
+<li>强化学习是一种机器学习方法，强调如何基于环境而行动，以取得最大化的预期利益</li>
+<li>强化学习的主要特点是 agent 可以根据当前的状态，选择一个动作，然后环境会根据这个动作给 agent 一个奖励，agent 根据这个奖励来判断这个动作是不是一个好的动作，然后不断的学习，最终学到一个最优的策略</li>
+<li>强化学习的一个典型应用是机器人的自主导航，机器人在环境中移动，每移动一步，环境会给机器人一个奖励，机器人根据这个奖励来判断这个动作是不是一个好的动作，然后不断的学习，最终学到一个最优的策略</li>
 </ul>
 </li>
 </ul>
