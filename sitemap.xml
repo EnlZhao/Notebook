@@ -351,12 +351,32 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://note.enl-z.cc/Self-Learning/DeepLearning/introduction/</loc>
+         <lastmod>2023-07-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://note.enl-z.cc/Self-Learning/DeepLearning/course1/</loc>
          <lastmod>2023-07-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://note.enl-z.cc/Self-Learning/DeepLearning/course1/lec01/</loc>
+         <lastmod>2023-07-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://note.enl-z.cc/Self-Learning/DeepLearning/course1/lec02/</loc>
+         <lastmod>2023-07-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://note.enl-z.cc/Self-Learning/DeepLearning/course1/lec03/</loc>
+         <lastmod>2023-07-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://note.enl-z.cc/Self-Learning/DeepLearning/course1/lec04/</loc>
          <lastmod>2023-07-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
