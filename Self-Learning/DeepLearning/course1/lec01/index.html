@@ -42,6 +42,9 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
+<a class="md-skip" href="#basics-of-nerual-network-programming">
+          跳转至
+        </a>
 </div>
 <div data-md-component="announce">
 </div>
@@ -543,9 +546,31 @@
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Introduction
+          <span class="md-nav__icon md-icon"></span>
+</label>
 <a class="md-nav__link md-nav__link--active" href="./">
         Introduction
       </a>
+<nav aria-label="目录" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#binary-classification">
+    Binary Classification
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#logistic-regression">
+    Logistic Regression
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../lec02/">
@@ -558,7 +583,7 @@
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../lec04/">
+<a class="md-nav__link" href="../lec04.md">
         Deep Neural Network
       </a>
 </li>
@@ -618,6 +643,45 @@
           Building Sequence Models
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_2" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../PyTorch/">PyTorch</a>
+<label for="__nav_3_2">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_2">
+<span class="md-nav__icon md-icon"></span>
+          PyTorch
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_2_2" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../PyTorch/BLITZ/">A 60 Min BLITZ</a>
+<label for="__nav_3_2_2">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_2_2_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_2_2">
+<span class="md-nav__icon md-icon"></span>
+          A 60 Min BLITZ
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../PyTorch/BLITZ/lec01.md">
+        Tensors
+      </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -759,6 +823,22 @@
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
 <nav aria-label="目录" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#binary-classification">
+    Binary Classification
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#logistic-regression">
+    Logistic Regression
+  </a>
+</li>
+</ul>
 </nav>
 </div>
 </div>
@@ -771,7 +851,46 @@
 <a class="md-content__button md-icon" href="https://github.com/enl-z/Notebook/tree/master/docs/Self-Learning/DeepLearning/course1/lec01.md" title="查看本页的源代码">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"></path></svg>
 </a>
-<h1>Introduction</h1>
+<h1 id="basics-of-nerual-network-programming">Basics of Nerual Network Programming<a class="headerlink" href="#basics-of-nerual-network-programming" title="Permanent link">👀</a></h1>
+<h2 id="binary-classification">Binary Classification<a class="headerlink" href="#binary-classification" title="Permanent link">👀</a></h2>
+<blockquote>
+<p>本节以 logistic 回归(一个用于二分分类的算法)来阐述，以求更好地理解</p>
+</blockquote>
+<p>比如对于一张图片的识别，输入是图片，输出是是否是猫（1 表示是“猫”）</p>
+<details class="question">
+<summary>图片在计算机中的表示方法</summary>
+<ul>
+<li>计算机要保存一张图片，要保存三个独立矩阵，分别对应图片中的红、绿、蓝三个颜色通道。</li>
+<li>那么如果输入图片是 64 ✖️ 64 像素的，那么就有三个 64 ✖️ 64 的矩阵，矩阵中的值分别代表对应颜色的亮度（即 pixel intensity value）<ul>
+<li>要把这些像素亮度值放进一个特征向量中，就是把这些像素值全部提出来，放进一个特征向量 <span class="arithmatex">\(x\)</span> 。方法如下：<ul>
+<li>定义一个特征向量 <span class="arithmatex">\(x\)</span> 来表示这张图片，依次列红、绿、蓝的每个像素值得到一个很长的特征向量</li>
+<li>如果图片是 64 ✖️ 64 的，那么向量 <span class="arithmatex">\(x\)</span> 的总维度是 64 * 64 * 3 = 12288</li>
+<li>用 <span class="arithmatex">\(n_x\)</span> (or <span class="arithmatex">\(n\)</span>) = 12288 来表示输入的特征向量的维度</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</details>
+<ul>
+<li>在二分分类问题中，目标是训练处一个分类器（classfier），它以图片的特征向量 <span class="arithmatex">\(x\)</span> 作为输入，预测输出的结果标签 <span class="arithmatex">\(y\)</span>（0 or 1） </li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Notation</p>
+<ol>
+<li>用一对 <span class="arithmatex">\((x, ~ y)\)</span> 来表示一个单独的样本<ul>
+<li><span class="arithmatex">\(x \in \mathbb{R} ^{n_x}, y \in {0, 1}\)</span> ( <span class="arithmatex">\(n_x\)</span> 表示特征向量的维度)</li>
+</ul>
+</li>
+<li><span class="arithmatex">\(m\)</span> 个训练样本（training example）：<span class="arithmatex">\({(x^{(1)}, ~ y^{1}), (x^{(2)}, ~ y^{2}), \dots , (x^{(m)}, ~ y^{m})}\)</span> <ul>
+<li><span class="arithmatex">\((x^{(i)}, ~ y^{i})\)</span> 表示样本 i, <span class="arithmatex">\(m\)</span> 表示训练集中样本的个数，有时候为了更直白使用 <span class="arithmatex">\(m_{train}\)</span></li>
+<li>当说到测试集时，常用 <span class="arithmatex">\(m_{text}\)</span> 表示测试集的样本数</li>
+</ul>
+</li>
+<li></li>
+</ol>
+</div>
+<h2 id="logistic-regression">Logistic Regression<a class="headerlink" href="#logistic-regression" title="Permanent link">👀</a></h2>
 <div id="__comments">
 <!-- 主题颜色 
     <div class="mdx-switch">

@@ -7,12 +7,10 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="某兰的知识库" name="description"/>
 <meta content="Enl_Z" name="author"/>
-<link href="https://note.enl-z.cc/Self-Learning/DeepLearning/course1/lec03/" rel="canonical"/>
-<link href="../lec02/" rel="prev"/>
-<link href="../../course2/" rel="next"/>
+<link href="https://note.enl-z.cc/Self-Learning/PyTorch/BLITZ/Lec01/" rel="canonical"/>
 <link href="../../../../Icon/Avatar.png" rel="icon"/>
 <meta content="mkdocs-1.4.3, mkdocs-material-9.1.19" name="generator"/>
-<title>One hidden layer Neural Network - 某兰的知识库</title>
+<title>Tensors ｜ 张量 - 某兰的知识库</title>
 <link href="../../../../assets/stylesheets/main.eebd395e.min.css" rel="stylesheet"/>
 <link href="../../../../assets/stylesheets/palette.ecc896b0.min.css" rel="stylesheet"/>
 <script>
@@ -42,6 +40,9 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
+<a class="md-skip" href="#tensors">
+          跳转至
+        </a>
 </div>
 <div data-md-component="announce">
 </div>
@@ -63,7 +64,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              One hidden layer Neural Network
+              Tensors ｜ 张量
             
           </span>
 </div>
@@ -146,7 +147,7 @@
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link md-tabs__link--active" href="../../">
+<a class="md-tabs__link" href="../../../DeepLearning/">
         Self-Learning
       </a>
 </li>
@@ -496,69 +497,68 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
 <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
           Self-Learning
           <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="true" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_3">
 <span class="md-nav__icon md-icon"></span>
           Self-Learning
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_3_1" type="checkbox"/>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_1" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../">DeepLearning</a>
+<a href="../../../DeepLearning/">DeepLearning</a>
 <label for="__nav_3_1">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="true" aria-labelledby="__nav_3_1_label" class="md-nav" data-md-level="2">
+<nav aria-expanded="false" aria-labelledby="__nav_3_1_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_3_1">
 <span class="md-nav__icon md-icon"></span>
           DeepLearning
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../introduction/">
+<a class="md-nav__link" href="../../../DeepLearning/introduction/">
         Intrucution to Deep Learning
       </a>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_3_1_3" type="checkbox"/>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_1_3" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../">Neural Networks and Deep Learning</a>
+<a href="../../../DeepLearning/course1/">Neural Networks and Deep Learning</a>
 <label for="__nav_3_1_3">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="true" aria-labelledby="__nav_3_1_3_label" class="md-nav" data-md-level="3">
+<nav aria-expanded="false" aria-labelledby="__nav_3_1_3_label" class="md-nav" data-md-level="3">
 <label class="md-nav__title" for="__nav_3_1_3">
 <span class="md-nav__icon md-icon"></span>
           Neural Networks and Deep Learning
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../lec01/">
+<a class="md-nav__link" href="../../../DeepLearning/course1/lec01/">
         Introduction
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../lec02/">
+<a class="md-nav__link" href="../../../DeepLearning/course1/lec02/">
         Basics of Nerual Network Programming
       </a>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../DeepLearning/course1/lec03/">
         One hidden layer Neural Network
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../lec04.md">
+<a class="md-nav__link" href="../../../DeepLearning/course1/lec04.md">
         Deep Neural Network
       </a>
 </li>
@@ -568,7 +568,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_3_1_4" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../course2/">Improving Deep Neural Networks</a>
+<a href="../../../DeepLearning/course2/">Improving Deep Neural Networks</a>
 </div>
 <nav aria-expanded="false" aria-labelledby="__nav_3_1_4_label" class="md-nav" data-md-level="3">
 <label class="md-nav__title" for="__nav_3_1_4">
@@ -582,7 +582,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_3_1_5" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../course3/">Structuring Machine Learning Projects</a>
+<a href="../../../DeepLearning/course3/">Structuring Machine Learning Projects</a>
 </div>
 <nav aria-expanded="false" aria-labelledby="__nav_3_1_5_label" class="md-nav" data-md-level="3">
 <label class="md-nav__title" for="__nav_3_1_5">
@@ -596,7 +596,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_3_1_6" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../course4/">Convolutional Neural Networks</a>
+<a href="../../../DeepLearning/course4/">Convolutional Neural Networks</a>
 </div>
 <nav aria-expanded="false" aria-labelledby="__nav_3_1_6_label" class="md-nav" data-md-level="3">
 <label class="md-nav__title" for="__nav_3_1_6">
@@ -610,7 +610,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_3_1_7" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../course5/">Building Sequence Models</a>
+<a href="../../../DeepLearning/course5/">Building Sequence Models</a>
 </div>
 <nav aria-expanded="false" aria-labelledby="__nav_3_1_7_label" class="md-nav" data-md-level="3">
 <label class="md-nav__title" for="__nav_3_1_7">
@@ -627,7 +627,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_3_2" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../../PyTorch/">PyTorch</a>
+<a href="../../">PyTorch</a>
 <label for="__nav_3_2">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -641,7 +641,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_3_2_2" type="checkbox"/>
 <div class="md-nav__link md-nav__link--index">
-<a href="../../../PyTorch/BLITZ/">A 60 Min BLITZ</a>
+<a href="../">A 60 Min BLITZ</a>
 <label for="__nav_3_2_2">
 <span class="md-nav__icon md-icon"></span>
 </label>
@@ -653,7 +653,7 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../PyTorch/BLITZ/lec01.md">
+<a class="md-nav__link" href="../lec01.md">
         Tensors
       </a>
 </li>
@@ -798,19 +798,434 @@
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
 <nav aria-label="目录" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#tensor-initialization">
+    Tensor Initialization
+  </a>
+<nav aria-label="Tensor Initialization" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#directly-from-data">
+    Directly from data
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#from-a-numpy-array">
+    From a NumPy array
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#from-another-tensor">
+    From another tensor
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#with-random-or-constant-values">
+    With random or constant values
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#tensor-attributes">
+    Tensor Attributes
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#tensor-operations">
+    Tensor Operations
+  </a>
+<nav aria-label="Tensor Operations" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#some-operations">
+    Some operations
+  </a>
+<nav aria-label="Some operations" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#standard-numpy-like-indexing-and-slicing">
+    Standard numpy-like indexing and slicing
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#joining-tensors">
+    Joining tensors
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#multiplying-tensors">
+    Multiplying tensors
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#in-place-operations">
+    In-place operations
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#bridge-with-numpy">
+    Bridge with NumPy
+  </a>
+<nav aria-label="Bridge with NumPy" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#tensor-to-numpy-array">
+    Tensor to NumPy array
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#numpy-array-to-tensor">
+    NumPy array to Tensor
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
 </nav>
 </div>
 </div>
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/enl-z/Notebook/tree/master/docs/Self-Learning/DeepLearning/course1/lec03.md" title="编辑此页">
+<a class="md-content__button md-icon" href="https://github.com/enl-z/Notebook/tree/master/docs/Self-Learning/PyTorch/BLITZ/Lec01.md" title="编辑此页">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
 </a>
-<a class="md-content__button md-icon" href="https://github.com/enl-z/Notebook/tree/master/docs/Self-Learning/DeepLearning/course1/lec03.md" title="查看本页的源代码">
+<a class="md-content__button md-icon" href="https://github.com/enl-z/Notebook/tree/master/docs/Self-Learning/PyTorch/BLITZ/Lec01.md" title="查看本页的源代码">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"></path></svg>
 </a>
-<h1>One hidden layer Neural Network</h1>
+<h1 id="tensors">Tensors ｜ 张量<a class="headerlink" href="#tensors" title="Permanent link">👀</a></h1>
+<ul>
+<li>Tensors 是类似 arrays 和 matrices 的数据结构 (在 Pytorch 中使用 tensors 来编码模型的输入和输出，以及模型的参数)</li>
+<li>Tensors 类似于 Numpy 的 ndarrays，但是可以在 GPU 或其他特殊硬件上使用来加速计算</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kn">import</span> <span class="nn">torch</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</code></pre></div>
+<h2 id="tensor-initialization">Tensor Initialization<a class="headerlink" href="#tensor-initialization" title="Permanent link">👀</a></h2>
+<ul>
+<li>Tensor 可以通过多种方式进行初始化</li>
+</ul>
+<h3 id="directly-from-data">Directly from data<a class="headerlink" href="#directly-from-data" title="Permanent link">👀</a></h3>
+<ul>
+<li>Tensor 可以直接从 data 中进行初始化 (数据类型会自动推断)</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="n">data</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]]</span>
+<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="n">x_data</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="from-a-numpy-array">From a NumPy array<a class="headerlink" href="#from-a-numpy-array" title="Permanent link">👀</a></h3>
+<ul>
+<li>Tensor 可以从 NumPy array 中进行初始化，并且保留 NumPy array 的维度和数据类型 (反之亦然, see <a href="#bridge-with-numpy">Bridge with NumPy</a></li>
+</ul>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">np_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="n">x_np</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">np_array</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="from-another-tensor">From another tensor<a class="headerlink" href="#from-another-tensor" title="Permanent link">👀</a></h3>
+<ul>
+<li>新的 tensor 保留了原始 tensor 的属性 (shape, datatype)，除非被显式地重写</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">code</label><label for="__tabbed_1_2">output</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="n">x_ones</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">x_data</span><span class="p">)</span> <span class="c1"># retains the properties of x_data</span>
+<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Ones Tensor: </span><span class="se">\n</span><span class="s2"> </span><span class="si">{</span><span class="n">x_ones</span><span class="si">}</span><span class="s2"> </span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a>
+<a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="n">x_rand</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">rand_like</span><span class="p">(</span><span class="n">x_data</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float</span><span class="p">)</span> <span class="c1"># overrides the datatype of x_data</span>
+<a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Random Tensor: </span><span class="se">\n</span><span class="s2"> </span><span class="si">{</span><span class="n">x_rand</span><span class="si">}</span><span class="s2"> </span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="go">Ones Tensor: </span>
+<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="go"> tensor([[1, 1],</span>
+<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="go">        [1, 1]])</span>
+<a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a>
+<a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="go">Random Tensor:</span>
+<a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="go"> tensor([[0.7576, 0.2793],</span>
+<a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="go">        [0.4031, 0.7347]])</span>
+</code></pre></div>
+</div>
+</div>
+</input></input></div>
+<h3 id="with-random-or-constant-values">With random or constant values<a class="headerlink" href="#with-random-or-constant-values" title="Permanent link">👀</a></h3>
+<ul>
+<li><code>shape</code> 是 tensor 维度的元组(tuple), 上面的函数中，它确定了输出张量的维度</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">code</label><label for="__tabbed_2_2">output</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,)</span> <span class="c1"># tuple of tensor dimensions</span>
+<a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="n">rand_tensor</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span>
+<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="n">ones_tensor</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span>
+<a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="n">zeros_tensor</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span>
+<a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a>
+<a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Random Tensor: </span><span class="se">\n</span><span class="s2"> </span><span class="si">{</span><span class="n">rand_tensor</span><span class="si">}</span><span class="s2"> </span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+<a href="#__codelineno-5-7" id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Ones Tensor: </span><span class="se">\n</span><span class="s2"> </span><span class="si">{</span><span class="n">ones_tensor</span><span class="si">}</span><span class="s2"> </span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+<a href="#__codelineno-5-8" id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Zeros Tensor: </span><span class="se">\n</span><span class="s2"> </span><span class="si">{</span><span class="n">zeros_tensor</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<p>``` output<br/>
+Random Tensor:<br/>
+tensor([[0.3904, 0.6009, 0.2566],<br/>
+        [0.7936, 0.9408, 0.1332]])</p>
+<p>Ones Tensor:<br/>
+tensor([[1., 1., 1.],<br/>
+        [1., 1., 1.]])</p>
+<p>Zeros Tensor:<br/>
+tensor([[0., 0., 0.],<br/>
+        [0., 0., 0.]])</p>
+</div>
+</div>
+</input></input></div>
+<h2 id="tensor-attributes">Tensor Attributes<a class="headerlink" href="#tensor-attributes" title="Permanent link">👀</a></h2>
+<ul>
+<li>Tensor attributrs describe their shape, datatype, and the device on which they are stored</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1">code</label><label for="__tabbed_3_2">output</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="n">tensor</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a>
+<a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Shape of tensor: </span><span class="si">{</span><span class="n">tensor</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Datatype of tensor: </span><span class="si">{</span><span class="n">tensor</span><span class="o">.</span><span class="n">dtype</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Device tensor is stored on: </span><span class="si">{</span><span class="n">tensor</span><span class="o">.</span><span class="n">device</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="go">Shape of tensor: torch.Size([3, 4])</span>
+<a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="go">Datatype of tensor: torch.float32</span>
+<a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="go">Device tensor is stored on: cpu</span>
+</code></pre></div>
+</div>
+</div>
+</input></input></div>
+<h2 id="tensor-operations">Tensor Operations<a class="headerlink" href="#tensor-operations" title="Permanent link">👀</a></h2>
+<ul>
+<li>Over 100 tensor operations, including transposing, indexing, slicing, mathematical operations, linear algebra, random sampling, and more are comprehensively described <a href="https://pytorch.org/docs/stable/torch.html">here</a>.</li>
+<li>这些操作都能在 GPU 上运行（通常比在 CPU 上运行速度更快）</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio"><input id="__tabbed_4_2" name="__tabbed_4" type="radio"><div class="tabbed-labels"><label for="__tabbed_4_1">code</label><label for="__tabbed_4_2">output</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="c1"># We move our tensor to the GPU if available</span>
+<a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">():</span>
+<a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a>    <span class="n">tensor</span> <span class="o">=</span> <span class="n">tensor</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s1">'cuda'</span><span class="p">)</span>
+<a href="#__codelineno-8-4" id="__codelineno-8-4" name="__codelineno-8-4"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Device tensor is stored on: </span><span class="si">{</span><span class="n">tensor</span><span class="o">.</span><span class="n">device</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="go">Device tensor is stored on: cuda:0</span>
+</code></pre></div>
+</div>
+</div>
+</input></input></div>
+<h3 id="some-operations">Some operations<a class="headerlink" href="#some-operations" title="Permanent link">👀</a></h3>
+<blockquote>
+<p>If you’re familiar with the NumPy API, you’ll find the Tensor API a breeze to use.</p>
+</blockquote>
+<h4 id="standard-numpy-like-indexing-and-slicing">Standard numpy-like indexing and slicing<a class="headerlink" href="#standard-numpy-like-indexing-and-slicing" title="Permanent link">👀</a></h4>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio"><input id="__tabbed_5_2" name="__tabbed_5" type="radio"><div class="tabbed-labels"><label for="__tabbed_5_1">code</label><label for="__tabbed_5_2">output</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="n">tensor</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="n">tensor</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">tensor</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="go">tensor([[1., 0., 1., 1.],</span>
+<a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="go">        [1., 0., 1., 1.],</span>
+<a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="go">        [1., 0., 1., 1.],</span>
+<a href="#__codelineno-11-4" id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="go">        [1., 0., 1., 1.]])</span>
+</code></pre></div>
+</div>
+</div>
+</input></input></div>
+<h4 id="joining-tensors">Joining tensors<a class="headerlink" href="#joining-tensors" title="Permanent link">👀</a></h4>
+<ul>
+<li>We can use <code>torch.cat</code> to concatenate a sequence of tensors along a given dimension. </li>
+</ul>
+<blockquote>
+<ul>
+<li>See also <a href="https://pytorch.org/docs/stable/generated/torch.stack.html#torch.stack">torch.stack</a> and <a href="https://pytorch.org/docs/stable/generated/torch.split.html#torch.split">torch.split</a></li>
+<li>another tensor joining op that is subtly different from <code>torch.cat</code>.</li>
+</ul>
+</blockquote>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio"><input id="__tabbed_6_2" name="__tabbed_6" type="radio"><div class="tabbed-labels"><label for="__tabbed_6_1">code</label><label for="__tabbed_6_2">output</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="n">t1</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">([</span><span class="n">tensor</span><span class="p">,</span> <span class="n">tensor</span><span class="p">,</span> <span class="n">tensor</span><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">t1</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<p>``` output<br/>
+tensor([[1., 0., 1., 1., 1., 0., 1., 1., 1., 0., 1., 1.],<br/>
+        [1., 0., 1., 1., 1., 0., 1., 1., 1., 0., 1., 1.],<br/>
+        [1., 0., 1., 1., 1., 0., 1., 1., 1., 0., 1., 1.],<br/>
+        [1., 0., 1., 1., 1., 0., 1., 1., 1., 0., 1., 1.]])</p>
+</div>
+</div>
+</input></input></div>
+<h4 id="multiplying-tensors">Multiplying tensors<a class="headerlink" href="#multiplying-tensors" title="Permanent link">👀</a></h4>
+<ul>
+<li>
+<p>Computing the element-wise product</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio"><input id="__tabbed_7_2" name="__tabbed_7" type="radio"><div class="tabbed-labels"><label for="__tabbed_7_1">code</label><label for="__tabbed_7_2">output</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="c1"># This computes the element-wise product</span>
+<a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"tensor.mul(tensor) </span><span class="se">\n</span><span class="s2"> </span><span class="si">{</span><span class="n">tensor</span><span class="o">.</span><span class="n">mul</span><span class="p">(</span><span class="n">tensor</span><span class="p">)</span><span class="si">}</span><span class="s2"> </span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+<a href="#__codelineno-13-3" id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="c1"># Alternative syntax:</span>
+<a href="#__codelineno-13-4" id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"tensor * tensor </span><span class="se">\n</span><span class="s2"> </span><span class="si">{</span><span class="n">tensor</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">tensor</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="go">tensor.mul(tensor)</span>
+<a href="#__codelineno-14-2" id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="go">tensor([[1., 0., 1., 1.],</span>
+<a href="#__codelineno-14-3" id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="go">        [1., 0., 1., 1.],</span>
+<a href="#__codelineno-14-4" id="__codelineno-14-4" name="__codelineno-14-4"></a><span class="go">        [1., 0., 1., 1.],</span>
+<a href="#__codelineno-14-5" id="__codelineno-14-5" name="__codelineno-14-5"></a><span class="go">        [1., 0., 1., 1.]])</span>
+<a href="#__codelineno-14-6" id="__codelineno-14-6" name="__codelineno-14-6"></a>
+<a href="#__codelineno-14-7" id="__codelineno-14-7" name="__codelineno-14-7"></a><span class="go">tensor * tensor</span>
+<a href="#__codelineno-14-8" id="__codelineno-14-8" name="__codelineno-14-8"></a><span class="go">tensor([[1., 0., 1., 1.],</span>
+<a href="#__codelineno-14-9" id="__codelineno-14-9" name="__codelineno-14-9"></a><span class="go">        [1., 0., 1., 1.],</span>
+<a href="#__codelineno-14-10" id="__codelineno-14-10" name="__codelineno-14-10"></a><span class="go">        [1., 0., 1., 1.],</span>
+<a href="#__codelineno-14-11" id="__codelineno-14-11" name="__codelineno-14-11"></a><span class="go">        [1., 0., 1., 1.]])</span>
+</code></pre></div>
+</div>
+</div>
+</input></input></div>
+</li>
+<li>
+<p>Computing the matrix multiplication between two tensors</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="8:2"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio"><input id="__tabbed_8_2" name="__tabbed_8" type="radio"><div class="tabbed-labels"><label for="__tabbed_8_1">code</label><label for="__tabbed_8_2">output</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"tensor.matmul(tensor.T) </span><span class="se">\n</span><span class="s2"> </span><span class="si">{</span><span class="n">tensor</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">tensor</span><span class="o">.</span><span class="n">T</span><span class="p">)</span><span class="si">}</span><span class="s2"> </span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+<a href="#__codelineno-15-2" id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="c1"># Alternative syntax:</span>
+<a href="#__codelineno-15-3" id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"tensor @ tensor.T </span><span class="se">\n</span><span class="s2"> </span><span class="si">{</span><span class="n">tensor</span><span class="w"> </span><span class="o">@</span><span class="w"> </span><span class="n">tensor</span><span class="o">.</span><span class="n">T</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="go">tensor.matmul(tensor.T)</span>
+<a href="#__codelineno-16-2" id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="go">tensor([[3., 3., 3., 3.],</span>
+<a href="#__codelineno-16-3" id="__codelineno-16-3" name="__codelineno-16-3"></a><span class="go">        [3., 3., 3., 3.],</span>
+<a href="#__codelineno-16-4" id="__codelineno-16-4" name="__codelineno-16-4"></a><span class="go">        [3., 3., 3., 3.],</span>
+<a href="#__codelineno-16-5" id="__codelineno-16-5" name="__codelineno-16-5"></a><span class="go">        [3., 3., 3., 3.]])</span>
+<a href="#__codelineno-16-6" id="__codelineno-16-6" name="__codelineno-16-6"></a>
+<a href="#__codelineno-16-7" id="__codelineno-16-7" name="__codelineno-16-7"></a><span class="go">tensor @ tensor.T</span>
+<a href="#__codelineno-16-8" id="__codelineno-16-8" name="__codelineno-16-8"></a><span class="go">tensor([[3., 3., 3., 3.],</span>
+<a href="#__codelineno-16-9" id="__codelineno-16-9" name="__codelineno-16-9"></a><span class="go">        [3., 3., 3., 3.],</span>
+<a href="#__codelineno-16-10" id="__codelineno-16-10" name="__codelineno-16-10"></a><span class="go">        [3., 3., 3., 3.],</span>
+<a href="#__codelineno-16-11" id="__codelineno-16-11" name="__codelineno-16-11"></a><span class="go">        [3., 3., 3., 3.]])</span>
+</code></pre></div>
+</div>
+</div>
+</input></input></div>
+</li>
+</ul>
+<h4 id="in-place-operations">In-place operations<a class="headerlink" href="#in-place-operations" title="Permanent link">👀</a></h4>
+<ul>
+<li>Operations that have a <code>_</code> suffix are in-place</li>
+<li>这种操作会改变被操作的张量本身，例如 <code>x.copy_(y)</code>, <code>x.t_()</code>, 将会改变 <code>x</code></li>
+</ul>
+<details class="note">
+<summary>Note</summary>
+<p>In-place operations 可以节省一些内存，但在计算导数时会丢失历史信息。因此，不鼓励使用它们。</p>
+</details>
+<div class="tabbed-set tabbed-alternate" data-tabs="9:2"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio"><input id="__tabbed_9_2" name="__tabbed_9" type="radio"><div class="tabbed-labels"><label for="__tabbed_9_1">code</label><label for="__tabbed_9_2">output</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="c1"># tensor.add_(5)</span>
+<a href="#__codelineno-17-2" id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="n">tensor</span><span class="o">.</span><span class="n">add_</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<a href="#__codelineno-17-3" id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">tensor</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-18-1" id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="go">tensor([[6., 5., 6., 6.],</span>
+<a href="#__codelineno-18-2" id="__codelineno-18-2" name="__codelineno-18-2"></a><span class="go">        [6., 5., 6., 6.],</span>
+<a href="#__codelineno-18-3" id="__codelineno-18-3" name="__codelineno-18-3"></a><span class="go">        [6., 5., 6., 6.],</span>
+<a href="#__codelineno-18-4" id="__codelineno-18-4" name="__codelineno-18-4"></a><span class="go">        [6., 5., 6., 6.]])</span>
+</code></pre></div>
+</div>
+</div>
+</input></input></div>
+<h2 id="bridge-with-numpy">Bridge with NumPy<a class="headerlink" href="#bridge-with-numpy" title="Permanent link">👀</a></h2>
+<blockquote>
+<p>Tensors on the CPU and NumPy arrays can share their underlying memory locations, and changing one will change the other.</p>
+</blockquote>
+<h3 id="tensor-to-numpy-array">Tensor to NumPy array<a class="headerlink" href="#tensor-to-numpy-array" title="Permanent link">👀</a></h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="10:2"><input checked="checked" id="__tabbed_10_1" name="__tabbed_10" type="radio"><input id="__tabbed_10_2" name="__tabbed_10" type="radio"><div class="tabbed-labels"><label for="__tabbed_10_1">code</label><label for="__tabbed_10_2">output</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-19-1" id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="n">t</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<a href="#__codelineno-19-2" id="__codelineno-19-2" name="__codelineno-19-2"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"t: </span><span class="si">{</span><span class="n">t</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<a href="#__codelineno-19-3" id="__codelineno-19-3" name="__codelineno-19-3"></a><span class="n">n</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+<a href="#__codelineno-19-4" id="__codelineno-19-4" name="__codelineno-19-4"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"n: </span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-20-1" id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="go">t: tensor([1., 1., 1., 1., 1.])</span>
+<a href="#__codelineno-20-2" id="__codelineno-20-2" name="__codelineno-20-2"></a><span class="go">n: [1. 1. 1. 1. 1.]</span>
+</code></pre></div>
+</div>
+</div>
+</input></input></div>
+<ul>
+<li>A change in the tensor reflects in the NumPy array.</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="11:2"><input checked="checked" id="__tabbed_11_1" name="__tabbed_11" type="radio"><input id="__tabbed_11_2" name="__tabbed_11" type="radio"><div class="tabbed-labels"><label for="__tabbed_11_1">code</label><label for="__tabbed_11_2">output</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-21-1" id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="n">t</span><span class="o">.</span><span class="n">add_</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<a href="#__codelineno-21-2" id="__codelineno-21-2" name="__codelineno-21-2"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"t: </span><span class="si">{</span><span class="n">t</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<a href="#__codelineno-21-3" id="__codelineno-21-3" name="__codelineno-21-3"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"n: </span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-22-1" id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="go">t: tensor([2., 2., 2., 2., 2.])</span>
+<a href="#__codelineno-22-2" id="__codelineno-22-2" name="__codelineno-22-2"></a><span class="go">n: [2. 2. 2. 2. 2.]</span>
+</code></pre></div>
+</div>
+</div>
+</input></input></div>
+<h3 id="numpy-array-to-tensor">NumPy array to Tensor<a class="headerlink" href="#numpy-array-to-tensor" title="Permanent link">👀</a></h3>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-23-1" id="__codelineno-23-1" name="__codelineno-23-1"></a><span class="n">np</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<a href="#__codelineno-23-2" id="__codelineno-23-2" name="__codelineno-23-2"></a><span class="n">t</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">np</span><span class="p">)</span>
+</code></pre></div>
+<ul>
+<li>Changes in the NumPy array reflects in the tensor.</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="12:2"><input checked="checked" id="__tabbed_12_1" name="__tabbed_12" type="radio"><input id="__tabbed_12_2" name="__tabbed_12" type="radio"><div class="tabbed-labels"><label for="__tabbed_12_1">code</label><label for="__tabbed_12_2">output</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-24-1" id="__codelineno-24-1" name="__codelineno-24-1"></a><span class="n">np</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
+<a href="#__codelineno-24-2" id="__codelineno-24-2" name="__codelineno-24-2"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"t: </span><span class="si">{</span><span class="n">t</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<a href="#__codelineno-24-3" id="__codelineno-24-3" name="__codelineno-24-3"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"np: </span><span class="si">{</span><span class="n">np</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<p>``` output<br/>
+t: tensor([2., 2., 2., 2., 2.], dtype=torch.float64)<br/>
+n: [2. 2. 2. 2. 2.]</p>
+</div>
+</div>
+</input></input></div>
+<p><center><font color="grey" face="JetBrains Mono" size="18">To Be Continued</font></center></p>
 <div id="__comments">
 <!-- 主题颜色 
     <div class="mdx-switch">
@@ -876,34 +1291,6 @@
           </button>
 </main>
 <footer class="md-footer">
-<nav aria-label="页脚" class="md-footer__inner md-grid">
-<a aria-label="上一页: Basics of Nerual Network Programming" class="md-footer__link md-footer__link--prev" href="../lec02/" rel="prev">
-<div class="md-footer__button md-icon">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
-</div>
-<div class="md-footer__title">
-<span class="md-footer__direction">
-                上一页
-              </span>
-<div class="md-ellipsis">
-                Basics of Nerual Network Programming
-              </div>
-</div>
-</a>
-<a aria-label="下一页: Improving Deep Neural Networks" class="md-footer__link md-footer__link--next" href="../../course2/" rel="next">
-<div class="md-footer__title">
-<span class="md-footer__direction">
-                下一页
-              </span>
-<div class="md-ellipsis">
-                Improving Deep Neural Networks
-              </div>
-</div>
-<div class="md-footer__button md-icon">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
-</div>
-</a>
-</nav>
 <div class="md-footer-meta md-typeset">
 <div class="md-footer-meta__inner md-grid">
 <div class="md-copyright">
