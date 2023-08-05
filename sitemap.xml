@@ -411,6 +411,21 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://note.enl-z.cc/Self-Learning/PyTorch/BLITZ/lec02/</loc>
+         <lastmod>2023-08-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://note.enl-z.cc/Self-Learning/PyTorch/BLITZ/lec03/</loc>
+         <lastmod>2023-08-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://note.enl-z.cc/Self-Learning/PyTorch/BLITZ/lec04/</loc>
+         <lastmod>2023-08-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://note.enl-z.cc/Triviality/CMake/</loc>
          <lastmod>2023-08-05</lastmod>
          <changefreq>daily</changefreq>
