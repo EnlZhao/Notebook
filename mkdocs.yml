@@ -1,9 +1,9 @@
-site_name: 某兰的笔记本
-site_url: https://note.enl-z.cc
+site_name: 某兰的知识库
+site_url: https://note.enlzhao.com
 edit_uri: tree/master/docs
-copyright: Copyright &copy; 2022-2023 <a href="https://github.com/enl-z" target="_blank" rel="noopener">某兰</a>
+copyright: Copyright &copy; 2022 <a href="https://github.com/enlzhao" target="_blank" rel="noopener">某兰</a>
 site_author: Enl_Z
-site_description: 某兰的笔记
+site_description: 某兰的知识库
 
 # Pages
 nav: 
@@ -26,14 +26,16 @@ nav:
       - 哈希: Course/FDS/Lec06.md
     - 高级数据结构与算法分析:
       - 高级数据结构与算法分析: Course/ADS/index.md
-      - AVL & Splay: Course/ADS/Lec01.md
-      - Red-Black & B+: Course/ADS/Lec02.md
-      - Heap: Course/ADS/Lec03.md
-      - Backtracking: Course/ADS/Lec04.md
-      - Divide and Conquer: Course/ADS/Lec05.md
-      - Dynamic Programming: Course/ADS/Lec06.md
-      - Greedy: Course/ADS/Lec07.md
-      - NP - Completeness: Course/ADS/Lec08.md
+      - 数据结构:
+        - AVL & Splay: Course/ADS/Lec01.md
+        - Red-Black & B+: Course/ADS/Lec02.md
+        - Heap: Course/ADS/Lec03.md
+      - 算法分析:
+        - Backtracking: Course/ADS/Lec04.md
+        - Divide and Conquer: Course/ADS/Lec05.md
+        - Dynamic Programming: Course/ADS/Lec06.md
+        - Greedy: Course/ADS/Lec07.md
+        - NP - Completeness: Course/ADS/Lec08.md
     - 面向对象程序设计:
       - 面向对象程序设计: Course/OOP/index.md
       - Beginning: Course/OOP/Lec01.md
@@ -52,8 +54,32 @@ nav:
       - 密码学: Course/Crypto/index.md
       - 数学基础: Course/Crypto/Lec01.md
       - 古典密码: Course/Crypto/Lec02.md
-  #- Self-Learning:
-  #    - CS61A:  
+  - Self-Learning:
+    - DeepLearning:
+      - DeepLearning: Self-Learning/DeepLearning/index.md
+      - Intrucution to Deep Learning: Self-Learning/DeepLearning/introduction.md
+      - Neural Networks and Deep Learning: 
+        - Neural Networks and Deep Learning: Self-Learning/DeepLearning/course1/index.md
+        - Introduction: Self-Learning/DeepLearning/course1/lec01.md 
+        - Basics of Nerual Network Programming: Self-Learning/DeepLearning/course1/lec02.md
+        - One hidden layer Neural Network: Self-Learning/DeepLearning/course1/lec03.md
+        - Deep Neural Network: Self-Learning/DeepLearning/course1/lec04.md
+      - Improving Deep Neural Networks: 
+        - Improving Deep Neural Networks: Self-Learning/DeepLearning/course2/index.md
+      - Structuring Machine Learning Projects: 
+        - Structuring Machine Learning Projects: Self-Learning/DeepLearning/course3/index.md
+      - Convolutional Neural Networks: 
+        - Convolutional Neural Networks: Self-Learning/DeepLearning/course4/index.md
+      - Building Sequence Models: 
+        - Building Sequence Models: Self-Learning/DeepLearning/course5/index.md
+    - PyTorch: 
+      - PyTorch: Self-Learning/PyTorch/index.md
+      - A 60 Min BLITZ: 
+        - A 60 Min BLITZ: Self-Learning/PyTorch/BLITZ/index.md
+        - Tensors: Self-Learning/PyTorch/BLITZ/lec01.md
+        - Autograd: Self-Learning/PyTorch/BLITZ/lec02.md
+        - Neural Networks: Self-Learning/PyTorch/BLITZ/lec03.md
+        - Training a Classifier: Self-Learning/PyTorch/BLITZ/lec04.md
   - Triviality: 
     - Markdown:
       - Perface: Triviality/Markdown/index.md
@@ -145,8 +171,8 @@ theme:
 
   language: zh # 一些提示性的文字会变成中文
 
-repo_url: https://github.com/enl-z/Notebook # 右上角点击跳转的链接
-repo_name: note.enl-z.cc # 右上角的名字
+repo_url: https://github.com/enlzhao/Notebook # 右上角点击跳转的链接
+repo_name: Knowledge Base # 右上角的名字
 ## [bottom-left corner]
 
 # [Extensions]
@@ -221,7 +247,7 @@ markdown_extensions:
   - pymdownx.magiclink:
       repo_url_shorthand: true
       user: Enl_Z
-      repo: note.enl-z.cc
+      repo: note.enlzhao.com
   - toc:
       permalink:  👀 # ⚓︎ # 显示锚点
   - pymdownx.tasklist:
@@ -252,7 +278,7 @@ extra:
     property: !ENV GOOGLE_ANALYTICS_KEY
   social: 
     - icon: fontawesome/brands/github
-      link: https://github.com/enl-z
+      link: https://github.com/enlzhao
       name: GitHub 
     - icon: fontawesome/solid/paper-plane
       link: mailto:EZhao1997@outlook.com
@@ -261,6 +287,6 @@ extra:
       link: tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=1613715141&website=www.oicqzone.com
       name: QQ 
     - icon: fontawesome/regular/chess-king
-      link: https://enl-z.cc/
+      link: https://enlzhao.com/
       name: Blog
 

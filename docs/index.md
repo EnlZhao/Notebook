@@ -1,8 +1,8 @@
 # Hello
 
-  💬这里是 [某兰 | Enl_Z](https://note.enl-z.cc/) 的笔记本，有一些课程笔记或者学习记录；
+  💬这里是 [某兰 | Enl_Z](https://blog.enlzhao.com/about/) 的 [知识库](https://note.enlzhao.com/)，有一些课程笔记或者学习记录；
   
-  💬其余较杂的内容（诸如学习总结一类的）欢迎大家到我的 [引导页](https://enl-z.cc/) 寻找
+  💬其余较杂的内容（诸如学习总结一类的）欢迎大家到我的 [引导页](https://enlzhao.com/) 寻找
   
 !!! info 
     因为记性不好，笔记内容整理较为繁琐。

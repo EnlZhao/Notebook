@@ -8,7 +8,7 @@
             * * [x] [计算机系统Ⅱ | SYS2](./System2/index.md)
             * * [x] [数据结构基础 | FDS](./FDS/index.md)
         * 大二下
-            * * [ ] [计算机系统Ⅲ | SYS3](./System3/index.md)
+            * * [x] [计算机系统Ⅲ | SYS3](./System3/index.md)
             * * [ ] [高级数据结构与算法分析 | ADS](./ADS/index.md)
             * * [x] [面向对象程序设计 | OOP](./OOP/index.md)
             * * [ ] [密码学 | Crypto](./Crypto/index.md)

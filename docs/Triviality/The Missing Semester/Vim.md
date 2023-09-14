@@ -1,8 +1,11 @@
 # Vim
 
+!!! success "快速入门"
+    安装后直接在终端键入 `vimtutor` 即可进入 Vim 的教程
+
 ## 该学哪个编辑器？
 
-* [Visual Studio Code](https://code.visualstudio.com/)是目前最流行的代码编辑器。而[Vim](https://www.vim.org/) 则是最流行的基于命令行的编辑器。
+* [Visual Studio Code](https://code.visualstudio.com/) 是目前最流行的代码编辑器。而 [Vim](https://www.vim.org/) 则是最流行的基于命令行的编辑器。
 * REPL只交互式的编程环境，也能指代命令行的模式
 
 ## Vim的哲学
