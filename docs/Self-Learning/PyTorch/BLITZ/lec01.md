@@ -281,6 +281,7 @@ t = torch.from_numpy(np)
     ``` output
     t: tensor([2., 2., 2., 2., 2.], dtype=torch.float64)
     n: [2. 2. 2. 2. 2.]
+    ```
 
 
 

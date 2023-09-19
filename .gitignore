@@ -5,3 +5,4 @@ docs/AI/
 docs/Course/ADS/
 .github/
 *.DS_Store
+*.cache

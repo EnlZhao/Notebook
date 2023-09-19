@@ -29,13 +29,13 @@ nav:
       - 数据结构:
         - AVL & Splay: Course/ADS/Lec01.md
         - Red-Black & B+: Course/ADS/Lec02.md
-        - Heap: Course/ADS/Lec03.md
-      - 算法分析:
-        - Backtracking: Course/ADS/Lec04.md
-        - Divide and Conquer: Course/ADS/Lec05.md
-        - Dynamic Programming: Course/ADS/Lec06.md
-        - Greedy: Course/ADS/Lec07.md
-        - NP - Completeness: Course/ADS/Lec08.md
+        #- Heap: Course/ADS/Lec03.md
+      #- 算法分析:
+        #- Backtracking: Course/ADS/Lec04.md
+        #- Divide and Conquer: Course/ADS/Lec05.mds
+        #- Dynamic Programming: Course/ADS/Lec06.md
+        #- Greedy: Course/ADS/Lec07.md
+        #- NP - Completeness: Course/ADS/Lec08.md
     - 面向对象程序设计:
       - 面向对象程序设计: Course/OOP/index.md
       - Beginning: Course/OOP/Lec01.md
@@ -50,10 +50,10 @@ nav:
       - Smart Pointers: Course/OOP/Lec10.md
       - Class Design: Course/OOP/Lec11.md
       - Streams & 继承构造函数: Course/OOP/Lec12.md
-    - 密码学:
-      - 密码学: Course/Crypto/index.md
-      - 数学基础: Course/Crypto/Lec01.md
-      - 古典密码: Course/Crypto/Lec02.md
+    #- 密码学:
+    #  - 密码学: Course/Crypto/index.md
+    #  - 数学基础: Course/Crypto/Lec01.md
+    #  - 古典密码: Course/Crypto/Lec02.md
   - Self-Learning:
     - DeepLearning:
       - DeepLearning: Self-Learning/DeepLearning/index.md
@@ -186,6 +186,7 @@ plugins:
       decryption_failure_message: Invalid password
       encryption_info_message: Contact me(Enl_Z) via methods provided in the comments section for access to this page
   - mermaid2
+  - obsidian-support
   #- tags # 给单篇文章添加标签 https://squidfunk.github.io/mkdocs-material/setup/setting-up-tags/?h=tags
   # - git-revision-date-localized: # 显示最后一次修改时间
   #     type: timeago

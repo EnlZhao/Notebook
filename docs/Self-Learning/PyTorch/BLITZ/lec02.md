@@ -1,4 +1,4 @@
-# A Gentle Introduction to `torch.autograd`
+# `torch.autograd`
 
 
 
