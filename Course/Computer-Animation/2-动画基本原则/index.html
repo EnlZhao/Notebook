@@ -1004,9 +1004,9 @@
 </ul>
 </li>
 <li>Slow In and Slow Out (慢入和慢出)<ul>
-<li>所有物体自静止开始运动，逐渐加速；从运动状态回到静止状态 ，则逐渐减慢</li>
-<li>慢入和慢出是指动作的加速和减速。自然界中物体的运动具有加 速和减速的性质</li>
-<li>动作的慢入和慢出使得物体的运动更加符合自然规律，因此应该 应用于绝大多数的动作 <br/><img alt="image.png" src="https://gitee.com/enl-z/ob-images/raw/master/imgs/202309211443524.png"/></li>
+<li>所有物体自静止开始运动，逐渐加速；从运动状态回到静止状态，则逐渐减慢</li>
+<li>慢入和慢出是指动作的加速和减速。自然界中物体的运动具有加速和减速的性质</li>
+<li>动作的慢入和慢出使得物体的运动更加符合自然规律，因此应该应用于绝大多数的动作 <br/><img alt="image.png" src="https://gitee.com/enl-z/ob-images/raw/master/imgs/202309211443524.png"/></li>
 </ul>
 </li>
 <li>Arcs（弧形动作）<ul>
@@ -1031,7 +1031,7 @@
 <li>Appeal（吸引力）<ul>
 <li>吸引力是指任何观众愿意观看的东西,以表现出角色的个性</li>
 <li>目标：建立角色与观众的某种联系</li>
-<li>当设计角色时，以独特的造型或姿态来提高观众对角色的印象。 例如高矮胖瘦可分别代表角色的不同个性 <br/><img alt="image.png" src="https://gitee.com/enl-z/ob-images/raw/master/imgs/202309211455733.png"/></li>
+<li>当设计角色时，以独特的造型或姿态来提高观众对角色的印象。例如高矮胖瘦可分别代表角色的不同个性 <br/><img alt="image.png" src="https://gitee.com/enl-z/ob-images/raw/master/imgs/202309211455733.png"/></li>
 </ul>
 </li>
 </ol>
@@ -1054,14 +1054,12 @@
 </li>
 <li>物理原理<ul>
 <li>物体可看成由无数小的粒子组成，我们考虑如何生成一个小粒子的动画。假设有一个很小的粒子，它身上携带这一个很小的喷射引擎，这个引擎可以产生力来推动这个粒子运动</li>
-<li>
-<p>计算机可通过一种算法，来自动产生引擎的喷射力，使得这个小粒子可以从一开始 给定的初始位置 X(0)，运动到我们想让它达到的终点位置 X(T)。对此，我们有几个约束条件：</p>
-<ol>
+<li>计算机可通过一种算法，来自动产生引擎的喷射力，使得这个小粒子可以从一开始 给定的初始位置 X(0)，运动到我们想让它达到的终点位置 X(T)。对此，我们有几个约束条件：<ol>
 <li>动力学约束： <span class="arithmatex">\(ma = mg + f(t)\)</span> ;</li>
 <li>位置约束：粒子在运动时的起点和终点 (pose to pose) ;</li>
-<li>目标约束：粒子耗能最小 (使用最少的燃料/最省力) </li>
+<li>目标约束：粒子耗能最小 (使用最少的燃料/最省力) <br>
+<span class="arithmatex">\(<span class="arithmatex">\(\min \int{^{T}_{t_0}} ||f(t)||^2 dt\)</span>\)</span></br></li>
 </ol>
-<div class="arithmatex">\[\min \int{^{T}_{t_0}} ||f(t)||^2 dt\]</div>
 </li>
 </ul>
 </li>
