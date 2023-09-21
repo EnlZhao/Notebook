@@ -1,2 +1,0 @@
-# Bollean Logic & Logic Gates
-

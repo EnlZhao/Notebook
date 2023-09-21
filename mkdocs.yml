@@ -54,6 +54,10 @@ nav:
     #  - 密码学: Course/Crypto/index.md
     #  - 数学基础: Course/Crypto/Lec01.md
     #  - 古典密码: Course/Crypto/Lec02.md
+    - 计算机动画: 
+      - 计算机动画: Course/Computer-Animation/index.md
+      - 简介: Course/Computer-Animation/1-计算机动画简介.md
+      - 动画基本原则: Course/Computer-Animation/2-动画基本原则.md
   - Self-Learning:
     - DeepLearning:
       - DeepLearning: Self-Learning/DeepLearning/index.md
