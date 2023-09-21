@@ -12,6 +12,11 @@
             * * [ ] [高级数据结构与算法分析 | ADS](./ADS/index.md)
             * * [x] [面向对象程序设计 | OOP](./OOP/index.md)
             * * [ ] [密码学 | Crypto](./Crypto/index.md)
+        * 大三上
+            * * [ ] [计算机网络]()
+            * * [ ] [计算机动画](./Computer-Animation/index.md)
+            * * [ ] [密码学进阶]()
+            * * [ ] [面向信息安全的信号处理]()
 
     !!! warning "Attention"
         * 笔记未完成的部分会加密
