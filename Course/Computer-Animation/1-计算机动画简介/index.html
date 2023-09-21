@@ -7,12 +7,14 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="某兰的知识库" name="description"/>
 <meta content="Enl_Z" name="author"/>
-<link href="https://note.enlzhao.com/Course/Signal%20Processing%20for%20Information%20Security/" rel="canonical"/>
-<link href="../../Icon/Avatar.png" rel="icon"/>
+<link href="https://note.enlzhao.com/Course/Computer-Animation/1-%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8A%A8%E7%94%BB%E7%AE%80%E4%BB%8B/" rel="canonical"/>
+<link href="../" rel="prev"/>
+<link href="../2-%E5%8A%A8%E7%94%BB%E5%9F%BA%E6%9C%AC%E5%8E%9F%E5%88%99/" rel="next"/>
+<link href="../../../Icon/Avatar.png" rel="icon"/>
 <meta content="mkdocs-1.5.3, mkdocs-material-9.3.2" name="generator"/>
-<title>面向信息安全的信号处理 - 某兰的知识库</title>
-<link href="../../assets/stylesheets/main.30068a00.min.css" rel="stylesheet"/>
-<link href="../../assets/stylesheets/palette.85d0ee34.min.css" rel="stylesheet"/>
+<title>简介 - 某兰的知识库</title>
+<link href="../../../assets/stylesheets/main.30068a00.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/palette.85d0ee34.min.css" rel="stylesheet"/>
 <script>
     MathJax = {
         tex: {
@@ -26,12 +28,12 @@
 <link href="https://fonts.googleapis.com/css?family=JetBrains+Mono:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"JetBrains Mono";--md-code-font:"JetBrains Mono"}</style>
 <link href="https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" rel="stylesheet"/>
-<link href="../../mkdocs/extra_css/tasklist.css" rel="stylesheet"/>
-<link href="../../mkdocs/extra_css/counter.css" rel="stylesheet"/>
-<link href="../../mkdocs/extra_css/giscus.css" rel="stylesheet"/>
-<link href="../../mkdocs/extra_css/flink.css" rel="stylesheet"/>
-<link href="../../mkdocs/extra_css/extra.css" rel="stylesheet"/>
-<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<link href="../../../mkdocs/extra_css/tasklist.css" rel="stylesheet"/>
+<link href="../../../mkdocs/extra_css/counter.css" rel="stylesheet"/>
+<link href="../../../mkdocs/extra_css/giscus.css" rel="stylesheet"/>
+<link href="../../../mkdocs/extra_css/flink.css" rel="stylesheet"/>
+<link href="../../../mkdocs/extra_css/extra.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config",""),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
 </head>
@@ -41,7 +43,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#_1">
+<a class="md-skip" href="#private">
           跳转至
         </a>
 </div>
@@ -49,8 +51,8 @@
 </div>
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
 <nav aria-label="页眉" class="md-header__inner md-grid">
-<a aria-label="某兰的知识库" class="md-header__button md-logo" data-md-component="logo" href="../.." title="某兰的知识库">
-<img alt="logo" src="../../Icon/Avatar.png"/>
+<a aria-label="某兰的知识库" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="某兰的知识库">
+<img alt="logo" src="../../../Icon/Avatar.png"/>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
@@ -65,7 +67,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              面向信息安全的信号处理
+              简介
             
           </span>
 </div>
@@ -138,7 +140,7 @@
 <div class="md-grid">
 <ul class="md-tabs__list">
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../..">
+<a class="md-tabs__link" href="../../..">
           
   
     
@@ -147,8 +149,8 @@
 
         </a>
 </li>
-<li class="md-tabs__item">
-<a class="md-tabs__link" href="../abstract/">
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="../../abstract/">
           
   
     
@@ -158,7 +160,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../Self-Learning/DeepLearning/">
+<a class="md-tabs__link" href="../../../Self-Learning/DeepLearning/">
           
   
     
@@ -168,7 +170,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../Triviality/Markdown/">
+<a class="md-tabs__link" href="../../../Triviality/Markdown/">
           
   
     
@@ -178,7 +180,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../Triviality/GitHub/">
+<a class="md-tabs__link" href="../../../Triviality/GitHub/">
           
   
     
@@ -199,8 +201,8 @@
 <div class="md-sidebar__inner">
 <nav aria-label="导航栏" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="某兰的知识库" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="某兰的知识库">
-<img alt="logo" src="../../Icon/Avatar.png"/>
+<a aria-label="某兰的知识库" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="某兰的知识库">
+<img alt="logo" src="../../../Icon/Avatar.png"/>
 </a>
     某兰的知识库
   </label>
@@ -218,7 +220,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_1" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../..">
+<a class="md-nav__link" href="../../..">
 <span class="md-ellipsis">
     Hello
   </span>
@@ -234,7 +236,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../link/">
+<a class="md-nav__link" href="../../../link/">
 <span class="md-ellipsis">
     友链
   </span>
@@ -243,22 +245,22 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
 <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
 <span class="md-ellipsis">
     Course
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<nav aria-expanded="true" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_2">
 <span class="md-nav__icon md-icon"></span>
             Course
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../abstract/">
+<a class="md-nav__link" href="../../abstract/">
 <span class="md-ellipsis">
     前言
   </span>
@@ -267,7 +269,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_2_2" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../System2/">
+<a class="md-nav__link" href="../../System2/">
 <span class="md-ellipsis">
     计算机系统Ⅱ
   </span>
@@ -285,7 +287,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_2_3" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../System3/">
+<a class="md-nav__link" href="../../System3/">
 <span class="md-ellipsis">
     计算机系统Ⅲ
   </span>
@@ -303,7 +305,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_2_4" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../FDS/">
+<a class="md-nav__link" href="../../FDS/">
 <span class="md-ellipsis">
     数据结构基础
   </span>
@@ -319,42 +321,42 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../FDS/Lec01/">
+<a class="md-nav__link" href="../../FDS/Lec01/">
 <span class="md-ellipsis">
     算法分析和抽象数据类型
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../FDS/Lec02/">
+<a class="md-nav__link" href="../../FDS/Lec02/">
 <span class="md-ellipsis">
     线性结构
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../FDS/Lec03/">
+<a class="md-nav__link" href="../../FDS/Lec03/">
 <span class="md-ellipsis">
     树
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../FDS/Lec04/">
+<a class="md-nav__link" href="../../FDS/Lec04/">
 <span class="md-ellipsis">
     图
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../FDS/Lec05/">
+<a class="md-nav__link" href="../../FDS/Lec05/">
 <span class="md-ellipsis">
     排序
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../FDS/Lec06/">
+<a class="md-nav__link" href="../../FDS/Lec06/">
 <span class="md-ellipsis">
     哈希
   </span>
@@ -366,7 +368,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_2_5" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../ADS/">
+<a class="md-nav__link" href="../../ADS/">
 <span class="md-ellipsis">
     高级数据结构与算法分析
   </span>
@@ -396,14 +398,14 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../ADS/Lec01/">
+<a class="md-nav__link" href="../../ADS/Lec01/">
 <span class="md-ellipsis">
     AVL &amp; Splay
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../ADS/Lec02/">
+<a class="md-nav__link" href="../../ADS/Lec02/">
 <span class="md-ellipsis">
     [LOCK]Red-Black &amp; B+
   </span>
@@ -418,7 +420,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_2_6" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../OOP/">
+<a class="md-nav__link" href="../../OOP/">
 <span class="md-ellipsis">
     面向对象程序设计
   </span>
@@ -434,86 +436,122 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../OOP/Lec01/">
+<a class="md-nav__link" href="../../OOP/Lec01/">
 <span class="md-ellipsis">
     Beginning
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../OOP/Lec02/">
+<a class="md-nav__link" href="../../OOP/Lec02/">
 <span class="md-ellipsis">
     Step in Object-Oriented
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../OOP/Lec03/">
+<a class="md-nav__link" href="../../OOP/Lec03/">
 <span class="md-ellipsis">
     Container
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../OOP/Lec04/">
+<a class="md-nav__link" href="../../OOP/Lec04/">
 <span class="md-ellipsis">
     Object Interactive
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../OOP/Lec05/">
+<a class="md-nav__link" href="../../OOP/Lec05/">
 <span class="md-ellipsis">
     Key Words
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../OOP/Lec06/">
+<a class="md-nav__link" href="../../OOP/Lec06/">
 <span class="md-ellipsis">
     Inheritance &amp; Polymorphism
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../OOP/Lec07/">
+<a class="md-nav__link" href="../../OOP/Lec07/">
 <span class="md-ellipsis">
     Copt Ctor &amp; Overloaded Operators
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../OOP/Lec08/">
+<a class="md-nav__link" href="../../OOP/Lec08/">
 <span class="md-ellipsis">
     Templates
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../OOP/Lec09/">
+<a class="md-nav__link" href="../../OOP/Lec09/">
 <span class="md-ellipsis">
     Exception Handling
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../OOP/Lec10/">
+<a class="md-nav__link" href="../../OOP/Lec10/">
 <span class="md-ellipsis">
     Smart Pointers
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../OOP/Lec11/">
+<a class="md-nav__link" href="../../OOP/Lec11/">
 <span class="md-ellipsis">
     Class Design
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../OOP/Lec12/">
+<a class="md-nav__link" href="../../OOP/Lec12/">
 <span class="md-ellipsis">
     Streams &amp; 继承构造函数
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_2_7" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../">
+<span class="md-ellipsis">
+    计算机动画
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_7">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="true" aria-labelledby="__nav_2_7_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_7">
+<span class="md-nav__icon md-icon"></span>
+            计算机动画
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    简介
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../2-%E5%8A%A8%E7%94%BB%E5%9F%BA%E6%9C%AC%E5%8E%9F%E5%88%99/">
+<span class="md-ellipsis">
+    动画基本原则
   </span>
 </a>
 </li>
@@ -540,7 +578,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_3_1" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../Self-Learning/DeepLearning/">
+<a class="md-nav__link" href="../../../Self-Learning/DeepLearning/">
 <span class="md-ellipsis">
     DeepLearning
   </span>
@@ -556,7 +594,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../Self-Learning/DeepLearning/introduction/">
+<a class="md-nav__link" href="../../../Self-Learning/DeepLearning/introduction/">
 <span class="md-ellipsis">
     Intrucution to Deep Learning
   </span>
@@ -565,7 +603,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_3_1_3" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../Self-Learning/DeepLearning/course1/">
+<a class="md-nav__link" href="../../../Self-Learning/DeepLearning/course1/">
 <span class="md-ellipsis">
     Neural Networks and Deep Learning
   </span>
@@ -581,28 +619,28 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../Self-Learning/DeepLearning/course1/lec01/">
+<a class="md-nav__link" href="../../../Self-Learning/DeepLearning/course1/lec01/">
 <span class="md-ellipsis">
     Introduction
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../Self-Learning/DeepLearning/course1/lec02/">
+<a class="md-nav__link" href="../../../Self-Learning/DeepLearning/course1/lec02/">
 <span class="md-ellipsis">
     Basics of Nerual Network Programming
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../Self-Learning/DeepLearning/course1/lec03/">
+<a class="md-nav__link" href="../../../Self-Learning/DeepLearning/course1/lec03/">
 <span class="md-ellipsis">
     One hidden layer Neural Network
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../Self-Learning/DeepLearning/course1/lec04.md">
+<a class="md-nav__link" href="../../../Self-Learning/DeepLearning/course1/lec04.md">
 <span class="md-ellipsis">
     Deep Neural Network
   </span>
@@ -614,7 +652,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_3_1_4" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../Self-Learning/DeepLearning/course2/">
+<a class="md-nav__link" href="../../../Self-Learning/DeepLearning/course2/">
 <span class="md-ellipsis">
     Improving Deep Neural Networks
   </span>
@@ -632,7 +670,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_3_1_5" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../Self-Learning/DeepLearning/course3/">
+<a class="md-nav__link" href="../../../Self-Learning/DeepLearning/course3/">
 <span class="md-ellipsis">
     Structuring Machine Learning Projects
   </span>
@@ -650,7 +688,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_3_1_6" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../Self-Learning/DeepLearning/course4/">
+<a class="md-nav__link" href="../../../Self-Learning/DeepLearning/course4/">
 <span class="md-ellipsis">
     Convolutional Neural Networks
   </span>
@@ -668,7 +706,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_3_1_7" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../Self-Learning/DeepLearning/course5/">
+<a class="md-nav__link" href="../../../Self-Learning/DeepLearning/course5/">
 <span class="md-ellipsis">
     Building Sequence Models
   </span>
@@ -689,7 +727,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_3_2" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../Self-Learning/PyTorch/">
+<a class="md-nav__link" href="../../../Self-Learning/PyTorch/">
 <span class="md-ellipsis">
     PyTorch
   </span>
@@ -707,7 +745,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_3_2_2" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../Self-Learning/PyTorch/BLITZ/">
+<a class="md-nav__link" href="../../../Self-Learning/PyTorch/BLITZ/">
 <span class="md-ellipsis">
     A 60 Min BLITZ
   </span>
@@ -723,28 +761,28 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../Self-Learning/PyTorch/BLITZ/lec01/">
+<a class="md-nav__link" href="../../../Self-Learning/PyTorch/BLITZ/lec01/">
 <span class="md-ellipsis">
     Tensors
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../Self-Learning/PyTorch/BLITZ/lec02/">
+<a class="md-nav__link" href="../../../Self-Learning/PyTorch/BLITZ/lec02/">
 <span class="md-ellipsis">
     Autograd
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../Self-Learning/PyTorch/BLITZ/lec03/">
+<a class="md-nav__link" href="../../../Self-Learning/PyTorch/BLITZ/lec03/">
 <span class="md-ellipsis">
     Neural Networks
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../Self-Learning/PyTorch/BLITZ/lec04/">
+<a class="md-nav__link" href="../../../Self-Learning/PyTorch/BLITZ/lec04/">
 <span class="md-ellipsis">
     Training a Classifier
   </span>
@@ -776,7 +814,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_4_1" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../Triviality/Markdown/">
+<a class="md-nav__link" href="../../../Triviality/Markdown/">
 <span class="md-ellipsis">
     Markdown
   </span>
@@ -792,7 +830,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../Triviality/Markdown/markdown/">
+<a class="md-nav__link" href="../../../Triviality/Markdown/markdown/">
 <span class="md-ellipsis">
     Markdown
   </span>
@@ -804,7 +842,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_4_2" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../Triviality/The%20Missing%20Semester/">
+<a class="md-nav__link" href="../../../Triviality/The%20Missing%20Semester/">
 <span class="md-ellipsis">
     Missing Semester
   </span>
@@ -820,7 +858,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../Triviality/The%20Missing%20Semester/Vim/">
+<a class="md-nav__link" href="../../../Triviality/The%20Missing%20Semester/Vim/">
 <span class="md-ellipsis">
     Vim
   </span>
@@ -832,7 +870,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_4_3" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../Triviality/CMake/">
+<a class="md-nav__link" href="../../../Triviality/CMake/">
 <span class="md-ellipsis">
     CMake
   </span>
@@ -848,14 +886,14 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../Triviality/CMake/Lec01/">
+<a class="md-nav__link" href="../../../Triviality/CMake/Lec01/">
 <span class="md-ellipsis">
     准备&amp;试编译
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../Triviality/CMake/Lec02/">
+<a class="md-nav__link" href="../../../Triviality/CMake/Lec02/">
 <span class="md-ellipsis">
     初体验
   </span>
@@ -884,7 +922,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_5_1" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../Triviality/GitHub/">
+<a class="md-nav__link" href="../../../Triviality/GitHub/">
 <span class="md-ellipsis">
     GitHub
   </span>
@@ -900,7 +938,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../Triviality/GitHub/Le1/">
+<a class="md-nav__link" href="../../../Triviality/GitHub/Le1/">
 <span class="md-ellipsis">
     Basics
   </span>
@@ -927,27 +965,30 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/enlzhao/Notebook/tree/master/docs/Course/Signal Processing for Information Security/index.md" title="编辑此页">
+<a class="md-content__button md-icon" href="https://github.com/enlzhao/Notebook/tree/master/docs/Course/Computer-Animation/1-计算机动画简介.md" title="编辑此页">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
 </a>
-<a class="md-content__button md-icon" href="https://github.com/enlzhao/Notebook/tree/master/docs/Course/Signal Processing for Information Security/index.md" title="查看本页的源代码">
+<a class="md-content__button md-icon" href="https://github.com/enlzhao/Notebook/tree/master/docs/Course/Computer-Animation/1-计算机动画简介.md" title="查看本页的源代码">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"></path></svg>
 </a>
-<h1 id="_1">面向信息安全的信号处理<a class="headerlink" href="#_1" title="Permanent link">👀</a></h1>
-<div class="admonition abstract">
-<p class="admonition-title">Abstract</p>
-<p>本课程涉及八方面的内容：</p>
-<ol>
-<li>信号与系统基础：阶跃信号与冲激信号，线性时不变系统，卷积</li>
-<li>傅里叶变换与傅里叶级数：周期信号的傅里叶级数分析，傅里叶变换原理和基本性质，采样定理</li>
-<li>信号的向量空间分析：信号向量空间的基本概念，信号的正交函数分解，相关，能量谱和功率谱</li>
-<li>随机变量：随机变量的分布函数，概率密度和数字特征，朴素贝叶斯法</li>
-<li>随机过程：平稳随机过程，随机过程的联合分布和互相关函数，随机过程的功率谱密度</li>
-<li>马尔可夫过程与马尔可夫模型：马尔可夫链的转移概率及矩阵，马尔可夫过程，隐马尔可夫模型</li>
-<li>降维与度量学习：线性降维，非线性降维，距离度量</li>
-<li>信号处理在信息安全中的应用：物联网安全，认知无线电安全，智能电网安全等。</li>
-</ol>
-</div>
+<h1 id="private">private<a class="headerlink" href="#private" title="Permanent link">👀</a></h1>
+<h1 id="_1">课程笔记/计算机动画<a class="headerlink" href="#_1" title="Permanent link">👀</a></h1>
+<h1 id="_2">计算机动画基本简介<a class="headerlink" href="#_2" title="Permanent link">👀</a></h1>
+<ul>
+<li>帧（Frame）<ul>
+<li>动画利用了人的视觉残留特性。连续画面的基本单位为单幅静态画面，在图形学和动画中称为一帧</li>
+</ul>
+</li>
+<li>帧率（Frames Per Second, fps）<ul>
+<li>每秒钟翻多少帧</li>
+</ul>
+</li>
+<li>场和制式<ul>
+<li>场（Field）是指图像中隔行扫描的某一半扫描线，分奇场（Odd Field）和偶场（Even Field）</li>
+<li>奇偶二场交替显示有效提高了画面变化的连续性，减少了闪烁现象</li>
+</ul>
+</li>
+</ul>
 <div id="__comments">
 <!-- 主题颜色 
     <div class="mdx-switch">
@@ -1013,6 +1054,34 @@
           </button>
 </main>
 <footer class="md-footer">
+<nav aria-label="页脚" class="md-footer__inner md-grid">
+<a aria-label="上一页: 计算机动画" class="md-footer__link md-footer__link--prev" href="../" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</div>
+<div class="md-footer__title">
+<span class="md-footer__direction">
+                上一页
+              </span>
+<div class="md-ellipsis">
+                计算机动画
+              </div>
+</div>
+</a>
+<a aria-label="下一页: 动画基本原则" class="md-footer__link md-footer__link--next" href="../2-%E5%8A%A8%E7%94%BB%E5%9F%BA%E6%9C%AC%E5%8E%9F%E5%88%99/" rel="next">
+<div class="md-footer__title">
+<span class="md-footer__direction">
+                下一页
+              </span>
+<div class="md-ellipsis">
+                动画基本原则
+              </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
+</div>
+</a>
+</nav>
 <div class="md-footer-meta md-typeset">
 <div class="md-footer-meta__inner md-grid">
 <div class="md-copyright">
@@ -1047,11 +1116,11 @@
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tracking", "navigation.tabs", "navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.top", "search.suggest", "search.highlight", "content.code.annotate", "header.autohide", "toc.separate", "toc.follow", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "search.highlight", "search.share", "search.suggest"], "search": "../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
-<script src="../../assets/javascripts/bundle.dff1b7c8.min.js"></script>
-<script src="../../overrides/assets/javascripts/extra.js"></script>
+<script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tracking", "navigation.tabs", "navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.top", "search.suggest", "search.highlight", "content.code.annotate", "header.autohide", "toc.separate", "toc.follow", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "search.highlight", "search.share", "search.suggest"], "search": "../../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+<script src="../../../assets/javascripts/bundle.dff1b7c8.min.js"></script>
+<script src="../../../overrides/assets/javascripts/extra.js"></script>
 <script src="https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
-<script src="../../mkdocs/javascripts/katex.js"></script>
+<script src="../../../mkdocs/javascripts/katex.js"></script>
 <script src="https://unpkg.com/mermaid@8.7.0/dist/mermaid.min.js"></script>
 </body>
 </html>
