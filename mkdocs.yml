@@ -58,6 +58,9 @@ nav:
       - 计算机动画: Course/Computer-Animation/index.md
       - 简介: Course/Computer-Animation/1-计算机动画简介.md
       - 动画基本原则: Course/Computer-Animation/2-动画基本原则.md
+    # - 面向信息安全的信号处理:
+    #   - 面向信息安全的信号处理: Course/Signal-Processing/index.md
+    #   - 信号与系统基础: Course/Signal-Processing/1-信号与系统基础.md
   - Self-Learning:
     - DeepLearning:
       - DeepLearning: Self-Learning/DeepLearning/index.md

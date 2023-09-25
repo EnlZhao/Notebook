@@ -1,8 +1,7 @@
 site/
 *.sh
 docs/Course/Crypto/
-docs/AI/
-docs/Course/ADS/
+#docs/Course/ADS/
 .github/
 *.DS_Store
 *.cache
