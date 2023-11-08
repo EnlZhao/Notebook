@@ -1846,7 +1846,6 @@
 <img alt="" src="../../../Images/2023-11-08-20-16-56.png"/></p>
 </div>
 </div>
-<p>```</p>
 <h3 id="_10">变形动画<a class="headerlink" href="#_10" title="Permanent link">👀</a></h3>
 <div class="admonition question">
 <p class="admonition-title">基于 Blend Shapes 表情动画的原理</p>
@@ -1926,18 +1925,14 @@
 <ul>
 <li>拉普拉斯坐标 (<span class="arithmatex">\(\delta\)</span> - Coordinate) — 将每个顶点的笛卡尔坐标转换为拉普拉斯坐标 (数学意义为一个顶点的笛卡尔坐标和这个点所有邻接点的笛卡尔坐标的加权平均，物理意义为拉普拉斯坐标能够记录模型的局部细节特征)：</li>
 </ul>
-<p>$$</p>
-<p>\begin{align}</p>
-<p>\delta_i &amp;= (\delta_i^{(x)},~ \delta_i^{(y)},~ \delta_i^{(z)}) \</p>
-<p>&amp;= \mathbf{v}<em _in="\in" j="j" n_i_="N(i)">i - \frac{1}{d_i} \sum\limits</em> \mathbf{v}_j</p>
-<p>\end{align}</p>
-<p>$$</p>
+<div class="arithmatex">\[\begin{align}
+\delta_i &amp;= (\delta_i^{(x)},~ \delta_i^{(y)},~ \delta_i^{(z)}) \\
+&amp;= \mathbf{v}_i - \frac{1}{d_i} \sum\limits_{j \in N(i)} \mathbf{v}_j
+\end{align}\]</div>
 <ul>
 <li>从微分几何上，拉普拉斯坐标写成下式：</li>
 </ul>
-<p>$$</p>
-<p>\delta_i =  \frac{1}{d_i} \sum\limits_{j \in N(i)} (\mathbf{v}_i - \mathbf{v}_j)</p>
-<p>$$</p>
+<div class="arithmatex">\[\delta_i =  \frac{1}{d_i} \sum\limits_{j \in N(i)} (\mathbf{v}_i - \mathbf{v}_j)\]</div>
 <ul>
 <li>原理：使形变前的点的拉普拉斯坐标与形变后的点的拉普拉斯坐标在局部坐标系内尽可能相等</li>
 </ul>
@@ -2043,13 +2038,11 @@
 </div>
 <div class="admonition question">
 <p class="admonition-title">Wyvill 的六次多项式势函数的图形形状</p>
-<p>$$f_i® = </p>
-<p>\begin{cases}</p>
-<ul>
-<li>\frac{4}{9} (\frac{r}{R_i})^6 + \frac{17}{9} (\frac{r}{R_i})^4 - \frac{22}{9} (\frac{r}{R_i})^2 + 1, &amp; 0 \le r \le R_i \</li>
-</ul>
-<p>0, &amp;r \ge R_i</p>
-<p>\end{cases}$$</p>
+<div class="arithmatex">\[f_i(r) = 
+\begin{cases}
+- \frac{4}{9} (\frac{r}{R_i})^6 + \frac{17}{9} (\frac{r}{R_i})^4 - \frac{22}{9} (\frac{r}{R_i})^2 + 1, &amp; 0 \le r \le R_i \\
+0, &amp;r \ge R_i
+\end{cases}\]</div>
 <p><img alt="" src="../../../Images/2023-11-08-20-18-47.png"/></p>
 </div>
 <hr/>
