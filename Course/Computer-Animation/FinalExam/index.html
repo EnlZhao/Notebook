@@ -1334,34 +1334,30 @@
 </div>
 <div class="admonition question">
 <p class="admonition-title">旋转的四元数表示</p>
-<p><img alt="" src="../../../Images/2023-11-08-20-12-05.png"/></p>
-<p><img alt="" src="../../../Images/2023-11-08-20-12-14.png"/></p>
-<p><img alt="" src="../../../Images/2023-11-08-20-12-21.png"/></p>
-<p><img alt="" src="../../../Images/2023-11-08-20-12-58.png"/></p>
-<div class="highlight"><pre><span></span><code>??? info "Math"
-
-    ![](../../Images/2023-11-08-20-13-15.png)
-
-    ![](../../Images/2023-11-08-20-13-22.png)
-
-    ![](../../Images/2023-11-08-20-13-32.png)
-
-??? info "Advantages"
-
-    - Good and smooth interpolation
-
-    - No gimbal lock
-
-    - Can be composed much more efficiently (requiring 8 multiplications and 4 divices)
-
-    - But:
-
-        - Impossible to visualize
-
-        - Unintutive
-
-    - Good for internal representation of rotation!
-</code></pre></div>
+<p><img alt="" src="../../../Images/2023-11-08-20-12-05.png"/><br/>
+<img alt="" src="../../../Images/2023-11-08-20-12-14.png"/><br/>
+<img alt="" src="../../../Images/2023-11-08-20-12-21.png"/><br/>
+<img alt="" src="../../../Images/2023-11-08-20-12-58.png"/></p>
+<details class="info">
+<summary>Math</summary>
+<p><img alt="" src="../../../Images/2023-11-08-20-13-15.png"/><br/>
+<img alt="" src="../../../Images/2023-11-08-20-13-22.png"/><br/>
+<img alt="" src="../../../Images/2023-11-08-20-13-32.png"/></p>
+</details>
+<details class="info">
+<summary>Advantages</summary>
+<ul>
+<li>Good and smooth interpolation</li>
+<li>No gimbal lock</li>
+<li>Can be composed much more efficiently (requiring 8 multiplications and 4 divices)</li>
+<li>But:<ul>
+<li>Impossible to visualize</li>
+<li>Unintutive</li>
+</ul>
+</li>
+<li>Good for internal representation of rotation!</li>
+</ul>
+</details>
 </div>
 <h3 id="_6">二维多边形形状渐变<a class="headerlink" href="#_6" title="Permanent link">👀</a></h3>
 <blockquote>
@@ -1763,93 +1759,86 @@
 </div>
 <div class="admonition question">
 <p class="admonition-title">正向运动学、逆向运动学原理 (IK)，逆向雅克比方法求解 IK 的原理</p>
-<div class="highlight"><pre><span></span><code>!!! note "正向运动学 (FK) 原理"
-
-    - 动画师通过**直接指定**关节处的关节运动参数来控制物体的运动
-
-    - 从关节空间映射到笛卡尔空间；
-
-    - 计算整棵树（深度优先遍历）
-
-    &gt; ![](../../Images/2023-11-08-20-16-09.png)
-
-!!! note "逆向运动学 (IK) 原理"
-
-    - 动画师指定目标位置，系统求解满足要求的关节角；
-
-    - 从笛卡尔空间映射到关节空间；
-
-    - 给定初始姿态向量和目标姿态向量，计算关节向量的值，使得物体满足所需的姿势；
-
-    - 一旦得到关节向量值后，可以对角色的初始姿态和最终姿态的关节向量值进行插值，从而得到角色动画；
-
-!!! note "逆向雅克比求解 IK 的原理"
-
-    - 逆向雅克比矩阵把笛卡尔空间的速度映射到关节空间的速度；
-
-    - 给定初始姿势和所需要的姿势，**迭代**变化关节角，使得末端影响器朝目标位置和方向前进；
-
-        - 对于中间帧，插值得到所需的姿态向量
-
-            - 对于每一步 k, 通过上述公式得到关节的角速度 $\dot{\theta}$ ，然后执行
-
-    $$\theta_{k+1} = \theta_k + \Delta t \dot{\theta}$$
-</code></pre></div>
-</div>
-<div class="admonition question">
-<p class="admonition-title">循环坐标下降法 (CCD) 原理</p>
+<div class="admonition note">
+<p class="admonition-title">正向运动学 (FK) 原理</p>
 <ul>
-<li>对所有受 IK 影响的骨骼，按从最远侧子骨骼到父骨骼的顺序执行迭代操作：旋转当前骨骼，使当前骨骼位置到目标骨骼的连线指向 IK 目标位置</li>
-</ul>
-<blockquote>
-<p>由于所有骨骼是从一个特定状态出发开始 IK 计算，所得到的结果也会比较稳定。通常 5 ～ 10 次迭代之后就能得到很好的结果</p>
+<li>动画师通过**直接指定**关节处的关节运动参数来控制物体的运动</li>
+<li>从关节空间映射到笛卡尔空间；   </li>
+<li>计算整棵树（深度优先遍历）<blockquote>
+<p><img alt="" src="../../../Images/2023-11-08-20-16-09.png"/></p>
 </blockquote>
-<p><img alt="" src="../../../Images/2023-11-08-20-16-23.png"/></p>
+</li>
+</ul>
 </div>
-<div class="admonition question">
-<p class="admonition-title">骨架与角色模型的绑定原理</p>
+<div class="admonition note">
+<p class="admonition-title">逆向运动学 (IK) 原理</p>
 <ul>
-<li>
-<p><u>角色的表面（外皮）必须随着骨架的运动而运动（变形）</u></p>
-</li>
-<li>
-<p>在骨架绑定中，皮肤的运动定义为对应控制骨架的函数；</p>
-</li>
-<li>
-<p>很多骨架绑定系统采用一个称为中性姿势或静止姿势的几何信息；</p>
-</li>
-<li>
-<p>自动绑定主要包括两个过程：</p>
+<li>动画师指定目标位置，系统求解满足要求的关节角；</li>
+<li>从笛卡尔空间映射到关节空间；</li>
+<li>给定初始姿态向量和目标姿态向量，计算关节向量的值，使得物体满足所需的姿势；</li>
+<li>一旦得到关节向量值后，可以对角色的初始姿态和最终姿态的关节向量值进行插值，从而得到角色动画；</li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">逆向雅克比求解 IK 的原理</p>
 <ul>
-<li>
-<p>首先在未知的三维模型中嵌入骨架</p>
-</li>
-<li>
-<p>然后计算骨骼对表面网格上每个顶点的影响权值，并将表面皮肤依附在骨骼上</p>
+<li>逆向雅克比矩阵把笛卡尔空间的速度映射到关节空间的速度；   </li>
+<li>给定初始姿势和所需要的姿势，**迭代**变化关节角，使得末端影响器朝目标位置和方向前进；   <ul>
+<li>对于中间帧，插值得到所需的姿态向量<ul>
+<li>对于每一步 k, 通过上述公式得到关节的角速度 <span class="arithmatex">\(\dot{\theta}\)</span> ，然后执行 </li>
+</ul>
 </li>
 </ul>
 </li>
 </ul>
+<div class="arithmatex">\[\theta_{k+1} = \theta_k + \Delta t \dot{\theta}\]</div>
 </div>
-<div class="admonition question">
-<p class="admonition-title">顶点混合 (Vertex Blending) 的原理和数学表示</p>
-<div class="highlight"><pre><span></span><code>!!! note "原理"
-
-    - 假设一个数字角色的手臂用前臂和后臂来模拟，最简单的顶点混合方法是前臂和后臂单独设置动画，但关节处用一柔性的 “skin” 来连接
-
-    - 柔性部分的一部分顶点由前臂的矩阵来变换，另一部分由后臂的矩阵来变换。即：一个三角形的顶点可以由不同的矩阵来变换，而不是一个矩阵。这种基本技术有时也称为 “Stitching”
-
-    - 进一步推广：一个顶点可以由几个不同的矩阵进行加权变换
-
-    - 实施方法：在物体上放置关节骨架，每个骨架都按用户给定的权因子影响顶点
-
-!!! note "数学表示"
-
-    ![](../../Images/2023-11-08-20-16-49.png)
-
-    ![](../../Images/2023-11-08-20-16-56.png)
+</div>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>!!! question "循环坐标下降法 (CCD) 原理"
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>    - 对所有受 IK 影响的骨骼，按从最远侧子骨骼到父骨骼的顺序执行迭代操作：旋转当前骨骼，使当前骨骼位置到目标骨骼的连线指向 IK 目标位置
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>
+<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>
+<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a>
+<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>    &gt; 由于所有骨骼是从一个特定状态出发开始 IK 计算，所得到的结果也会比较稳定。通常 5 ～ 10 次迭代之后就能得到很好的结果
+<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a>
+<a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a>
+<a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a>
+<a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a>    ![](../../Images/2023-11-08-20-16-23.png)
+<a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a>
+<a href="#__codelineno-0-14" id="__codelineno-0-14" name="__codelineno-0-14"></a>
+<a href="#__codelineno-0-15" id="__codelineno-0-15" name="__codelineno-0-15"></a>
+<a href="#__codelineno-0-16" id="__codelineno-0-16" name="__codelineno-0-16"></a>
+<a href="#__codelineno-0-17" id="__codelineno-0-17" name="__codelineno-0-17"></a>!!! question "骨架与角色模型的绑定原理"
+<a href="#__codelineno-0-18" id="__codelineno-0-18" name="__codelineno-0-18"></a>
+<a href="#__codelineno-0-19" id="__codelineno-0-19" name="__codelineno-0-19"></a>
+<a href="#__codelineno-0-20" id="__codelineno-0-20" name="__codelineno-0-20"></a>    - &lt;u&gt;角色的表面（外皮）必须随着骨架的运动而运动（变形）&lt;/u&gt;
+<a href="#__codelineno-0-21" id="__codelineno-0-21" name="__codelineno-0-21"></a>
+<a href="#__codelineno-0-22" id="__codelineno-0-22" name="__codelineno-0-22"></a>    - 在骨架绑定中，皮肤的运动定义为对应控制骨架的函数；
+<a href="#__codelineno-0-23" id="__codelineno-0-23" name="__codelineno-0-23"></a>
+<a href="#__codelineno-0-24" id="__codelineno-0-24" name="__codelineno-0-24"></a>    - 很多骨架绑定系统采用一个称为中性姿势或静止姿势的几何信息；
+<a href="#__codelineno-0-25" id="__codelineno-0-25" name="__codelineno-0-25"></a>
+<a href="#__codelineno-0-26" id="__codelineno-0-26" name="__codelineno-0-26"></a>    - 自动绑定主要包括两个过程：
+<a href="#__codelineno-0-27" id="__codelineno-0-27" name="__codelineno-0-27"></a>
+<a href="#__codelineno-0-28" id="__codelineno-0-28" name="__codelineno-0-28"></a>        - 首先在未知的三维模型中嵌入骨架
+<a href="#__codelineno-0-29" id="__codelineno-0-29" name="__codelineno-0-29"></a>
+<a href="#__codelineno-0-30" id="__codelineno-0-30" name="__codelineno-0-30"></a>        - 然后计算骨骼对表面网格上每个顶点的影响权值，并将表面皮肤依附在骨骼上
+<a href="#__codelineno-0-31" id="__codelineno-0-31" name="__codelineno-0-31"></a>
+<a href="#__codelineno-0-32" id="__codelineno-0-32" name="__codelineno-0-32"></a>
+<a href="#__codelineno-0-33" id="__codelineno-0-33" name="__codelineno-0-33"></a>
+<a href="#__codelineno-0-34" id="__codelineno-0-34" name="__codelineno-0-34"></a>!!! question "顶点混合 (Vertex Blending) 的原理和数学表示"
+<a href="#__codelineno-0-35" id="__codelineno-0-35" name="__codelineno-0-35"></a>
+<a href="#__codelineno-0-36" id="__codelineno-0-36" name="__codelineno-0-36"></a>    !!! note "原理"
+<a href="#__codelineno-0-37" id="__codelineno-0-37" name="__codelineno-0-37"></a>        - 假设一个数字角色的手臂用前臂和后臂来模拟，最简单的顶点混合方法是前臂和后臂单独设置动画，但关节处用一柔性的 “skin” 来连接
+<a href="#__codelineno-0-38" id="__codelineno-0-38" name="__codelineno-0-38"></a>        - 柔性部分的一部分顶点由前臂的矩阵来变换，另一部分由后臂的矩阵来变换。即：一个三角形的顶点可以由不同的矩阵来变换，而不是一个矩阵。这种基本技术有时也称为 “Stitching”
+<a href="#__codelineno-0-39" id="__codelineno-0-39" name="__codelineno-0-39"></a>        - 进一步推广：一个顶点可以由几个不同的矩阵进行加权变换
+<a href="#__codelineno-0-40" id="__codelineno-0-40" name="__codelineno-0-40"></a>        - 实施方法：在物体上放置关节骨架，每个骨架都按用户给定的权因子影响顶点
+<a href="#__codelineno-0-41" id="__codelineno-0-41" name="__codelineno-0-41"></a>
+<a href="#__codelineno-0-42" id="__codelineno-0-42" name="__codelineno-0-42"></a>    !!! note "数学表示"
+<a href="#__codelineno-0-43" id="__codelineno-0-43" name="__codelineno-0-43"></a>        ![](../../Images/2023-11-08-20-16-49.png)
+<a href="#__codelineno-0-44" id="__codelineno-0-44" name="__codelineno-0-44"></a>        ![](../../Images/2023-11-08-20-16-56.png)
 </code></pre></div>
-</div>
 <h3 id="_10">变形动画<a class="headerlink" href="#_10" title="Permanent link">👀</a></h3>
 <div class="admonition question">
 <p class="admonition-title">基于 Blend Shapes 表情动画的原理</p>
