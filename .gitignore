@@ -1,7 +1,9 @@
-site/
 *.sh
+!build.sh
+
 docs/Course/Crypto/
 #docs/Course/ADS/
+
 .github/
 *.DS_Store
 *.cache

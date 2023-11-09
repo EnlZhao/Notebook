@@ -6,7 +6,7 @@ Goal of this tutorial:
 - Train a small neural network to classify images
 
 !!! note "List"
-    * [x] [Tensors](./lec01/index.html)
-    * [ ] [A Gentle Introduction to torch.autograd](./lec02/index.html)
-    * [ ] [Neural Networks](./lec03/index.html)
-    * [ ] [Training a Classifier](./lec04/index.html)
+    * [x] [Tensors](lec01.md)
+    * [ ] [A Gentle Introduction to torch.autograd](lec02.md)
+    * [ ] [Neural Networks](lec03.md)
+    * [ ] [Training a Classifier](lec04.md)

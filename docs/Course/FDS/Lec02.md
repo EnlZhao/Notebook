@@ -74,7 +74,7 @@
 
 ??? example "删除"
     ```c
-    void Delete( int i, List Ptrl )
+    void Delete( int i, List Ptrl)
     {
         int j;
         if(i < 1 || i > Ptrl->Last+1)
@@ -158,7 +158,7 @@
 
 ??? example "在第 i-1 (1 <= i <= n+1) 个节点后插入一个值为 X 的新节点"
     ```c
-    List Insert(ElementType X, List Ptrl)
+    List Insert(ElementType X, List Ptrl, int i)
     {
         List p, s;
         if(i == 1)

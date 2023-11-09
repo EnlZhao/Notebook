@@ -29,13 +29,13 @@ nav:
       - 数据结构:
         - AVL & Splay: Course/ADS/Lec01.md
         - Red-Black & B+: Course/ADS/Lec02.md
-        #- Heap: Course/ADS/Lec03.md
-      #- 算法分析:
-        #- Backtracking: Course/ADS/Lec04.md
-        #- Divide and Conquer: Course/ADS/Lec05.mds
-        #- Dynamic Programming: Course/ADS/Lec06.md
-        #- Greedy: Course/ADS/Lec07.md
-        #- NP - Completeness: Course/ADS/Lec08.md
+        - Heap: Course/ADS/Lec03.md
+      - 算法分析:
+        - Backtracking: Course/ADS/Lec04.md
+        - Divide and Conquer: Course/ADS/Lec05.mds
+        - Dynamic Programming: Course/ADS/Lec06.md
+        - Greedy: Course/ADS/Lec07.md
+        - NP - Completeness: Course/ADS/Lec08.md
     - 面向对象程序设计:
       - 面向对象程序设计: Course/OOP/index.md
       - Beginning: Course/OOP/Lec01.md
@@ -50,14 +50,15 @@ nav:
       - Smart Pointers: Course/OOP/Lec10.md
       - Class Design: Course/OOP/Lec11.md
       - Streams & 继承构造函数: Course/OOP/Lec12.md
-    #- 密码学:
-    #  - 密码学: Course/Crypto/index.md
-    #  - 数学基础: Course/Crypto/Lec01.md
-    #  - 古典密码: Course/Crypto/Lec02.md
+    - 密码学:
+      - 密码学: Course/Crypto/index.md
+      - 数学基础: Course/Crypto/Lec01.md
+      - 古典密码: Course/Crypto/Lec02.md
     - 计算机动画: 
       - 计算机动画: Course/Computer-Animation/index.md
       - 简介: Course/Computer-Animation/1-计算机动画简介.md
       - 动画基本原则: Course/Computer-Animation/2-动画基本原则.md
+      - 考试大纲: Course/Computer-Animation/FinalExam.md
     # - 面向信息安全的信号处理:
     #   - 面向信息安全的信号处理: Course/Signal-Processing/index.md
     #   - 信号与系统基础: Course/Signal-Processing/1-信号与系统基础.md
@@ -151,9 +152,8 @@ theme:
   # 导航栏
   features:
     - navigation.tracking # 在url中使用标题定位锚点
-    - navigation.tabs # nav top目录显示在标题栏
-    - navigation.tabs # 顶部显示导航顶层nav（也就是第一个节点）
-    - navigation.tabs.sticky  # 滚动是隐藏顶部nav，需要配合navigation.tabs使用
+    - navigation.tabs # nav top 目录显示在标题栏
+    # - navigation.tabs.sticky  # 滚动是隐藏顶部 nav，需要配合 navigation.tabs 使用
     #- navigation.sections  # nav节点缩进
     #- navigation.expand  # 每次刷新都展开子节点
     - navigation.indexes  # 跟navigation.instant不兼容
@@ -166,8 +166,8 @@ theme:
     - header.autohide
     - toc.separate
     - toc.follow
-    - content.action.edit
-    - content.action.view
+    # - content.action.edit
+    # - content.action.view
     - content.code.annotate
     - content.code.copy
     - content.tooltips
@@ -235,8 +235,8 @@ markdown_extensions:
   - pymdownx.critic # 增加删除修改高亮注释，可修饰行内或段落
   #图标
   - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   #图片
   - md_in_html
   #列表
@@ -249,8 +249,7 @@ markdown_extensions:
   - sane_lists
   - pymdownx.arithmatex:
       generic: true
-  - pymdownx.betterem:  # 对加粗和斜体更好的检测
-      smart_enable: all
+  - pymdownx.betterem  # 对加粗和斜体更好的检测
   - pymdownx.smartsymbols # 符号转换
   - pymdownx.magiclink:
       repo_url_shorthand: true
@@ -264,12 +263,14 @@ markdown_extensions:
   
 extra_javascript:
   - 'overrides/assets/javascripts/extra.js'
-  #- mkdocs/javascripts/mathjax.js
-  - https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js
+  # - mkdocs/javascripts/mathjax.js
+  # - https://polyfill.io/v3/polyfill.min.js?features=es6
+  # - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
   - mkdocs/javascripts/katex.js
+  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js
+  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js
   - https://unpkg.com/mermaid@8.7.0/dist/mermaid.min.js
-  - https://polyfill.io/v3/polyfill.min.js?features=es6
-  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  
 
 extra_css:
   - https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css
