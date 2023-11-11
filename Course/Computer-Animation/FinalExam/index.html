@@ -1774,7 +1774,16 @@
 <div class="admonition note">
 <p class="admonition-title">逆向雅克比求解 IK 的原理</p>
 <ul>
-<li>逆向雅克比矩阵把笛卡尔空间的速度映射到关节空间的速度；   </li>
+<li>逆向雅克比矩阵把笛卡尔空间的速度映射到关节空间的速度: <span class="arithmatex">\(V = J(\theta) \dot{\theta}\)</span></li>
+</ul>
+<blockquote>
+<ul>
+<li>逆向雅克比问题为：<span class="arithmatex">\(\theta = f^{-1} (X)\)</span> (<span class="arithmatex">\(f\)</span> 是一个高度非线性函数)</li>
+<li>通过把雅克比矩阵求逆，把该问题在当前位置局部线性化：<span class="arithmatex">\(\dot{\theta} = J^{-1} V\)</span></li>
+<li>通过一系列增量步骤，迭代到所需的位置</li>
+</ul>
+</blockquote>
+<ul>
 <li>给定初始姿势和所需要的姿势，<strong>迭代</strong> 变化关节角，使得末端影响器朝目标位置和方向前进；   <ul>
 <li>对于中间帧，插值得到所需的姿态向量<ul>
 <li>对于每一步 k, 通过上述公式得到关节的角速度 <span class="arithmatex">\(\dot{\theta}\)</span> ，然后执行 <span class="arithmatex">\(\theta_{k+1} = \theta_k + \Delta t \dot{\theta}\)</span></li>
