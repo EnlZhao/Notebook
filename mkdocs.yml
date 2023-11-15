@@ -1,8 +1,8 @@
-site_name: 某兰的知识库
+site_name: 赵恒的知识库
 site_url: https://note.enlzhao.com
 edit_uri: tree/master/docs
-copyright: Copyright &copy; 2022 <a href="https://github.com/enlzhao" target="_blank" rel="noopener">某兰</a>
-site_author: Enl_Z
+copyright: Copyright &copy; 2022 - 2023 <a href="https://github.com/enlzhao" target="_blank" rel="noopener">某兰</a>
+site_author: EnlZhao
 site_description: 某兰的知识库
 
 # Pages
@@ -32,7 +32,7 @@ nav:
         - Heap: Course/ADS/Lec03.md
       - 算法分析:
         - Backtracking: Course/ADS/Lec04.md
-        - Divide and Conquer: Course/ADS/Lec05.mds
+        - Divide and Conquer: Course/ADS/Lec05.md
         - Dynamic Programming: Course/ADS/Lec06.md
         - Greedy: Course/ADS/Lec07.md
         - NP - Completeness: Course/ADS/Lec08.md
@@ -50,10 +50,10 @@ nav:
       - Smart Pointers: Course/OOP/Lec10.md
       - Class Design: Course/OOP/Lec11.md
       - Streams & 继承构造函数: Course/OOP/Lec12.md
-    - 密码学:
-      - 密码学: Course/Crypto/index.md
-      - 数学基础: Course/Crypto/Lec01.md
-      - 古典密码: Course/Crypto/Lec02.md
+    # - 密码学:
+    #   - 密码学: Course/Crypto/index.md
+    #   - 数学基础: Course/Crypto/Lec01.md
+    #   - 古典密码: Course/Crypto/Lec02.md
     - 计算机动画: 
       - 计算机动画: Course/Computer-Animation/index.md
       - 简介: Course/Computer-Animation/1-计算机动画简介.md
@@ -63,23 +63,6 @@ nav:
     #   - 面向信息安全的信号处理: Course/Signal-Processing/index.md
     #   - 信号与系统基础: Course/Signal-Processing/1-信号与系统基础.md
   - Self-Learning:
-    - DeepLearning:
-      - DeepLearning: Self-Learning/DeepLearning/index.md
-      - Intrucution to Deep Learning: Self-Learning/DeepLearning/introduction.md
-      - Neural Networks and Deep Learning: 
-        - Neural Networks and Deep Learning: Self-Learning/DeepLearning/course1/index.md
-        - Introduction: Self-Learning/DeepLearning/course1/lec01.md 
-        - Basics of Nerual Network Programming: Self-Learning/DeepLearning/course1/lec02.md
-        - One hidden layer Neural Network: Self-Learning/DeepLearning/course1/lec03.md
-        - Deep Neural Network: Self-Learning/DeepLearning/course1/lec04.md
-      - Improving Deep Neural Networks: 
-        - Improving Deep Neural Networks: Self-Learning/DeepLearning/course2/index.md
-      - Structuring Machine Learning Projects: 
-        - Structuring Machine Learning Projects: Self-Learning/DeepLearning/course3/index.md
-      - Convolutional Neural Networks: 
-        - Convolutional Neural Networks: Self-Learning/DeepLearning/course4/index.md
-      - Building Sequence Models: 
-        - Building Sequence Models: Self-Learning/DeepLearning/course5/index.md
     - PyTorch: 
       - PyTorch: Self-Learning/PyTorch/index.md
       - A 60 Min BLITZ: 
@@ -88,6 +71,34 @@ nav:
         - Autograd: Self-Learning/PyTorch/BLITZ/lec02.md
         - Neural Networks: Self-Learning/PyTorch/BLITZ/lec03.md
         - Training a Classifier: Self-Learning/PyTorch/BLITZ/lec04.md
+  - AI: 
+    - RelatedCourses:
+      - DeepLearning: 
+        - DeepLearning: AI/Courses/DeepLearning/index.md
+        - Intrucution to Deep Learning: AI/Courses/DeepLearning/introduction.md
+        - Neural Networks and Deep Learning: 
+          - Neural Networks and Deep Learning: AI/Courses/DeepLearning/course1/index.md
+          # - Introduction: AI/Courses/DeepLearning/course1/lec01.md 
+          # - Basics of Nerual Network Programming: AI/Courses/DeepLearning/course1/lec02.md
+          # - One hidden layer Neural Network: AI/Courses/DeepLearning/course1/lec03.md
+          # - Deep Neural Network: AI/Courses/DeepLearning/course1/lec04.md
+        - Improving Deep Neural Networks: 
+          - Improving Deep Neural Networks: AI/Courses/DeepLearning/course2/index.md
+        - Structuring Machine Learning Projects: 
+          - Structuring Machine Learning Projects: AI/Courses/DeepLearning/course3/index.md
+        - Convolutional Neural Networks: 
+          - Convolutional Neural Networks: AI/Courses/DeepLearning/course4/index.md
+        - Building Sequence Models: 
+          - Building Sequence Models: AI/Courses/DeepLearning/course5/index.md
+      - CS229: 
+        - CS229: AI/Courses/CS229/index.md
+    - 学习准则: 
+        - 学习准则: AI/LearningCriterion/index.md
+    - 优化算法: 
+        - 优化算法: AI/OptimAlgorithm/index.md
+    - Triviality:  
+        - Triviality: AI/Triviality/index.md
+        - 凸函数: AI/Triviality/Convex-function.md
   - Triviality: 
     - Markdown:
       - Perface: Triviality/Markdown/index.md
@@ -103,7 +114,7 @@ nav:
     - GitHub: 
       - GitHub: Triviality/GitHub/index.md
       - Basics: Triviality/GitHub/Le1.md
-      #- Git 入门: Triviality/GitHub/Le3.md
+      - Git Related: Triviality/GitHub/Git.md
 
 theme:
   name: material
@@ -192,7 +203,8 @@ plugins:
       placeholder: Provide password and press ENTER
       decryption_failure_message: Invalid password
       encryption_info_message: Contact me(Enl_Z) via methods provided in the comments section for access to this page
-  - mermaid2
+  - mermaid2:
+      javascript: mkdocs/javascripts/mermaid.js
   - obsidian-support
   #- tags # 给单篇文章添加标签 https://squidfunk.github.io/mkdocs-material/setup/setting-up-tags/?h=tags
   # - git-revision-date-localized: # 显示最后一次修改时间
@@ -269,7 +281,6 @@ extra_javascript:
   - mkdocs/javascripts/katex.js
   - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js
   - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js
-  - https://unpkg.com/mermaid@8.7.0/dist/mermaid.min.js
   
 
 extra_css:
