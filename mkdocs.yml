@@ -98,7 +98,7 @@ nav:
         - 优化算法: AI/OptimAlgorithm/index.md
     - Triviality:  
         - Triviality: AI/Triviality/index.md
-        - 凸函数: AI/Triviality/Convex-function.md
+        - 凸优化: AI/Triviality/ConvexOpt.md
   - Triviality: 
     - Markdown:
       - Perface: Triviality/Markdown/index.md
