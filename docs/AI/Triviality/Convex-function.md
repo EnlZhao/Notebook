@@ -48,3 +48,9 @@ $$
 
 ## 凸函数 | Convex Function
 
+
+
+<center><font face="JetBrains Mono" color=grey size=18>To Be Continued</font></center>
+
+??? note "reference"
+    [CMU - Convex Optimization](https://www.stat.cmu.edu/~ryantibs/convexopt/)

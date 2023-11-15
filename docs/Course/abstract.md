@@ -4,16 +4,15 @@
     $这里存着苯人在  ~~ ZJU ~~ 上过的一些课程笔记$ 
 
     ???+ info "List"
-        * 大二上: 
+        - 大二上: 
             - [x] [计算机系统Ⅱ | SYS2](./System2/index.md)
             - [x] [数据结构基础 | FDS](./FDS/index.md)
-        * 大二下
+        - 大二下
             - [x] [计算机系统Ⅲ | SYS3](./System3/index.md)
             - [ ] [高级数据结构与算法分析 | ADS](./ADS/index.md)
             - [x] [面向对象程序设计 | OOP](./OOP/index.md)
-            
-            > - [ ] [密码学 | Crypto](./Crypto/index.md)
-        * 大三上
+            <!-- - [ ] [密码学 | Crypto](./Crypto/index.md) -->
+        - 大三上
             - [ ] [计算机网络]()
             - [x] [计算机动画](./Computer-Animation/index.md)
             - [ ] [密码学进阶]()

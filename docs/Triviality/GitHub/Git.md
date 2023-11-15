@@ -281,9 +281,27 @@
 
 > 基本都可以用 `-h` 查看手册
 
+??? note "diff"
+    - `git diff` 查看工作区和暂存区之间所有的文件差异
+
+    > [CSDN - git diff](https://blog.csdn.net/qq_39505245/article/details/119899171?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522170001375316800225519804%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=170001375316800225519804&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-119899171-null-null.142^v96^pc_search_result_base4&utm_term=git%20diff&spm=1018.2226.3001.4187)
+
 ??? note "fetch & pull"
     - `git pull` = `git fetch` + `git merge`
     - 建议优先使用 `git fetch`，因为 `git pull` 会自动合并，可能会导致冲突
+    - `pull`
+        - `git pull` 会将远程仓库的内容拉取到本地
+        - `git pull <remote>` 会将远程仓库的 `<remote>` 分支拉取到本地
+        - `git pull <远程主机名> <远程分支名>:<本地分支名>` 会将远程仓库的 `<远程主机名>` 的 `<远程分支名>` 分支拉取到本地的 `<本地分支名>` 分支并合并 (e.g. `git pull origin main:version1`)
+        - ...
+    - `fetch` 操作与 `pull` 类似
+
+    !!! success "一个较安全的拉取流程"
+        ```bash
+        $ git fetch origin main:tmp
+        $ git diff tmp
+        $ git merge tmp
+        ```
 
 ??? note "clone"
     - `git clone <url>` 会将远程仓库克隆到本地
@@ -298,14 +316,21 @@
         - `git clone <url> --shallow-exclude=<revision>` 会将远程仓库克隆到本地，但是不克隆 `<revision>` 之前的提交
     ...
 
-??? note "branch"
-    - `git branch` 或 `git branch -l` 列出本地分支
-    - `git branch -r` 列出远程分支
-    - `git branch -a` 列出本地分支和远程分支
-    - `git branch <branch>` 创建分支
-    - `git branch -d <branch>` 删除分支; `-D` 强制删除
-    - `git branch -m <old> <new>` 重命名分支; `-M` 强制重命名
-    - `git branch -u <remote>/<branch>` 设置本地分支跟踪远程分支
-    ...
+??? note "branch & checkout"
+    - `branch`
+        - `git branch` 或 `git branch -l` 列出本地分支
+        - `git branch -r` 列出远程分支
+        - `git branch -a` 列出本地分支和远程分支
+        - `git branch <branch>` 创建分支
+        - `git branch -d <branch>` 删除分支; `-D` 强制删除
+        - `git branch -m <old> <new>` 重命名分支; `-M` 强制重命名
+        - `git branch -u <remote>/<branch>` 设置本地分支跟踪远程分支
+        - ...
+    - `checkout`
+        - `git checkout <branch>` 切换分支
+        - `git checkout -b <branch>` 创建并切换到分支
+        - `git checkout -b <branch> origin/<remote branch>` 创建并切换到分支，且跟踪远程分支
+        - ...
+
 
 <center><font face="JetBrains Mono" size=6 color=grey size=18>To Be Continued</font></center>
