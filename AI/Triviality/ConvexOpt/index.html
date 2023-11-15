@@ -12,7 +12,7 @@
         <meta name="author" content="EnlZhao">
       
       
-        <link rel="canonical" href="https://note.enlzhao.com/AI/Triviality/Convex-function/">
+        <link rel="canonical" href="https://note.enlzhao.com/AI/Triviality/ConvexOpt/">
       
       
         <link rel="prev" href="../">
@@ -26,7 +26,7 @@
     
     
       
-        <title>凸函数 - 赵恒的知识库</title>
+        <title>凸优化 - 赵恒的知识库</title>
       
     
     
@@ -147,7 +147,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              凸函数
+              凸优化
             
           </span>
         </div>
@@ -2706,7 +2706,7 @@
           
   
   <span class="md-ellipsis">
-    凸函数
+    凸优化
   </span>
   
 
@@ -2717,7 +2717,7 @@
         
   
   <span class="md-ellipsis">
-    凸函数
+    凸优化
   </span>
   
 
@@ -2776,6 +2776,26 @@
   <a href="#convex-function" class="md-nav__link">
     凸函数 | Convex Function
   </a>
+  
+    <nav class="md-nav" aria-label="凸函数 | Convex Function">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    一阶充要条件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    二阶充要条件
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -3344,6 +3364,26 @@
     凸函数 | Convex Function
   </a>
   
+    <nav class="md-nav" aria-label="凸函数 | Convex Function">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    一阶充要条件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    二阶充要条件
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -3410,15 +3450,69 @@
 </ul>
 <h3 id="operations-that-preserve-convexity">Operations that preserve convexity<a class="headerlink" href="#operations-that-preserve-convexity" title="Permanent link">👀</a></h3>
 <ol>
-<li>凸集的交集是凸集</li>
-<li>凸集的仿射变换是凸集，即 <span class="arithmatex">\(C\)</span> 是凸集，<span class="arithmatex">\(A\)</span> 是矩阵，<span class="arithmatex">\(b\)</span> 是向量，则 <span class="arithmatex">\(A C + b = \{Ax + b | x \in C \}\)</span> 是凸集</li>
+<li>Intersection：凸集的交集是凸集</li>
+<li>Scaling and translation: 如果 <span class="arithmatex">\(C\)</span> 是凸集，则 <span class="arithmatex">\(\forall a, b\)</span>, <span class="arithmatex">\(aC + b = \{ax + b | x \in C \}\)</span> 是凸集</li>
+<li>Affine images and preimages: 如果 <span class="arithmatex">\(f(x) = Ax + b\)</span>，<span class="arithmatex">\(C\)</span> 和 <span class="arithmatex">\(D\)</span> 是凸集，那么 <span class="arithmatex">\(f(C) = \{f(x) | x \in C \}\)</span> 和 <span class="arithmatex">\(f^{-1}(D) = \{x | f(x) \in D \}\)</span> 都是凸集</li>
 </ol>
+<blockquote>
+<p>2 和 3 的区别是：</p>
+<ul>
+<li>2 仅对凸集做了尺度或平移变换</li>
+<li>3 中 <span class="arithmatex">\(A\)</span> 是矩阵，<span class="arithmatex">\(b\)</span> 是向量，<span class="arithmatex">\(f\)</span> 是仿射变换，即 <span class="arithmatex">\(f(x) = Ax + b\)</span>，<span class="arithmatex">\(f\)</span> 既可以对凸集做尺度或平移变换，也可以对凸集做线性变换</li>
+</ul>
+</blockquote>
 <h2 id="epigraph">Epigraph<a class="headerlink" href="#epigraph" title="Permanent link">👀</a></h2>
 <p>对于一个函数 <span class="arithmatex">\(f(x)\)</span> ，Epigraph 指的是函数 <span class="arithmatex">\(f(x)\)</span> 中或其上方的部分</p>
 <blockquote>
 <p>例如 <span class="arithmatex">\(f(x) = x^2\)</span>，则 Epigraph 为 <span class="arithmatex">\(y \geq x^2\)</span> 的部分</p>
 </blockquote>
 <h2 id="convex-function">凸函数 | Convex Function<a class="headerlink" href="#convex-function" title="Permanent link">👀</a></h2>
+<ul>
+<li>
+<p>定义：定义在 <span class="arithmatex">\(\mathbb{R}^n \rightarrow \mathbb{R}\)</span> 上的函数 <span class="arithmatex">\(f\)</span> 是凸函数，当且仅当对于 <span class="arithmatex">\(f\)</span> 的定义域 <span class="arithmatex">\(\mathbb{D}\)</span> 是凸集且 <span class="arithmatex">\(\forall x, y \in \mathbb{D}\)</span> 和 <span class="arithmatex">\(\forall \alpha \in [0, 1]\)</span>，有 <span class="arithmatex">\(f(\alpha x + (1 - \alpha) y) \leq \alpha f(x) + (1 - \alpha) f(y)\)</span> 成立</p>
+</li>
+<li>
+<p>直观来讲：如果一个函数 <span class="arithmatex">\(f\)</span> 的 Epigraph 是凸集，则称 <span class="arithmatex">\(f\)</span> 是凸函数</p>
+</li>
+</ul>
+<blockquote>
+<p>如果函数 <span class="arithmatex">\(f\)</span> 的二阶导数大于等于 0，则 <span class="arithmatex">\(f\)</span> 是凸函数</p>
+</blockquote>
+<p><img alt="" src="../../../Images/2023-11-15-18-26-58.png" /></p>
+<h3 id="_3">一阶充要条件<a class="headerlink" href="#_3" title="Permanent link">👀</a></h3>
+<ul>
+<li>假设定义在 <span class="arithmatex">\(\mathbb{R}^n \rightarrow \mathbb{R}\)</span> 上的函数 <span class="arithmatex">\(f\)</span> 可微（即 $\forall x \in \mathbb{D}(f), 梯度 <span class="arithmatex">\(\nabla f(x)\)</span> 存在），则 <span class="arithmatex">\(f\)</span> 是凸函数当且仅当定义域是凸集且 <span class="arithmatex">\(\forall x, y \in \mathbb{D}\)</span>，有 <span class="arithmatex">\(f(y) \geq f(x) + \nabla f(x)^T (y - x)\)</span> 成立</li>
+<li>从几何意义讲，即定义域内所有函数值都大于等于该点的切线值<br><img alt="" src="../../../Images/2023-11-15-20-02-00.png" /></li>
+</ul>
+<h3 id="_4">二阶充要条件<a class="headerlink" href="#_4" title="Permanent link">👀</a></h3>
+<p>记函数的一阶导数和二阶导数分别为 <span class="arithmatex">\(g\)</span> 和 <span class="arithmatex">\(H\)</span>:</p>
+<div class="arithmatex">\[
+g(x) = \nabla f(x) = 
+\begin{bmatrix}
+\frac{\partial f(x)}{\partial x_1} \\
+\frac{\partial f(x)}{\partial x_2} \\
+\vdots \\
+\frac{\partial f(x)}{\partial x_n}
+\end{bmatrix}
+\]</div>
+<div class="arithmatex">\[
+H(x) = \nabla^2 f(x) =
+\begin{bmatrix}
+\frac{\partial^2 f(x)}{\partial x_1^2} &amp; \frac{\partial^2 f(x)}{\partial x_1 \partial x_2} &amp; \cdots &amp; \frac{\partial^2 f(x)}{\partial x_1 \partial x_n} \\
+\frac{\partial^2 f(x)}{\partial x_2 \partial x_1} &amp; \frac{\partial^2 f(x)}{\partial x_2^2} &amp; \cdots &amp; \frac{\partial^2 f(x)}{\partial x_2 \partial x_n} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+\frac{\partial^2 f(x)}{\partial x_n \partial x_1} &amp; \frac{\partial^2 f(x)}{\partial x_n \partial x_2} &amp; \cdots &amp; \frac{\partial^2 f(x)}{\partial x_n^2}
+\end{bmatrix}
+\]</div>
+<p>假设定义在 <span class="arithmatex">\(\mathbb{R}^n \rightarrow \mathbb{R}\)</span> 上的函数 <span class="arithmatex">\(f\)</span> 二阶可微（即 <span class="arithmatex">\(H(x)\)</span> 存在），则 <span class="arithmatex">\(f\)</span> 是凸函数当且仅当定义域是凸集且 <span class="arithmatex">\(\forall x \in \mathbb{D}\)</span>，有 <span class="arithmatex">\(H(x) \succeq 0\)</span> 成立 （<span class="arithmatex">\(\succeq\)</span> 表示半正定）</p>
+<p><center><font face="JetBrains Mono" color=grey size=18>To Be Continued</font></center></p>
+<details class="note">
+<summary>reference</summary>
+<ul>
+<li><a href="https://www.stat.cmu.edu/~ryantibs/convexopt/">CMU - Convex Optimization</a></li>
+<li><a href="https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf">Convex Optimization(wrote by Boyd &amp; Vandenberghe)</a></li>
+</ul>
+</details>
 
 
   
