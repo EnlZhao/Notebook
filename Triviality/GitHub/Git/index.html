@@ -3912,11 +3912,35 @@
 <p>基本都可以用 <code>-h</code> 查看手册</p>
 </blockquote>
 <details class="note">
+<summary>diff</summary>
+<ul>
+<li><code>git diff</code> 查看工作区和暂存区之间所有的文件差异</li>
+</ul>
+<blockquote>
+<p><a href="https://blog.csdn.net/qq_39505245/article/details/119899171?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522170001375316800225519804%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=170001375316800225519804&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-119899171-null-null.142^v96^pc_search_result_base4&amp;utm_term=git%20diff&amp;spm=1018.2226.3001.4187">CSDN - git diff</a></p>
+</blockquote>
+</details>
+<details class="note">
 <summary>fetch &amp; pull</summary>
 <ul>
 <li><code>git pull</code> = <code>git fetch</code> + <code>git merge</code></li>
 <li>建议优先使用 <code>git fetch</code>，因为 <code>git pull</code> 会自动合并，可能会导致冲突</li>
+<li><code>pull</code><ul>
+<li><code>git pull</code> 会将远程仓库的内容拉取到本地</li>
+<li><code>git pull &lt;remote&gt;</code> 会将远程仓库的 <code>&lt;remote&gt;</code> 分支拉取到本地</li>
+<li><code>git pull &lt;远程主机名&gt; &lt;远程分支名&gt;:&lt;本地分支名&gt;</code> 会将远程仓库的 <code>&lt;远程主机名&gt;</code> 的 <code>&lt;远程分支名&gt;</code> 分支拉取到本地的 <code>&lt;本地分支名&gt;</code> 分支并合并 (e.g. <code>git pull origin main:version1</code>)</li>
+<li>&hellip;</li>
 </ul>
+</li>
+<li><code>fetch</code> 操作与 <code>pull</code> 类似</li>
+</ul>
+<div class="admonition success">
+<p class="admonition-title">一个较安全的拉取流程</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>$<span class="w"> </span>git<span class="w"> </span>fetch<span class="w"> </span>origin<span class="w"> </span>main:tmp
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>$<span class="w"> </span>git<span class="w"> </span>diff<span class="w"> </span>tmp
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>$<span class="w"> </span>git<span class="w"> </span>merge<span class="w"> </span>tmp
+</code></pre></div>
+</div>
 </details>
 <details class="note">
 <summary>clone</summary>
@@ -3939,16 +3963,26 @@
 </ul>
 </details>
 <details class="note">
-<summary>branch</summary>
+<summary>branch &amp; checkout</summary>
 <ul>
+<li><code>branch</code><ul>
 <li><code>git branch</code> 或 <code>git branch -l</code> 列出本地分支</li>
 <li><code>git branch -r</code> 列出远程分支</li>
 <li><code>git branch -a</code> 列出本地分支和远程分支</li>
 <li><code>git branch &lt;branch&gt;</code> 创建分支</li>
 <li><code>git branch -d &lt;branch&gt;</code> 删除分支; <code>-D</code> 强制删除</li>
 <li><code>git branch -m &lt;old&gt; &lt;new&gt;</code> 重命名分支; <code>-M</code> 强制重命名</li>
-<li><code>git branch -u &lt;remote&gt;/&lt;branch&gt;</code> 设置本地分支跟踪远程分支<br />
-&hellip;</li>
+<li><code>git branch -u &lt;remote&gt;/&lt;branch&gt;</code> 设置本地分支跟踪远程分支</li>
+<li>&hellip;</li>
+</ul>
+</li>
+<li><code>checkout</code><ul>
+<li><code>git checkout &lt;branch&gt;</code> 切换分支</li>
+<li><code>git checkout -b &lt;branch&gt;</code> 创建并切换到分支</li>
+<li><code>git checkout -b &lt;branch&gt; origin/&lt;remote branch&gt;</code> 创建并切换到分支，且跟踪远程分支</li>
+<li>&hellip;</li>
+</ul>
+</li>
 </ul>
 </details>
 <p><center><font face="JetBrains Mono" size=6 color=grey size=18>To Be Continued</font></center></p>
