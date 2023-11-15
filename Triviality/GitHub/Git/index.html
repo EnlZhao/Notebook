@@ -12,8 +12,10 @@
         <meta name="author" content="EnlZhao">
       
       
-        <link rel="canonical" href="https://note.enlzhao.com/Triviality/GitHub/Le3/">
+        <link rel="canonical" href="https://note.enlzhao.com/Triviality/GitHub/Git/">
       
+      
+        <link rel="prev" href="../Le1/">
       
       
       
@@ -22,7 +24,7 @@
     
     
       
-        <title>Getting started with Git - 赵恒的知识库</title>
+        <title>Git Related - 赵恒的知识库</title>
       
     
     
@@ -143,7 +145,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Getting started with Git
+              Git Related
             
           </span>
         </div>
@@ -408,16 +410,20 @@
         
   
   
+    
+  
   
     
     
       
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
+      <li class="md-tabs__item md-tabs__item--active">
         <a href="../" class="md-tabs__link">
           
   
@@ -3034,6 +3040,8 @@
       
   
   
+    
+  
   
     
     
@@ -3047,12 +3055,12 @@
       
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
         
           
           <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
@@ -3066,7 +3074,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             Tools
@@ -3076,6 +3084,8 @@
               
                 
   
+  
+    
   
   
     
@@ -3087,16 +3097,18 @@
       
         
       
+        
+      
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_1" checked>
         
           
           
@@ -3118,7 +3130,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_1_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6_1">
             <span class="md-nav__icon md-icon"></span>
             GitHub
@@ -3142,6 +3154,204 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Git Related
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Git Related
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#set-your-username" class="md-nav__link">
+    Set your username
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#caching-credentials" class="md-nav__link">
+    Caching credentials
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git-passordwords" class="md-nav__link">
+    Git passordwords
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ssh-and-gpg-keys" class="md-nav__link">
+    SSH and GPG keys
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#macos-keychain-credentials" class="md-nav__link">
+    macOS Keychain credentials
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git-workflows-todo" class="md-nav__link">
+    Git workflows ｜ TODO
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#about-remote-repositories" class="md-nav__link">
+    About remote repositories
+  </a>
+  
+    <nav class="md-nav" aria-label="About remote repositories">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    创建远程仓库
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manage-remote-repositories" class="md-nav__link">
+    Manage remote repositories
+  </a>
+  
+    <nav class="md-nav" aria-label="Manage remote repositories">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    添加远程仓库
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#url" class="md-nav__link">
+    更改远程仓库 URL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    重命名远程仓库
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    删除远程仓库
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-push" class="md-nav__link">
+    git push
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#associate-text-editors" class="md-nav__link">
+    Associate text editors
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#handle-line-endings-todo" class="md-nav__link">
+    Handle line endings | TODO
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ignoring-files" class="md-nav__link">
+    Ignoring files
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trivial-commands-todo" class="md-nav__link">
+    Trivial commands | TODO
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -3210,6 +3420,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#ssh-and-gpg-keys" class="md-nav__link">
+    SSH and GPG keys
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#macos-keychain-credentials" class="md-nav__link">
     macOS Keychain credentials
   </a>
@@ -3217,8 +3434,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#git-workflows" class="md-nav__link">
-    Git workflows
+  <a href="#git-workflows-todo" class="md-nav__link">
+    Git workflows ｜ TODO
   </a>
   
 </li>
@@ -3279,6 +3496,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#git-push" class="md-nav__link">
+    git push
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3292,8 +3516,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#handle-line-endings" class="md-nav__link">
-    Handle line endings
+  <a href="#handle-line-endings-todo" class="md-nav__link">
+    Handle line endings | TODO
   </a>
   
 </li>
@@ -3301,6 +3525,13 @@
         <li class="md-nav__item">
   <a href="#ignoring-files" class="md-nav__link">
     Ignoring files
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trivial-commands-todo" class="md-nav__link">
+    Trivial commands | TODO
   </a>
   
 </li>
@@ -3324,11 +3555,116 @@
 
 
 <h1 id="getting-started-with-git">Getting started with Git<a class="headerlink" href="#getting-started-with-git" title="Permanent link">👀</a></h1>
+<blockquote>
+<p><a href="https://docs.github.com/en/get-started/getting-started-with-git">官方文档</a></p>
+</blockquote>
 <h2 id="set-your-username">Set your username<a class="headerlink" href="#set-your-username" title="Permanent link">👀</a></h2>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Set for every repository</label><label for="__tabbed_1_2">Set for a single repository</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">config</label><label for="__tabbed_2_2">check</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$<span class="w"> </span>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.name<span class="w"> </span><span class="s2">&quot;MoLan&quot;</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$<span class="w"> </span>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.name
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>&gt;<span class="w"> </span>MoLan
+</code></pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="tabbed-block">
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">config</label><label for="__tabbed_3_2">check</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$<span class="w"> </span>git<span class="w"> </span>config<span class="w"> </span>user.name<span class="w"> </span><span class="s2">&quot;MoLan&quot;</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>$<span class="w"> </span>git<span class="w"> </span>config<span class="w"> </span>user.name
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>&gt;<span class="w"> </span>MoLan
+</code></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<blockquote>
+<p><code>email</code> 设置同理，只需将 <code>name</code> 替换为 <code>email</code> 即可</p>
+</blockquote>
 <h2 id="caching-credentials">Caching credentials<a class="headerlink" href="#caching-credentials" title="Permanent link">👀</a></h2>
+<blockquote>
+<p>建议直接用 <code>ssh</code> 克隆</p>
+<ul>
+<li>使用 <code>HTTPS</code> 克隆仓库时，可以使用凭据帮助程序在 Git 中缓存 GitHub 凭据</li>
+<li>如果是使用 <code>ssh</code> 克隆仓库，则不需要凭据帮助程序</li>
+</ul>
+</blockquote>
+<p><a href="https://docs.github.com/en/get-started/getting-started-with-git/caching-your-github-credentials-in-git?platform=mac">More details</a></p>
 <h2 id="git-passordwords">Git passordwords<a class="headerlink" href="#git-passordwords" title="Permanent link">👀</a></h2>
+<ul>
+<li>一般在使用 <code>HTTPS</code> 克隆仓库时，会要求输入 GitHub credentials (用户名和密码)</li>
+<li>但此时的用户名密码并非 GitHub 账户密码，而是 GitHub personal access token</li>
+<li>可以通过配置 <code>Git</code> cache credentials 来避免每次都要求输入 GitHub credentials<ul>
+<li>在配置凭据缓存后，当使用 <code>HTTPS</code> 拉取或推送时，Git 将自动使用缓存的 personal access token</li>
+</ul>
+</li>
+</ul>
+<h2 id="ssh-and-gpg-keys">SSH and GPG keys<a class="headerlink" href="#ssh-and-gpg-keys" title="Permanent link">👀</a></h2>
+<blockquote>
+<p>配置 <code>ssh</code> 公钥，可以在不输入 GitHub credentials 的情况下，与 GitHub 通信</p>
+</blockquote>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">简约版</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>$ ssh-keygen -t rsa -C &quot;email address&quot;
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a># enter, enter ...
+</code></pre></div>
+<ul>
+<li>查看公钥 <code>id_rsa.pub</code> 文件</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>$<span class="w"> </span>cat<span class="w"> </span>~/.ssh/id_rsa.pub
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>=== “官方版&rdquo;<br />
+<a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent">Generating a new SSH key and adding it to the ssh-agent</a></p>
 <h2 id="macos-keychain-credentials">macOS Keychain credentials<a class="headerlink" href="#macos-keychain-credentials" title="Permanent link">👀</a></h2>
-<h2 id="git-workflows">Git workflows<a class="headerlink" href="#git-workflows" title="Permanent link">👀</a></h2>
+<blockquote>
+<ul>
+<li>从 macOS 更新密钥链凭据仅使用内置到 macOS 中的 <code>osxkeychain</code> 凭据帮助程序手动配置了 personal access token 的用户</li>
+<li>还是建议使用 <code>ssh</code> 或者 <a href="https://docs.github.com/en/get-started/getting-started-with-git/caching-your-github-credentials-in-git">GCM | Git Credential Manager</a></li>
+</ul>
+</blockquote>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">通过 Keychain Access 更新 credentials</label><label for="__tabbed_5_2">通过命令行删除 credentials</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ol>
+<li>打开 <code>Keychain Access</code> 应用</li>
+<li>在搜索框中输入 <code>github.com</code></li>
+<li>查找 <code>github.com</code> 的 <code>Internet password</code> 条目</li>
+<li>编辑或删除条目</li>
+</ol>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>$<span class="w"> </span>git<span class="w"> </span>credential-osxkeychain<span class="w"> </span>erase
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nv">host</span><span class="o">=</span>github.com
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="nv">protocol</span><span class="o">=</span>https
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>&gt;<span class="w"> </span><span class="o">[</span>Press<span class="w"> </span>Return<span class="o">]</span>
+</code></pre></div>
+<ul>
+<li>通过命令行删除 credentials 会删除所有 GitHub 凭据，而不仅仅是当前仓库或当前用户的凭据</li>
+<li>可以尝试克隆专用仓库，以便在删除凭据后测试是否仍需要输入 GitHub 凭据</li>
+</ul>
+</div>
+</div>
+</div>
+<h2 id="git-workflows-todo">Git workflows ｜ TODO<a class="headerlink" href="#git-workflows-todo" title="Permanent link">👀</a></h2>
 <h2 id="about-remote-repositories"><u>About remote repositories</u><a class="headerlink" href="#about-remote-repositories" title="Permanent link">👀</a></h2>
 <div class="admonition abstract">
 <p class="admonition-title">关于远程仓库</p>
@@ -3363,20 +3699,20 @@
 </ul>
 <details class="example">
 <summary>Example</summary>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$<span class="w"> </span>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>origin<span class="w"> </span>https://github.com/USER/REPO.git
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># Set a new remote</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>$<span class="w"> </span>git<span class="w"> </span>remote<span class="w"> </span>-v
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c1"># Verify new remote</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>&gt;<span class="w"> </span>origin<span class="w">  </span>https://github.com/USER/REPO.git<span class="w"> </span><span class="o">(</span>fetch<span class="o">)</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>&gt;<span class="w"> </span>origin<span class="w">  </span>https://github.com/USER/REPO.git<span class="w"> </span><span class="o">(</span>push<span class="o">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>$<span class="w"> </span>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>origin<span class="w"> </span>https://github.com/USER/REPO.git
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="c1"># Set a new remote</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>$<span class="w"> </span>git<span class="w"> </span>remote<span class="w"> </span>-v
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="c1"># Verify new remote</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>&gt;<span class="w"> </span>origin<span class="w">  </span>https://github.com/USER/REPO.git<span class="w"> </span><span class="o">(</span>fetch<span class="o">)</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>&gt;<span class="w"> </span>origin<span class="w">  </span>https://github.com/USER/REPO.git<span class="w"> </span><span class="o">(</span>push<span class="o">)</span>
 </code></pre></div>
 </details>
 <details class="warning">
 <summary>Troubleshooting: Remote origin already exists</summary>
 <p>此错误消息表示尝试添加的远程与本地仓库远程名称相同<br />
- <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$<span class="w"> </span>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>origin<span class="w"> </span>https://github.com/octocat/Spoon-Knife.git
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>&gt;<span class="w"> </span>fatal:<span class="w"> </span>remote<span class="w"> </span>origin<span class="w"> </span>already<span class="w"> </span>exists.
+ <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>$<span class="w"> </span>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>origin<span class="w"> </span>https://github.com/octocat/Spoon-Knife.git
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>&gt;<span class="w"> </span>fatal:<span class="w"> </span>remote<span class="w"> </span>origin<span class="w"> </span>already<span class="w"> </span>exists.
 </code></pre></div><br />
  三种解决方法: <br />
       1. 对新远程使用不同名称<br />
@@ -3396,25 +3732,25 @@
 </ul>
 </li>
 </ul>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">将远程 URL 从 SSH 切换到 HTTPS</label><label for="__tabbed_1_2">将远程 URL 从 HTTPS 切换到 SSH</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">将远程 URL 从 SSH 切换到 HTTPS</label><label for="__tabbed_6_2">将远程 URL 从 HTTPS 切换到 SSH</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <ol>
 <li>打开 Git Bash || 终端</li>
 <li>将当前目录更改为本地仓库</li>
 <li>列出现有仓库<br />
- <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$<span class="w"> </span>git<span class="w"> </span>remote<span class="w"> </span>-v
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>&gt;<span class="w"> </span>origin<span class="w">  </span>git@github.com:USERNAME/REPOSITORY.git<span class="w"> </span><span class="o">(</span>fetch<span class="o">)</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>&gt;<span class="w"> </span>origin<span class="w">  </span>git@github.com:USERNAME/REPOSITORY.git<span class="w"> </span><span class="o">(</span>push<span class="o">)</span>
+ <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>$<span class="w"> </span>git<span class="w"> </span>remote<span class="w"> </span>-v
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>&gt;<span class="w"> </span>origin<span class="w">  </span>git@github.com:USERNAME/REPOSITORY.git<span class="w"> </span><span class="o">(</span>fetch<span class="o">)</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>&gt;<span class="w"> </span>origin<span class="w">  </span>git@github.com:USERNAME/REPOSITORY.git<span class="w"> </span><span class="o">(</span>push<span class="o">)</span>
 </code></pre></div></li>
 <li>使用 <code>git remote set-url</code> 命令将远程 URL 从SSH 更改为 HTTPS<br />
- <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>$<span class="w"> </span>git<span class="w"> </span>remote<span class="w"> </span>set-url<span class="w"> </span>origin<span class="w"> </span>https://github.com/USERNAME/REPOSITORY.git
+ <div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>$<span class="w"> </span>git<span class="w"> </span>remote<span class="w"> </span>set-url<span class="w"> </span>origin<span class="w"> </span>https://github.com/USERNAME/REPOSITORY.git
 </code></pre></div></li>
 <li>验证<br />
- <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>$<span class="w"> </span>git<span class="w"> </span>remote<span class="w"> </span>-v
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="c1"># Verify new remote URL</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>&gt;<span class="w"> </span>origin<span class="w">  </span>https://github.com/USERNAME/REPOSITORY.git<span class="w"> </span><span class="o">(</span>fetch<span class="o">)</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>&gt;<span class="w"> </span>origin<span class="w">  </span>https://github.com/USERNAME/REPOSITORY.git<span class="w"> </span><span class="o">(</span>push<span class="o">)</span>
+ <div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>$<span class="w"> </span>git<span class="w"> </span>remote<span class="w"> </span>-v
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="c1"># Verify new remote URL</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>&gt;<span class="w"> </span>origin<span class="w">  </span>https://github.com/USERNAME/REPOSITORY.git<span class="w"> </span><span class="o">(</span>fetch<span class="o">)</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>&gt;<span class="w"> </span>origin<span class="w">  </span>https://github.com/USERNAME/REPOSITORY.git<span class="w"> </span><span class="o">(</span>push<span class="o">)</span>
 </code></pre></div><blockquote>
 <p>下次将 <code>git fetch</code>、<code>git pull</code>、<code>git push</code>执行到远程存储库时，系统将要求提供 GitHub 用户名和密码。<br />
 可以使用<a href="https://docs.github.com/zh/get-started/getting-started-with-git/caching-your-github-credentials-in-git"> GitHub 凭据帮助程序</a>，以便 Git 每次与 GitHub 通信时都会记住你的 GitHub 用户名和 personal access token</p>
@@ -3427,18 +3763,18 @@
 <li>打开 Git Bash || 终端</li>
 <li>将当前目录更改为本地仓库</li>
 <li>列出现有仓库<br />
- <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>$<span class="w"> </span>git<span class="w"> </span>remote<span class="w"> </span>-v
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>&gt;<span class="w"> </span>origin<span class="w">  </span>https://github.com/USERNAME/REPOSITORY.git<span class="w"> </span><span class="o">(</span>fetch<span class="o">)</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>&gt;<span class="w"> </span>origin<span class="w">  </span>https://github.com/USERNAME/REPOSITORY.git<span class="w"> </span><span class="o">(</span>push<span class="o">)</span>
+ <div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>$<span class="w"> </span>git<span class="w"> </span>remote<span class="w"> </span>-v
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>&gt;<span class="w"> </span>origin<span class="w">  </span>https://github.com/USERNAME/REPOSITORY.git<span class="w"> </span><span class="o">(</span>fetch<span class="o">)</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>&gt;<span class="w"> </span>origin<span class="w">  </span>https://github.com/USERNAME/REPOSITORY.git<span class="w"> </span><span class="o">(</span>push<span class="o">)</span>
 </code></pre></div></li>
 <li>使用 <code>git remote set-url</code> 命令将远程 URL 从 HTTPS 更改为 SSH<br />
- <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>$<span class="w"> </span>git<span class="w"> </span>remote<span class="w"> </span>set-url<span class="w"> </span>origin<span class="w"> </span>git@github.com:USERNAME/REPOSITORY.git
+ <div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>$<span class="w"> </span>git<span class="w"> </span>remote<span class="w"> </span>set-url<span class="w"> </span>origin<span class="w"> </span>git@github.com:USERNAME/REPOSITORY.git
 </code></pre></div></li>
 <li>验证<br />
- <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>$<span class="w"> </span>git<span class="w"> </span>remote<span class="w"> </span>-v
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="c1"># Verify new remote URL</span>
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>&gt;<span class="w"> </span>origin<span class="w">  </span>git@github.com:<span class="w"> </span>USERNAME/REPOSITORY.git<span class="w"> </span><span class="o">(</span>fetch<span class="o">)</span>
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>&gt;<span class="w"> </span>origin<span class="w">  </span>git@github.com:<span class="w"> </span>USERNAME/REPOSITORY.git<span class="w"> </span><span class="o">(</span>push<span class="o">)</span>
+ <div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>$<span class="w"> </span>git<span class="w"> </span>remote<span class="w"> </span>-v
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="c1"># Verify new remote URL</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>&gt;<span class="w"> </span>origin<span class="w">  </span>git@github.com:<span class="w"> </span>USERNAME/REPOSITORY.git<span class="w"> </span><span class="o">(</span>fetch<span class="o">)</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>&gt;<span class="w"> </span>origin<span class="w">  </span>git@github.com:<span class="w"> </span>USERNAME/REPOSITORY.git<span class="w"> </span><span class="o">(</span>push<span class="o">)</span>
 </code></pre></div><blockquote>
 <p>下次将 <code>git fetch</code>、<code>git pull</code>、<code>git push</code>执行到远程存储库时，系统将要求提供 GitHub 用户名和密码。<br />
 可以使用<a href="https://docs.github.com/zh/get-started/getting-started-with-git/caching-your-github-credentials-in-git"> GitHub 凭据帮助程序</a>，以便 Git 每次与 GitHub 通信时都会记住你的 GitHub 用户名和 personal access token</p>
@@ -3452,7 +3788,7 @@
 <ul>
 <li>使用 <code>git remote rename</code> 命令重命名现有远程</li>
 <li><code>git remote rename</code> 命令采用两个参数:<ul>
-<li>现有远程名称（如 origin）</li>
+<li>现有远程名称（如 original）</li>
 <li>远程的新名称（如 destination）</li>
 </ul>
 </li>
@@ -3468,9 +3804,144 @@
 <blockquote>
 <p>从存储库中删除远程 URL 只会取消本地和远程存储库的链接。 它不会删除远程存储库</p>
 </blockquote>
+<h3 id="git-push"><code>git push</code><a class="headerlink" href="#git-push" title="Permanent link">👀</a></h3>
+<ul>
+<li><code>git push</code> 会将本地仓库的内容推送到远程仓库</li>
+<li><code>git push</code> 命令采用两个参数:<ul>
+<li>远程仓库的名称 (如 <code>origin</code>)</li>
+<li>要推送的分支的名称 (如 <code>main</code>)</li>
+</ul>
+</li>
+<li><code>git push</code> 命令的默认行为是将本地分支推送到与之关联的远程分支</li>
+<li>例如，如果本地分支为 <code>main</code>，则 <code>git push</code> 将自动推送到远程分支 <code>origin/main</code></li>
+<li>可以使用 <code>git push</code> 命令的 <code>--set-upstream</code> 标志将本地分支与远程分支关联起来<ul>
+<li><code>git push --set-upstream origin main</code></li>
+</ul>
+</li>
+<li>可以使用 <code>git push</code> 命令的 <code>--force</code> 标志强制推送到远程分支<ul>
+<li><code>git push --force origin main</code></li>
+</ul>
+</li>
+<li>可以使用 <code>git push</code> 命令的 <code>--all</code> 标志推送所有分支<ul>
+<li><code>git push --all origin</code></li>
+</ul>
+</li>
+</ul>
 <h2 id="associate-text-editors">Associate text editors<a class="headerlink" href="#associate-text-editors" title="Permanent link">👀</a></h2>
-<h2 id="handle-line-endings">Handle line endings<a class="headerlink" href="#handle-line-endings" title="Permanent link">👀</a></h2>
+<ul>
+<li>配置 <code>git config</code> 中的 <code>core.editor</code> 选项，可以将文本编辑器与 Git 关联</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">Mac | Linux</label><label for="__tabbed_7_2">Windows</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="tabbed-set tabbed-alternate" data-tabs="8:2"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">VS Code</label><label for="__tabbed_8_2">Sublime Text</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>$<span class="w"> </span>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>core.editor<span class="w"> </span><span class="s2">&quot;code --wait&quot;</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>$<span class="w"> </span>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>core.editor<span class="w"> </span><span class="s2">&quot;subl -n -w&quot;</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="tabbed-block">
+<div class="tabbed-set tabbed-alternate" data-tabs="9:2"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio" /><input id="__tabbed_9_2" name="__tabbed_9" type="radio" /><div class="tabbed-labels"><label for="__tabbed_9_1">VS Code</label><label for="__tabbed_9_2">Sublime Text</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>$<span class="w"> </span>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>core.editor<span class="w"> </span><span class="s2">&quot;code --wait&quot;</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>$<span class="w"> </span>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>core.editor<span class="w"> </span><span class="s2">&quot;&#39;C:/Program Files/Sublime Text 3/subl.exe&#39; -w&quot;</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<h2 id="handle-line-endings-todo">Handle line endings | TODO<a class="headerlink" href="#handle-line-endings-todo" title="Permanent link">👀</a></h2>
+<blockquote>
+<p><a href="https://docs.github.com/en/get-started/getting-started-with-git/configuring-git-to-handle-line-endings?platform=mac">To avoid problems in your diffs, you can configure Git to properly handle line endings.</a></p>
+</blockquote>
 <h2 id="ignoring-files">Ignoring files<a class="headerlink" href="#ignoring-files" title="Permanent link">👀</a></h2>
+<blockquote>
+<ul>
+<li>即配置 <code>.gitignore</code> 文件</li>
+<li>如果在配置前已经提交了某些文件，那么这些文件将会被追踪，即使在 <code>.gitignore</code> 中配置了忽略它们<br />
+可以使用 <code>git rm --cached FILENAME</code> 命令来取消追踪这些文件</li>
+</ul>
+</blockquote>
+<p><code>.gitignore</code> 中使用正则表达式匹配文件</p>
+<p>在 .gitignore 文件中，每一行的忽略规则的语法如下：<br />
+1. 空格不匹配任意文件，可作为分隔符，可用反斜杠转义<br />
+2. <code>#</code> 标识注释，可以使用反斜杠进行转义<br />
+3. 可以使用标准的 glob 模式匹配。所谓的 glob 模式是指 shell 所使用的简化了的正则表达式。<br />
+4. 以斜杠 &ldquo;/&rdquo; 开头表示目录；&rdquo;/&rdquo; 结束的模式只匹配文件夹以及在该文件夹路径下的内容，但是不匹配该文件；<br />
+      1. &ldquo;/&rdquo; 开始的模式匹配项目跟目录；<br />
+      2. 如果一个模式不包含斜杠，则它匹配相对于当前 <code>.gitignore</code> 文件路径的内容，如果该模式不在 <code>.gitignore</code> 文件中，则相对于项目根目录<br />
+5. &ldquo;<em>&rdquo; 通配多个字符<br />
+      - 使用两个星号&rdquo;</em><em>&rdquo; 表示匹配任意中间目录，比如 <code>root/**/file</code> 可以匹配 <code>root/file</code>, <code>root/dir1/file</code> 或 <code>root/dir1/dir2/file</code> &hellip;<br />
+6. &ldquo;?&rdquo; 通配单个字符<br />
+7. &ldquo;[]&rdquo; 匹配任何 *</em>一个** 列在方括号中的字符。比如 <code>[abc]</code> 表示 a 或 b 或 c；<br />
+      - 如果在方括号中使用短划线分隔两个字符，表示所有在这两个字符范围内的都可以匹配。比如 <code>[0-9]</code> 表示匹配所有 0 到 9 的数字，<code>[a-z]</code> 表示匹配任意的小写字母<br />
+8. &ldquo;!&rdquo; 表示不忽略(跟踪)匹配到的文件或目录，即要忽略指定模式以外的文件或目录，可以在模式前加上惊叹号（!）取反<br />
+      - 如果文件的父目录已经被前面的规则排除掉了，那么对这个文件用 &ldquo;!&rdquo; 规则是不起作用的</p>
+<details class="info">
+<summary>不使用 .gitignore 文件</summary>
+<ul>
+<li><a href="https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files#excluding-local-files-without-creating-a-gitignore-file">Excluding local files without creating a .gitignore file</a></li>
+<li>不太建议这个</li>
+</ul>
+</details>
+<h2 id="trivial-commands-todo">Trivial commands | TODO<a class="headerlink" href="#trivial-commands-todo" title="Permanent link">👀</a></h2>
+<blockquote>
+<p>基本都可以用 <code>-h</code> 查看手册</p>
+</blockquote>
+<details class="note">
+<summary>fetch &amp; pull</summary>
+<ul>
+<li><code>git pull</code> = <code>git fetch</code> + <code>git merge</code></li>
+<li>建议优先使用 <code>git fetch</code>，因为 <code>git pull</code> 会自动合并，可能会导致冲突</li>
+</ul>
+</details>
+<details class="note">
+<summary>clone</summary>
+<ul>
+<li><code>git clone &lt;url&gt;</code> 会将远程仓库克隆到本地</li>
+<li><code>git clone &lt;url&gt; &lt;dir&gt;</code> 会将远程仓库克隆到本地的 <code>&lt;dir&gt;</code> 目录下</li>
+<li><code>git clone &lt;url&gt; -b &lt;branch&gt;</code> 会将远程仓库的 <code>&lt;branch&gt;</code> 分支克隆到本地</li>
+<li><code>git clone &lt;url&gt; -b &lt;branch&gt; &lt;dir&gt;</code> 会将远程仓库的 <code>&lt;branch&gt;</code> 分支克隆到本地的 <code>&lt;dir&gt;</code> 目录下</li>
+<li><code>git clone &lt;url&gt; -b &lt;branch&gt; --single-branch</code> 会将远程仓库的 <code>&lt;branch&gt;</code> 分支克隆到本地，且只克隆该分支</li>
+<li><code>depth</code> 选项:<ul>
+<li><code>git clone &lt;url&gt; --depth &lt;depth&gt;</code> 会将远程仓库克隆到本地，但是只克隆最近的 <code>&lt;depth&gt;</code> 个提交</li>
+</ul>
+</li>
+<li><code>shallow</code> 选项:<ul>
+<li><code>git clone &lt;url&gt; --shallow-since=&lt;date&gt;</code> 会将远程仓库克隆到本地，但是只克隆最近的 <code>&lt;date&gt;</code> 之后的提交</li>
+<li><code>git clone &lt;url&gt; --shallow-exclude=&lt;revision&gt;</code> 会将远程仓库克隆到本地，但是不克隆 <code>&lt;revision&gt;</code> 之前的提交<br />
+&hellip;</li>
+</ul>
+</li>
+</ul>
+</details>
+<details class="note">
+<summary>branch</summary>
+<ul>
+<li><code>git branch</code> 或 <code>git branch -l</code> 列出本地分支</li>
+<li><code>git branch -r</code> 列出远程分支</li>
+<li><code>git branch -a</code> 列出本地分支和远程分支</li>
+<li><code>git branch &lt;branch&gt;</code> 创建分支</li>
+<li><code>git branch -d &lt;branch&gt;</code> 删除分支; <code>-D</code> 强制删除</li>
+<li><code>git branch -m &lt;old&gt; &lt;new&gt;</code> 重命名分支; <code>-M</code> 强制重命名</li>
+<li><code>git branch -u &lt;remote&gt;/&lt;branch&gt;</code> 设置本地分支跟踪远程分支<br />
+&hellip;</li>
+</ul>
+</details>
+<p><center><font face="JetBrains Mono" size=6 color=grey size=18>To Be Continued</font></center></p>
 
 
   
@@ -3553,6 +4024,28 @@
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+          
+          <a href="../Le1/" class="md-footer__link md-footer__link--prev" aria-label="上一页: Basics">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              <div class="md-ellipsis">
+                Basics
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
     
   
   <div class="md-footer-meta md-typeset">
