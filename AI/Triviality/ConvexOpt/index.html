@@ -3404,7 +3404,7 @@
   
 
 
-<h1 id="_1">凸函数<a class="headerlink" href="#_1" title="Permanent link">👀</a></h1>
+<h1 id="_1">凸优化<a class="headerlink" href="#_1" title="Permanent link">👀</a></h1>
 <h2 id="convex-set">凸集 | Convex Set<a class="headerlink" href="#convex-set" title="Permanent link">👀</a></h2>
 <p>对于一个凸集 <span class="arithmatex">\(C\)</span> </p>
 <ul>
@@ -3431,11 +3431,13 @@
 <p><span class="arithmatex">\(\lceil\)</span> <strong>Separating Hyperplane Theorem</strong> <span class="arithmatex">\(\rfloor\)</span>:</p>
 <ul>
 <li>两个不相交的凸集之间必然存在一个分割超平面使得两个凸集分别在超平面的两侧。</li>
-<li>即对非空凸集 <span class="arithmatex">\(C_1\)</span> 和 <span class="arithmatex">\(C_2\)</span>， 且 <span class="arithmatex">\(C_1 \cap C_2 = \empty\)</span>, 则必然存在 <span class="arithmatex">\(a, b\)</span>， 使得<br />
- $$<br />
- a^T x \leq b, ~~ \forall x \in C_1 \<br />
- a^T x \geq b, ~~ \forall x \in C_2<br />
- $$</li>
+<li>
+<p>即对非空凸集 <span class="arithmatex">\(C_1\)</span> 和 <span class="arithmatex">\(C_2\)</span>， 且 <span class="arithmatex">\(C_1 \cap C_2 = \empty\)</span>, 则必然存在 <span class="arithmatex">\(a, b\)</span>， 使得</p>
+<div class="arithmatex">\[
+a^T x \leq b, ~~ \forall x \in C_1 \\
+a^T x \geq b, ~~ \forall x \in C_2
+\]</div>
+</li>
 </ul>
 </li>
 <li>
@@ -3468,17 +3470,8 @@
 </blockquote>
 <h2 id="convex-function">凸函数 | Convex Function<a class="headerlink" href="#convex-function" title="Permanent link">👀</a></h2>
 <ul>
-<li>
-<p>定义：定义在 <span class="arithmatex">\(\mathbb{R}^n \rightarrow \mathbb{R}\)</span> 上的函数 <span class="arithmatex">\(f\)</span> 是凸函数，当且仅当对于 <span class="arithmatex">\(f\)</span> 的定义域 <span class="arithmatex">\(\mathbb{D}\)</span> 是凸集且 <span class="arithmatex">\(\forall x, y \in \mathbb{D}\)</span> 和 <span class="arithmatex">\(\forall \alpha \in [0, 1]\)</span>，有 <span class="arithmatex">\(f(\alpha x + (1 - \alpha) y) \leq \alpha f(x) + (1 - \alpha) f(y)\)</span> 成立</p>
-</li>
-<li>
-<p>直观来讲：如果一个函数 <span class="arithmatex">\(f\)</span> 的 Epigraph 是凸集，则称 <span class="arithmatex">\(f\)</span> 是凸函数</p>
-</li>
+<li>定义：定义在 <span class="arithmatex">\(\mathbb{R}^n \rightarrow \mathbb{R}\)</span> 上的函数 <span class="arithmatex">\(f\)</span> 是凸函数，当且仅当对于 <span class="arithmatex">\(f\)</span> 的定义域 <span class="arithmatex">\(\mathbb{D}\)</span> 是凸集且 <span class="arithmatex">\(\forall x, y \in \mathbb{D}\)</span> 和 <span class="arithmatex">\(\forall \alpha \in [0, 1]\)</span>，有 <span class="arithmatex">\(f(\alpha x + (1 - \alpha) y) \leq \alpha f(x) + (1 - \alpha) f(y)\)</span> 成立</li>
 </ul>
-<blockquote>
-<p>如果函数 <span class="arithmatex">\(f\)</span> 的二阶导数大于等于 0，则 <span class="arithmatex">\(f\)</span> 是凸函数</p>
-</blockquote>
-<p><img alt="" src="../../../Images/2023-11-15-18-26-58.png" /></p>
 <h3 id="_3">一阶充要条件<a class="headerlink" href="#_3" title="Permanent link">👀</a></h3>
 <ul>
 <li>假设定义在 <span class="arithmatex">\(\mathbb{R}^n \rightarrow \mathbb{R}\)</span> 上的函数 <span class="arithmatex">\(f\)</span> 可微（即 $\forall x \in \mathbb{D}(f), 梯度 <span class="arithmatex">\(\nabla f(x)\)</span> 存在），则 <span class="arithmatex">\(f\)</span> 是凸函数当且仅当定义域是凸集且 <span class="arithmatex">\(\forall x, y \in \mathbb{D}\)</span>，有 <span class="arithmatex">\(f(y) \geq f(x) + \nabla f(x)^T (y - x)\)</span> 成立</li>
@@ -3504,8 +3497,14 @@ H(x) = \nabla^2 f(x) =
 \frac{\partial^2 f(x)}{\partial x_n \partial x_1} &amp; \frac{\partial^2 f(x)}{\partial x_n \partial x_2} &amp; \cdots &amp; \frac{\partial^2 f(x)}{\partial x_n^2}
 \end{bmatrix}
 \]</div>
-<p>假设定义在 <span class="arithmatex">\(\mathbb{R}^n \rightarrow \mathbb{R}\)</span> 上的函数 <span class="arithmatex">\(f\)</span> 二阶可微（即 <span class="arithmatex">\(H(x)\)</span> 存在），则 <span class="arithmatex">\(f\)</span> 是凸函数当且仅当定义域是凸集且 <span class="arithmatex">\(\forall x \in \mathbb{D}\)</span>，有 <span class="arithmatex">\(H(x) \succeq 0\)</span> 成立 （<span class="arithmatex">\(\succeq\)</span> 表示半正定）</p>
-<p><center><font face="JetBrains Mono" color=grey size=18>To Be Continued</font></center></p>
+<p>假设定义在 <span class="arithmatex">\(\mathbb{R}^n \rightarrow \mathbb{R}\)</span> 上的函数 <span class="arithmatex">\(f\)</span> 二阶可微（即 <span class="arithmatex">\(H(x)\)</span> 存在），则 <span class="arithmatex">\(f\)</span> 是凸函数当且仅当定义域是凸集且 <span class="arithmatex">\(\forall x \in \mathbb{D}\)</span>，有海森矩阵 <span class="arithmatex">\(H(x) \succeq 0\)</span> 成立 （<span class="arithmatex">\(\succeq\)</span> 表示半正定）</p>
+<ul>
+<li>直观来讲：如果一个函数 <span class="arithmatex">\(f\)</span> 的 Epigraph 是凸集，则称 <span class="arithmatex">\(f\)</span> 是凸函数</li>
+</ul>
+<blockquote>
+<p>如果函数 <span class="arithmatex">\(f\)</span> 的二阶导数大于等于 0（对于一维函数）或者海森矩阵是半正定的（对于多维函数），则该函数是凸函数</p>
+</blockquote>
+<p><img alt="" src="../../../Images/2023-11-15-18-26-58.png" /></p>
 <details class="note">
 <summary>reference</summary>
 <ul>
@@ -3513,6 +3512,7 @@ H(x) = \nabla^2 f(x) =
 <li><a href="https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf">Convex Optimization(wrote by Boyd &amp; Vandenberghe)</a></li>
 </ul>
 </details>
+<p><center><font face="JetBrains Mono" color=grey size=18>To Be Continued</font></center></p>
 
 
   
