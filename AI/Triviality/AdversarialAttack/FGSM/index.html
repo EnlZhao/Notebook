@@ -2780,6 +2780,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    FGSM
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -2789,6 +2800,39 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    原理
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation" class="md-nav__link">
+    Implementation
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -3314,6 +3358,28 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    原理
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation" class="md-nav__link">
+    Implementation
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -3339,8 +3405,33 @@
 <p class="admonition-title">特点</p>
 <ul>
 <li>基于梯度的攻击方法</li>
+<li>无目标攻击</li>
 <li>白盒攻击</li>
 </ul>
+</div>
+<h2 id="_1">原理<a class="headerlink" href="#_1" title="Permanent link">👀</a></h2>
+<ul>
+<li>因为白盒攻击已知模型的内部结构和参数，故最有效的白盒攻击算法即是对模型输入的梯度进行有限扰动，使扰动后的损失函数值最大化，从而使模型的输出发生改变</li>
+<li>在设计神经网络时，会使用梯度下降法使 gradient 最小，而对抗攻击相反，FGSM 使梯度上升，使得损失函数最大化</li>
+</ul>
+<p>具体讲，FGSM 是在白盒环境下，通过求出模型对输入的导数，然后用符号函数得到具体的梯度方向，接着乘上一个步长，得到最终的扰动值，最后将扰动值加到原始输入上，得到对抗样本，如：<img alt="" src="../../../Images/2023-11-22-08-41-16.png" /><br />
+(数学表达如下)：</p>
+<div class="arithmatex">\[
+x^{'} = x + \epsilon \cdot sign(\nabla_x J(\theta, x, y))
+\]</div>
+<ul>
+<li><span class="arithmatex">\(x\)</span>：原始样本</li>
+<li><span class="arithmatex">\(x^{'}\)</span>：对抗样本</li>
+<li><span class="arithmatex">\(\epsilon\)</span>：扰动值，一旦超出阈值，该对抗样本会被人眼识别出来</li>
+<li><span class="arithmatex">\(\theta\)</span>: 模型的权重参数</li>
+<li><span class="arithmatex">\(J\)</span>：损失函数</li>
+<li><span class="arithmatex">\(y\)</span>：真实标签</li>
+<li><span class="arithmatex">\(\nabla_x\)</span>: 表示对 <span class="arithmatex">\(x\)</span> 求偏导</li>
+</ul>
+<h2 id="implementation">Implementation<a class="headerlink" href="#implementation" title="Permanent link">👀</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Pytorch 实现</p>
+<p><a class="md-button" href="../fgsm_tutorial.ipynb"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span> fgsm_tutorial.ipynb</a></p>
 </div>
 <p><center><font face="JetBrains Mono" color=grey size=18>To Be Continued</font></center></p>
 
