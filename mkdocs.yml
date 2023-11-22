@@ -72,6 +72,16 @@ nav:
         - Neural Networks: Self-Learning/PyTorch/BLITZ/lec03.md
         - Training a Classifier: Self-Learning/PyTorch/BLITZ/lec04.md
   - AI: 
+    - Triviality:  
+        - Triviality: AI/Triviality/index.md
+        - 凸优化: AI/Triviality/ConvexOpt.md
+        - 对抗攻击:
+          - 对抗攻击: AI/Triviality/AdversarialAttack/index.md
+          - FGSM: AI/Triviality/AdversarialAttack/FGSM.md
+    - 优化算法: 
+        - 优化算法: AI/OptimAlgorithm/index.md
+    - 学习准则: 
+        - 学习准则: AI/LearningCriterion/index.md
     - RelatedCourses:
       - DeepLearning: 
         - DeepLearning: AI/Courses/DeepLearning/index.md
@@ -92,13 +102,6 @@ nav:
           - Building Sequence Models: AI/Courses/DeepLearning/course5/index.md
       - CS229: 
         - CS229: AI/Courses/CS229/index.md
-    - 学习准则: 
-        - 学习准则: AI/LearningCriterion/index.md
-    - 优化算法: 
-        - 优化算法: AI/OptimAlgorithm/index.md
-    - Triviality:  
-        - Triviality: AI/Triviality/index.md
-        - 凸优化: AI/Triviality/ConvexOpt.md
   - Triviality: 
     - Markdown:
       - Perface: Triviality/Markdown/index.md

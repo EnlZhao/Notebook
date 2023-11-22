@@ -1,4 +1,4 @@
-# 凸函数
+# 凸优化
 
 ## 凸集 | Convex Set
 
@@ -23,10 +23,11 @@ $$
    
     - 两个不相交的凸集之间必然存在一个分割超平面使得两个凸集分别在超平面的两侧。
     - 即对非空凸集 $C_1$ 和 $C_2$， 且 $C_1 \cap C_2 = \empty$, 则必然存在 $a, b$， 使得
-     $$
-     a^T x \leq b, ~~ \forall x \in C_1 \\
-     a^T x \geq b, ~~ \forall x \in C_2
-     $$
+     
+        $$
+        a^T x \leq b, ~~ \forall x \in C_1 \\
+        a^T x \geq b, ~~ \forall x \in C_2
+        $$
 
 2. $\lceil$ **Supporting Hyperplane Theorem** $\rfloor$:
    
@@ -56,15 +57,9 @@ $$
 
 - 定义：定义在 $\mathbb{R}^n \rightarrow \mathbb{R}$ 上的函数 $f$ 是凸函数，当且仅当对于 $f$ 的定义域 $\mathbb{D}$ 是凸集且 $\forall x, y \in \mathbb{D}$ 和 $\forall \alpha \in [0, 1]$，有 $f(\alpha x + (1 - \alpha) y) \leq \alpha f(x) + (1 - \alpha) f(y)$ 成立
 
-- 直观来讲：如果一个函数 $f$ 的 Epigraph 是凸集，则称 $f$ 是凸函数
-
-> 如果函数 $f$ 的二阶导数大于等于 0，则 $f$ 是凸函数
-
-![](../../Images/2023-11-15-18-26-58.png)
-
 ### 一阶充要条件
 
-- 假设定义在 $\mathbb{R}^n \rightarrow \mathbb{R}$ 上的函数 $f$ 可微（即 $\forall x \in \mathbb{D}(f), 梯度 $\nabla f(x)$ 存在），则 $f$ 是凸函数当且仅当定义域是凸集且 $\forall x, y \in \mathbb{D}$，有 $f(y) \geq f(x) + \nabla f(x)^T (y - x)$ 成立
+- 假设定义在 $\mathbb{R}^n \rightarrow \mathbb{R}$ 上的函数 $f$ 可微（即 $\forall x \in \mathbb{D}(f)$, 梯度 $\nabla f(x)$ 存在），则 $f$ 是凸函数当且仅当定义域是凸集且 $\forall x, y \in \mathbb{D}$，有 $f(y) \geq f(x) + \nabla f(x)^T (y - x)$ 成立
 - 从几何意义讲，即定义域内所有函数值都大于等于该点的切线值<br>![](../../Images/2023-11-15-20-02-00.png)
 
 ### 二阶充要条件
@@ -91,11 +86,17 @@ H(x) = \nabla^2 f(x) =
 \end{bmatrix}
 $$
 
-假设定义在 $\mathbb{R}^n \rightarrow \mathbb{R}$ 上的函数 $f$ 二阶可微（即 $H(x)$ 存在），则 $f$ 是凸函数当且仅当定义域是凸集且 $\forall x \in \mathbb{D}$，有 $H(x) \succeq 0$ 成立 （$\succeq$ 表示半正定）
+假设定义在 $\mathbb{R}^n \rightarrow \mathbb{R}$ 上的函数 $f$ 二阶可微（即 $H(x)$ 存在），则 $f$ 是凸函数当且仅当定义域是凸集且 $\forall x \in \mathbb{D}$，有海森矩阵 $H(x) \succeq 0$ 成立 （$\succeq$ 表示半正定）
 
+- 直观来讲：如果一个函数 $f$ 的 Epigraph 是凸集，则称 $f$ 是凸函数
 
-<center><font face="JetBrains Mono" color=grey size=18>To Be Continued</font></center>
+> 如果函数 $f$ 的二阶导数大于等于 0（对于一维函数）或者海森矩阵是半正定的（对于多维函数），则该函数是凸函数
+
+![](../../Images/2023-11-15-18-26-58.png)
+
 
 ??? note "reference"
     - [CMU - Convex Optimization](https://www.stat.cmu.edu/~ryantibs/convexopt/)
     - [Convex Optimization(wrote by Boyd & Vandenberghe)](https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf)
+
+<center><font face="JetBrains Mono" color=grey size=18>To Be Continued</font></center>
