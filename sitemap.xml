@@ -211,7 +211,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://note.enlzhao.com/AI/Triviality/AdversarialAttack/BIM/</loc>
+         <lastmod>2023-11-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://note.enlzhao.com/AI/Triviality/AdversarialAttack/FGSM/</loc>
+         <lastmod>2023-11-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://note.enlzhao.com/AI/Triviality/AdversarialAttack/PGD/</loc>
          <lastmod>2023-11-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
