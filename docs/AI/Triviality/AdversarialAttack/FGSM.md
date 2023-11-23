@@ -6,6 +6,7 @@
 !!! abstract "特点"
     - 基于梯度的攻击方法
     - 无目标攻击
+    - 无穷范数攻击
     - 白盒攻击
 
 ## 原理
@@ -31,6 +32,6 @@ $$
 ## Implementation
 
 !!! note "Pytorch 实现"
-    [:fontawesome-regular-file-code: fgsm_tutorial.ipynb](../fgsm_tutorial.ipynb){ .md-button }
+    [:fontawesome-regular-file-code: Download fgsm_tutorial.ipynb](../fgsm_tutorial.ipynb){ .md-button }
 
 <center><font face="JetBrains Mono" color=grey size=18>To Be Continued</font></center>
