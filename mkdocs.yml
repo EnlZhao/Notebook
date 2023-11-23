@@ -70,13 +70,13 @@ nav:
           - 对抗攻击: AI/Triviality/AdversarialAttack/index.md
           - FGSM: AI/Triviality/AdversarialAttack/FGSM.md
         - PyTorch: 
-          - PyTorch: Self-Learning/PyTorch/index.md
+          - PyTorch: AI/PyTorch/index.md
           - A 60 Min BLITZ: 
-            - A 60 Min BLITZ: Self-Learning/PyTorch/BLITZ/index.md
-            - Tensors: Self-Learning/PyTorch/BLITZ/lec01.md
-            - Autograd: Self-Learning/PyTorch/BLITZ/lec02.md
-            - Neural Networks: Self-Learning/PyTorch/BLITZ/lec03.md
-            - Training a Classifier: Self-Learning/PyTorch/BLITZ/lec04.md
+            - A 60 Min BLITZ: AI/PyTorch/BLITZ/index.md
+            - Tensors: AI/PyTorch/BLITZ/lec01.md
+            - Autograd: AI/PyTorch/BLITZ/lec02.md
+            - Neural Networks: AI/PyTorch/BLITZ/lec03.md
+            - Training a Classifier: AI/PyTorch/BLITZ/lec04.md
     - 优化算法: 
         - 优化算法: AI/OptimAlgorithm/index.md
     - 学习准则: 
