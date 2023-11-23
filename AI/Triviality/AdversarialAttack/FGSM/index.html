@@ -2233,14 +2233,14 @@
         
           <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    对抗样本的线性解释
+    线性模型的对抗样本
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    线性模型的对抗样本
+    非线性模型的线性扰动
   </a>
   
 </li>
@@ -3390,14 +3390,14 @@
         
           <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    对抗样本的线性解释
+    线性模型的对抗样本
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    线性模型的对抗样本
+    非线性模型的线性扰动
   </a>
   
 </li>
@@ -3457,7 +3457,11 @@
 <blockquote>
 <p><a href="https://arxiv.org/abs/1412.6572">Explaining And Harnessing Adversarial Examples</a> 主要提出对于对抗样本存在原因的一种新解释，即神经网络的线性特性，并提出了快速有效生成对抗样本的方法，即 FGSM</p>
 </blockquote>
-<h3 id="_2">对抗样本的线性解释<a class="headerlink" href="#_2" title="Permanent link">👀</a></h3>
+<h3 id="_2">线性模型的对抗样本<a class="headerlink" href="#_2" title="Permanent link">👀</a></h3>
+<ul>
+<li>在许多问题中，单个输入特征的精度是有限的。例如，数字图像通常每像素只使用8位，即每个像素的亮度值在 0 到 255 之间变化，因此他们丢弃动态范围 1/255<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> 的所有信息。</li>
+<li>故而，当扰动 <span class="arithmatex">\(\boldsymbol{\eta}\)</span> 的每个元素都小于最小精度时，理论上对一个类别分离良好的问题，分类器应对 <span class="arithmatex">\(\boldsymbol{\tilde{x}} = \boldsymbol{x} + \boldsymbol{\eta}\)</span> 和 <span class="arithmatex">\(\boldsymbol{x}\)</span> 分配相同类别，即 <span class="arithmatex">\(||\boldsymbol{\eta}||_{\infty} &lt; \epsilon\)</span>, 其中 <span class="arithmatex">\(\epsilon\)</span> 足够小，可被与我们问题相关联的传感器或数据存储设备丢弃</li>
+</ul>
 <div class="arithmatex">\[
 \boldsymbol{w}^T \tilde{\boldsymbol{x}} = \boldsymbol{w}^T \boldsymbol{x} + \boldsymbol{w}^T \boldsymbol{\eta}
 \]</div>
@@ -3465,13 +3469,24 @@
 <li><span class="arithmatex">\(\boldsymbol{w}\)</span>：模型的权重参数</li>
 <li><span class="arithmatex">\(\tilde{\boldsymbol{x}}\)</span>：代表一个生成的对抗样本</li>
 <li><span class="arithmatex">\(\boldsymbol{x}\)</span>：原始样本</li>
-<li><span class="arithmatex">\(\boldsymbol{\eta}\)</span>：代表在正常样本上添加的扰动，其中扰动向量中每一元素的数值绝对值大小都不超过 <span class="arithmatex">\(\epsilon\)</span></li>
+<li>
+<p><span class="arithmatex">\(\boldsymbol{\eta}\)</span>：代表在正常样本上添加的扰动，其中扰动向量中每一元素的数值绝对值大小都不超过 <span class="arithmatex">\(\epsilon\)</span></p>
+</li>
+<li>
+<p>对抗性扰动会导致激活增长 <span class="arithmatex">\(\boldsymbol{w}^T \boldsymbol{\eta}\)</span>, 通过赋予 <span class="arithmatex">\(\boldsymbol{\eta} = \epsilon sign(\boldsymbol{w})\)</span>，可以在 <span class="arithmatex">\(\boldsymbol{\eta}\)</span> 上受到最大范数约束的情况下最大化此增量。若 <span class="arithmatex">\(\boldsymbol{w}\)</span> 有 <span class="arithmatex">\(n\)</span> 个维度且权重向量的元素的平均大小为 <span class="arithmatex">\(m\)</span>，则激活将以 <span class="arithmatex">\(\epsilon n m\)</span> 增长</p>
+</li>
+<li>同时，<span class="arithmatex">\(||\boldsymbol{\eta}||_{\infty}\)</span> 不随 <span class="arithmatex">\(n\)</span> 而增长，但扰动引起的激活增长却随 <span class="arithmatex">\(n\)</span> 而增长，故而当 <span class="arithmatex">\(n\)</span> 足够大时，即使扰动的最大范数很小，也能对模型的输出造成很大的影响</li>
+<li>由此，对于高维问题，可以对输入做许多无穷小的扰动，从而使模型的输出发生较大的变化。</li>
 </ul>
 <blockquote>
-<p>当取 <span class="arithmatex">\(\boldsymbol{\eta} = \epsilon sign(\boldsymbol{w})\)</span> 时，对计算结果造成的最大影响大小为 <span class="arithmatex">\(\boldsymbol{w}^T \cdot \boldsymbol{\eta} = n \epsilon ||\boldsymbol{w}||_{1}\)</span>，其中 <span class="arithmatex">\(n\)</span> 表示向量的维数。当 <span class="arithmatex">\(n\)</span> 足够大时，即使扰动的最大范数很小，也能对模型的输出造成很大的影响</p>
+<p>这表明，如果一个简单的线性模型的输入具有足够的维数，那么它就可以有对抗样本</p>
 </blockquote>
-<h3 id="_3">线性模型的对抗样本<a class="headerlink" href="#_3" title="Permanent link">👀</a></h3>
-<p>在许多问题中，单个输入特征的精度是有限的。例如，数字图像通常每像素只使用8位，即每个像素的亮度值在 0 到 255 之间变化，因此他们丢弃动态范围 1/255<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> 的所有信息。</p>
+<h3 id="_3">非线性模型的线性扰动<a class="headerlink" href="#_3" title="Permanent link">👀</a></h3>
+<ul>
+<li>上述关于线性模型的对抗样本的分析给出了一种快速生成对抗样本的思路。</li>
+<li>假设神经网络太线性而无法对抗线性扰动，LSTM，ReLU 和 maxout 网络等都被设计为以一种很线性的方式运行以便于优化。出于同样的原因，更多的非线性模型，如 Sigmoid 网络也被仔细调整，使其大部分时间花在非饱和、更线性的状态上。这种线性行为表明，线性模型的这种廉价的、分析性的扰动也能破坏神经网络</li>
+<li>由此引入本篇重点 —— <a href="#fgsm-原理">FGSM</a></li>
+</ul>
 <h2 id="fgsm">FGSM 原理<a class="headerlink" href="#fgsm" title="Permanent link">👀</a></h2>
 <ul>
 <li>因为白盒攻击已知模型的内部结构和参数，故最有效的白盒攻击算法即是对模型输入的梯度进行有限扰动，使扰动后的损失函数值最大化，从而使模型的输出发生改变</li>
@@ -3497,7 +3512,6 @@
 <p class="admonition-title">Pytorch 实现</p>
 <p><a class="md-button" href="../fgsm_tutorial.ipynb"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span> Download fgsm_tutorial.ipynb</a></p>
 </div>
-<p><center><font face="JetBrains Mono" color=grey size=18>To Be Continued</font></center></p>
 <div class="footnote">
 <hr />
 <ol>
