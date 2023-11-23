@@ -7,4 +7,4 @@
     - [范数](Norm.md)
     - ...
 
-<center><font face="JetBrains Mono" color=grey size=18>To Be Continued</font></center>
+<center><font face="JetBrains Mono" color=grey size=18>持续更新...</font></center>
