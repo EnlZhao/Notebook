@@ -2252,7 +2252,7 @@
       
         <li class="md-nav__item">
   <a href="#fgsm" class="md-nav__link">
-    FGSM 原理
+    FGSM
   </a>
   
 </li>
@@ -3409,7 +3409,7 @@
       
         <li class="md-nav__item">
   <a href="#fgsm" class="md-nav__link">
-    FGSM 原理
+    FGSM
   </a>
   
 </li>
@@ -3485,9 +3485,9 @@
 <ul>
 <li>上述关于线性模型的对抗样本的分析给出了一种快速生成对抗样本的思路。</li>
 <li>假设神经网络太线性而无法对抗线性扰动，LSTM，ReLU 和 maxout 网络等都被设计为以一种很线性的方式运行以便于优化。出于同样的原因，更多的非线性模型，如 Sigmoid 网络也被仔细调整，使其大部分时间花在非饱和、更线性的状态上。这种线性行为表明，线性模型的这种廉价的、分析性的扰动也能破坏神经网络</li>
-<li>由此引入本篇重点 —— <a href="#fgsm-原理">FGSM</a></li>
+<li>由此引入本篇重点 —— <a href="#fgsm">FGSM</a></li>
 </ul>
-<h2 id="fgsm">FGSM 原理<a class="headerlink" href="#fgsm" title="Permanent link">👀</a></h2>
+<h2 id="fgsm">FGSM<a class="headerlink" href="#fgsm" title="Permanent link">👀</a></h2>
 <ul>
 <li>因为白盒攻击已知模型的内部结构和参数，故最有效的白盒攻击算法即是对模型输入的梯度进行有限扰动，使扰动后的损失函数值最大化，从而使模型的输出发生改变</li>
 <li>在设计神经网络时，会使用梯度下降法使 gradient 最小，而对抗攻击相反，FGSM 使梯度上升，使得损失函数最大化</li>
@@ -3502,10 +3502,10 @@
 <li><span class="arithmatex">\(\boldsymbol{x}^{'}\)</span>：对抗样本</li>
 <li><span class="arithmatex">\(\epsilon\)</span>：扰动值，一旦超出阈值，该对抗样本会被人眼识别出来</li>
 <li><span class="arithmatex">\(\boldsymbol{\theta}\)</span>: 模型的权重参数</li>
-<li><span class="arithmatex">\(J\)</span>：损失函数</li>
-<li><span class="arithmatex">\(y\)</span>：真实标签</li>
-<li><span class="arithmatex">\(\nabla_\boldsymbol{x}\)</span>: 表示对 <span class="arithmatex">\(x\)</span> 求偏导</li>
-<li>我们可以围绕 <span class="arithmatex">\(\boldsymbol{\theta}\)</span> 的当前值来线性化损失函数，以获得 <span class="arithmatex">\(\epsilon \cdot sign(\nabla_\boldsymbol{x} J(\boldsymbol{\theta}, \boldsymbol{x}, y))\)</span> 的 optimal max-norm constrained perturbation(最优的最大范数约束扰动)，将其称为生成对抗样本的“快速梯度符号法” （FGSM）</li>
+<li><span class="arithmatex">\(J\)</span>: 损失函数</li>
+<li><span class="arithmatex">\(y\)</span>: 真实标签</li>
+<li><span class="arithmatex">\(\nabla_{\boldsymbol{x}}\)</span>: 表示对 <span class="arithmatex">\(x\)</span> 求偏导</li>
+<li>我们可以围绕 <span class="arithmatex">\(\boldsymbol{\theta}\)</span> 的当前值来线性化损失函数，以获得 <span class="arithmatex">\(\epsilon \cdot sign(\nabla_{\boldsymbol{x}} J(\boldsymbol{\theta}, \boldsymbol{x}, y))\)</span> 的 optimal max-norm constrained perturbation(最优的最大范数约束扰动)，将其称为生成对抗样本的“快速梯度符号法” （FGSM）</li>
 </ul>
 <h2 id="implementation">Implementation<a class="headerlink" href="#implementation" title="Permanent link">👀</a></h2>
 <div class="admonition note">
