@@ -2225,7 +2225,34 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    原理
+    引言
+  </a>
+  
+    <nav class="md-nav" aria-label="引言">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    对抗样本的线性解释
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    线性模型的对抗样本
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fgsm" class="md-nav__link">
+    FGSM 原理
   </a>
   
 </li>
@@ -3355,7 +3382,34 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    原理
+    引言
+  </a>
+  
+    <nav class="md-nav" aria-label="引言">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    对抗样本的线性解释
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    线性模型的对抗样本
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fgsm" class="md-nav__link">
+    FGSM 原理
   </a>
   
 </li>
@@ -3399,7 +3453,26 @@
 <li>白盒攻击</li>
 </ul>
 </div>
-<h2 id="_1">原理<a class="headerlink" href="#_1" title="Permanent link">👀</a></h2>
+<h2 id="_1">引言<a class="headerlink" href="#_1" title="Permanent link">👀</a></h2>
+<blockquote>
+<p><a href="https://arxiv.org/abs/1412.6572">Explaining And Harnessing Adversarial Examples</a> 主要提出对于对抗样本存在原因的一种新解释，即神经网络的线性特性，并提出了快速有效生成对抗样本的方法，即 FGSM</p>
+</blockquote>
+<h3 id="_2">对抗样本的线性解释<a class="headerlink" href="#_2" title="Permanent link">👀</a></h3>
+<div class="arithmatex">\[
+\boldsymbol{w}^T \tilde{\boldsymbol{x}} = \boldsymbol{w}^T \boldsymbol{x} + \boldsymbol{w}^T \boldsymbol{\eta}
+\]</div>
+<ul>
+<li><span class="arithmatex">\(\boldsymbol{w}\)</span>：模型的权重参数</li>
+<li><span class="arithmatex">\(\tilde{\boldsymbol{x}}\)</span>：代表一个生成的对抗样本</li>
+<li><span class="arithmatex">\(\boldsymbol{x}\)</span>：原始样本</li>
+<li><span class="arithmatex">\(\boldsymbol{\eta}\)</span>：代表在正常样本上添加的扰动，其中扰动向量中每一元素的数值绝对值大小都不超过 <span class="arithmatex">\(\epsilon\)</span></li>
+</ul>
+<blockquote>
+<p>当取 <span class="arithmatex">\(\boldsymbol{\eta} = \epsilon sign(\boldsymbol{w})\)</span> 时，对计算结果造成的最大影响大小为 <span class="arithmatex">\(\boldsymbol{w}^T \cdot \boldsymbol{\eta} = n \epsilon ||\boldsymbol{w}||_{1}\)</span>，其中 <span class="arithmatex">\(n\)</span> 表示向量的维数。当 <span class="arithmatex">\(n\)</span> 足够大时，即使扰动的最大范数很小，也能对模型的输出造成很大的影响</p>
+</blockquote>
+<h3 id="_3">线性模型的对抗样本<a class="headerlink" href="#_3" title="Permanent link">👀</a></h3>
+<p>在许多问题中，单个输入特征的精度是有限的。例如，数字图像通常每像素只使用8位，即每个像素的亮度值在 0 到 255 之间变化，因此他们丢弃动态范围 1/255<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> 的所有信息。</p>
+<h2 id="fgsm">FGSM 原理<a class="headerlink" href="#fgsm" title="Permanent link">👀</a></h2>
 <ul>
 <li>因为白盒攻击已知模型的内部结构和参数，故最有效的白盒攻击算法即是对模型输入的梯度进行有限扰动，使扰动后的损失函数值最大化，从而使模型的输出发生改变</li>
 <li>在设计神经网络时，会使用梯度下降法使 gradient 最小，而对抗攻击相反，FGSM 使梯度上升，使得损失函数最大化</li>
@@ -3407,23 +3480,35 @@
 <p>具体讲，FGSM 是在白盒环境下，通过求出模型对输入的导数，然后用符号函数得到具体的梯度方向，接着乘上一个步长，得到最终的扰动值，最后将扰动值加到原始输入上，得到对抗样本，如：<img alt="" src="../../../Images/2023-11-22-08-41-16.png" /><br />
 (数学表达如下)：</p>
 <div class="arithmatex">\[
-x^{'} = x + \epsilon \cdot sign(\nabla_x J(\theta, x, y))
+\boldsymbol{x}^{'} = \boldsymbol{x} + \epsilon \cdot sign(\nabla_x J(\boldsymbol{\theta}, \boldsymbol{x}, y))
 \]</div>
 <ul>
-<li><span class="arithmatex">\(x\)</span>：原始样本</li>
-<li><span class="arithmatex">\(x^{'}\)</span>：对抗样本</li>
+<li><span class="arithmatex">\(\boldsymbol{x}\)</span>：原始样本</li>
+<li><span class="arithmatex">\(\boldsymbol{x}^{'}\)</span>：对抗样本</li>
 <li><span class="arithmatex">\(\epsilon\)</span>：扰动值，一旦超出阈值，该对抗样本会被人眼识别出来</li>
-<li><span class="arithmatex">\(\theta\)</span>: 模型的权重参数</li>
+<li><span class="arithmatex">\(\boldsymbol{\theta}\)</span>: 模型的权重参数</li>
 <li><span class="arithmatex">\(J\)</span>：损失函数</li>
 <li><span class="arithmatex">\(y\)</span>：真实标签</li>
-<li><span class="arithmatex">\(\nabla_x\)</span>: 表示对 <span class="arithmatex">\(x\)</span> 求偏导</li>
+<li><span class="arithmatex">\(\nabla_\boldsymbol{x}\)</span>: 表示对 <span class="arithmatex">\(x\)</span> 求偏导</li>
+<li>我们可以围绕 <span class="arithmatex">\(\boldsymbol{\theta}\)</span> 的当前值来线性化损失函数，以获得 <span class="arithmatex">\(\epsilon \cdot sign(\nabla_\boldsymbol{x} J(\boldsymbol{\theta}, \boldsymbol{x}, y))\)</span> 的 optimal max-norm constrained perturbation(最优的最大范数约束扰动)，将其称为生成对抗样本的“快速梯度符号法” （FGSM）</li>
 </ul>
+<details class="info">
+<summary>为何攻击有效</summary>
+</details>
 <h2 id="implementation">Implementation<a class="headerlink" href="#implementation" title="Permanent link">👀</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Pytorch 实现</p>
 <p><a class="md-button" href="../fgsm_tutorial.ipynb"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span> Download fgsm_tutorial.ipynb</a></p>
 </div>
 <p><center><font face="JetBrains Mono" color=grey size=18>To Be Continued</font></center></p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>当我们谈论动态范围1/255时，我们是在讨论这个最小变化量1相对于整个可能的亮度范围（0到255）的比例。所以，1/255是表示在8位图像中，最小的亮度变化量占总亮度范围的比例&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
 
 
   
