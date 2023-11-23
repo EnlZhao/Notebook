@@ -3,6 +3,8 @@
 !!! success "list"
     - [凸优化](ConvexOpt.md)
     - [对抗攻击](AdversarialAttack/index.md)
+        - [FGSM](AdversarialAttack/FGSM.md)
+    - [范数](Norm.md)
     - ...
 
 <center><font face="JetBrains Mono" color=grey size=18>To Be Continued</font></center>

@@ -69,6 +69,7 @@ nav:
         - 对抗攻击:
           - 对抗攻击: AI/Triviality/AdversarialAttack/index.md
           - FGSM: AI/Triviality/AdversarialAttack/FGSM.md
+        - 范数: AI/Triviality/Norm.md
         - PyTorch: 
           - PyTorch: AI/PyTorch/index.md
           - A 60 Min BLITZ: 
@@ -311,4 +312,3 @@ extra:
     - icon: fontawesome/regular/chess-king
       link: https://enlzhao.com/
       name: Blog
-
