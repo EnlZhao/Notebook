@@ -62,15 +62,6 @@ nav:
     # - 面向信息安全的信号处理:
     #   - 面向信息安全的信号处理: Course/Signal-Processing/index.md
     #   - 信号与系统基础: Course/Signal-Processing/1-信号与系统基础.md
-  - Self-Learning:
-    - PyTorch: 
-      - PyTorch: Self-Learning/PyTorch/index.md
-      - A 60 Min BLITZ: 
-        - A 60 Min BLITZ: Self-Learning/PyTorch/BLITZ/index.md
-        - Tensors: Self-Learning/PyTorch/BLITZ/lec01.md
-        - Autograd: Self-Learning/PyTorch/BLITZ/lec02.md
-        - Neural Networks: Self-Learning/PyTorch/BLITZ/lec03.md
-        - Training a Classifier: Self-Learning/PyTorch/BLITZ/lec04.md
   - AI: 
     - Triviality:  
         - Triviality: AI/Triviality/index.md
@@ -78,6 +69,14 @@ nav:
         - 对抗攻击:
           - 对抗攻击: AI/Triviality/AdversarialAttack/index.md
           - FGSM: AI/Triviality/AdversarialAttack/FGSM.md
+        - PyTorch: 
+          - PyTorch: Self-Learning/PyTorch/index.md
+          - A 60 Min BLITZ: 
+            - A 60 Min BLITZ: Self-Learning/PyTorch/BLITZ/index.md
+            - Tensors: Self-Learning/PyTorch/BLITZ/lec01.md
+            - Autograd: Self-Learning/PyTorch/BLITZ/lec02.md
+            - Neural Networks: Self-Learning/PyTorch/BLITZ/lec03.md
+            - Training a Classifier: Self-Learning/PyTorch/BLITZ/lec04.md
     - 优化算法: 
         - 优化算法: AI/OptimAlgorithm/index.md
     - 学习准则: 
