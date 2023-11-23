@@ -161,6 +161,36 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://note.enlzhao.com/AI/PyTorch/</loc>
+         <lastmod>2023-11-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://note.enlzhao.com/AI/PyTorch/BLITZ/</loc>
+         <lastmod>2023-11-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://note.enlzhao.com/AI/PyTorch/BLITZ/lec01/</loc>
+         <lastmod>2023-11-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://note.enlzhao.com/AI/PyTorch/BLITZ/lec02/</loc>
+         <lastmod>2023-11-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://note.enlzhao.com/AI/PyTorch/BLITZ/lec03/</loc>
+         <lastmod>2023-11-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://note.enlzhao.com/AI/PyTorch/BLITZ/lec04/</loc>
+         <lastmod>2023-11-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://note.enlzhao.com/AI/Triviality/</loc>
          <lastmod>2023-11-23</lastmod>
          <changefreq>daily</changefreq>
@@ -436,46 +466,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://note.enlzhao.com/Self-Learning/CS61A/</loc>
-         <lastmod>2023-11-23</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://note.enlzhao.com/Self-Learning/CS61A/Lec01/</loc>
-         <lastmod>2023-11-23</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://note.enlzhao.com/Self-Learning/PyTorch/</loc>
-         <lastmod>2023-11-23</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://note.enlzhao.com/Self-Learning/PyTorch/BLITZ/</loc>
-         <lastmod>2023-11-23</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://note.enlzhao.com/Self-Learning/PyTorch/BLITZ/lec01/</loc>
-         <lastmod>2023-11-23</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://note.enlzhao.com/Self-Learning/PyTorch/BLITZ/lec02/</loc>
-         <lastmod>2023-11-23</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://note.enlzhao.com/Self-Learning/PyTorch/BLITZ/lec03/</loc>
-         <lastmod>2023-11-23</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://note.enlzhao.com/Self-Learning/PyTorch/BLITZ/lec04/</loc>
-         <lastmod>2023-11-23</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://note.enlzhao.com/Triviality/CMake/</loc>
          <lastmod>2023-11-23</lastmod>
          <changefreq>daily</changefreq>
@@ -487,6 +477,16 @@
     </url>
     <url>
          <loc>https://note.enlzhao.com/Triviality/CMake/Lec02/</loc>
+         <lastmod>2023-11-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://note.enlzhao.com/Triviality/CS61A/</loc>
+         <lastmod>2023-11-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://note.enlzhao.com/Triviality/CS61A/Lec01/</loc>
          <lastmod>2023-11-23</lastmod>
          <changefreq>daily</changefreq>
     </url>

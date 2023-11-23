@@ -12,24 +12,24 @@
         <meta name="author" content="EnlZhao">
       
       
-        <link rel="canonical" href="https://note.enlzhao.com/Self-Learning/CS61A/Lec01/">
+        <link rel="canonical" href="https://note.enlzhao.com/AI/PyTorch/BLITZ/lec02/">
       
       
       
       
-      <link rel="icon" href="../../../Icon/Avatar.png">
+      <link rel="icon" href="../../../../Icon/Avatar.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.8">
     
     
       
-        <title>Introdution - 赵恒的知识库</title>
+        <title>torch.autograd - 赵恒的知识库</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.4b4a2bd9.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.4b4a2bd9.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.356b1318.min.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.356b1318.min.css">
       
       
 
@@ -61,17 +61,17 @@
     
       <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
     
-      <link rel="stylesheet" href="../../../mkdocs/extra_css/tasklist.css">
+      <link rel="stylesheet" href="../../../../mkdocs/extra_css/tasklist.css">
     
-      <link rel="stylesheet" href="../../../mkdocs/extra_css/counter.css">
+      <link rel="stylesheet" href="../../../../mkdocs/extra_css/counter.css">
     
-      <link rel="stylesheet" href="../../../mkdocs/extra_css/giscus.css">
+      <link rel="stylesheet" href="../../../../mkdocs/extra_css/giscus.css">
     
-      <link rel="stylesheet" href="../../../mkdocs/extra_css/flink.css">
+      <link rel="stylesheet" href="../../../../mkdocs/extra_css/flink.css">
     
-      <link rel="stylesheet" href="../../../mkdocs/extra_css/extra.css">
+      <link rel="stylesheet" href="../../../../mkdocs/extra_css/extra.css">
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -110,7 +110,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#introdution" class="md-skip">
+        <a href="#torchautograd" class="md-skip">
           跳转至
         </a>
       
@@ -124,9 +124,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../../.." title="赵恒的知识库" class="md-header__button md-logo" aria-label="赵恒的知识库" data-md-component="logo">
+    <a href="../../../.." title="赵恒的知识库" class="md-header__button md-logo" aria-label="赵恒的知识库" data-md-component="logo">
       
-  <img src="../../../Icon/Avatar.png" alt="logo">
+  <img src="../../../../Icon/Avatar.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -143,7 +143,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Introdution
+              torch.autograd
             
           </span>
         </div>
@@ -276,7 +276,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../.." class="md-tabs__link">
+        <a href="../../../.." class="md-tabs__link">
           
   
     
@@ -296,7 +296,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../Course/abstract/" class="md-tabs__link">
+        <a href="../../../../Course/abstract/" class="md-tabs__link">
           
   
     
@@ -322,36 +322,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../PyTorch/" class="md-tabs__link">
-          
-  
-    
-  
-  Self-Learning
-
-        </a>
-      </li>
-    
-  
-
-    
-  
-
-      
-        
-  
-  
-  
-    
-    
-      
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../../AI/Triviality/" class="md-tabs__link">
+        <a href="../../../Triviality/" class="md-tabs__link">
           
   
     
@@ -380,7 +351,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../Triviality/Markdown/" class="md-tabs__link">
+        <a href="../../../../Triviality/Markdown/" class="md-tabs__link">
           
   
     
@@ -409,7 +380,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../Triviality/GitHub/" class="md-tabs__link">
+        <a href="../../../../Triviality/GitHub/" class="md-tabs__link">
           
   
     
@@ -447,9 +418,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="赵恒的知识库" class="md-nav__button md-logo" aria-label="赵恒的知识库" data-md-component="logo">
+    <a href="../../../.." title="赵恒的知识库" class="md-nav__button md-logo" aria-label="赵恒的知识库" data-md-component="logo">
       
-  <img src="../../../Icon/Avatar.png" alt="logo">
+  <img src="../../../../Icon/Avatar.png" alt="logo">
 
     </a>
     赵恒的知识库
@@ -500,7 +471,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../.." class="md-nav__link ">
+            <a href="../../../.." class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -532,7 +503,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../link/" class="md-nav__link">
+      <a href="../../../../link/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -614,7 +585,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Course/abstract/" class="md-nav__link">
+      <a href="../../../../Course/abstract/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -654,7 +625,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../Course/System2/" class="md-nav__link ">
+            <a href="../../../../Course/System2/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -709,7 +680,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../Course/System3/" class="md-nav__link ">
+            <a href="../../../../Course/System3/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -776,7 +747,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../Course/FDS/" class="md-nav__link ">
+            <a href="../../../../Course/FDS/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -808,7 +779,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Course/FDS/Lec01/" class="md-nav__link">
+      <a href="../../../../Course/FDS/Lec01/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -828,7 +799,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Course/FDS/Lec02/" class="md-nav__link">
+      <a href="../../../../Course/FDS/Lec02/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -848,7 +819,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Course/FDS/Lec03/" class="md-nav__link">
+      <a href="../../../../Course/FDS/Lec03/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -868,7 +839,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Course/FDS/Lec04/" class="md-nav__link">
+      <a href="../../../../Course/FDS/Lec04/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -888,7 +859,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Course/FDS/Lec05/" class="md-nav__link">
+      <a href="../../../../Course/FDS/Lec05/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -908,7 +879,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Course/FDS/Lec06/" class="md-nav__link">
+      <a href="../../../../Course/FDS/Lec06/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -960,7 +931,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../Course/ADS/" class="md-nav__link ">
+            <a href="../../../../Course/ADS/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1036,7 +1007,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Course/ADS/Lec01/" class="md-nav__link">
+      <a href="../../../../Course/ADS/Lec01/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1056,11 +1027,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Course/ADS/Lec02/" class="md-nav__link">
+      <a href="../../../../Course/ADS/Lec02/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    [LOCK]Red-Black & B+
+    Red-Black & B+
   </span>
   
 
@@ -1076,11 +1047,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Course/ADS/Lec03/" class="md-nav__link">
+      <a href="../../../../Course/ADS/Lec03/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    [LOCK]Heap
+    Heap
   </span>
   
 
@@ -1152,11 +1123,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Course/ADS/Lec04/" class="md-nav__link">
+      <a href="../../../../Course/ADS/Lec04/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    [LOCK]Backtracking
+    Backtracking
   </span>
   
 
@@ -1172,11 +1143,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Course/ADS/Lec05/" class="md-nav__link">
+      <a href="../../../../Course/ADS/Lec05/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    [LOCK]Divide and Conquer
+    Divide and Conquer
   </span>
   
 
@@ -1192,11 +1163,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Course/ADS/Lec06/" class="md-nav__link">
+      <a href="../../../../Course/ADS/Lec06/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    [LOCK]Dynamic Programming
+    Dynamic Programming
   </span>
   
 
@@ -1212,11 +1183,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Course/ADS/Lec07/" class="md-nav__link">
+      <a href="../../../../Course/ADS/Lec07/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    [LOCK]Greedy
+    Greedy
   </span>
   
 
@@ -1232,11 +1203,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Course/ADS/Lec08/" class="md-nav__link">
+      <a href="../../../../Course/ADS/Lec08/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    [LOCK]NP - Completeness
+    NP - Completeness
   </span>
   
 
@@ -1312,7 +1283,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../Course/OOP/" class="md-nav__link ">
+            <a href="../../../../Course/OOP/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1344,7 +1315,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Course/OOP/Lec01/" class="md-nav__link">
+      <a href="../../../../Course/OOP/Lec01/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1364,7 +1335,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Course/OOP/Lec02/" class="md-nav__link">
+      <a href="../../../../Course/OOP/Lec02/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1384,7 +1355,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Course/OOP/Lec03/" class="md-nav__link">
+      <a href="../../../../Course/OOP/Lec03/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1404,7 +1375,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Course/OOP/Lec04/" class="md-nav__link">
+      <a href="../../../../Course/OOP/Lec04/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1424,7 +1395,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Course/OOP/Lec05/" class="md-nav__link">
+      <a href="../../../../Course/OOP/Lec05/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1444,7 +1415,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Course/OOP/Lec06/" class="md-nav__link">
+      <a href="../../../../Course/OOP/Lec06/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1464,7 +1435,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Course/OOP/Lec07/" class="md-nav__link">
+      <a href="../../../../Course/OOP/Lec07/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1484,7 +1455,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Course/OOP/Lec08/" class="md-nav__link">
+      <a href="../../../../Course/OOP/Lec08/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1504,7 +1475,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Course/OOP/Lec09/" class="md-nav__link">
+      <a href="../../../../Course/OOP/Lec09/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1524,7 +1495,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Course/OOP/Lec10/" class="md-nav__link">
+      <a href="../../../../Course/OOP/Lec10/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1544,7 +1515,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Course/OOP/Lec11/" class="md-nav__link">
+      <a href="../../../../Course/OOP/Lec11/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1564,7 +1535,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Course/OOP/Lec12/" class="md-nav__link">
+      <a href="../../../../Course/OOP/Lec12/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1618,7 +1589,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../Course/Computer-Animation/" class="md-nav__link ">
+            <a href="../../../../Course/Computer-Animation/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1650,7 +1621,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Course/Computer-Animation/1-%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8A%A8%E7%94%BB%E7%AE%80%E4%BB%8B/" class="md-nav__link">
+      <a href="../../../../Course/Computer-Animation/1-%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8A%A8%E7%94%BB%E7%AE%80%E4%BB%8B/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1670,7 +1641,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Course/Computer-Animation/2-%E5%8A%A8%E7%94%BB%E5%9F%BA%E6%9C%AC%E5%8E%9F%E5%88%99/" class="md-nav__link">
+      <a href="../../../../Course/Computer-Animation/2-%E5%8A%A8%E7%94%BB%E5%9F%BA%E6%9C%AC%E5%8E%9F%E5%88%99/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1690,7 +1661,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Course/Computer-Animation/FinalExam/" class="md-nav__link">
+      <a href="../../../../Course/Computer-Animation/FinalExam/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1729,6 +1700,12 @@
       
         
       
+        
+      
+        
+      
+        
+      
     
     
     
@@ -1748,7 +1725,7 @@
             
   
   <span class="md-ellipsis">
-    Self-Learning
+    AI
   </span>
   
 
@@ -1757,272 +1734,6 @@
         
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
-            <span class="md-nav__icon md-icon"></span>
-            Self-Learning
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
-        
-          
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../../PyTorch/" class="md-nav__link ">
-              
-  
-  <span class="md-ellipsis">
-    PyTorch
-  </span>
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_1">
-            <span class="md-nav__icon md-icon"></span>
-            PyTorch
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_2" >
-        
-          
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../../PyTorch/BLITZ/" class="md-nav__link ">
-              
-  
-  <span class="md-ellipsis">
-    A 60 Min BLITZ
-  </span>
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_3_1_2" id="__nav_3_1_2_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_1_2">
-            <span class="md-nav__icon md-icon"></span>
-            A 60 Min BLITZ
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../PyTorch/BLITZ/lec01/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Tensors
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../PyTorch/BLITZ/lec02/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Autograd
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../PyTorch/BLITZ/lec03/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Neural Networks
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../PyTorch/BLITZ/lec04/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Training a Classifier
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-    
-    
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-    
-      
-      
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
-        
-          
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
-            
-  
-  <span class="md-ellipsis">
-    AI
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             AI
           </label>
@@ -2044,6 +1755,8 @@
       
         
       
+        
+      
     
     
     
@@ -2053,12 +1766,12 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../AI/Triviality/" class="md-nav__link ">
+            <a href="../../../Triviality/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2069,14 +1782,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_1">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
             <span class="md-nav__icon md-icon"></span>
             Triviality
           </label>
@@ -2090,7 +1803,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../AI/Triviality/ConvexOpt/" class="md-nav__link">
+      <a href="../../../Triviality/ConvexOpt/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2127,12 +1840,12 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_3" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../AI/Triviality/AdversarialAttack/" class="md-nav__link ">
+            <a href="../../../Triviality/AdversarialAttack/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2143,14 +1856,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_1_3" id="__nav_4_1_3_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_3_1_3" id="__nav_3_1_3_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_1_3">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_3">
             <span class="md-nav__icon md-icon"></span>
             对抗攻击
           </label>
@@ -2164,7 +1877,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../AI/Triviality/AdversarialAttack/FGSM/" class="md-nav__link">
+      <a href="../../../Triviality/AdversarialAttack/FGSM/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2173,6 +1886,232 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_4" id="__nav_3_1_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    PyTorch
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_4">
+            <span class="md-nav__icon md-icon"></span>
+            PyTorch
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Self-Learning/PyTorch/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PyTorch
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_4_2" id="__nav_3_1_4_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    A 60 Min BLITZ
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_1_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            A 60 Min BLITZ
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Self-Learning/PyTorch/BLITZ/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A 60 Min BLITZ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Self-Learning/PyTorch/BLITZ/lec01.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tensors
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Self-Learning/PyTorch/BLITZ/lec02.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Autograd
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Self-Learning/PyTorch/BLITZ/lec03.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Neural Networks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Self-Learning/PyTorch/BLITZ/lec04.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Training a Classifier
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -2215,12 +2154,12 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../AI/OptimAlgorithm/" class="md-nav__link ">
+            <a href="../../../OptimAlgorithm/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2232,8 +2171,8 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_2">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
             <span class="md-nav__icon md-icon"></span>
             优化算法
           </label>
@@ -2270,12 +2209,12 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../AI/LearningCriterion/" class="md-nav__link ">
+            <a href="../../../LearningCriterion/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2287,8 +2226,8 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_3">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
             <span class="md-nav__icon md-icon"></span>
             学习准则
           </label>
@@ -2325,10 +2264,10 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
         
           
-          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -2339,8 +2278,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_4">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
             <span class="md-nav__icon md-icon"></span>
             RelatedCourses
           </label>
@@ -2379,12 +2318,12 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_1" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../AI/Courses/DeepLearning/" class="md-nav__link ">
+            <a href="../../../Courses/DeepLearning/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2395,14 +2334,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_4_1" id="__nav_4_4_1_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_3_4_1" id="__nav_3_4_1_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_4_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_4_1">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4_1">
             <span class="md-nav__icon md-icon"></span>
             DeepLearning
           </label>
@@ -2416,7 +2355,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../AI/Courses/DeepLearning/introduction/" class="md-nav__link">
+      <a href="../../../Courses/DeepLearning/introduction/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2451,12 +2390,12 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4_1_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_1_3" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../AI/Courses/DeepLearning/course1/" class="md-nav__link ">
+            <a href="../../../Courses/DeepLearning/course1/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2468,8 +2407,8 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_4_1_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_4_1_3">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_4_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4_1_3">
             <span class="md-nav__icon md-icon"></span>
             Neural Networks and Deep Learning
           </label>
@@ -2506,12 +2445,12 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4_1_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_1_4" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../AI/Courses/DeepLearning/course2/" class="md-nav__link ">
+            <a href="../../../Courses/DeepLearning/course2/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2523,8 +2462,8 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_4_1_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_4_1_4">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_4_1_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4_1_4">
             <span class="md-nav__icon md-icon"></span>
             Improving Deep Neural Networks
           </label>
@@ -2561,12 +2500,12 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4_1_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_1_5" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../AI/Courses/DeepLearning/course3/" class="md-nav__link ">
+            <a href="../../../Courses/DeepLearning/course3/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2578,8 +2517,8 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_4_1_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_4_1_5">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_4_1_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4_1_5">
             <span class="md-nav__icon md-icon"></span>
             Structuring Machine Learning Projects
           </label>
@@ -2616,12 +2555,12 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4_1_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_1_6" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../AI/Courses/DeepLearning/course4/" class="md-nav__link ">
+            <a href="../../../Courses/DeepLearning/course4/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2633,8 +2572,8 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_4_1_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_4_1_6">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_4_1_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4_1_6">
             <span class="md-nav__icon md-icon"></span>
             Convolutional Neural Networks
           </label>
@@ -2671,12 +2610,12 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4_1_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_1_7" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../AI/Courses/DeepLearning/course5/" class="md-nav__link ">
+            <a href="../../../Courses/DeepLearning/course5/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2688,8 +2627,8 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_4_1_7_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_4_1_7">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_4_1_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4_1_7">
             <span class="md-nav__icon md-icon"></span>
             Building Sequence Models
           </label>
@@ -2734,12 +2673,12 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_2" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../AI/Courses/CS229/" class="md-nav__link ">
+            <a href="../../../Courses/CS229/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2751,8 +2690,8 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_4_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_4_2">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4_2">
             <span class="md-nav__icon md-icon"></span>
             CS229
           </label>
@@ -2809,10 +2748,10 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -2823,8 +2762,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             Triviality
           </label>
@@ -2853,12 +2792,12 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../Triviality/Markdown/" class="md-nav__link ">
+            <a href="../../../../Triviality/Markdown/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2869,14 +2808,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5_1">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
             <span class="md-nav__icon md-icon"></span>
             Markdown
           </label>
@@ -2890,7 +2829,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Triviality/Markdown/markdown/" class="md-nav__link">
+      <a href="../../../../Triviality/Markdown/markdown/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2935,12 +2874,12 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../Triviality/The%20Missing%20Semester/" class="md-nav__link ">
+            <a href="../../../../Triviality/The%20Missing%20Semester/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2951,14 +2890,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5_2">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
             <span class="md-nav__icon md-icon"></span>
             Missing Semester
           </label>
@@ -2972,7 +2911,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Triviality/The%20Missing%20Semester/Vim/" class="md-nav__link">
+      <a href="../../../../Triviality/The%20Missing%20Semester/Vim/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3019,12 +2958,12 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../Triviality/CMake/" class="md-nav__link ">
+            <a href="../../../../Triviality/CMake/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -3035,14 +2974,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5_3">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
             <span class="md-nav__icon md-icon"></span>
             CMake
           </label>
@@ -3056,7 +2995,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Triviality/CMake/Lec01/" class="md-nav__link">
+      <a href="../../../../Triviality/CMake/Lec01/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3076,7 +3015,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Triviality/CMake/Lec02/" class="md-nav__link">
+      <a href="../../../../Triviality/CMake/Lec02/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3127,10 +3066,10 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
         
           
-          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -3141,8 +3080,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             Tools
           </label>
@@ -3173,12 +3112,12 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../Triviality/GitHub/" class="md-nav__link ">
+            <a href="../../../../Triviality/GitHub/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -3189,14 +3128,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_6_1" id="__nav_6_1_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6_1">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
             <span class="md-nav__icon md-icon"></span>
             GitHub
           </label>
@@ -3210,7 +3149,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Triviality/GitHub/Le1/" class="md-nav__link">
+      <a href="../../../../Triviality/GitHub/Le1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3230,7 +3169,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Triviality/GitHub/Git/" class="md-nav__link">
+      <a href="../../../../Triviality/GitHub/Git/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3279,21 +3218,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#python-values" class="md-nav__link">
-    Python Values
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -3310,37 +3234,8 @@
   
 
 
-<h1 id="introdution">Introdution<a class="headerlink" href="#introdution" title="Permanent link">👀</a></h1>
-<h2 id="python-values">Python Values<a class="headerlink" href="#python-values" title="Permanent link">👀</a></h2>
-<ul>
-<li>Python has a rich set of values, including <ul>
-<li>Integers, Boolean(truth) values, Functinos</li>
-<li>Strings, Tuples, Ranges, Lists, Dictionaries, Sets</li>
-</ul>
-</li>
-</ul>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Values</label><label for="__tabbed_1_2">Literals(Denotations)</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<ul>
-<li>Integers<ul>
-<li>0, -1, 16, 13, 16</li>
-</ul>
-</li>
-<li>Boolean(truth) values<ul>
-<li>true, false</li>
-</ul>
-</li>
-<li>Functions<ul>
-<li>func f(x): &hellip;</li>
-<li>func g(x): &hellip;</li>
-</ul>
-</li>
-</ul>
-</div>
-<div class="tabbed-block"></div>
-</div>
-</div>
+<h1 id="torchautograd"><code>torch.autograd</code><a class="headerlink" href="#torchautograd" title="Permanent link">👀</a></h1>
+<p><center><font face="JetBrains Mono" color=grey size=18>To Be Continued</font></center></p>
 
 
   
@@ -3496,14 +3391,14 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tracking", "navigation.tabs", "navigation.indexes", "navigation.top", "search.suggest", "search.highlight", "content.code.annotate", "header.autohide", "toc.separate", "toc.follow", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "search.highlight", "search.share", "search.suggest"], "search": "../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.tracking", "navigation.tabs", "navigation.indexes", "navigation.top", "search.suggest", "search.highlight", "content.code.annotate", "header.autohide", "toc.separate", "toc.follow", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "search.highlight", "search.share", "search.suggest"], "search": "../../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.81fa17fe.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.81fa17fe.min.js"></script>
       
-        <script src="../../../overrides/assets/javascripts/extra.js"></script>
+        <script src="../../../../overrides/assets/javascripts/extra.js"></script>
       
-        <script src="../../../mkdocs/javascripts/katex.js"></script>
+        <script src="../../../../mkdocs/javascripts/katex.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js"></script>
       

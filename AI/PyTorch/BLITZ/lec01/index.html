@@ -12,24 +12,24 @@
         <meta name="author" content="EnlZhao">
       
       
-        <link rel="canonical" href="https://note.enlzhao.com/Self-Learning/CS61A/">
+        <link rel="canonical" href="https://note.enlzhao.com/AI/PyTorch/BLITZ/lec01/">
       
       
       
       
-      <link rel="icon" href="../../Icon/Avatar.png">
+      <link rel="icon" href="../../../../Icon/Avatar.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.8">
     
     
       
-        <title>CS61A - 赵恒的知识库</title>
+        <title>Tensors ｜ 张量 - 赵恒的知识库</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.4b4a2bd9.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.4b4a2bd9.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.356b1318.min.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.356b1318.min.css">
       
       
 
@@ -61,17 +61,17 @@
     
       <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
     
-      <link rel="stylesheet" href="../../mkdocs/extra_css/tasklist.css">
+      <link rel="stylesheet" href="../../../../mkdocs/extra_css/tasklist.css">
     
-      <link rel="stylesheet" href="../../mkdocs/extra_css/counter.css">
+      <link rel="stylesheet" href="../../../../mkdocs/extra_css/counter.css">
     
-      <link rel="stylesheet" href="../../mkdocs/extra_css/giscus.css">
+      <link rel="stylesheet" href="../../../../mkdocs/extra_css/giscus.css">
     
-      <link rel="stylesheet" href="../../mkdocs/extra_css/flink.css">
+      <link rel="stylesheet" href="../../../../mkdocs/extra_css/flink.css">
     
-      <link rel="stylesheet" href="../../mkdocs/extra_css/extra.css">
+      <link rel="stylesheet" href="../../../../mkdocs/extra_css/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -110,7 +110,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#cs61a" class="md-skip">
+        <a href="#tensors" class="md-skip">
           跳转至
         </a>
       
@@ -124,9 +124,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../.." title="赵恒的知识库" class="md-header__button md-logo" aria-label="赵恒的知识库" data-md-component="logo">
+    <a href="../../../.." title="赵恒的知识库" class="md-header__button md-logo" aria-label="赵恒的知识库" data-md-component="logo">
       
-  <img src="../../Icon/Avatar.png" alt="logo">
+  <img src="../../../../Icon/Avatar.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -143,7 +143,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              CS61A
+              Tensors ｜ 张量
             
           </span>
         </div>
@@ -276,7 +276,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../.." class="md-tabs__link">
+        <a href="../../../.." class="md-tabs__link">
           
   
     
@@ -296,7 +296,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../Course/abstract/" class="md-tabs__link">
+        <a href="../../../../Course/abstract/" class="md-tabs__link">
           
   
     
@@ -322,36 +322,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../PyTorch/" class="md-tabs__link">
-          
-  
-    
-  
-  Self-Learning
-
-        </a>
-      </li>
-    
-  
-
-    
-  
-
-      
-        
-  
-  
-  
-    
-    
-      
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../AI/Triviality/" class="md-tabs__link">
+        <a href="../../../Triviality/" class="md-tabs__link">
           
   
     
@@ -380,7 +351,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../Triviality/Markdown/" class="md-tabs__link">
+        <a href="../../../../Triviality/Markdown/" class="md-tabs__link">
           
   
     
@@ -409,7 +380,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../Triviality/GitHub/" class="md-tabs__link">
+        <a href="../../../../Triviality/GitHub/" class="md-tabs__link">
           
   
     
@@ -447,9 +418,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="赵恒的知识库" class="md-nav__button md-logo" aria-label="赵恒的知识库" data-md-component="logo">
+    <a href="../../../.." title="赵恒的知识库" class="md-nav__button md-logo" aria-label="赵恒的知识库" data-md-component="logo">
       
-  <img src="../../Icon/Avatar.png" alt="logo">
+  <img src="../../../../Icon/Avatar.png" alt="logo">
 
     </a>
     赵恒的知识库
@@ -500,7 +471,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../.." class="md-nav__link ">
+            <a href="../../../.." class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -532,7 +503,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../link/" class="md-nav__link">
+      <a href="../../../../link/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -614,7 +585,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Course/abstract/" class="md-nav__link">
+      <a href="../../../../Course/abstract/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -654,7 +625,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../Course/System2/" class="md-nav__link ">
+            <a href="../../../../Course/System2/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -709,7 +680,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../Course/System3/" class="md-nav__link ">
+            <a href="../../../../Course/System3/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -776,7 +747,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../Course/FDS/" class="md-nav__link ">
+            <a href="../../../../Course/FDS/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -808,7 +779,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Course/FDS/Lec01/" class="md-nav__link">
+      <a href="../../../../Course/FDS/Lec01/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -828,7 +799,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Course/FDS/Lec02/" class="md-nav__link">
+      <a href="../../../../Course/FDS/Lec02/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -848,7 +819,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Course/FDS/Lec03/" class="md-nav__link">
+      <a href="../../../../Course/FDS/Lec03/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -868,7 +839,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Course/FDS/Lec04/" class="md-nav__link">
+      <a href="../../../../Course/FDS/Lec04/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -888,7 +859,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Course/FDS/Lec05/" class="md-nav__link">
+      <a href="../../../../Course/FDS/Lec05/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -908,7 +879,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Course/FDS/Lec06/" class="md-nav__link">
+      <a href="../../../../Course/FDS/Lec06/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -960,7 +931,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../Course/ADS/" class="md-nav__link ">
+            <a href="../../../../Course/ADS/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1036,7 +1007,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Course/ADS/Lec01/" class="md-nav__link">
+      <a href="../../../../Course/ADS/Lec01/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1056,11 +1027,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Course/ADS/Lec02/" class="md-nav__link">
+      <a href="../../../../Course/ADS/Lec02/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    [LOCK]Red-Black & B+
+    Red-Black & B+
   </span>
   
 
@@ -1076,11 +1047,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Course/ADS/Lec03/" class="md-nav__link">
+      <a href="../../../../Course/ADS/Lec03/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    [LOCK]Heap
+    Heap
   </span>
   
 
@@ -1152,11 +1123,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Course/ADS/Lec04/" class="md-nav__link">
+      <a href="../../../../Course/ADS/Lec04/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    [LOCK]Backtracking
+    Backtracking
   </span>
   
 
@@ -1172,11 +1143,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Course/ADS/Lec05/" class="md-nav__link">
+      <a href="../../../../Course/ADS/Lec05/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    [LOCK]Divide and Conquer
+    Divide and Conquer
   </span>
   
 
@@ -1192,11 +1163,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Course/ADS/Lec06/" class="md-nav__link">
+      <a href="../../../../Course/ADS/Lec06/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    [LOCK]Dynamic Programming
+    Dynamic Programming
   </span>
   
 
@@ -1212,11 +1183,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Course/ADS/Lec07/" class="md-nav__link">
+      <a href="../../../../Course/ADS/Lec07/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    [LOCK]Greedy
+    Greedy
   </span>
   
 
@@ -1232,11 +1203,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Course/ADS/Lec08/" class="md-nav__link">
+      <a href="../../../../Course/ADS/Lec08/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    [LOCK]NP - Completeness
+    NP - Completeness
   </span>
   
 
@@ -1312,7 +1283,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../Course/OOP/" class="md-nav__link ">
+            <a href="../../../../Course/OOP/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1344,7 +1315,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Course/OOP/Lec01/" class="md-nav__link">
+      <a href="../../../../Course/OOP/Lec01/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1364,7 +1335,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Course/OOP/Lec02/" class="md-nav__link">
+      <a href="../../../../Course/OOP/Lec02/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1384,7 +1355,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Course/OOP/Lec03/" class="md-nav__link">
+      <a href="../../../../Course/OOP/Lec03/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1404,7 +1375,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Course/OOP/Lec04/" class="md-nav__link">
+      <a href="../../../../Course/OOP/Lec04/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1424,7 +1395,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Course/OOP/Lec05/" class="md-nav__link">
+      <a href="../../../../Course/OOP/Lec05/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1444,7 +1415,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Course/OOP/Lec06/" class="md-nav__link">
+      <a href="../../../../Course/OOP/Lec06/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1464,7 +1435,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Course/OOP/Lec07/" class="md-nav__link">
+      <a href="../../../../Course/OOP/Lec07/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1484,7 +1455,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Course/OOP/Lec08/" class="md-nav__link">
+      <a href="../../../../Course/OOP/Lec08/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1504,7 +1475,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Course/OOP/Lec09/" class="md-nav__link">
+      <a href="../../../../Course/OOP/Lec09/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1524,7 +1495,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Course/OOP/Lec10/" class="md-nav__link">
+      <a href="../../../../Course/OOP/Lec10/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1544,7 +1515,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Course/OOP/Lec11/" class="md-nav__link">
+      <a href="../../../../Course/OOP/Lec11/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1564,7 +1535,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Course/OOP/Lec12/" class="md-nav__link">
+      <a href="../../../../Course/OOP/Lec12/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1618,7 +1589,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../Course/Computer-Animation/" class="md-nav__link ">
+            <a href="../../../../Course/Computer-Animation/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1650,7 +1621,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Course/Computer-Animation/1-%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8A%A8%E7%94%BB%E7%AE%80%E4%BB%8B/" class="md-nav__link">
+      <a href="../../../../Course/Computer-Animation/1-%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8A%A8%E7%94%BB%E7%AE%80%E4%BB%8B/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1670,7 +1641,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Course/Computer-Animation/2-%E5%8A%A8%E7%94%BB%E5%9F%BA%E6%9C%AC%E5%8E%9F%E5%88%99/" class="md-nav__link">
+      <a href="../../../../Course/Computer-Animation/2-%E5%8A%A8%E7%94%BB%E5%9F%BA%E6%9C%AC%E5%8E%9F%E5%88%99/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1690,7 +1661,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Course/Computer-Animation/FinalExam/" class="md-nav__link">
+      <a href="../../../../Course/Computer-Animation/FinalExam/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1729,6 +1700,12 @@
       
         
       
+        
+      
+        
+      
+        
+      
     
     
     
@@ -1748,7 +1725,7 @@
             
   
   <span class="md-ellipsis">
-    Self-Learning
+    AI
   </span>
   
 
@@ -1757,272 +1734,6 @@
         
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
-            <span class="md-nav__icon md-icon"></span>
-            Self-Learning
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
-        
-          
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../PyTorch/" class="md-nav__link ">
-              
-  
-  <span class="md-ellipsis">
-    PyTorch
-  </span>
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_1">
-            <span class="md-nav__icon md-icon"></span>
-            PyTorch
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_2" >
-        
-          
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../PyTorch/BLITZ/" class="md-nav__link ">
-              
-  
-  <span class="md-ellipsis">
-    A 60 Min BLITZ
-  </span>
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_3_1_2" id="__nav_3_1_2_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_1_2">
-            <span class="md-nav__icon md-icon"></span>
-            A 60 Min BLITZ
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../PyTorch/BLITZ/lec01/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Tensors
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../PyTorch/BLITZ/lec02/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Autograd
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../PyTorch/BLITZ/lec03/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Neural Networks
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../PyTorch/BLITZ/lec04/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Training a Classifier
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-    
-    
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-    
-      
-      
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
-        
-          
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
-            
-  
-  <span class="md-ellipsis">
-    AI
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             AI
           </label>
@@ -2044,6 +1755,8 @@
       
         
       
+        
+      
     
     
     
@@ -2053,12 +1766,12 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../AI/Triviality/" class="md-nav__link ">
+            <a href="../../../Triviality/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2069,14 +1782,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_1">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
             <span class="md-nav__icon md-icon"></span>
             Triviality
           </label>
@@ -2090,7 +1803,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../AI/Triviality/ConvexOpt/" class="md-nav__link">
+      <a href="../../../Triviality/ConvexOpt/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2127,12 +1840,12 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_3" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../AI/Triviality/AdversarialAttack/" class="md-nav__link ">
+            <a href="../../../Triviality/AdversarialAttack/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2143,14 +1856,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_1_3" id="__nav_4_1_3_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_3_1_3" id="__nav_3_1_3_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_1_3">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_3">
             <span class="md-nav__icon md-icon"></span>
             对抗攻击
           </label>
@@ -2164,7 +1877,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../AI/Triviality/AdversarialAttack/FGSM/" class="md-nav__link">
+      <a href="../../../Triviality/AdversarialAttack/FGSM/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2173,6 +1886,232 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_4" id="__nav_3_1_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    PyTorch
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_4">
+            <span class="md-nav__icon md-icon"></span>
+            PyTorch
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Self-Learning/PyTorch/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PyTorch
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_4_2" id="__nav_3_1_4_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    A 60 Min BLITZ
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_1_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            A 60 Min BLITZ
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Self-Learning/PyTorch/BLITZ/index.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A 60 Min BLITZ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Self-Learning/PyTorch/BLITZ/lec01.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tensors
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Self-Learning/PyTorch/BLITZ/lec02.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Autograd
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Self-Learning/PyTorch/BLITZ/lec03.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Neural Networks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Self-Learning/PyTorch/BLITZ/lec04.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Training a Classifier
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -2215,12 +2154,12 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../AI/OptimAlgorithm/" class="md-nav__link ">
+            <a href="../../../OptimAlgorithm/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2232,8 +2171,8 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_2">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
             <span class="md-nav__icon md-icon"></span>
             优化算法
           </label>
@@ -2270,12 +2209,12 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../AI/LearningCriterion/" class="md-nav__link ">
+            <a href="../../../LearningCriterion/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2287,8 +2226,8 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_3">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
             <span class="md-nav__icon md-icon"></span>
             学习准则
           </label>
@@ -2325,10 +2264,10 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
         
           
-          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -2339,8 +2278,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_4">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
             <span class="md-nav__icon md-icon"></span>
             RelatedCourses
           </label>
@@ -2379,12 +2318,12 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_1" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../AI/Courses/DeepLearning/" class="md-nav__link ">
+            <a href="../../../Courses/DeepLearning/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2395,14 +2334,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4_4_1" id="__nav_4_4_1_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_3_4_1" id="__nav_3_4_1_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_4_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_4_1">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4_1">
             <span class="md-nav__icon md-icon"></span>
             DeepLearning
           </label>
@@ -2416,7 +2355,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../AI/Courses/DeepLearning/introduction/" class="md-nav__link">
+      <a href="../../../Courses/DeepLearning/introduction/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2451,12 +2390,12 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4_1_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_1_3" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../AI/Courses/DeepLearning/course1/" class="md-nav__link ">
+            <a href="../../../Courses/DeepLearning/course1/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2468,8 +2407,8 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_4_1_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_4_1_3">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_4_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4_1_3">
             <span class="md-nav__icon md-icon"></span>
             Neural Networks and Deep Learning
           </label>
@@ -2506,12 +2445,12 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4_1_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_1_4" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../AI/Courses/DeepLearning/course2/" class="md-nav__link ">
+            <a href="../../../Courses/DeepLearning/course2/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2523,8 +2462,8 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_4_1_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_4_1_4">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_4_1_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4_1_4">
             <span class="md-nav__icon md-icon"></span>
             Improving Deep Neural Networks
           </label>
@@ -2561,12 +2500,12 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4_1_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_1_5" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../AI/Courses/DeepLearning/course3/" class="md-nav__link ">
+            <a href="../../../Courses/DeepLearning/course3/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2578,8 +2517,8 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_4_1_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_4_1_5">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_4_1_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4_1_5">
             <span class="md-nav__icon md-icon"></span>
             Structuring Machine Learning Projects
           </label>
@@ -2616,12 +2555,12 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4_1_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_1_6" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../AI/Courses/DeepLearning/course4/" class="md-nav__link ">
+            <a href="../../../Courses/DeepLearning/course4/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2633,8 +2572,8 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_4_1_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_4_1_6">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_4_1_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4_1_6">
             <span class="md-nav__icon md-icon"></span>
             Convolutional Neural Networks
           </label>
@@ -2671,12 +2610,12 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4_1_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_1_7" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../AI/Courses/DeepLearning/course5/" class="md-nav__link ">
+            <a href="../../../Courses/DeepLearning/course5/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2688,8 +2627,8 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_4_1_7_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_4_1_7">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_4_1_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4_1_7">
             <span class="md-nav__icon md-icon"></span>
             Building Sequence Models
           </label>
@@ -2734,12 +2673,12 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_2" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../AI/Courses/CS229/" class="md-nav__link ">
+            <a href="../../../Courses/CS229/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2751,8 +2690,8 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_4_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4_4_2">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4_2">
             <span class="md-nav__icon md-icon"></span>
             CS229
           </label>
@@ -2809,10 +2748,10 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -2823,8 +2762,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             Triviality
           </label>
@@ -2853,12 +2792,12 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../Triviality/Markdown/" class="md-nav__link ">
+            <a href="../../../../Triviality/Markdown/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2869,14 +2808,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5_1">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
             <span class="md-nav__icon md-icon"></span>
             Markdown
           </label>
@@ -2890,7 +2829,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Triviality/Markdown/markdown/" class="md-nav__link">
+      <a href="../../../../Triviality/Markdown/markdown/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2935,12 +2874,12 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../Triviality/The%20Missing%20Semester/" class="md-nav__link ">
+            <a href="../../../../Triviality/The%20Missing%20Semester/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -2951,14 +2890,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5_2">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
             <span class="md-nav__icon md-icon"></span>
             Missing Semester
           </label>
@@ -2972,7 +2911,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Triviality/The%20Missing%20Semester/Vim/" class="md-nav__link">
+      <a href="../../../../Triviality/The%20Missing%20Semester/Vim/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3019,12 +2958,12 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../Triviality/CMake/" class="md-nav__link ">
+            <a href="../../../../Triviality/CMake/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -3035,14 +2974,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5_3">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
             <span class="md-nav__icon md-icon"></span>
             CMake
           </label>
@@ -3056,7 +2995,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Triviality/CMake/Lec01/" class="md-nav__link">
+      <a href="../../../../Triviality/CMake/Lec01/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3076,7 +3015,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Triviality/CMake/Lec02/" class="md-nav__link">
+      <a href="../../../../Triviality/CMake/Lec02/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3127,10 +3066,10 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
         
           
-          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -3141,8 +3080,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             Tools
           </label>
@@ -3173,12 +3112,12 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../Triviality/GitHub/" class="md-nav__link ">
+            <a href="../../../../Triviality/GitHub/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -3189,14 +3128,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_6_1" id="__nav_6_1_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6_1">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
             <span class="md-nav__icon md-icon"></span>
             GitHub
           </label>
@@ -3210,7 +3149,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Triviality/GitHub/Le1/" class="md-nav__link">
+      <a href="../../../../Triviality/GitHub/Le1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3230,7 +3169,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Triviality/GitHub/Git/" class="md-nav__link">
+      <a href="../../../../Triviality/GitHub/Git/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3279,6 +3218,143 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tensor-initialization" class="md-nav__link">
+    Tensor Initialization
+  </a>
+  
+    <nav class="md-nav" aria-label="Tensor Initialization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#directly-from-data" class="md-nav__link">
+    Directly from data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#from-a-numpy-array" class="md-nav__link">
+    From a NumPy array
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#from-another-tensor" class="md-nav__link">
+    From another tensor
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#with-random-or-constant-values" class="md-nav__link">
+    With random or constant values
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tensor-attributes" class="md-nav__link">
+    Tensor Attributes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tensor-operations" class="md-nav__link">
+    Tensor Operations
+  </a>
+  
+    <nav class="md-nav" aria-label="Tensor Operations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#some-operations" class="md-nav__link">
+    Some operations
+  </a>
+  
+    <nav class="md-nav" aria-label="Some operations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#standard-numpy-like-indexing-and-slicing" class="md-nav__link">
+    Standard numpy-like indexing and slicing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#joining-tensors" class="md-nav__link">
+    Joining tensors
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multiplying-tensors" class="md-nav__link">
+    Multiplying tensors
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#in-place-operations" class="md-nav__link">
+    In-place operations
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bridge-with-numpy" class="md-nav__link">
+    Bridge with NumPy
+  </a>
+  
+    <nav class="md-nav" aria-label="Bridge with NumPy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tensor-to-numpy-array" class="md-nav__link">
+    Tensor to NumPy array
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#numpy-array-to-tensor" class="md-nav__link">
+    NumPy array to Tensor
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -3295,15 +3371,324 @@
   
 
 
-<h1 id="cs61a">CS61A<a class="headerlink" href="#cs61a" title="Permanent link">👀</a></h1>
-<div class="admonition abstract">
-<p class="admonition-title">Abstract</p>
+<h1 id="tensors">Tensors ｜ 张量<a class="headerlink" href="#tensors" title="Permanent link">👀</a></h1>
 <ul>
-<li>UC Berkeley CS61A: Structure and Interpretation of Computer Programs</li>
-<li>一门计算机导论课程，主要想用它学学 Python</li>
+<li>Tensors 是类似 arrays 和 matrices 的数据结构 (在 Pytorch 中使用 tensors 来编码模型的输入和输出，以及模型的参数)</li>
+<li>Tensors 类似于 Numpy 的 ndarrays，但是可以在 GPU 或其他特殊硬件上使用来加速计算</li>
 </ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span> <span class="nn">torch</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</code></pre></div>
+<h2 id="tensor-initialization">Tensor Initialization<a class="headerlink" href="#tensor-initialization" title="Permanent link">👀</a></h2>
+<ul>
+<li>Tensor 可以通过多种方式进行初始化</li>
+</ul>
+<h3 id="directly-from-data">Directly from data<a class="headerlink" href="#directly-from-data" title="Permanent link">👀</a></h3>
+<ul>
+<li>Tensor 可以直接从 data 中进行初始化 (数据类型会自动推断)</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">data</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]]</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">x_data</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="from-a-numpy-array">From a NumPy array<a class="headerlink" href="#from-a-numpy-array" title="Permanent link">👀</a></h3>
+<ul>
+<li>Tensor 可以从 NumPy array 中进行初始化，并且保留 NumPy array 的维度和数据类型 (反之亦然, see <a href="#bridge-with-numpy">Bridge with NumPy</a></li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">np_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">x_np</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">np_array</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="from-another-tensor">From another tensor<a class="headerlink" href="#from-another-tensor" title="Permanent link">👀</a></h3>
+<ul>
+<li>新的 tensor 保留了原始 tensor 的属性 (shape, datatype)，除非被显式地重写</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">code</label><label for="__tabbed_1_2">output</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">x_ones</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">x_data</span><span class="p">)</span> <span class="c1"># retains the properties of x_data</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Ones Tensor: </span><span class="se">\n</span><span class="s2"> </span><span class="si">{</span><span class="n">x_ones</span><span class="si">}</span><span class="s2"> </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="n">x_rand</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">rand_like</span><span class="p">(</span><span class="n">x_data</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float</span><span class="p">)</span> <span class="c1"># overrides the datatype of x_data</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Random Tensor: </span><span class="se">\n</span><span class="s2"> </span><span class="si">{</span><span class="n">x_rand</span><span class="si">}</span><span class="s2"> </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
 </div>
-<p><center><font face="JetBrains Mono" color=grey size=18>To Be Continued</font></center></p>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="go">Ones Tensor: </span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="go"> tensor([[1, 1],</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="go">        [1, 1]])</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="go">Random Tensor:</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="go"> tensor([[0.7576, 0.2793],</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="go">        [0.4031, 0.7347]])</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h3 id="with-random-or-constant-values">With random or constant values<a class="headerlink" href="#with-random-or-constant-values" title="Permanent link">👀</a></h3>
+<ul>
+<li><code>shape</code> 是 tensor 维度的元组(tuple), 上面的函数中，它确定了输出张量的维度</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">code</label><label for="__tabbed_2_2">output</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,)</span> <span class="c1"># tuple of tensor dimensions</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">rand_tensor</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">ones_tensor</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="n">zeros_tensor</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Random Tensor: </span><span class="se">\n</span><span class="s2"> </span><span class="si">{</span><span class="n">rand_tensor</span><span class="si">}</span><span class="s2"> </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Ones Tensor: </span><span class="se">\n</span><span class="s2"> </span><span class="si">{</span><span class="n">ones_tensor</span><span class="si">}</span><span class="s2"> </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Zeros Tensor: </span><span class="se">\n</span><span class="s2"> </span><span class="si">{</span><span class="n">zeros_tensor</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<p>``` output<br />
+Random Tensor:<br />
+tensor([[0.3904, 0.6009, 0.2566],<br />
+        [0.7936, 0.9408, 0.1332]])</p>
+<p>Ones Tensor:<br />
+tensor([[1., 1., 1.],<br />
+        [1., 1., 1.]])</p>
+<p>Zeros Tensor:<br />
+tensor([[0., 0., 0.],<br />
+        [0., 0., 0.]])</p>
+</div>
+</div>
+</div>
+<h2 id="tensor-attributes">Tensor Attributes<a class="headerlink" href="#tensor-attributes" title="Permanent link">👀</a></h2>
+<ul>
+<li>Tensor attributrs describe their shape, datatype, and the device on which they are stored</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">code</label><label for="__tabbed_3_2">output</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">tensor</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Shape of tensor: </span><span class="si">{</span><span class="n">tensor</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Datatype of tensor: </span><span class="si">{</span><span class="n">tensor</span><span class="o">.</span><span class="n">dtype</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Device tensor is stored on: </span><span class="si">{</span><span class="n">tensor</span><span class="o">.</span><span class="n">device</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="go">Shape of tensor: torch.Size([3, 4])</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="go">Datatype of tensor: torch.float32</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="go">Device tensor is stored on: cpu</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="tensor-operations">Tensor Operations<a class="headerlink" href="#tensor-operations" title="Permanent link">👀</a></h2>
+<ul>
+<li>Over 100 tensor operations, including transposing, indexing, slicing, mathematical operations, linear algebra, random sampling, and more are comprehensively described <a href="https://pytorch.org/docs/stable/torch.html">here</a>.</li>
+<li>这些操作都能在 GPU 上运行（通常比在 CPU 上运行速度更快）</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">code</label><label for="__tabbed_4_2">output</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># We move our tensor to the GPU if available</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">():</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>    <span class="n">tensor</span> <span class="o">=</span> <span class="n">tensor</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s1">&#39;cuda&#39;</span><span class="p">)</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Device tensor is stored on: </span><span class="si">{</span><span class="n">tensor</span><span class="o">.</span><span class="n">device</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="go">Device tensor is stored on: cuda:0</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h3 id="some-operations">Some operations<a class="headerlink" href="#some-operations" title="Permanent link">👀</a></h3>
+<blockquote>
+<p>If you’re familiar with the NumPy API, you’ll find the Tensor API a breeze to use.</p>
+</blockquote>
+<h4 id="standard-numpy-like-indexing-and-slicing">Standard numpy-like indexing and slicing<a class="headerlink" href="#standard-numpy-like-indexing-and-slicing" title="Permanent link">👀</a></h4>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">code</label><label for="__tabbed_5_2">output</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">tensor</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="n">tensor</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">tensor</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="go">tensor([[1., 0., 1., 1.],</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="go">        [1., 0., 1., 1.],</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="go">        [1., 0., 1., 1.],</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="go">        [1., 0., 1., 1.]])</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h4 id="joining-tensors">Joining tensors<a class="headerlink" href="#joining-tensors" title="Permanent link">👀</a></h4>
+<ul>
+<li>We can use <code>torch.cat</code> to concatenate a sequence of tensors along a given dimension. </li>
+</ul>
+<blockquote>
+<ul>
+<li>See also <a href="https://pytorch.org/docs/stable/generated/torch.stack.html#torch.stack">torch.stack</a> and <a href="https://pytorch.org/docs/stable/generated/torch.split.html#torch.split">torch.split</a></li>
+<li>another tensor joining op that is subtly different from <code>torch.cat</code>.</li>
+</ul>
+</blockquote>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">code</label><label for="__tabbed_6_2">output</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="n">t1</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">([</span><span class="n">tensor</span><span class="p">,</span> <span class="n">tensor</span><span class="p">,</span> <span class="n">tensor</span><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">t1</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<p>``` output<br />
+tensor([[1., 0., 1., 1., 1., 0., 1., 1., 1., 0., 1., 1.],<br />
+        [1., 0., 1., 1., 1., 0., 1., 1., 1., 0., 1., 1.],<br />
+        [1., 0., 1., 1., 1., 0., 1., 1., 1., 0., 1., 1.],<br />
+        [1., 0., 1., 1., 1., 0., 1., 1., 1., 0., 1., 1.]])</p>
+</div>
+</div>
+</div>
+<h4 id="multiplying-tensors">Multiplying tensors<a class="headerlink" href="#multiplying-tensors" title="Permanent link">👀</a></h4>
+<ul>
+<li>
+<p>Computing the element-wise product</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">code</label><label for="__tabbed_7_2">output</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1"># This computes the element-wise product</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;tensor.mul(tensor) </span><span class="se">\n</span><span class="s2"> </span><span class="si">{</span><span class="n">tensor</span><span class="o">.</span><span class="n">mul</span><span class="p">(</span><span class="n">tensor</span><span class="p">)</span><span class="si">}</span><span class="s2"> </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="c1"># Alternative syntax:</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;tensor * tensor </span><span class="se">\n</span><span class="s2"> </span><span class="si">{</span><span class="n">tensor</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">tensor</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="go">tensor.mul(tensor)</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="go">tensor([[1., 0., 1., 1.],</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="go">        [1., 0., 1., 1.],</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="go">        [1., 0., 1., 1.],</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="go">        [1., 0., 1., 1.]])</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="go">tensor * tensor</span>
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="go">tensor([[1., 0., 1., 1.],</span>
+<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="go">        [1., 0., 1., 1.],</span>
+<a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="go">        [1., 0., 1., 1.],</span>
+<a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="go">        [1., 0., 1., 1.]])</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>Computing the matrix multiplication between two tensors</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="8:2"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">code</label><label for="__tabbed_8_2">output</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;tensor.matmul(tensor.T) </span><span class="se">\n</span><span class="s2"> </span><span class="si">{</span><span class="n">tensor</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">tensor</span><span class="o">.</span><span class="n">T</span><span class="p">)</span><span class="si">}</span><span class="s2"> </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="c1"># Alternative syntax:</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;tensor @ tensor.T </span><span class="se">\n</span><span class="s2"> </span><span class="si">{</span><span class="n">tensor</span><span class="w"> </span><span class="o">@</span><span class="w"> </span><span class="n">tensor</span><span class="o">.</span><span class="n">T</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="go">tensor.matmul(tensor.T)</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="go">tensor([[3., 3., 3., 3.],</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="go">        [3., 3., 3., 3.],</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="go">        [3., 3., 3., 3.],</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="go">        [3., 3., 3., 3.]])</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>
+<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="go">tensor @ tensor.T</span>
+<a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="go">tensor([[3., 3., 3., 3.],</span>
+<a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a><span class="go">        [3., 3., 3., 3.],</span>
+<a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a><span class="go">        [3., 3., 3., 3.],</span>
+<a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="go">        [3., 3., 3., 3.]])</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+</li>
+</ul>
+<h4 id="in-place-operations">In-place operations<a class="headerlink" href="#in-place-operations" title="Permanent link">👀</a></h4>
+<ul>
+<li>Operations that have a <code>_</code> suffix are in-place</li>
+<li>这种操作会改变被操作的张量本身，例如 <code>x.copy_(y)</code>, <code>x.t_()</code>, 将会改变 <code>x</code></li>
+</ul>
+<details class="note">
+<summary>Note</summary>
+<p>In-place operations 可以节省一些内存，但在计算导数时会丢失历史信息。因此，不鼓励使用它们。</p>
+</details>
+<div class="tabbed-set tabbed-alternate" data-tabs="9:2"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio" /><input id="__tabbed_9_2" name="__tabbed_9" type="radio" /><div class="tabbed-labels"><label for="__tabbed_9_1">code</label><label for="__tabbed_9_2">output</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="c1"># tensor.add_(5)</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="n">tensor</span><span class="o">.</span><span class="n">add_</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">tensor</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="go">tensor([[6., 5., 6., 6.],</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="go">        [6., 5., 6., 6.],</span>
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="go">        [6., 5., 6., 6.],</span>
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="go">        [6., 5., 6., 6.]])</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="bridge-with-numpy">Bridge with NumPy<a class="headerlink" href="#bridge-with-numpy" title="Permanent link">👀</a></h2>
+<blockquote>
+<p>Tensors on the CPU and NumPy arrays can share their underlying memory locations, and changing one will change the other.</p>
+</blockquote>
+<h3 id="tensor-to-numpy-array">Tensor to NumPy array<a class="headerlink" href="#tensor-to-numpy-array" title="Permanent link">👀</a></h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="10:2"><input checked="checked" id="__tabbed_10_1" name="__tabbed_10" type="radio" /><input id="__tabbed_10_2" name="__tabbed_10" type="radio" /><div class="tabbed-labels"><label for="__tabbed_10_1">code</label><label for="__tabbed_10_2">output</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="n">t</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;t: </span><span class="si">{</span><span class="n">t</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="n">n</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;n: </span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="go">t: tensor([1., 1., 1., 1., 1.])</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="go">n: [1. 1. 1. 1. 1.]</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<ul>
+<li>A change in the tensor reflects in the NumPy array.</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="11:2"><input checked="checked" id="__tabbed_11_1" name="__tabbed_11" type="radio" /><input id="__tabbed_11_2" name="__tabbed_11" type="radio" /><div class="tabbed-labels"><label for="__tabbed_11_1">code</label><label for="__tabbed_11_2">output</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="n">t</span><span class="o">.</span><span class="n">add_</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;t: </span><span class="si">{</span><span class="n">t</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;n: </span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="go">t: tensor([2., 2., 2., 2., 2.])</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="go">n: [2. 2. 2. 2. 2.]</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h3 id="numpy-array-to-tensor">NumPy array to Tensor<a class="headerlink" href="#numpy-array-to-tensor" title="Permanent link">👀</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="n">np</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="n">t</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">np</span><span class="p">)</span>
+</code></pre></div>
+<ul>
+<li>Changes in the NumPy array reflects in the tensor.</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="12:2"><input checked="checked" id="__tabbed_12_1" name="__tabbed_12" type="radio" /><input id="__tabbed_12_2" name="__tabbed_12" type="radio" /><div class="tabbed-labels"><label for="__tabbed_12_1">code</label><label for="__tabbed_12_2">output</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="n">np</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;t: </span><span class="si">{</span><span class="n">t</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;np: </span><span class="si">{</span><span class="n">np</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="go">t: tensor([2., 2., 2., 2., 2.], dtype=torch.float64)</span>
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="go">n: [2. 2. 2. 2. 2.]</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 
 
   
@@ -3459,14 +3844,14 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tracking", "navigation.tabs", "navigation.indexes", "navigation.top", "search.suggest", "search.highlight", "content.code.annotate", "header.autohide", "toc.separate", "toc.follow", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "search.highlight", "search.share", "search.suggest"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.tracking", "navigation.tabs", "navigation.indexes", "navigation.top", "search.suggest", "search.highlight", "content.code.annotate", "header.autohide", "toc.separate", "toc.follow", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "search.highlight", "search.share", "search.suggest"], "search": "../../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.81fa17fe.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.81fa17fe.min.js"></script>
       
-        <script src="../../overrides/assets/javascripts/extra.js"></script>
+        <script src="../../../../overrides/assets/javascripts/extra.js"></script>
       
-        <script src="../../mkdocs/javascripts/katex.js"></script>
+        <script src="../../../../mkdocs/javascripts/katex.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js"></script>
       
