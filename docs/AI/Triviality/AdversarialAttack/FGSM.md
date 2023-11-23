@@ -37,7 +37,7 @@ $$
 
 - 上述关于线性模型的对抗样本的分析给出了一种快速生成对抗样本的思路。
 - 假设神经网络太线性而无法对抗线性扰动，LSTM，ReLU 和 maxout 网络等都被设计为以一种很线性的方式运行以便于优化。出于同样的原因，更多的非线性模型，如 Sigmoid 网络也被仔细调整，使其大部分时间花在非饱和、更线性的状态上。这种线性行为表明，线性模型的这种廉价的、分析性的扰动也能破坏神经网络
-- 由此引入本篇重点 —— [FGSM](#fgsm-原理)
+- 由此引入本篇重点 —— [FGSM](#fgsm)
 
 ## FGSM 原理
 
@@ -55,10 +55,10 @@ $$
 - $\boldsymbol{x}^{'}$：对抗样本
 - $\epsilon$：扰动值，一旦超出阈值，该对抗样本会被人眼识别出来
 - $\boldsymbol{\theta}$: 模型的权重参数
-- $J$：损失函数
-- $y$：真实标签
-- $\nabla_\boldsymbol{x}$: 表示对 $x$ 求偏导
-- 我们可以围绕 $\boldsymbol{\theta}$ 的当前值来线性化损失函数，以获得 $\epsilon \cdot sign(\nabla_\boldsymbol{x} J(\boldsymbol{\theta}, \boldsymbol{x}, y))$ 的 optimal max-norm constrained perturbation(最优的最大范数约束扰动)，将其称为生成对抗样本的“快速梯度符号法” （FGSM）
+- $J$: 损失函数
+- $y$: 真实标签
+- $\nabla_{\boldsymbol{x}}$: 表示对 $x$ 求偏导
+- 我们可以围绕 $\boldsymbol{\theta}$ 的当前值来线性化损失函数，以获得 $\epsilon \cdot sign(\nabla_{\boldsymbol{x}} J(\boldsymbol{\theta}, \boldsymbol{x}, y))$ 的 optimal max-norm constrained perturbation(最优的最大范数约束扰动)，将其称为生成对抗样本的“快速梯度符号法” （FGSM）
 
 ## Implementation
 
