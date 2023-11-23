@@ -471,6 +471,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://note.enlzhao.com/Triviality/markdown/</loc>
+         <lastmod>2023-11-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://note.enlzhao.com/Triviality/CMake/</loc>
          <lastmod>2023-11-23</lastmod>
          <changefreq>daily</changefreq>
@@ -512,16 +517,6 @@
     </url>
     <url>
          <loc>https://note.enlzhao.com/Triviality/Makefile/</loc>
-         <lastmod>2023-11-23</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://note.enlzhao.com/Triviality/Markdown/</loc>
-         <lastmod>2023-11-23</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://note.enlzhao.com/Triviality/Markdown/markdown/</loc>
          <lastmod>2023-11-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
