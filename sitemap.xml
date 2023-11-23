@@ -201,6 +201,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://note.enlzhao.com/AI/Triviality/Norm/</loc>
+         <lastmod>2023-11-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://note.enlzhao.com/AI/Triviality/AdversarialAttack/</loc>
          <lastmod>2023-11-23</lastmod>
          <changefreq>daily</changefreq>
