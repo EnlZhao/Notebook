@@ -4,7 +4,9 @@
 
 > 通常在机器学习中会看到各种距离和范数，如 $||\boldsymbol{x}||$, $||\boldsymbol{X}||$, 其中 $\boldsymbol{x}$ 和 $\boldsymbol{X}$ 分别表示向量和矩阵
 
-为方便统一，将任意向量 $\boldsymbol{x}$ 的 $l_p$ -范数定义为：$||\boldsymbol{x}||_p = (\sum_{i=1}^n|x_i|^p)^{\frac{1}{p}}$
+为方便统一，将任意向量 $\boldsymbol{x}$ 的 $l_p$ -范数定义为：$||\boldsymbol{x}||_p = (\sum_{i=1}^n|x_i|^p)^{\frac{1}{p}}$ 
+
+> 一般不加下标的表示 $l_2$ - 范数
 
 ### $l_0$ - 范数
 

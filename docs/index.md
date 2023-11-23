@@ -13,7 +13,11 @@
 
 !!! success "Attention"
     - 上侧导航条中：
-        - $\lceil$ Course $\rfloor$ 中是一些课程笔记
-        - $\lceil$ AI $\rfloor$ 中是一些机器学习、深度学习相关的内容
-        - $\lceil$ About $\rfloor$ 
+        - $\lceil$ **Course** $\rfloor$ 中是一些课程笔记
+        - $\lceil$ **AI** $\rfloor$ 中是一些机器学习、深度学习相关的内容
+        - $\lceil$ **Triviality** $\rfloor$ 中一些比较杂的内容
+        - $\lceil$ **Tools** $\rfloor$ 中是一些工具
+
+    > 关于 $\lceil$ **Triviality** $\rfloor$ 和 $\lceil$ **Tools** $\rfloor$ 的分类有些乱，后续可能也许大概会改一改
+
 
