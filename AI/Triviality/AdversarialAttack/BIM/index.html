@@ -1953,7 +1953,14 @@
       
         <li class="md-nav__item">
   <a href="#bim" class="md-nav__link">
-    BIM 原理
+    BIM
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#info-ilcm" class="md-nav__link">
+    Info-ILCM
   </a>
   
 </li>
@@ -3244,7 +3251,14 @@
       
         <li class="md-nav__item">
   <a href="#bim" class="md-nav__link">
-    BIM 原理
+    BIM
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#info-ilcm" class="md-nav__link">
+    Info-ILCM
   </a>
   
 </li>
@@ -3281,15 +3295,15 @@
 <li>验证了在真实物理环境中，通过图像采集得到的对抗样本是否依旧能够使得分类器分类错误(本篇不介绍)</li>
 </ul>
 </div>
-<h2 id="bim">BIM 原理<a class="headerlink" href="#bim" title="Permanent link">👀</a></h2>
+<h2 id="bim">BIM<a class="headerlink" href="#bim" title="Permanent link">👀</a></h2>
 <ul>
 <li>与 <a href="../FGSM/">FGSM</a> 类似，都是基于梯度的攻击方法。不同的是，BIM 是一种迭代攻击方法：<ul>
 <li>对于 FGSM，每次寻找对抗样本，改变量是 <span class="arithmatex">\(\epsilon \cdot sign(\nabla_x J(\boldsymbol{\theta}, \boldsymbol{x}, y))\)</span>，这样是把每个像素点都改变了 <span class="arithmatex">\(\epsilon\)</span> 的量</li>
 <li>由于 FGSM 提出的假设是：目标损失函数是近似线性的，即 <span class="arithmatex">\(J(\boldsymbol{\theta}, \boldsymbol{x}, y) \approx \boldsymbol{w}^T \boldsymbol{x}\)</span>。之后在 <span class="arithmatex">\(\boldsymbol{x}\)</span> 上加一个扰动 <span class="arithmatex">\(\boldsymbol{\eta}\)</span>，使得 <span class="arithmatex">\(J(\boldsymbol{\theta}, \boldsymbol{x}, y)\)</span> 变化最大，由 <span class="arithmatex">\(J(\boldsymbol{\theta}, \boldsymbol{x + \boldsymbol{\eta}}, y) - J(\boldsymbol{\theta}, \boldsymbol{x}, y) \approx \boldsymbol{w}^T \boldsymbol{\eta}\)</span> 要最大，故而 <span class="arithmatex">\(\boldsymbol{\eta} = \epsilon \cdot sign(\nabla_x J(\boldsymbol{\theta}, \boldsymbol{x}, y))\)</span></li>
-<li>但由于现实中 <span class="arithmatex">\(J\)</span> 和 <span class="arithmatex">\(\boldsymbol{x}\)</span> 并不是线性关系，那么就可能存在一个在 <span class="arithmatex">\((0, \boldsymbol{\eta})\)</span> 间的扰动，使得 <span class="arithmatex">\(J(\boldsymbol{\theta}, \boldsymbol{x}, y)\)</span> 变化更大且此时 <span class="arithmatex">\(\boldsymbol{x}\)</span> 的改变量小于 <span class="arithmatex">\(\epsilon\)</span></li>
 </ul>
 </li>
-<li>基于此，作者提出迭代寻找各个像素点的扰动，即 I-FGSM or BIM</li>
+<li>但 BIM 作者表示 <span class="arithmatex">\(J\)</span> 和 <span class="arithmatex">\(\boldsymbol{x}\)</span> 很可能不是高度线性关系，那么就可能存在一个在 <span class="arithmatex">\((0, \boldsymbol{\eta})\)</span> 间的扰动，使得 <span class="arithmatex">\(J(\boldsymbol{\theta}, \boldsymbol{x}, y)\)</span> 变化更大且此时 <span class="arithmatex">\(\boldsymbol{x}\)</span> 的改变量小于 <span class="arithmatex">\(\epsilon\)</span></li>
+<li>基于此，作者提出迭代寻找各个像素点的扰动，即 I-FGSM or BIM，每次迭代都在上一次迭代的基础上进行扰动，这样总能砸到较好的步调使梯度上升，最差的情况就是迭代总改变量为 <span class="arithmatex">\(\epsilon\)</span>，这样就和 FGSM 一样</li>
 </ul>
 <div class="arithmatex">\[
 \begin{matrix}
@@ -3297,6 +3311,25 @@
 &amp;\boldsymbol{X}_{N+1}^{'} = Clip_{\boldsymbol{X}, \epsilon} \{\boldsymbol{X}_N^{'} + \alpha \cdot sign(\nabla_{\boldsymbol{X}_N^{'}} J(\boldsymbol{\theta}, \boldsymbol{X}_N^{'}, y_{true}))\}
 \end{matrix}
 \]</div>
+<ul>
+<li><span class="arithmatex">\(\boldsymbol{X}_{N+1}^{'}\)</span> 是第 <span class="arithmatex">\(N+1\)</span> 次迭代后的得到的对抗样本</li>
+<li><span class="arithmatex">\(Clip\)</span>: 裁剪函数，将值限制在不大于 <span class="arithmatex">\(\epsilon\)</span> 的范围内（在迭代更新过程中，随迭代次数增加，部分像素值可能溢出，例如超出 (0,1) 的范围，此时需要进行裁剪，将其用最接近的值代替，例如超出 1 的值用 1 代替，超出 0 的值用 0 代替。这样确保了新样本的各像素在原样本的邻域内，使图像免于失真）</li>
+<li><span class="arithmatex">\(\alpha\)</span>: 控制扰动大小的参数</li>
+<li><span class="arithmatex">\(sign\)</span>: 符号函数</li>
+<li><span class="arithmatex">\(J\)</span>: 损失函数</li>
+<li><span class="arithmatex">\(\boldsymbol{\theta}\)</span>: 模型参数</li>
+<li>
+<p><span class="arithmatex">\(y_{true}\)</span>: 正确标签</p>
+</li>
+<li>
+<p>迭代的含义：每次迭代都会在上一次迭代的基础上进行扰动，各个像素改变量为 <span class="arithmatex">\(\alpha\)</span>, 且每次迭代都会裁剪，保证了新样本的扰动不会超过 <span class="arithmatex">\(\epsilon\)</span></p>
+</li>
+</ul>
+<details class="success">
+<summary>code</summary>
+<p><a class="md-button" href="../bim_tutorial.ipynb"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span> Download bim_tutorial.ipynb</a></p>
+</details>
+<h2 id="info-ilcm">Info-ILCM<a class="headerlink" href="#info-ilcm" title="Permanent link">👀</a></h2>
 <p><center><font face="JetBrains Mono" color=grey size=18>To Be Continued</font></center></p>
 
 
