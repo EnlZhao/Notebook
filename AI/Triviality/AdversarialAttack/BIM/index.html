@@ -3308,18 +3308,23 @@
 <div class="arithmatex">\[
 \begin{matrix}
 &amp;\boldsymbol{X}_0^{'} = \boldsymbol{X} \\
-&amp;\boldsymbol{X}_{N+1}^{'} = Clip_{\boldsymbol{X}, \epsilon} \{\boldsymbol{X}_N^{'} + \alpha \cdot sign(\nabla_{\boldsymbol{X}_N^{'}} J(\boldsymbol{\theta}, \boldsymbol{X}_N^{'}, y_{true}))\}
+&amp;\boldsymbol{X}_{N+1}^{'} = Clip_{X, \epsilon} \{\boldsymbol{X}_N^{'} + \alpha \cdot sign(\nabla_X J(\boldsymbol{\theta}, \boldsymbol{X}_N^{'}, y_{true}))\}
 \end{matrix}
 \]</div>
 <ul>
 <li><span class="arithmatex">\(\boldsymbol{X}_{N+1}^{'}\)</span> 是第 <span class="arithmatex">\(N+1\)</span> 次迭代后的得到的对抗样本</li>
-<li><span class="arithmatex">\(Clip\)</span>: 裁剪函数，将值限制在不大于 <span class="arithmatex">\(\epsilon\)</span> 的范围内（在迭代更新过程中，随迭代次数增加，部分像素值可能溢出，例如超出 (0,1) 的范围，此时需要进行裁剪，将其用最接近的值代替，例如超出 1 的值用 1 代替，超出 0 的值用 0 代替。这样确保了新样本的各像素在原样本的邻域内，使图像免于失真）</li>
 <li><span class="arithmatex">\(\alpha\)</span>: 控制扰动大小的参数</li>
 <li><span class="arithmatex">\(sign\)</span>: 符号函数</li>
 <li><span class="arithmatex">\(J\)</span>: 损失函数</li>
 <li><span class="arithmatex">\(\boldsymbol{\theta}\)</span>: 模型参数</li>
+<li><span class="arithmatex">\(y_{true}\)</span>: 正确标签</li>
 <li>
-<p><span class="arithmatex">\(y_{true}\)</span>: 正确标签</p>
+<p><span class="arithmatex">\(Clip\)</span>: 裁剪函数，将值限制在不大于 <span class="arithmatex">\(\epsilon\)</span> 的范围内</p>
+<ul>
+<li>在迭代更新过程中，随迭代次数增加，部分像素值可能溢出，例如超出 (0,1) 的范围，此时需要进行裁剪，将其用最接近的值代替，例如超出 1 的值用 1 代替，超出 0 的值用 0 代替。这样确保了新样本的各像素在原样本的邻域内，使图像免于失真</li>
+<li>其具体公式如下 (<span class="arithmatex">\(\boldsymbol{X}(x, y, z)\)</span> 表示图像 <span class="arithmatex">\(X\)</span> 在坐标 <span class="arithmatex">\((x, y)\)</span> 处的第 <span class="arithmatex">\(z\)</span> 个通道的像素值)：</li>
+</ul>
+<div class="arithmatex">\[Clip_{X, \epsilon}\{\boldsymbol{X}^{'}\}(x, y, z) = \min \{255, \boldsymbol{X}(x, y, z) + \epsilon, \max \{0, \boldsymbol{X}(x, y, z) - \epsilon, \boldsymbol{X}^{'}(x, y, z)\}\}\]</div>
 </li>
 <li>
 <p>迭代的含义：每次迭代都会在上一次迭代的基础上进行扰动，各个像素改变量为 <span class="arithmatex">\(\alpha\)</span>, 且每次迭代都会裁剪，保证了新样本的扰动不会超过 <span class="arithmatex">\(\epsilon\)</span></p>
@@ -3330,7 +3335,32 @@
 <p><a class="md-button" href="../bim_tutorial.ipynb"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 464c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16h160v80c0 17.7 14.3 32 32 32h80v288c0 8.8-7.2 16-16 16H64zM64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V154.5c0-17-6.7-33.3-18.7-45.3l-90.6-90.5C262.7 6.7 246.5 0 229.5 0H64zm97 289c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0L79 303c-9.4 9.4-9.4 24.6 0 33.9l48 48c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-31-31 31-31zm96-34c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l31 31-31 31c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l48-48c9.4-9.4 9.4-24.6 0-33.9l-48-48z"/></svg></span> Download bim_tutorial.ipynb</a></p>
 </details>
 <h2 id="info-ilcm">Info-ILCM<a class="headerlink" href="#info-ilcm" title="Permanent link">👀</a></h2>
-<p><center><font face="JetBrains Mono" color=grey size=18>To Be Continued</font></center></p>
+<p>ICLM(Iterative Least-likely Class Method) 算法是 BIM 的一个变种，将输入图像分类到最不可能的类别</p>
+<div class="arithmatex">\[
+\begin{matrix}
+&amp;\boldsymbol{X}_0^{'} = \boldsymbol{X} \\
+&amp;\boldsymbol{X}_{N+1}^{'} = Clip_{\boldsymbol{X}, \epsilon} \{\boldsymbol{X}_N^{'} - \alpha \cdot sign(\nabla_X J(\boldsymbol{\theta}, \boldsymbol{X}_N^{'}, y_{LL}))\}
+\end{matrix}
+\]</div>
+<ul>
+<li>由公式可看出，其与 BIM 的区别是 <span class="arithmatex">\(\alpha\)</span> 的符号不同，即 ILCM 是在原样本的基础上减去梯度，而 BIM 是在原样本的基础上加上梯度</li>
+<li>同时原本的真实标签 <span class="arithmatex">\(y_{true}\)</span> 被替换为最不可能的标签 <span class="arithmatex">\(y_{LL}\)</span> (此修改使模型优化的目标是最终对应类别为 <span class="arithmatex">\(y_{LL}\)</span> 的分类标签的概率越来越大)</li>
+</ul>
+<blockquote>
+<p>该算法和常规分类模型训练类似，只是监督信息并不是真实标签了</p>
+</blockquote>
+<p>该算法主要在于选择 <span class="arithmatex">\(y_{LL}\)</span>(原输入图像在分类模型中分类概率最小的类别), 其可由一下公式得到：</p>
+<div class="arithmatex">\[
+y_{LL} = \underset{y}{argmin} \{p(y | \boldsymbol{X})\}
+\]</div>
+<ul>
+<li><span class="arithmatex">\(p(y | \boldsymbol{X})\)</span> 表示在给定输入 <span class="arithmatex">\(\boldsymbol{X}\)</span> 的情况下，模型预测为 <span class="arithmatex">\(y\)</span> 的概率</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">实验效果</p>
+<p><img alt="" src="../../../Images/2023-11-24-09-19-13.png" /></p>
+<p>由上图所示：当 <span class="arithmatex">\(\epsilon\)</span> 较小时，BIM 比原始 FGSM 效果好且 ICLM 效果最好且 ICLM 需要的扰动量最小</p>
+</div>
 
 
   

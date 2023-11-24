@@ -3400,8 +3400,8 @@
 <li><span class="arithmatex">\(\boldsymbol{\theta}\)</span>: 模型的权重参数</li>
 <li><span class="arithmatex">\(J\)</span>: 损失函数</li>
 <li><span class="arithmatex">\(y\)</span>: 真实标签</li>
-<li><span class="arithmatex">\(\nabla_{\boldsymbol{x}}\)</span>: 表示对 <span class="arithmatex">\(x\)</span> 求偏导</li>
-<li>我们可以围绕 <span class="arithmatex">\(\boldsymbol{\theta}\)</span> 的当前值来线性化损失函数，以获得 <span class="arithmatex">\(\epsilon \cdot sign(\nabla_{\boldsymbol{x}} J(\boldsymbol{\theta}, \boldsymbol{x}, y))\)</span> 的 optimal max-norm constrained perturbation(最优的最大范数约束扰动)，将其称为生成对抗样本的“快速梯度符号法” （FGSM）</li>
+<li><span class="arithmatex">\(\nabla_x\)</span>: 表示对 <span class="arithmatex">\(x\)</span> 求偏导</li>
+<li>我们可以围绕 <span class="arithmatex">\(\boldsymbol{\theta}\)</span> 的当前值来线性化损失函数，以获得 <span class="arithmatex">\(\epsilon \cdot sign(\nabla_x J(\boldsymbol{\theta}, \boldsymbol{x}, y))\)</span> 的 optimal max-norm constrained perturbation(最优的最大范数约束扰动)，将其称为生成对抗样本的“快速梯度符号法” （FGSM）</li>
 </ul>
 <h2 id="implementation">Implementation<a class="headerlink" href="#implementation" title="Permanent link">👀</a></h2>
 <div class="admonition note">
