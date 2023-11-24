@@ -57,8 +57,8 @@ $$
 - $\boldsymbol{\theta}$: 模型的权重参数
 - $J$: 损失函数
 - $y$: 真实标签
-- $\nabla_{\boldsymbol{x}}$: 表示对 $x$ 求偏导
-- 我们可以围绕 $\boldsymbol{\theta}$ 的当前值来线性化损失函数，以获得 $\epsilon \cdot sign(\nabla_{\boldsymbol{x}} J(\boldsymbol{\theta}, \boldsymbol{x}, y))$ 的 optimal max-norm constrained perturbation(最优的最大范数约束扰动)，将其称为生成对抗样本的“快速梯度符号法” （FGSM）
+- $\nabla_x$: 表示对 $x$ 求偏导
+- 我们可以围绕 $\boldsymbol{\theta}$ 的当前值来线性化损失函数，以获得 $\epsilon \cdot sign(\nabla_x J(\boldsymbol{\theta}, \boldsymbol{x}, y))$ 的 optimal max-norm constrained perturbation(最优的最大范数约束扰动)，将其称为生成对抗样本的“快速梯度符号法” （FGSM）
 
 ## Implementation
 
