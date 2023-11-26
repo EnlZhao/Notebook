@@ -2,7 +2,7 @@
 
 > 又称 I-FGSM (Iterative Fast Gradient Sign Method)
 
-!!! abstract "paper"
+!!! quote "paper"
     [论文地址](https://arxiv.org/abs/1607.02533)
 
     论文主要提出：

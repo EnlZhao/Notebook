@@ -25,8 +25,10 @@ $$
     - 即对非空凸集 $C_1$ 和 $C_2$， 且 $C_1 \cap C_2 = \empty$, 则必然存在 $a, b$， 使得
      
         $$
+        \begin{matrix}
         a^T x \leq b, ~~ \forall x \in C_1 \\
         a^T x \geq b, ~~ \forall x \in C_2
+        \end{matrix}
         $$
 
 2. $\lceil$ **Supporting Hyperplane Theorem** $\rfloor$:
