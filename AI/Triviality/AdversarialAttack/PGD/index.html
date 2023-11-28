@@ -3309,7 +3309,12 @@
 </div>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>论文中提到：PGD 是最强的一阶攻击</p>
+<p>论文中提到：PGD 是最强的一阶攻击. </p>
+<ul>
+<li>通过 PGD 发现的局部最大值在正常训练的网络和对抗训练的网络中都有着相似的损失值；</li>
+<li>即 PGD 训练对抗样本，和普通网络训练干净样本的损失是类似的；</li>
+<li>即只要能够防御住 PGD，就会对所有的一阶攻击具有鲁棒性</li>
+</ul>
 </div>
 <h2 id="quick-start">Quick Start<a class="headerlink" href="#quick-start" title="Permanent link">👀</a></h2>
 <p>公式：</p>
