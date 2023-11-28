@@ -1,6 +1,5 @@
 site_name: 赵恒的知识库
-site_url: https://note.enlzhao.com
-edit_uri: tree/master/docs
+site_url: https://enlzhao.github.io/Notebook
 copyright: Copyright &copy; 2022 - 2023 <a href="https://github.com/enlzhao" target="_blank" rel="noopener">某兰</a>
 site_author: EnlZhao
 site_description: 某兰的知识库
@@ -70,6 +69,7 @@ nav:
           - 对抗攻击: AI/Triviality/AdversarialAttack/index.md
           - FGSM: AI/Triviality/AdversarialAttack/FGSM.md
           - BIM: AI/Triviality/AdversarialAttack/BIM.md
+          - PGD: AI/Triviality/AdversarialAttack/PGD.md
         - 范数: AI/Triviality/Norm.md
         - PyTorch: 
           - PyTorch: AI/PyTorch/index.md
@@ -260,8 +260,8 @@ markdown_extensions:
   - pymdownx.smartsymbols # 符号转换
   - pymdownx.magiclink:
       repo_url_shorthand: true
-      user: Enl_Z
-      repo: note.enlzhao.com
+      user: EnlZhao
+      repo: enlzhao.github.io/Notebook
   - toc:
       permalink:  👀 # ⚓︎ # 显示锚点
   - pymdownx.tasklist:
@@ -300,5 +300,5 @@ extra:
       link: tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=1613715141&website=www.oicqzone.com
       name: QQ 
     - icon: fontawesome/regular/chess-king
-      link: https://enlzhao.com/
+      link: https://enlzhao.github.io/
       name: Blog
