@@ -8,6 +8,13 @@
     > 1. 如何生成强对抗样本？即较小的扰动即可使模型分类错误的样本
     > 2. 如何训练一个鲁棒性强的模型？
 
+!!! info
+    论文中提到：PGD 是最强的一阶攻击. 
+
+    - 通过 PGD 发现的局部最大值在正常训练的网络和对抗训练的网络中都有着相似的损失值；
+    - 即 PGD 训练对抗样本，和普通网络训练干净样本的损失是类似的；
+    - 即只要能够防御住 PGD，就会对所有的一阶攻击具有鲁棒性
+
 ## Quick Start
 
 公式：
@@ -35,5 +42,4 @@ $$
 
 ## More Details
 
-
-
+<center><font face="JetBrains Mono" color=grey size=18>To Be Continued</font></center>

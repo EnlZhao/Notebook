@@ -58,6 +58,9 @@
     ```bash
     $ cat ~/.ssh/id_rsa.pub
     ```
+
+    - 将其中内容复制到 GitHub 的 `SSH and GPG keys` 中<br>![](../../Images/2023-11-30-15-51-32.png)
+
 === "官方版"
     [Generating a new SSH key and adding it to the ssh-agent](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 

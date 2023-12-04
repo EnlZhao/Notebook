@@ -7,7 +7,8 @@ date: 2023-03-03 14:00
 !!! abstract
     ZJU - OOP (面向对象程序设计) 课程
     
-    > 只考到 c++11，后续标准本课程不做要求（更系统化的学习以后再做）
+    > - 只考到 c++11，后续标准本课程不做要求（更系统化的学习以后再做）
+    > - 英文部分有些是为防止翻译导致的歧义，有些是懒了
 
 ???+ info "List"
     * [x] [Beginning](Lec01.md)
@@ -22,7 +23,3 @@ date: 2023-03-03 14:00
     * [x] [Smart Pointers](Lec10.md)
     * [x] [Class Design](Lec11.md)
     * [x] [Streams & 继承构造函数](Lec12.md)
-
-<!--
-<center><font face="JetBrains Mono" color=grey size=18>To Be Continued</font></center>
--->
