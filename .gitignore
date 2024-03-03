@@ -3,10 +3,11 @@
 
 docs/Course/Crypto/
 #docs/Course/ADS/
+docs/Course/408/
 
 .github/
-*.DS_Store
+**/.DS_Store
 *.cache
-*.vscode/
+**/.vscode
 docs/AI/**/data
 *.pth
