@@ -2,7 +2,7 @@
 
 ## AVL Trees
 
-> Adelson-Velskii-Landis (AVL) Trees (1962)
+> 也可称为 Blanced Binary Search Trees (BBST) | AVL (Adelson-Velsky and Landis) Trees
 
 !!! note "Definitions"
     * An empty binary tree is height balanced. If $T$ is a nonempty binary tree with $T_L$ and $T_R$ as its left and right subtrees, then $T$ is height balanced if

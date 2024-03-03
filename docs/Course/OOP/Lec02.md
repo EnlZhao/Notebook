@@ -27,25 +27,25 @@ date: 2023-03-03 14:00
             cout << x << " , " << y << endl;
         }
         void move(int dx, int dy);
-        } ;
+    } ;
 
-        void Point::move(int dx, int dy)       //struct 中不带 body ，所以需要另给出 body
-        {
-            x += dx;
-            y += dy;
-        }
+    void Point::move(int dx, int dy)       //struct 中不带 body ，所以需要另给出 body
+    {
+        x += dx;
+        y += dy;
+    }
 
-        int main()
-        {
-            Point a, b;
-            a.init(1, 1);
-            b.init(1, 1);
-            a.x = b.x = 1;  // --+
-            a.y = b.y = 1;  // --+-- Error: 不可访问
-            a.move(2, 2);
-            a.print();
-            b.print();
-        }
+    int main()
+    {
+        Point a, b;
+        a.init(1, 1);
+        b.init(1, 1);
+        a.x = b.x = 1;  // --+
+        a.y = b.y = 1;  // --+-- Error: 不可访问
+        a.move(2, 2);
+        a.print();
+        b.print();
+    }
     ```
 
 ## Constructor

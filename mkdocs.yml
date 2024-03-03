@@ -1,6 +1,6 @@
 site_name: HengZhao's Knowledge Base
 site_url: https://enlzhao.github.io/Notebook
-copyright: Copyright &copy; 2022 - 2023 <a href="https://github.com/enlzhao" target="_blank" rel="noopener">某兰</a>
+copyright: Copyright &copy; 2022 - 2024 <a href="https://github.com/enlzhao" target="_blank" rel="noopener">某兰</a>
 site_author: EnlZhao
 site_description: 知识库
 
@@ -199,8 +199,10 @@ plugins:
       decryption_failure_message: Invalid password
       encryption_info_message: Contact me(Enl_Z) via methods provided in the comments section for access to this page
   - mermaid2:
-      javascript: mkdocs/javascripts/mermaid.js
+      javascript: https://unpkg.com/mermaid@10.4.0/dist/mermaid.esm.min.mjs 
+      # javascript: mkdocs/javascripts/mermaid.js
   - obsidian-support
+  # - blog
   #- tags # 给单篇文章添加标签 https://squidfunk.github.io/mkdocs-material/setup/setting-up-tags/?h=tags
   # - git-revision-date-localized: # 显示最后一次修改时间
   #     type: timeago
@@ -218,9 +220,9 @@ markdown_extensions:
   - pymdownx.details  # 提示块可折叠
   - pymdownx.superfences:   # 代码嵌套在列表里
       custom_fences:
-          - name: mermaid
-            class: mermaid
-            format: !!python/name:mermaid2.fence_mermaid_custom
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:mermaid2.fence_mermaid_custom
   #按钮
   - attr_list
   #代码块
