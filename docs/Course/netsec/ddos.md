@@ -106,7 +106,7 @@ Single machine:
 
     ![SYN Cookies](../../Images/2024-03-03-20-33-55.png)
 
-**4)TCP SYN Flood Backscatter:** 指 server 接收到 Spoofed IP 的 SYN 后发回的 SYN + ACK 包
+**4) TCP SYN Flood Backscatter:** 指 server 接收到 Spoofed IP 的 SYN 后发回的 SYN + ACK 包
 
 - backscatter packets can be used for detecting DDoS attacks
 - Detection Principle: Since syn flood uses **forged** source IP, then responses to those forged IPs get **no further responses**
