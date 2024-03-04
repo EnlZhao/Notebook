@@ -57,10 +57,13 @@ nav:
       - 计算机动画: Course/Computer-Animation/index.md
       - 简介: Course/Computer-Animation/1-计算机动画简介.md
       - 动画基本原则: Course/Computer-Animation/2-动画基本原则.md
-      - 考试大纲: Course/Computer-Animation/FinalExam.md
+      - 考试大纲: Course/Compsuter-Animation/FinalExam.md
     # - 面向信息安全的信号处理:
     #   - 面向信息安全的信号处理: Course/Signal-Processing/index.md
     #   - 信号与系统基础: Course/Signal-Processing/1-信号与系统基础.md
+    - 网络安全原理与实践:
+      - 网络安全原理与实践: Course/netsec/index.md
+      - DDoS: Course/netsec/ddos.md
   - AI: 
     - Triviality:  
         - Triviality: AI/Triviality/index.md
