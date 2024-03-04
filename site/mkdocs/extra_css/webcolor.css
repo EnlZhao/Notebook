@@ -1,0 +1,23 @@
+[data-md-color-scheme="DustyPeony"]{
+    --md-primary-fg-color: #E1B4B1; 
+    --md-primary-fg-color--light: #EABDD1;
+    --md-primary-fg-color--dark: #C291A4;
+}
+[data-md-color-primary="DustyPeony"]{
+    --md-primary-fg-color: #E1B4B1; 
+    --md-primary-fg-color--light: #EABDD1;
+    --md-primary-fg-color--dark: #C291A4;
+}
+[data-md-color-scheme="Kleinland"]{
+    --md-primary-fg-color: #002fa780; 
+    --md-primary-fg-color--light: #1052f8;
+    --md-primary-fg-color--dark: #002fa780;
+}
+[data-md-color-primary="Kleinland"]{
+    --md-primary-fg-color: #002fa780; 
+    --md-primary-fg-color--light: #7b9ef680;
+    --md-primary-fg-color--dark: #002fa780;
+}
+body {
+    font-family: "LXGW WenKai Screen", sans-serif;
+  }
