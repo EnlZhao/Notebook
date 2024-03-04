@@ -144,11 +144,120 @@ Single machine:
 
 **2) DNS Amplification Attack**
 
-To Be Continued...
+???+ abstract "DNS Amplification Attack"
+    - DNS Amplification Attack 是一种 DDoS 攻击，它利用了开放的 DNS 递归解析器来放大攻击流量，使目标服务器被大量的 DNS 响应包淹没
+    - 攻击者伪造目标主机的 IP 地址，向开放的 DNS 递归解析器发送大量 DNS 查询请求，递归解析器会返回大量的 DNS 响应包给目标主机，从而使得目标主机被大量的 DNS 响应包淹没
+    - 攻击者利用 DNS 查询特性，构造一个较小的查询请求，但会返回一个较大的 DNS 响应包，这种方式可以将攻击流量放大数倍
 
+- 特点：
+    - 利用 open DNS resolvers (互联网公开、任何用户均可访问的 DNS resolver)
+    - 利用 `ANY` 类型的 DNS 查询，可以获取给定名字的所有类型的信息
+    - Attack with an ANY-type DNS query with **spoofed source IP address of the targeted server**
+    - Amplify the effect of DNS query
+    - 1 request but many reponses
+
+> - EDNS: Extension Mechanisms for DNS sends DNS data in larger UDP packets (e.g. 60 bytes query, 3000 bytes response)
+> - Extension mechanism for DNS (EDNS, or EDNS(0)) gives us a mechanism to send DNS data in larger packets over UDP. 
+
+- 解决：
+    - reduce the number of open resolvers
+    - source IP verification - stop spoofed packets leaving network (这需要 ISP 来实现)
+
+??? note "一个 DNS 扩增"
+    > A DNS amplification can be broken down into four steps:
+    
+    1. The attacker uses a compromised endpoint to send UDP packets with spoofed IP addresses to a DNS recursor. The spoofed address on the packets points to the real IP address of the victim.
+    2. Each one of the UDP packets makes a request to a DNS resolver, often passing an argument such as “ANY” in order to receive the largest response possible.
+    3. After receiving the requests, the DNS resolver, which is trying to be helpful by responding, sends a large response to the spoofed IP address.
+    4. The IP address of the target receives the response and the surrounding network infrastructure becomes overwhelmed with the deluge of traffic, resulting in a denial-of-service.
+    
 **3) NTP Amplification Attack**
 
+???+ abstract "NTP Amplification Attack"
+    - 和 DNS Amplification Attack 类似，NTP Amplification Attack 也是一种 DDoS 攻击，它利用了开放的 NTP 服务器来放大攻击流量，使目标服务器被大量的 NTP 响应包淹没
+    - 利用一些 NTP 服务器上启用的 `monlist` 命令，攻击者可以成倍放大攻击流量，该命令在旧设备上默认启用，并使用向 NTP 服务器发出请求的最后 600 个源 IP 地址进行响应。来自内存中有 600 个地址的服务器的 `monlist` 请求将比初始请求大 206 倍。这意味着一个拥有 1GB 互联网流量的攻击者可以进行 200+ GB 的攻击 —> 由此导致的攻击流量大幅增加。
+
+    ??? info "网络时间协议"
+        - NTP (Network Time Protocol) 是一种用于同步计算机时钟的协议，它可以使计算机的时钟与全球标准时间同步，以确保计算机的时钟准确无误。
+        - NTP 的 `monlist` 命令可以返回 NTP 服务器的监控信息，这个信息包含了最近的 600 个客户端的 IP 地址，这个信息可以被利用来放大攻击流量
+
+- 特点：
+    - 利用 NTP servers
+    - 利用 `monlist` command
+    - spoofed source IP address of the targeted server
+    - Amplify the effect of NTP query
+    - 1 query but a large reponses
+
+![](../../Images/2024-03-04-14-45-30.png)
+
+- 解决：
+    - reduce the number of NTP servers that support monlist;
+    - source IP verification - stop spoofed packets leaving network (这需要 ISP 来实现)
+
+??? note "一个 NTP 扩增"
+    > A NTP amplification can be broken down into four steps:
+    
+    1. The attacker uses a botnet to send UDP packets with **spoofed IP** addresses to a NTP server which has its monlist command enabled. The spoofed IP address on each packet points to the real IP address of the victim.
+    2. Each UDP packet makes a request to the NTP server using its monlist command, resulting in a large response.
+    3. The server then responds to the spoofed address with the resulting data.
+    4. The IP address of the target receives the response and the surrounding network infrastructure becomes overwhelmed with the deluge of traffic, resulting in a denial-of-service.
+
+**4) Memcached Attack**
+
+???+ abstract "Memcached Attack"
+    与所有 DDoS 放大攻击类似，利用了开放的 Memcached 服务器来放大攻击流量，使目标服务器被大量的 Memcached 响应包淹没
+
+- Memcached 服务器是一种缓存数据的开源软件，可以用于提高 Web 应用程序的性能和响应速度。
+- Memcached 服务使用 UDP，因此发送前并不需要握手（前面几个也一样）。攻击者预先加载一些信息，然后伪装成 victim 向 server 请求。
+
+- 特点:
+    - 利用 Memcached servers
+    - 利用 memcached request (triggers a response with a large volume of data to target)
+
+![](../../Images/2024-03-04-15-11-59.png)
+
+- Attack principle:
+    - preload large data to Memcached server
+    - spoof request to preloaded data from target
+- 解决：
+    - disable UDP on Memcached server
+    - firewall Memcached server
+    - source IP verification
+    - `flush_all` command to Memcached server
+
+??? note "一个 Memcached 攻击"
+    > A Memcached amplification can be broken down into four steps:
+    
+    1. An attacker implants a large payload* of data on an exposed memcached server.
+    2. Next the attacker spoofs an HTTP GET request with the IP address of the targeted victim.
+    3. The vulnerable memcached server that receives the request, which is trying to be helpful by responding, sends a large response to the target.
+    4. The targeted server or its surrounding infrastructure is unable to process the large amount of data sent from the memcached server, resulting in overload and denial-of-service to legitimate requests.
+
+**5) SSDP Attack**
+
+- 特点:
+    - 利用 SSDP (Simple Service Discovery Protocol)
+    - 利用 UPnP (Universal Plug and Play) 网络协议
+
+> SSDP 攻击是一种利用 UPnP 协议的漏洞进行攻击的方式。UPnP 是一种网络协议，它允许设备自动发现并配置其他设备，从而实现设备的自动化交互。SSDP 是 UPnP 协议中的一个重要组成部分，它通过 UDP 广播的方式，在网络上发现和识别其他设备
+
+- Attack principle:
+    1. the attacker conducts a scan looking for plug-and-play devices that can be utilized as amplification factors
+    2. as the attacker discovers networked devices, they create a list of all the devices that respond
+    3. the attacker creates a UDP packet with the spoofed IP address of the targeted victim
+    4. the attacker then uses a botnet to send a spoofed discovery packet to each plug-and-play device with a request for as much data as possible by setting certain flags, specifically `ssdp:rootdevice` or `ssdp:all`
+    5. as a result, each device will send a reply to the targeted victim with an amount of data up to about 30 times larger than the attacker’s request
+    6. the target then receives a large volume of traffic from all the devices and becomes overwhelmed, potentially resulting in denial-of-service to legitimate traffic
+
+- 解决：block incoming UDP traffic on port 1900 at the firewall
+
 #### Asymmetric DDoS Attack (Computation)
+
+!!! abstract "computation asymmetry"
+    server costs more computation resources than attacker for a service request
+
+
+
 
 #### Asymmetric DDoS Attack (Others)
 
