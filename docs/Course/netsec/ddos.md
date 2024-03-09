@@ -251,13 +251,99 @@ Single machine:
 
 - 解决：block incoming UDP traffic on port 1900 at the firewall
 
-#### Asymmetric DDoS Attack (Computation)
+#### Asymmetric DDoS Attack (Computation Resource)
 
 !!! abstract "computation asymmetry"
     server costs more computation resources than attacker for a service request
 
+**1) SSL/TLS Handshake**
+
+??? info "SSL/TLS"
+    - SSL (Secure Sockets Layer) 和 TLS (Transport Layer Security) 是一种用于保护网络通信的协议，它们使用加密技术来确保数据在网络上的安全传输。SSL 是 TLS 的前身，TLS 是 SSL 的升级版。
+    - SSL/TLS 协议主要通过公开密钥加密技术 (Public Key Cryptography) 和 对称密钥加密技术 (Symmetric Key Cryptography) 来保护数据的机密性和完整性。
+    - SSL/TLS 握手期间，服务器和客户端需要进行多次通信，进行加密解密操作，这些操作会消耗服务器的大量计算资源。攻击者可以利用这一点，通过发送大量的 SSL/TLS 握手请求来耗尽服务器的计算资源
+
+    ???+ note "SSL/TLS Handshake"
+
+        ![](../../Images/2024-03-09-20-04-21.png)
 
 
+- Attack principle:
+    - Exploit SSL/TLS handshake requests to drain server resources
+    - RSA-enc speed $\approx$ 10 $\times$ RSA-dec speed
+    - Single machine can bring down 10 web servers
+
+> SSL Flood 或 SSL Renegotiation Attack 会利用服务器端协商安全 TLS 连接所需的处理能力。它要么向服务器发送大量垃圾数据，要么不断要求重新协商连接，从而使服务器资源超出极限，导致服务器脱机。
+
+<font color="grey">
+<ul>
+    <li>解决：</li>
+        <ul>
+            <li>限制来自同一 IP 地址的请求</li>
+            <li>使用防火墙过滤器来阻止恶意流量</li>
+            <li>使用 SSL 加速器来提高服务器的处理能力</li>
+            <li>使用负载均衡器来分散流量</li>
+            <li>还可对系统进行优化，以提高其处理能力，如增加 CPU、内存等</li>
+        </ul>
+</ul>
+
+**2) HTTP Flood**
+
+!!! abstract "HTTP Flood"
+    - HTTP Flood 是一种 DDoS 攻击，它利用了 HTTP 协议的漏洞，如 HTTP 请求中的虚假信息、HTTP 请求中的合法信息超过服务器的处理能力等
+    - 攻击者通过大量的 HTTP 请求向目标服务器发送大量无效请求，从而耗尽服务器的资源，使目标服务器无法处理合法的请求
+
+!!! warning "No IP Spoofing"
+    - 不使用 IP Spoofing
+    - 因 HTTP Flood 需要 TLS，TLS 需要保证返回的 source IP 是自己的 IP
+
+- Command attackers to:
+    - Complete the real TCP connection
+    - Complete the real TLS handshake
+    - Get/POST large image or other content
+
+!!! note "HTTP attack"
+    === "HTTP GET attack"
+        - multiple computers or other devices are coordinated to send multiple requests for **images, files, or some other asset** from a targeted server. 
+        - When the target is inundated with incoming requests and responses, denial-of-service will occur to additional requests from legitimate traffic sources.
+    === "HTTP POST attack"
+        - typically when a form is submitted on a website, the server must handle the incoming request and push the data into a persistence layer, most often a database. 
+        - **The process of handling the form data and running the necessary database commands** is relatively intensive compared to the amount of processing power and bandwidth required to **send the POST request.**
+        - 这种攻击利用了相对资源消耗的差异，直接向目标服务器发送大量 POST 请求，直到服务器容量饱和并出现拒绝服务。
+
+- 解决：
+    - block or rate limit attacking source
+    - Rate control against large volume of traffic that occupies a long connection
+
+**3) Fragmented HTTP Flood**
+
+!!! abstract "Fragmented HTTP Flood"
+    - 在这个攻击示例中，具有有效 IP 的 BOT 被用来与网络服务器建立有效的 HTTP 连接。然后，HTTP 数据包被机器人分割成小片段，并在超时前尽可能慢地发送到目标。通过这种方法，攻击者可以长时间保持连接活动，而不会向任何防御机制发出警报。
+    - 攻击者可以使用一个 BOT 启动多个未被发现的、长时间的和消耗资源的会话。Apache 等常用网络服务器没有有效的超时机制。这是一个 DDoS 安全漏洞，只要利用几个 BOT，就能阻止网络服务；
+
+- 特点：
+    - Establish a valid HTTP connection
+    - Split HTTP packets into tiny fragments
+    - **Send fragments to the target as slowly as it allows before it times out**
+
+> keep a resource-consuming connection active for a long time
+
+- 解决：
+    - 限制每个连接的最大持续时间
+    - 使用防火墙过滤器来阻止恶意流量
+    - 使用负载均衡器来分散流量
+    - 对系统进行优化，以提高其处理能力，如增加 CPU、内存等
+
+**4) Payment DDoS**
+
+!!! abstract "Payment DDoS"
+    - 攻击者向在线支付系统发送大量虚假支付请求，从而耗尽支付系统的资源，使其无法处理合法的支付请求，给商家和消费者带来经济损失
+    - 攻击者常利用大量僵尸网络节点，向支付系统发送大量虚假支付请求，这些请求中包含大量无效信息，如虚假信用卡信息、虚假支付金额等。但是，由于支付系统需要验证每个支付请求，这些无效信息会耗尽支付系统的资源，使其无法处理合法的支付请求
+
+- 特点：
+    - low rate at each merchant
+    - high rate at acquiring bank
+- 解决：商家和支付系统可以使用防欺诈系统来检测和阻止虚假支付请求、使用防火墙过滤器来阻止恶意流量、加强用户身份验证等
 
 #### Asymmetric DDoS Attack (Others)
 

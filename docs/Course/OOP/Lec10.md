@@ -141,7 +141,7 @@ date: 2023-06-23 14:54
 * `UCObject` and `UCPointer` are reusable
 * Objects with cycles of `UCPointer` will never be deleted
 
-??? info"Other smart pointers"
+??? info "Other smart pointers"
     * Standard library holder for raw pointers on stack
     * Releases resource when destroyed (latest)
 
