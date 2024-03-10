@@ -64,6 +64,10 @@ nav:
     - 网络安全原理与实践:
       - 网络安全原理与实践: Course/netsec/index.md
       - DDoS: Course/netsec/ddos.md
+    - 编译原理:
+      - 编译原理: Course/cp/index.md
+      - Introduction: Course/cp/intro.md
+      - 词法分析: Course/cp/lexical.md
   - AI: 
     - Triviality:  
         - Triviality: AI/Triviality/index.md
