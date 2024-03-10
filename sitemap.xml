@@ -501,6 +501,21 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://enlzhao.github.io/Notebook/Course/cp/</loc>
+         <lastmod>2024-03-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://enlzhao.github.io/Notebook/Course/cp/intro/</loc>
+         <lastmod>2024-03-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://enlzhao.github.io/Notebook/Course/cp/lexical/</loc>
+         <lastmod>2024-03-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://enlzhao.github.io/Notebook/Course/netsec/</loc>
          <lastmod>2024-03-10</lastmod>
          <changefreq>daily</changefreq>
