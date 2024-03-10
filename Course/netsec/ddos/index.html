@@ -4398,9 +4398,11 @@
 <li>fixed space regardless of path length;</li>
 </ul>
 <p>由此引出 <strong>Edge Sampling</strong></p>
-<p><strong>2)</strong> Edge Sampling: fileds into packet<br />
-- edge: <code>start</code> and <code>end</code> IP addresses<br />
-- distance: number of hops since edge stored</p>
+<p><strong>2)</strong> Edge Sampling: fileds into packet</p>
+<ul>
+<li>edge: <code>start</code> and <code>end</code> IP addresses</li>
+<li>distance: number of hops since edge stored</li>
+</ul>
 <p><img alt="" src="../../../Images/2024-03-10-20-12-14.png" /></p>
 <p>procedure 如下：</p>
 <p><img alt="" src="../../../Images/2024-03-10-20-19-03.png" /></p>
@@ -4441,8 +4443,8 @@
 </div>
 <p><u>如何证明一个 packet 没有经过某个 AS？ -&gt; proof waypoint</u></p>
 <p><strong>proof waypoint</strong> : packet 在给定时间限制内不可能同时经过 proof waypoint 和需要避开的 AS</p>
-<p><img src='../../Images/2024-03-10-20-39-59.png'><br><br />
-<center><a href='https://conferences.sigcomm.org/sigcomm/2015/pdf/papers/p611.pdf'>reference</a></center></p>
+<p><img alt="" src="../../../Images/2024-03-10-20-39-59.png" /></p>
+<p><center><a href='https://conferences.sigcomm.org/sigcomm/2015/pdf/papers/p611.pdf'>reference</a></center></p>
 <ul>
 <li>s: source</li>
 <li>d: destination</li>
