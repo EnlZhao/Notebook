@@ -458,6 +458,7 @@ But --> **Implementation challenges:**
 由此引出 **Edge Sampling**
 
 **2)** Edge Sampling: fileds into packet
+
 - edge: `start` and `end` IP addresses
 - distance: number of hops since edge stored
 
@@ -496,7 +497,8 @@ procedure 如下：
 
 **proof waypoint** : packet 在给定时间限制内不可能同时经过 proof waypoint 和需要避开的 AS
 
-<img src='../../Images/2024-03-10-20-39-59.png'><br>
+![](../../Images/2024-03-10-20-39-59.png)
+
 <center><a href='https://conferences.sigcomm.org/sigcomm/2015/pdf/papers/p611.pdf'>reference</a></center>
 
 - s: source
