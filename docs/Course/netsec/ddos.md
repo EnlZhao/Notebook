@@ -44,11 +44,9 @@ date: 2024-03-03 19:00
 - 虽然很有效，但后果是所有涉及 ICMP 的网络活动都被禁用，包括网络诊断工具 `ping` 和 `traceroute`。
 
 ??? note "more about Ping Flood"
-    - 在 Ping Flood 攻击中使用的互联网控制信息协议 (ICMP) 是网络设备用于通信的互
-    联网层协议。
+    - 在 Ping Flood 攻击中使用的互联网控制信息协议 (ICMP) 是网络设备用于通信的互联网层协议。
     - 网络诊断工具 `traceroute` 和 `ping` 都使用 ICMP 操作。通常情况下， ICMP 回波请求和回波回复信息用于 Ping 网络设备，目的是诊断设备的健康状况和连接性，以及发送者和设备之间的连接。
-    - 一个 ICMP 请求需要一些服务器资源来处理每个请求和发送响应。该请求还需要传入
-    信息（回音请求）和传出响应（回音响应）的带宽。
+    - 一个 ICMP 请求需要一些服务器资源来处理每个请求和发送响应。该请求还需要传入信息（回音请求）和传出响应（回音响应）的带宽。
 
     - 历史上，attackers 通常会伪造一个假的ip地址，以掩盖发送设备
     - 在现代僵尸网络攻击中，恶意行为者很少认为有必要掩盖僵尸的 IP, 而是依靠一个由未被欺骗的僵尸组成的大型网络来使目标的容量饱和
@@ -347,6 +345,199 @@ Single machine:
 - 解决：商家和支付系统可以使用防欺诈系统来检测和阻止虚假支付请求、使用防火墙过滤器来阻止恶意流量、加强用户身份验证等
 
 #### Asymmetric DDoS Attack (Others)
+
+> inside or outside the network
+
+**1) Tail Attack**
+
+> bring down the entire server so far weakest link from inside 
+
+!!! abstract "Tail Attack"
+    - Tail Attack 利用新发现的 N 层网络应用程序的系统漏洞（亚秒级持续时间的百万瓶颈和强依赖性的资源争夺）
+    - 分布式节点间具有强烈依赖性毫秒级瓶颈和资源争夺，以达到攻击目的
+    - 最终目标是造成目标网络应用的长尾延时（如 95百分位数的响应时间 > 1 s），破坏服务提供商的长期业务，而所有的系统资源都远未达到饱和
+
+- Tail attacks on n-tier web applications
+- Identify weakest link across tiers
+
+**2) SDN CrossPath Attack**
+
+> TODO  
+
+<!-- > bring down the entire server so far weakest link from outside 
+
+!!! abstract "SDN CrossPath Attack"
+    - SDN (Software Defined Networking) 是一种基于控制平面 (Control Plane) 和数据平面 (Data Plane) 分离的网络架构，它允许网络管理员通过集中式控制器来管理和控制整个网络
+    - SDN CrossPath Attack 是针对 SDN 中的跨路径流规则进行攻击
+    - 在 SDN 中，跨路径流规则用于在不同交换机间实现数据流的路由，攻击者可以利用这一点，通过向 SDN 控制器发送大量虚假流规则（这些流规则可能导致数据流跨越不同交换机路径，形成环路，数据流遇到这个环路时会陷入无限循环，占用网络带宽和交换机资源），使 SDN 控制器的资源耗尽，无法处理合法的流规则请求
+
+特点：
+
+- Disrupt SDN control channel via shared links
+- Do not directly attack SDN controller
+- Instead, block control messages with attacking traffic -->
+
+## DDoS Defenses
+
+!!! abstract "DDoS Defenses"
+    make server harder to be attacked
+
+### Type One
+
+!!! abstract "Type One"
+    - enrich server with more resources
+    - leverage the sources of others
+
+**Google Project Shield**
+
+- Use Google bandwidth to shiel vulnerable websites
+
+![](../../Images/2024-03-10-11-14-49.png)
+
+### Type Two
+
+!!! abstract "Type Two"
+    detect and filter attack traffic with spoofed IP addresses
+
+    > 让攻击者攻击更困难
+
+#### Ingress Filtering
+
+!!! abstract "Ingress Filtering"
+    - Ingrees Filtering (入口过滤) 用于在网络入口处对数据包进行过滤和检查，通过检查网络流量的源 IP 地址，对非法的源 IP 地址进行过滤，从而阻止攻击者通过 IP Spoofing 攻击网络
+    - Ingress Filtering 通常部署在网络边界（如路由器，防火墙等），对网络流量进行检查和过滤，如果源 IP 地址非法，会拒绝该数据包的进入，并向管理员发出警报
+    - Ingress Filtering 可以有效防止 IP Spoofing 攻击，但不能完全解决网络安全问题，攻击者可以通过其他方式进行攻击
+
+![](../../Images/2024-03-10-11-32-31.png)
+
+数据包通过 ISP 进入 internet, 所以要做 Ingress Filtering, 需要 ISP 的只传输合法的数据包
+
+But --> **Implementation challenges:**
+
+1. All ISPs need to do this -- requires global cooperation
+      1. 即便有 10% 的网络不实施，就相当于没有防御措施
+      2. 但 ISP 没有实施的动力 -- 这对他们没有影响
+2. As of 2017 (from CAIDA):
+      1. 33% of autonomous systems allow spoofing;
+      2. 23% of announced IP address space allow spoofing;
+
+**Can transit AS verify packet origin?**
+
+![](../../Images/2024-03-10-11-48-17.png)
+
+- 不可以，因为 routing protocols 只在乎 destination IP address
+- 除非我们修改 routing protocols --> 请继续阅读下面的内容
+
+#### Traceback
+
+!!! abstract "Traceback"
+    - 给定一组攻击数据包，确定到源的路径
+    - 最简单的方式是在数据包中维护路径信息，但这样会增加数据包的大小，降低网络性能
+    - 可以通过 Edge Sampling (基于路由器可信，包足够多，路由稳定的假设)
+
+- Goal: given set of attack packets, determine path to source
+- How: **change routers to record info in packets**
+- Assumptions:
+    - trusted routers
+    - sufficient packets to track
+    - stable route from attacker to victim
+
+**1)** 可以选择 Write path into packets (router adds its own IP address to packet victim reads path from packet)
+- Limitations: 
+    - requires space in packet
+    - path can be long
+    - no extra fields in current IP format (changes to packet format too much to expect)
+    - 攻击者可以轻易修改保存在数据包中的路径信息
+
+针对 packet 过大的 limitation, 可以 Sample and Merge 的思想
+    
+- store **one link** in each packet;
+- router probabilistically stores own address;
+- fixed space regardless of path length;
+
+由此引出 **Edge Sampling**
+
+**2)** Edge Sampling: fileds into packet
+- edge: `start` and `end` IP addresses
+- distance: number of hops since edge stored
+
+![](../../Images/2024-03-10-20-12-14.png)
+
+procedure 如下：
+
+![](../../Images/2024-03-10-20-19-03.png)
+
+- 有一定概率改写
+- 由于包足够多，因此根据不同包的采样就可以还原出路径。
+- 但如果有恶意的中间路由器，就会改写这些信息，因此这个方法并不是十分有效
+    - 可以增加一些密码学手段做校验 (Path Validation)
+
+#### Path Validation
+
+- PoC: Proof of Consent
+    - certify the provider’s consent to carry traffic along the path
+- PoP: Proof of Provenance
+    - allow upstream nodes to prove to downstream nodes that they carried the packet
+
+![](../../Images/2024-03-10-20-36-31.png)
+
+> 每一个节点都需要给后面的每一跳提供一个凭证 —— $O(N^2)$
+
+#### Alibi Routing
+
+> 不希望流量经过不安全的 AS
+
+!!! abstract "AliBi Routing"
+    - AliBi Routing 是一种网络路由安全技术，旨在保护互联网路由协议（如 BGP）中的路由信息不被攻击者篡改或伪造
+    - AliBi Routing 通过在网络中添加一组辅助路径来实现路由验证和错误检测
+    - 辅助路径由可信第三方提供，与主路径并行传输路由信息
+
+<u>如何证明一个 packet 没有经过某个 AS？ -> proof waypoint</u>
+
+**proof waypoint** : packet 在给定时间限制内不可能同时经过 proof waypoint 和需要避开的 AS
+
+<img src='../../Images/2024-03-10-20-39-59.png'><br>
+<center><a href='https://conferences.sigcomm.org/sigcomm/2015/pdf/papers/p611.pdf'>reference</a></center>
+
+- s: source
+- d: destination
+- F region: AS to avoid
+- r: proof waypoint
+
+如上图，思路就是选取一个特别的点，如果走的时间比这个更长，就说明这个点位于 F region
+
+### Type Three
+
+!!! abstract "Type Three"
+    cost more resources from attacker 
+
+    > 消耗攻击者更多资源
+
+#### Client Puzzles
+
+!!! abstract "Client Puzzles"
+    让 client (attackers) 算 puzzle
+
+- Idea:
+    - force every client to do moderate amount of work for every connection they make
+- EXample:
+    - server sends: C
+    - client: given challenge C find X s.t. 
+    - $\text{LSB}_n\text{(SHA-1(C||X))} = \text{0}^n$ 
+- Benfits:
+    - 在检测到攻击时调用
+    - 可根据攻击流量调整 n
+- Limitations
+    - require changes to protocols, clients, and servers;
+    - during attack, hurts low-power legitimate clients (e.g., phones);
+
+#### CAPTCHA
+
+!!! abstract "CAPTCHA"
+    - CAPTCHA (Completely Automated Public Turing test to tell Computers and Humans Apart)
+    - challenge–response test used in computing to determine whether or not the user is human
+    - 就是验证码 (Type: Text, Image, Audio...)
+    - Vulnerable to auto-identification
 
 ## Some Questions
 
