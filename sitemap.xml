@@ -526,6 +526,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://enlzhao.github.io/Notebook/Course/netsec/routesec/</loc>
+         <lastmod>2024-03-11</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://enlzhao.github.io/Notebook/Triviality/markdown/</loc>
          <lastmod>2024-03-11</lastmod>
          <changefreq>daily</changefreq>

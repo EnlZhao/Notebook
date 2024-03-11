@@ -2011,13 +2011,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#lex" class="md-nav__link">
-    Lex工具
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -3686,13 +3679,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#lex" class="md-nav__link">
-    Lex工具
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -3727,12 +3713,64 @@
 <p>词法分析：将输入字符串识别为有意义的子串</p>
 <ul>
 <li>Partition input string into substrings (lexeme<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>)</li>
-<li>Classify them according to their role (tokens<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>)</li>
+<li>Classify them according to their role (tokens)</li>
 </ul>
 <details class="example">
 <summary>Example</summary>
 <p><img alt="" src="../../../Images/2024-03-11-08-41-55.png" /></p>
 </details>
+<p>Tokens 是指程序设计语言中具有独立含义的最小词法单位，包含单词、标点符号、操作符、分隔符等。如一些典型测试语言的一些 token 类型为：</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>EXamples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ID</td>
+<td>foo n14 last</td>
+</tr>
+<tr>
+<td>Num</td>
+<td>73 0 00 012</td>
+</tr>
+<tr>
+<td>REAL</td>
+<td>6.1 .5 10. 1e-1</td>
+</tr>
+<tr>
+<td>IF</td>
+<td>if</td>
+</tr>
+<tr>
+<td>COMMA</td>
+<td>,</td>
+</tr>
+<tr>
+<td>NOTEQ</td>
+<td>!=</td>
+</tr>
+<tr>
+<td>LPAREN</td>
+<td>(</td>
+</tr>
+<tr>
+<td>RPAREN</td>
+<td>)</td>
+</tr>
+</tbody>
+</table>
+<p>另外一些 tokens 如 IF, VOID, RETURN 称作 reserved words，在大多数语言中不能成为 identifiers（即上图中的 ID）</p>
+<p>Examples of nontokens are</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>comment                     /* try again */
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>preprocessor directive      #include &lt;stdio.h&gt;
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>preprocessor directive      #define NUMS 5, 6
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>macro                       NUMS
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>blanks, tabs and newlines
+</code></pre></div>
+<p>在一些需要宏预处理器 (macro preprocessor) 的语言中，由预处理器处理源程序的字符流生成另外的字符流，然后由送入词法分析器（Lexical Analyzer）。这种宏预处理过程也可以与词法分析器集成在一起。</p>
 <blockquote>
 <p>辅助任务：过滤注释、空格, etc.</p>
 </blockquote>
@@ -4028,14 +4066,14 @@
 <li>DFA <span class="arithmatex">\(D\)</span>: 开始状态 <span class="arithmatex">\(s_0\)</span>，接收状态集 <span class="arithmatex">\(F\)</span>，转换函数 <span class="arithmatex">\(move\)</span></li>
 <li>输出：如果 <span class="arithmatex">\(D\)</span> 接收 <span class="arithmatex">\(x\)</span>，则回答 “yes”，否则回答 “no”</li>
 </ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>s = s_0;
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>c = nextChar();
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>while (c != eof) {
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    s = move(s, c);
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    c = nextChar();
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>}
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>if s in F then return &quot;yes&quot;
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>else return &quot;no&quot;
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>s = s_0;
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>c = nextChar();
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>while (c != eof) {
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    s = move(s, c);
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    c = nextChar();
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>}
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>if s in F then return &quot;yes&quot;
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>else return &quot;no&quot;
 </code></pre></div>
 <ul>
 <li><code>nextChar()</code> 返回 <span class="arithmatex">\(x\)</span> 的下一个字符</li>
@@ -4148,26 +4186,47 @@
 </li>
 </ul>
 <p><strong>1) DFA最小化算法 (划分部分)</strong></p>
-<ul>
+<ol>
 <li>初始化分：划分为接受状态组和非接受状态组 <span class="arithmatex">\(\prod = \{S - F, F\}\)</span></li>
 <li>迭代，继续划分</li>
-</ul>
+</ol>
 <div class="arithmatex">\[\begin{align}
     \textcolor{blue}{\text{for}} &amp;(\prod \text{中的每个元素/集合 G}) \{ \\
         &amp;\text{细分 G，使得 G 中的 s、t 仍然在同一组中} iff \text{对任意输入 a, s, t 都到达} \prod \text{中的同一组;} \\
         &amp;\prod_{\text{new}} = \text{将} \prod \text{中的 G 替换为细分得到的小组} \\
         \}
 \end{align}\]</div>
+<ol start="3">
+<li>如果 <span class="arithmatex">\(\prod_{\text{new}}\)</span> == <span class="arithmatex">\(\prod\)</span> 相等，停止迭代，令 <span class="arithmatex">\(\prod_{\text{final}} = \prod\)</span>；否则，更新 <span class="arithmatex">\(\prod = \prod_{\text{new}}\)</span>，转到步骤 2</li>
+</ol>
 <p><strong>2) DFA最小化算法 (构造部分)</strong></p>
-<h2 id="lex">Lex工具<a class="headerlink" href="#lex" title="Permanent link">👀</a></h2>
+<p>在 <span class="arithmatex">\(\prod_{\text{final}}\)</span> 中选择一个状态作代表，作为最小化 DFA 中的状态</p>
+<ul>
+<li>开始状态：包含原开始状态的组的代表</li>
+<li>接受状态：包含了原接受状态的组的代表（这个组一定只包含接受状态）</li>
+<li>转换关系构造为：如果 <span class="arithmatex">\(s\)</span> 是 <span class="arithmatex">\(G\)</span> 的代表，而原 DFA 中 <span class="arithmatex">\(s\)</span> 在 <span class="arithmatex">\(a\)</span> 上的转换到达 <span class="arithmatex">\(t\)</span>, 且 <span class="arithmatex">\(t\)</span> 所在组的代表为 <span class="arithmatex">\(r\)</span>，那么最小化 DFA 中有从 <span class="arithmatex">\(s\)</span> 到 <span class="arithmatex">\(r\)</span> 的在 <span class="arithmatex">\(a\)</span> 上的转换</li>
+</ul>
+<details class="example" open="open">
+<summary>DFA 的化简</summary>
+<p><img alt="" src="../../../Images/2024-03-11-15-07-38.png" /></p>
+</details>
+<!-- ## Lex工具 -->
+
+<details class="info" open="open">
+<summary>More</summary>
+<ul>
+<li>计算 <span class="arithmatex">\(\epsilon-closure(T)\)</span> : 实际上是一个图搜索过程 (如果只考虑 <span class="arithmatex">\(\epsilon\)</span> 边) <br><img alt="" src="../../../Images/2024-03-11-15-13-12.png" /></li>
+<li>NFA -&gt; DFA (子集构造法)：整个算法实际上是一个搜索过程<br><img alt="" src="../../../Images/2024-03-11-15-14-47.png" /></li>
+</ul>
+<blockquote>
+<p><span class="arithmatex">\(D\)</span> states 中的一个状态未加标记表示还没有搜索过它的各个后继</p>
+</blockquote>
+</details>
 <div class="footnote">
 <hr />
 <ol>
 <li id="fn:1">
 <p>词素, a member (string) of the set (token) such as &ldquo;else&rdquo;, &ldquo;if&rdquo;&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
-</li>
-<li id="fn:2">
-<p>词法记号，单词, Programming language: keyword, identifier, ..&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>

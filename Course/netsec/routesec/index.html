@@ -12,7 +12,7 @@
         <meta name="author" content="EnlZhao">
       
       
-        <link rel="canonical" href="https://enlzhao.github.io/Notebook/Course/ADS/Lec13/">
+        <link rel="canonical" href="https://enlzhao.github.io/Notebook/Course/netsec/routesec/">
       
       
       
@@ -22,7 +22,7 @@
     
     
       
-        <title>[LOCK]External Sorting - HengZhao's Knowledge Base</title>
+        <title>Secure Routing - HengZhao's Knowledge Base</title>
       
     
     
@@ -112,7 +112,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#external-sorting" class="md-skip">
+        <a href="#secure-routing" class="md-skip">
           跳转至
         </a>
       
@@ -145,7 +145,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              [LOCK]External Sorting
+              Secure Routing
             
           </span>
         </div>
@@ -918,7 +918,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
+            <a href="../../ADS/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -994,7 +994,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Lec01/" class="md-nav__link">
+      <a href="../../ADS/Lec01/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1014,7 +1014,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Lec02/" class="md-nav__link">
+      <a href="../../ADS/Lec02/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1034,7 +1034,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Lec03/" class="md-nav__link">
+      <a href="../../ADS/Lec03/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1110,7 +1110,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Lec04/" class="md-nav__link">
+      <a href="../../ADS/Lec04/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1130,7 +1130,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Lec05/" class="md-nav__link">
+      <a href="../../ADS/Lec05/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1150,7 +1150,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Lec06/" class="md-nav__link">
+      <a href="../../ADS/Lec06/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1170,7 +1170,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Lec07/" class="md-nav__link">
+      <a href="../../ADS/Lec07/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1190,7 +1190,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Lec08/" class="md-nav__link">
+      <a href="../../ADS/Lec08/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1698,7 +1698,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../netsec/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1730,7 +1730,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../netsec/ddos/" class="md-nav__link">
+      <a href="../ddos/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3379,6 +3379,21 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#route-computation" class="md-nav__link">
+    Route Computation
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -3395,34 +3410,32 @@
   
 
 
-<div id="mkdocs-encrypted-content" style="display:none">17YBT+HR1loAKAraId9PMA==;roSTzxS/0Beg1zptEuDQOZLGtPaBA7W9oAOBB6X3h+YlyzMST4xZd/UT8B9GNcKv5XeZpR7Bk3/uqIoza5a655IuyKFZeKXa1WaYNdO8ewhaIVOmEu2qproSRpoy1i8l3j6yzZlWbiHqwTHERh8GXJA/oOtKDEJcv3MjHJLanNs=</div>
-<div id="mkdocs-decrypted-content">
-    <form id="mkdocs-decrypt-form" class="md-content__inner md-typeset">
-        <h1>AES encryption supported by unverbuggt@github's plugin</h1>
-        <p>Contact me(Enl_Z) via methods provided in the comments section for access to this page</p>
-        <input class="md-input" type="password" id="mkdocs-content-password" placeholder="Provide password and press ENTER" />
-        
-        <p id="mkdocs-decrypt-msg"></p>
-    </form>
+<h1 id="secure-routing">Secure Routing<a class="headerlink" href="#secure-routing" title="Permanent link">👀</a></h1>
+<div class="admonition bug">
+<p class="admonition-title">routing attacks</p>
+<ul>
+<li>distance-vector: announce 0 distance to all other nodes</li>
+<li>link-state: drop links; claim direct link to other routers</li>
+<li>BGP: announce arbitrary prefix; alter paths</li>
+</ul>
 </div>
-
-<script type="text/javascript">
-var encryptcontent_id = "encryptcontent_1";
-var encryptcontent_path = "Notebook/Course/ADS/Lec13/";
-var decryption_failure_message = "Invalid password";
-var encryptcontent_keystore = ["+HZesUAekG3ckBh2rWPMUg==;skfBGZOSWF+aTMf6yoGSbFQ4rP1jqAudfWpAXcDKdtBpwJhv8cyJbx2INFOq228lSmlwrGLGhfRLJfPVAiXuXsOc5JuHgnAkUVlikq4IOPM6l4eI5x3OeEnosaIcsyE4;L4P0tzbJUq7xdrQYqrLf5Q=="];
-var encryptcontent_obfuscate = 0;
-
-</script>
-
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/core.js"></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/enc-base64.js"></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/cipher-core.js"></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/sha256.js"></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/hmac.js"></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/pbkdf2.js"></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/aes.js"></script>
-<script type="text/javascript" src="../../../assets/javascripts/decrypt-contents.js" defer></script>
+<p>Deliver Scheme:</p>
+<ul>
+<li><code>unicast</code> delivers a message to a single specific node</li>
+<li><code>broadcast</code> delivers a message to all nodes in the network</li>
+<li><code>multicast</code> delivers a message to a group of nodes</li>
+<li><code>anycast</code> delivers a message to any one out of a group of nodes, typically the one nearest to the source</li>
+<li><code>geocast</code> delivers a message to a group of nodes based on <strong>geographic location</strong></li>
+</ul>
+<blockquote>
+<p>Unicast is the dominant form of message delivery on the Internet. </p>
+</blockquote>
+<p>Routing Scheme:</p>
+<ul>
+<li>Intra-domain routing: inside an autonomous system (AS)</li>
+<li>Inter-domain routing: between different ASs</li>
+</ul>
+<h2 id="route-computation">Route Computation<a class="headerlink" href="#route-computation" title="Permanent link">👀</a></h2>
 
 
   
