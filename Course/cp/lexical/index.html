@@ -4148,6 +4148,16 @@
 </li>
 </ul>
 <p><strong>1) DFA最小化算法 (划分部分)</strong></p>
+<ul>
+<li>初始化分：划分为接受状态组和非接受状态组 <span class="arithmatex">\(\prod = \{S - F, F\}\)</span></li>
+<li>迭代，继续划分</li>
+</ul>
+<div class="arithmatex">\[\begin{align}
+    \textcolor{blue}{\text{for}} &amp;(\prod \text{中的每个元素/集合 G}) \{ \\
+        &amp;\text{细分 G，使得 G 中的 s、t 仍然在同一组中} iff \text{对任意输入 a, s, t 都到达} \prod \text{中的同一组;} \\
+        &amp;\prod_{\text{new}} = \text{将} \prod \text{中的 G 替换为细分得到的小组} \\
+        \}
+\end{align}\]</div>
 <p><strong>2) DFA最小化算法 (构造部分)</strong></p>
 <h2 id="lex">Lex工具<a class="headerlink" href="#lex" title="Permanent link">👀</a></h2>
 <div class="footnote">
