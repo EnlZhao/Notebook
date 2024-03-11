@@ -385,12 +385,14 @@ DFA 状态数量的最小化:
 1. 初始化分：划分为接受状态组和非接受状态组 $\prod = \{S - F, F\}$
 2. 迭代，继续划分
 
-$$\begin{align}
+<!-- $$\begin{align}
     \textcolor{blue}{\text{for}} &(\prod \text{中的每个元素/集合 G}) \{ \\
         &\text{细分 G，使得 G 中的 s、t 仍然在同一组中} iff \text{对任意输入 a, s, t 都到达} \prod \text{中的同一组;} \\
         &\prod_{\text{new}} = \text{将} \prod \text{中的 G 替换为细分得到的小组} \\
         \}
-\end{align}$$
+\end{align}$$ -->
+
+![](../../Images/2024-03-11-16-22-06.png)
 
 3. 如果 $\prod_{\text{new}}$ == $\prod$ 相等，停止迭代，令 $\prod_{\text{final}} = \prod$；否则，更新 $\prod = \prod_{\text{new}}$，转到步骤 2
 
