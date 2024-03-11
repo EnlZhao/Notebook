@@ -3819,6 +3819,17 @@
 </ul>
 <p>语言的运算：（优先级：幂 &gt; 连接 &gt; 并）</p>
 <p><img alt="" src="../../../Images/2024-03-11-10-07-04.png" /></p>
+<p>在书写正则表达式时，我们有时省略 <code>·</code> 和 <span class="arithmatex">\(\epsilon\)</span> ，并规定 <code>*</code> 优先级高于 <code>·</code> 高于 <code>|</code> 。还有一些缩写形式：</p>
+<ul>
+<li><span class="arithmatex">\([abcd]\)</span> 表示 <span class="arithmatex">\(\{a | b | c | d\}\)</span></li>
+<li><span class="arithmatex">\([b-gM-Qkr]\)</span> 表示 <span class="arithmatex">\(\[bcdefgMNOPQkr]\)</span></li>
+<li><span class="arithmatex">\(T?\)</span> 表示 <span class="arithmatex">\(T | \epsilon\)</span>, 即 <span class="arithmatex">\(T\)</span> 或空串</li>
+</ul>
+<p>还有一些其他的符号：</p>
+<ul>
+<li><code>.</code> ： 除换行符外的任意单个字符</li>
+<li><code>"a.+*"</code> : 引号中的字符串匹配自身</li>
+</ul>
 <details class="example">
 <summary>Example</summary>
 <p>给定语言 <span class="arithmatex">\(L = \{a, b\}\)</span>, <span class="arithmatex">\(M = \{cc, dd\}\)</span></p>
@@ -4190,12 +4201,14 @@
 <li>初始化分：划分为接受状态组和非接受状态组 <span class="arithmatex">\(\prod = \{S - F, F\}\)</span></li>
 <li>迭代，继续划分</li>
 </ol>
-<div class="arithmatex">\[\begin{align}
-    \textcolor{blue}{\text{for}} &amp;(\prod \text{中的每个元素/集合 G}) \{ \\
-        &amp;\text{细分 G，使得 G 中的 s、t 仍然在同一组中} iff \text{对任意输入 a, s, t 都到达} \prod \text{中的同一组;} \\
-        &amp;\prod_{\text{new}} = \text{将} \prod \text{中的 G 替换为细分得到的小组} \\
+<!-- $$\begin{align}
+    \textcolor{blue}{\text{for}} &(\prod \text{中的每个元素/集合 G}) \{ \\
+        &\text{细分 G，使得 G 中的 s、t 仍然在同一组中} iff \text{对任意输入 a, s, t 都到达} \prod \text{中的同一组;} \\
+        &\prod_{\text{new}} = \text{将} \prod \text{中的 G 替换为细分得到的小组} \\
         \}
-\end{align}\]</div>
+\end{align}$$ -->
+
+<p><img alt="" src="../../../Images/2024-03-11-16-22-06.png" /></p>
 <ol start="3">
 <li>如果 <span class="arithmatex">\(\prod_{\text{new}}\)</span> == <span class="arithmatex">\(\prod\)</span> 相等，停止迭代，令 <span class="arithmatex">\(\prod_{\text{final}} = \prod\)</span>；否则，更新 <span class="arithmatex">\(\prod = \prod_{\text{new}}\)</span>，转到步骤 2</li>
 </ol>
@@ -4221,6 +4234,10 @@
 <blockquote>
 <p><span class="arithmatex">\(D\)</span> states 中的一个状态未加标记表示还没有搜索过它的各个后继</p>
 </blockquote>
+</details>
+<details class="example">
+<summary>一些习题</summary>
+<p><a href="https://www.yuque.com/xianyuxuan/coding/cp_1#rUa36">习题</a></p>
 </details>
 <div class="footnote">
 <hr />
