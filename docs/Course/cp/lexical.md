@@ -20,13 +20,39 @@ else
 词法分析：将输入字符串识别为有意义的子串
 
 - Partition input string into substrings (lexeme[^1])
-- Classify them according to their role (tokens[^2])
+- Classify them according to their role (tokens)
 
 ??? example
     ![](../../Images/2024-03-11-08-41-55.png)
 
 [^1]: 词素, a member (string) of the set (token) such as "else", "if"
-[^2]: 词法记号，单词, Programming language: keyword, identifier, ..
+
+Tokens 是指程序设计语言中具有独立含义的最小词法单位，包含单词、标点符号、操作符、分隔符等。如一些典型测试语言的一些 token 类型为：
+
+| Type | EXamples |
+| ---- | -------- |
+| ID   | foo n14 last |
+| Num  | 73 0 00 012 |
+| REAL | 6.1 .5 10. 1e-1 |
+| IF   | if     |
+| COMMA | , |
+| NOTEQ | != |
+| LPAREN | ( |
+| RPAREN | ) |
+
+另外一些 tokens 如 IF, VOID, RETURN 称作 reserved words，在大多数语言中不能成为 identifiers（即上图中的 ID）
+
+Examples of nontokens are
+
+```
+comment                     /* try again */
+preprocessor directive      #include <stdio.h>
+preprocessor directive      #define NUMS 5, 6
+macro                       NUMS
+blanks, tabs and newlines
+```
+
+在一些需要宏预处理器 (macro preprocessor) 的语言中，由预处理器处理源程序的字符流生成另外的字符流，然后由送入词法分析器（Lexical Analyzer）。这种宏预处理过程也可以与词法分析器集成在一起。
 
 > 辅助任务：过滤注释、空格, etc.
 
@@ -66,6 +92,17 @@ else
 
 ![](../../Images/2024-03-11-10-07-04.png)
 
+在书写正则表达式时，我们有时省略 `·` 和 $\epsilon$ ，并规定 `*` 优先级高于 `·` 高于 `|` 。还有一些缩写形式：
+
+- $[abcd]$ 表示 $\{a | b | c | d\}$
+- $[b-gM-Qkr]$ 表示 $\[bcdefgMNOPQkr]$
+- $T?$ 表示 $T | \epsilon$, 即 $T$ 或空串
+
+还有一些其他的符号：
+
+- `.` ： 除换行符外的任意单个字符
+- `"a.+*"` : 引号中的字符串匹配自身
+
 ??? example
     给定语言 $L = \{a, b\}$, $M = \{cc, dd\}$
 
@@ -76,6 +113,7 @@ else
     | 幂 | $L^0 = \{\epsilon\}$, $L^i = L^{i-1}L$ | $L^2 = \{aa, ab, ba, bb\}$ |
     | 闭包 | $L^* = \bigcup_{i=0}^{\infty}L^i$ | $L^* = \{\epsilon, a, b, aa, ab, ba, bb, \dots\}$ |
     | 正闭包 | $L^+ = \bigcup_{i=1}^{\infty}L^i$ | $L^+ = \{a, b, aa, ab, ba, bb, \dots\}$ |
+
 
 ### 正则表达式 | RE
 
@@ -344,8 +382,8 @@ DFA 状态数量的最小化:
 
 **1) DFA最小化算法 (划分部分)**
 
-- 初始化分：划分为接受状态组和非接受状态组 $\prod = \{S - F, F\}$
-- 迭代，继续划分
+1. 初始化分：划分为接受状态组和非接受状态组 $\prod = \{S - F, F\}$
+2. 迭代，继续划分
 
 $$\begin{align}
     \textcolor{blue}{\text{for}} &(\prod \text{中的每个元素/集合 G}) \{ \\
@@ -354,8 +392,26 @@ $$\begin{align}
         \}
 \end{align}$$
 
-
+3. 如果 $\prod_{\text{new}}$ == $\prod$ 相等，停止迭代，令 $\prod_{\text{final}} = \prod$；否则，更新 $\prod = \prod_{\text{new}}$，转到步骤 2
 
 **2) DFA最小化算法 (构造部分)**
 
-## Lex工具
+在 $\prod_{\text{final}}$ 中选择一个状态作代表，作为最小化 DFA 中的状态
+
+- 开始状态：包含原开始状态的组的代表
+- 接受状态：包含了原接受状态的组的代表（这个组一定只包含接受状态）
+- 转换关系构造为：如果 $s$ 是 $G$ 的代表，而原 DFA 中 $s$ 在 $a$ 上的转换到达 $t$, 且 $t$ 所在组的代表为 $r$，那么最小化 DFA 中有从 $s$ 到 $r$ 的在 $a$ 上的转换
+
+???+ example "DFA 的化简"
+    ![](../../Images/2024-03-11-15-07-38.png)
+
+<!-- ## Lex工具 -->
+
+???+ info "More"
+    - 计算 $\epsilon-closure(T)$ : 实际上是一个图搜索过程 (如果只考虑 $\epsilon$ 边) <br>![](../../Images/2024-03-11-15-13-12.png)
+    - NFA -> DFA (子集构造法)：整个算法实际上是一个搜索过程<br>![](../../Images/2024-03-11-15-14-47.png)
+    
+    > $D$ states 中的一个状态未加标记表示还没有搜索过它的各个后继
+
+??? example "一些习题"
+    [习题](https://www.yuque.com/xianyuxuan/coding/cp_1#rUa36)
