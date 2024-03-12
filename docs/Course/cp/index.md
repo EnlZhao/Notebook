@@ -15,8 +15,8 @@
         - 期末考试 = 40% 
 
 !!! success "list"
-    - [ ] [Introduction | 课程介绍](intro.md)
-    - [ ] [Lexical Analysis | 词法分析](lexical.md)
+    - [x] [Introduction | 课程介绍](intro.md)
+    - [x] [Lexical Analysis | 词法分析](lexical.md)
     - [ ] [Parsing 1 | 语法分析](parsing1.md) (Top-Down Parsing)
     - [ ] [Parsing 2 | 语法分析](parsing2.md) (Bottom-Up Parsing)
     - [ ] [Semantic Analysis | 语义分析](semantic.md)

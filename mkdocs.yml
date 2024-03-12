@@ -68,6 +68,7 @@ nav:
       - 编译原理: Course/cp/index.md
       - Introduction: Course/cp/intro.md
       - 词法分析: Course/cp/lexical.md
+      - 语法分析(1): Course/cp/parsing1.md
   - AI: 
     - Triviality:  
         - Triviality: AI/Triviality/index.md

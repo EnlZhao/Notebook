@@ -95,7 +95,7 @@ blanks, tabs and newlines
 在书写正则表达式时，我们有时省略 `·` 和 $\epsilon$ ，并规定 `*` 优先级高于 `·` 高于 `|` 。还有一些缩写形式：
 
 - $[abcd]$ 表示 $\{a | b | c | d\}$
-- $[b-gM-Qkr]$ 表示 $\[bcdefgMNOPQkr]$
+- $[b-gM-Qkr]$ 表示 $[bcdefgMNOPQkr]$
 - $T?$ 表示 $T | \epsilon$, 即 $T$ 或空串
 
 还有一些其他的符号：
