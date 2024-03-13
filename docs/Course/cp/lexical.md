@@ -108,8 +108,8 @@ blanks, tabs and newlines
 
     | 运算 | 描述 | 结果 |
     | --- | --- | --- |
-    | 并    | $L \cup M = \{s \| s \in L 或 s \in M \}$ | $L \cup M = \{a, b, cc, dd\}$ |
-    | 连接 | $LM = \{st \| s \in L 且 t \in M\}$ | $LM = \{acc, add, bcc, bdd\}$ |
+    | 并    | $L \cup M = \{s \vert s \in L 或 s \in M \}$ | $L \cup M = \{a, b, cc, dd\}$ |
+    | 连接 | $LM = \{st \vert s \in L 且 t \in M\}$ | $LM = \{acc, add, bcc, bdd\}$ |
     | 幂 | $L^0 = \{\epsilon\}$, $L^i = L^{i-1}L$ | $L^2 = \{aa, ab, ba, bb\}$ |
     | 闭包 | $L^* = \bigcup_{i=0}^{\infty}L^i$ | $L^* = \{\epsilon, a, b, aa, ab, ba, bb, \dots\}$ |
     | 正闭包 | $L^+ = \bigcup_{i=1}^{\infty}L^i$ | $L^+ = \{a, b, aa, ab, ba, bb, \dots\}$ |
@@ -131,12 +131,12 @@ blanks, tabs and newlines
 ??? note "正则表达式的一些定律"
     | 定律 | 描述 |
     | --- | --- |
-    | $r \| s = s \| r$ | 选择运算的交换律 |
-    | $(r \| s) \| t = r \| (s \| t)$ | 选择运算的结合律 |
+    | $r \vert s = s \vert r$ | 选择运算的交换律 |
+    | $(r \vert s) \vert t = r \vert (s \vert t)$ | 选择运算的结合律 |
     | $r(st) = (rs)t$ | 连接运算的结合律 |
-    | $r(s \| t) = rs \| rt$ | 连接运算对选择运算的分配律 |
+    | $r(s \vert t) = rs \vert rt$ | 连接运算对选择运算的分配律 |
     | $\epsilon r = r\epsilon = r$ | 闭包运算的幺元 |
-    | $r^* = (r \| \epsilon)^*$ | 闭包中一定含 $\epsilon$ |
+    | $r^* = (r \vert \epsilon)^*$ | 闭包中一定含 $\epsilon$ |
     | $r^{**} = r^*$ | 闭包运算的幂等律 |
 
 ### 正则定义, 词法分析
