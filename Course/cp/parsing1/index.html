@@ -3891,6 +3891,27 @@
 <h2 id="parsing">语法分析概述 | Parsing<a class="headerlink" href="#parsing" title="Permanent link">👀</a></h2>
 <h3 id="cfg-parse-tree">CFG 的 Parse Tree<a class="headerlink" href="#cfg-parse-tree" title="Permanent link">👀</a></h3>
 <p>回顾 <a href="#_2">推导和归约</a> 中输入串的判定</p>
+<p>分析树 (Parse Tree) 可以看作是推导的图形化表示，其具有下面的性质：</p>
+<ul>
+<li>根节点为文法的初始符号</li>
+<li>每个叶子节点是一个终结符</li>
+<li>每个内部节点是一个非终结符</li>
+<li>每一个父节点和他的子节点构成一条产生式</li>
+</ul>
+<p><img alt="" src="../../../Images/2024-03-14-20-27-09.png" /></p>
+<p>可以将语法分析看作搜索问题，语法分析的核心问题就是：对于一个终结符号串 <span class="arithmatex">\(x\)</span>, 设法从 <span class="arithmatex">\(S\)</span> 推导出 <span class="arithmatex">\(x\)</span> 或者从 <span class="arithmatex">\(x\)</span> 归约出 <span class="arithmatex">\(S\)</span></p>
+<ul>
+<li>自顶向下 (Top-down) 分析<ul>
+<li>从开始符号 <span class="arithmatex">\(S\)</span> 出发，尝试根据产生式规则推导 (derive) 出 <span class="arithmatex">\(x\)</span></li>
+<li>Parse Tree 的构造方法：从根部开始</li>
+</ul>
+</li>
+<li>自底向上(Bottom-up) 分析<ul>
+<li>尝试根据产生式规则归约 (reduce) 到文法的开始符号 <span class="arithmatex">\(S\)</span> </li>
+<li>Parse Tree 的构造方法: 从叶子开始</li>
+</ul>
+</li>
+</ul>
 <h3 id="_3">设计编程语言的文法<a class="headerlink" href="#_3" title="Permanent link">👀</a></h3>
 <h2 id="top-down-parsing">自顶向下的语法分析 | Top-Down Parsing<a class="headerlink" href="#top-down-parsing" title="Permanent link">👀</a></h2>
 
