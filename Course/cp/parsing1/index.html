@@ -1912,16 +1912,83 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#parsing" class="md-nav__link">
-    语法分析 | Parsing
+  <a href="#context-free-grammar" class="md-nav__link">
+    上下文无关文法 | Context-Free Grammar
   </a>
+  
+    <nav class="md-nav" aria-label="上下文无关文法 | Context-Free Grammar">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cfg" class="md-nav__link">
+    CFG 简介
+  </a>
+  
+    <nav class="md-nav" aria-label="CFG 简介">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cfg_1" class="md-nav__link">
+    CFG 的定义
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    产生式的缩写
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    推导和归约
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#re-cfg" class="md-nav__link">
+    RE 与 CFG
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#context-free-grammar" class="md-nav__link">
-    上下文无关文法 | Context-Free Grammar
+  <a href="#parsing" class="md-nav__link">
+    语法分析概述 | Parsing
   </a>
+  
+    <nav class="md-nav" aria-label="语法分析概述 | Parsing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cfg-parse-tree" class="md-nav__link">
+    CFG 的 Parse Tree
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    设计编程语言的文法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -3479,16 +3546,83 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#parsing" class="md-nav__link">
-    语法分析 | Parsing
+  <a href="#context-free-grammar" class="md-nav__link">
+    上下文无关文法 | Context-Free Grammar
   </a>
+  
+    <nav class="md-nav" aria-label="上下文无关文法 | Context-Free Grammar">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cfg" class="md-nav__link">
+    CFG 简介
+  </a>
+  
+    <nav class="md-nav" aria-label="CFG 简介">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cfg_1" class="md-nav__link">
+    CFG 的定义
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    产生式的缩写
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    推导和归约
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#re-cfg" class="md-nav__link">
+    RE 与 CFG
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#context-free-grammar" class="md-nav__link">
-    上下文无关文法 | Context-Free Grammar
+  <a href="#parsing" class="md-nav__link">
+    语法分析概述 | Parsing
   </a>
+  
+    <nav class="md-nav" aria-label="语法分析概述 | Parsing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cfg-parse-tree" class="md-nav__link">
+    CFG 的 Parse Tree
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    设计编程语言的文法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -3525,8 +3659,239 @@
 <li>和 自顶向下的语法分析方法</li>
 </ul>
 </div>
-<h2 id="parsing">语法分析 | Parsing<a class="headerlink" href="#parsing" title="Permanent link">👀</a></h2>
 <h2 id="context-free-grammar">上下文无关文法 | Context-Free Grammar<a class="headerlink" href="#context-free-grammar" title="Permanent link">👀</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>CFG 是一种形式文法，用于描述上下文无关语言 (Context-Free Language) 的语法结构.</p>
+</div>
+<h3 id="cfg">CFG 简介<a class="headerlink" href="#cfg" title="Permanent link">👀</a></h3>
+<div class="admonition question">
+<p class="admonition-title">问题: 如何形式化定义编程语言的语法？</p>
+</div>
+<blockquote>
+<p>语法分析的目的是教会计算机判断输入合法性</p>
+</blockquote>
+<p>例：简单计算器程序</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">+</span><span class="w">     </span><span class="n">非法</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a</span><span class="w">       </span><span class="n">非法</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w">     </span><span class="n">合法</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">3</span><span class="w">       </span><span class="n">非法</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">如何判定输入合法性 &amp; 生成语法树</p>
+<ul>
+<li>首先规定好合法的基本单元 (Token) —— 词法分析</li>
+<li>其次要理解算术表达式的构成<ul>
+<li>大表达式可拆分为子表达式</li>
+<li>拆解过程是递归的，直至看到基本单元</li>
+</ul>
+</li>
+</ul>
+<p><img alt="" src="../../../Images/2024-03-14-15-14-44.png" /></p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">如何构造编程语言的语法分析器</p>
+<ul>
+<li>用 CFG 定义一个编程语言的语法</li>
+<li>基于 CFG 构建解析器:<ul>
+<li>Top-Down Parsing | 自顶向下的语法分析</li>
+<li>Bottom-Up Parsing | 自底向上的语法分析</li>
+</ul>
+</li>
+<li>More about parsing:<ul>
+<li>Automatic paraser generation</li>
+<li>Error recovery</li>
+</ul>
+</li>
+</ul>
+</div>
+<h4 id="cfg_1">CFG 的定义<a class="headerlink" href="#cfg_1" title="Permanent link">👀</a></h4>
+<p>上下文无关文法: 描述语言的语法结构</p>
+<div class="arithmatex">\[G = (T, N, P, S)\]</div>
+<ul>
+<li><span class="arithmatex">\(T\)</span>: 终结符集合 (Terminals), 组成串的基本符号 (Token)<ul>
+<li>例：<span class="arithmatex">\(T = \{\text{num}, +, -, (, )\}\)</span></li>
+</ul>
+</li>
+<li><span class="arithmatex">\(N\)</span>: 非终结符集合 (Non-terminals), 表示串的集合的语法变量 (在程序语言中通常对应于某个程序构造)<ul>
+<li>例：<span class="arithmatex">\(N = \{\text{expr}, \text{term}, \text{stmt}\}\)</span></li>
+</ul>
+</li>
+<li><span class="arithmatex">\(P\)</span>: 产生式集合 (Productions), <span class="arithmatex">\(A \rightarrow a\)</span>, <span class="arithmatex">\(A \in N\)</span>, <span class="arithmatex">\(a \in (T \cup N)^*\)</span><ul>
+<li>头(左)部 <span class="arithmatex">\(A\)</span> 是一个非终结符，右部 <span class="arithmatex">\(a\)</span> 是一个符号串</li>
+<li>描述了一个将终结符和非终结符组合成串的方法</li>
+<li>e.g. <span class="arithmatex">\(E \rightarrow E + E\)</span>, <span class="arithmatex">\(E \rightarrow (E)\)</span>, <span class="arithmatex">\(E \rightarrow \text{id}\)</span></li>
+</ul>
+</li>
+<li><span class="arithmatex">\(S\)</span>: 开始符号 (Start symbol), <span class="arithmatex">\(S \in N\)</span><ul>
+<li>某个被指定的非终结符号</li>
+<li>它对应的串的集合就是文法的语言</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li><span class="arithmatex">\(T \cap N = \emptyset\)</span></li>
+<li><span class="arithmatex">\(T \cup N\)</span> : 文法符号集</li>
+</ul>
+</blockquote>
+<h4 id="_1">产生式的缩写<a class="headerlink" href="#_1" title="Permanent link">👀</a></h4>
+<p>对一组有相同左部的 <span class="arithmatex">\(\alpha\)</span> 产生式</p>
+<div class="arithmatex">\[\alpha \rightarrow \beta_1, \dots, \alpha \rightarrow \beta_n\]</div>
+<p>可以简记为：</p>
+<div class="arithmatex">\[\alpha \rightarrow \beta_1 \vert \dots \vert \beta_n\]</div>
+<ul>
+<li>读作：<span class="arithmatex">\(\alpha\)</span> 定义为 <span class="arithmatex">\(\beta_1\)</span> 或 <span class="arithmatex">\(\dots\)</span> 或 <span class="arithmatex">\(\beta_n\)</span></li>
+<li><span class="arithmatex">\(\beta_1, \dots, \beta_n\)</span> 称为 <span class="arithmatex">\(\alpha\)</span> 的候选式 (Candidate)</li>
+</ul>
+<h3 id="_2">推导和归约<a class="headerlink" href="#_2" title="Permanent link">👀</a></h3>
+<div class="admonition question">
+<p class="admonition-title">问题：给定文法，如何判定输入串属于文法规定的语言?</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">推导 (Derivations) 和归约 (Reductions)</p>
+<div class="arithmatex">\[\text{给定文法}~ G=(T, N, P, S)\]</div>
+<ul>
+<li>直接推导：把产生式看成重写规则，把符号串中的非终结符用其产生式右部的串来代替<ul>
+<li>如果 <span class="arithmatex">\(A \rightarrow \gamma \in P\)</span>, 且 <span class="arithmatex">\(\alpha, \beta \in (T \cup N)^*\)</span>, 称串 <span class="arithmatex">\(\alpha A \beta\)</span> 直接推导出 <span class="arithmatex">\(\alpha \gamma \beta\)</span>, 并记作 <span class="arithmatex">\(\alpha A \beta \Rightarrow \alpha \gamma \beta\)</span></li>
+</ul>
+</li>
+<li>直接归约：如果 <span class="arithmatex">\(\alpha A \beta \Rightarrow \alpha \gamma \beta\)</span>, 则称 <span class="arithmatex">\(\alpha \gamma \beta\)</span> 直接归约到 <span class="arithmatex">\(\alpha A \beta\)</span></li>
+<li>多步推导：如果 <span class="arithmatex">\(\alpha_0 \Rightarrow \alpha_1\)</span>, <span class="arithmatex">\(\alpha_1 \Rightarrow \alpha_2\)</span>, <span class="arithmatex">\(\dots\)</span>, <span class="arithmatex">\(\alpha_{n-1} \Rightarrow \alpha_n\)</span>, 则可以记作 <span class="arithmatex">\(\alpha_0 \Rightarrow \alpha_1 \Rightarrow \dots \Rightarrow \alpha_n\)</span>, 称符号串 <span class="arithmatex">\(\alpha_0\)</span> 经过 n 步推导得到 <span class="arithmatex">\(\alpha_n\)</span>，可简记为 <span class="arithmatex">\(\alpha_0 \Rightarrow^n \alpha_n\)</span><ul>
+<li><span class="arithmatex">\(\Rightarrow^+\)</span> 表示“经过正数步推导”</li>
+<li><span class="arithmatex">\(\Rightarrow^*\)</span> 表示“经过零步或多步推导”</li>
+</ul>
+</li>
+</ul>
+</div>
+<p><strong>1)</strong> 最左推导 (Left-most Derivation)：每步代换 <strong>最左边的非终结符</strong></p>
+<p><img alt="" src="../../../Images/2024-03-14-19-34-46.png" /></p>
+<p><strong>2)</strong> 最右推导 (Right-most Derivation)：每步代换 <strong>最右边的非终结符</strong></p>
+<p><img alt="" src="../../../Images/2024-03-14-19-34-58.png" /></p>
+<p><strong>3)</strong> 句型、句子和语言</p>
+<ul>
+<li>句型 (Sentence Form)：对开始符号为 <span class="arithmatex">\(S\)</span> 的文法 <span class="arithmatex">\(G\)</span>, 如果 <span class="arithmatex">\(S \Rightarrow^* \alpha\)</span>, <span class="arithmatex">\(\alpha \infty (T \cup N)^*\)</span>, 则称 <span class="arithmatex">\(\alpha\)</span> 为 <span class="arithmatex">\(G\)</span> 的一个句型<ul>
+<li>句型中既可以包含终结符，又可以包含非终结符，也能是空串</li>
+</ul>
+</li>
+<li>句子 (Sentence)：如果 <span class="arithmatex">\(S \Rightarrow^* w\)</span>, <span class="arithmatex">\(w \in T^*\)</span>, 则称 <span class="arithmatex">\(w\)</span> 为 <span class="arithmatex">\(G\)</span> 的一个句子<ul>
+<li>句子是<u><b>不含非终结符</b></u>的句型</li>
+</ul>
+</li>
+<li>语言 (Language)：由文法 <span class="arithmatex">\(G\)</span> 推导出的所有句子构成的集合，记为 <span class="arithmatex">\(L(G)\)</span></li>
+</ul>
+<div class="arithmatex">\[L(G) = \{w \vert S \Rightarrow^* w, w \in T^*\}\]</div>
+<details class="example">
+<summary>例: 文法定义的句型和句子</summary>
+<ul>
+<li>考虑文法：<span class="arithmatex">\(E \rightarrow E + E \vert E * E \vert (E) \vert \text{id}\)</span></li>
+<li>存在一下推导序列：</li>
+</ul>
+<div class="arithmatex">\[E \Rightarrow -E \Rightarrow -(E) \Rightarrow -(E + E) \Rightarrow -(\text{id} + E) \Rightarrow -(\text{id} + \text{id})\]</div>
+<ul>
+<li><span class="arithmatex">\(-(\text{id} + \text{id})\)</span> 是文法的句子</li>
+<li><span class="arithmatex">\(-(\text{id} + E)\)</span> 是文法的句型</li>
+</ul>
+</details>
+<p><strong>4)</strong> 输入串的判定</p>
+<div class="admonition question">
+<p class="admonition-title">问题：给定文法，如何判定输入串属于文法规定的语言?</p>
+</div>
+<p>根据文法规则</p>
+<ul>
+<li>从生成语言的角度 (句子的推导 (派生)) 出发，，从开始符号可以推导出该词串</li>
+<li>从识别语言的角度 (句子的归约) 出发，从词串可以归约出开始符号</li>
+</ul>
+<details class="example">
+<summary>Example</summary>
+<p><img alt="" src="../../../Images/2024-03-14-19-47-12.png" /></p>
+</details>
+<h3 id="re-cfg">RE 与 CFG<a class="headerlink" href="#re-cfg" title="Permanent link">👀</a></h3>
+<div class="admonition question">
+<p class="admonition-title">问题：为什么词法和语法分析用不同形式语言?</p>
+</div>
+<p><b><u>比较语法分析和词法分析</u></b></p>
+<p><img alt="" src="../../../Images/2024-03-14-19-48-33.png" /></p>
+<p>回顾 <a href="../lexical/#形式语言">形式语言</a>, <a href="../lexical/#正则表达式">正则语言(由正则表达式刻画)</a>, <a href="#cfg-的定义">上下文无关语言</a></p>
+<p>正则文法 (正则语言的形式文法刻画) 的定义:</p>
+<div class="arithmatex">\[G = (N, T, P, S)\]</div>
+<ul>
+<li><span class="arithmatex">\(N\)</span>: 非终结符集合</li>
+<li><span class="arithmatex">\(T\)</span>: 终结符集合</li>
+<li><span class="arithmatex">\(P\)</span>: 产生式 (Production) <span class="arithmatex">\(\alpha \rightarrow \beta\)</span> 集合<ul>
+<li>右线性文法：<span class="arithmatex">\(\alpha \rightarrow \beta\)</span> 形如 <span class="arithmatex">\(A \rightarrow \alpha B\)</span> 或 <span class="arithmatex">\(A \rightarrow \alpha\)</span>，其中 <span class="arithmatex">\(A, B \in N\)</span>, <span class="arithmatex">\(\alpha \in T \cup \epsilon\)</span></li>
+<li>左线性文法：<span class="arithmatex">\(\alpha \rightarrow \beta\)</span> 形如 <span class="arithmatex">\(A \rightarrow B \alpha\)</span> 或 <span class="arithmatex">\(A \rightarrow \alpha\)</span></li>
+</ul>
+</li>
+<li><span class="arithmatex">\(S\)</span>: 开始符号, <span class="arithmatex">\(S \in N\)</span></li>
+</ul>
+<blockquote>
+<p>正则语言：右线性文法/左线性文法产生的所有句子的集合</p>
+</blockquote>
+<ul>
+<li>故从文法角度考虑，正则语言和上下无关语言对 <span class="arithmatex">\(\alpha \rightarrow \beta\)</span> 形式的限制不同：<ul>
+<li>上下无关文法：<span class="arithmatex">\(\alpha\)</span> 是一个非终结符号，右部是一个符号串</li>
+<li>正则文法：右线性 <span class="arithmatex">\(\A \rightarrow \alpha B\)</span> 或 <span class="arithmatex">\(\A \rightarrow \alpha\)</span>，左线性 <span class="arithmatex">\(\A \rightarrow B \alpha\)</span> 或 <span class="arithmatex">\(\A \rightarrow \alpha\)</span></li>
+<li>上下文无关语言涵盖了正则语言，即每个正则语言都是一个上下文无关语言，反之不成立</li>
+</ul>
+</li>
+<li>从实用角度, 正则语言表达能力有限，难以刻画编程语言的语法<ul>
+<li>如: 不能用于描述配对或嵌套的结构<ul>
+<li>例：配对括号串的集合，如不能表达 <span class="arithmatex">\((^n)^n, ~n\ge 1\)</span></li>
+<li>原因：有穷自动机无法记录访问同一状态的次数</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<details class="question">
+<summary>为什么词法分析用正则表达式，不用正则文法？</summary>
+<p><img alt="" src="../../../Images/2024-03-14-20-00-54.png" /></p>
+</details>
+<div class="admonition note">
+<p class="admonition-title">分离词法分析和语法分析</p>
+<ul>
+<li>为什么用正则语言定义词法<ul>
+<li>词法规则非常简单，不必用上下文无关文法</li>
+<li>对于 Token，正则表达式描述简洁且易于理解– 从正则表达式构造出的词法分析器效率高</li>
+</ul>
+</li>
+<li>分离词法分析和语法分析的好处<ul>
+<li>简化设计、提升性能</li>
+<li>编译器的可移植性加强</li>
+<li>便于编译器前端的模块划分</li>
+</ul>
+</li>
+</ul>
+</div>
+<details class="info">
+<summary>引申: 形式文法的分类</summary>
+<p>形式语言的文法分为 4 类：</p>
+<div class="arithmatex">\[\text{文法} ~ G = (T, N, P, S)\]</div>
+<ul>
+<li>0 型文法 (短语结构文法): 递归可枚举语言<ul>
+<li><span class="arithmatex">\(\alpha \rightarrow \beta\)</span>, <span class="arithmatex">\(\alpha, \beta \in (T \cup N)^*\)</span>, <span class="arithmatex">\(\vert \alpha \vert \ge 1\)</span></li>
+</ul>
+</li>
+<li>1 型文法 (上下文有关文法)<ul>
+<li><span class="arithmatex">\(\vert \alpha \vert \le \vert \beta \vert\)</span>, 但 <span class="arithmatex">\(S \rightarrow \epsilon\)</span> 可以例外</li>
+</ul>
+</li>
+<li>2 型文法 (上下文无关文法)<ul>
+<li><span class="arithmatex">\(A \rightarrow B\)</span>, <span class="arithmatex">\(A \in N\)</span>, <span class="arithmatex">\(B \in (T \cup N)^*\)</span></li>
+</ul>
+</li>
+<li>3 型文法 (正则文法)</li>
+</ul>
+</details>
+<details class="info">
+<summary>引申: CFG 只能表达“语法”吗？</summary>
+<p><img alt="" src="../../../Images/2024-03-14-20-14-16.png" /></p>
+</details>
+<h2 id="parsing">语法分析概述 | Parsing<a class="headerlink" href="#parsing" title="Permanent link">👀</a></h2>
+<h3 id="cfg-parse-tree">CFG 的 Parse Tree<a class="headerlink" href="#cfg-parse-tree" title="Permanent link">👀</a></h3>
+<p>回顾 <a href="#推导和归约">推导和归约</a> 中输入串的判定</p>
+<h3 id="_3">设计编程语言的文法<a class="headerlink" href="#_3" title="Permanent link">👀</a></h3>
 <h2 id="top-down-parsing">自顶向下的语法分析 | Top-Down Parsing<a class="headerlink" href="#top-down-parsing" title="Permanent link">👀</a></h2>
 
 
