@@ -3775,6 +3775,16 @@
 <li><span class="arithmatex">\(T \cup N\)</span> : 文法符号集</li>
 </ul>
 </blockquote>
+<div class="admonition note">
+<p class="admonition-title">EOF Marker</p>
+<ul>
+<li><code>$</code>: end of file (EOF)</li>
+<li>To indicate that <code>$</code> must come after a complete <span class="arithmatex">\(S\)</span> -phrase<ul>
+<li>add a new start symbol <span class="arithmatex">\(S'\)</span> and a new production <span class="arithmatex">\(S' \rightarrow S\$\)</span></li>
+</ul>
+</li>
+</ul>
+</div>
 <h4 id="_1">产生式的缩写<a class="headerlink" href="#_1" title="Permanent link">👀</a></h4>
 <p>对一组有相同左部的 <span class="arithmatex">\(\alpha\)</span> 产生式</p>
 <div class="arithmatex">\[\alpha \rightarrow \beta_1, \dots, \alpha \rightarrow \beta_n\]</div>
@@ -3930,6 +3940,9 @@
 </details>
 <h2 id="parsing">语法分析概述 | Parsing<a class="headerlink" href="#parsing" title="Permanent link">👀</a></h2>
 <h3 id="cfg-parse-tree">CFG 的 Parse Tree<a class="headerlink" href="#cfg-parse-tree" title="Permanent link">👀</a></h3>
+<blockquote>
+<p>先不考虑抽象语法树 (Abstract Syntax Tree)</p>
+</blockquote>
 <p>回顾 <a href="#_2">推导和归约</a> 中输入串的判定</p>
 <p>分析树 (Parse Tree) 可以看作是推导的图形化表示，其具有下面的性质：</p>
 <ul>

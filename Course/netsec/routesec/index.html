@@ -3412,6 +3412,114 @@
     Route Computation
   </a>
   
+    <nav class="md-nav" aria-label="Route Computation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#link-state-algorithms" class="md-nav__link">
+    Link-state Algorithms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#distance-vector" class="md-nav__link">
+    Distance-vector
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hierarchical-routing-todo" class="md-nav__link">
+    Hierarchical Routing (TODO)
+  </a>
+  
+    <nav class="md-nav" aria-label="Hierarchical Routing (TODO)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rip" class="md-nav__link">
+    RIP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ospf" class="md-nav__link">
+    OSPF
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bgp" class="md-nav__link">
+    BGP
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#routing-attacks" class="md-nav__link">
+    routing attacks
+  </a>
+  
+    <nav class="md-nav" aria-label="routing attacks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prefix-hijacking" class="md-nav__link">
+    Prefix Hijacking
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#path-tampering" class="md-nav__link">
+    Path Tampering
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#secure-routing-todo" class="md-nav__link">
+    Secure Routing (TODO)
+  </a>
+  
+    <nav class="md-nav" aria-label="Secure Routing (TODO)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rpki" class="md-nav__link">
+    RPKI
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#s-bgp" class="md-nav__link">
+    S-BGP
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -3452,12 +3560,183 @@
 <blockquote>
 <p>Unicast is the dominant form of message delivery on the Internet. </p>
 </blockquote>
+<p>现在，我们的目标是将信息从一个节点传递到另一个节点，那么如何在它们之间找到一条可行的路径呢？</p>
+<div class="admonition success">
+<p class="admonition-title">This is the focus of a routing scheme.</p>
+</div>
 <p>Routing Scheme:</p>
+<blockquote>
+<p><strong>unicast</strong> -&gt; deliver msg to a single node</p>
+</blockquote>
+<p>根据两个通信实体是否在一个自治系统内，有两种不同的路由选择方案：</p>
 <ul>
 <li>Intra-domain routing: inside an autonomous system (AS)</li>
 <li>Inter-domain routing: between different ASs</li>
 </ul>
 <h2 id="route-computation">Route Computation<a class="headerlink" href="#route-computation" title="Permanent link">👀</a></h2>
+<h3 id="link-state-algorithms">Link-state Algorithms<a class="headerlink" href="#link-state-algorithms" title="Permanent link">👀</a></h3>
+<div class="admonition abstract">
+<p class="admonition-title">Abstract</p>
+<ul>
+<li>基于 Dijkstra 算法</li>
+<li>each router knows <strong>complete topology</strong> and <strong>link cost information</strong></li>
+<li>independently run routing algorithm to calculate shortest path to each destination;</li>
+</ul>
+</div>
+<p>对于 Dijkstra：</p>
+<ul>
+<li><code>c(i, j)</code>: link cost from <code>i</code> to <code>j</code> (equals <span class="arithmatex">\(\infty\)</span> if unknown)</li>
+<li><code>D(v)</code>: current value of cost of path from source to destination <code>v</code></li>
+<li><code>p(v)</code>: predecessor node along path from source to <code>v</code></li>
+<li><code>N'</code>: set of nodes whose least cost path is already known</li>
+</ul>
+<details class="info">
+<summary>pseudo-code of Dijkstra</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// Initialization</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">N</span><span class="err">&#39;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">A</span><span class="p">}</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="k">for</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">nodes</span><span class="w"> </span><span class="n">v</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="n">adjacent</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">A</span><span class="o">:</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">        </span><span class="n">then</span><span class="w"> </span><span class="n">D</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">)</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="n">D</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">infinty</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nl">Loop</span><span class="p">:</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="n">find</span><span class="w"> </span><span class="n">w</span><span class="w"> </span><span class="n">not</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">N</span><span class="err">&#39;</span><span class="w"> </span><span class="n">such</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">D</span><span class="p">(</span><span class="n">w</span><span class="p">)</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">min</span><span class="o">:</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">        </span><span class="n">add</span><span class="w"> </span><span class="n">w</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">N</span><span class="err">&#39;</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">        </span><span class="n">Update</span><span class="w"> </span><span class="n">D</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="n">adjacent</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">w</span><span class="w"> </span><span class="n">and</span><span class="w"> </span><span class="n">not</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">N</span><span class="err">&#39;</span><span class="o">:</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">            </span><span class="n">D</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">min</span><span class="p">(</span><span class="n">D</span><span class="p">(</span><span class="n">v</span><span class="p">),</span><span class="w"> </span><span class="n">D</span><span class="p">(</span><span class="n">w</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">c</span><span class="p">(</span><span class="n">w</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">))</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">        </span><span class="c1">// new cost to v is either the old cost, or known </span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">        </span><span class="c1">// shortest path cost to w plus cost from w to v </span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="n">go</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">Loop</span><span class="w"> </span><span class="n">until</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">nodes</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">N</span><span class="err">&#39;</span>
+</code></pre></div>
+</details>
+<details class="example">
+<summary>Example</summary>
+<p><img alt="" src="../../../Images/2024-03-16-11-13-33.png" /></p>
+</details>
+<details class="info">
+<summary>常见 Link-State 算法</summary>
+<ul>
+<li>OSPF (Open Shortest Path First)</li>
+<li>IS-IS (Intermediate System to Intermediate System)</li>
+<li>SPF (Shortest Path First)</li>
+<li>SPF (Shortest Path First)</li>
+</ul>
+</details>
+<ul>
+<li>Such link-state algorithms require that each router knows complete topology &amp; link cost information;</li>
+<li>What if a router has no such <strong>global view</strong>, especially in a relatively large network?</li>
+<li>Then comes the <strong>distance-vector algorithms</strong></li>
+</ul>
+<h3 id="distance-vector">Distance-vector<a class="headerlink" href="#distance-vector" title="Permanent link">👀</a></h3>
+<div class="admonition abstract">
+<p class="admonition-title">Abstract</p>
+<ul>
+<li>也称为 Bellman-Ford 或者 Ford-Fulkerson 算法</li>
+<li>Each router knows direct neighbors &amp; link costs to neighbors</li>
+<li>Calculate the shortest path to each destination through an iterative process based on the neighbors&rsquo; distances to each destination</li>
+</ul>
+</div>
+<p>对于 Distance-vector：</p>
+<ul>
+<li><code>Dx(y)</code>: cost of least-cost path from <code>x</code> to <code>y</code><ul>
+<li><code>Dx(y) = min{c(x, v) + Dv(y)}</code> </li>
+<li>for all neighbors <code>v</code> of <code>x</code></li>
+</ul>
+</li>
+</ul>
+<p>核心思想是：每个节点维护一个距离向量表，记录它到网络中其他节点的距离，然后通过向相邻节点广播自己的距离向量表，与相邻节点交换信息，以更新整个网络中每个节点的距离向量表。</p>
+<p><img alt="" src="../../../Images/2024-03-16-15-06-54.png" /></p>
+<p>both types of path computation algorithms can be used for intra-domain routing and inter-domain routing</p>
+<h2 id="hierarchical-routing-todo">Hierarchical Routing (TODO)<a class="headerlink" href="#hierarchical-routing-todo" title="Permanent link">👀</a></h2>
+<p><img alt="" src="../../../Images/2024-03-16-15-13-35.png" /></p>
+<ul>
+<li>IGP (Interior Gateway Protocol)<ul>
+<li>RIP (Routing Information Protocol)</li>
+<li>OSPF (Open Shortest Path First)</li>
+</ul>
+</li>
+<li>BGP (Border Gateway Protocol)</li>
+</ul>
+<h3 id="rip">RIP<a class="headerlink" href="#rip" title="Permanent link">👀</a></h3>
+<ul>
+<li>Distance-vector algorithm<ul>
+<li>Distance metric: number of hops (max = 15 hops)</li>
+</ul>
+</li>
+<li>Each router exchanges its routing advertisement with its neighbors every 30 seconds</li>
+<li>Failure and Recovery<ul>
+<li>All routes via N invalidated; </li>
+<li>updates sent to neighbors, neighbors in turn may send out new advertisements (if tables changed)</li>
+<li>Use poison reverse to prevent ping-pong loops (16 hops = <span class="arithmatex">\(\infty\)</span>) </li>
+</ul>
+</li>
+</ul>
+<details class="example">
+<summary>Example</summary>
+<p><img alt="" src="../../../Images/2024-03-16-15-25-02.png" /></p>
+</details>
+<h3 id="ospf">OSPF<a class="headerlink" href="#ospf" title="Permanent link">👀</a></h3>
+<ul>
+<li>LSP (Link-State Packet) <ul>
+<li>one entry per neighbor router</li>
+<li>ID of the node that created the LSP</li>
+<li>a list of direct neighbors, with link cost to each</li>
+<li>sequence number for this LSP message (SEQ)</li>
+<li>time-to-live (TTL) for information carried in this LSP</li>
+<li>Use raw IP packet (protocol ID = 89)</li>
+</ul>
+</li>
+<li>Build a complete map using link states<ul>
+<li>everyone broadcasts a piece of topology;</li>
+<li>put all pieces together <span class="arithmatex">\(\rightarrow\)</span> complete map</li>
+</ul>
+</li>
+</ul>
+<details class="note">
+<summary>process</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Builds and maintains topology map at each node
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Stores and forwards most recent LSP from all other nodes
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    decrement TTL of stored LSP; discard info when TTL=0
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>Compute routes using Dijkstra’s algorithm
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>generates its own LSP periodically with increasing SEQ
+</code></pre></div>
+</details>
+<h3 id="bgp">BGP<a class="headerlink" href="#bgp" title="Permanent link">👀</a></h3>
+<blockquote>
+<p>Border Gateway Protocol, connects other ASes</p>
+</blockquote>
+<h2 id="routing-attacks">routing attacks<a class="headerlink" href="#routing-attacks" title="Permanent link">👀</a></h2>
+<ul>
+<li>distance-vector: <ul>
+<li>Announce 0 distance to all other nodes</li>
+<li>Blackhole traffic</li>
+<li>Eavesdrop</li>
+</ul>
+</li>
+<li>link-state: <ul>
+<li>Can drop links randomly</li>
+<li>Can claim direct link to any other routers</li>
+<li>A bit harder to attack than DV</li>
+</ul>
+</li>
+<li>BGP: <ul>
+<li>ASes can announce arbitrary prefix</li>
+<li>ASes can alter path</li>
+</ul>
+</li>
+</ul>
+<h3 id="prefix-hijacking">Prefix Hijacking<a class="headerlink" href="#prefix-hijacking" title="Permanent link">👀</a></h3>
+<p><strong>Case 1: 谎称自己是某个 prefix</strong></p>
+<p><img alt="" src="../../../Images/2024-03-16-18-26-51.png" /></p>
+<p><strong>Case 2: 谎称自己有更短的路径</strong></p>
+<p><img alt="" src="../../../Images/2024-03-16-18-27-22.png" /></p>
+<h3 id="path-tampering">Path Tampering<a class="headerlink" href="#path-tampering" title="Permanent link">👀</a></h3>
+<p>通过修改路径上的 AS 节点来达到跳转具体几跳的目的，从而实现攻击：</p>
+<p><img alt="" src="../../../Images/2024-03-16-18-06-54.png" /></p>
+<h2 id="secure-routing-todo">Secure Routing (TODO)<a class="headerlink" href="#secure-routing-todo" title="Permanent link">👀</a></h2>
+<h3 id="rpki">RPKI<a class="headerlink" href="#rpki" title="Permanent link">👀</a></h3>
+<p>即 Resource Public Key Infrastructure</p>
+<h3 id="s-bgp">S-BGP<a class="headerlink" href="#s-bgp" title="Permanent link">👀</a></h3>
 
 
   
