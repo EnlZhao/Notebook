@@ -62,6 +62,11 @@ $$G = (T, N, P, S)$$
 > - $T \cap N = \emptyset$
 > - $T \cup N$ : 文法符号集
 
+!!! note "EOF Marker"
+    - `$`: end of file (EOF)
+    - To indicate that `$` must come after a complete $S$ -phrase
+        -  add a new start symbol $S'$ and a new production $S' \rightarrow S\$$
+
 #### 产生式的缩写
 
 对一组有相同左部的 $\alpha$ 产生式
@@ -154,7 +159,7 @@ $$G = (N, T, P, S)$$
 
 - 故从文法角度考虑，正则语言和上下无关语言对 $\alpha \rightarrow \beta$ 形式的限制不同：
     - 上下无关文法：$\alpha$ 是一个非终结符号，右部是一个符号串
-    - 正则文法：右线性 $\A \rightarrow \alpha B$ 或 $\A \rightarrow \alpha$，左线性 $\A \rightarrow B \alpha$ 或 $\A \rightarrow \alpha$
+    - 正则文法：右线性 $A \rightarrow \alpha B$ 或 $A \rightarrow \alpha$，左线性 $A \rightarrow B \alpha$ 或 $A \rightarrow \alpha$
     - 上下文无关语言涵盖了正则语言，即每个正则语言都是一个上下文无关语言，反之不成立
 - 从实用角度, 正则语言表达能力有限，难以刻画编程语言的语法
     - 如: 不能用于描述配对或嵌套的结构
@@ -193,6 +198,8 @@ $$G = (N, T, P, S)$$
 
 ### CFG 的 Parse Tree
 
+> 先不考虑抽象语法树 (Abstract Syntax Tree)
+
 回顾 [推导和归约](#_2) 中输入串的判定
 
 分析树 (Parse Tree) 可以看作是推导的图形化表示，其具有下面的性质：
@@ -201,7 +208,7 @@ $$G = (N, T, P, S)$$
 - 每个叶子节点是一个终结符
 - 每个内部节点是一个非终结符
 - 每一个父节点和他的子节点构成一条产生式
-
+    
 ![](../../Images/2024-03-14-20-27-09.png)
 
 可以将语法分析看作搜索问题，语法分析的核心问题就是：对于一个终结符号串 $x$, 设法从 $S$ 推导出 $x$ 或者从 $x$ 归约出 $S$
@@ -304,7 +311,7 @@ E   -> E + E
 %right `-`
 ```
 
-??? question "练习: 文法的二义性"
+??? example "练习: 文法的二义性"
     ![](../../Images/2024-03-15-10-22-08.png)
 
 ??? info "通常的符号约定"
