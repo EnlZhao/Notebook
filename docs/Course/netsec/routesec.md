@@ -229,26 +229,32 @@ both types of path computation algorithms can be used for intra-domain routing a
 - Each AS on the path cryptographically signs its announcement
 - Guarantees that each AS on the path made the announcement in the path.
 
-- Address attestations
-    - Claim the right to originate a prefix
-    - Signed and distributed out-of-band
-    - Checked through delegation chain from ICANN
-- Route attestations
-    - Distributed as an attribute in BGP update message
-    - Signed by each AS as route traverses the network
-    - Signature signs previously attached signatures
-- S-BGP can validate
-    - AS path indicates the order ASes were traversed
-    - No intermediate ASes were added or removed 
+**Address attestations**
 
-- Deployment challenges: 
-    - Complete, accurate registries
-        - E.g., of prefix ownership
-    - Public Key Infrastructure
-        - To know the public key for any given AS
-    - Cryptographic operations
-        - E.g., digital signatures on BGP messages
-    - Need to perform operations quickly
-        - To avoid delaying response to routing changes
-    - Difficulty of incremental deployment
-        - Hard to have a “flag day” to deploy S-BGP
+- Claim the right to originate a prefix
+- Signed and distributed out-of-band
+- Checked through delegation chain from ICANN
+
+**Route attestations**
+
+- Distributed as an attribute in BGP update message
+- Signed by each AS as route traverses the network
+- Signature signs previously attached signatures
+
+**S-BGP can validate**
+
+- AS path indicates the order ASes were traversed
+- No intermediate ASes were added or removed 
+
+**Deployment challenges:**
+
+- Complete, accurate registries
+    - E.g., of prefix ownership
+- Public Key Infrastructure
+    - To know the public key for any given AS
+- Cryptographic operations
+    - E.g., digital signatures on BGP messages
+- Need to perform operations quickly
+    - To avoid delaying response to routing changes
+- Difficulty of incremental deployment
+    - Hard to have a “flag day” to deploy S-BGP
