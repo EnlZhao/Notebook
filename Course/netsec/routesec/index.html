@@ -3496,16 +3496,16 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#secure-routing-todo" class="md-nav__link">
-    Secure Routing (TODO)
+  <a href="#secure-routing_1" class="md-nav__link">
+    Secure Routing
   </a>
   
-    <nav class="md-nav" aria-label="Secure Routing (TODO)">
+    <nav class="md-nav" aria-label="Secure Routing">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#rpki" class="md-nav__link">
-    RPKI
+  <a href="#rpki-resource-public-key-infrastructure" class="md-nav__link">
+    RPKI (Resource Public Key Infrastructure)
   </a>
   
 </li>
@@ -3609,6 +3609,31 @@
 <a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="n">go</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">Loop</span><span class="w"> </span><span class="n">until</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">nodes</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">N</span><span class="err">&#39;</span>
 </code></pre></div>
 </details>
+<!-- ??? info "framework of Dijkstra"
+    ```c++
+    struct edge {
+        int v, w;
+    };
+
+    vector<edge> e[maxn];
+    int dis[maxn], vis[maxn];
+
+    void dijkstra(int n, int s) {
+        memset(dis, 63, sizeof(dis));
+        dis[s] = 0;
+        for (int i = 1; i <= n; i++) {
+            int u = 0, mind = 0x3f3f3f3f;
+            for (int j = 1; j <= n; j++)
+                if (!vis[j] && dis[j] < mind) u = j, mind = dis[j];
+            vis[u] = true;
+            for (auto ed : e[u]) {
+                int v = ed.v, w = ed.w;
+                if (dis[v] > dis[u] + w) dis[v] = dis[u] + w;
+            }
+        }
+    }
+    ``` -->
+
 <details class="example">
 <summary>Example</summary>
 <p><img alt="" src="../../../Images/2024-03-16-11-13-33.png" /></p>
@@ -3726,17 +3751,96 @@
 </li>
 </ul>
 <h3 id="prefix-hijacking">Prefix Hijacking<a class="headerlink" href="#prefix-hijacking" title="Permanent link">👀</a></h3>
+<details class="question">
+<summary>How does it work?</summary>
+<ul>
+<li>The first method is to pretend to be a certain prefix. When routers exchanges their messages, they will think that the attacker has this prefix and they renew their routing table. So the traffic towards that prefix will acturally routed to the attacker.</li>
+<li>The second method is to pretend to be near to a certain prefix. As the routing algorithms tend to find a short path toward the destination, some of the routers will route the packets to the attacker.</li>
+</ul>
+</details>
 <p><strong>Case 1: 谎称自己是某个 prefix</strong></p>
 <p><img alt="" src="../../../Images/2024-03-16-18-26-51.png" /></p>
 <p><strong>Case 2: 谎称自己有更短的路径</strong></p>
-<p><img alt="" src="../../../Images/2024-03-16-18-27-22.png" /></p>
+<blockquote>
+<p>attacker 谎称自己是某个节点的 neighbor, 然后导致有一个虚假的最短路径，使得流量经过攻击者的节点</p>
+</blockquote>
+<p><img alt="" src="../../../Images/2024-03-18-14-29-06.png" /></p>
+<p>例如 <code>China Telecom</code> 宣称是 <code>22394</code> 的 neighbor，然后导致 <code>ISP 1</code> 计算出了更短路径，会先经过 <code>China Telecom</code></p>
 <h3 id="path-tampering">Path Tampering<a class="headerlink" href="#path-tampering" title="Permanent link">👀</a></h3>
 <p>通过修改路径上的 AS 节点来达到跳转具体几跳的目的，从而实现攻击：</p>
 <p><img alt="" src="../../../Images/2024-03-16-18-06-54.png" /></p>
-<h2 id="secure-routing-todo">Secure Routing (TODO)<a class="headerlink" href="#secure-routing-todo" title="Permanent link">👀</a></h2>
-<h3 id="rpki">RPKI<a class="headerlink" href="#rpki" title="Permanent link">👀</a></h3>
-<p>即 Resource Public Key Infrastructure</p>
+<h2 id="secure-routing_1">Secure Routing<a class="headerlink" href="#secure-routing_1" title="Permanent link">👀</a></h2>
+<h3 id="rpki-resource-public-key-infrastructure">RPKI (Resource Public Key Infrastructure)<a class="headerlink" href="#rpki-resource-public-key-infrastructure" title="Permanent link">👀</a></h3>
+<details class="question">
+<summary>How does RPKI work?</summary>
+<ul>
+<li>RPKI provides a certified mapping from ASes to prefixes (as well as public keys). </li>
+<li>So when an attacker AS pretend to have a certain prefix, other ASes can find from the RPKI that it is not valid, so that the first method of prefix hijacking will not work.</li>
+<li><strong>But as for the second method, RPKI can do nothing, so it is insufficient for secure routing.</strong></li>
+</ul>
+</details>
+<ul>
+<li>RPKI 是 IP 前缀和拥有他们的 As 之间的认证映射</li>
+</ul>
+<blockquote>
+<p>However, if instead of just being misconfigured, china telecom decided to behave maliciously, RPKI would not be enough. So for example china telecom could pretend they have a direct connection to the AS that owns the prefix by announcing China telecom 22394.</p>
+</blockquote>
 <h3 id="s-bgp">S-BGP<a class="headerlink" href="#s-bgp" title="Permanent link">👀</a></h3>
+<blockquote>
+<p>也验证了邻居关系，解决 Prefix Hijacking 的第二个问题</p>
+</blockquote>
+<ul>
+<li>Each AS on the path cryptographically signs its announcement</li>
+<li>
+<p>Guarantees that each AS on the path made the announcement in the path.</p>
+</li>
+<li>
+<p>Address attestations</p>
+<ul>
+<li>Claim the right to originate a prefix</li>
+<li>Signed and distributed out-of-band</li>
+<li>Checked through delegation chain from ICANN</li>
+</ul>
+</li>
+<li>Route attestations<ul>
+<li>Distributed as an attribute in BGP update message</li>
+<li>Signed by each AS as route traverses the network</li>
+<li>Signature signs previously attached signatures</li>
+</ul>
+</li>
+<li>
+<p>S-BGP can validate</p>
+<ul>
+<li>AS path indicates the order ASes were traversed</li>
+<li>No intermediate ASes were added or removed </li>
+</ul>
+</li>
+<li>
+<p>Deployment challenges: </p>
+<ul>
+<li>Complete, accurate registries<ul>
+<li>E.g., of prefix ownership</li>
+</ul>
+</li>
+<li>Public Key Infrastructure<ul>
+<li>To know the public key for any given AS</li>
+</ul>
+</li>
+<li>Cryptographic operations<ul>
+<li>E.g., digital signatures on BGP messages</li>
+</ul>
+</li>
+<li>Need to perform operations quickly<ul>
+<li>To avoid delaying response to routing changes</li>
+</ul>
+</li>
+<li>Difficulty of incremental deployment<ul>
+<li>Hard to have a “flag day” to deploy S-BGP</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
 
   
