@@ -63,6 +63,31 @@ Routing Scheme:
     go to Loop until all nodes in N'
     ```
 
+<!-- ??? info "framework of Dijkstra"
+    ```c++
+    struct edge {
+        int v, w;
+    };
+
+    vector<edge> e[maxn];
+    int dis[maxn], vis[maxn];
+
+    void dijkstra(int n, int s) {
+        memset(dis, 63, sizeof(dis));
+        dis[s] = 0;
+        for (int i = 1; i <= n; i++) {
+            int u = 0, mind = 0x3f3f3f3f;
+            for (int j = 1; j <= n; j++)
+                if (!vis[j] && dis[j] < mind) u = j, mind = dis[j];
+            vis[u] = true;
+            for (auto ed : e[u]) {
+                int v = ed.v, w = ed.w;
+                if (dis[v] > dis[u] + w) dis[v] = dis[u] + w;
+            }
+        }
+    }
+    ``` -->
+
 ??? example
     ![](../../Images/2024-03-16-11-13-33.png)
 
@@ -161,14 +186,21 @@ both types of path computation algorithms can be used for intra-domain routing a
 
 ### Prefix Hijacking
 
+??? question "How does it work?"
+    - The first method is to pretend to be a certain prefix. When routers exchanges their messages, they will think that the attacker has this prefix and they renew their routing table. So the traffic towards that prefix will acturally routed to the attacker.
+    - The second method is to pretend to be near to a certain prefix. As the routing algorithms tend to find a short path toward the destination, some of the routers will route the packets to the attacker.
+
 **Case 1: 谎称自己是某个 prefix**
 
 ![](../../Images/2024-03-16-18-26-51.png)
 
-
 **Case 2: 谎称自己有更短的路径**
 
-![](../../Images/2024-03-16-18-27-22.png)
+> attacker 谎称自己是某个节点的 neighbor, 然后导致有一个虚假的最短路径，使得流量经过攻击者的节点
+
+![](../../Images/2024-03-18-14-29-06.png)
+
+例如 `China Telecom` 宣称是 `22394` 的 neighbor，然后导致 `ISP 1` 计算出了更短路径，会先经过 `China Telecom`
 
 ### Path Tampering
 
@@ -176,12 +208,47 @@ both types of path computation algorithms can be used for intra-domain routing a
 
 ![](../../Images/2024-03-16-18-06-54.png)
 
-## Secure Routing (TODO)
+## Secure Routing
 
-### RPKI
+### RPKI (Resource Public Key Infrastructure)
 
-即 Resource Public Key Infrastructure
+??? question "How does RPKI work?"
+    - RPKI provides a certified mapping from ASes to prefixes (as well as public keys). 
+    - So when an attacker AS pretend to have a certain prefix, other ASes can find from the RPKI that it is not valid, so that the first method of prefix hijacking will not work.
+    - **But as for the second method, RPKI can do nothing, so it is insufficient for secure routing.**
 
+- RPKI 是 IP 前缀和拥有他们的 As 之间的认证映射
+
+> However, if instead of just being misconfigured, china telecom decided to behave maliciously, RPKI would not be enough. So for example china telecom could pretend they have a direct connection to the AS that owns the prefix by announcing China telecom 22394.
 
 
 ### S-BGP
+
+> 也验证了邻居关系，解决 Prefix Hijacking 的第二个问题
+
+- Each AS on the path cryptographically signs its announcement
+- Guarantees that each AS on the path made the announcement in the path.
+
+- Address attestations
+    - Claim the right to originate a prefix
+    - Signed and distributed out-of-band
+    - Checked through delegation chain from ICANN
+- Route attestations
+    - Distributed as an attribute in BGP update message
+    - Signed by each AS as route traverses the network
+    - Signature signs previously attached signatures
+- S-BGP can validate
+    - AS path indicates the order ASes were traversed
+    - No intermediate ASes were added or removed 
+
+- Deployment challenges: 
+    - Complete, accurate registries
+        - E.g., of prefix ownership
+    - Public Key Infrastructure
+        - To know the public key for any given AS
+    - Cryptographic operations
+        - E.g., digital signatures on BGP messages
+    - Need to perform operations quickly
+        - To avoid delaying response to routing changes
+    - Difficulty of incremental deployment
+        - Hard to have a “flag day” to deploy S-BGP
