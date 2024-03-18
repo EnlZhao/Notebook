@@ -3791,32 +3791,26 @@
 </blockquote>
 <ul>
 <li>Each AS on the path cryptographically signs its announcement</li>
-<li>
-<p>Guarantees that each AS on the path made the announcement in the path.</p>
-</li>
-<li>
-<p>Address attestations</p>
+<li>Guarantees that each AS on the path made the announcement in the path.</li>
+</ul>
+<p><strong>Address attestations</strong></p>
 <ul>
 <li>Claim the right to originate a prefix</li>
 <li>Signed and distributed out-of-band</li>
 <li>Checked through delegation chain from ICANN</li>
 </ul>
-</li>
-<li>Route attestations<ul>
+<p><strong>Route attestations</strong></p>
+<ul>
 <li>Distributed as an attribute in BGP update message</li>
 <li>Signed by each AS as route traverses the network</li>
 <li>Signature signs previously attached signatures</li>
 </ul>
-</li>
-<li>
-<p>S-BGP can validate</p>
+<p><strong>S-BGP can validate</strong></p>
 <ul>
 <li>AS path indicates the order ASes were traversed</li>
 <li>No intermediate ASes were added or removed </li>
 </ul>
-</li>
-<li>
-<p>Deployment challenges: </p>
+<p><strong>Deployment challenges:</strong></p>
 <ul>
 <li>Complete, accurate registries<ul>
 <li>E.g., of prefix ownership</li>
@@ -3836,8 +3830,6 @@
 </li>
 <li>Difficulty of incremental deployment<ul>
 <li>Hard to have a “flag day” to deploy S-BGP</li>
-</ul>
-</li>
 </ul>
 </li>
 </ul>
