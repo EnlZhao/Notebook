@@ -526,6 +526,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://enlzhao.github.io/Notebook/Course/netsec/anonymity/</loc>
+         <lastmod>2024-03-18</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://enlzhao.github.io/Notebook/Course/netsec/ddos/</loc>
          <lastmod>2024-03-18</lastmod>
          <changefreq>daily</changefreq>
