@@ -24,10 +24,3 @@
 ??? question "How to infer anonymity or privacy of Onion Routing traffic?"
     Each node only knows about the immediately preceding and following node in a relay. The source and destination of messages is obscured by layers of encryption. And because of the layers of encryption and randomization, none of the nodes can know whether the next and last node is the source or destination or not.
 
-??? question ""
-
-??? question ""
-
-??? question ""
-
-
