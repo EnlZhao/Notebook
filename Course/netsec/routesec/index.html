@@ -1837,11 +1837,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#hierarchical-routing-todo" class="md-nav__link">
-    Hierarchical Routing (TODO)
+  <a href="#hierarchical-routing" class="md-nav__link">
+    Hierarchical Routing
   </a>
   
-    <nav class="md-nav" aria-label="Hierarchical Routing (TODO)">
+    <nav class="md-nav" aria-label="Hierarchical Routing">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -3651,11 +3651,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#hierarchical-routing-todo" class="md-nav__link">
-    Hierarchical Routing (TODO)
+  <a href="#hierarchical-routing" class="md-nav__link">
+    Hierarchical Routing
   </a>
   
-    <nav class="md-nav" aria-label="Hierarchical Routing (TODO)">
+    <nav class="md-nav" aria-label="Hierarchical Routing">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -3895,7 +3895,7 @@
 <p>核心思想是：每个节点维护一个距离向量表，记录它到网络中其他节点的距离，然后通过向相邻节点广播自己的距离向量表，与相邻节点交换信息，以更新整个网络中每个节点的距离向量表。</p>
 <p><img alt="" src="../../../Images/2024-03-16-15-06-54.png" /></p>
 <p>both types of path computation algorithms can be used for intra-domain routing and inter-domain routing</p>
-<h2 id="hierarchical-routing-todo">Hierarchical Routing (TODO)<a class="headerlink" href="#hierarchical-routing-todo" title="Permanent link">👀</a></h2>
+<h2 id="hierarchical-routing">Hierarchical Routing<a class="headerlink" href="#hierarchical-routing" title="Permanent link">👀</a></h2>
 <p><img alt="" src="../../../Images/2024-03-16-15-13-35.png" /></p>
 <ul>
 <li>IGP (Interior Gateway Protocol)<ul>
@@ -3953,6 +3953,21 @@
 <blockquote>
 <p>Border Gateway Protocol, connects other ASes</p>
 </blockquote>
+<div class="admonition abstract">
+<p class="admonition-title">Abstract</p>
+<ul>
+<li>核心思想是通过向相邻自治广播路由信息，实现不同自治系统之间的路由交换</li>
+<li>每个自治系统会维护一个 BGP 路由表，记录自己的网络拓扑和可达性信息，并将其向相邻的自治系统广播</li>
+<li>当一个自治系统收到来自相邻自治系统的路由信息时，会与自己的进行比对并更新自己的路由表</li>
+</ul>
+</div>
+<ul>
+<li>类似 Vector Routing</li>
+<li>可以理解为抽象出两层，一层内部的路由算法，一层是不同自治系统之间的路由算法</li>
+<li>As 的 border routers 扮演 router 的角色, As 的 prefix 扮演 router 的 IP 地址</li>
+</ul>
+<p><img alt="" src="../../../Images/2024-03-24-20-15-57.png" /></p>
+<p><img alt="" src="../../../Images/2024-03-24-20-12-44.png" /></p>
 <h2 id="routing-attacks">routing attacks<a class="headerlink" href="#routing-attacks" title="Permanent link">👀</a></h2>
 <ul>
 <li>distance-vector: <ul>
