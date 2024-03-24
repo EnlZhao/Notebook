@@ -120,7 +120,7 @@ Routing Scheme:
 
 both types of path computation algorithms can be used for intra-domain routing and inter-domain routing
 
-## Hierarchical Routing (TODO)
+## Hierarchical Routing
 
 ![](../../Images/2024-03-16-15-13-35.png)
 
@@ -168,7 +168,18 @@ both types of path computation algorithms can be used for intra-domain routing a
 
 > Border Gateway Protocol, connects other ASes
 
+!!! abstract
+    - 核心思想是通过向相邻自治广播路由信息，实现不同自治系统之间的路由交换
+    - 每个自治系统会维护一个 BGP 路由表，记录自己的网络拓扑和可达性信息，并将其向相邻的自治系统广播
+    - 当一个自治系统收到来自相邻自治系统的路由信息时，会与自己的进行比对并更新自己的路由表
 
+- 类似 Vector Routing
+- 可以理解为抽象出两层，一层内部的路由算法，一层是不同自治系统之间的路由算法
+- As 的 border routers 扮演 router 的角色, As 的 prefix 扮演 router 的 IP 地址
+
+![](../../Images/2024-03-24-20-15-57.png)
+
+![](../../Images/2024-03-24-20-12-44.png)
 
 ## routing attacks
 
@@ -221,7 +232,6 @@ both types of path computation algorithms can be used for intra-domain routing a
 
 > However, if instead of just being misconfigured, china telecom decided to behave maliciously, RPKI would not be enough. So for example china telecom could pretend they have a direct connection to the AS that owns the prefix by announcing China telecom 22394.
 
-
 ### S-BGP
 
 > 也验证了邻居关系，解决 Prefix Hijacking 的第二个问题
@@ -258,3 +268,79 @@ both types of path computation algorithms can be used for intra-domain routing a
     - To avoid delaying response to routing changes
 - Difficulty of incremental deployment
     - Hard to have a “flag day” to deploy S-BGP
+
+## Some Questions
+
+??? question "What are the key features of the five typical delivery schemes?"
+    - `Unicast`: Send to a single host.
+    - `Broadcast`: Send to all hosts in the same network or subnet.
+    - `Multicast`: Send to a group of hosts.
+    - `Anycast`: Send to any one host in a group.
+    - `Geocast`: A special case of multicast, where the group is defined by the hosts' geographical locations.
+
+??? question "What is the framework of the Dijkstra algorithm?"
+    ```c++
+    struct edge {
+        int v, w;
+    };
+
+    vector<edge> e[maxn];
+    int dis[maxn], vis[maxn];
+
+    void dijkstra(int n, int s) {
+        memset(dis, 63, sizeof(dis));
+        dis[s] = 0;
+        for (int i = 1; i <= n; i++) {
+            int u = 0, mind = 0x3f3f3f3f;
+            for (int j = 1; j <= n; j++)
+                if (!vis[j] && dis[j] < mind) 
+                    u = j, mind = dis[j];
+            vis[u] = true;
+            for (auto ed : e[u]) {
+                int v = ed.v, w = ed.w;
+                if (dis[v] > dis[u] + w) 
+                    dis[v] = dis[u] + w;
+            }
+        }
+    }
+    ```
+
+??? question "What is the framework of the Bellman-Ford algorithm?"
+    ```c++
+    struct edge {
+        int v, w;
+    };
+
+    vector<edge> e[maxn];
+    int dis[maxn];
+    const int inf = 0x3f3f3f3f;
+
+    bool bellmanford(int n, int s) {
+        memset(dis, 63, sizeof(dis));
+        dis[s] = 0;
+        bool flag; 
+        for (int i = 1; i <= n; i++) {
+            flag = false;
+            for (int u = 1; u <= n; u++) {
+                if (dis[u] == inf) continue;
+                for (auto ed : e[u]) {
+                    int v = ed.v, w = ed.w;
+                    if (dis[v] > dis[u] + w) {
+                        dis[v] = dis[u] + w;
+                        flag = true;
+                    }
+                }
+            }
+            if (!flag) break;
+        }
+        return flag;
+    }
+    ```
+
+??? question "How does prefix hijacking work?"
+    - The first method is to pretend to be a certain prefix. When routers exchanges their messages, they will think that the attacker has this prefix and they renew their routing table. So the traffic towards that prefix will acturally routed to the attacker.
+    - The second method is to pretend to be near to a certain prefix. As the routing algorithms tend to find a short path toward the destination, some of the routers will route the packets to the attacker.
+  
+??? question "How does RPKI work? Why is it insufficient for secure routing?"
+    - RPKI, Resource Public Key Infrastructure, provides a certified mapping from ASes to prefixes (as well as public keys). So when an attacker AS pretend to have a certain prefix, other ASes can find from the RPKI that it is not valid, so that the first method of prefix hijacking will not work.
+    - But as for the second method, RPKI can do nothing, so it is insufficient for secure routing.
