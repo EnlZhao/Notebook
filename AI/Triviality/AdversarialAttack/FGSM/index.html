@@ -3667,7 +3667,7 @@
 <li>因为白盒攻击已知模型的内部结构和参数，故最有效的白盒攻击算法即是对模型输入的梯度进行有限扰动，使扰动后的损失函数值最大化，从而使模型的输出发生改变</li>
 <li>在设计神经网络时，会使用梯度下降法使 gradient 最小，而对抗攻击相反，FGSM 使梯度上升，使得损失函数最大化</li>
 </ul>
-<p>具体讲，FGSM 是在白盒环境下，通过求出模型对输入的导数，然后用符号函数得到具体的梯度方向，接着乘上一个步长，得到最终的扰动值，最后将扰动值加到原始输入上，得到对抗样本，如：<a class="glightbox" href="../../../Images/2023-11-22-08-41-16.png" data-type="image" data-width="50%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2023-11-22-08-41-16.png" /></a><br />
+<p>具体讲，FGSM 是在白盒环境下，通过求出模型对输入的导数，然后用符号函数得到具体的梯度方向，接着乘上一个步长，得到最终的扰动值，最后将扰动值加到原始输入上，得到对抗样本，如：<a class="glightbox" href="../../../Images/2023-11-22-08-41-16.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2023-11-22-08-41-16.png" /></a><br />
 (数学表达如下)：</p>
 <div class="arithmatex">\[
 \boldsymbol{x}^{'} = \boldsymbol{x} + \epsilon \cdot sign(\nabla_x J(\boldsymbol{\theta}, \boldsymbol{x}, y))

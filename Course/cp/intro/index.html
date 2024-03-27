@@ -3647,17 +3647,17 @@
 <li>前端：<ul>
 <li>词法分析 | Lexing/Scanning/Lexical Analysis<ul>
 <li>将程序字符流分解为记号 (Token)序列</li>
-<li>e.g. <br><a class="glightbox" href="../../../Images/2024-03-11-06-34-16.png" data-type="image" data-width="50%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-11-06-34-16.png" /></a></li>
+<li>e.g. <br><a class="glightbox" href="../../../Images/2024-03-11-06-34-16.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-11-06-34-16.png" /></a></li>
 </ul>
 </li>
 <li>语法分析 | Parsing/Syntax Analysis<ul>
 <li>将记号序列解析为语法结构</li>
-<li>e.g. <br><a class="glightbox" href="../../../Images/2024-03-11-06-34-34.png" data-type="image" data-width="50%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-11-06-34-34.png" /></a></li>
+<li>e.g. <br><a class="glightbox" href="../../../Images/2024-03-11-06-34-34.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-11-06-34-34.png" /></a></li>
 </ul>
 </li>
 <li>语义分析(Semantic Analysis)<ul>
 <li>收集标识符的类型等属性信息</li>
-<li>e.g. <br><a class="glightbox" href="../../../Images/2024-03-11-06-35-08.png" data-type="image" data-width="50%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-11-06-35-08.png" /></a></li>
+<li>e.g. <br><a class="glightbox" href="../../../Images/2024-03-11-06-35-08.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-11-06-35-08.png" /></a></li>
 </ul>
 </li>
 </ul>
@@ -3665,12 +3665,12 @@
 <li>中端：<ul>
 <li>中间代码生成 | Intermediate Code Generation<ul>
 <li>中间代码/中间表示: 源语言与目标语言之间的桥梁</li>
-<li>e.g. <br><a class="glightbox" href="../../../Images/2024-03-11-06-35-57.png" data-type="image" data-width="50%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-11-06-35-57.png" /></a></li>
+<li>e.g. <br><a class="glightbox" href="../../../Images/2024-03-11-06-35-57.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-11-06-35-57.png" /></a></li>
 </ul>
 </li>
 <li>(基于中间表示的)优化 (与机器无关的代码优化)<ul>
 <li>基于中间表示进行分析与变换，降低执行时间，减少资源消耗等</li>
-<li>e.g. <br><a class="glightbox" href="../../../Images/2024-03-11-06-37-45.png" data-type="image" data-width="50%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-11-06-37-45.png" /></a></li>
+<li>e.g. <br><a class="glightbox" href="../../../Images/2024-03-11-06-37-45.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-11-06-37-45.png" /></a></li>
 </ul>
 </li>
 </ul>
@@ -3678,16 +3678,16 @@
 <li>后端：<ul>
 <li>目标代码生成<ul>
 <li>把中间表示形式翻译到目标语言 (指令选择、寄存器分配、指令调度)</li>
-<li>e.g. <br><a class="glightbox" href="../../../Images/2024-03-11-06-38-49.png" data-type="image" data-width="50%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-11-06-38-49.png" /></a></li>
+<li>e.g. <br><a class="glightbox" href="../../../Images/2024-03-11-06-38-49.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-11-06-38-49.png" /></a></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
 <h2 id="tiger">案例：Tiger 编程器<a class="headerlink" href="#tiger" title="Permanent link">👀</a></h2>
-<p><a class="glightbox" href="../../../Images/2024-03-11-06-40-00.png" data-type="image" data-width="50%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-11-06-40-00.png" /></a></p>
+<p><a class="glightbox" href="../../../Images/2024-03-11-06-40-00.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-11-06-40-00.png" /></a></p>
 <p>Tiger 编译器的流程如下：</p>
-<p><a class="glightbox" href="../../../Images/2024-03-11-06-40-43.png" data-type="image" data-width="50%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-11-06-40-43.png" /></a></p>
+<p><a class="glightbox" href="../../../Images/2024-03-11-06-40-43.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-11-06-40-43.png" /></a></p>
 <ul>
 <li>AST(抽象语法树): 语法分析 + “Parsing Actions”生成</li>
 <li>IR Tree: 语义分析后按一定规则生成(树型中间表示)</li>
