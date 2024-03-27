@@ -94,7 +94,16 @@
     
     
     
-  </head>
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -3868,11 +3877,11 @@
 </div>
 <ol start="2">
 <li>邻接表表示法 —— G[N] 为指针数组，对应矩阵每行要给链表且只存非 0 元素<br />
-<img alt="2023-01-30-16-55-50" src="../../../Images/2023-01-30-16-55-50.png" /><ul>
+<a class="glightbox" href="../../../Images/2023-01-30-16-55-50.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="2023-01-30-16-55-50" src="../../../Images/2023-01-30-16-55-50.png" /></a><ul>
 <li>对于无向图，每个边会被存储两次</li>
 <li>对于有向图，无法遍历入度，如果要查询入度可采用以下两种方法:<ul>
-<li>增加逆邻接表 <br> <img alt="2023-01-30-17-15-48" src="../../../Images/2023-01-30-17-15-48.png" /></li>
-<li>采用多重链表 <br> <img alt="2023-01-30-17-19-04" src="../../../Images/2023-01-30-17-19-04.png" /></li>
+<li>增加逆邻接表 <br> <a class="glightbox" href="../../../Images/2023-01-30-17-15-48.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="2023-01-30-17-15-48" src="../../../Images/2023-01-30-17-15-48.png" /></a></li>
+<li>采用多重链表 <br> <a class="glightbox" href="../../../Images/2023-01-30-17-19-04.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="2023-01-30-17-19-04" src="../../../Images/2023-01-30-17-19-04.png" /></a></li>
 </ul>
 </li>
 </ul>
@@ -3891,7 +3900,7 @@
 <ul>
 <li>若在图中从 V 到 W 有一条有向路径，则 V 一定排在 W 之前。满足此条件的顶点序列称为一个拓扑序 (获得一个拓扑序的过程就是拓扑排序)</li>
 <li>AOV 如果有合理的拓扑序，则必定是有向无环图 (Directed Acyclic Graph, DAG)<blockquote>
-<p><img alt="2023-01-30-18-22-40" src="../../../Images/2023-01-30-18-22-40.png" /><br />
+<p><a class="glightbox" href="../../../Images/2023-01-30-18-22-40.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="2023-01-30-18-22-40" src="../../../Images/2023-01-30-18-22-40.png" /></a><br />
 如果有向图中出现环，一定不可能得到一个合理的拓扑序</p>
 </blockquote>
 </li>
@@ -4295,7 +4304,7 @@
 </ul>
 <details class="quote">
 <summary>Quote</summary>
-<p><img alt="2023-01-31-22-04-18" src="../../../Images/2023-01-31-22-04-18.png" /><br />
+<p><a class="glightbox" href="../../../Images/2023-01-31-22-04-18.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="2023-01-31-22-04-18" src="../../../Images/2023-01-31-22-04-18.png" /></a><br />
 <center><font face="JetBrains Mono" size=2 color=grey >图片摘自课程PPT </font></center><br />
 <a href="https://blog.csdn.net/justinzengTM/article/details/83062682">CSDN-AOE网络(大力海棠的博客)</a></p>
 </details>
@@ -4620,7 +4629,7 @@
 </ul>
 <details class="example">
 <summary>具有割点 C 和 D 的图</summary>
-<p><img alt="2023-02-01-13-24-22" src="../../../Images/2023-02-01-13-24-22.png" /></p>
+<p><a class="glightbox" href="../../../Images/2023-02-01-13-24-22.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="2023-02-01-13-24-22" src="../../../Images/2023-02-01-13-24-22.png" /></a></p>
 </details>
 <ul>
 <li>
@@ -4643,8 +4652,8 @@
 </code></pre></div>
 <details class="quote">
 <summary>通过 DFS 建立的最小生成树</summary>
-<p><img alt="2023-02-01-15-19-47" src="../../../Images/2023-02-01-15-19-47.png" /><br />
-<img alt="2023-02-22-17-17-57" src="../../../Images/2023-02-22-17-17-57.png" /></p>
+<p><a class="glightbox" href="../../../Images/2023-02-01-15-19-47.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="2023-02-01-15-19-47" src="../../../Images/2023-02-01-15-19-47.png" /></a><br />
+<a class="glightbox" href="../../../Images/2023-02-22-17-17-57.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="2023-02-22-17-17-57" src="../../../Images/2023-02-22-17-17-57.png" /></a></p>
 <blockquote>
 <p>back edge: ( <span class="arithmatex">\(u, v\)</span> ) <span class="arithmatex">\(\notin\)</span> tree and <span class="arithmatex">\(u\)</span> (or <span class="arithmatex">\(v\)</span> ) is an ancestor of <span class="arithmatex">\(v\)</span> (or <span class="arithmatex">\(u\)</span> )<br />
 Note: If <span class="arithmatex">\(u\)</span> is an ancestor of <span class="arithmatex">\(v\)</span> , then Num( <span class="arithmatex">\(u\)</span> ) &lt; Num( <span class="arithmatex">\(v\)</span> )</p>
@@ -4947,5 +4956,5 @@ Note: If <span class="arithmatex">\(u\)</span> is an ancestor of <span class="ar
         <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
       
     
-  </body>
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

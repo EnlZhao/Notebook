@@ -90,7 +90,16 @@
     
     
     
-  </head>
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -3461,7 +3470,7 @@
   
 
 
-<div id="mkdocs-encrypted-content" style="display:none">WAePrwC6Pm/8EZPWzk8ytw==;f9tjIwWOhZlUgzEbU8FMZ0t4RoW2Qii0rueC1Z2JrvVe3deb3v1NuUB/Z4so8EoeyhtbAkUfvkbpKnZ8GQptJzwrMaPM3gNmk5OQWRf1eGwQQWz8FdxTS6cxWlQAfRrWDwCGr0oVTlWNIS4AiyBa4GA6V+6Q+KCqcH2gsV+ojrYLq2cC+sf+gNQ5DIYl9cXtIi+6R4b2+LVn8Q4CMNH2eQ==</div>
+<div id="mkdocs-encrypted-content" style="display:none">ZaG4ZHDr8apjZKEPwgOg5w==;TvfDn2lCYTdqmOQn26UucBELEAuDDUXVZ/0Qs/JnuNjZ4t4s/AezUmMqwv6HvyJWZya0LKOK32QtyeccO4DImpQjr0yIdF+o6Elsplmef3uaWOzyG9hsMedU0eZVb0BEcwlUSXSNlvc4j9hAjAyNF+a7D/XpQi6Zu46VOlFIoO4DdjUDJppc4T02xwssWD0Szr0zO3xfOv1awu8aVTJaYQ==</div>
 <div id="mkdocs-decrypted-content">
     <form id="mkdocs-decrypt-form" class="md-content__inner md-typeset">
         <h1>AES encryption supported by unverbuggt@github's plugin</h1>
@@ -3476,7 +3485,7 @@
 var encryptcontent_id = "encryptcontent_1";
 var encryptcontent_path = "Notebook/Course/ADS/Lec09/";
 var decryption_failure_message = "Invalid password";
-var encryptcontent_keystore = ["+ygWbpsw89T7o2IrdVEbLw==;oE8HUGQ5kno3sYgneD/dTLTYdNAqzv/aTuwGe8UeqqSy2/gSxNuFEh1/0MheTkeHBVZASc1qTox7JLSHjggacdW8Rf7Bq6mQsrfmy7zC5om6+dWW2u9UN+BP96oejThh;pQRI0jJr2RtS5Jdb5G80+g=="];
+var encryptcontent_keystore = ["VBcttAAbaUPApavSjkIl6g==;W5s0PGoV9jabEVosnR/pR52EQSa6BUsbYrwaypuEcReeA/xfT1kWgXj6z1I711uRTy/ce9FHgH3PbTCVFjpsoue2fuV+3g4v5a46TLhWwkTrkw1BKNTmmGOe+5rzzQT0;pQRI0jJr2RtS5Jdb5G80+g=="];
 var encryptcontent_obfuscate = 0;
 
 </script>
@@ -3658,5 +3667,5 @@ var encryptcontent_obfuscate = 0;
         <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
       
     
-  </body>
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

@@ -94,7 +94,16 @@
     
     
     
-  </head>
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -3816,7 +3825,7 @@
 </ol>
 </li>
 <li>Merging your pull request<ol>
-<li>pull request 后, 将新分支的更改再合并到 master <br> <img alt="image_2023-01-27-19-28-08" src="../../../Images/2023-01-27-19-28-08.png" /></li>
+<li>pull request 后, 将新分支的更改再合并到 master <br> <a class="glightbox" href="../../../Images/2023-01-27-19-28-08.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="image_2023-01-27-19-28-08" src="../../../Images/2023-01-27-19-28-08.png" /></a></li>
 <li>有时, pull request 可能会引入与 master 上现有代码冲突的代码更改。如果存在任何冲突, GitHub 将提醒您有关冲突代码的信息，并防止合并，直到冲突解决为止。您可以进行解决冲突的提交，也可以使用拉取请求中的注释与团队成员讨论冲突</li>
 <li><u>接下来可安全删除新建分支, 若要对项目进行更多更改, 可随时创新新分支并重复此过程</u>(协作重要一环)</li>
 </ol>
@@ -4155,5 +4164,5 @@ MoLan</p>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
       
     
-  </body>
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

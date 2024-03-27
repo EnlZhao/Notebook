@@ -94,7 +94,16 @@
     
     
     
-  </head>
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -4109,11 +4118,11 @@
 <ul>
 <li>Manipulators    </li>
 </ul>
-<p><img alt="" src="../../../Images/2023-07-11-19-28-19.png" /></p>
+<p><a class="glightbox" href="../../../Images/2023-07-11-19-28-19.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2023-07-11-19-28-19.png" /></a></p>
 <ul>
 <li>Stream flags control formatting</li>
 </ul>
-<p><img alt="" src="../../../Images/2023-07-11-19-29-25.png" /></p>
+<p><a class="glightbox" href="../../../Images/2023-07-11-19-29-25.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2023-07-11-19-29-25.png" /></a></p>
 <ul>
 <li>全部设置直接用 <code>or</code> 即可，不同 <code>flag</code> 占据不同 bit 位</li>
 </ul>
@@ -4182,7 +4191,7 @@
 </div>
 </details>
 <h3 id="stream-error-states">Stream error states<a class="headerlink" href="#stream-error-states" title="Permanent link">👀</a></h3>
-<p><img alt="" src="../../../Images/2023-07-11-20-10-53.png" /></p>
+<p><a class="glightbox" href="../../../Images/2023-07-11-20-10-53.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2023-07-11-20-10-53.png" /></a></p>
 <blockquote>
 <p>读完会回到 EOF</p>
 </blockquote>
@@ -4497,7 +4506,7 @@
 <li>同时就有了于此对应的三次析构函数调用</li>
 <li>例子中用的是一个 int 类型的指针，而如果该指针指向的是非常大的堆内存数据的话，那没拷贝过程就会非常耗时，而且由于整个行为是透明且正确的，分析问题时也不易察觉</li>
 </ul>
-<p><img alt="" src="../../../Images/2023-07-12-11-04-44.png" /></p>
+<p><a class="glightbox" href="../../../Images/2023-07-12-11-04-44.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2023-07-12-11-04-44.png" /></a></p>
 </div>
 </div>
 </div>
@@ -4507,7 +4516,7 @@
 </ul>
 <details class="note" open="open">
 <summary>拷贝构造 vs 移动构造</summary>
-<p><img alt="" src="../../../Images/2023-07-12-11-14-33.png" /></p>
+<p><a class="glightbox" href="../../../Images/2023-07-12-11-14-33.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2023-07-12-11-14-33.png" /></a></p>
 </details>
 <div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">code</label><label for="__tabbed_5_2">explanation</label></div>
 <div class="tabbed-content">
@@ -4950,5 +4959,5 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
       
     
-  </body>
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

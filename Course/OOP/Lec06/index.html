@@ -37,7 +37,16 @@
 <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config",""),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-</head>
+ <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="DustyPeony" data-md-color-scheme="default" dir="ltr">
 <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
@@ -1466,7 +1475,7 @@ Shape : erase()
 <li><u>子类的地址中，第一部分存的是父类的变量，第二部分才是自己的，故一般先初始化父类对象</u></li>
 <li><u>当用子类来看作一个父类的对象，只对子类地址前面的部分操作就是对父类的操作</u></li>
 <li>Scpoes and access in C++<br/>
-<img alt="" src="../../../Images/2023-05-18-08-31-26.png"/></li>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../../../Images/2023-05-18-08-31-26.png"><img alt="" src="../../../Images/2023-05-18-08-31-26.png"/></a></li>
 </ul>
 </div>
 </div>
@@ -1678,7 +1687,7 @@ Shape : erase()
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<p><img alt="" src="../../../Images/2023-05-18-14-42-05.png"/></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../../../Images/2023-05-18-14-42-05.png"><img alt="" src="../../../Images/2023-05-18-14-42-05.png"/></a></p>
 </div>
 </div>
 </input></input></div>
@@ -1698,7 +1707,7 @@ Shape : erase()
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<p><img alt="" src="../../../Images/2023-05-18-14-45-42.png"/></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../../../Images/2023-05-18-14-45-42.png"><img alt="" src="../../../Images/2023-05-18-14-45-42.png"/></a></p>
 </div>
 </div>
 </input></input></div>
@@ -2051,7 +2060,7 @@ Shape : erase()
 </li>
 </ul>
 <h2 id="multiple-inheritance">Multiple Inheritance<a class="headerlink" href="#multiple-inheritance" title="Permanent link">👀</a></h2>
-<p><img alt="" src="../../../Images/2023-06-21-22-35-48.png"/></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../../../Images/2023-06-21-22-35-48.png"><img alt="" src="../../../Images/2023-06-21-22-35-48.png"/></a></p>
 <blockquote>
 <p>C++ 是唯一支持多继承的语言</p>
 </blockquote>
@@ -2089,7 +2098,7 @@ Shape : erase()
 </input></input></div>
 <details class="bug">
 <summary>多继承的问题</summary>
-<p><img alt="" src="../../../Images/2023-06-21-23-58-46.png"/></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../../../Images/2023-06-21-23-58-46.png"><img alt="" src="../../../Images/2023-06-21-23-58-46.png"/></a></p>
 <ol>
 <li>对于父类 A, 其有两个子类 B 和 C, D 有同时继承 B 和 C</li>
 <li>此时若 A 中有一变量 i，D 调用 i 时，会出现二义性，即不知道是调用 B 中的 i 还是 C 中的 i</li>
@@ -2238,5 +2247,5 @@ Shape : erase()
 <script type="module">import mermaid from "https://unpkg.com/mermaid@10.4.0/dist/mermaid.esm.min.mjs";
 window.mermaidConfig = {default: {
     startOnLoad: false
-}};</script></body>
+}};</script><script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

@@ -94,7 +94,16 @@
     
     
     
-  </head>
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -4114,8 +4123,8 @@
 </ol>
 <details class="quote">
 <summary>Quote</summary>
-<p><img alt="image_19_18_28" src="../../../Images/2023-01-18-19-18-28.png" /><br />
-<img alt="image_01-18-19-18-55" src="../../../Images/2023-01-18-19-18-55.png" /></p>
+<p><a class="glightbox" href="../../../Images/2023-01-18-19-18-28.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="image_19_18_28" src="../../../Images/2023-01-18-19-18-28.png" /></a><br />
+<a class="glightbox" href="../../../Images/2023-01-18-19-18-55.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="image_01-18-19-18-55" src="../../../Images/2023-01-18-19-18-55.png" /></a></p>
 </details>
 <h3 id="_3">二叉树的定义<a class="headerlink" href="#_3" title="Permanent link">👀</a></h3>
 <ul>
@@ -4162,7 +4171,7 @@
 </ol>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<p><img alt="image-01-18-21-26-21" src="../../../Images/2023-01-18-21-26-21.png" /><br><br />
+<p><a class="glightbox" href="../../../Images/2023-01-18-21-26-21.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="image-01-18-21-26-21" src="../../../Images/2023-01-18-21-26-21.png" /></a><br><br />
  完全二叉树的叶子节点数: <span class="arithmatex">\(n_0 = \frac{n+1}{2}\)</span> <br />
        1. 当n为偶数时，<span class="arithmatex">\(n_0 = \frac{n}{2}\)</span> <br />
        2. 当n为奇数时，<span class="arithmatex">\(n_0 = \frac{n+1}{2}\)</span></p>
@@ -4177,7 +4186,7 @@
 </ul>
 <details class="example">
 <summary>Example</summary>
-<p><img alt="image_2023-01-19-15-24-54" src="../../../Images/2023-01-19-15-24-54.png" /></p>
+<p><a class="glightbox" href="../../../Images/2023-01-19-15-24-54.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="image_2023-01-19-15-24-54" src="../../../Images/2023-01-19-15-24-54.png" /></a></p>
 </details>
 <ul>
 <li>链表存储(每个节点的结构可以如下表示)</li>
@@ -4203,7 +4212,7 @@
 </ol>
 <details class="example">
 <summary>Example</summary>
-<p><img alt="image_2023-01-19-15-34-16" src="../../../Images/2023-01-19-15-34-16.png" /><br><br />
+<p><a class="glightbox" href="../../../Images/2023-01-19-15-34-16.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="image_2023-01-19-15-34-16" src="../../../Images/2023-01-19-15-34-16.png" /></a><br><br />
 print的顺序 <span class="arithmatex">\(\Rightarrow\)</span> A B D F E C G H I</p>
 </details>
 </li>
@@ -4229,7 +4238,7 @@ print的顺序 <span class="arithmatex">\(\Rightarrow\)</span> A B D F E C G H I
 </ol>
 <details class="example">
 <summary>Example</summary>
-<p><img alt="image_2023-01-19-15-48-42" src="../../../Images/2023-01-19-15-48-42.png" /><br><br />
+<p><a class="glightbox" href="../../../Images/2023-01-19-15-48-42.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="image_2023-01-19-15-48-42" src="../../../Images/2023-01-19-15-48-42.png" /></a><br><br />
 print的顺序 <span class="arithmatex">\(\Rightarrow\)</span> D B E F A G H C I</p>
 </details>
 </li>
@@ -4278,7 +4287,7 @@ print的顺序 <span class="arithmatex">\(\Rightarrow\)</span> D B E F A G H C I
 </ol>
 <details class="example">
 <summary>Example</summary>
-<p><img alt="image_2023-01-19-15-52-15" src="../../../Images/2023-01-19-15-52-15.png" /><br><br />
+<p><a class="glightbox" href="../../../Images/2023-01-19-15-52-15.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="image_2023-01-19-15-52-15" src="../../../Images/2023-01-19-15-52-15.png" /></a><br><br />
 print的顺序 <span class="arithmatex">\(\Rightarrow\)</span> D E F B H G I C A</p>
 </details>
 </li>
@@ -4331,7 +4340,7 @@ print的顺序 <span class="arithmatex">\(\Rightarrow\)</span> D E F B H G I C A
 <ul>
 <li>结构数组表示二叉树: 静态链表</li>
 </ul>
-<p><img alt="image_2023-01-24-21-58-11" src="../../../Images/2023-01-24-21-58-11.png" /></p>
+<p><a class="glightbox" href="../../../Images/2023-01-24-21-58-11.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="image_2023-01-24-21-58-11" src="../../../Images/2023-01-24-21-58-11.png" /></a></p>
 <div class="highlight"><span class="filename">二叉树表示</span><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="w">    </span><span class="cp">#define MaxTree 10</span>
 <a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span><span class="cp">#define ElementType char</span>
 <a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="cp">#define Tree int</span>
@@ -4611,7 +4620,7 @@ print的顺序 <span class="arithmatex">\(\Rightarrow\)</span> D E F B H G I C A
 </div>
 <details class="example">
 <summary>堆的一些例子</summary>
-<p><img alt="image_2023-01-29-17-34-58" src="../../../Images/2023-01-29-17-34-58.png" /><br />
+<p><a class="glightbox" href="../../../Images/2023-01-29-17-34-58.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="image_2023-01-29-17-34-58" src="../../../Images/2023-01-29-17-34-58.png" /></a><br />
 <center><font face="JetBrains Mono" size=2 color=grey >图片摘自 MOOC</font></center></p>
 </details>
 <h3 id="_12">若采用数组或链表实现<a class="headerlink" href="#_12" title="Permanent link">👀</a></h3>
@@ -4670,7 +4679,7 @@ print的顺序 <span class="arithmatex">\(\Rightarrow\)</span> D E F B H G I C A
 </ul>
 <details class="example">
 <summary>一道 PTA 例题</summary>
-<p><img alt="image_2023-01-25-15-43-46" src="../../../Images/2023-01-25-15-43-46.png" /></p>
+<p><a class="glightbox" href="../../../Images/2023-01-25-15-43-46.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="image_2023-01-25-15-43-46" src="../../../Images/2023-01-25-15-43-46.png" /></a></p>
 </details>
 </div>
 <h3 id="_13">堆的操作<a class="headerlink" href="#_13" title="Permanent link">👀</a></h3>
@@ -4883,7 +4892,7 @@ print的顺序 <span class="arithmatex">\(\Rightarrow\)</span> D E F B H G I C A
 </ul>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<p><img alt="image_2023-01-29-22-20-20" src="../../../Images/2023-01-29-22-20-20.png" /></p>
+<p><a class="glightbox" href="../../../Images/2023-01-29-22-20-20.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="image_2023-01-29-22-20-20" src="../../../Images/2023-01-29-22-20-20.png" /></a></p>
 </div>
 <ul>
 <li>数组存储: 将数组中每个元素的类型描述为<br />
@@ -4895,7 +4904,7 @@ print的顺序 <span class="arithmatex">\(\Rightarrow\)</span> D E F B H G I C A
 </ul>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<p><img alt="image_2023-01-29-22-30-12" src="../../../Images/2023-01-29-22-30-12.png" /></p>
+<p><a class="glightbox" href="../../../Images/2023-01-29-22-30-12.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="image_2023-01-29-22-30-12" src="../../../Images/2023-01-29-22-30-12.png" /></a></p>
 </div>
 <h3 id="find_1">集合运算 —— Find<a class="headerlink" href="#find_1" title="Permanent link">👀</a></h3>
 <blockquote>
@@ -4927,7 +4936,7 @@ print的顺序 <span class="arithmatex">\(\Rightarrow\)</span> D E F B H G I C A
 <a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a><span class="p">}</span>
 </code></pre></div><blockquote>
 <p>为改善合并后的查找性能，可以采用将小的集合合并到相对大的集合中(并用利用数组下标提示集合中元素数量)<br />
-<img alt="image_2023-01-29-22-39-00" src="../../../Images/2023-01-29-22-39-00.png" /><br />
+<a class="glightbox" href="../../../Images/2023-01-29-22-39-00.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="image_2023-01-29-22-39-00" src="../../../Images/2023-01-29-22-39-00.png" /></a><br />
 <center><font face="JetBrains Mono" size=2 color=grey >图片摘自 MOOC</font></center></p>
 </blockquote>
 </li>
@@ -4948,7 +4957,7 @@ print的顺序 <span class="arithmatex">\(\Rightarrow\)</span> D E F B H G I C A
 </ul>
 <details class="quote">
 <summary>Quote</summary>
-<p><img alt="image_2023-01-29-22-51-42" src="../../../Images/2023-01-29-22-51-42.png" /></p>
+<p><a class="glightbox" href="../../../Images/2023-01-29-22-51-42.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="image_2023-01-29-22-51-42" src="../../../Images/2023-01-29-22-51-42.png" /></a></p>
 </details>
 </div>
 <p>在数组中采用树的大小的负值来记录，以证明若使用按大小求并则连续 M 次运算需要 <span class="arithmatex">\(O(M)\)</span> 平均时间。这是因为当随机的 Union 执行时整个算法一般只有一些很小的集合（通常含一个元素）与大集合合并。</p>
@@ -4961,7 +4970,7 @@ print的顺序 <span class="arithmatex">\(\Rightarrow\)</span> D E F B H G I C A
 </blockquote>
 <details class="quote">
 <summary>Quote</summary>
-<p><img alt="image_2023-01-29-22-56-23" src="../../../Images/2023-01-29-22-56-23.png" /></p>
+<p><a class="glightbox" href="../../../Images/2023-01-29-22-56-23.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="image_2023-01-29-22-56-23" src="../../../Images/2023-01-29-22-56-23.png" /></a></p>
 </details>
 <h3 id="path-compression">路径压缩 | Path Compression<a class="headerlink" href="#path-compression" title="Permanent link">👀</a></h3>
 <ul>
@@ -5181,5 +5190,5 @@ print的顺序 <span class="arithmatex">\(\Rightarrow\)</span> D E F B H G I C A
         <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
       
     
-  </body>
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

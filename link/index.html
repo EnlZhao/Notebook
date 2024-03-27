@@ -94,7 +94,16 @@
     
     
     
-  </head>
+   <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -3600,7 +3609,7 @@
     <div class="flink-list-item">
         <a href="https://wuei-L.github.io/" title="" target="_blank">
             <div class="flink-item-icon">
-                <img src="../Icon/puppy.png" alt="wuei">
+                <a class="glightbox" href="../Icon/puppy.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img src="../Icon/puppy.png" alt="wuei"></a>
             </div>
             <div class="flink-item-name">wuei-L</div>
             <div class="flink-item-desc">大猪蹄子-斯丢屁呆呆维</div>
@@ -3613,7 +3622,7 @@
     <div class="flink-list-item">
         <a href="https://zhz.zone/" title="朱镐哲" target="_blank">
             <div class="flink-item-icon">
-                <img src="../Images/zhz.png" alt="zhz">
+                <a class="glightbox" href="../Images/zhz.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img src="../Images/zhz.png" alt="zhz"></a>
             </div>
             <div class="flink-item-name">HowJul</div>
             <div class="flink-item-desc">😘 小朱 😘</div>
@@ -3626,7 +3635,7 @@
     <div class="flink-list-item">
         <a href="https://github.com/jxxxx123" title="薛总的 GitHub" target="_blank">
             <div class="flink-item-icon">
-                <img src="../Icon/薛总.jpg" alt="薛总">
+                <a class="glightbox" href="../Icon/薛总.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img src="../Icon/薛总.jpg" alt="薛总"></a>
             </div>
             <div class="flink-item-name">薛总</div>
             <div class="flink-item-desc">仓库怎么空空? 🙇 !苟富贵!</div>
@@ -3639,7 +3648,7 @@
     <div class="flink-list-item">
         <a href="https://allcp.net/home.php?mod=space&uid=508802&do=thread&view=me&from=space" title="天才的帖子" target="_blank">
             <div class="flink-item-icon">
-                <img src="../Icon/天才.jpg" alt="天才">
+                <a class="glightbox" href="../Icon/天才.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img src="../Icon/天才.jpg" alt="天才"></a>
             </div>
             <div class="flink-item-name">天才</div>
             <div class="flink-item-desc">文学大师，百度本度</div>
@@ -3652,7 +3661,7 @@
     <div class="flink-list-item">
         <a href="tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=571007008&website=www.oicqzone.com" title="尊尊的 QQ" target="_blank">
             <div class="flink-item-icon">
-                <img src="../Icon/王尊.jpg" alt="Mr. Wang">
+                <a class="glightbox" href="../Icon/王尊.jpg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img src="../Icon/王尊.jpg" alt="Mr. Wang"></a>
             </div>
             <div class="flink-item-name">Mr. Wang</div>
             <div class="flink-item-desc">地质大佬，在线征友</div>
@@ -3868,5 +3877,5 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
       
     
-  </body>
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>
