@@ -98,7 +98,7 @@
     html.glightbox-open { overflow: initial; height: 100%; }
     .gslide-title { margin-top: 0px; user-select: text; }
     .gslide-desc { color: #666; user-select: text; }
-    .gslide-image img { background: Gainsboro; }
+    .gslide-image img { background: white; }
     .gscrollbar-fixer { padding-right: 15px; }
     .gdesc-inner { font-size: 0.75rem; }
     body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
@@ -3792,7 +3792,7 @@
 </ul>
 <details class="example">
 <summary>Example</summary>
-<p><a class="glightbox" href="../../../Images/2024-03-11-08-41-55.png" data-type="image" data-width="80%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-11-08-41-55.png" /></a></p>
+<p><a class="glightbox" href="../../../Images/2024-03-11-08-41-55.png" data-type="image" data-width="50%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-11-08-41-55.png" /></a></p>
 </details>
 <p>Tokens 是指程序设计语言中具有独立含义的最小词法单位，包含单词、标点符号、操作符、分隔符等。如一些典型测试语言的一些 token 类型为：</p>
 <table>
@@ -3893,7 +3893,7 @@
 <li>句子：属于语言的串</li>
 </ul>
 <p>语言的运算：（优先级：幂 &gt; 连接 &gt; 并）</p>
-<p><a class="glightbox" href="../../../Images/2024-03-11-10-07-04.png" data-type="image" data-width="80%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-11-10-07-04.png" /></a></p>
+<p><a class="glightbox" href="../../../Images/2024-03-11-10-07-04.png" data-type="image" data-width="50%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-11-10-07-04.png" /></a></p>
 <p>在书写正则表达式时，我们有时省略 <code>·</code> 和 <span class="arithmatex">\(\epsilon\)</span> ，并规定 <code>*</code> 优先级高于 <code>·</code> 高于 <code>|</code> 。还有一些缩写形式：</p>
 <ul>
 <li><span class="arithmatex">\([abcd]\)</span> 表示 <span class="arithmatex">\(\{a | b | c | d\}\)</span></li>
@@ -4076,15 +4076,15 @@
 <ol>
 <li>转换图 (Transition Diagram)：用图形表示有穷自动机</li>
 </ol>
-<p><a class="glightbox" href="../../../Images/2024-03-11-10-45-06.png" data-type="image" data-width="80%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-11-10-45-06.png" /></a></p>
+<p><a class="glightbox" href="../../../Images/2024-03-11-10-45-06.png" data-type="image" data-width="50%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-11-10-45-06.png" /></a></p>
 <ol start="2">
 <li>转换表 (Transition Table)：用表格表示有穷自动机</li>
 </ol>
-<p><a class="glightbox" href="../../../Images/2024-03-11-10-45-50.png" data-type="image" data-width="80%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-11-10-45-50.png" /></a></p>
+<p><a class="glightbox" href="../../../Images/2024-03-11-10-45-50.png" data-type="image" data-width="50%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-11-10-45-50.png" /></a></p>
 <div class="admonition success">
 <p class="admonition-title">有穷自动机接收的串</p>
 <p>给定输入串 <span class="arithmatex">\(x\)</span>，如果存在一个对应于串 <span class="arithmatex">\(x\)</span> 的从 <strong>初始状态</strong> 到某个 <strong>终止状态</strong> 的转换序列，则称串 <span class="arithmatex">\(x\)</span> 被该 <span class="arithmatex">\(FA\)</span> <strong>接收</strong></p>
-<p><a class="glightbox" href="../../../Images/2024-03-11-10-48-01.png" data-type="image" data-width="80%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-11-10-48-01.png" /></a></p>
+<p><a class="glightbox" href="../../../Images/2024-03-11-10-48-01.png" data-type="image" data-width="50%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-11-10-48-01.png" /></a></p>
 </div>
 <div class="admonition success">
 <p class="admonition-title">有穷自动机接收（定义）的语言</p>
@@ -4096,7 +4096,7 @@
 <p>状态转换: Epsilon Moves</p>
 <ul>
 <li><span class="arithmatex">\(\epsilon - \text{moves}\)</span>: 一种特殊的状态转换方式 (自动机可以不读入任何输入，而从状态 A 转移到状态 B)</li>
-<li>e.g. <a class="glightbox" href="../../../Images/2024-03-11-10-52-13.png" data-type="image" data-width="80%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-11-10-52-13.png" /></a></li>
+<li>e.g. <a class="glightbox" href="../../../Images/2024-03-11-10-52-13.png" data-type="image" data-width="50%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-11-10-52-13.png" /></a></li>
 </ul>
 <h3 id="nfa">非确定有穷自动机 | NFA<a class="headerlink" href="#nfa" title="Permanent link">👀</a></h3>
 <blockquote>
@@ -4135,7 +4135,7 @@
 </li>
 <li>RE <span class="arithmatex">\(\Leftrightarrow\)</span> DFA <span class="arithmatex">\(\Leftrightarrow\)</span> NFA: <ul>
 <li>对任何 NFA, 存在定义同一(正则)语言的 DFA</li>
-<li>对任何 DFA, 存在定义同一(正则)语言的 NFA <br><a class="glightbox" href="../../../Images/2024-03-11-11-02-21.png" data-type="image" data-width="80%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-11-11-02-21.png" /></a></li>
+<li>对任何 DFA, 存在定义同一(正则)语言的 NFA <br><a class="glightbox" href="../../../Images/2024-03-11-11-02-21.png" data-type="image" data-width="50%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-11-11-02-21.png" /></a></li>
 </ul>
 </li>
 </ul>
@@ -4145,7 +4145,7 @@
 </div>
 <h3 id="_6">识别字符串<a class="headerlink" href="#_6" title="Permanent link">👀</a></h3>
 <p>构造 NFA 识别字符串：</p>
-<p><a class="glightbox" href="../../../Images/2024-03-11-11-04-19.png" data-type="image" data-width="80%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-11-11-04-19.png" /></a></p>
+<p><a class="glightbox" href="../../../Images/2024-03-11-11-04-19.png" data-type="image" data-width="50%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-11-11-04-19.png" /></a></p>
 <p>构造 DFA 识别字符串</p>
 <ul>
 <li>输入：以文件结束符 <code>eof</code> 结尾的字符串 <span class="arithmatex">\(x\)</span></li>
@@ -4191,19 +4191,19 @@
 </ul>
 <p><b>1) 处理 epsilon 和 a</b></p>
 <p>直接构造：识别 <span class="arithmatex">\(\epsilon\)</span> 和字母表中一个符号 <span class="arithmatex">\(a\)</span> 的 NFA</p>
-<p><a class="glightbox" href="../../../Images/2024-03-11-12-35-00.png" data-type="image" data-width="80%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-11-12-35-00.png" /></a></p>
+<p><a class="glightbox" href="../../../Images/2024-03-11-12-35-00.png" data-type="image" data-width="50%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-11-12-35-00.png" /></a></p>
 <p><b>2) 处理 s|t</b></p>
 <p>递归构造：选择 <span class="arithmatex">\(s | t\)</span></p>
-<p><a class="glightbox" href="../../../Images/2024-03-11-12-35-54.png" data-type="image" data-width="80%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-11-12-35-54.png" /></a></p>
+<p><a class="glightbox" href="../../../Images/2024-03-11-12-35-54.png" data-type="image" data-width="50%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-11-12-35-54.png" /></a></p>
 <p><b>3) 处理 st</b></p>
 <p>递归构造：连接 <span class="arithmatex">\(st\)</span></p>
-<p><a class="glightbox" href="../../../Images/2024-03-11-12-36-11.png" data-type="image" data-width="80%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-11-12-36-11.png" /></a></p>
+<p><a class="glightbox" href="../../../Images/2024-03-11-12-36-11.png" data-type="image" data-width="50%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-11-12-36-11.png" /></a></p>
 <p><b>4) 处理 s<sup>*</sup></b></p>
 <p>递归构造：闭包 <span class="arithmatex">\(s^*\)</span></p>
-<p><a class="glightbox" href="../../../Images/2024-03-11-12-49-26.png" data-type="image" data-width="80%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-11-12-49-26.png" /></a></p>
+<p><a class="glightbox" href="../../../Images/2024-03-11-12-49-26.png" data-type="image" data-width="50%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-11-12-49-26.png" /></a></p>
 <details class="example">
 <summary>Example</summary>
-<p><a class="glightbox" href="../../../Images/2024-03-11-12-50-45.png" data-type="image" data-width="80%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-11-12-50-45.png" /></a></p>
+<p><a class="glightbox" href="../../../Images/2024-03-11-12-50-45.png" data-type="image" data-width="50%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-11-12-50-45.png" /></a></p>
 </details>
 <h3 id="nfa-dfa">NFA -&gt; DFA (子集构造法)<a class="headerlink" href="#nfa-dfa" title="Permanent link">👀</a></h3>
 <p>1) 子集构造法 (subset construction) 原则:</p>
@@ -4245,7 +4245,7 @@
 </ul>
 <details class="example">
 <summary>Example</summary>
-<p><a class="glightbox" href="../../../Images/2024-03-11-13-45-17.png" data-type="image" data-width="80%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-11-13-45-17.png" /></a></p>
+<p><a class="glightbox" href="../../../Images/2024-03-11-13-45-17.png" data-type="image" data-width="50%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-11-13-45-17.png" /></a></p>
 </details>
 <h3 id="dfa_1">DFA 简化<a class="headerlink" href="#dfa_1" title="Permanent link">👀</a></h3>
 <p>DFA 状态数量的最小化:</p>
@@ -4256,7 +4256,7 @@
 <div class="admonition note">
 <p class="admonition-title">可区分的状态 (Distinguishable States)</p>
 <p>如果存在串 <span class="arithmatex">\(x\)</span>，使得从 <span class="arithmatex">\(s\)</span>, <span class="arithmatex">\(t\)</span> 出发，一个到达 <strong>接受状态</strong>，一个到达 <strong>非接受状态</strong>，那么 <span class="arithmatex">\(x\)</span> 就区分了 <span class="arithmatex">\(s\)</span> 和 <span class="arithmatex">\(t\)</span></p>
-<p><a class="glightbox" href="../../../Images/2024-03-11-13-48-41.png" data-type="image" data-width="80%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-11-13-48-41.png" /></a></p>
+<p><a class="glightbox" href="../../../Images/2024-03-11-13-48-41.png" data-type="image" data-width="50%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-11-13-48-41.png" /></a></p>
 </div>
 <h4 id="dfa_2">DFA 最小化算法<a class="headerlink" href="#dfa_2" title="Permanent link">👀</a></h4>
 <ul>
@@ -4283,7 +4283,7 @@
         \}
 \end{align}$$ -->
 
-<p><a class="glightbox" href="../../../Images/2024-03-11-16-22-06.png" data-type="image" data-width="80%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-11-16-22-06.png" /></a></p>
+<p><a class="glightbox" href="../../../Images/2024-03-11-16-22-06.png" data-type="image" data-width="50%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-11-16-22-06.png" /></a></p>
 <ol start="3">
 <li>如果 <span class="arithmatex">\(\prod_{\text{new}}\)</span> == <span class="arithmatex">\(\prod\)</span> 相等，停止迭代，令 <span class="arithmatex">\(\prod_{\text{final}} = \prod\)</span>；否则，更新 <span class="arithmatex">\(\prod = \prod_{\text{new}}\)</span>，转到步骤 2</li>
 </ol>
@@ -4296,15 +4296,15 @@
 </ul>
 <details class="example" open="open">
 <summary>DFA 的化简</summary>
-<p><a class="glightbox" href="../../../Images/2024-03-11-15-07-38.png" data-type="image" data-width="80%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-11-15-07-38.png" /></a></p>
+<p><a class="glightbox" href="../../../Images/2024-03-11-15-07-38.png" data-type="image" data-width="50%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-11-15-07-38.png" /></a></p>
 </details>
 <!-- ## Lex工具 -->
 
 <details class="info" open="open">
 <summary>More</summary>
 <ul>
-<li>计算 <span class="arithmatex">\(\epsilon-closure(T)\)</span> : 实际上是一个图搜索过程 (如果只考虑 <span class="arithmatex">\(\epsilon\)</span> 边) <br><a class="glightbox" href="../../../Images/2024-03-11-15-13-12.png" data-type="image" data-width="80%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-11-15-13-12.png" /></a></li>
-<li>NFA -&gt; DFA (子集构造法)：整个算法实际上是一个搜索过程<br><a class="glightbox" href="../../../Images/2024-03-11-15-14-47.png" data-type="image" data-width="80%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-11-15-14-47.png" /></a></li>
+<li>计算 <span class="arithmatex">\(\epsilon-closure(T)\)</span> : 实际上是一个图搜索过程 (如果只考虑 <span class="arithmatex">\(\epsilon\)</span> 边) <br><a class="glightbox" href="../../../Images/2024-03-11-15-13-12.png" data-type="image" data-width="50%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-11-15-13-12.png" /></a></li>
+<li>NFA -&gt; DFA (子集构造法)：整个算法实际上是一个搜索过程<br><a class="glightbox" href="../../../Images/2024-03-11-15-14-47.png" data-type="image" data-width="50%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-11-15-14-47.png" /></a></li>
 </ul>
 <blockquote>
 <p><span class="arithmatex">\(D\)</span> states 中的一个状态未加标记表示还没有搜索过它的各个后继</p>

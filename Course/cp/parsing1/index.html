@@ -98,7 +98,7 @@
     html.glightbox-open { overflow: initial; height: 100%; }
     .gslide-title { margin-top: 0px; user-select: text; }
     .gslide-desc { color: #666; user-select: text; }
-    .gslide-image img { background: Gainsboro; }
+    .gslide-image img { background: white; }
     .gscrollbar-fixer { padding-right: 15px; }
     .gdesc-inner { font-size: 0.75rem; }
     body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
@@ -3780,7 +3780,7 @@
 </ul>
 </li>
 </ul>
-<p><a class="glightbox" href="../../../Images/2024-03-14-15-14-44.png" data-type="image" data-width="80%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-14-15-14-44.png" /></a></p>
+<p><a class="glightbox" href="../../../Images/2024-03-14-15-14-44.png" data-type="image" data-width="50%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-14-15-14-44.png" /></a></p>
 </div>
 <div class="admonition info">
 <p class="admonition-title">如何构造编程语言的语法分析器</p>
@@ -3868,9 +3868,9 @@
 </ul>
 </div>
 <p><strong>1)</strong> 最左推导 (Left-most Derivation)：每步代换 <strong>最左边的非终结符</strong></p>
-<p><a class="glightbox" href="../../../Images/2024-03-14-19-34-46.png" data-type="image" data-width="80%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-14-19-34-46.png" /></a></p>
+<p><a class="glightbox" href="../../../Images/2024-03-14-19-34-46.png" data-type="image" data-width="50%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-14-19-34-46.png" /></a></p>
 <p><strong>2)</strong> 最右推导 (Right-most Derivation)：每步代换 <strong>最右边的非终结符</strong></p>
-<p><a class="glightbox" href="../../../Images/2024-03-14-19-34-58.png" data-type="image" data-width="80%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-14-19-34-58.png" /></a></p>
+<p><a class="glightbox" href="../../../Images/2024-03-14-19-34-58.png" data-type="image" data-width="50%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-14-19-34-58.png" /></a></p>
 <p><strong>3)</strong> 句型、句子和语言</p>
 <ul>
 <li>句型 (Sentence Form)：对开始符号为 <span class="arithmatex">\(S\)</span> 的文法 <span class="arithmatex">\(G\)</span>, 如果 <span class="arithmatex">\(S \Rightarrow^* \alpha\)</span>, <span class="arithmatex">\(\alpha \infty (T \cup N)^*\)</span>, 则称 <span class="arithmatex">\(\alpha\)</span> 为 <span class="arithmatex">\(G\)</span> 的一个句型<ul>
@@ -3907,14 +3907,14 @@
 </ul>
 <details class="example">
 <summary>Example</summary>
-<p><a class="glightbox" href="../../../Images/2024-03-14-19-47-12.png" data-type="image" data-width="80%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-14-19-47-12.png" /></a></p>
+<p><a class="glightbox" href="../../../Images/2024-03-14-19-47-12.png" data-type="image" data-width="50%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-14-19-47-12.png" /></a></p>
 </details>
 <h3 id="re-cfg">RE 与 CFG<a class="headerlink" href="#re-cfg" title="Permanent link">👀</a></h3>
 <div class="admonition question">
 <p class="admonition-title">问题：为什么词法和语法分析用不同形式语言?</p>
 </div>
 <p><b><u>比较语法分析和词法分析</u></b></p>
-<p><a class="glightbox" href="../../../Images/2024-03-14-19-48-33.png" data-type="image" data-width="80%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-14-19-48-33.png" /></a></p>
+<p><a class="glightbox" href="../../../Images/2024-03-14-19-48-33.png" data-type="image" data-width="50%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-14-19-48-33.png" /></a></p>
 <p>回顾 <a href="../lexical/#_4">形式语言</a>, <a href="../lexical/#re">正则语言(由正则表达式刻画)</a>, <a href="#cfg_1">上下文无关语言</a></p>
 <p>正则文法 (正则语言的形式文法刻画) 的定义:</p>
 <div class="arithmatex">\[G = (N, T, P, S)\]</div>
@@ -3949,7 +3949,7 @@
 </ul>
 <details class="question">
 <summary>为什么词法分析用正则表达式，不用正则文法？</summary>
-<p><a class="glightbox" href="../../../Images/2024-03-14-20-00-54.png" data-type="image" data-width="80%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-14-20-00-54.png" /></a></p>
+<p><a class="glightbox" href="../../../Images/2024-03-14-20-00-54.png" data-type="image" data-width="50%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-14-20-00-54.png" /></a></p>
 </details>
 <div class="admonition note">
 <p class="admonition-title">分离词法分析和语法分析</p>
@@ -3989,7 +3989,7 @@
 </details>
 <details class="info">
 <summary>引申: CFG 只能表达“语法”吗？</summary>
-<p><a class="glightbox" href="../../../Images/2024-03-14-20-14-16.png" data-type="image" data-width="80%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-14-20-14-16.png" /></a></p>
+<p><a class="glightbox" href="../../../Images/2024-03-14-20-14-16.png" data-type="image" data-width="50%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-14-20-14-16.png" /></a></p>
 </details>
 <h2 id="parsing">语法分析概述 | Parsing<a class="headerlink" href="#parsing" title="Permanent link">👀</a></h2>
 <h3 id="cfg-parse-tree">CFG 的 Parse Tree<a class="headerlink" href="#cfg-parse-tree" title="Permanent link">👀</a></h3>
@@ -4004,7 +4004,7 @@
 <li>每个内部节点是一个非终结符</li>
 <li>每一个父节点和他的子节点构成一条产生式</li>
 </ul>
-<p><a class="glightbox" href="../../../Images/2024-03-14-20-27-09.png" data-type="image" data-width="80%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-14-20-27-09.png" /></a></p>
+<p><a class="glightbox" href="../../../Images/2024-03-14-20-27-09.png" data-type="image" data-width="50%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-14-20-27-09.png" /></a></p>
 <p>可以将语法分析看作搜索问题，语法分析的核心问题就是：对于一个终结符号串 <span class="arithmatex">\(x\)</span>, 设法从 <span class="arithmatex">\(S\)</span> 推导出 <span class="arithmatex">\(x\)</span> 或者从 <span class="arithmatex">\(x\)</span> 归约出 <span class="arithmatex">\(S\)</span></p>
 <ul>
 <li>自顶向下 (Top-down) 分析<ul>
@@ -4059,12 +4059,12 @@
 </ul>
 <details class="example">
 <summary>Example</summary>
-<p><a class="glightbox" href="../../../Images/2024-03-15-10-09-50.png" data-type="image" data-width="80%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-15-10-09-50.png" /></a></p>
+<p><a class="glightbox" href="../../../Images/2024-03-15-10-09-50.png" data-type="image" data-width="50%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-15-10-09-50.png" /></a></p>
 </details>
 <div class="admonition note">
 <p class="admonition-title">二义性的影响</p>
 <p>编程语言的语法应该是无二义的。否则会导致一个程序有多种解释，如：</p>
-<p><a class="glightbox" href="../../../Images/2024-03-15-10-12-39.png" data-type="image" data-width="80%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-15-10-12-39.png" /></a></p>
+<p><a class="glightbox" href="../../../Images/2024-03-15-10-12-39.png" data-type="image" data-width="50%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-15-10-12-39.png" /></a></p>
 </div>
 <h4 id="_4">消除二义性<a class="headerlink" href="#_4" title="Permanent link">👀</a></h4>
 <ul>
@@ -4125,7 +4125,7 @@
 </code></pre></div>
 <details class="example">
 <summary>练习: 文法的二义性</summary>
-<p><a class="glightbox" href="../../../Images/2024-03-15-10-22-08.png" data-type="image" data-width="80%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-15-10-22-08.png" /></a></p>
+<p><a class="glightbox" href="../../../Images/2024-03-15-10-22-08.png" data-type="image" data-width="50%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-15-10-22-08.png" /></a></p>
 </details>
 <details class="info">
 <summary>通常的符号约定</summary>
@@ -4156,7 +4156,7 @@
 </details>
 <details class="example">
 <summary>练习: 分析树构造</summary>
-<p><a class="glightbox" href="../../../Images/2024-03-15-10-47-14.png" data-type="image" data-width="80%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-15-10-47-14.png" /></a></p>
+<p><a class="glightbox" href="../../../Images/2024-03-15-10-47-14.png" data-type="image" data-width="50%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-15-10-47-14.png" /></a></p>
 </details>
 <h2 id="top-down-parsing">自顶向下的语法分析 | Top-Down Parsing<a class="headerlink" href="#top-down-parsing" title="Permanent link">👀</a></h2>
 <div class="footnote">
