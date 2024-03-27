@@ -98,7 +98,7 @@
     html.glightbox-open { overflow: initial; height: 100%; }
     .gslide-title { margin-top: 0px; user-select: text; }
     .gslide-desc { color: #666; user-select: text; }
-    .gslide-image img { background: white; }
+    .gslide-image img { background: Gainsboro; }
     .gscrollbar-fixer { padding-right: 15px; }
     .gdesc-inner { font-size: 0.75rem; }
     body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
@@ -3868,7 +3868,7 @@
 
 <details class="example">
 <summary>Example</summary>
-<p><a class="glightbox" href="../../../Images/2024-03-16-11-13-33.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-16-11-13-33.png" /></a></p>
+<p><a class="glightbox" href="../../../Images/2024-03-16-11-13-33.png" data-type="image" data-width="80%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-16-11-13-33.png" /></a></p>
 </details>
 <details class="info">
 <summary>常见 Link-State 算法</summary>
@@ -3902,10 +3902,10 @@
 </li>
 </ul>
 <p>核心思想是：每个节点维护一个距离向量表，记录它到网络中其他节点的距离，然后通过向相邻节点广播自己的距离向量表，与相邻节点交换信息，以更新整个网络中每个节点的距离向量表。</p>
-<p><a class="glightbox" href="../../../Images/2024-03-16-15-06-54.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-16-15-06-54.png" /></a></p>
+<p><a class="glightbox" href="../../../Images/2024-03-16-15-06-54.png" data-type="image" data-width="80%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-16-15-06-54.png" /></a></p>
 <p>both types of path computation algorithms can be used for intra-domain routing and inter-domain routing</p>
 <h2 id="hierarchical-routing">Hierarchical Routing<a class="headerlink" href="#hierarchical-routing" title="Permanent link">👀</a></h2>
-<p><a class="glightbox" href="../../../Images/2024-03-16-15-13-35.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-16-15-13-35.png" /></a></p>
+<p><a class="glightbox" href="../../../Images/2024-03-16-15-13-35.png" data-type="image" data-width="80%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-16-15-13-35.png" /></a></p>
 <ul>
 <li>IGP (Interior Gateway Protocol)<ul>
 <li>RIP (Routing Information Protocol)</li>
@@ -3930,7 +3930,7 @@
 </ul>
 <details class="example">
 <summary>Example</summary>
-<p><a class="glightbox" href="../../../Images/2024-03-16-15-25-02.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-16-15-25-02.png" /></a></p>
+<p><a class="glightbox" href="../../../Images/2024-03-16-15-25-02.png" data-type="image" data-width="80%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-16-15-25-02.png" /></a></p>
 </details>
 <h3 id="ospf">OSPF<a class="headerlink" href="#ospf" title="Permanent link">👀</a></h3>
 <ul>
@@ -3975,8 +3975,8 @@
 <li>可以理解为抽象出两层，一层内部的路由算法，一层是不同自治系统之间的路由算法</li>
 <li>As 的 border routers 扮演 router 的角色, As 的 prefix 扮演 router 的 IP 地址</li>
 </ul>
-<p><a class="glightbox" href="../../../Images/2024-03-24-20-15-57.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-24-20-15-57.png" /></a></p>
-<p><a class="glightbox" href="../../../Images/2024-03-24-20-12-44.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-24-20-12-44.png" /></a></p>
+<p><a class="glightbox" href="../../../Images/2024-03-24-20-15-57.png" data-type="image" data-width="80%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-24-20-15-57.png" /></a></p>
+<p><a class="glightbox" href="../../../Images/2024-03-24-20-12-44.png" data-type="image" data-width="80%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-24-20-12-44.png" /></a></p>
 <h2 id="routing-attacks">routing attacks<a class="headerlink" href="#routing-attacks" title="Permanent link">👀</a></h2>
 <ul>
 <li>distance-vector: <ul>
@@ -4006,16 +4006,16 @@
 </ul>
 </details>
 <p><strong>Case 1: 谎称自己是某个 prefix</strong></p>
-<p><a class="glightbox" href="../../../Images/2024-03-16-18-26-51.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-16-18-26-51.png" /></a></p>
+<p><a class="glightbox" href="../../../Images/2024-03-16-18-26-51.png" data-type="image" data-width="80%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-16-18-26-51.png" /></a></p>
 <p><strong>Case 2: 谎称自己有更短的路径</strong></p>
 <blockquote>
 <p>attacker 谎称自己是某个节点的 neighbor, 然后导致有一个虚假的最短路径，使得流量经过攻击者的节点</p>
 </blockquote>
-<p><a class="glightbox" href="../../../Images/2024-03-18-14-29-06.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-18-14-29-06.png" /></a></p>
+<p><a class="glightbox" href="../../../Images/2024-03-18-14-29-06.png" data-type="image" data-width="80%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-18-14-29-06.png" /></a></p>
 <p>例如 <code>China Telecom</code> 宣称是 <code>22394</code> 的 neighbor，然后导致 <code>ISP 1</code> 计算出了更短路径，会先经过 <code>China Telecom</code></p>
 <h3 id="path-tampering">Path Tampering<a class="headerlink" href="#path-tampering" title="Permanent link">👀</a></h3>
 <p>通过修改路径上的 AS 节点来达到跳转具体几跳的目的，从而实现攻击：</p>
-<p><a class="glightbox" href="../../../Images/2024-03-16-18-06-54.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-16-18-06-54.png" /></a></p>
+<p><a class="glightbox" href="../../../Images/2024-03-16-18-06-54.png" data-type="image" data-width="80%" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-16-18-06-54.png" /></a></p>
 <h2 id="secure-routing_1">Secure Routing<a class="headerlink" href="#secure-routing_1" title="Permanent link">👀</a></h2>
 <h3 id="rpki-resource-public-key-infrastructure">RPKI (Resource Public Key Infrastructure)<a class="headerlink" href="#rpki-resource-public-key-infrastructure" title="Permanent link">👀</a></h3>
 <details class="question">

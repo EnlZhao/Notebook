@@ -98,7 +98,7 @@
     html.glightbox-open { overflow: initial; height: 100%; }
     .gslide-title { margin-top: 0px; user-select: text; }
     .gslide-desc { color: #666; user-select: text; }
-    .gslide-image img { background: white; }
+    .gslide-image img { background: Gainsboro; }
     .gscrollbar-fixer { padding-right: 15px; }
     .gdesc-inner { font-size: 0.75rem; }
     body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
@@ -3820,9 +3820,9 @@
 <ul>
 <li>Let <span class="arithmatex">\(n_h\)</span> be the minimum number of nodes in a balanced binary tree with height <span class="arithmatex">\(h\)</span><ul>
 <li>结点数最小时: <br />
-<a class="glightbox" href="../../../Images/2023-02-28-14-07-34.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="2023-02-28-14-07-34" src="../../../Images/2023-02-28-14-07-34.png" /></a></li>
+<a class="glightbox" href="../../../Images/2023-02-28-14-07-34.png" data-type="image" data-width="80%" data-height="auto" data-desc-position="bottom"><img alt="2023-02-28-14-07-34" src="../../../Images/2023-02-28-14-07-34.png" /></a></li>
 <li>In genernal ( <span class="arithmatex">\(n_h = n_{h-1} + n_{h-2} + 1\)</span> ): <br />
-<a class="glightbox" href="../../../Images/2023-02-28-14-08-30.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="2023-02-28-14-08-30" src="../../../Images/2023-02-28-14-08-30.png" /></a><ul>
+<a class="glightbox" href="../../../Images/2023-02-28-14-08-30.png" data-type="image" data-width="80%" data-height="auto" data-desc-position="bottom"><img alt="2023-02-28-14-08-30" src="../../../Images/2023-02-28-14-08-30.png" /></a><ul>
 <li>Cause Fibonacci sequence: <span class="arithmatex">\(F_0 = 1, ~ F_1 = 1, ~ F_i = F_{i-1} + F_{i-2}\)</span> for <span class="arithmatex">\(i &gt; 1\)</span></li>
 <li><span class="arithmatex">\(n_h = n_{h-1} + n_{h-2} + 1 ~~ \Rightarrow ~~ n_h = F_{h+2} - 1 (h \ge 0)\)</span> </li>
 <li><span class="arithmatex">\(F_i ~ \approx ~ \frac{1}{\sqrt{5}} ( \frac{1+\sqrt{5}}{2} )^i ~~ \Rightarrow ~~ n_h ~ \approx ~ \frac{1}{\sqrt{5}} ( \frac{1+\sqrt{5}}{2} )^{h+2} - 1 ~~ \Rightarrow ~~ h = O(log ~ n_h)\)</span> </li>
@@ -3839,40 +3839,40 @@
 </blockquote>
 <details class="example">
 <summary>依次插入 Mar, May, Nov</summary>
-<p><a class="glightbox" href="../../../Images/2023-02-28-15-01-19.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="2023-02-28-15-01-19" src="../../../Images/2023-02-28-15-01-19.png" /></a><br />
+<p><a class="glightbox" href="../../../Images/2023-02-28-15-01-19.png" data-type="image" data-width="80%" data-height="auto" data-desc-position="bottom"><img alt="2023-02-28-15-01-19" src="../../../Images/2023-02-28-15-01-19.png" /></a><br />
 不平衡的 &ldquo;发现者&rdquo; 是 Mar, “麻烦结点” Nov 在发现者的右子树的右边，因而叫 “RR 插入”，需要 &ldquo;RR 旋转&rdquo; 即右单旋</p>
 </details>
-<p><a class="glightbox" href="../../../Images/2023-02-28-15-13-50.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="2023-02-28-15-13-50" src="../../../Images/2023-02-28-15-13-50.png" /></a></p>
+<p><a class="glightbox" href="../../../Images/2023-02-28-15-13-50.png" data-type="image" data-width="80%" data-height="auto" data-desc-position="bottom"><img alt="2023-02-28-15-13-50" src="../../../Images/2023-02-28-15-13-50.png" /></a></p>
 <h4 id="ll">LL<a class="headerlink" href="#ll" title="Permanent link">👀</a></h4>
 <blockquote>
 <p>Single Rotation</p>
 </blockquote>
 <details class="example">
 <summary>再依次插入 Aug, Apr</summary>
-<p><a class="glightbox" href="../../../Images/2023-02-28-15-18-59.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="2023-02-28-15-18-59" src="../../../Images/2023-02-28-15-18-59.png" /></a><br />
+<p><a class="glightbox" href="../../../Images/2023-02-28-15-18-59.png" data-type="image" data-width="80%" data-height="auto" data-desc-position="bottom"><img alt="2023-02-28-15-18-59" src="../../../Images/2023-02-28-15-18-59.png" /></a><br />
 &ldquo;发现者&rdquo; 是 Mar, “麻烦结点” Apr 在发现者的左子树的左边，因而叫 “LL 插入”，需要 &ldquo;LL 旋转&rdquo; 即左单旋</p>
 </details>
-<p><a class="glightbox" href="../../../Images/2023-02-28-15-31-40.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="2023-02-28-15-31-40" src="../../../Images/2023-02-28-15-31-40.png" /></a></p>
+<p><a class="glightbox" href="../../../Images/2023-02-28-15-31-40.png" data-type="image" data-width="80%" data-height="auto" data-desc-position="bottom"><img alt="2023-02-28-15-31-40" src="../../../Images/2023-02-28-15-31-40.png" /></a></p>
 <h4 id="lr">LR<a class="headerlink" href="#lr" title="Permanent link">👀</a></h4>
 <blockquote>
 <p>Double Rotation</p>
 </blockquote>
 <details class="example">
 <summary>再插入 Jan</summary>
-<p><a class="glightbox" href="../../../Images/2023-02-28-15-29-50.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="2023-02-28-15-29-50" src="../../../Images/2023-02-28-15-29-50.png" /></a><br />
+<p><a class="glightbox" href="../../../Images/2023-02-28-15-29-50.png" data-type="image" data-width="80%" data-height="auto" data-desc-position="bottom"><img alt="2023-02-28-15-29-50" src="../../../Images/2023-02-28-15-29-50.png" /></a><br />
 &ldquo;发现者&rdquo; 是 May, “麻烦结点” Jan 在发现者的左子树的右边，因而叫 “LR 插入”，需要 &ldquo;LR 旋转&rdquo;</p>
 </details>
-<p><a class="glightbox" href="../../../Images/2023-02-28-15-40-29.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="2023-02-28-15-40-29" src="../../../Images/2023-02-28-15-40-29.png" /></a></p>
+<p><a class="glightbox" href="../../../Images/2023-02-28-15-40-29.png" data-type="image" data-width="80%" data-height="auto" data-desc-position="bottom"><img alt="2023-02-28-15-40-29" src="../../../Images/2023-02-28-15-40-29.png" /></a></p>
 <h4 id="rl">RL<a class="headerlink" href="#rl" title="Permanent link">👀</a></h4>
 <blockquote>
 <p>Double Rotation</p>
 </blockquote>
 <details class="example">
 <summary>再插入 Dec, July, Feb</summary>
-<p><a class="glightbox" href="../../../Images/2023-02-28-15-54-36.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="2023-02-28-15-54-36" src="../../../Images/2023-02-28-15-54-36.png" /></a><br />
+<p><a class="glightbox" href="../../../Images/2023-02-28-15-54-36.png" data-type="image" data-width="80%" data-height="auto" data-desc-position="bottom"><img alt="2023-02-28-15-54-36" src="../../../Images/2023-02-28-15-54-36.png" /></a><br />
 &ldquo;发现者&rdquo; 是 Aug, “麻烦结点” Feb 在发现者的右子树的左边，因而叫 “RL 插入”，需要 &ldquo;RL 旋转&rdquo;</p>
 </details>
-<p><a class="glightbox" href="../../../Images/2023-02-28-16-01-05.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="2023-02-28-16-01-05" src="../../../Images/2023-02-28-16-01-05.png" /></a></p>
+<p><a class="glightbox" href="../../../Images/2023-02-28-16-01-05.png" data-type="image" data-width="80%" data-height="auto" data-desc-position="bottom"><img alt="2023-02-28-16-01-05" src="../../../Images/2023-02-28-16-01-05.png" /></a></p>
 <h2 id="splay-trees-amortized-analysis">Splay Trees &amp; Amortized Analysis<a class="headerlink" href="#splay-trees-amortized-analysis" title="Permanent link">👀</a></h2>
 <h3 id="splay-trees">Splay Trees | 伸展树<a class="headerlink" href="#splay-trees" title="Permanent link">👀</a></h3>
 <div class="admonition abstract">
@@ -3887,7 +3887,7 @@ Any simgle operation might take <span class="arithmatex">\(O(N)\)</span> time</p
 <ul>
 <li>伸展树的核心想法是: 一个节点被访问后，通过一系列 AVL Tree 的旋转方法将它转至根节点</li>
 <li>尝试单旋:<ul>
-<li><a class="glightbox" href="../../../Images/2023-02-28-20-49-07.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="2023-02-28-20-49-07" src="../../../Images/2023-02-28-20-49-07.png" /></a></li>
+<li><a class="glightbox" href="../../../Images/2023-02-28-20-49-07.png" data-type="image" data-width="80%" data-height="auto" data-desc-position="bottom"><img alt="2023-02-28-20-49-07" src="../../../Images/2023-02-28-20-49-07.png" /></a></li>
 <li>发现 K<sub>3</sub> 沉到了更底部</li>
 </ul>
 </li>
@@ -3902,9 +3902,9 @@ Any simgle operation might take <span class="arithmatex">\(O(N)\)</span> time</p
 <p>Case 2: P is not the root </p>
 <ul>
 <li>Zig-zag:<br />
-<a class="glightbox" href="../../../Images/2023-02-28-20-59-53.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="2023-02-28-20-59-53" src="../../../Images/2023-02-28-20-59-53.png" /></a></li>
+<a class="glightbox" href="../../../Images/2023-02-28-20-59-53.png" data-type="image" data-width="80%" data-height="auto" data-desc-position="bottom"><img alt="2023-02-28-20-59-53" src="../../../Images/2023-02-28-20-59-53.png" /></a></li>
 <li>Zig-zig:<br />
-<a class="glightbox" href="../../../Images/2023-02-28-21-03-17.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="2023-02-28-21-03-17" src="../../../Images/2023-02-28-21-03-17.png" /></a></li>
+<a class="glightbox" href="../../../Images/2023-02-28-21-03-17.png" data-type="image" data-width="80%" data-height="auto" data-desc-position="bottom"><img alt="2023-02-28-21-03-17" src="../../../Images/2023-02-28-21-03-17.png" /></a></li>
 </ul>
 <blockquote>
 <p>第一个为 LR， 第二个为两次 LL</p>
@@ -3914,7 +3914,7 @@ Any simgle operation might take <span class="arithmatex">\(O(N)\)</span> time</p
 </li>
 <li>
 <p>那么对于开始的图形，使用 Splay 得到<br />
-<a class="glightbox" href="../../../Images/2023-02-28-21-05-58.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="2023-02-28-21-05-58" src="../../../Images/2023-02-28-21-05-58.png" /></a></p>
+<a class="glightbox" href="../../../Images/2023-02-28-21-05-58.png" data-type="image" data-width="80%" data-height="auto" data-desc-position="bottom"><img alt="2023-02-28-21-05-58" src="../../../Images/2023-02-28-21-05-58.png" /></a></p>
 <blockquote>
 <p>Splaying not only moves the accessed node to the root, but also roughly halves the depth of most nodes on the path.</p>
 </blockquote>
@@ -3922,7 +3922,7 @@ Any simgle operation might take <span class="arithmatex">\(O(N)\)</span> time</p
 </ul>
 <details class="example">
 <summary>举个栗子</summary>
-<p><a class="glightbox" href="../../../Images/2023-02-28-21-08-15.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="2023-02-28-21-08-15" src="../../../Images/2023-02-28-21-08-15.png" /></a></p>
+<p><a class="glightbox" href="../../../Images/2023-02-28-21-08-15.png" data-type="image" data-width="80%" data-height="auto" data-desc-position="bottom"><img alt="2023-02-28-21-08-15" src="../../../Images/2023-02-28-21-08-15.png" /></a></p>
 </details>
 <h4 id="deletions">Deletions<a class="headerlink" href="#deletions" title="Permanent link">👀</a></h4>
 <ul>
@@ -3972,7 +3972,7 @@ Any simgle operation might take <span class="arithmatex">\(O(N)\)</span> time</p
 </ul>
 <details class="example">
 <summary>柱状图表示各情况的时间费用</summary>
-<p><a class="glightbox" href="../../../Images/2023-03-01-10-20-57.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="2023-03-01-10-20-57" src="../../../Images/2023-03-01-10-20-57.png" /></a></p>
+<p><a class="glightbox" href="../../../Images/2023-03-01-10-20-57.png" data-type="image" data-width="80%" data-height="auto" data-desc-position="bottom"><img alt="2023-03-01-10-20-57" src="../../../Images/2023-03-01-10-20-57.png" /></a></p>
 </details>
 <ul>
 <li><span class="arithmatex">\(\frac{\sum \hat{c_i}}{n} ~ = \frac{\sum c_i}{n} + \frac{\sum \Delta _i}{n} ~ \le ~ A\)</span> </li>
@@ -4036,13 +4036,13 @@ Any simgle operation might take <span class="arithmatex">\(O(N)\)</span> time</p
 <li>
 <p><span class="arithmatex">\(\Phi(T) = \sum\limits_{i \in T} Rank(i)\)</span> </p>
 <ul>
-<li>Zig: <br><a class="glightbox" href="../../../Images/2023-03-01-12-15-00.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="2023-03-01-12-15-00" src="../../../Images/2023-03-01-12-15-00.png" /></a><ul>
+<li>Zig: <br><a class="glightbox" href="../../../Images/2023-03-01-12-15-00.png" data-type="image" data-width="80%" data-height="auto" data-desc-position="bottom"><img alt="2023-03-01-12-15-00" src="../../../Images/2023-03-01-12-15-00.png" /></a><ul>
 <li><span class="arithmatex">\(\hat{c_i} = 1 + R_2(X) - R_1(X) + R_2(P) - R_1(P)\)</span></li>
 <li><span class="arithmatex">\(\le 1 + R_2(X) - R_1(X)\)</span> ( <span class="arithmatex">\(R_2(X)\)</span> 表示旋转后的这个点的势函数)</li>
 </ul>
 </li>
 <li>
-<p>Zig-zag: <br><a class="glightbox" href="../../../Images/2023-02-28-20-59-53.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="2023-02-28-20-59-53" src="../../../Images/2023-02-28-20-59-53.png" /></a></p>
+<p>Zig-zag: <br><a class="glightbox" href="../../../Images/2023-02-28-20-59-53.png" data-type="image" data-width="80%" data-height="auto" data-desc-position="bottom"><img alt="2023-02-28-20-59-53" src="../../../Images/2023-02-28-20-59-53.png" /></a></p>
 <ul>
 <li><span class="arithmatex">\(\hat{c_i} = 2 + R_2(X) - R_1(X) + R_2(P) - R_1(P) + R_2(G) - R_1(G)\)</span></li>
 <li><span class="arithmatex">\(\le 2(R_2(X) - R_1(X))\)</span> </li>
@@ -4052,7 +4052,7 @@ Any simgle operation might take <span class="arithmatex">\(O(N)\)</span> time</p
 </blockquote>
 </li>
 <li>
-<p>Zig-zig: <br><a class="glightbox" href="../../../Images/2023-02-28-21-03-17.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="2023-02-28-21-03-17" src="../../../Images/2023-02-28-21-03-17.png" /></a></p>
+<p>Zig-zig: <br><a class="glightbox" href="../../../Images/2023-02-28-21-03-17.png" data-type="image" data-width="80%" data-height="auto" data-desc-position="bottom"><img alt="2023-02-28-21-03-17" src="../../../Images/2023-02-28-21-03-17.png" /></a></p>
 <ul>
 <li><span class="arithmatex">\(\hat{c_i} = 2 + R_2(X) - R_1(X) + R_2(P) - R_1(P) + R_2(G) - R_1(G)\)</span></li>
 <li><span class="arithmatex">\(\le 3(R_2(X) - R_1(X))\)</span> </li>
