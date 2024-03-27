@@ -1830,6 +1830,87 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#overlay-communication" class="md-nav__link">
+    Overlay Communication
+  </a>
+  
+    <nav class="md-nav" aria-label="Overlay Communication">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overlay-network" class="md-nav__link">
+    Overlay Network
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#anonyminzing-proxy" class="md-nav__link">
+    Anonyminzing Proxy
+  </a>
+  
+    <nav class="md-nav" aria-label="Anonyminzing Proxy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-if-receiver-is-attacker" class="md-nav__link">
+    what if receiver is attacker
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    优缺点
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-to-evade-attackers" class="md-nav__link">
+    How to evade attackers?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-to-evade-untrusted-proxies" class="md-nav__link">
+    How to evade untrusted proxies?
+  </a>
+  
+    <nav class="md-nav" aria-label="How to evade untrusted proxies?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#source-routing" class="md-nav__link">
+    Source Routing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pof-based-source-routing" class="md-nav__link">
+    POF-based Source Routing
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#some-questions" class="md-nav__link">
     Some Questions
   </a>
@@ -3509,6 +3590,87 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#overlay-communication" class="md-nav__link">
+    Overlay Communication
+  </a>
+  
+    <nav class="md-nav" aria-label="Overlay Communication">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overlay-network" class="md-nav__link">
+    Overlay Network
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#anonyminzing-proxy" class="md-nav__link">
+    Anonyminzing Proxy
+  </a>
+  
+    <nav class="md-nav" aria-label="Anonyminzing Proxy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-if-receiver-is-attacker" class="md-nav__link">
+    what if receiver is attacker
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    优缺点
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-to-evade-attackers" class="md-nav__link">
+    How to evade attackers?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-to-evade-untrusted-proxies" class="md-nav__link">
+    How to evade untrusted proxies?
+  </a>
+  
+    <nav class="md-nav" aria-label="How to evade untrusted proxies?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#source-routing" class="md-nav__link">
+    Source Routing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pof-based-source-routing" class="md-nav__link">
+    POF-based Source Routing
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#some-questions" class="md-nav__link">
     Some Questions
   </a>
@@ -3534,6 +3696,169 @@
 
 
 <h1 id="anonymous-communication">Anonymous Communication<a class="headerlink" href="#anonymous-communication" title="Permanent link">👀</a></h1>
+<p>对于 Internet 中交流的双方 ip1 和 ip2, 如果有一个 attacker snooping on the communication, 尽管它可能不知道两个用户的身份，也无法知道他们被加密的通信内容。但它起码可以使用他们的 ip</p>
+<blockquote>
+<p>Because, for users to communicate via internet, their devices assigned with IP addresses, which are usually fixed within a communication session or more;</p>
+<p>This can be used to infer critical privacy of users</p>
+</blockquote>
+<details class="note">
+<summary>Communication anonymity &amp; privacy:</summary>
+<ul>
+<li>who is communicating?</li>
+<li>who are you talking to?</li>
+<li>what type of activities?</li>
+<li>what type of information?</li>
+</ul>
+</details>
+<p><strong>1) Why wanted?</strong></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Anonymity for Mortals</label><label for="__tabbed_1_2">Anonymity for Attackers</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ul>
+<li>Unmonitored access to health and medical information</li>
+<li>Preservation of democracy: anonymous election/jury</li>
+<li>Censorship circumvention: anonymous access to otherwise restricted information</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<p>Misbehaviors without getting caught: Terrorism, Darknet, Spam, Pirate&hellip;</p>
+</div>
+</div>
+</div>
+<p><strong>2) how to?</strong></p>
+<p>通过加密（如 HTTPS）可以保护访问的内容；</p>
+<blockquote>
+<p>But even if we don’t know what you communicated, knowing with whom you communicated leaks a lot of information as well</p>
+</blockquote>
+<p>Thus, we can <strong>hide destination address</strong></p>
+<p>But here comes another question: </p>
+<ul>
+<li>According to routing, need to specify the ip address of destination to ensure packets being directed toward it,</li>
+<li>Then how to deliver packets to destination? <span class="arithmatex">\(\rightarrow\)</span> <strong>RELAY!</strong></li>
+</ul>
+<details class="abstract">
+<summary>Relay</summary>
+<ul>
+<li>Relay (中继) 常指一种网络设备或服务，可以用于 <u>转发</u> 数据包或信息, 以帮助连接不同的子网或网络。</li>
+<li>中继可以帮助解决网络通信中的距离限制和协议转换问题，进而扩大网络的覆盖范围和功能。</li>
+<li>中继可以分为物理中继和逻辑中继两种类型。<ul>
+<li>物理中继是指一种网络设备或链路，它用于将数据包从一个物理网络转发到另一个物理网络。比如，网络交换机、路由器、网关等设备。</li>
+<li>逻辑中继是指一种软件或服务，它用于将数据包从一个逻辑网络转发到另一个逻辑网络。比如，代理服务器、VPN 网关、DNS 中继等服务。</li>
+</ul>
+</li>
+</ul>
+</details>
+<p>Here comes <strong>Overlay Communication</strong></p>
+<h2 id="overlay-communication">Overlay Communication<a class="headerlink" href="#overlay-communication" title="Permanent link">👀</a></h2>
+<div class="admonition abstract">
+<p class="admonition-title">Overlay Communication</p>
+<ul>
+<li>Overlay Communication（覆盖通信）是一种在网络中添加虚拟网络层的技术，用于改进网络性能和扩展网络功能。</li>
+<li>通过覆盖通信，可以在现有的网络架构上增加一个虚拟的网络层，这个虚拟层与底层网络相互独立，可以实现更高效、更安全和更灵活的通信方式。​</li>
+</ul>
+</div>
+<p><img alt="" src="../../../Images/2024-03-27-16-38-26.png" /></p>
+<p>其中 ip3 是一个 relay node</p>
+<h3 id="overlay-network">Overlay Network<a class="headerlink" href="#overlay-network" title="Permanent link">👀</a></h3>
+<p><img alt="" src="../../../Images/2024-03-27-16-45-56.png" /></p>
+<p>覆盖通信的主要思想是，在应用层和传输层之间添加一个 <strong>中间层</strong>，这个中间层可以通过使用不同的协议、路由和拓扑结构来优化网络通信。</p>
+<p>在覆盖通信中，应用程序会将数据包发送到覆盖网络中，然后由覆盖网络负责将数据包传输到目标地址，从而实现更快速、更可靠的通信。</p>
+<div class="admonition warning">
+<p class="admonition-title">Threat Model</p>
+<p>这里定义攻击模型：Insider Byzantine Attacker</p>
+<ul>
+<li>Insider 表示攻击者本身是网络的一部分（ASes, 攻击者可能控制不止一个 ASes）但攻击者没有能力知道整个网络 (limited view of network)</li>
+<li>Byzantine 表示一种攻击模式，攻击者的的攻击行为是不稳定的（长期、一致的攻击会容易被发现，因此攻击者采取间断式的、不同方式的攻击，就比较难被检测到了）</li>
+</ul>
+<p>攻击者的目标是：在目的 IP 信息隐藏在数据包中的情况下，得知数据包的最终目的地。</p>
+</div>
+<p>由此提出两种攻击行为：</p>
+<ol>
+<li>Traceforward Attack<ul>
+<li>passive attacker</li>
+<li>traces messages from sender, thwarts receiver anonymity</li>
+<li>被动攻击者跟踪数据包信息</li>
+</ul>
+</li>
+<li>Marking Attack<ul>
+<li>active attacker</li>
+<li>marks messages, discovers marked msg elsewhere</li>
+<li>攻击者比较厉害，可以改经过它的数据包，那可以加个标记，然后在其他地方发现就知道是发过来了</li>
+</ul>
+</li>
+</ol>
+<h2 id="anonyminzing-proxy">Anonyminzing Proxy<a class="headerlink" href="#anonyminzing-proxy" title="Permanent link">👀</a></h2>
+<ul>
+<li>intermediary between sender &amp; receiver</li>
+<li>Sender relays all traffic through proxy</li>
+<li>Encrypt destination and payload</li>
+<li>Asymmetric technique: receiver not involved (or informed of) anonymity</li>
+</ul>
+<p><img alt="" src="../../../Images/2024-03-27-17-30-04.png" /></p>
+<p>k: shared key of sender and proxy</p>
+<ol>
+<li>如果攻击者在 sender 和 proxy 之间监听，那么 sender 丧失了匿名性</li>
+<li>如果攻击者在 proxy 和 receiver 之间监听，那么 receiver 丧失了匿名性</li>
+<li>如果有两个攻击者，一个在 sender 和 proxy 之间，一个在 proxy 和 receiver 之间，两者串通比对 ingress 和 egress 的流量，则 sender 和 receiver 都丧失了匿名性</li>
+<li>如果 proxy 本身是恶意的，那么 sender 和 receiver 都丧失了匿名性</li>
+</ol>
+<h3 id="what-if-receiver-is-attacker">what if receiver is attacker<a class="headerlink" href="#what-if-receiver-is-attacker" title="Permanent link">👀</a></h3>
+<blockquote>
+<p>需要保护发送者的匿名性</p>
+</blockquote>
+<p><img alt="" src="../../../Images/2024-03-27-17-36-07.png" /></p>
+<h3 id="_1">优缺点<a class="headerlink" href="#_1" title="Permanent link">👀</a></h3>
+<ul>
+<li>Advantages:<ul>
+<li>Easy to configure</li>
+<li>Require no active participation of receiver, which need not be aware of anonymity service</li>
+<li>Have been widely deployed on Internet</li>
+</ul>
+</li>
+<li>Disadvantages:<ul>
+<li>Require trusted third party proxy may release logs, or sell them, or blackmail sender</li>
+<li>Anonymity largely depends on the (likely unknown) location of attacker</li>
+</ul>
+</li>
+</ul>
+<h3 id="how-to-evade-attackers">How to evade attackers?<a class="headerlink" href="#how-to-evade-attackers" title="Permanent link">👀</a></h3>
+<blockquote>
+<p>dynamic proxy location</p>
+</blockquote>
+<p>Here comes <strong>Crowds Algorithm</strong></p>
+<ul>
+<li>Basic idea: get lost in a crowd</li>
+<li>Jump from one crowd to another</li>
+<li>Members of a crowd called Jondos</li>
+<li>Algorithm:<ul>
+<li>Relay message to random jondo</li>
+<li>With probability p, jondo forwards message to another jondo</li>
+<li>With probability 1-p, jondo delivers message to its intended destination</li>
+</ul>
+</li>
+</ul>
+<p><img alt="" src="../../../Images/2024-03-27-17-44-16.png" /></p>
+<h3 id="how-to-evade-untrusted-proxies">How to evade untrusted proxies?<a class="headerlink" href="#how-to-evade-untrusted-proxies" title="Permanent link">👀</a></h3>
+<p><strong>proxy ++</strong></p>
+<p>多弄一些 proxy, 用于混淆攻击者的视线</p>
+<p>Its hard for an attacker to <strong>simultaneously</strong> control too many proxies</p>
+<p>Other methods: </p>
+<h4 id="source-routing">Source Routing<a class="headerlink" href="#source-routing" title="Permanent link">👀</a></h4>
+<div class="admonition abstract">
+<p class="admonition-title">Abstract</p>
+<ul>
+<li>specify on-path routers by source</li>
+<li>allows a sender of a packet to partially or completely specify the route the packet takes through the network.</li>
+<li>In contrast, in conventional routing, routers in the network determine the path incrementally based on the packet&rsquo;s destination</li>
+</ul>
+</div>
+<p>Source Routing / Path Addressing 允许发送者指定一个包的部分或者全部路由​</p>
+<p>源路由技术中，数据包的路由路径是在数据包的头部中指定的，这意味着发送方可以选择数据包的路由路径，而不是让网络中的路由器根据它们的路由表来自动选择。</p>
+<h4 id="pof-based-source-routing">POF-based Source Routing<a class="headerlink" href="#pof-based-source-routing" title="Permanent link">👀</a></h4>
+<blockquote>
+<p>POF: Protocol Oblivious Forwarding</p>
+</blockquote>
+<p><img alt="" src="../../../Images/2024-03-27-17-48-47.png" /></p>
 <h2 id="some-questions">Some Questions<a class="headerlink" href="#some-questions" title="Permanent link">👀</a></h2>
 <details class="question">
 <summary>Why is current Internet communication vulnerable to anonymity or privacy leakage? </summary>
