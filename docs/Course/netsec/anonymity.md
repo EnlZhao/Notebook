@@ -155,6 +155,107 @@ Source Routing / Path Addressing 允许发送者指定一个包的部分或者�
 
 ![](../../Images/2024-03-27-17-48-47.png)
 
+传统的网络协议中，router 需要根据特定的协议来解析数据包的头部，然后根据协议的规则来转发数据包。而 POF 采用了新的转发机制（从数据包的源头开始指定全部或部分路由），即不需要了解任何特定协议，只需要根据指定路径进行转发。
+
+=== "新的问题"
+    匿名性问题：泄漏了 port sequence
+=== "解决策略"
+    隐藏非 neighbor 的 port sequence
+
+为了隐藏非 neighbor 的 port sequence， 可以使用 Onion Routing
+
+## Onion Routing
+
+> Use onion router called Tor
+
+=== "request"
+    ![](../../Images/2024-03-30-19-52-32.png)
+=== "reply"
+    ![](../../Images/2024-03-30-19-54-14.png)
+
+在洋葱网络中，信息被封装在加密层。
+
+![](../../Images/2024-03-30-19-55-43.png)
+
+- 类似于洋葱一样，加密数据通过一系列 "Tor node" 路由器节点传输，每个节点只能解密一层，然后将数据传递给下一个节点。
+- 当最后一个节点解密数据时，它将数据传递给目标地址，这样就实现了端到端的匿名通信。
+- 由此，sender 保持了匿名性， receiver 也保持了匿名性。每个中继节点只知道紧邻的节点
+
+??? info "source-routing based anonymous overlay communication"
+    1. 向 directory node 获取节点列表，随机选择节点形成一条 chain
+    2. 从 directory node 获取公钥，与 A (Tor entry) 协商密钥;
+          1. A 与下一节点 B 协商密钥
+          2. ...
+          3. 最后节点 (假如是 C) 与目标地址 (D) 协商密钥，建立整条链的连接
+    3. 发送 ${{{{\text{msg}}_D, D}_C, C}_B, B}_A$, 这样逐层解密才能发送到目标地址
+    4. reply 的时候使用同一条反向即可
+
+    > 解密出的数据除了信息外，还包括要 forward 的下一跳地址
+
+???+ example "application: Darknet"
+    - Portions of the Internet purposefully not open to public view or hidden networks whose architecture is superimposed on that of Internet.
+    - Install Tor
+    - Access darknet.onion through it
+    
+    ![](../../Images/2024-03-30-20-45-49.png)
+
+### how to deanonymize?
+
+有四种思考策略：
+
+1. tor nodes 互相串通
+2. 强行破解密钥
+3. Passive monitoring
+4. Active attraction: 
+      - deploy a Tor router;
+      - attract Tor traffic;
+      - perform traffic analysis and correlation;
+
+#### Path Selection Attack
+
+- Tor path selection algorithm:
+    - weight nodes by selfreported bandwidth; | 通过自报带宽来对节点加权
+    - select each node using weighted | 使用权重选择每个节点
+    - probability distribution; | 概率分布
+- Attack:
+    - malicious relay reports very high bw to increase selection probability; | 恶意中继节点虚报非常高的带宽以增加被选中概率
+    - if it controls the first hop, de-sender; | 如果控制了第一个 hop, 则 sender 丧失匿名性
+    - if it controls the last hop,  de-receiver; | 如果控制了最后一个 hop, 则 receiver 丧失匿名性
+
+#### Counting Attack
+
+- Correlate incoming and outgoing flows by counting the number of packets | 通过计算数据包的数量来对入站和出站流量进行关联
+
+![](../../Images/2024-03-30-20-51-36.png)
+
+> 在检测时间段，有可能有之前停留在其中的 packert, 所以 dest 会多一些也可能有些正在 process, 所以 dest 会少一些
+
+- 一种抵御策略是：将流量较小的进行扩大，将流量较大的进行缩小，使得流量差异变小
+- 但攻击者仍然可以通过采样包之间的时间间隔来进行分析
+
+#### Low Latency Attack
+
+- Tor router assigns each anonymous circuit its own queue | Tor 路由器为每个匿名电路分配一个队列
+- Dequeue one packet from each queue in round-robin fashion | 以轮询方式从每个队列中出队一个数据包
+
+节点越多，队列越长，轮询时间越长，延迟越大。
+
+![](../../Images/2024-03-30-21-01-47.png)
+
+![](../../Images/2024-03-30-21-01-54.png)
+
+#### Cross Site Attack
+
+**Crawling**:
+
+- Deploy Tor routers
+- Access darknet
+- Crawl transaction information
+- Extract Bitcoin accounts of interest
+
+**Correlation**:
+
+- Search the accounts on public websites
 
 
 ## Some Questions
