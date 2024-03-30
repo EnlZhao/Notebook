@@ -4019,7 +4019,7 @@
 <li>最后节点 (假如是 C) 与目标地址 (D) 协商密钥，建立整条链的连接</li>
 </ol>
 </li>
-<li>发送 <span class="arithmatex">\({{{{\text{msg}}_D, D}_C, C}_B, B}_A\)</span>, 这样逐层解密才能发送到目标地址</li>
+<li>发送 <span class="arithmatex">\(\{\{\{\{\text{msg}\}_D, D\}_C, C\}_B, B\}_A\)</span>, 这样逐层解密才能发送到目标地址</li>
 <li>reply 的时候使用同一条反向即可</li>
 </ol>
 <blockquote>
@@ -4082,7 +4082,15 @@
 </ul>
 <p>节点越多，队列越长，轮询时间越长，延迟越大。</p>
 <p><a class="glightbox" href="../../../Images/2024-03-30-21-01-47.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-30-21-01-47.png" /></a></p>
+<div class="admonition example">
+<p class="admonition-title">Attack Example</p>
 <p><a class="glightbox" href="../../../Images/2024-03-30-21-03-47.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-30-21-03-47.png" /></a></p>
+<ul>
+<li>A 要攻击 Init, intends to infer Init&rsquo;s activity</li>
+<li>假设只有 Init 和 A 一起在占用 T2</li>
+<li>那么 A 循环给 T2 发包并测试延迟，如果延迟变大，则说明 Init Traffic，即 Init 在活动</li>
+</ul>
+</div>
 <h4 id="cross-site-attack">Cross Site Attack<a class="headerlink" href="#cross-site-attack" title="Permanent link">👀</a></h4>
 <p><strong>Crawling</strong>:</p>
 <ul>
