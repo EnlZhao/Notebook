@@ -2,8 +2,7 @@
 !build.sh
 
 docs/Course/Crypto/
-#docs/Course/ADS/
-docs/Course/408/
+# docs/Course/ADS/
 site/
 
 .github/
