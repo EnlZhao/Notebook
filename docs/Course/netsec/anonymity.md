@@ -242,8 +242,12 @@ Source Routing / Path Addressing 允许发送者指定一个包的部分或者�
 
 ![](../../Images/2024-03-30-21-01-47.png)
 
-![](../../Images/2024-03-30-21-01-54.png)
-![](../../Images/2024-03-30-21-03-47.png)
+!!! example "Attack Example"
+    ![](../../Images/2024-03-30-21-03-47.png)
+
+    - A 要攻击 Init, intends to infer Init's activity
+    - 假设只有 Init 和 A 一起在占用 T2
+    - 那么 A 循环给 T2 发包并测试延迟，如果延迟变大，则说明 Init Traffic，即 Init 在活动
 
 #### Cross Site Attack
 
