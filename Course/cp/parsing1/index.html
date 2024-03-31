@@ -4465,6 +4465,15 @@
 </details>
 <h4 id="ll1_2">实现 LL(1) 预测分析<a class="headerlink" href="#ll1_2" title="Permanent link">👀</a></h4>
 <h5 id="first-follow">计算 First, Follow 集<a class="headerlink" href="#first-follow" title="Permanent link">👀</a></h5>
+<p>由于 First, Follow 集涉及空串，这里引入 Nullable 概念</p>
+<div class="admonition note">
+<p class="admonition-title">Nullable 集的归纳定义</p>
+<p>如果 <span class="arithmatex">\(X\)</span> 可以推导出空串（即 <span class="arithmatex">\(X\)</span> 是 Nullable）, <strong>iff</strong></p>
+<ul>
+<li>Base case: <span class="arithmatex">\(X \rightarrow \epsilon\)</span>, 那么 <span class="arithmatex">\(X\)</span> 显然是 Nullable</li>
+<li>Inductive case: </li>
+</ul>
+</div>
 <h5 id="_6">构造预测分析表<a class="headerlink" href="#_6" title="Permanent link">👀</a></h5>
 <h5 id="_7">预测分析<a class="headerlink" href="#_7" title="Permanent link">👀</a></h5>
 <h4 id="_8">消除左递归、提左公因子<a class="headerlink" href="#_8" title="Permanent link">👀</a></h4>
