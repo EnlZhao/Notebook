@@ -1,6 +1,3 @@
-*.sh
-!build.sh
-
 docs/Course/Crypto/
 # docs/Course/ADS/
 site/

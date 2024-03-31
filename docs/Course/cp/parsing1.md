@@ -464,6 +464,24 @@ E   -> E + E
 
     - Base case: $X \rightarrow \epsilon$, 那么 $X$ 显然是 Nullable
     - Inductive case: 
+        - $X \rightarrow Y_1 \dots Y_n$
+        - 其中 $Y_1, \dots, Y_n$ 都是非终结符，且全属于 Nullable 集，那么 $X$ 也是 Nullable
+
+    ??? info "根据归纳定义计算 Nullable 集"
+        ```c
+        /* Nullable: a set of nonterminals */ 
+        Nullable <- {};
+        while (Nullable still changes) 
+            for (each production X -> a) 
+                switch (a) 
+                case epsilon:
+                    Nullable ∪= {X}; 
+                    break;
+                case Y1 … Yn:
+                    if (Y1 in Nullable && … && Yn in Nullable)
+                        Nullable ∪= {X}; 
+                    break;
+        ```
 
 
 ##### 构造预测分析表
