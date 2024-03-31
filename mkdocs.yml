@@ -213,6 +213,7 @@ plugins:
       # javascript: mkdocs/javascripts/mermaid.js
   - obsidian-support
   - glightbox
+  - statistics
   # - blog
   #- tags # 给单篇文章添加标签 https://squidfunk.github.io/mkdocs-material/setup/setting-up-tags/?h=tags
   # - git-revision-date-localized: # 显示最后一次修改时间
