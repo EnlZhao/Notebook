@@ -2070,6 +2070,87 @@
     自顶向下的语法分析 | Top-Down Parsing
   </a>
   
+    <nav class="md-nav" aria-label="自顶向下的语法分析 | Top-Down Parsing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    允许回溯的递归下降分析
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ll1" class="md-nav__link">
+    LL(1) 和预测分析法
+  </a>
+  
+    <nav class="md-nav" aria-label="LL(1) 和预测分析法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ll1_1" class="md-nav__link">
+    LL(1) 文法的定义
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ll1_2" class="md-nav__link">
+    实现 LL(1) 预测分析
+  </a>
+  
+    <nav class="md-nav" aria-label="实现 LL(1) 预测分析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#first-follow" class="md-nav__link">
+    计算 First, Follow 集
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    构造预测分析表
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    预测分析
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    消除左递归、提左公因子
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    错误恢复
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -3724,6 +3805,87 @@
     自顶向下的语法分析 | Top-Down Parsing
   </a>
   
+    <nav class="md-nav" aria-label="自顶向下的语法分析 | Top-Down Parsing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    允许回溯的递归下降分析
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ll1" class="md-nav__link">
+    LL(1) 和预测分析法
+  </a>
+  
+    <nav class="md-nav" aria-label="LL(1) 和预测分析法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ll1_1" class="md-nav__link">
+    LL(1) 文法的定义
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ll1_2" class="md-nav__link">
+    实现 LL(1) 预测分析
+  </a>
+  
+    <nav class="md-nav" aria-label="实现 LL(1) 预测分析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#first-follow" class="md-nav__link">
+    计算 First, Follow 集
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    构造预测分析表
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    预测分析
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    消除左递归、提左公因子
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    错误恢复
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -4159,6 +4321,154 @@
 <p><a class="glightbox" href="../../../Images/2024-03-15-10-47-14.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-15-10-47-14.png" /></a></p>
 </details>
 <h2 id="top-down-parsing">自顶向下的语法分析 | Top-Down Parsing<a class="headerlink" href="#top-down-parsing" title="Permanent link">👀</a></h2>
+<div class="admonition abstract">
+<p class="admonition-title">自顶向下的语法分析</p>
+<ul>
+<li>从文法开始符号 <span class="arithmatex">\(S\)</span> 出发，推导出串 <span class="arithmatex">\(w\)</span><ul>
+<li>从顶部向底部方向构造 Parse Tree (从上至下，从左至右)</li>
+</ul>
+</li>
+<li>每一步推导需要做 <strong>两个选择</strong><ol>
+<li>替换当前句型中的哪个非终结符？<ul>
+<li>自顶向下分析总是选择每个句型的 <strong>最左非终结符</strong> 进行替换!</li>
+</ul>
+</li>
+<li>用该非终结符的哪个产生式替换？<ul>
+<li></li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</div>
+<h3 id="_5">允许回溯的递归下降分析<a class="headerlink" href="#_5" title="Permanent link">👀</a></h3>
+<blockquote>
+<p>自顶向下分析的通用形式: 递归下降分析</p>
+</blockquote>
+<div class="admonition note">
+<p class="admonition-title">递归下降分析 (Recursive-Descent Parsing)</p>
+<ul>
+<li>由一组 <strong>过程/函数</strong> 组成，每个过程对应一个 <strong>非终结符</strong></li>
+<li>从开始符号 <span class="arithmatex">\(S\)</span> 对应的过程开始，（递归）调用其他过程</li>
+<li>如果 <span class="arithmatex">\(S\)</span> 对应的过程恰好扫描了整个输入串，则分析成功</li>
+</ul>
+</div>
+<div class="admonition example">
+<p class="admonition-title">例子</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">question</label><label for="__tabbed_2_2">!!分析!!</label><label for="__tabbed_2_3">具体实例</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>已知文法 <span class="arithmatex">\(S \rightarrow cAd\)</span>, <span class="arithmatex">\(A \rightarrow ab \vert b\)</span></p>
+<p>如何为 <span class="arithmatex">\(S\)</span> 和 <span class="arithmatex">\(A\)</span> 构造其对应的过程？</p>
+</div>
+<div class="tabbed-block">
+<p>利用非终结符 <span class="arithmatex">\(A\)</span> 的文法规则 <span class="arithmatex">\(A \rightarrow X_1 \dots X_k\)</span>, 定义识别 <span class="arithmatex">\(A\)</span> 的过程</p>
+<ul>
+<li>如果 <span class="arithmatex">\(X_i\)</span> 是非终结符：调用相应非终结符对应的过程</li>
+<li>如果 <span class="arithmatex">\(X_i\)</span> 是终结符 <span class="arithmatex">\(a\)</span> ：匹配输入串中对应的终结符 <span class="arithmatex">\(a\)</span></li>
+</ul>
+<p><a class="glightbox" href="../../../Images/2024-03-31-19-24-37.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-31-19-24-37.png" /></a></p>
+</div>
+<div class="tabbed-block">
+<p><a class="glightbox" href="../../../Images/2024-03-31-19-28-22.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-31-19-28-22.png" /></a></p>
+</div>
+</div>
+</div>
+</div>
+<p>但是上述通用递归下降带来了新的问题：<strong>回溯</strong></p>
+<p>复杂的回溯会导致代价太高：</p>
+<ul>
+<li>非终结符有可能有多个产生式，由于信息缺失，无法准确预测选择哪一个</li>
+<li>考虑到往往需要对多个非终结符进行推导展开，因此尝试的路径可能呈指数级爆炸</li>
+</ul>
+<p>其分析过程类似于 NFA， 那么是否可以构造一个类似 DFA 的分析方法 -&gt; LL(1) 分析</p>
+<h3 id="ll1">LL(1) 和预测分析法<a class="headerlink" href="#ll1" title="Permanent link">👀</a></h3>
+<p>首先给出几个定义：</p>
+<div class="admonition note">
+<p class="admonition-title">预测分析法 (Predictive Parsing)</p>
+<p>此方法接受 LL(k) 文法</p>
+<ul>
+<li>第一个 L 表示从左到右扫描输入串 (Left-to-right)</li>
+<li>第二个 L 表示最左推导 (Leftmost derivation)</li>
+<li>k 表示向前看 k 个 Token 来确定产生式 (k 常取 1)</li>
+</ul>
+<p>LL(1) 即指每次为最左边的非终结符选择产生式时，向前看 1 个输入符号，预测要使用的产生式</p>
+<div class="admonition question">
+<p class="admonition-title">文法加什么限制可以保证没有回溯？</p>
+<p>TODO</p>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">First 集</p>
+<p>给定一个四元组 <span class="arithmatex">\(G = (N, T, P, S)\)</span>, <span class="arithmatex">\(\alpha \in (T \cup N)^*\)</span></p>
+<div class="arithmatex">\[
+\text{First}(\alpha) = \{a \vert \alpha \Rightarrow^* a \dots, a \in T \}
+\]</div>
+<p>表示可从 <span class="arithmatex">\(\alpha\)</span> 推导得到的串的 <strong>首个终结符的集合</strong></p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p><a class="glightbox" href="../../../Images/2024-03-31-19-44-06.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-31-19-44-06.png" /></a></p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">龙书中关于 First 集的定义</p>
+<div class="arithmatex">\[
+\text{First}(\alpha) = \{a \vert \alpha \Rightarrow^* a \dots, a \in T \} \cup \{\epsilon \vert \alpha \Rightarrow^* \epsilon \}
+\]</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Follow 集</p>
+<p>给定一个四元组 <span class="arithmatex">\(G = (N, T, P, S)\)</span>, <span class="arithmatex">\(A \in N\)</span></p>
+<div class="arithmatex">\[
+\text{Follow}(A) = \{a \vert S \Rightarrow^* \dots A a \dots, a \in T \}
+\]</div>
+<p>从 <span class="arithmatex">\(S\)</span> 出发, 可能在推导过程中跟在 <span class="arithmatex">\(A\)</span> 右边的终结符号集</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>例如：<span class="arithmatex">\(S \rightarrow \alpha A a \beta\)</span>, 终结符号 <span class="arithmatex">\(a \in \text{Follow}(A)\)</span><br />
+<a class="glightbox" href="../../../Images/2024-03-31-19-51-40.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-31-19-51-40.png" /></a></p>
+</div>
+</div>
+<h4 id="ll1_1">LL(1) 文法的定义<a class="headerlink" href="#ll1_1" title="Permanent link">👀</a></h4>
+<p>文法 <span class="arithmatex">\(G\)</span> 的任何两个产生式 <span class="arithmatex">\(A \rightarrow \alpha \vert \beta\)</span> 都满足下列条件：</p>
+<ol>
+<li><span class="arithmatex">\(\text{First}(\alpha) \cap \text{First}(\beta) = \emptyset\)</span></li>
+</ol>
+<blockquote>
+<p>即 <span class="arithmatex">\(\alpha\)</span> 和 <span class="arithmatex">\(\beta\)</span> 推导不出以同一个单词为首的串</p>
+</blockquote>
+<details class="example">
+<summary>Example</summary>
+<ul>
+<li>假设下一个输入是 <span class="arithmatex">\(b\)</span>, 且 <span class="arithmatex">\(\text{First}(\alpha)\)</span> 和 <span class="arithmatex">\(\text{First}(\beta)\)</span> 不相交。</li>
+<li>若 <span class="arithmatex">\(b \in \text{First}(\alpha)\)</span>, 则选择 <span class="arithmatex">\(A \rightarrow \alpha\)</span>; 若 <span class="arithmatex">\(b \in \text{First}(\beta)\)</span>, 则选择 <span class="arithmatex">\(A \rightarrow \beta\)</span></li>
+</ul>
+</details>
+<ol start="2">
+<li>若 <span class="arithmatex">\(\beta \Rightarrow^* \epsilon\)</span>, 那么 <span class="arithmatex">\(\alpha \nRightarrow^* \epsilon\)</span>, 且 <span class="arithmatex">\(\text{First}(\alpha) \cap \text{Follow}(A) = \emptyset\)</span></li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">龙书中的不同</p>
+<p>龙书中关于第二个条件的定义无需前面的设定，因为龙书中 First 集的定义包含了空串, 两者 First set 交集为空已经包含了 <span class="arithmatex">\(\alpha\)</span> 和 <span class="arithmatex">\(\beta\)</span> 不能同时推导出空串的情况</p>
+</div>
+<blockquote>
+<p>即 <span class="arithmatex">\(\alpha\)</span> 和 <span class="arithmatex">\(\beta\)</span> 不能同时推导出空串；<span class="arithmatex">\(\text{First}(\alpha)\)</span> 和 <span class="arithmatex">\(\text{Follow}(A)\)</span> 不能有交集</p>
+</blockquote>
+<p>以上两条可以保证产生式选择的唯一性</p>
+<details class="example">
+<summary>Example</summary>
+<p>假设下一个输入是 <span class="arithmatex">\(b\)</span>, 且 <span class="arithmatex">\(\beta \Rightarrow^* \epsilon\)</span></p>
+<ul>
+<li>如果 <span class="arithmatex">\(b \in \text{First}(\alpha)\)</span>, 选择 <span class="arithmatex">\(A \rightarrow \alpha\)</span> (属于条件一)</li>
+<li>如果 <span class="arithmatex">\(b \in \text{Follow}(A)\)</span>, 选择 <span class="arithmatex">\(A \rightarrow \beta\)</span>，因为 <span class="arithmatex">\(A\)</span> 最终推导出空串且后面跟着 <span class="arithmatex">\(b\)</span> (属于条件二)</li>
+</ul>
+</details>
+<h4 id="ll1_2">实现 LL(1) 预测分析<a class="headerlink" href="#ll1_2" title="Permanent link">👀</a></h4>
+<h5 id="first-follow">计算 First, Follow 集<a class="headerlink" href="#first-follow" title="Permanent link">👀</a></h5>
+<h5 id="_6">构造预测分析表<a class="headerlink" href="#_6" title="Permanent link">👀</a></h5>
+<h5 id="_7">预测分析<a class="headerlink" href="#_7" title="Permanent link">👀</a></h5>
+<h4 id="_8">消除左递归、提左公因子<a class="headerlink" href="#_8" title="Permanent link">👀</a></h4>
+<h4 id="_9">错误恢复<a class="headerlink" href="#_9" title="Permanent link">👀</a></h4>
 <div class="footnote">
 <hr />
 <ol>
