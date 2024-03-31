@@ -338,3 +338,136 @@ E   -> E + E
 
 ## 自顶向下的语法分析 | Top-Down Parsing
 
+!!! abstract "自顶向下的语法分析"
+    - 从文法开始符号 $S$ 出发，推导出串 $w$
+        - 从顶部向底部方向构造 Parse Tree (从上至下，从左至右)
+    - 每一步推导需要做 **两个选择**
+        1. 替换当前句型中的哪个非终结符？
+              - 自顶向下分析总是选择每个句型的 **最左非终结符** 进行替换!
+        2. 用该非终结符的哪个产生式替换？
+              - 
+
+### 允许回溯的递归下降分析
+
+> 自顶向下分析的通用形式: 递归下降分析
+
+!!! note "递归下降分析 (Recursive-Descent Parsing)"
+    - 由一组 **过程/函数** 组成，每个过程对应一个 **非终结符**
+    - 从开始符号 $S$ 对应的过程开始，（递归）调用其他过程
+    - 如果 $S$ 对应的过程恰好扫描了整个输入串，则分析成功
+
+!!! example "例子"
+    === "question"
+        已知文法 $S \rightarrow cAd$, $A \rightarrow ab \vert b$
+
+        如何为 $S$ 和 $A$ 构造其对应的过程？
+    === "!!分析!!"
+        利用非终结符 $A$ 的文法规则 $A \rightarrow X_1 \dots X_k$, 定义识别 $A$ 的过程
+
+        - 如果 $X_i$ 是非终结符：调用相应非终结符对应的过程
+        - 如果 $X_i$ 是终结符 $a$ ：匹配输入串中对应的终结符 $a$
+        
+        ![](../../Images/2024-03-31-19-24-37.png)
+    === "具体实例"
+        ![](../../Images/2024-03-31-19-28-22.png)
+
+但是上述通用递归下降带来了新的问题：**回溯**
+
+复杂的回溯会导致代价太高：
+
+- 非终结符有可能有多个产生式，由于信息缺失，无法准确预测选择哪一个
+- 考虑到往往需要对多个非终结符进行推导展开，因此尝试的路径可能呈指数级爆炸
+
+其分析过程类似于 NFA， 那么是否可以构造一个类似 DFA 的分析方法 -> LL(1) 分析
+
+### LL(1) 和预测分析法
+
+首先给出几个定义：
+
+!!! note "预测分析法 (Predictive Parsing)"
+    此方法接受 LL(k) 文法
+
+    - 第一个 L 表示从左到右扫描输入串 (Left-to-right)
+    - 第二个 L 表示最左推导 (Leftmost derivation)
+    - k 表示向前看 k 个 Token 来确定产生式 (k 常取 1)
+
+    LL(1) 即指每次为最左边的非终结符选择产生式时，向前看 1 个输入符号，预测要使用的产生式
+    
+    !!! question "文法加什么限制可以保证没有回溯？"
+        TODO
+
+!!! note "First 集"
+    给定一个四元组 $G = (N, T, P, S)$, $\alpha \in (T \cup N)^*$
+
+    $$
+    \text{First}(\alpha) = \{a \vert \alpha \Rightarrow^* a \dots, a \in T \}
+    $$
+
+    表示可从 $\alpha$ 推导得到的串的 **首个终结符的集合**
+
+    !!! example
+        ![](../../Images/2024-03-31-19-44-06.png)
+
+    !!! info "龙书中关于 First 集的定义"
+        $$
+        \text{First}(\alpha) = \{a \vert \alpha \Rightarrow^* a \dots, a \in T \} \cup \{\epsilon \vert \alpha \Rightarrow^* \epsilon \}
+        $$
+
+!!! note "Follow 集"
+    给定一个四元组 $G = (N, T, P, S)$, $A \in N$
+
+    $$
+    \text{Follow}(A) = \{a \vert S \Rightarrow^* \dots A a \dots, a \in T \}
+    $$
+
+    从 $S$ 出发, 可能在推导过程中跟在 $A$ 右边的终结符号集
+
+    !!! example
+        例如：$S \rightarrow \alpha A a \beta$, 终结符号 $a \in \text{Follow}(A)$
+        ![](../../Images/2024-03-31-19-51-40.png)
+
+#### LL(1) 文法的定义
+
+文法 $G$ 的任何两个产生式 $A \rightarrow \alpha \vert \beta$ 都满足下列条件：
+
+1. $\text{First}(\alpha) \cap \text{First}(\beta) = \emptyset$
+
+> 即 $\alpha$ 和 $\beta$ 推导不出以同一个单词为首的串
+
+??? example
+    - 假设下一个输入是 $b$, 且 $\text{First}(\alpha)$ 和 $\text{First}(\beta)$ 不相交。
+    - 若 $b \in \text{First}(\alpha)$, 则选择 $A \rightarrow \alpha$; 若 $b \in \text{First}(\beta)$, 则选择 $A \rightarrow \beta$
+
+2. 若 $\beta \Rightarrow^* \epsilon$, 那么 $\alpha \nRightarrow^* \epsilon$, 且 $\text{First}(\alpha) \cap \text{Follow}(A) = \emptyset$
+
+!!! tip "龙书中的不同"
+    龙书中关于第二个条件的定义无需前面的设定，因为龙书中 First 集的定义包含了空串, 两者 First set 交集为空已经包含了 $\alpha$ 和 $\beta$ 不能同时推导出空串的情况
+
+> 即 $\alpha$ 和 $\beta$ 不能同时推导出空串；$\text{First}(\alpha)$ 和 $\text{Follow}(A)$ 不能有交集
+
+以上两条可以保证产生式选择的唯一性
+
+??? example
+    假设下一个输入是 $b$, 且 $\beta \Rightarrow^* \epsilon$
+
+    - 如果 $b \in \text{First}(\alpha)$, 选择 $A \rightarrow \alpha$ (属于条件一)
+    - 如果 $b \in \text{Follow}(A)$, 选择 $A \rightarrow \beta$，因为 $A$ 最终推导出空串且后面跟着 $b$ (属于条件二)
+
+#### 实现 LL(1) 预测分析
+
+##### 计算 First, Follow 集
+
+
+
+##### 构造预测分析表
+
+
+##### 预测分析
+
+
+
+#### 消除左递归、提左公因子
+
+
+
+#### 错误恢复
