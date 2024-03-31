@@ -457,6 +457,13 @@ E   -> E + E
 
 ##### 计算 First, Follow 集
 
+由于 First, Follow 集涉及空串，这里引入 Nullable 概念
+
+!!! note "Nullable 集的归纳定义"
+    如果 $X$ 可以推导出空串（即 $X$ 是 Nullable）, **iff**
+
+    - Base case: $X \rightarrow \epsilon$, 那么 $X$ 显然是 Nullable
+    - Inductive case: 
 
 
 ##### 构造预测分析表
