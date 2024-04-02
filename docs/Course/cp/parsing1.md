@@ -246,8 +246,6 @@ $$G = (N, T, P, S)$$
     - 满足，肯定无二义性
     - 不满足，也未必就是有二义性的
 
-[^1]: [David G. Cantor. 1962. On The Ambiguity Problem of Backus Systems. J. ACM 9, 4 (Oct. 1962), 477–479.](https://dl.acm.org/doi/10.1145/321138.321145)
-
 ??? example
     ![](../../Images/2024-03-15-10-09-50.png)
 
@@ -467,7 +465,7 @@ E   -> E + E
         - $X \rightarrow Y_1 \dots Y_n$
         - 其中 $Y_1, \dots, Y_n$ 都是非终结符，且全属于 Nullable 集，那么 $X$ 也是 Nullable
 
-    !!! warning "龙书"
+    ??? warning "龙书"
         - 虎书的 First 集合不包含 $\epsilon$
         - 龙书不含 nullable 集，而是直接在 First 集中包含 $\epsilon$
         - 因此在下面的计算中，X is nullable 等价于 $\epsilon \in \text{First}(X)$
@@ -500,9 +498,11 @@ E   -> E + E
         - If $Y_1$ and $Y_2$ are both nullable, then $\text{First}(X) \cup = \text{First}(Y_3)$
         - ...
     
-    !!! warning "龙书"
+    ??? warning "龙书"
         - 由于龙书的 First 集合包含 $\epsilon$, 为了和虎书的 nullable 一致性
         - 在计算 $X \rightarrow Y_1 \dots Y_n$ 时，只有当 $Y_1, \dots, Y_n$ 都包含 $\epsilon$ 时，才将 $\epsilon$ 加入 $\text{First}(X)$
+
+        ![](../../Images/2024-04-02-19-59-55.png)
 
 !!! note "Follow 集的归纳定义"
     $$
@@ -567,13 +567,11 @@ E   -> E + E
             - $\text{Follow}(X) \cup = \text{First}(S)$
             - 由于 $S$ 是 Nullable, $\text{Follow}(X) \cup = \text{Follow}(S)$
         - 根据产生式 5: 
-            - $\text{Follow}(B) \cup = \text{First}(SE)$[^2]
+            - $\text{Follow}(B) \cup = \text{First}(SE)$
             - $\text{Follow}(S) \cup = \text{First}(E)$
             - $\text{Follow}(E) \cup = \text{Follow}(X)$
         - 根据产生式 6: 
             - $\text{Follow}(S) \cup = \text{First}(\})$
-
-[^2]: $\text{First}(SE) = (\epsilon \in \text{First}(S)) \textcolor{red}{?} \text{First}(S) \textcolor{red}{:} \text{First}(S) \cup \text{First}(E)$
 
         得到：
 
@@ -593,7 +591,7 @@ E   -> E + E
 预测分析表是指表驱动分析程序所需要的二维表 M
 
 - 表的每一行 A 对应一个非终结符
-- 表的每一列 a 对应某个终结符或输入结束符 $s
+- 表的每一列 a 对应某个终结符或输入结束符 $
 - 表中的项 M[A, a] 表示：针对非终结符 A，当其下一个输入 Token 是 a 时，可以选择的产生式集合
 
 !!! success "构造预测分析表"
@@ -639,16 +637,29 @@ E   -> E + E
         | E    |          |          |          |          |          |          |        |
         | X    |          |          |          |          |          |          |        |
     === "最终预测表"
-        |      | $                 | {            | WORD        | begin        | end        | \                               | }                 |
-        | ---- | ----------------- | ------------ | ----------- | ------------ | ---------- | ------------------------------- | ----------------- |
-        | S'   | 0 S'->S$          | 0 S'->S$     | 0 S'->S$    | 0 S'->S$     | 0 S'->S$   | 0 S'->S$                        |           |
-        | S    | 1 S ->  | 2 S -> XS    | 2 S -> XS   | 2 S -> XS    | 2 S -> XS  | 1 S ->  <br>2 S -> XS | 1 S ->  |
-        | B    |                   |              |             |              |            | 3 B -> \ begin { WORD }         |                   |
-        | E    |                   |              |             |              |            | 4 E -> \ end { WORD }           |                   |
-        | X    |                   | 6 X -> { S } | 7 X -> WORD | 8 X -> begin | 9 X -> end | 5 X -> BSE <br>10 X -> \ WORD   |                   |
+        ![](../../Images/2024-04-02-19-52-42.png)
 
+!!! note "LL(1) 文法"
+    - If a predictive parsing table constructed this way contains **no duplicate entries**, the grammar is called LL(1)!
+    
+    > 上述构造的预测分析表中，因为不满足每个单元格只有一个产生式的条件，所以不是 LL(1) 文法
+    
+    - Left-to-right parse, left-most derivation, 1 symbol lookahead
 
 ##### 预测分析
+
+LL(1) 分析的实现可以分为：
+
+- 递归下降 LL(1) 分析：
+    - 递归下降分析: 非终结符对应子过程
+- 非递归 LL(1) 分析：
+    - 使用显式的栈，而不是递归调用来完成分析 (类似模拟下推自动机PDA)
+
+!!! note "LL(1) 的递归下降实现"
+    - 递归下降语法分析程序由一组过程组成
+    - 每个非终结符号对应于一个过程
+    - 可以通过向前看一个输入符号来唯一地选择产生式
+
 
 
 
@@ -657,3 +668,12 @@ E   -> E + E
 
 
 #### 错误恢复
+
+
+
+
+
+
+[^1]: [David G. Cantor. 1962. On The Ambiguity Problem of Backus Systems. J. ACM 9, 4 (Oct. 1962), 477–479.](https://dl.acm.org/doi/10.1145/321138.321145)
+
+<!-- [^2]: ![](../../Images/2024-04-02-19-59-55.png) -->
