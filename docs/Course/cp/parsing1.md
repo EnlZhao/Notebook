@@ -553,16 +553,16 @@ E   -> E + E
         | X    | no       | {, WORD, begin, end, \                |        |
 
     === "Follow"
-        - 根据产生式 0: $\text{Follow}(S) \cup = \text{First}(\$)$
+        - 根据产生式 0: $\text{Follow}(S) \cup = (\text{First}(\$) - \epsilon)$
         - 根据产生式 2: 
-            - $\text{Follow}(X) \cup = \text{First}(S)$
+            - $\text{Follow}(X) \cup = (\text{First}(S) - \epsilon)$
             - 由于 $S$ 是 Nullable, $\text{Follow}(X) \cup = \text{Follow}(S)$
         - 根据产生式 5: 
-            - $\text{Follow}(B) \cup = \text{First}(SE)$
-            - $\text{Follow}(S) \cup = \text{First}(E)$
+            - $\text{Follow}(B) \cup = (\text{First}(SE) - \epsilon)$
+            - $\text{Follow}(S) \cup = (\text{First}(E) - \epsilon)$
             - $\text{Follow}(E) \cup = \text{Follow}(X)$
         - 根据产生式 6: 
-            - $\text{Follow}(S) \cup = \text{First}(\})$
+            - $\text{Follow}(S) \cup = (\text{First}(\}) - \epsilon)$
 
         得到：
 
