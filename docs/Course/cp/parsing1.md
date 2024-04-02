@@ -483,8 +483,108 @@ E   -> E + E
                     break;
         ```
 
+!!! note "First 集的归纳定义"
+    $$
+    \text{First}(\alpha) = \{a \vert \alpha \Rightarrow^* a \dots, a \in T \}
+    $$
+
+    - Base case: If $X$ is a terminal -> $\text{First}(X) = \{X\}$
+    - Inductive case: If $X \rightarrow Y_1 \dots Y_n$, 
+        - then $\text{First}(X) \cup = \text{First}(Y_1)$
+        - If $Y_1$ is nullable, then $\text{First}(X) \cup = \text{First}(Y_2)$
+        - If $Y_1$ and $Y_2$ are both nullable, then $\text{First}(X) \cup = \text{First}(Y_3)$
+        - ...
+
+!!! note "Follow 集的归纳定义"
+    $$
+    \text{Follow}(A) = \{a \vert S \Rightarrow^* \dots A a \dots, a \in T \}
+    $$
+
+    - Base case: $\text{Follow}(A) = \{\}$
+    - Inductive case: 假设存在产生式 $B \rightarrow s1 A s2$ for any s1 and s2
+        - $\text{Follow}(A) \cup = \text{First}(s2)$
+        - If $s2$ is nullable, then $\text{Follow}(A) \cup = \text{Follow}(B)$
+
+??? example "计算 Nullable, First, Follow 集"
+    ![](../../Images/2024-04-02-10-05-50.png)
+
+    === "Nullable"
+        - 根据产生式 1，$S \rightarrow \epsilon$ 可得 $S$ 是 Nullable (属于 Base case)
+        - 无 Inductive case
+
+        |      | nullable | FIRST | FOLLOW |
+        | ---- | -------- | ----- | ------ |
+        | S'   | no       |       |        |
+        | S    | yes      |       |        |
+        | B    | no       |       |        |
+        | E    | no       |       |        |
+        | X    | no       |       |        |
+
+    === "First"
+        - 根据产生式 1, 3, 4, 6, 7, 8, 9, 10
+
+        得到：
+
+        |      | nullable | FIRST               | FOLLOW |
+        | ---- | -------- | ------------------- | ------ |
+        | S'   | no       |                     |        |
+        | S    | yes      | $\epsilon$          |        |
+        | B    | no       | \                   |        |
+        | E    | no       | \                   |        |
+        | X    | no       | {, WORD, begin, end, \ |        |
+
+        - 根据产生式 0: 
+            - $\text{First}(S') \cup = \text{First}(S)$
+            - 由于 $S$ 是 Nullable, $\text{First}(S') \cup = \text{First}(\$)$
+        - 根据产生式 2: 
+            - $\text{First}(S) \cup = \text{First}(X)$
+            - $X$ 不是 Nullable，结束
+        - 根据产生式 5: 
+            - $\text{First}(X) \cup = \text{First}(B)$
+            - $B$ 不是 Nullable，结束
+        - 得到:
+
+        |      | nullable | FIRST                                 | FOLLOW |
+        | ---- | -------- | ------------------------------------- | ------ |
+        | S'   | no       | $\epsilon$, {, WORD, begin, end, \, $ |        |
+        | S    | yes      | $\epsilon$, {, WORD, begin, end, \    |        |
+        | B    | no       | \                                     |        |
+        | E    | no       | \                                     |        |
+        | X    | no       | {, WORD, begin, end, \                |        |
+
+    === "Follow"
+        - 根据产生式 0: $\text{Follow}(S) \cup = \text{First}(\$)$
+        - 根据产生式 2: 
+            - $\text{Follow}(X) \cup = \text{First}(S)$
+            - 由于 $S$ 是 Nullable, $\text{Follow}(X) \cup = \text{Follow}(S)$
+        - 根据产生式 5: 
+            - $\text{Follow}(B) \cup = \text{First}(SE)$
+            - $\text{Follow}(S) \cup = \text{First}(E)$
+            - $\text{Follow}(E) \cup = \text{Follow}(X)$
+        - 根据产生式 6: 
+            - $\text{Follow}(S) \cup = \text{First}(\})$
+
+        得到：
+
+        |      | nullable | FIRST                                 | FOLLOW                       |
+        | ---- | -------- | ------------------------------------- | ---------------------------- |
+        | S'   | no       | $\epsilon$, {, WORD, begin, end, \, $ |                              |
+        | S    | yes      | $\epsilon$, {, WORD, begin, end, \    | \, $, }                      |
+        | B    | no       | \                                     | {, WORD, begin, end, \       |
+        | E    | no       | \                                     | {, WORD, begin, end, \, $, } |
+        | X    | no       | {, WORD, begin, end, \                | {, WORD, begin, end, \, $, } |
+
+??? info "优化 Nullable, First, Follow 的计算"
+    ![](../../Images/2024-04-02-09-59-13.png)
 
 ##### 构造预测分析表
+
+预测分析表是指表驱动分析程序所需要的二维表 M
+
+- 表的每一行 A 对应一个非终结符
+- 表的每一列 a 对应某个终结符或输入结束符 $s
+- 表中的项 M[A, a] 表示：针对非终结符 A，当其下一个输入 Token 是 a 时，可以选择的产生式集合
+
 
 
 ##### 预测分析
