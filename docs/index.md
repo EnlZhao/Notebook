@@ -1,4 +1,24 @@
+---
+statistics: true
+---
 # Hello
+
+<div class="mac-content-container">
+  <div class="mac-content-block">
+    <span class="mac-content-label">页面总数：</span>
+    <span class="mac-content-value">{{pages}}</span>
+  </div>
+  
+  <div class="mac-content-block">
+    <span class="mac-content-label">总字数：</span>
+    <span class="mac-content-value">{{words}}</span>
+  </div>
+  
+  <div class="mac-content-block">
+    <span class="mac-content-label">代码块行数：</span>
+    <span class="mac-content-value">{{codes}}</span>
+  </div>
+</div>
 
   💬这里是 [某兰 | EnlZhao](https://enlzhao.github.io/Blog/about/) 的 [知识库](https://enlzhao.github.io/Notebook)，有一些课程笔记或者学习记录；
   
@@ -21,4 +41,33 @@
 
     > 关于 $\lceil$ **Triviality** $\rfloor$ 和 $\lceil$ **Tools** $\rfloor$ 的分类有些乱，后续可能也许大概会改一改
 
+
+<style>
+.mac-content-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.mac-content-block {
+  background-color: #F5F5F5;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.mac-content-label {
+  font-weight: bold;
+  color: #000;
+  flex: 1;
+}
+
+.mac-content-value {
+  color: #000;
+  flex: 1;
+}
+</style>
 
