@@ -467,6 +467,11 @@ E   -> E + E
         - $X \rightarrow Y_1 \dots Y_n$
         - 其中 $Y_1, \dots, Y_n$ 都是非终结符，且全属于 Nullable 集，那么 $X$ 也是 Nullable
 
+    !!! warning "龙书"
+        - 虎书的 First 集合不包含 $\epsilon$
+        - 龙书不含 nullable 集，而是直接在 First 集中包含 $\epsilon$
+        - 因此在下面的计算中，X is nullable 等价于 $\epsilon \in \text{First}(X)$
+
     ??? info "根据归纳定义计算 Nullable 集"
         ```c
         /* Nullable: a set of nonterminals */ 
@@ -494,6 +499,10 @@ E   -> E + E
         - If $Y_1$ is nullable, then $\text{First}(X) \cup = \text{First}(Y_2)$
         - If $Y_1$ and $Y_2$ are both nullable, then $\text{First}(X) \cup = \text{First}(Y_3)$
         - ...
+    
+    !!! warning "龙书"
+        - 由于龙书的 First 集合包含 $\epsilon$, 为了和虎书的 nullable 一致性
+        - 在计算 $X \rightarrow Y_1 \dots Y_n$ 时，只有当 $Y_1, \dots, Y_n$ 都包含 $\epsilon$ 时，才将 $\epsilon$ 加入 $\text{First}(X)$
 
 !!! note "Follow 集的归纳定义"
     $$
@@ -505,11 +514,11 @@ E   -> E + E
         - $\text{Follow}(A) \cup = \text{First}(s2)$
         - If $s2$ is nullable, then $\text{Follow}(A) \cup = \text{Follow}(B)$
 
-??? example "计算 Nullable, First, Follow 集"
+???+ example "计算 Nullable, First, Follow 集（虎书）"
     ![](../../Images/2024-04-02-10-05-50.png)
 
     === "Nullable"
-        - 根据产生式 1，$S \rightarrow \epsilon$ 可得 $S$ 是 Nullable (属于 Base case)
+        - 根据产生式 1，$S \rightarrow $ 可得 $S$ 是 Nullable (属于 Base case)
         - 无 Inductive case
 
         |      | nullable | FIRST | FOLLOW |
@@ -528,7 +537,7 @@ E   -> E + E
         |      | nullable | FIRST               | FOLLOW |
         | ---- | -------- | ------------------- | ------ |
         | S'   | no       |                     |        |
-        | S    | yes      | $\epsilon$          |        |
+        | S    | yes      |           |        |
         | B    | no       | \                   |        |
         | E    | no       | \                   |        |
         | X    | no       | {, WORD, begin, end, \ |        |
@@ -546,30 +555,32 @@ E   -> E + E
 
         |      | nullable | FIRST                                 | FOLLOW |
         | ---- | -------- | ------------------------------------- | ------ |
-        | S'   | no       | $\epsilon$, {, WORD, begin, end, \, $ |        |
-        | S    | yes      | $\epsilon$, {, WORD, begin, end, \    |        |
+        | S'   | no       | {, WORD, begin, end, \, $ |        |
+        | S    | yes      | {, WORD, begin, end, \    |        |
         | B    | no       | \                                     |        |
         | E    | no       | \                                     |        |
         | X    | no       | {, WORD, begin, end, \                |        |
 
     === "Follow"
-        - 根据产生式 0: $\text{Follow}(S) \cup = (\text{First}(\$) - \epsilon)$
+        - 根据产生式 0: $\text{Follow}(S) \cup = \text{First}(\$)$
         - 根据产生式 2: 
-            - $\text{Follow}(X) \cup = (\text{First}(S) - \epsilon)$
+            - $\text{Follow}(X) \cup = \text{First}(S)$
             - 由于 $S$ 是 Nullable, $\text{Follow}(X) \cup = \text{Follow}(S)$
         - 根据产生式 5: 
-            - $\text{Follow}(B) \cup = (\text{First}(SE) - \epsilon)$
-            - $\text{Follow}(S) \cup = (\text{First}(E) - \epsilon)$
+            - $\text{Follow}(B) \cup = \text{First}(SE)$[^2]
+            - $\text{Follow}(S) \cup = \text{First}(E)$
             - $\text{Follow}(E) \cup = \text{Follow}(X)$
         - 根据产生式 6: 
-            - $\text{Follow}(S) \cup = (\text{First}(\}) - \epsilon)$
+            - $\text{Follow}(S) \cup = \text{First}(\})$
+
+[^2]: $\text{First}(SE) = (\epsilon \in \text{First}(S)) \textcolor{red}{?} \text{First}(S) \textcolor{red}{:} \text{First}(S) \cup \text{First}(E)$
 
         得到：
 
         |      | nullable | FIRST                                 | FOLLOW                       |
         | ---- | -------- | ------------------------------------- | ---------------------------- |
-        | S'   | no       | $\epsilon$, {, WORD, begin, end, \, $ |                              |
-        | S    | yes      | $\epsilon$, {, WORD, begin, end, \    | \, $, }                      |
+        | S'   | no       | {, WORD, begin, end, \, $ |                              |
+        | S    | yes      | {, WORD, begin, end, \    | \, $, }                      |
         | B    | no       | \                                     | {, WORD, begin, end, \       |
         | E    | no       | \                                     | {, WORD, begin, end, \, $, } |
         | X    | no       | {, WORD, begin, end, \                | {, WORD, begin, end, \, $, } |
@@ -585,6 +596,56 @@ E   -> E + E
 - 表的每一列 a 对应某个终结符或输入结束符 $s
 - 表中的项 M[A, a] 表示：针对非终结符 A，当其下一个输入 Token 是 a 时，可以选择的产生式集合
 
+!!! success "构造预测分析表"
+    对文法 $G$ 的每个产生式 $X \rightarrow \gamma$
+
+    - If $t \in \text{First}(\gamma)$: enter $X \rightarrow \gamma$ into $M[X, t]$
+    - If $\gamma$ is Nullable and $t \in \text{Follow}(X)$: enter $X \rightarrow \gamma$ into $M[X, t]$
+
+???+ example "构造预测分析表"
+    由上面的 First, Follow 集计算结果，构造预测分析表
+
+    |      | nullable | FIRST                                 | FOLLOW                       |
+        | ---- | -------- | ------------------------------------- | ---------------------------- |
+        | S'   | no       | {, WORD, begin, end, \, $ |                              |
+        | S    | yes      | {, WORD, begin, end, \    | \, $, }                      |
+        | B    | no       | \                                     | {, WORD, begin, end, \       |
+        | E    | no       | \                                     | {, WORD, begin, end, \, $, } |
+        | X    | no       | {, WORD, begin, end, \                | {, WORD, begin, end, \, $, } |
+
+    === "产生式 0"
+        $S' \rightarrow S \$$
+        
+        因为 $\text{First}(S\$)$ = `$, {, WORD, begin, end, \`, 所以填入 $S' \rightarrow S \$$
+
+        |      | $        | {        | WORD     | begin    | end      | \        | }    |
+        | ---- | -------- | -------- | -------- | -------- | -------- | -------- | ---- |
+        | S'   | 0 S'->S$ | 0 S'->S$ | 0 S'->S$ | 0 S'->S$ | 0 S'->S$ | 0 S'->S$ |      |
+        | S    |          |          |          |          |          |          |      |
+        | B    |          |          |          |          |          |          |      |
+        | E    |          |          |          |          |          |          |      |
+        | X    |          |          |          |          |          |          |      |
+
+    === "产生式 1"
+        $S \rightarrow $
+
+        相当于 $\gamma$ is nullable, $\text{Follow}(S)$ = `\, $, }`, 所以填入 $S \rightarrow $
+
+        |      | $        | {        | WORD     | begin    | end      | \        | }      |
+        | ---- | -------- | -------- | -------- | -------- | -------- | -------- | ------ |
+        | S'   | 0 S'->S$ | 0 S'->S$ | 0 S'->S$ | 0 S'->S$ | 0 S'->S$ | 0 S'->S$ |        |
+        | S    | 1 S ->   |          |          |          |          | 1 S ->   | 1 S -> |
+        | B    |          |          |          |          |          |          |        |
+        | E    |          |          |          |          |          |          |        |
+        | X    |          |          |          |          |          |          |        |
+    === "最终预测表"
+        |      | $                 | {            | WORD        | begin        | end        | \                               | }                 |
+        | ---- | ----------------- | ------------ | ----------- | ------------ | ---------- | ------------------------------- | ----------------- |
+        | S'   | 0 S'->S$          | 0 S'->S$     | 0 S'->S$    | 0 S'->S$     | 0 S'->S$   | 0 S'->S$                        |           |
+        | S    | 1 S ->  | 2 S -> XS    | 2 S -> XS   | 2 S -> XS    | 2 S -> XS  | 1 S ->  <br>2 S -> XS | 1 S ->  |
+        | B    |                   |              |             |              |            | 3 B -> \ begin { WORD }         |                   |
+        | E    |                   |              |             |              |            | 4 E -> \ end { WORD }           |                   |
+        | X    |                   | 6 X -> { S } | 7 X -> WORD | 8 X -> begin | 9 X -> end | 5 X -> BSE <br>10 X -> \ WORD   |                   |
 
 
 ##### 预测分析

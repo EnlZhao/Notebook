@@ -80,3 +80,81 @@
 
 <center><font face="JetBrains Mono" color=grey size=18>To Be Continued</font></center>
 
+<!-- <style>
+/* 样式 */
+.block-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.block {
+  margin: 10px;
+  padding: 10px;
+  background-color: #ffffff; /* 内容块填充白色 */
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  flex: 1 0 100%; /* 宽度扩展以占据一整行 */
+  border: 2px solid #cccccc; /* 边框颜色不变 */
+}
+
+.status {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  font-size: 14px;
+  border-radius: 5px;
+}
+
+.completed {
+    font-size: 14px;
+  background-color: #00cc00; /* 已完成绿色填充 */
+  color: #ffffff; /* 文本颜色白色 */
+}
+
+.incomplete {
+    font-size: 14px;
+  background-color: #cccccc; /* 未完成灰色填充 */
+  color: #000000; /* 文本颜色黑色 */
+}
+
+.block-text {
+  color: #000;
+  font-size: 16px;
+  vertical-align: right;
+}
+</style>
+
+<div class="block-container">
+  <a href="your_link_here" class="block" data-status="1">
+    <div class="status completed">DONE</div>
+    <span class="block-text">这里是您的提示文本</span>
+  </a>
+</div>
+
+<div class="block-container">
+<a href="your_link_here" class="block" data-status="0">
+    <div class="status incomplete">TODO</div>
+    <span class="block-text">这里是您的提示文本</span>
+  </a>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const blocks = document.querySelectorAll('.block');
+  blocks.forEach(block => {
+    const status = block.getAttribute('data-status');
+    const statusDiv = block.querySelector('.status');
+    if (status === '1') {
+      statusDiv.classList.add('completed');
+      statusDiv.innerText = 'DONE';
+    } else {
+      statusDiv.classList.add('incomplete');
+      statusDiv.innerText = 'TODO';
+    }
+  });
+});
+</script> -->
