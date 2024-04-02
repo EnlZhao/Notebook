@@ -4480,14 +4480,14 @@
 </ul>
 </li>
 </ul>
-<div class="admonition warning">
-<p class="admonition-title">龙书</p>
+<details class="warning">
+<summary>龙书</summary>
 <ul>
 <li>虎书的 First 集合不包含 <span class="arithmatex">\(\epsilon\)</span></li>
 <li>龙书不含 nullable 集，而是直接在 First 集中包含 <span class="arithmatex">\(\epsilon\)</span></li>
 <li>因此在下面的计算中，X is nullable 等价于 <span class="arithmatex">\(\epsilon \in \text{First}(X)\)</span></li>
 </ul>
-</div>
+</details>
 <details class="info">
 <summary>根据归纳定义计算 Nullable 集</summary>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="cm">/* Nullable: a set of nonterminals */</span><span class="w"> </span>
@@ -4520,14 +4520,14 @@
 </ul>
 </li>
 </ul>
-<div class="admonition warning">
-<p class="admonition-title">龙书</p>
+<details class="warning">
+<summary>龙书</summary>
 <ul>
 <li>由于龙书的 First 集合包含 <span class="arithmatex">\(\epsilon\)</span>, 为了和虎书的 nullable 一致性</li>
 <li>在计算 <span class="arithmatex">\(X \rightarrow Y_1 \dots Y_n\)</span> 时，只有当 <span class="arithmatex">\(Y_1, \dots, Y_n\)</span> 都包含 <span class="arithmatex">\(\epsilon\)</span> 时，才将 <span class="arithmatex">\(\epsilon\)</span> 加入 <span class="arithmatex">\(\text{First}(X)\)</span></li>
 </ul>
 <p><a class="glightbox" href="../../../Images/2024-04-02-19-59-55.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-04-02-19-59-55.png" /></a></p>
-</div>
+</details>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Follow 集的归纳定义</p>
