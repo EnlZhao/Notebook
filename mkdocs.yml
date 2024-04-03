@@ -100,10 +100,6 @@ nav:
         - Intrucution to Deep Learning: AI/Courses/DeepLearning/introduction.md
         - Neural Networks and Deep Learning: 
           - Neural Networks and Deep Learning: AI/Courses/DeepLearning/course1/index.md
-          # - Introduction: AI/Courses/DeepLearning/course1/lec01.md 
-          # - Basics of Nerual Network Programming: AI/Courses/DeepLearning/course1/lec02.md
-          # - One hidden layer Neural Network: AI/Courses/DeepLearning/course1/lec03.md
-          # - Deep Neural Network: AI/Courses/DeepLearning/course1/lec04.md
         - Improving Deep Neural Networks: 
           - Improving Deep Neural Networks: AI/Courses/DeepLearning/course2/index.md
         - Structuring Machine Learning Projects: 
@@ -284,7 +280,7 @@ markdown_extensions:
   - nl2br
   
 extra_javascript:
-  - 'overrides/assets/javascripts/extra.js'
+  - assets/javascripts/extra.js
   - mkdocs/javascripts/katex.js
   - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js
   - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js
@@ -309,7 +305,7 @@ extra:
       link: https://github.com/enlzhao
       name: GitHub 
     - icon: fontawesome/solid/paper-plane
-      link: mailto:EZhao1997@outlook.com
+      link: mailto:hengzhao2002@gmail.com
       name: Outlook 
     - icon: fontawesome/brands/qq
       link: tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=1613715141&website=www.oicqzone.com
