@@ -15,6 +15,10 @@
         <link rel="canonical" href="https://enlzhao.github.io/Notebook/Course/netsec/websec/">
       
       
+        <link rel="prev" href="../anonymity/">
+      
+      
+        <link rel="next" href="../../cp/">
       
       
       <link rel="icon" href="../../../Icon/Avatar.png">
@@ -293,10 +297,12 @@
         
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
+      <li class="md-tabs__item md-tabs__item--active">
         <a href="../../abstract/" class="md-tabs__link">
           
   
@@ -520,6 +526,8 @@
       
   
   
+    
+  
   
     
     
@@ -549,12 +557,12 @@
       
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
@@ -568,7 +576,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Course
@@ -1683,6 +1691,8 @@
                 
   
   
+    
+  
   
     
     
@@ -1697,16 +1707,18 @@
       
         
       
+        
+      
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_8" checked>
         
           
           
@@ -1728,7 +1740,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_8_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_8_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_8">
             <span class="md-nav__icon md-icon"></span>
             网络安全原理与实践
@@ -1792,6 +1804,73 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Web Security
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Web Security
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#some-concepts" class="md-nav__link">
+    Some Concepts
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -3454,6 +3533,21 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#some-concepts" class="md-nav__link">
+    Some Concepts
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -3472,8 +3566,63 @@
 
 <h1 id="web-security">Web Security<a class="headerlink" href="#web-security" title="Permanent link">👀</a></h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 2 个字 </p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 231 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"/></svg></span> 预计阅读时间 1 分钟</p>
 </div>
+<h2 id="some-concepts">Some Concepts<a class="headerlink" href="#some-concepts" title="Permanent link">👀</a></h2>
+<ol>
+<li>Web Service<ul>
+<li>A platform for deploying applications and sharing information, portably and securely, using HTTP/HTTPS</li>
+</ul>
+</li>
+<li>URL (Uniform Resource Locator)<ul>
+<li>Global identifiers of network-retrievable resources<br><a class="glightbox" href="../../../Images/2024-04-03-14-44-12.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-04-03-14-44-12.png" /></a></li>
+</ul>
+</li>
+<li>HTTP (HyperText Transfer Protocol)<ul>
+<li>A common data communication protocol on the web</li>
+<li>
+<p>HTTP Request</p>
+<ul>
+<li>GET: request data from a specified resource</li>
+<li>POST: send data to a server to create/update a resource</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">HTTP</p>
+<p><a class="glightbox" href="../../../Images/2024-04-03-14-48-22.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-04-03-14-48-22.png" /></a></p>
+<ul>
+<li>In HTTP, &ldquo;Referer&rdquo; is an optional HTTP header field that identifies the address of the web page, from which the resource has been requested. By checking the referrer, the server providing the new web page can see where the request originated.</li>
+<li>In the most common situation, this means that when a user clicks a hyperlink in a web browser, causing the browser to send a request to the server holding the destination web page, the request may include the Referer field, which indicates the last page the user was on (the one where they clicked the link).</li>
+</ul>
+</div>
+<ul>
+<li>HTTP Response</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>Webpage Languages:<ul>
+<li>HTML: HyperText Markup Language<ul>
+<li>A language to create structured docs</li>
+<li>One can embed images, objects, or create interactive forms</li>
+</ul>
+</li>
+<li>CSS: Cascading Style Sheets<ul>
+<li>Style sheet language used for describing the presentation of a doc</li>
+</ul>
+</li>
+<li>JavaScript: A programming language that enables interactive web pages<ul>
+<li>Programming language used to manipulate  web pages. </li>
+<li>It is a high-level, untyped and  interpreted language with support for objects.</li>
+<li>Supported by all web browsers</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Page Rendering <br><a class="glightbox" href="../../../Images/2024-04-03-14-54-20.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-04-03-14-54-20.png" /></a></li>
+<li></li>
+</ul>
 
 
   
@@ -3565,6 +3714,44 @@
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+          
+          <a href="../anonymity/" class="md-footer__link md-footer__link--prev" aria-label="上一页: Anonymous Communication">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              <div class="md-ellipsis">
+                Anonymous Communication
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../cp/" class="md-footer__link md-footer__link--next" aria-label="下一页: 编译原理">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                编译原理
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
     
   
   <div class="md-footer-meta md-typeset">
