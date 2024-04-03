@@ -66,6 +66,7 @@ nav:
       - DDoS: Course/netsec/ddos.md
       - Route Security: Course/netsec/routesec.md
       - Anonymous Communication: Course/netsec/anonymity.md
+      - Web Security: Course/netsec/websec.md
     - 编译原理:
       - 编译原理: Course/cp/index.md
       - Introduction: Course/cp/intro.md
