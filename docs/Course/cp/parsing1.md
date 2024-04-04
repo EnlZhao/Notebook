@@ -652,7 +652,7 @@ LL(1) 分析的实现可以分为：
 
 - 递归下降 LL(1) 分析：
     - 递归下降分析: 非终结符对应子过程
-- 非递归 LL(1) 分析：
+- 非递归 LL(1) 分析 (不要求掌握)：
     - 使用显式的栈，而不是递归调用来完成分析 (类似模拟下推自动机PDA)
 
 !!! note "LL(1) 的递归下降实现"
@@ -660,19 +660,153 @@ LL(1) 分析的实现可以分为：
     - 每个非终结符号对应于一个过程
     - 可以通过向前看一个输入符号来唯一地选择产生式
 
+    ```c
+    void A() {
+        选择一个产生式 A -> X1 X2 ... Xn
+        for (i = 1 to n) {
+            if (Xi 是非终结符) {
+                调用过程 Xi();
+            } else if (Xi 等于当前输入符号) {
+                读入下一个输入符号;
+            } else {
+                报错;
+            }
+        }
+    }
+    ```
 
+    ??? example "LL(1) 的递归下降实现"
+        === "Example 1"
+            ![](../../Images/2024-04-04-09-59-23.png)
+
+            好像这个文法和 First, Follow 没有关系，但只是因为这个文法太简单了。
+
+            > For each non-terminal, the first symbols Y1 in the right-hand sides of its productions are different terminals
+        === "Example 2"
+            ![](../../Images/2024-04-04-10-01-11.png)
+
+<!-- ??? note "LL(1) 的非递归实现(了解)" -->
 
 
 #### 消除左递归、提左公因子
 
+!!! warning "LL(1) 文法的重要性质" 
+    - 无二义性 | no ambiguity
+    - 无左递归 | no left recursion
+    - 无左公因子 | no left factoring
 
+???+ note "左递归 (left-recursive) 文法"
+    - 如果一个文法中有非终结符号 $A$ 使得 $A \Rightarrow^+ A \alpha$, 那么称该文法是左递归的
+    - $S \rightarrow S a \vert b$ 为直接/立即左递归
 
-#### 错误恢复
+    > 左递归文法会导致递归下降分析中的无限循环
+    >
+    > - 例如：$S \rightarrow Sa \vert b$
+    > - 最左推导：$S \Rightarrow Sa \Rightarrow Saa \Rightarrow \dots$
+    > - 解决思路就是：限制文法或者进行文法变换
 
+???+ example "文法变换：消除直接左递归"
+    - 直接左递归：$A \rightarrow A \alpha \vert \beta$
+    - 消除直接左递归：$A \rightarrow \beta A'$, $A' \rightarrow \alpha A' \vert \epsilon$ (将左递归转成右递归)
 
+!!! note "通用左递归消除方法(龙书)"
+    一般来说
+    
+    $$
+    S \rightarrow S \alpha_1 \vert \dots S \alpha_n \vert \beta_1 \vert \dots \beta_m
+    $$
 
+    可以概括所有包含左递归的情况, 可以将其改写为：
 
+    $$
+    S \rightarrow \beta_1 S' \vert \dots \beta_m S' \\
+    S' \rightarrow \alpha_1 S' \vert \dots \alpha_n S' \vert \epsilon
+    $$
 
+???+ note "左公因子 (left-factored) 文法"
+    - 如果一个文法中有非终结符号 $A$ 使得 $A \rightarrow \alpha \beta \vert \alpha \gamma$, 那么称该文法是左公因子的
+    - 会导致同一非终结符的多个候选产生式的前缀相同，导致回溯
+    - 解决思路与左递归类似：限制文法或者进行文法变换
+
+???+ example "文法变换: 提左公因子"
+    对形如：
+
+    $$
+    A \rightarrow \alpha \beta \vert \alpha \gamma
+    $$
+
+    的产生式，用如下方式 (提取相同的开始符号，并将剩下的部分用一个新的 non-terminal 来代替) 改写：
+
+    $$
+    A \rightarrow \alpha A' \\
+    A' \rightarrow \beta \vert \gamma
+    $$
+
+    其中 $A'$ 是新的非终结符
+
+    > 通过改写产生式来推迟决定， 等读入了足够多的输入，获得足够信息后再做选择
+
+#### 错误恢复 | Error Recovery
+
+经过前面的步骤构建了预测分析表后, 预测表中的空单元格 (blank entry) 表示一个语法错误 (syntax error)
+
+e.g., $M[T, x] = \emptyset$ indicates that the parsing function $T()$ does not expect to see token $x$ - this is a syntax error
+
+遇到错误的时候如何解决？
+
+- Raise an exception and quit parsing (safe but not user-friendly)
+- print an error message and recover from the error (more user-friendly, other syntax errors can be found in the same compilation)
+
+##### Raise and Quit
+
+```c
+void T() {
+    switch (token) {
+        case ID: 
+        case NUM:
+        case LPAREN: F(); Tprime(); break;
+        default:
+            error();
+    }
+}
+```
+
+##### Print and Recover
+
+- A syntax error occurs when the string of input tokens is not a sentence in the language. Error recovery is a way of finding some sentence similar to that string of tokens.
+- This can proceed by **deleting, replacing, or inserting** tokens.
+- Through **inserting**: pretend we have the token and return normally
+
+```c
+void T( ) {
+    switch (tok) { 
+        case ID: 
+        case NUM: 
+        case LPAREN: F( ); Tprime( ); break; 
+        default: print("expected id, num, or left-paren"); 
+    }
+}
+```
+
+> 做插入比较危险，if the error cascades to produce another error, the process might loop indefinitely
+
+- Deleting tokens is safer, because the loop must eventually terminate when EOF is reached
+- Simple recover by deletion works by skipping tokens util a token in the $\text{FOLLOW}$ set is reached.
+
+```c
+int Tprime_follow [ ] = {PLUS, TIMES, RPAREN, EOF, -1}; 
+void Tprime( ) { 
+    switch (tok) { 
+        case PLUS: break; 
+        case TIMES: eat(TIMES); F(); Tprime(); break; 
+        case RPAREN: break; 
+        case EOF: break; 
+        default: 
+            print("expected +, *, right-paren, or end-of-file"); 
+            skipto(Tprime_follow);
+    }
+} 
+```
 
 [^1]: [David G. Cantor. 1962. On The Ambiguity Problem of Backus Systems. J. ACM 9, 4 (Oct. 1962), 477–479.](https://dl.acm.org/doi/10.1145/321138.321145)
 

@@ -148,6 +148,7 @@ theme:
     bug: octicons/bug-16
     example: octicons/beaker-16
     quote: octicons/quote-16
+    code: octicons/code-16
   palette:
     - scheme: default
       primary: DustyPeony 
