@@ -17,11 +17,11 @@
 <!-- Reload on palette change -->
 <script>
 var palette = __md_get("__palette")
-if (palette && typeof palette.color === "object")
-    if (palette.color.scheme === "slate") {
-    var giscus = document.querySelector("script[src*=giscus]")
-    giscus.setAttribute("data-theme", "dark") 
-    }
+// if (palette && typeof palette.color === "object")
+//     if (palette.color.scheme === "slate") {
+//     var giscus = document.querySelector("script[src*=giscus]")
+//     giscus.setAttribute("data-theme", "dark") 
+//     }
 
 /* Register event handlers after documented loaded */
 document.addEventListener("DOMContentLoaded", function() {
@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function() {
     ref.addEventListener("change", function() {
     var palette = __md_get("__palette")
     if (palette && typeof palette.color === "object") {
-        var theme = palette.color.scheme === "slate" ? "dark" : "light"
+        var theme = palette.color.scheme === "light" //"slate" ? "dark" : "light"
 
         /* Instruct Giscus to change theme */
         var frame = document.querySelector(".giscus-frame")

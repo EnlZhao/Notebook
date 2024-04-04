@@ -152,15 +152,11 @@ theme:
     code: octicons/code-16
   palette:
     - scheme: default
-      primary: DustyPeony 
-      toggle:
-        icon: material/toggle-switch
-        name: Switch to Dark_Pink mode
-    - scheme: Kleinland 
+      primary: Kleinland 
       toggle:
         icon: material/toggle-switch
         name: Switch to Light_Pink mode
-    - scheme: slate 
+    - scheme: default
       primary: DustyPeony 
       toggle:
         icon: material/toggle-switch-off-outline
@@ -209,7 +205,6 @@ plugins:
       encryption_info_message: Contact me(Enl_Z) via methods provided in the comments section for access to this page
   - mermaid2:
       javascript: https://unpkg.com/mermaid@10.4.0/dist/mermaid.esm.min.mjs 
-      # javascript: mkdocs/javascripts/mermaid.js
   - obsidian-support
   - glightbox
   - statistics
@@ -283,7 +278,6 @@ markdown_extensions:
   
 extra_javascript:
   - assets/javascripts/extra.js
-  - mkdocs/javascripts/katex.js
   - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js
   - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js
   
@@ -291,11 +285,11 @@ extra_javascript:
 extra_css:
   - https://gcore.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css
   - https://gcore.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css
-  - mkdocs/extra_css/counter.css
-  - mkdocs/extra_css/giscus.css
-  - mkdocs/extra_css/webcolor.css
-  - mkdocs/extra_css/tasklist.css
-  - mkdocs/extra_css/flink.css
+  - assets/extra_css/counter.css
+  - assets/extra_css/giscus.css
+  - assets/extra_css/webcolor.css
+  - assets/extra_css/tasklist.css
+  - assets/extra_css/flink.css
 
 extra: 
   vssue: Enl_Z
