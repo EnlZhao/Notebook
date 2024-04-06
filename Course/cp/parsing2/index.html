@@ -77,6 +77,8 @@
     
       <link rel="stylesheet" href="../../../assets/extra_css/flink.css">
     
+      <link rel="stylesheet" href="../../../assets/extra_css/admonition.css">
+    
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -2010,6 +2012,46 @@
     LR(0) 分析
   </a>
   
+    <nav class="md-nav" aria-label="LR(0) 分析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lr0-nfa" class="md-nav__link">
+    LR(0) 文法的 NFA
+  </a>
+  
+    <nav class="md-nav" aria-label="LR(0) 文法的 NFA">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    语法分析思路
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nfa" class="md-nav__link">
+    构造 NFA
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lr0-dfa" class="md-nav__link">
+    LR(0) 文法的 DFA 和分析表
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -3591,6 +3633,46 @@
     LR(0) 分析
   </a>
   
+    <nav class="md-nav" aria-label="LR(0) 分析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lr0-nfa" class="md-nav__link">
+    LR(0) 文法的 NFA
+  </a>
+  
+    <nav class="md-nav" aria-label="LR(0) 文法的 NFA">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    语法分析思路
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nfa" class="md-nav__link">
+    构造 NFA
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lr0-dfa" class="md-nav__link">
+    LR(0) 文法的 DFA 和分析表
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -3634,7 +3716,7 @@
 
 <h1 id="parsing-bottom-up-parsing">Parsing (Bottom-Up Parsing)<a class="headerlink" href="#parsing-bottom-up-parsing" title="Permanent link">👀</a></h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 179 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"/></svg></span> 预计阅读时间 1 分钟</p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 880 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"/></svg></span> 预计阅读时间 3 分钟</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Bottom-Up Parsing</p>
@@ -3662,7 +3744,105 @@
 </ul>
 </div>
 <h2 id="shift-reduce-">Shift-Reduce | 移入-规约<a class="headerlink" href="#shift-reduce-" title="Permanent link">👀</a></h2>
+<div class="admonition abstract">
+<p class="admonition-title">Idea</p>
+<p>将输入串切分成两个子串：</p>
+<ul>
+<li>Right substring (a string of <strong>terminals</strong>): 还没被 parser 处理的部分</li>
+<li>Left substring (a string of <strong>terminals and non-terminals</strong>): 已经被 parser 处理的部分</li>
+</ul>
+</div>
+<p>左右子串使用一个特殊符号 <code>｜</code> 分隔 (<code>｜</code> 不是字符串的一部分)，初始化时，<code>｜</code> 在最左边。</p>
+<details class="example">
+<summary>Example</summary>
+<p><a class="glightbox" href="../../../Images/2024-04-06-20-41-51.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-04-06-20-41-51.png" /></a></p>
+<ul>
+<li>相当于最右推导的逆过程：</li>
+</ul>
+<div class="arithmatex">\[
+\textcolor{black}{E} \Rightarrow \textcolor{black}{E} + (\textcolor{red}{E}) \Rightarrow \textcolor{red}{E} + (\textcolor{black}{int}) \Rightarrow \textcolor{black}{E} + (\textcolor{red}{E}) + (\textcolor{black}{int}) \Rightarrow \textcolor{red}{E} + (\textcolor{black}{int}) + (\textcolor{black}{int}) \Rightarrow \textcolor{black}{int} + (\textcolor{black}{int}) + (\textcolor{black}{int})
+\]</div>
+<ul>
+<li>如例子所示，LR 分析其实就是最右推导的逆过程，限制了规约方式</li>
+</ul>
+</details>
+<div class="admonition note">
+<p class="admonition-title">最右句型</p>
+<ul>
+<li>最右句型：最右推导过程中出现的句型</li>
+<li>LR 分析的每一步都是最右句型</li>
+</ul>
+</div>
+<p>LR 分析的一般模式是 <strong>基于栈的 shift-reduce</strong></p>
+<p>考虑 <span class="arithmatex">\(\alpha \vert \beta\)</span></p>
+<p>LR 分析有两个 component，四个 action</p>
+<ul>
+<li>Two components:<ul>
+<li>Stack: 保存左子串 <span class="arithmatex">\(\alpha\)</span> (terminals and non-terminals)</li>
+<li>Input Stream: 保存右子串 <span class="arithmatex">\(\beta\)</span> (terminals)</li>
+</ul>
+</li>
+<li>Four actions:<ul>
+<li><strong>Shift:</strong> 将下一个输入 token (terminal) 推入栈顶</li>
+<li><strong>Reduce:</strong> <ul>
+<li>Top of stack should match RHS (Right-Hand-Side) of rule (e.g., X -&gt; A B C)</li>
+<li>pop the RHS from the top of stack (e.g., pop C B A)</li>
+<li>push the LHS onto the stack (e.g., push X)</li>
+</ul>
+</li>
+<li><strong>Error:</strong></li>
+<li><strong>Accept:</strong> shift $ and can reduce what remains on stack to the start symbol!</li>
+</ul>
+</li>
+</ul>
+<p>那么该何时 shift, 何时 reduce 呢？</p>
+<p><a class="glightbox" href="../../../Images/2024-04-06-20-53-49.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-04-06-20-53-49.png" /></a></p>
+<div class="admonition success">
+<p class="admonition-title">LR 文法的关系</p>
+<div class="arithmatex">\[
+\text{LR(0)} \subset \text{SLR} \subset \text{LALR} \subset \text{LR(1)}
+\]</div>
+<p>即一个文法是 LR(0) 文法，那么它一定是 SLR ，以此类推</p>
+</div>
 <h2 id="lr0">LR(0) 分析<a class="headerlink" href="#lr0" title="Permanent link">👀</a></h2>
+<h3 id="lr0-nfa">LR(0) 文法的 NFA<a class="headerlink" href="#lr0-nfa" title="Permanent link">👀</a></h3>
+<blockquote>
+<p>具体操作和计算中不会计算 NFA，只是为了理解 LR(0) 文法的生成过程</p>
+</blockquote>
+<h4 id="_1">语法分析思路<a class="headerlink" href="#_1" title="Permanent link">👀</a></h4>
+<p>LR(0) 文法就是自底向上分析：不断凑出产生式的 RHS, 然后规约为 LHS，直到规约为开始符号</p>
+<details class="example" open="open">
+<summary>Example</summary>
+<p>假设下一次将会用到的产生式是：<span class="arithmatex">\(X \rightarrow \alpha \beta\)</span>, 那么在使用它归约前，栈顶 (右侧是栈顶) 可能包含三种情况：</p>
+<ol>
+<li><span class="arithmatex">\(\dots\)</span></li>
+<li><span class="arithmatex">\(\dots \alpha\)</span></li>
+<li><span class="arithmatex">\(\dots \alpha \beta\)</span></li>
+</ol>
+<p>即凑出 RHS 的进度不同</p>
+</details>
+<p>如何针对不同进度的 RHS 进行规约呢？</p>
+<p><u>可以维护一个状态，记录当前匹配的进度</u></p>
+<div class="admonition success">
+<p class="admonition-title">项/Item</p>
+<p>项/Item: 一个产生式加上在其中某处的一个点 <code>·</code></p>
+<ul>
+<li>例如产生式 <span class="arithmatex">\(A \rightarrow \cdot XYZ\)</span> 有四个 Item<ul>
+<li><span class="arithmatex">\(A \rightarrow \cdot XYZ\)</span></li>
+<li><span class="arithmatex">\(A \rightarrow X \cdot YZ\)</span></li>
+<li><span class="arithmatex">\(A \rightarrow XY \cdot Z\)</span></li>
+<li><span class="arithmatex">\(A \rightarrow XYZ \cdot\)</span></li>
+<li>其中 <code>·</code> 表示当前匹配的进度</li>
+<li>例如：<span class="arithmatex">\(A \rightarrow \cdot XYZ\)</span> 表示当前匹配/归约到了 RHS 的开头</li>
+<li><span class="arithmatex">\(A \rightarrow X \cdot YZ\)</span> 已经匹配/归约到了 <span class="arithmatex">\(X\)</span>，期望在接下来的输入中经过扫描/归约得到 <span class="arithmatex">\(YZ\)</span>，然后把 <span class="arithmatex">\(XYZ\)</span> 归约到 A</li>
+<li><span class="arithmatex">\(A \rightarrow XYZ \cdot\)</span> 表示已经匹配/归约到了 <span class="arithmatex">\(XYZ\)</span>, 可以把 <span class="arithmatex">\(XYZ\)</span> 归约为 <span class="arithmatex">\(A\)</span></li>
+</ul>
+</li>
+<li>Item 起的作用类似于 NFA 的状态</li>
+</ul>
+</div>
+<h4 id="nfa">构造 NFA<a class="headerlink" href="#nfa" title="Permanent link">👀</a></h4>
+<h3 id="lr0-dfa">LR(0) 文法的 DFA 和分析表<a class="headerlink" href="#lr0-dfa" title="Permanent link">👀</a></h3>
 <h2 id="slr">SLR 分析<a class="headerlink" href="#slr" title="Permanent link">👀</a></h2>
 <h2 id="lr1">LR(1) 分析<a class="headerlink" href="#lr1" title="Permanent link">👀</a></h2>
 <h2 id="lalr">LALR 分析<a class="headerlink" href="#lalr" title="Permanent link">👀</a></h2>
@@ -3838,7 +4018,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tracking", "navigation.tabs", "navigation.indexes", "navigation.top", "search.suggest", "search.highlight", "content.code.annotate", "header.autohide", "toc.separate", "toc.follow", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "search.highlight", "search.share", "search.suggest"], "search": "../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tracking", "navigation.tabs", "navigation.indexes", "navigation.top", "search.suggest", "search.highlight", "content.code.annotate", "header.autohide", "toc.separate", "toc.follow", "content.code.copy", "content.tooltips", "navigation.footer", "search.highlight", "search.share", "search.suggest"], "search": "../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.81fa17fe.min.js"></script>

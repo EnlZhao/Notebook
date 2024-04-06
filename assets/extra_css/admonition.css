@@ -1,0 +1,28 @@
+/* Admonition for python tutor */
+.md-typeset .admonition.pythontutor,
+.md-typeset details.pythontutor {
+  border-color: var(--md-default-fg-color--lightest);
+  margin-top: 0;
+  margin-bottom: 1.5625em;
+}
+
+.md-typeset .admonition:focus-within,
+.md-typeset details:focus-within {
+  box-shadow: var(--md-shadow-z1);
+}
+
+.md-typeset .pythontutor > .admonition-title,
+.md-typeset .pythontutor > summary {
+  background-color: var(--md-code-bg-color);
+}
+.md-typeset .pythontutor > .admonition-title::before,
+.md-typeset .pythontutor > summary::before {
+  background-color: rgb(55, 118, 171);
+  -webkit-mask-image: var(--md-admonition-icon--pythontutor);
+  mask-image: var(--md-admonition-icon--pythontutor);
+}
+
+.md-typeset .admonition-title:before,
+.md-typeset summary:before {
+  width: 1.25em;
+}
