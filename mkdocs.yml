@@ -151,13 +151,13 @@ theme:
     quote: octicons/quote-16
     code: octicons/code-16
   palette:
-    - scheme: default
-      primary: Kleinland 
+    - scheme: Kleinland
+      # primary: Kleinland 
       toggle:
         icon: material/toggle-switch
         name: Switch to Light_Pink mode
-    - scheme: default
-      primary: DustyPeony 
+    - scheme: DustyPeony
+      # primary: DustyPeony 
       toggle:
         icon: material/toggle-switch-off-outline
         name: Switch to Light_Blue mode
@@ -179,7 +179,6 @@ theme:
     - toc.follow
     # - content.action.edit
     # - content.action.view
-    - content.code.annotate
     - content.code.copy
     - content.tooltips
     - navigation.footer
@@ -277,7 +276,7 @@ markdown_extensions:
   - nl2br
   
 extra_javascript:
-  - assets/javascripts/extra.js
+  # - assets/javascripts/extra.js
   - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js
   - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js
   
@@ -290,9 +289,10 @@ extra_css:
   - assets/extra_css/webcolor.css
   - assets/extra_css/tasklist.css
   - assets/extra_css/flink.css
+  - assets/extra_css/admonition.css
 
 extra: 
-  vssue: Enl_Z
+  vssue: EnlZhao
   analytics:
     provider: google
     property: !ENV GOOGLE_ANALYTICS_KEY

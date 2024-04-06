@@ -1,7 +1,8 @@
 const updateScheme = e => {
     var giscus = document.querySelector(".giscus-frame");
     var a = localStorage.getItem('data-md-color-scheme');
-    var theme = a === "default" ? "light" : "dark";
+    // var theme = a === "default" ? "light" : "dark";
+    var theme = a == "light"
     // alert(a + " -> " + theme);
     giscus.contentWindow.postMessage(
         { giscus: { setConfig: { theme } } },
@@ -30,7 +31,8 @@ const updateBoxFontColor = e => {
     var a = localStorage.getItem('data-md-color-scheme');
     if (a == null) {
         // alert("未设置主题");
-        a = "slate";
+        // a = "slate";
+        a = "default";
         localStorage.setItem("data-md-color-scheme", a);
     }
     document.body.setAttribute('data-md-color-scheme', a);
