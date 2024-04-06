@@ -436,7 +436,27 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://enlzhao.github.io/Notebook/Course/netsec/mailsec/</loc>
+         <lastmod>2024-04-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://enlzhao.github.io/Notebook/Course/netsec/routesec/</loc>
+         <lastmod>2024-04-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://enlzhao.github.io/Notebook/Course/netsec/traceback/</loc>
+         <lastmod>2024-04-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://enlzhao.github.io/Notebook/Course/netsec/traffic/</loc>
+         <lastmod>2024-04-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://enlzhao.github.io/Notebook/Course/netsec/webprotect/</loc>
          <lastmod>2024-04-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
