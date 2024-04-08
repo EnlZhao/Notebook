@@ -15,6 +15,10 @@
         <link rel="canonical" href="https://enlzhao.github.io/Notebook/Course/netsec/traffic/">
       
       
+        <link rel="prev" href="../mailsec/">
+      
+      
+        <link rel="next" href="../../cp/">
       
       
       <link rel="icon" href="../../../Icon/Avatar.png">
@@ -22,7 +26,7 @@
     
     
       
-        <title>Traffic - HengZhao's Knowledge Base</title>
+        <title>Traffic Analysis - HengZhao's Knowledge Base</title>
       
     
     
@@ -122,6 +126,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#traffic-analysis" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -151,7 +160,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Traffic
+              Traffic Analysis
             
           </span>
         </div>
@@ -280,10 +289,12 @@
         
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
+      <li class="md-tabs__item md-tabs__item--active">
         <a href="../../abstract/" class="md-tabs__link">
           
   
@@ -507,6 +518,8 @@
       
   
   
+    
+  
   
     
     
@@ -536,12 +549,12 @@
       
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
@@ -555,7 +568,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Course
@@ -1670,6 +1683,8 @@
                 
   
   
+    
+  
   
     
     
@@ -1686,16 +1701,20 @@
       
         
       
+        
+      
+        
+      
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_8" checked>
         
           
           
@@ -1717,7 +1736,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_8_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_8_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_8">
             <span class="md-nav__icon md-icon"></span>
             网络安全原理与实践
@@ -1801,6 +1820,222 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mailsec/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Email Security
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Traffic Analysis
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Traffic Analysis
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#firewall" class="md-nav__link">
+    Firewall
+  </a>
+  
+    <nav class="md-nav" aria-label="Firewall">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#design-goals" class="md-nav__link">
+    Design Goals
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#design-techniques" class="md-nav__link">
+    Design Techniques
+  </a>
+  
+    <nav class="md-nav" aria-label="Design Techniques">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#service-control" class="md-nav__link">
+    Service Control
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#direction-control" class="md-nav__link">
+    Direction Control
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user-control" class="md-nav__link">
+    User Control
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#behavior-control" class="md-nav__link">
+    Behavior Control
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#firewall-types" class="md-nav__link">
+    Firewall Types
+  </a>
+  
+    <nav class="md-nav" aria-label="Firewall Types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#packet-filtering-firewall" class="md-nav__link">
+    Packet Filtering Firewall
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stateful-inspection-firewall" class="md-nav__link">
+    Stateful Inspection Firewall
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#application-proxy-firewall" class="md-nav__link">
+    Application Proxy Firewall
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#circuit-level-proxy-firewall" class="md-nav__link">
+    Circuit-Level Proxy Firewall
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#where-firewall-stand" class="md-nav__link">
+    Where Firewall Stand?
+  </a>
+  
+    <nav class="md-nav" aria-label="Where Firewall Stand?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dmz-networks" class="md-nav__link">
+    DMZ Networks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#virtual-private-networks" class="md-nav__link">
+    Virtual Private Networks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#distributed-firewalls" class="md-nav__link">
+    Distributed Firewalls
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -3482,6 +3717,152 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#firewall" class="md-nav__link">
+    Firewall
+  </a>
+  
+    <nav class="md-nav" aria-label="Firewall">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#design-goals" class="md-nav__link">
+    Design Goals
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#design-techniques" class="md-nav__link">
+    Design Techniques
+  </a>
+  
+    <nav class="md-nav" aria-label="Design Techniques">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#service-control" class="md-nav__link">
+    Service Control
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#direction-control" class="md-nav__link">
+    Direction Control
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user-control" class="md-nav__link">
+    User Control
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#behavior-control" class="md-nav__link">
+    Behavior Control
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#firewall-types" class="md-nav__link">
+    Firewall Types
+  </a>
+  
+    <nav class="md-nav" aria-label="Firewall Types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#packet-filtering-firewall" class="md-nav__link">
+    Packet Filtering Firewall
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stateful-inspection-firewall" class="md-nav__link">
+    Stateful Inspection Firewall
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#application-proxy-firewall" class="md-nav__link">
+    Application Proxy Firewall
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#circuit-level-proxy-firewall" class="md-nav__link">
+    Circuit-Level Proxy Firewall
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#where-firewall-stand" class="md-nav__link">
+    Where Firewall Stand?
+  </a>
+  
+    <nav class="md-nav" aria-label="Where Firewall Stand?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dmz-networks" class="md-nav__link">
+    DMZ Networks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#virtual-private-networks" class="md-nav__link">
+    Virtual Private Networks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#distributed-firewalls" class="md-nav__link">
+    Distributed Firewalls
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -3499,11 +3880,106 @@
   
 
 
-  <h1>Traffic</h1>
-
+<h1 id="traffic-analysis">Traffic Analysis<a class="headerlink" href="#traffic-analysis" title="Permanent link">👀</a></h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 0 个字 </p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 541 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"/></svg></span> 预计阅读时间 2 分钟</p>
 </div>
+<blockquote>
+<p>filter malicious traffic</p>
+</blockquote>
+<h2 id="firewall">Firewall<a class="headerlink" href="#firewall" title="Permanent link">👀</a></h2>
+<ul>
+<li>Form a barrier through which the traffic going in each direction must pass | 双向流量都需要通过这个 barrier</li>
+<li>Use <code>firewall security policy</code> to dictate which traffic is authorized to pass in each direction</li>
+</ul>
+<h3 id="design-goals">Design Goals<a class="headerlink" href="#design-goals" title="Permanent link">👀</a></h3>
+<ul>
+<li>All traffic from inside to outside, and vice versa, must pass through the firewall.</li>
+<li>Only authorized traffic, as defined by the local security policy, will be allowed to pass. </li>
+<li>The firewall itself is immune to penetration. </li>
+</ul>
+<h3 id="design-techniques">Design Techniques<a class="headerlink" href="#design-techniques" title="Permanent link">👀</a></h3>
+<h4 id="service-control">Service Control<a class="headerlink" href="#service-control" title="Permanent link">👀</a></h4>
+<blockquote>
+<p>determine service types that can be accessed (inbound or outbound)</p>
+</blockquote>
+<ul>
+<li>Filter traffic on the basis of <strong>IP address</strong>, <strong>protocol</strong>, or <strong>port number</strong></li>
+<li>Provide <strong>proxy software</strong> that receives and interprets each service request before passing it on</li>
+<li><strong>Host the server software itself</strong>, such as Web or Email service</li>
+</ul>
+<h4 id="direction-control">Direction Control<a class="headerlink" href="#direction-control" title="Permanent link">👀</a></h4>
+<p>determine the <strong>direction</strong> in which particular service requests may be initiated and allowed to flow through the firewall</p>
+<h4 id="user-control">User Control<a class="headerlink" href="#user-control" title="Permanent link">👀</a></h4>
+<p>control access to a service according to <strong>which user is attempting to access it</strong></p>
+<ul>
+<li>Typically apply to local users</li>
+<li>Also apply to external users via secure authentication technology (e.g., IPsec Authentication Header)</li>
+</ul>
+<h4 id="behavior-control">Behavior Control<a class="headerlink" href="#behavior-control" title="Permanent link">👀</a></h4>
+<p>control <strong>how</strong> particular services are used</p>
+<blockquote>
+<p>E.g., </p>
+<ul>
+<li>filter E-mail to eliminate spam, or </li>
+<li>enable external access to only a portion of the information on a local Web server</li>
+</ul>
+</blockquote>
+<h3 id="firewall-types">Firewall Types<a class="headerlink" href="#firewall-types" title="Permanent link">👀</a></h3>
+<h4 id="packet-filtering-firewall">Packet Filtering Firewall<a class="headerlink" href="#packet-filtering-firewall" title="Permanent link">👀</a></h4>
+<p>Apply a set of rules to each incoming and outgoing IP packet, Forward or discard the packet</p>
+<ul>
+<li>Make filtering decisions on an individual packet basis</li>
+<li>Consider no higher-layer context</li>
+<li>If no match, default discard, or default forward</li>
+</ul>
+<details class="info">
+<summary>Packet Filtering Firewall</summary>
+<ul>
+<li>对传输层进行过滤，firewall 充当 interface, 数据包头部会有 <code>source IP/port</code>, <code>destination IP/port</code>, <code>protocol</code></li>
+</ul>
+<p><a class="glightbox" href="../../../Images/2024-04-08-15-46-31.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-04-08-15-46-31.png" /></a></p>
+<ul>
+<li>通过检查数据包的头部信息，来决定是否允许数据包通过</li>
+</ul>
+</details>
+<h4 id="stateful-inspection-firewall">Stateful Inspection Firewall<a class="headerlink" href="#stateful-inspection-firewall" title="Permanent link">👀</a></h4>
+<p>Both packets and their context are examined by the firewall</p>
+<blockquote>
+<p>数据包和它们的上下文都由防火墙检查，也发生在传输层</p>
+</blockquote>
+<h4 id="application-proxy-firewall">Application Proxy Firewall<a class="headerlink" href="#application-proxy-firewall" title="Permanent link">👀</a></h4>
+<ul>
+<li><strong>Application-Level</strong> Gateway | 应用层</li>
+<li>Act as a relay of application-level traffic</li>
+</ul>
+<blockquote>
+<p>作为一个应用层的 relay，使得客户端和服务端从不直接交互，而是以防火墙作为代理，同时可以检查数据包的全部内容</p>
+</blockquote>
+<details class="info">
+<summary>more explanation</summary>
+<ul>
+<li>An application-proxy firewall is a server program that understands the type of information being transmitted—for example, HTTP or FTP. </li>
+<li>It functions at a higher level in the protocol stack than do packet-filtering firewalls, thus providing more opportunities for the monitoring and control of accessibility</li>
+</ul>
+</details>
+<h4 id="circuit-level-proxy-firewall">Circuit-Level Proxy Firewall<a class="headerlink" href="#circuit-level-proxy-firewall" title="Permanent link">👀</a></h4>
+<ul>
+<li>Circuit-Level Gateway (还是在传输层)</li>
+<li>Act as a relay of TCP segments without examining the contents</li>
+<li>Set up two TCP connections instead</li>
+</ul>
+<blockquote>
+<p>作为一个 transport layer 的 relay，代理主机和对方完成 TCP 连接建立；一旦建立连接后就正常转发，不检查内部内容。</p>
+</blockquote>
+<details class="info">
+<summary>Info</summary>
+<p><a class="glightbox" href="../../../Images/2024-04-08-15-51-39.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-04-08-15-51-39.png" /></a></p>
+</details>
+<h3 id="where-firewall-stand">Where Firewall Stand?<a class="headerlink" href="#where-firewall-stand" title="Permanent link">👀</a></h3>
+<h4 id="dmz-networks">DMZ Networks<a class="headerlink" href="#dmz-networks" title="Permanent link">👀</a></h4>
+<h4 id="virtual-private-networks">Virtual Private Networks<a class="headerlink" href="#virtual-private-networks" title="Permanent link">👀</a></h4>
+<h4 id="distributed-firewalls">Distributed Firewalls<a class="headerlink" href="#distributed-firewalls" title="Permanent link">👀</a></h4>
 
 
   
@@ -3574,6 +4050,44 @@
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+          
+          <a href="../mailsec/" class="md-footer__link md-footer__link--prev" aria-label="上一页: Email Security">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              <div class="md-ellipsis">
+                Email Security
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../cp/" class="md-footer__link md-footer__link--next" aria-label="下一页: 编译原理">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                编译原理
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
     
   
   <div class="md-footer-meta md-typeset">
