@@ -2122,6 +2122,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#lr" class="md-nav__link">
+    LR 语法分析算法
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2149,6 +2156,20 @@
         <li class="md-nav__item">
   <a href="#lalr" class="md-nav__link">
     LALR 分析
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#yacc" class="md-nav__link">
+    Yacc
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    错误恢复
   </a>
   
 </li>
@@ -3777,6 +3798,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#lr" class="md-nav__link">
+    LR 语法分析算法
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3808,6 +3836,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#yacc" class="md-nav__link">
+    Yacc
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    错误恢复
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3828,7 +3870,7 @@
 
 <h1 id="parsing-bottom-up-parsing">Parsing (Bottom-Up Parsing)<a class="headerlink" href="#parsing-bottom-up-parsing" title="Permanent link">👀</a></h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 1951 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"/></svg></span> 预计阅读时间 7 分钟</p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 2759 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"/></svg></span> 预计阅读时间 9 分钟</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Bottom-Up Parsing</p>
@@ -4025,7 +4067,7 @@ X \rightarrow \alpha \cdot Y \beta \stackrel{\epsilon}{\rightarrow} Y \rightarro
 </code></pre></div>
 <ul>
 <li><span class="arithmatex">\(I\)</span>: a set of items (即项集)</li>
-<li>$X: a symbol (terminal or non-terminal)</li>
+<li><span class="arithmatex">\(X\)</span>: a symbol (terminal or non-terminal)</li>
 </ul>
 <blockquote>
 <p>类似 NFA 转 DFA 过程中的 <span class="arithmatex">\(\epsilon\)</span>-Closure</p>
@@ -4042,7 +4084,7 @@ X \rightarrow \alpha \cdot Y \beta \stackrel{\epsilon}{\rightarrow} Y \rightarro
 \]</div>
 <p>计算项集1: <span class="arithmatex">\(\text{Closure}(\{[S' \rightarrow \cdot S \$]\})\)</span></p>
 <div class="arithmatex">\[
-\textcolor{green}{1} \text{Closure}(\{[S' -&gt; \cdot S \$]\}) =
+\textcolor{green}{1}~~ \text{Closure}(\{[S' -&gt; \cdot S \$]\}) =
 \begin{align*}
     &amp;S' \rightarrow \cdot S \$ \\
     &amp;S \rightarrow \cdot x S \\
@@ -4072,9 +4114,9 @@ X \rightarrow \alpha \cdot Y \beta \stackrel{\epsilon}{\rightarrow} Y \rightarro
 \]</div>
 <p>项集2 = Goto(项集1, x) = <span class="arithmatex">\(\text{Closure}(\{S \rightarrow x \cdot S\})\)</span></p>
 <div class="arithmatex">\[
-\textcolor{green}{2} \text{Goto}(\text{项集1}, x) =
+\textcolor{green}{2}~~ \text{Goto}(\text{项集1}, x) =
+\text{Closure}(\{S \rightarrow x \cdot S\}) =
 \begin{align*}
-    $\text{Closure}(\{S \rightarrow x \cdot S\}) = \\
     &amp;S \rightarrow x \cdot S \\
     &amp;S \rightarrow \cdot x S \\
     &amp;S \rightarrow \cdot y
@@ -4137,9 +4179,136 @@ X \rightarrow \alpha \cdot Y \beta \stackrel{\epsilon}{\rightarrow} Y \rightarro
 <summary>Example</summary>
 <p><a class="glightbox" href="../../../Images/2024-04-09-11-21-12.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-04-09-11-21-12.png" /></a></p>
 </details>
+<h4 id="lr">LR 语法分析算法<a class="headerlink" href="#lr" title="Permanent link">👀</a></h4>
+<ul>
+<li>
+<p>使用栈 Stack, 栈中存放 LR 自动机的状态</p>
+</li>
+<li>
+<p><strong>Shift(n)</strong>:</p>
+<ul>
+<li>Advance input one token</li>
+<li>Push state n on the stack</li>
+</ul>
+</li>
+<li><strong>Reduce(k)</strong>:<ul>
+<li>Pop stack as many times as the number of symbols in the RHS of production k</li>
+<li>假如 <span class="arithmatex">\(X\)</span> 是 production k 的 LHS, 那么将 <span class="arithmatex">\(X\)</span> 的 GOTO 值压入栈</li>
+</ul>
+</li>
+<li><strong>Accept</strong>: Stop parsing and report success</li>
+<li><strong>Error</strong>: Stop parsing and report failure</li>
+</ul>
+<blockquote>
+<ul>
+<li>This is a general algorithm and can be used by other LR parsing<br />
+For LR(0), we do not need to look up input symbol to know whether we should shift or reduce</li>
+</ul>
+</blockquote>
+<details class="note">
+<summary>pseudo code</summary>
+<p><a class="glightbox" href="../../../Images/2024-04-09-14-11-11.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-04-09-14-11-11.png" /></a></p>
+</details>
+<details class="example">
+<summary>完整的 LR(0) 语法分析</summary>
+<p><a class="glightbox" href="../../../Images/2024-04-09-14-19-23.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-04-09-14-19-23.png" /></a></p>
+</details>
+<details class="info">
+<summary>关于LR(0)中的 0</summary>
+<p>为什么说 LR(0) 没有 Lookahead?</p>
+<ul>
+<li>LR(0) Item 中没有 lookahead terminal 等信息</li>
+<li>&ldquo;是否归约、选择哪个产生式规约&rdquo; 仅由栈顶状态决定</li>
+</ul>
+</details>
+<p>LR(0) 的局限就是对于某些文法，会盲目地进行归约，从而导致 shift-reduce conflict</p>
+<details class="example">
+<summary>Example</summary>
+<p><a class="glightbox" href="../../../Images/2024-04-09-14-29-19.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-04-09-14-29-19.png" /></a></p>
+</details>
 <h2 id="slr">SLR 分析<a class="headerlink" href="#slr" title="Permanent link">👀</a></h2>
+<p>SLR(1) 就是使用更多的信息来指导归约操作</p>
+<p>因为 &ldquo;LR 分析相当于最右推导的逆过程&rdquo;，那么每一次归约操作应该满足：<span class="arithmatex">\(t \in \text{Follow}(E)\)</span></p>
+<ul>
+<li><span class="arithmatex">\(E\)</span> 表示用来归约的产生式的 LHS</li>
+<li><span class="arithmatex">\(t\)</span> 表示下一个 token</li>
+</ul>
+<p>对于 SLR(1), Put reduce actions into the table <u>only</u> where indicated by the FOLLOW set</p>
+<div class="admonition success">
+<p class="admonition-title">Attention!</p>
+<p>SLR(1) Parsing 相当于 LR(0) 就仅在 Reduce 时不同:</p>
+<p><a class="glightbox" href="../../../Images/2024-04-09-14-30-28.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-04-09-14-30-28.png" /></a></p>
+</div>
+<details class="example">
+<summary>Example</summary>
+<p><a class="glightbox" href="../../../Images/2024-04-09-14-31-48.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-04-09-14-31-48.png" /></a></p>
+</details>
+<p>SLR 解决冲突的方法是：只有下一个输入符号在某个句型中可以跟着 <span class="arithmatex">\(A\)</span> 之后 (即 <span class="arithmatex">\(x\in \text{Follow}(A)\)</span>), 才能进行 <span class="arithmatex">\(A \rightarrow \alpha\)</span> 归约</p>
+<p>但仍然存在问题：</p>
+<ul>
+<li>LR 分析过程是最右推导的逆，那么每一步推导都应该是最右句型</li>
+<li>如果 <span class="arithmatex">\(\beta A x\)</span> 不是任何最右句型的前缀，那么尽管 <span class="arithmatex">\(x \in \text{Follow}(A)\)</span>, 也不应该进行 <span class="arithmatex">\(A \rightarrow \beta\)</span> 的归约</li>
+</ul>
 <h2 id="lr1">LR(1) 分析<a class="headerlink" href="#lr1" title="Permanent link">👀</a></h2>
+<p>LR(1) 项中包含更多信息来消除一些归约动作，不仅用到 FOLLOW 集，还用到了 FIRST 集</p>
+<blockquote>
+<p>实际的做法相当于 &ldquo;分裂&rdquo; 一些 LR(0) 状态，精确指明何时应该归约</p>
+</blockquote>
+<div class="admonition success">
+<p class="admonition-title">LR(1) 的 Item</p>
+<p>LR(1) 项的形式是形如：<span class="arithmatex">\(A \rightarrow \alpha \cdot \beta, \color{red}{a}\)</span></p>
+<ul>
+<li><span class="arithmatex">\(\color{red}{a}\)</span> 称为向前看符号，可以是终结符号或者 <span class="arithmatex">\(\$\)</span></li>
+<li>向前看符号 (串) 的长度即为 <span class="arithmatex">\(LR(k)\)</span> 中的 <span class="arithmatex">\(k\)</span></li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Closure 闭包</p>
+<p><a class="glightbox" href="../../../Images/2024-04-09-14-46-40.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-04-09-14-46-40.png" /></a></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Goto 转移</p>
+<p><a class="glightbox" href="../../../Images/2024-04-09-14-47-05.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-04-09-14-47-05.png" /></a></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Reduce Action</p>
+<p><a class="glightbox" href="../../../Images/2024-04-09-14-47-29.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-04-09-14-47-29.png" /></a></p>
+</div>
+<details class="example">
+<summary>Example</summary>
+<p><a class="glightbox" href="../../../Images/2024-04-09-14-55-10.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-04-09-14-55-10.png" /></a></p>
+<p>由此可以得到 LR(1) 的分析表<br><a class="glightbox" href="../../../Images/2024-04-09-14-55-46.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-04-09-14-55-46.png" /></a></p>
+<blockquote>
+<p>同时也可以看到 LR(1) Parsing 的局限就是其 parsing table 会非常大，导致不适用于实际应用</p>
+</blockquote>
+</details>
 <h2 id="lalr">LALR 分析<a class="headerlink" href="#lalr" title="Permanent link">👀</a></h2>
+<p>一些状态在 LR(1) 中只不过是 lookahead symbol 不同, 比如下图中的项集 6 和 13</p>
+<p><a class="glightbox" href="../../../Images/2024-04-09-14-58-20.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-04-09-14-58-20.png" /></a></p>
+<p>LALR(1) 相较于 LR(1) 就是对于任意的两个项集，如果他们只有 lookahead symbol 不同，那么就合并这两个项集</p>
+<p><a class="glightbox" href="../../../Images/2024-04-09-14-59-36.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-04-09-14-59-36.png" /></a></p>
+<p>下面介绍如何从 LR(1) 过渡到 LALR(1)</p>
+<p>首先引入 core 概念，core 是一个项集中去掉 lookahead symbol 的部分</p>
+<ul>
+<li>例如 <span class="arithmatex">\(A \rightarrow \alpha \cdot \beta, a\)</span> 的 core 是 <span class="arithmatex">\(A \rightarrow \alpha \cdot \beta\)</span></li>
+</ul>
+<p>构造 LALR(1) Parsing DFA 就是：</p>
+<p>Repeat until all states have distinct cores:</p>
+<ul>
+<li>选择有相同 core 的不同状态</li>
+<li>通过创建一个新的包含所有 item 的状态来合并这些状态</li>
+<li>令之前的前一状态指向新状态；新状态指向所有合并前的状态的继承者</li>
+</ul>
+<p><a class="glightbox" href="../../../Images/2024-04-09-15-05-35.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-04-09-15-05-35.png" /></a></p>
+<details class="example">
+<summary>Example</summary>
+<p><a class="glightbox" href="../../../Images/2024-04-09-15-05-46.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-04-09-15-05-46.png" /></a></p>
+</details>
+<h2 id="yacc">Yacc<a class="headerlink" href="#yacc" title="Permanent link">👀</a></h2>
+<blockquote>
+<p>语法分析的生成器</p>
+</blockquote>
+<h2 id="_2">错误恢复<a class="headerlink" href="#_2" title="Permanent link">👀</a></h2>
 
 
   
