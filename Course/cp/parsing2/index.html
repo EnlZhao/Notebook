@@ -2165,12 +2165,45 @@
     Yacc
   </a>
   
+    <nav class="md-nav" aria-label="Yacc">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#yacc_1" class="md-nav__link">
+    Yacc 源程序的结构
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#yacc_2" class="md-nav__link">
+    Yacc 使用
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     错误恢复
   </a>
+  
+    <nav class="md-nav" aria-label="错误恢复">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#local-error-recovery" class="md-nav__link">
+    Local Error Recovery
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -3841,12 +3874,45 @@
     Yacc
   </a>
   
+    <nav class="md-nav" aria-label="Yacc">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#yacc_1" class="md-nav__link">
+    Yacc 源程序的结构
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#yacc_2" class="md-nav__link">
+    Yacc 使用
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     错误恢复
   </a>
+  
+    <nav class="md-nav" aria-label="错误恢复">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#local-error-recovery" class="md-nav__link">
+    Local Error Recovery
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -3870,7 +3936,7 @@
 
 <h1 id="parsing-bottom-up-parsing">Parsing (Bottom-Up Parsing)<a class="headerlink" href="#parsing-bottom-up-parsing" title="Permanent link">👀</a></h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 2759 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"/></svg></span> 预计阅读时间 9 分钟</p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 3195 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg></span> 34 行代码 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"/></svg></span> 预计阅读时间 11 分钟</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Bottom-Up Parsing</p>
@@ -4306,9 +4372,112 @@ For LR(0), we do not need to look up input symbol to know whether we should shif
 </details>
 <h2 id="yacc">Yacc<a class="headerlink" href="#yacc" title="Permanent link">👀</a></h2>
 <blockquote>
-<p>语法分析的生成器</p>
+<ul>
+<li>语法分析的生成器 Yacc (Yet Another Compiler Compiler)</li>
+<li>基于 LALR(1)，用 BNF (Backus-Naur Form) 描述文法</li>
+<li>Yacc 的 GNU 版本是 Bison</li>
+</ul>
 </blockquote>
+<p>Lex 和 Yacc 一起使用，Lex 用于词法分析 (.l 文件)，Yacc 用于语法分析 (.y 文件)</p>
+<ul>
+<li>源文件经过 <code>yylex()</code> 函数分析后，返回 token，然后传递给 <code>yyparse()</code> 函数进行语法分析</li>
+</ul>
+<h3 id="yacc_1">Yacc 源程序的结构<a class="headerlink" href="#yacc_1" title="Permanent link">👀</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>声明
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>%%
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>翻译规则
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>%%
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>辅助性 C 语言例程
+</code></pre></div>
+<ul>
+<li>声明部分：放置 C 语言的声明 (如宏定义、全局变量等)，以及词法单元的声明</li>
+<li>翻译规则部分：指明产生式及相关的语义动作</li>
+<li>辅助性 C 语言例程：<ul>
+<li>被直接拷贝到生成的 C 语言源程序中</li>
+<li>可在语义动作中调用</li>
+<li>包括 <code>yylex()</code>，这个函数返回词法单元，可以由 Lex 生成</li>
+</ul>
+</li>
+</ul>
+<h3 id="yacc_2">Yacc 使用<a class="headerlink" href="#yacc_2" title="Permanent link">👀</a></h3>
+<div class="highlight"><span class="filename">文法</span><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>exp -&gt; exp addop term | term
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>addop -&gt; + | -
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>term -&gt; term mulop factor | factor
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>mulop -&gt; *
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>factor -&gt; ( exp ) | number
+</code></pre></div>
+<div class="highlight"><span class="filename">yacc 文件</span><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>%{
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>#include &lt;stdio.h&gt;
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>#include &lt;ctype.h&gt;
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>int yylex(void);
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>int yyerror(char *s);
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>%}
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>%token NUMBER
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>%%
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>command: exp { printf(&quot;%d\n&quot;, $1); };
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>exp: exp &#39;+&#39; term { $$ = $1 + $3; }
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>    | exp &#39;-&#39; term { $$ = $1 - $3; }
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>    | term { $$ = $1; }
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>;
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>term: term &#39;*&#39; factor { $$ = $1 * $3; }
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>    | factor { $$ = $1; }
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>;
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>factor: &#39;(&#39; exp &#39;)&#39; { $$ = $2; }
+<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a>    | NUMBER { $$ = $1; }
+<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a>;
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Rules</p>
+<ul>
+<li><code>Rule {Action Code}</code></li>
+<li>Action Code 会在使用这个规则归约后执行</li>
+</ul>
+</div>
+<p>其中对于语义动作： <span class="arithmatex">\(\$\$ = \$1 + \$3\)</span>, <span class="arithmatex">\(\$\$\)</span> 表示和产生式头相关的属性值，<span class="arithmatex">\(\$i\)</span> 表示产生式体中第 <span class="arithmatex">\(i\)</span> 个符号的属性值</p>
+<details class="info">
+<summary>Info</summary>
+<p><a href="https://blog.csdn.net/weixin_44007632/article/details/108666375">lex与yacc/flex与bison入门</a></p>
+</details>
+<details class="info">
+<summary>Yacc 文件格式中的几个问题</summary>
+<ul>
+<li><strong>消除二义性</strong>: 为算符指定优先级与结合律</li>
+</ul>
+<details class="example">
+<summary>Example</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>%left &#39;+&#39; &#39;-&#39;
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>%left &#39;*&#39; &#39;/&#39;
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>%right UMINUS /* 一元减号 */
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>%right &#39;^&#39; /* 指数运算 */
+</code></pre></div>
+</details>
+<ul>
+<li><strong>冲突解决</strong><ul>
+<li>归约/归约冲突：选择 Yacc 说明中<u>先出现的产生式</u></li>
+<li>移进/归约冲突：<u>移近优先</u></li>
+<li>更通用的方法: 改写文法以消除冲突 (例如, 消除二义性的同时也可能减少了冲突)</li>
+</ul>
+</li>
+</ul>
+</details>
 <h2 id="_2">错误恢复<a class="headerlink" href="#_2" title="Permanent link">👀</a></h2>
+<div class="admonition bug">
+<p class="admonition-title">Motivation</p>
+<p>希望一次编译尽量报出所有错误而不是第一个错误就停止</p>
+</div>
+<p>Error recovery techniques：</p>
+<ul>
+<li>Local error recovery<ul>
+<li>Adjust the parse stack and the input at the point where the  error was detected in a way that will allow parsing to resume.</li>
+</ul>
+</li>
+<li>Global error repair<ul>
+<li>Find the smallest set of insertions and deletions that would turn the source string into a syntactically correct string</li>
+</ul>
+</li>
+</ul>
+<h3 id="local-error-recovery">Local Error Recovery<a class="headerlink" href="#local-error-recovery" title="Permanent link">👀</a></h3>
 
 
   
