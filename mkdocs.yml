@@ -125,7 +125,7 @@ nav:
   - Tools: 
     - GitHub: 
       - GitHub: Triviality/GitHub/index.md
-      - Basics: Triviality/GitHub/Le1.md
+      - Basics: Triviality/GitHub/docs.md
       - Git Related: Triviality/GitHub/Git.md
 
 theme:
