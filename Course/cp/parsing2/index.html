@@ -2075,8 +2075,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#nfa" class="md-nav__link">
-    构造 NFA
+  <a href="#lr0-nfa_1" class="md-nav__link">
+    LR(0) 的 NFA
   </a>
   
 </li>
@@ -2090,6 +2090,40 @@
   <a href="#lr0-dfa" class="md-nav__link">
     LR(0) 文法的 DFA 和分析表
   </a>
+  
+    <nav class="md-nav" aria-label="LR(0) 文法的 DFA 和分析表">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#closure" class="md-nav__link">
+    项集闭包 CLOSURE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#goto" class="md-nav__link">
+    Goto (状态转移函数)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lr0_1" class="md-nav__link">
+    LR(0) 自动机的构造
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dfa" class="md-nav__link">
+    DFA 到分析表
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -3590,7 +3624,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Triviality/GitHub/Le1/" class="md-nav__link">
+      <a href="../../../Triviality/GitHub/docs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -3696,8 +3730,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#nfa" class="md-nav__link">
-    构造 NFA
+  <a href="#lr0-nfa_1" class="md-nav__link">
+    LR(0) 的 NFA
   </a>
   
 </li>
@@ -3711,6 +3745,40 @@
   <a href="#lr0-dfa" class="md-nav__link">
     LR(0) 文法的 DFA 和分析表
   </a>
+  
+    <nav class="md-nav" aria-label="LR(0) 文法的 DFA 和分析表">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#closure" class="md-nav__link">
+    项集闭包 CLOSURE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#goto" class="md-nav__link">
+    Goto (状态转移函数)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lr0_1" class="md-nav__link">
+    LR(0) 自动机的构造
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dfa" class="md-nav__link">
+    DFA 到分析表
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -3760,7 +3828,7 @@
 
 <h1 id="parsing-bottom-up-parsing">Parsing (Bottom-Up Parsing)<a class="headerlink" href="#parsing-bottom-up-parsing" title="Permanent link">👀</a></h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 880 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"/></svg></span> 预计阅读时间 3 分钟</p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 1951 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"/></svg></span> 预计阅读时间 7 分钟</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Bottom-Up Parsing</p>
@@ -3882,11 +3950,193 @@
 <li><span class="arithmatex">\(A \rightarrow XYZ \cdot\)</span> 表示已经匹配/归约到了 <span class="arithmatex">\(XYZ\)</span>, 可以把 <span class="arithmatex">\(XYZ\)</span> 归约为 <span class="arithmatex">\(A\)</span></li>
 </ul>
 </li>
-<li>Item 起的作用类似于 NFA 的状态</li>
+<li>Item 起的作用类似于有穷自动机的状态</li>
 </ul>
 </div>
-<h4 id="nfa">构造 NFA<a class="headerlink" href="#nfa" title="Permanent link">👀</a></h4>
+<div class="admonition success">
+<p class="admonition-title">状态跳转</p>
+<ul>
+<li>状态跳转：一个 Item 读入一个 token 后，可以跳转到另一个 Item</li>
+<li>例如：<span class="arithmatex">\(A \rightarrow \cdot XYZ\)</span> 可以跳转到 <span class="arithmatex">\(A \rightarrow X \cdot YZ\)</span></li>
+</ul>
+</div>
+<ul>
+<li>由于文法产生式是有限的，且每个产生式右部的长度也是有限的，即 Item 的数量是有限的</li>
+<li>有穷自动机，也被称为 LR(0) 自动机</li>
+</ul>
+<p>有了 Item 和状态跳转理论，我们可以进一步描述 LR(0) 语法分析思路：</p>
+<p>例：</p>
+<div class="arithmatex">\[
+\begin{align*}
+    &amp;S \rightarrow b B B \\
+    &amp;S \rightarrow \cdot b B B \leftarrow \text{移进状态} \\
+    &amp;S \rightarrow b \cdot B B \leftarrow \text{待约状态} \\
+    &amp;S \rightarrow b B \cdot B \leftarrow \text{待约状态} \\
+    &amp;S \rightarrow b B B \cdot \leftarrow \text{规约状态}
+\end{align*}
+\]</div>
+<p>LR 分析器基于这样一些状态来构造自动机进行 RHS 的识别</p>
+<h4 id="lr0-nfa_1">LR(0) 的 NFA<a class="headerlink" href="#lr0-nfa_1" title="Permanent link">👀</a></h4>
+<p>为 LR(0) 中的 NFA 定义以下概念：</p>
+<p><strong>1) 起始&amp;终结状态</strong></p>
+<ul>
+<li>文法 <span class="arithmatex">\(G\)</span> 中增加一个新的开始符号 <span class="arithmatex">\(S'\)</span>，并加入产生式 <span class="arithmatex">\(S' \rightarrow S\$\)</span></li>
+<li>按 <span class="arithmatex">\(S' \rightarrow S\$\)</span> 归约，表示将输入符号串归约为开始符号 <span class="arithmatex">\(S\)</span></li>
+</ul>
+<blockquote>
+<p>加入 <span class="arithmatex">\(S'\)</span> 是为了方便表示起始和终结状态</p>
+</blockquote>
+<p><strong>2) 状态迁移</strong></p>
+<ul>
+<li>LR(0) Item 之间会有转换关系，如</li>
+</ul>
+<ol>
+<li><span class="arithmatex">\(X \rightarrow \cdot \alpha \beta\)</span> 接收到 <span class="arithmatex">\(\alpha\)</span> 后，转移到 <span class="arithmatex">\(X \rightarrow \alpha \cdot \beta\)</span></li>
+</ol>
+<div class="arithmatex">\[
+X \rightarrow \cdot \alpha \beta \stackrel{\alpha}{\rightarrow} X \rightarrow \alpha \cdot \beta
+\]</div>
+<ol start="2">
+<li>如果存在产生式 <span class="arithmatex">\(X \rightarrow \alpha Y \beta\)</span>, <span class="arithmatex">\(Y \rightarrow \gamma\)</span>, 那么 <span class="arithmatex">\(X \rightarrow \alpha \cdot Y \beta\)</span> 可以转移到 <span class="arithmatex">\(Y \rightarrow \cdot \gamma\)</span></li>
+</ol>
+<div class="arithmatex">\[
+X \rightarrow \alpha \cdot Y \beta \stackrel{\epsilon}{\rightarrow} Y \rightarrow \cdot \gamma
+\]</div>
+<blockquote>
+<p>含义是如果希望看到由 <span class="arithmatex">\(Y \beta\)</span> 推导出的串，那么要先看到 $Y</p>
+</blockquote>
+<details class="example">
+<summary>NFA &amp; NFA-&gt;DFA</summary>
+<p><a class="glightbox" href="../../../Images/2024-04-09-09-45-40.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-04-09-09-45-40.png" /></a></p>
+</details>
 <h3 id="lr0-dfa">LR(0) 文法的 DFA 和分析表<a class="headerlink" href="#lr0-dfa" title="Permanent link">👀</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>从这里开始，LR 自动机均指 DFA</p>
+</div>
+<p>下面进入 LR(0) 自动机构造：</p>
+<h4 id="closure">项集闭包 CLOSURE<a class="headerlink" href="#closure" title="Permanent link">👀</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Closure(I) =
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    repeat
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>        for each item [A -&gt; alpha · X beta] in I
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>            for each production X -&gt; gamma
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>                add [X -&gt; · gamma] to I
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    until I is unchanged
+</code></pre></div>
+<ul>
+<li><span class="arithmatex">\(I\)</span>: a set of items (即项集)</li>
+<li>$X: a symbol (terminal or non-terminal)</li>
+</ul>
+<blockquote>
+<p>类似 NFA 转 DFA 过程中的 <span class="arithmatex">\(\epsilon\)</span>-Closure</p>
+</blockquote>
+<details class="example">
+<summary>Example</summary>
+<p>对于文法：</p>
+<div class="arithmatex">\[
+\begin{align*}
+    &amp;0: &amp;S' \rightarrow S \$ \\
+    &amp;1: &amp;S \rightarrow x S \\
+    &amp;2: &amp;S \rightarrow y
+\end{align*}
+\]</div>
+<p>计算项集1: <span class="arithmatex">\(\text{Closure}(\{[S' \rightarrow \cdot S \$]\})\)</span></p>
+<div class="arithmatex">\[
+\textcolor{green}{1} \text{Closure}(\{[S' -&gt; \cdot S \$]\}) =
+\begin{align*}
+    &amp;S' \rightarrow \cdot S \$ \\
+    &amp;S \rightarrow \cdot x S \\
+    &amp;S \rightarrow \cdot y
+\end{align*}
+\]</div>
+</details>
+<h4 id="goto">Goto (状态转移函数)<a class="headerlink" href="#goto" title="Permanent link">👀</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Goto(I, X) =
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    set J to empty
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    for each item [A -&gt; alpha · X beta] in I
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>        add [A -&gt; alpha X · beta] to J
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    return Closure(J)
+</code></pre></div>
+<blockquote>
+<p>GOTO(<span class="arithmatex">\(I\)</span>, <span class="arithmatex">\(X\)</span>) 定义为 <span class="arithmatex">\(I\)</span> 中所有形如 <span class="arithmatex">\([A \rightarrow \alpha \cdot X \beta]\)</span> 的项所对应的项 <span class="arithmatex">\([A \rightarrow \alpha X \cdot \beta]\)</span> 的集合的闭包</p>
+</blockquote>
+<details class="example">
+<summary>Example</summary>
+<p>对于文法：</p>
+<div class="arithmatex">\[
+\begin{align*}
+    &amp;0: &amp;S' \rightarrow S \$ \\
+    &amp;1: &amp;S \rightarrow x S \\
+    &amp;2: &amp;S \rightarrow y
+\end{align*}
+\]</div>
+<p>项集2 = Goto(项集1, x) = <span class="arithmatex">\(\text{Closure}(\{S \rightarrow x \cdot S\})\)</span></p>
+<div class="arithmatex">\[
+\textcolor{green}{2} \text{Goto}(\text{项集1}, x) =
+\begin{align*}
+    $\text{Closure}(\{S \rightarrow x \cdot S\}) = \\
+    &amp;S \rightarrow x \cdot S \\
+    &amp;S \rightarrow \cdot x S \\
+    &amp;S \rightarrow \cdot y
+\end{align*}
+\]</div>
+</details>
+<h4 id="lr0_1">LR(0) 自动机的构造<a class="headerlink" href="#lr0_1" title="Permanent link">👀</a></h4>
+<details class="abstract">
+<summary>Abstract</summary>
+<p>大致思想就是从起始项集开始，对里面的每个项进行 goto 尝试，构造出新的项集 (转移到的生成式的 Closure 闭包)，一直递归下去，直到没有新的项集产生</p>
+</details>
+<ul>
+<li><span class="arithmatex">\(I\)</span>: a set of items (即项集)</li>
+<li><span class="arithmatex">\(X\)</span>: a symbol (terminal or non-terminal)</li>
+<li><span class="arithmatex">\(T\)</span>: the set of states in the DFA</li>
+<li><span class="arithmatex">\(S\)</span>: the set of (<strong>shift</strong> or <strong>goto</strong>) edges in the DFA</li>
+<li><span class="arithmatex">\(\text{edge}(I, J, X)\)</span>: 表示从状态 <span class="arithmatex">\(I\)</span> 经过输入 <span class="arithmatex">\(X\)</span> 转移到状态 <span class="arithmatex">\(J\)</span></li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Initialize T to {Closure({[S&#39; -&gt; · S $]})}
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>Initialize E to empty
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>repeat
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    for each state I in T
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>        for each item A -&gt; alpha · X beta in I
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>            let J = Goto(I, X)
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>            if J is not in T
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>                add J to T
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>            add edge (I, J, X) to E
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>until E and T is unchanged
+</code></pre></div>
+<blockquote>
+<p>包含 <span class="arithmatex">\(S' \rightarrow S \cdot \$\)</span> 的项集是 LR(0) 自动机的终止状态</p>
+</blockquote>
+<details class="example">
+<summary>Example</summary>
+<p><a class="glightbox" href="../../../Images/2024-04-09-11-13-14.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-04-09-11-13-14.png" /></a></p>
+</details>
+<h4 id="dfa">DFA 到分析表<a class="headerlink" href="#dfa" title="Permanent link">👀</a></h4>
+<p>要产生 LR parser, 我们需要创建 Action 和 GOTO 表</p>
+<div class="admonition note">
+<p class="admonition-title">Shift</p>
+<p><strong>Shift</strong>: 输入的 token 是一个 <u>terminal</u></p>
+<p>例如表中 T[i, t] = sn 表示 state i 读入terminal t 后，转移到 state n</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Reduce</p>
+<p><strong>Reduce</strong>: state i 包含的项中有一个形如 <span class="arithmatex">\(A \rightarrow \alpha \cdot\)</span> 的项 (点在最右边)</p>
+<p>例如表中 T[i, <strong>each terminal</strong>] = rk 表示 state i 归约为产生式 k (<u>k 表示产生式的编号</u>)</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Accept</p>
+<p><strong>Accept</strong>: state i 包含的项中有一个形如 <span class="arithmatex">\(S' \rightarrow S \cdot \$\)</span> 的项</p>
+<p>例如表中 T[i, <span class="arithmatex">\(] = a\)</span> 表示 state i 接受 <span class="arithmatex">\(\$\)</span> 符号至此完成分析</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">GOTO</p>
+<p><strong>GOTO</strong>: 输入的 token 是一个 <u>non-terminal</u></p>
+<p>例如表中 T[i, X] = gn 表示 state i 读入 non-terminal X 后，转移到 state n</p>
+</div>
+<details class="example">
+<summary>Example</summary>
+<p><a class="glightbox" href="../../../Images/2024-04-09-11-21-12.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-04-09-11-21-12.png" /></a></p>
+</details>
 <h2 id="slr">SLR 分析<a class="headerlink" href="#slr" title="Permanent link">👀</a></h2>
 <h2 id="lr1">LR(1) 分析<a class="headerlink" href="#lr1" title="Permanent link">👀</a></h2>
 <h2 id="lalr">LALR 分析<a class="headerlink" href="#lalr" title="Permanent link">👀</a></h2>
