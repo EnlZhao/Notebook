@@ -182,7 +182,7 @@ Closure(I) =
 ```
 
 - $I$: a set of items (即项集)
-- $X: a symbol (terminal or non-terminal)
+- $X$: a symbol (terminal or non-terminal)
 
 > 类似 NFA 转 DFA 过程中的 $\epsilon$-Closure
 
@@ -200,7 +200,7 @@ Closure(I) =
     计算项集1: $\text{Closure}(\{[S' \rightarrow \cdot S \$]\})$
 
     $$
-    \textcolor{green}{1} \text{Closure}(\{[S' -> \cdot S \$]\}) =
+    \textcolor{green}{1}~~ \text{Closure}(\{[S' -> \cdot S \$]\}) =
     \begin{align*}
         &S' \rightarrow \cdot S \$ \\
         &S \rightarrow \cdot x S \\
@@ -234,9 +234,9 @@ Goto(I, X) =
     项集2 = Goto(项集1, x) = $\text{Closure}(\{S \rightarrow x \cdot S\})$
 
     $$
-    \textcolor{green}{2} \text{Goto}(\text{项集1}, x) =
+    \textcolor{green}{2}~~ \text{Goto}(\text{项集1}, x) =
+    \text{Closure}(\{S \rightarrow x \cdot S\}) =
     \begin{align*}
-        $\text{Closure}(\{S \rightarrow x \cdot S\}) = \\
         &S \rightarrow x \cdot S \\
         &S \rightarrow \cdot x S \\
         &S \rightarrow \cdot y
@@ -299,10 +299,126 @@ until E and T is unchanged
 ??? example 
     ![](../../Images/2024-04-09-11-21-12.png)
 
+#### LR 语法分析算法
+
+- 使用栈 Stack, 栈中存放 LR 自动机的状态
+
+- **Shift(n)**:
+    - Advance input one token
+    - Push state n on the stack
+- **Reduce(k)**:
+    - Pop stack as many times as the number of symbols in the RHS of production k
+    - 假如 $X$ 是 production k 的 LHS, 那么将 $X$ 的 GOTO 值压入栈
+- **Accept**: Stop parsing and report success
+- **Error**: Stop parsing and report failure
+
+> - This is a general algorithm and can be used by other LR parsing
+> For LR(0), we do not need to look up input symbol to know whether we should shift or reduce
+
+??? note "pseudo code"
+    ![](../../Images/2024-04-09-14-11-11.png)
+
+??? example "完整的 LR(0) 语法分析"
+    ![](../../Images/2024-04-09-14-19-23.png)
+
+??? info "关于LR(0)中的 0"
+    为什么说 LR(0) 没有 Lookahead?
+
+    - LR(0) Item 中没有 lookahead terminal 等信息
+    - "是否归约、选择哪个产生式规约" 仅由栈顶状态决定
+
+LR(0) 的局限就是对于某些文法，会盲目地进行归约，从而导致 shift-reduce conflict
+
+??? example
+    ![](../../Images/2024-04-09-14-29-19.png)
+
 ## SLR 分析
 
+SLR(1) 就是使用更多的信息来指导归约操作
+
+因为 "LR 分析相当于最右推导的逆过程"，那么每一次归约操作应该满足：$t \in \text{Follow}(E)$
+
+- $E$ 表示用来归约的产生式的 LHS
+- $t$ 表示下一个 token
+
+对于 SLR(1), Put reduce actions into the table <u>only</u> where indicated by the FOLLOW set
+
+!!! success "Attention!"
+    SLR(1) Parsing 相当于 LR(0) 就仅在 Reduce 时不同:
+    
+    ![](../../Images/2024-04-09-14-30-28.png)
+
+??? example
+    ![](../../Images/2024-04-09-14-31-48.png)
+
+SLR 解决冲突的方法是：只有下一个输入符号在某个句型中可以跟着 $A$ 之后 (即 $x\in \text{Follow}(A)$), 才能进行 $A \rightarrow \alpha$ 归约
+
+但仍然存在问题：
+
+- LR 分析过程是最右推导的逆，那么每一步推导都应该是最右句型
+- 如果 $\beta A x$ 不是任何最右句型的前缀，那么尽管 $x \in \text{Follow}(A)$, 也不应该进行 $A \rightarrow \beta$ 的归约
 
 ## LR(1) 分析
 
+LR(1) 项中包含更多信息来消除一些归约动作，不仅用到 FOLLOW 集，还用到了 FIRST 集
+
+> 实际的做法相当于 "分裂" 一些 LR(0) 状态，精确指明何时应该归约
+
+!!! success "LR(1) 的 Item"
+    LR(1) 项的形式是形如：$A \rightarrow \alpha \cdot \beta, \color{red}{a}$
+
+    - $\color{red}{a}$ 称为向前看符号，可以是终结符号或者 $\$$
+    - 向前看符号 (串) 的长度即为 $LR(k)$ 中的 $k$
+
+!!! note "Closure 闭包"
+    ![](../../Images/2024-04-09-14-46-40.png)
+
+!!! note "Goto 转移"
+    ![](../../Images/2024-04-09-14-47-05.png)
+
+!!! note "Reduce Action"
+    ![](../../Images/2024-04-09-14-47-29.png)
+
+??? example
+    ![](../../Images/2024-04-09-14-55-10.png)
+    
+    由此可以得到 LR(1) 的分析表<br>![](../../Images/2024-04-09-14-55-46.png)
+
+    > 同时也可以看到 LR(1) Parsing 的局限就是其 parsing table 会非常大，导致不适用于实际应用
 
 ## LALR 分析
+
+一些状态在 LR(1) 中只不过是 lookahead symbol 不同, 比如下图中的项集 6 和 13
+
+![](../../Images/2024-04-09-14-58-20.png)
+
+LALR(1) 相较于 LR(1) 就是对于任意的两个项集，如果他们只有 lookahead symbol 不同，那么就合并这两个项集
+
+![](../../Images/2024-04-09-14-59-36.png)
+
+下面介绍如何从 LR(1) 过渡到 LALR(1)
+
+首先引入 core 概念，core 是一个项集中去掉 lookahead symbol 的部分
+
+- 例如 $A \rightarrow \alpha \cdot \beta, a$ 的 core 是 $A \rightarrow \alpha \cdot \beta$
+
+构造 LALR(1) Parsing DFA 就是：
+
+Repeat until all states have distinct cores:
+
+- 选择有相同 core 的不同状态
+- 通过创建一个新的包含所有 item 的状态来合并这些状态
+- 令之前的前一状态指向新状态；新状态指向所有合并前的状态的继承者
+
+![](../../Images/2024-04-09-15-05-35.png)
+
+??? example
+    ![](../../Images/2024-04-09-15-05-46.png)
+
+## Yacc
+
+> 语法分析的生成器
+
+
+## 错误恢复
+
