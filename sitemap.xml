@@ -401,6 +401,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://enlzhao.github.io/Notebook/Course/cp/abstractSyntax/</loc>
+         <lastmod>2024-04-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://enlzhao.github.io/Notebook/Course/cp/intro/</loc>
          <lastmod>2024-04-10</lastmod>
          <changefreq>daily</changefreq>
@@ -417,6 +422,11 @@
     </url>
     <url>
          <loc>https://enlzhao.github.io/Notebook/Course/cp/parsing2/</loc>
+         <lastmod>2024-04-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://enlzhao.github.io/Notebook/Course/cp/semantic/</loc>
          <lastmod>2024-04-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
