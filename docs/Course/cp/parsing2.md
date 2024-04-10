@@ -417,8 +417,149 @@ Repeat until all states have distinct cores:
 
 ## Yacc
 
-> 语法分析的生成器
+> - 语法分析的生成器 Yacc (Yet Another Compiler Compiler)
+> - 基于 LALR(1)，用 BNF (Backus-Naur Form) 描述文法
+> - Yacc 的 GNU 版本是 Bison
 
+Lex 和 Yacc 一起使用，Lex 用于词法分析 (.l 文件)，Yacc 用于语法分析 (.y 文件)
+
+- 源文件经过 `yylex()` 函数分析后，返回 token，然后传递给 `yyparse()` 函数进行语法分析
+
+### Yacc 源程序的结构
+
+```yacc
+声明
+%%
+翻译规则
+%%
+辅助性 C 语言例程
+```
+
+- 声明部分：放置 C 语言的声明 (如宏定义、全局变量等)，以及词法单元的声明
+- 翻译规则部分：指明产生式及相关的语义动作
+- 辅助性 C 语言例程：
+    - 被直接拷贝到生成的 C 语言源程序中
+    - 可在语义动作中调用
+    - 包括 `yylex()`，这个函数返回词法单元，可以由 Lex 生成
+
+### Yacc 使用
+
+```txt title="文法"
+exp -> exp addop term | term
+addop -> + | -
+term -> term mulop factor | factor
+mulop -> *
+factor -> ( exp ) | number
+```
+
+```yacc title="yacc 文件"
+%{
+#include <stdio.h>
+#include <ctype.h>
+int yylex(void);
+int yyerror(char *s);
+%}
+
+%token NUMBER
+%%
+command: exp { printf("%d\n", $1); };
+exp: exp '+' term { $$ = $1 + $3; }
+    | exp '-' term { $$ = $1 - $3; }
+    | term { $$ = $1; }
+;
+term: term '*' factor { $$ = $1 * $3; }
+    | factor { $$ = $1; }
+;
+factor: '(' exp ')' { $$ = $2; }
+    | NUMBER { $$ = $1; }
+;
+```
+
+!!! note "Rules"
+    - `Rule {Action Code}`
+    - Action Code 会在使用这个规则归约后执行
+
+其中对于语义动作： $\$\$ = \$1 + \$3$, $\$\$$ 表示和产生式头相关的属性值，$\$i$ 表示产生式体中第 $i$ 个符号的属性值
+
+??? info
+    [lex与yacc/flex与bison入门](https://blog.csdn.net/weixin_44007632/article/details/108666375)
+
+??? info "Yacc 文件格式中的几个问题"
+    - **消除二义性**: 为算符指定优先级与结合律
+
+    ??? example
+        ```yacc
+        %left '+' '-'
+        %left '*' '/'
+        %right UMINUS /* 一元减号 */
+        %right '^' /* 指数运算 */
+        ```
+    
+    - **冲突解决**
+        - 归约/归约冲突：选择 Yacc 说明中<u>先出现的产生式</u>
+        - 移进/归约冲突：<u>移近优先</u>
+        - 更通用的方法: 改写文法以消除冲突 (例如, 消除二义性的同时也可能减少了冲突)
 
 ## 错误恢复
 
+> 这部分了解就行了
+
+!!! bug "Motivation"
+    希望一次编译尽量报出所有错误而不是第一个错误就停止
+
+Error recovery techniques：
+
+- Local error recovery
+    - Adjust the parse stack and the input at the point where the  error was detected in a way that will allow parsing to resume.
+- Global error repair
+    - Find the smallest set of insertions and deletions that would turn the source string into a syntactically correct string
+
+### Local Error Recovery
+
+!!! abstract
+    - 使用错误产生式来完成语法错误恢复
+        - 错误产生式 $A \rightarrow \text{error} \alpha$
+        - 例如：$\textit{stmt} \rightarrow \text{error};$
+    - 定义哪些非终结符号有错误恢复动作
+        - 比如：表达式、语句、块、函数定义等非终结符号
+    - 当语法分析器遇到错误时
+        - 不断弹出栈中状态，直到栈顶状态包含项 $A \rightarrow \cdot \text{error} \alpha$
+        - 分析器将 *error* 移入栈中
+        - 如果 $\alpha$ 为空，分析器直接执行归约，并调用相关的语义动作；否则 **跳过** 一些符号，找到可以归约为 $\alpha$ 的串为止
+
+一个在 Yacc 中的 local recovery mechanism:
+
+- Use a special **error** (terminal) symbol to control the recovery process
+
+例如对于下面文法，加入了 `error` symbol
+
+```
+exp -> ID
+    | exp + exp
+    | (exps)
+    | (error)
+exps -> exp
+    | exps; exp
+    | error ; exp
+```
+
+如果在表达式中间遇到语法错误，解析器应跳到下一个分号 (semicolon) 或右括号 (right parenthesis)，然后继续解析
+
+> 像分号和右括号被叫做 **synchronization tokens**
+
+具体操作的时候，`error` 被看作 terminal symbol,当 LR Parser 遇到 error state 时，会执行下面的操作：
+
+1. Pop the stack (if necessary) until a state is reached in which the action for the ***error* token is shift.**
+2. Shift **the *error* token.**
+3. Discard input symbols (if necessary) until a lookahead is reached that has a **nonerror action** in the current state.
+4. Resume normal parsing.
+
+??? example 
+    ![](../../Images/2024-04-10-10-43-03.png)
+
+### Global Error Recovery
+
+- Global error repair : **finds the smallest set** of insertions and deletions that would turn the source string into a syntactically correct string, even if the insertions and deletions are not at a point where an LL or LR parser would first report an error.
+- **Burke-Fisher error repair**: single-token insertion, deletion, or replacement at every point that **occurs no earlier than K tokens before the point** where the parser reported the error. 
+    - The LL($k$) or LR($k$) (or LALR, etc.) grammar is not modified at all (no *error* productions)
+    - Nor are the parsing tables modified
