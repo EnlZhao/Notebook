@@ -75,6 +75,8 @@ nav:
       - 词法分析: Course/cp/lexical.md
       - 语法分析(自顶向下): Course/cp/parsing1.md
       - 语法分析(自底向上): Course/cp/parsing2.md
+      # - 抽象语法: Course/cp/abstractSyntax.md
+      - 语义分析: Course/cp/semantic.md
   - AI: 
     - Triviality:  
         - Triviality: AI/Triviality/index.md

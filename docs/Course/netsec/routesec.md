@@ -269,7 +269,7 @@ both types of path computation algorithms can be used for intra-domain routing a
 - Difficulty of incremental deployment
     - Hard to have a “flag day” to deploy S-BGP
 
-## Some Questions
+<!-- ## Some Questions
 
 ??? question "What are the key features of the five typical delivery schemes?"
     - `Unicast`: Send to a single host.
@@ -343,4 +343,4 @@ both types of path computation algorithms can be used for intra-domain routing a
   
 ??? question "How does RPKI work? Why is it insufficient for secure routing?"
     - RPKI, Resource Public Key Infrastructure, provides a certified mapping from ASes to prefixes (as well as public keys). So when an attacker AS pretend to have a certain prefix, other ASes can find from the RPKI that it is not valid, so that the first method of prefix hijacking will not work.
-    - But as for the second method, RPKI can do nothing, so it is insufficient for secure routing.
+    - But as for the second method, RPKI can do nothing, so it is insufficient for secure routing. -->

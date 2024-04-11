@@ -263,7 +263,7 @@ Source Routing / Path Addressing 允许发送者指定一个包的部分或者�
 - Search the accounts on public websites
 
 
-## Some Questions
+<!-- ## Some Questions
 
 ??? question "Why is current Internet communication vulnerable to anonymity or privacy leakage? "
     Because Internet uses IP address to identify a host, and each router on the path from source to destination needs to know about the exact IP address of the destination to make the routing decision. But the IP address itself as well as the communication source and destination can leak some anonymity and privacy, because knowing the existance of communication without the exact contents is enough to infer some information on the user, who is easy to find by its IP address.
@@ -280,4 +280,4 @@ Source Routing / Path Addressing 允许发送者指定一个包的部分或者�
 
 ??? question "How to infer anonymity or privacy of Onion Routing traffic?"
     Each node only knows about the immediately preceding and following node in a relay. The source and destination of messages is obscured by layers of encryption. And because of the layers of encryption and randomization, none of the nodes can know whether the next and last node is the source or destination or not.
-
+ -->

@@ -17,8 +17,8 @@
 !!! success "list"
     - [x] [Introduction | 课程介绍](intro.md)
     - [x] [Lexical Analysis | 词法分析](lexical.md)
-    - [ ] [Parsing 1 | 语法分析](parsing1.md) (Top-Down Parsing)
-    - [ ] [Parsing 2 | 语法分析](parsing2.md) (Bottom-Up Parsing)
+    - [x] [Parsing 1 | 语法分析](parsing1.md) (Top-Down Parsing)
+    - [x] [Parsing 2 | 语法分析](parsing2.md) (Bottom-Up Parsing)
     - [ ] [Semantic Analysis | 语义分析](semantic.md)
     - [ ] [Runtime Environment | 运行时环境](runtime.md)
     - [ ] [Code Generation | 代码生成](codegen.md)

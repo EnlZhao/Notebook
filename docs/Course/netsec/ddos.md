@@ -541,7 +541,7 @@ procedure 如下：
     - 就是验证码 (Type: Text, Image, Audio...)
     - Vulnerable to auto-identification
 
-## Some Questions
+<!-- ## Some Questions
 
 ??? question "What is the difference between DoS and DDoS?"
     - DoS attack - Denial of Service attack. The attacker overload victim by exhausting its resources (bandwidth, computing resources or queue spaces), making it unable to response for some normal legal requests.
@@ -574,4 +574,4 @@ procedure 如下：
 ??? question "How does IP Traceback work?"
     - Some information should be added into the packet so that the receiver can check whether the path is valid.
     - The easiest way is to add all the path information into the packet, but it will make the packet too large.
-    - Another way is use edge sampling, by using propability, each packet will sample different routers on the way as well as a distance to the sampled router. As a session will normally send many packets, we can restore she whole path.
+    - Another way is use edge sampling, by using propability, each packet will sample different routers on the way as well as a distance to the sampled router. As a session will normally send many packets, we can restore she whole path. -->
