@@ -1971,13 +1971,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#some-questions" class="md-nav__link">
-    Some Questions
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -3889,13 +3882,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#some-questions" class="md-nav__link">
-    Some Questions
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -3916,7 +3902,7 @@
 
 <h1 id="anonymous-communication">Anonymous Communication<a class="headerlink" href="#anonymous-communication" title="Permanent link">👀</a></h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 2679 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"/></svg></span> 预计阅读时间 9 分钟</p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 2258 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"/></svg></span> 预计阅读时间 8 分钟</p>
 </div>
 <p>对于 Internet 中交流的双方 ip1 和 ip2, 如果有一个 attacker snooping on the communication, 尽管它可能不知道两个用户的身份，也无法知道他们被加密的通信内容。但它起码可以使用他们的 ip</p>
 <blockquote>
@@ -4208,30 +4194,24 @@
 <ul>
 <li>Search the accounts on public websites</li>
 </ul>
-<h2 id="some-questions">Some Questions<a class="headerlink" href="#some-questions" title="Permanent link">👀</a></h2>
-<details class="question">
-<summary>Why is current Internet communication vulnerable to anonymity or privacy leakage? </summary>
-<p>Because Internet uses IP address to identify a host, and each router on the path from source to destination needs to know about the exact IP address of the destination to make the routing decision. But the IP address itself as well as the communication source and destination can leak some anonymity and privacy, because knowing the existance of communication without the exact contents is enough to infer some information on the user, who is easy to find by its IP address.</p>
-</details>
-<details class="question">
-<summary>In which scenarios do users require the communication anonymity or privacy as concerned in sub-question a?</summary>
-<p>There are cases where users try to access some medical, voting or other kind of information related to privacy. If one is known to usually access the website of a party or candidate, he is inclined to vote for the candidate, which is a privacy leakage. Also, when an attacker is trying to spy on or modify some data, he is also not willing to be known about his IP address, which can find him easily.</p>
-</details>
-<details class="question">
-<summary>How to use proxies to secure communication anonymity? What are the possible limitations?</summary>
-<ul>
-<li>The sender send message to the proxy instead of the destination, and the destination is encrypted and placed in the packet. The proxy will decrypt it and send the corresponding message to the destination. If the attacker sniffs between the sender and proxy, he will not know about the destination, and if it sniffs between the proxy and destination, he will not know about the source.</li>
-<li>However, if the attacker sniffs both between the sender and proxy, and between the proxy and destination, the anonymity will fail. So will it fail in the case where the proxy itself is malicious.</li>
-</ul>
-</details>
-<details class="question">
-<summary>How does Onion Routing provide a better guarantee for anonymity?</summary>
-<p>The proxy nodes are randomly selected and each node can only decrypt one layer and will encrypt when it pass to next node. Unless there are enough number of nodes collude with each other, they know nothing about the source or destination.</p>
-</details>
-<details class="question">
-<summary>How to infer anonymity or privacy of Onion Routing traffic?</summary>
-<p>Each node only knows about the immediately preceding and following node in a relay. The source and destination of messages is obscured by layers of encryption. And because of the layers of encryption and randomization, none of the nodes can know whether the next and last node is the source or destination or not.</p>
-</details>
+<!-- ## Some Questions
+
+??? question "Why is current Internet communication vulnerable to anonymity or privacy leakage? "
+    Because Internet uses IP address to identify a host, and each router on the path from source to destination needs to know about the exact IP address of the destination to make the routing decision. But the IP address itself as well as the communication source and destination can leak some anonymity and privacy, because knowing the existance of communication without the exact contents is enough to infer some information on the user, who is easy to find by its IP address.
+
+??? question "In which scenarios do users require the communication anonymity or privacy as concerned in sub-question a?"
+    There are cases where users try to access some medical, voting or other kind of information related to privacy. If one is known to usually access the website of a party or candidate, he is inclined to vote for the candidate, which is a privacy leakage. Also, when an attacker is trying to spy on or modify some data, he is also not willing to be known about his IP address, which can find him easily.
+
+??? question "How to use proxies to secure communication anonymity? What are the possible limitations?"
+    - The sender send message to the proxy instead of the destination, and the destination is encrypted and placed in the packet. The proxy will decrypt it and send the corresponding message to the destination. If the attacker sniffs between the sender and proxy, he will not know about the destination, and if it sniffs between the proxy and destination, he will not know about the source.
+    - However, if the attacker sniffs both between the sender and proxy, and between the proxy and destination, the anonymity will fail. So will it fail in the case where the proxy itself is malicious.
+
+??? question "How does Onion Routing provide a better guarantee for anonymity?"
+    The proxy nodes are randomly selected and each node can only decrypt one layer and will encrypt when it pass to next node. Unless there are enough number of nodes collude with each other, they know nothing about the source or destination.
+
+??? question "How to infer anonymity or privacy of Onion Routing traffic?"
+    Each node only knows about the immediately preceding and following node in a relay. The source and destination of messages is obscured by layers of encryption. And because of the layers of encryption and randomization, none of the nodes can know whether the next and last node is the source or destination or not.
+ -->
 
 
   

@@ -1965,13 +1965,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#some-questions" class="md-nav__link">
-    Some Questions
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -3957,13 +3950,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#some-questions" class="md-nav__link">
-    Some Questions
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -3984,7 +3970,7 @@
 
 <h1 id="ddos">DDos<a class="headerlink" href="#ddos" title="Permanent link">👀</a></h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 6652 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"/></svg></span> 预计阅读时间 22 分钟</p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 5741 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"/></svg></span> 预计阅读时间 19 分钟</p>
 </div>
 <h2 id="dos-denial-of-service">Dos | Denial of Service<a class="headerlink" href="#dos-denial-of-service" title="Permanent link">👀</a></h2>
 <ul>
@@ -4677,57 +4663,41 @@
 <li>Vulnerable to auto-identification</li>
 </ul>
 </div>
-<h2 id="some-questions">Some Questions<a class="headerlink" href="#some-questions" title="Permanent link">👀</a></h2>
-<details class="question">
-<summary>What is the difference between DoS and DDoS?</summary>
-<ul>
-<li>DoS attack - Denial of Service attack. The attacker overload victim by exhausting its resources (bandwidth, computing resources or queue spaces), making it unable to response for some normal legal requests.</li>
-<li>DDoS attack - Distributed DoS attack. The attacker use a large amount of devices to perform DoS attack on a victim, in the same way and for the same results. </li>
-<li>The difference is that, DDoS attackes are performed by many devices which are usually in different subnets. If DoS attack is performed by a single device, the victim can easily defend it by blocking its IP or subnet, but as for DDoS attack, the attacking devices are widely distributed, so it&rsquo;s kind of hard to defend.</li>
-</ul>
-</details>
-<details class="question">
-<summary>How does the TCP SYN Flood attack work?</summary>
-<p>When we send a SYN (1<sup>st</sup> handshake) to the victim, it will allocate some resources to save informations like the SEQ of the coming packet, and this packet will be pushed into SYN queue (SYN backlog). However, the SYN queue is small, normally 128 entries. If the attacker only send SYN but not response to the SYN+ACK (2<sup>nd</sup> handshake) segment, then the SYN packet will be stored in the queue until the time is exceeded, which is normally 3 minutes. So if the attacker send no less than 128 SYN packet each 3 minutes without responsing to any SYN+ACK packet, the SYN backlog of the victim will always be full and the legal requests of other devices will not be fulfilled, resulting in a Denial of Service.</p>
-</details>
-<details class="question">
-<summary>How does the solution of SYN Cookies against TCP SYN Flood attacks work?</summary>
-<p>We can see from the principle of TCP SYN Flood that, the weakness is the limitation of SYN queue. The aim of this queue is to store the information of the coming SYN packets, so we can find ways to avoid this kind of storage. Instead, SYN Cookies try to hide the information of the SYN packets into the SYN+ACK packet. As we know, the 3 steps of TCP handshake is to exchange their initial sequence, which is related to time. But if SYN Cookies is used, the sequence of SYN+ACK packet sent by the server is a digest of the data of SYN packet and other information like time. When the ACK (3<sup>rd</sup> handshake) comes, it can check its acknowledge number and know whether it is legal. In this way, the SYN queue is not needed, so the TCP SYN Flood attack will not work.</p>
-</details>
-<details class="question">
-<summary>How does the DNS Amplification Attack work? How to defend against it?</summary>
-<ul>
-<li>DNS Amplification Attack uses open DNS resolvers, which provide an open DNS service for all internet users. The attacker uses a spoofed IP address which is actually the IP address of the victim to send a query to the open DNS resolver, and it will send a response to the victim. There is a kind of DNS request <code>ANY</code>, which will return all types of information of a given name, which is a huge amount of data. </li>
-<li>Defense: reduce the number of open DNS solvers, or disable the <code>ANY</code> request of them, or use techniques like ingress filtering, or disable UDP service of the victim.</li>
-</ul>
-</details>
-<details class="question">
-<summary>How does Memcached attack work?</summary>
-<p>Memcached attack uses memcached servers, which provide (distributed) cache service for speeding up website accessing. Memcached services also use UDP so there is no need to setup a connection. The attacker pre-load the memcached server with some related information with methods like accessing it, and then send a request to the memcached server with spoofed IP address which is actually the IP address of the victim. The server will then send a very large amount of data to the victim, and the victim will be overwhelmed.</p>
-</details>
-<details class="question">
-<summary>What is the difference between HTTP Flood and Fragmented HTTP Flood?</summary>
-<ul>
-<li>HTTP Flood mainly exhausts the server by GET or POST some large contents, and the server will need to take them from or store them into database, which is time consuming; the server may also need to encrypt or decrypt the contents, which will consume the computing resources of the server.</li>
-<li>Fragmented HTTP Flood trys to split a HTTP segment into many small fragments, and to send it very slowly but not exceed the timeout, so that the server will always keep the connection which is resource consuming.</li>
-</ul>
-</details>
-<details class="question">
-<summary>Why is Fragmented HTTP Flood relatively more challenging to detect?</summary>
-<p>Because the content, traffic and source are very normal. For other DDoS attacks, there are useless large-scale data or abnormal requests, which is easy to detect. But Fragmented HTTP Flood looks just like a normal user.</p>
-</details>
-<details class="question">
-<summary>How does Ingress Filtering work?</summary>
-<p>Ingress Filtering asks the source ASes to check each packet before routing them on the public net whether the source IP address is in the subnet of the outcoming AS. If not, this packet should not be routed.</p>
-</details>
-<details class="question">
-<summary>How does IP Traceback work?</summary>
-<ul>
-<li>Some information should be added into the packet so that the receiver can check whether the path is valid.</li>
-<li>The easiest way is to add all the path information into the packet, but it will make the packet too large.</li>
-<li>Another way is use edge sampling, by using propability, each packet will sample different routers on the way as well as a distance to the sampled router. As a session will normally send many packets, we can restore she whole path.</li>
-</ul>
-</details>
+<!-- ## Some Questions
+
+??? question "What is the difference between DoS and DDoS?"
+    - DoS attack - Denial of Service attack. The attacker overload victim by exhausting its resources (bandwidth, computing resources or queue spaces), making it unable to response for some normal legal requests.
+    - DDoS attack - Distributed DoS attack. The attacker use a large amount of devices to perform DoS attack on a victim, in the same way and for the same results. 
+    - The difference is that, DDoS attackes are performed by many devices which are usually in different subnets. If DoS attack is performed by a single device, the victim can easily defend it by blocking its IP or subnet, but as for DDoS attack, the attacking devices are widely distributed, so it's kind of hard to defend.
+
+??? question "How does the TCP SYN Flood attack work?"
+    When we send a SYN (1st handshake) to the victim, it will allocate some resources to save informations like the SEQ of the coming packet, and this packet will be pushed into SYN queue (SYN backlog). However, the SYN queue is small, normally 128 entries. If the attacker only send SYN but not response to the SYN+ACK (2nd handshake) segment, then the SYN packet will be stored in the queue until the time is exceeded, which is normally 3 minutes. So if the attacker send no less than 128 SYN packet each 3 minutes without responsing to any SYN+ACK packet, the SYN backlog of the victim will always be full and the legal requests of other devices will not be fulfilled, resulting in a Denial of Service.
+
+??? question "How does the solution of SYN Cookies against TCP SYN Flood attacks work?"
+    We can see from the principle of TCP SYN Flood that, the weakness is the limitation of SYN queue. The aim of this queue is to store the information of the coming SYN packets, so we can find ways to avoid this kind of storage. Instead, SYN Cookies try to hide the information of the SYN packets into the SYN+ACK packet. As we know, the 3 steps of TCP handshake is to exchange their initial sequence, which is related to time. But if SYN Cookies is used, the sequence of SYN+ACK packet sent by the server is a digest of the data of SYN packet and other information like time. When the ACK (3rd handshake) comes, it can check its acknowledge number and know whether it is legal. In this way, the SYN queue is not needed, so the TCP SYN Flood attack will not work.
+
+??? question "How does the DNS Amplification Attack work? How to defend against it?"
+    - DNS Amplification Attack uses open DNS resolvers, which provide an open DNS service for all internet users. The attacker uses a spoofed IP address which is actually the IP address of the victim to send a query to the open DNS resolver, and it will send a response to the victim. There is a kind of DNS request `ANY`, which will return all types of information of a given name, which is a huge amount of data. 
+    - Defense: reduce the number of open DNS solvers, or disable the `ANY` request of them, or use techniques like ingress filtering, or disable UDP service of the victim.
+
+??? question "How does Memcached attack work?"
+    Memcached attack uses memcached servers, which provide (distributed) cache service for speeding up website accessing. Memcached services also use UDP so there is no need to setup a connection. The attacker pre-load the memcached server with some related information with methods like accessing it, and then send a request to the memcached server with spoofed IP address which is actually the IP address of the victim. The server will then send a very large amount of data to the victim, and the victim will be overwhelmed.
+
+??? question "What is the difference between HTTP Flood and Fragmented HTTP Flood?"
+    - HTTP Flood mainly exhausts the server by GET or POST some large contents, and the server will need to take them from or store them into database, which is time consuming; the server may also need to encrypt or decrypt the contents, which will consume the computing resources of the server.
+    - Fragmented HTTP Flood trys to split a HTTP segment into many small fragments, and to send it very slowly but not exceed the timeout, so that the server will always keep the connection which is resource consuming.
+
+??? question "Why is Fragmented HTTP Flood relatively more challenging to detect?"
+    Because the content, traffic and source are very normal. For other DDoS attacks, there are useless large-scale data or abnormal requests, which is easy to detect. But Fragmented HTTP Flood looks just like a normal user.
+
+??? question "How does Ingress Filtering work?"
+    Ingress Filtering asks the source ASes to check each packet before routing them on the public net whether the source IP address is in the subnet of the outcoming AS. If not, this packet should not be routed.
+
+??? question "How does IP Traceback work?"
+    - Some information should be added into the packet so that the receiver can check whether the path is valid.
+    - The easiest way is to add all the path information into the packet, but it will make the packet too large.
+    - Another way is use edge sampling, by using propability, each packet will sample different routers on the way as well as a distance to the sampled router. As a session will normally send many packets, we can restore she whole path. -->
+
 <div class="footnote">
 <hr />
 <ol>
