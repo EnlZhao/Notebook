@@ -69,6 +69,8 @@ nav:
       - Web Security: Course/netsec/websec.md
       - Email Security: Course/netsec/mailsec.md
       - Traffic Analysis: Course/netsec/traffic.md
+      - Attack Traceback: Course/netsec/traceback.md
+      - Network Protection: Course/netsec/webprotect.md
     - 编译原理:
       - 编译原理: Course/cp/index.md
       - Introduction: Course/cp/intro.md
