@@ -112,7 +112,8 @@ Authorize a subject with some access right(s) for some object(s)
 引入下面两种设计：
 
 === "Access Control List (ACL)"
-    ![](../../Images/2024-04-14-16-42-57.png)
+    <img src="../../Images/2024-04-14-16-42-57.png" style="zoom:50%;"/>
+    <!-- ![](../../Images/2024-04-14-16-42-57.png) -->
 
 === "Capability List"
     ![](../../Images/2024-04-14-16-43-07.png)
