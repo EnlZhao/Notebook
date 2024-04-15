@@ -3786,7 +3786,7 @@
 
 <h1 id="attack-traceback">Attack Traceback<a class="headerlink" href="#attack-traceback" title="Permanent link">👀</a></h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 831 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"/></svg></span> 预计阅读时间 3 分钟</p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 841 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"/></svg></span> 预计阅读时间 3 分钟</p>
 </div>
 <blockquote>
 <ul>
@@ -3928,32 +3928,41 @@
 <li>Routers verify path proofs</li>
 </ul>
 <h2 id="link-testing">Link Testing<a class="headerlink" href="#link-testing" title="Permanent link">👀</a></h2>
-<p>Not every packet should be always marked and sampled</p>
+<blockquote>
+<p>How frequent is attack?</p>
+<ul>
+<li>Not every packet should be always marked and sampled</li>
+</ul>
+</blockquote>
 <p>Only do when needed</p>
 <ul>
 <li>Traceback from the router closest to the victim</li>
 <li>Determine the upstream link that is used to carry out the attack traffic</li>
 <li>Recursively apply the previous technique until the attack source is reached</li>
-<li>Has to take effect while the attack is in progress</li>
+<li><strong>Has to take effect while the attack is in progress</strong></li>
 </ul>
 <p>具体来说：</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Input Debugging</label><label for="__tabbed_1_2">Controlled Flooding</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <ul>
-<li>Input Debugging<ul>
 <li>Find <strong>attack signature</strong>, the common feature contained in all attack packets</li>
 <li>Communicate the attack signature to the <strong>upstream router</strong>, which then filters attack packets and determines the port of entry</li>
 <li>Recursively apply the previous technique on the upstream routers until reaching the attack source</li>
-<li>A considerable management overhead at the ISP level to communicate and coordinate the traceback</li>
+<li>困难是：A considerable management overhead at the ISP level to communicate and coordinate the traceback</li>
 </ul>
-</li>
-<li>Controlled Flooding<ul>
+</div>
+<div class="tabbed-block">
+<ul>
 <li>Need collaborative hosts</li>
 <li>Force the hosts to flood the links to upstream routers</li>
 <li>Since buffer on victim is shared by all incoming links, flooding the link carrying out attack leads to drops of attack packets</li>
 <li>Recursively apply the previous technique on the upstream routers until reaching the attack source</li>
-<li>Require an accurate topology map  High overhead given multiple attacking sources (e.g., DDoS)</li>
+<li>困难是：Require an accurate topology map; High overhead given multiple attacking sources (e.g., DDoS)</li>
 </ul>
-</li>
-</ul>
+</div>
+</div>
+</div>
 <h2 id="logging-based-traceback">Logging-Based Traceback<a class="headerlink" href="#logging-based-traceback" title="Permanent link">👀</a></h2>
 <p>But link testing requires ongoing attack -&gt; post-attack traceback</p>
 <blockquote>
