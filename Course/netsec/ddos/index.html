@@ -4595,12 +4595,16 @@
 </ul>
 </li>
 </ul>
-<p><strong>1)</strong> 可以选择 Write path into packets (router adds its own IP address to packet victim reads path from packet)<br />
-- Limitations: <br />
-    - requires space in packet<br />
-    - path can be long<br />
-    - no extra fields in current IP format (changes to packet format too much to expect)<br />
-    - 攻击者可以轻易修改保存在数据包中的路径信息</p>
+<p><strong>1)</strong> 可以选择 Write path into packets (router adds its own IP address to packet victim reads path from packet)</p>
+<ul>
+<li>Limitations: <ul>
+<li>requires space in packet</li>
+<li>path can be long</li>
+<li>no extra fields in current IP format (changes to packet format too much to expect)</li>
+<li>攻击者可以轻易修改保存在数据包中的路径信息</li>
+</ul>
+</li>
+</ul>
 <p>针对 packet 过大的 limitation, 可以 Sample and Merge 的思想</p>
 <ul>
 <li>store <strong>one link</strong> in each packet;</li>
