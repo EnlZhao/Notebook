@@ -4,11 +4,10 @@ statistics: true
 # Hello
 
 <div class="mac-content-container">
-  <!-- <div class="mac-content-block">
+  <div class="mac-content-block">
     <span class="mac-content-label">页面总数：</span>
     <span class="mac-content-value">{{pages}}</span>
-  </div> -->
-  
+  </div>
   <div class="mac-content-block">
     <span class="mac-content-label">总字数：</span>
     <span class="mac-content-value">{{words}}</span>
@@ -19,22 +18,26 @@ statistics: true
     <span class="mac-content-value">{{codes}}</span>
   </div>
 
-  <div class="mac-content-block">
+  <!-- <div class="mac-content-block">
     <span class="mac-content-label">本站总访问量:</span>
     <span id="busuanzi_value_site_pv"></span>次
-  </div>
+  </div> -->
 </div>
 
-<!-- --- -->
+---
 
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<!-- <div class="mac-content-container">
+<div class="mac-content-container">
   <div class="mac-content-block">
-    <span class="mac-content-label">本站总访问量:</span>
+    <span class="mac-content-label">本站 PV:</span>
     <span id="busuanzi_value_site_pv"></span>次
   </div>
-</div> -->
+  <div class="mac-content-block">
+    <span class="mac-content-label">本站 UV:</span>
+    <span id="busuanzi_value_site_uv"></span>人
+  </div>
+</div>
 
   💬这里是 [某兰 | EnlZhao](https://enlzhao.github.io/Blog/about/) 的 [知识库](https://enlzhao.github.io/Notebook)，有一些课程笔记或者学习记录；
   
