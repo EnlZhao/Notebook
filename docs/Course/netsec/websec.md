@@ -323,6 +323,7 @@ attacker gets user to **click on specially-crafted URL with script in it**, web 
         
         ```html
         <HTML> Results for <script>...</Script>
+        ```
 
         - browser executes script in same origin as `bank.com`
         - browser sends to `evil.com` the cookie for `bank.com`

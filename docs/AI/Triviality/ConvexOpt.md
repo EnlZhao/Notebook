@@ -22,7 +22,7 @@ $$
 1. $\lceil$ **Separating Hyperplane Theorem** $\rfloor$:
    
     - 两个不相交的凸集之间必然存在一个分割超平面使得两个凸集分别在超平面的两侧。
-    - 即对非空凸集 $C_1$ 和 $C_2$， 且 $C_1 \cap C_2 = \empty$, 则必然存在 $a, b$， 使得
+    - 即对非空凸集 $C_1$ 和 $C_2$， 且 $C_1 \cap C_2 = \emptyset$, 则必然存在 $a, b$， 使得
      
         $$
         \begin{matrix}

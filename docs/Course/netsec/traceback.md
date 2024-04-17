@@ -107,32 +107,32 @@ Some issues:
 - Routers add path proofs to packets
 - Routers verify path proofs
 
-
-
 ## Link Testing
 
-Not every packet should be always marked and sampled
+> How frequent is attack?
+> 
+> - Not every packet should be always marked and sampled
 
 Only do when needed
 
 - Traceback from the router closest to the victim
 - Determine the upstream link that is used to carry out the attack traffic
 - Recursively apply the previous technique until the attack source is reached
-- Has to take effect while the attack is in progress
+- **Has to take effect while the attack is in progress**
 
 具体来说：
 
-- Input Debugging
+=== "Input Debugging"
     - Find **attack signature**, the common feature contained in all attack packets
     - Communicate the attack signature to the **upstream router**, which then filters attack packets and determines the port of entry
     - Recursively apply the previous technique on the upstream routers until reaching the attack source
-    - A considerable management overhead at the ISP level to communicate and coordinate the traceback
-- Controlled Flooding
+    - 困难是：A considerable management overhead at the ISP level to communicate and coordinate the traceback
+=== "Controlled Flooding"
     - Need collaborative hosts
     - Force the hosts to flood the links to upstream routers
     - Since buffer on victim is shared by all incoming links, flooding the link carrying out attack leads to drops of attack packets
     - Recursively apply the previous technique on the upstream routers until reaching the attack source
-    - Require an accurate topology map  High overhead given multiple attacking sources (e.g., DDoS)
+    - 困难是：Require an accurate topology map; High overhead given multiple attacking sources (e.g., DDoS)
 
 ## Logging-Based Traceback
 

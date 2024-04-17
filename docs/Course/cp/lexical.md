@@ -1,4 +1,4 @@
-# 词法分析
+# 词法分析 | Lexical Analysis
 
 ## 词法分析概述
 

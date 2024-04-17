@@ -443,6 +443,7 @@ But --> **Implementation challenges:**
     - stable route from attacker to victim
 
 **1)** 可以选择 Write path into packets (router adds its own IP address to packet victim reads path from packet)
+
 - Limitations: 
     - requires space in packet
     - path can be long

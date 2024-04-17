@@ -26,3 +26,31 @@
 .md-typeset summary:before {
   width: 1.25em;
 }
+
+/* block content */
+.mac-content-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .mac-content-block {
+    background-color: #F5F5F5;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    flex: 1;
+    display: flex;
+    align-items: center;
+  }
+  
+  .mac-content-label {
+    font-weight: bold;
+    color: #000;
+    flex: 1;
+  }
+  
+  .mac-content-value {
+    color: #000;
+    flex: 1;
+  }
