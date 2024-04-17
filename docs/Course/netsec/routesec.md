@@ -1,10 +1,5 @@
 # Secure Routing
 
-!!! bug "routing attacks"
-    - distance-vector: announce 0 distance to all other nodes
-    - link-state: drop links; claim direct link to other routers
-    - BGP: announce arbitrary prefix; alter paths
-
 Deliver Scheme:
 
 - `unicast` delivers a message to a single specific node
@@ -182,6 +177,11 @@ both types of path computation algorithms can be used for intra-domain routing a
 ![](../../Images/2024-03-24-20-12-44.png)
 
 ## routing attacks
+
+!!! bug "routing attacks"
+    - distance-vector: announce 0 distance to all other nodes
+    - link-state: drop links; claim direct link to other routers
+    - BGP: announce arbitrary prefix; alter paths
 
 - distance-vector: 
     - Announce 0 distance to all other nodes
