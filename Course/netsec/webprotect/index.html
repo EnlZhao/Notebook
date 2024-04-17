@@ -1979,6 +1979,26 @@
     User Authentication
   </a>
   
+    <nav class="md-nav" aria-label="User Authentication">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#means-of-authentication" class="md-nav__link">
+    Means of authentication
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#password" class="md-nav__link">
+    Password
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -3777,6 +3797,26 @@
     User Authentication
   </a>
   
+    <nav class="md-nav" aria-label="User Authentication">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#means-of-authentication" class="md-nav__link">
+    Means of authentication
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#password" class="md-nav__link">
+    Password
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -3841,7 +3881,7 @@
 
 <h1 id="network-protection">Network Protection<a class="headerlink" href="#network-protection" title="Permanent link">👀</a></h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 744 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"/></svg></span> 预计阅读时间 2 分钟</p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 1042 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"/></svg></span> 预计阅读时间 3 分钟</p>
 </div>
 <h2 id="firewall-ids-ips-honeypot">Firewall / IDS / IPS / HoneyPot<a class="headerlink" href="#firewall-ids-ips-honeypot" title="Permanent link">👀</a></h2>
 <p><a href="../traffic/">Traffic Analysis</a></p>
@@ -3903,7 +3943,10 @@
 </div>
 </div>
 </div>
-<p>Means of authentication: (方式)</p>
+<h3 id="means-of-authentication">Means of authentication<a class="headerlink" href="#means-of-authentication" title="Permanent link">👀</a></h3>
+<blockquote>
+<p>一些认证手段</p>
+</blockquote>
 <ul>
 <li>Information the user knows<ul>
 <li>passwords, personal identification number (PIN), answers to prearranged questions</li>
@@ -3922,6 +3965,55 @@
 </ul>
 </li>
 </ul>
+<h3 id="password">Password<a class="headerlink" href="#password" title="Permanent link">👀</a></h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Register a new password</label><label for="__tabbed_3_2">Verify a password</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><a class="glightbox" href="../../../Images/2024-04-17-17-13-35.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-04-17-17-13-35.png" /></a></p>
+<ul>
+<li>A cryptographic salt is made up of random bits added to each password instance before its hashing. </li>
+<li>Salts create unique passwords (hash code) even in the instance of two users choosing the same passwords. </li>
+<li>Salts help us mitigate hash table attacks by forcing attackers to re-compute them using the salts for each user.</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<p><a class="glightbox" href="../../../Images/2024-04-17-17-14-54.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-04-17-17-14-54.png" /></a></p>
+</div>
+</div>
+</div>
+<details class="note" open="open">
+<summary>Salt Purpose</summary>
+<ul>
+<li>Prevent duplicate passwords from being visible in the password file</li>
+<li>Greatly increase the difficulty of offline dictionary attacks</li>
+<li>Greatly increase the difficulty of finding out whether a person has used the same password on two or more systems</li>
+</ul>
+</details>
+<details class="note" open="open">
+<summary>Bloom Filter</summary>
+<p><a class="glightbox" href="../../../Images/2024-04-17-17-17-10.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-04-17-17-17-10.png" /></a></p>
+<ul>
+<li>它实际上是一个很长的二进制向量和一系列随机映射函数。</li>
+<li>布隆过滤器可以用于检索一个元素是否在一个集合中。</li>
+<li>优点:<ul>
+<li>时间复杂度低，增加和查询元素的时间复杂为O(N)，（N为哈希函数的个数，通常情况比较小）</li>
+<li>保密性强，布隆过滤器不存储元素本身</li>
+<li>存储空间小，如果允许存在一定的误判，布隆过滤器是非常节省空间的（相比其他数据结构如Set集合）</li>
+</ul>
+</li>
+<li>缺点:<ul>
+<li>有点一定的误判率，但是可以通过调整参数来降低</li>
+<li>无法获取元素本身</li>
+<li>很难删除元素</li>
+</ul>
+</li>
+</ul>
+<details class="quote">
+<summary>Quote</summary>
+<p><a href="https://blog.csdn.net/qq_41125219/article/details/119982158">布隆(Bloom Filter)过滤器</a></p>
+</details>
+</details>
+<p>​</p>
 <details class="info">
 <summary>Token</summary>
 <p>Objects that a user possesses for the purpose of user authentication</p>
@@ -3977,7 +4069,7 @@
 <p>实现快速访问，但如果过于稀疏的话，会浪费空间</p>
 </blockquote>
 <p>引入下面两种设计：</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Access Control List (ACL)</label><label for="__tabbed_3_2">Capability List</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Access Control List (ACL)</label><label for="__tabbed_4_2">Capability List</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p><a class="glightbox" href="../../Images/2024-04-14-16-42-57.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="../../Images/2024-04-14-16-42-57.png" style="zoom:50%;"/></a><br />
