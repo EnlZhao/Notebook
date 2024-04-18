@@ -55,7 +55,7 @@
 
 ### ICMP Traceback
 
-iTrace
+Acronym: iTrace
 
 - Each router samples one of packets it is forwarding and copies the contents and adjacent routers’ info into an ICMP traceback message
 - Router uses **HMAC and X.509 digital certificate for authenticating** traceback messages

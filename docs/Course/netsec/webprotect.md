@@ -121,8 +121,7 @@ Implement a security policy that specifies who or what (e.g., a process) may hav
 
 Authorize a subject with some access right(s) for some object(s)
 
-- Subject
-    - Entity capable of accessing objects
+- Subject (Entity capable of accessing objects)
     - Owner
         - creator of a resource, system administrator, project leader, etc.
     - Group
@@ -148,8 +147,7 @@ Authorize a subject with some access right(s) for some object(s)
 引入下面两种设计：
 
 === "Access Control List (ACL)"
-    <img src="../../Images/2024-04-14-16-42-57.png" style="zoom:50%;"/>
-    <!-- ![](../../Images/2024-04-14-16-42-57.png) -->
+    ![](../../Images/2024-04-14-16-42-57.png)
 
 === "Capability List"
     ![](../../Images/2024-04-14-16-43-07.png)
