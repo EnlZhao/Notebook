@@ -23,6 +23,12 @@ Routing Scheme:
 - Intra-domain routing: inside an autonomous system (AS)
 - Inter-domain routing: between different ASs
 
+??? example
+    ![](../../Images/2024-04-17-16-14-23.png)
+
+    - Intra-domain routing: consider A-F as routers
+    - Inter-domain routing: consider A-F as autonomous systems
+
 ## Route Computation
 
 ### Link-state Algorithms
@@ -89,7 +95,6 @@ Routing Scheme:
 ??? info "常见 Link-State 算法"
     - OSPF (Open Shortest Path First)
     - IS-IS (Intermediate System to Intermediate System)
-    - SPF (Shortest Path First)
     - SPF (Shortest Path First)
 
 - Such link-state algorithms require that each router knows complete topology & link cost information;

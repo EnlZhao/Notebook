@@ -55,7 +55,9 @@ Once an attack is detected,
 === "Verification Step"
     present or generate authenticaton information that corroborates the binding between the entity and identifier
 
-Means of authentication: (方式)
+### Means of authentication
+
+> 一些认证手段
 
 - Information the user knows
     - passwords, personal identification number (PIN), answers to prearranged questions
@@ -66,6 +68,40 @@ Means of authentication: (方式)
 - Information the user does
     - dynamic biometrics: voice pattern, handwriting characteristics, typing rhythm
 
+### Password
+
+=== "Register a new password"
+    ![](../../Images/2024-04-17-17-13-35.png)
+
+    - A cryptographic salt is made up of random bits added to each password instance before its hashing. 
+    - Salts create unique passwords (hash code) even in the instance of two users choosing the same passwords. 
+    - Salts help us mitigate hash table attacks by forcing attackers to re-compute them using the salts for each user.
+
+=== "Verify a password"
+    ![](../../Images/2024-04-17-17-14-54.png)
+
+???+ note "Salt Purpose"
+    - Prevent duplicate passwords from being visible in the password file
+    - Greatly increase the difficulty of offline dictionary attacks
+    - Greatly increase the difficulty of finding out whether a person has used the same password on two or more systems
+    
+???+ note "Bloom Filter"
+    ![](../../Images/2024-04-17-17-17-10.png)
+
+    - 它实际上是一个很长的二进制向量和一系列随机映射函数。
+    - 布隆过滤器可以用于检索一个元素是否在一个集合中。
+    - 优点:
+        - 时间复杂度低，增加和查询元素的时间复杂为O(N)，（N为哈希函数的个数，通常情况比较小）
+        - 保密性强，布隆过滤器不存储元素本身
+        - 存储空间小，如果允许存在一定的误判，布隆过滤器是非常节省空间的（相比其他数据结构如Set集合）
+    - 缺点:
+        - 有点一定的误判率，但是可以通过调整参数来降低
+        - 无法获取元素本身
+        - 很难删除元素
+
+    ??? quote
+        [布隆(Bloom Filter)过滤器](https://blog.csdn.net/qq_41125219/article/details/119982158)
+​
 ??? info "Token"
     Objects that a user possesses for the purpose of user authentication
 
