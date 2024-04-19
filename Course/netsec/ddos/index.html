@@ -4015,7 +4015,7 @@
 
 <h1 id="ddos">DDos<a class="headerlink" href="#ddos" title="Permanent link">👀</a></h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 5980 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"/></svg></span> 预计阅读时间 20 分钟</p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 6009 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"/></svg></span> 预计阅读时间 20 分钟</p>
 </div>
 <h2 id="dos-denial-of-service">Dos | Denial of Service<a class="headerlink" href="#dos-denial-of-service" title="Permanent link">👀</a></h2>
 <ul>
@@ -4044,14 +4044,14 @@
 <p>简言之：saturate the target device’s capacity by sending many ICMP echo request packets</p>
 </blockquote>
 <ul>
-<li>Exploit the ICMP protocol</li>
-<li>both incoming ICMP Echo Request and outgoing ICMP Echo Reply consume bandwidth;</li>
-<li>overwhelm the target device’s ability to respond to a high number of requests and/or overload the network connection with bogus traffic</li>
-<li>attacker sends a large number of ICMP echo request packets &amp; target server sends an ICMP echo reply packet to each requesting device’s IP address as a response</li>
+<li>Exploit the <strong>ICMP protocol</strong></li>
+<li>both <strong>incoming ICMP Echo Request</strong> and <strong>outgoing ICMP Echo Reply</strong> consume <strong>bandwidth</strong>;</li>
+<li>overwhelm the target device’s ability to respond to a high number of requests and/or overload the network connection with bogus traffic | 压制目标设备响应大量请求的能力，and/or 使网络连接超负荷运行假流量</li>
+<li>attacker <strong>sends</strong> a large number of <strong>ICMP echo request packets</strong> &amp; target server sends an <strong>ICMP echo reply packet to each requesting device’s IP address</strong> as a response</li>
 </ul>
 <p>2) Ping Flood DDoS 形式可以分解为两个重复的步骤:</p>
 <ul>
-<li>The attacker sends many ICMP echo request packets to the targeted server using multiple devices.</li>
+<li>The attacker <strong>sends many ICMP echo request packets</strong> to the targeted server <strong>using multiple devices.</strong></li>
 <li>The targeted server then sends an ICMP echo reply packet to each requesting device’s IP address as a response.</li>
 </ul>
 <p><strong>3) 解决方法</strong></p>
@@ -4099,16 +4099,16 @@
 </ul>
 <p><strong>1) Attack principle:</strong></p>
 <ul>
-<li>server commits resources (memory) before confirming identify of client (when client responds)</li>
+<li>server commits resources (memory) <strong>before</strong> confirming identify of client (when client responds)</li>
 </ul>
-<p>2) TCP SYN Flood 的改进: <strong>IP Spoofing</strong> : Craft SYN packets from randomly forged IP address</p>
+<p>2) TCP SYN Flood 的改进: <strong>IP Spoofing</strong> : Craft SYN packets from randomly <strong>forged IP address</strong></p>
 <ul>
 <li>SYN packets with random source IP addresses</li>
 <li>Fill up backlog queue on server</li>
 <li>No further connections possible</li>
 </ul>
 <blockquote>
-<p>For such random IP addresses, after they receive SYN ACK packets from the server, they may simply discard them as these IP addresses have not sent SYN requests at all</p>
+<p>For such random IP addresses, after they receive SYN ACK packets from the server, <strong>they may simply discard them as these IP addresses have not sent SYN requests at all</strong></p>
 </blockquote>
 <p><strong>3) Solution:</strong></p>
 <ol>
