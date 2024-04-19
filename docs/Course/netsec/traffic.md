@@ -199,9 +199,6 @@ intruder behavior differs from that of a legitimate user in ways that can be **q
 - Collect information about the attacker’s activity
 - Encourage the attacker to stay on the system long enough for administrators to respond
 
-- Decoy systems designed to lure a potential attacker away from critical systems
-- Collect information about the attacker’s activity
-
 ![](../../Images/2024-04-13-18-05-05.png)
 
 > ADS (Active Defense System)

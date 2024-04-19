@@ -28,14 +28,14 @@ date: 2024-03-03 19:00
 
 > 简言之：saturate the target device’s capacity by sending many ICMP echo request packets
 
-- Exploit the ICMP protocol
-- both incoming ICMP Echo Request and outgoing ICMP Echo Reply consume bandwidth;
-- overwhelm the target device’s ability to respond to a high number of requests and/or overload the network connection with bogus traffic
-- attacker sends a large number of ICMP echo request packets & target server sends an ICMP echo reply packet to each requesting device’s IP address as a response
+- Exploit the **ICMP protocol**
+- both **incoming ICMP Echo Request** and **outgoing ICMP Echo Reply** consume **bandwidth**;
+- overwhelm the target device’s ability to respond to a high number of requests and/or overload the network connection with bogus traffic | 压制目标设备响应大量请求的能力，and/or 使网络连接超负荷运行假流量
+- attacker **sends** a large number of **ICMP echo request packets** & target server sends an **ICMP echo reply packet to each requesting device’s IP address** as a response
 
 2) Ping Flood DDoS 形式可以分解为两个重复的步骤:
 
-- The attacker sends many ICMP echo request packets to the targeted server using multiple devices.
+- The attacker **sends many ICMP echo request packets** to the targeted server **using multiple devices.**
 - The targeted server then sends an ICMP echo reply packet to each requesting device’s IP address as a response.
 
 **3) 解决方法**
@@ -70,15 +70,15 @@ Single machine:
 
 **1) Attack principle:**
 
-- server commits resources (memory) before confirming identify of client (when client responds)
+- server commits resources (memory) **before** confirming identify of client (when client responds)
 
-2) TCP SYN Flood 的改进: **IP Spoofing** : Craft SYN packets from randomly forged IP address
+2) TCP SYN Flood 的改进: **IP Spoofing** : Craft SYN packets from randomly **forged IP address**
 
 - SYN packets with random source IP addresses
 - Fill up backlog queue on server
 - No further connections possible
 
-> For such random IP addresses, after they receive SYN ACK packets from the server, they may simply discard them as these IP addresses have not sent SYN requests at all
+> For such random IP addresses, after they receive SYN ACK packets from the server, **they may simply discard them as these IP addresses have not sent SYN requests at all**
 
 [^1]: Timeout: evict a backlog entry if no ack is received until timeout, e.g., 3 mins 
 
@@ -362,9 +362,21 @@ Single machine:
 
 **2) SDN CrossPath Attack**
 
-> TODO  
-
 > bring down the entire server so far weakest link from outside 
+
+??? info "Three-Layer Architecture"
+    ![](../../Images/2024-04-19-14-39-09.png)
+
+    - deliver all control traffic; 
+    - issue rules from controller to switches(交换机);
+    - report stats from switches to controller;
+    - guarantee security and reliability;
+    
+    - 发现需要很多从 controller 到 switch 的直接链路，从而导致 limited scalability
+    - 可以使用 shared links (relay control traffic via data paths) 来解决这个问题
+
+    ![](../../Images/2024-04-19-14-42-54.png)
+
 
 !!! abstract "SDN CrossPath Attack"
     - SDN (Software Defined Networking) 是一种基于控制平面 (Control Plane) 和数据平面 (Data Plane) 分离的网络架构，它允许网络管理员通过集中式控制器来管理和控制整个网络
@@ -385,19 +397,19 @@ Single machine:
 ### Type One
 
 !!! abstract "Type One"
-    - enrich server with more resources
-    - leverage the sources of others
+    - enrich server with more resources | 通过增加服务器的资源来增强服务器的抵抗能力
+    - leverage the sources of others | 利用他人的资源
 
 **Google Project Shield**
 
-- Use Google bandwidth to shiel vulnerable websites
+- Use Google bandwidth to shiel vulnerable websites | 使用谷歌带宽屏蔽易受攻击的网站
 
 ![](../../Images/2024-03-10-11-14-49.png)
 
 ### Type Two
 
 !!! abstract "Type Two"
-    detect and filter attack traffic with spoofed IP addresses
+    detect and filter attack traffic with spoofed IP addresses | 检测和过滤具有伪造 IP 地址的攻击流量
 
     > 让攻击者攻击更困难
 
@@ -477,9 +489,9 @@ procedure 如下：
 #### Path Validation
 
 - PoC: Proof of Consent
-    - certify the provider’s consent to carry traffic along the path
+    - certify the provider’s consent to carry traffic along the path | 证明提供商同意沿该路径传输流量
 - PoP: Proof of Provenance
-    - allow upstream nodes to prove to downstream nodes that they carried the packet
+    - allow upstream nodes to prove to downstream nodes that they carried the packet | 允许上游节点向下游节点证明他们携带了数据包
 
 ![](../../Images/2024-03-10-20-36-31.png)
 

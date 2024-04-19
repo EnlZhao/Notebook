@@ -11,6 +11,14 @@
 - [x] [回溯](./traceback.md)：介绍如何回溯攻击者的身份，如 IP Traceback，Link Testing，Logging-based Traceback 和 Bloom Filter 等方法的原理
 - [x] [网络保护](./webprotect.md)：回顾前面章节介绍的防火墙、入侵检测系统（IDS）等内容，同时也介绍负载均衡、用户认证、访问控制等内容
 
+??? info "Three Common properties to protect:"
+    - Confidentiality | 保密性 (not leaked to unauthorized parties)
+        - Confidentiality refers to protecting information from being accessed by unauthorized parties. In other words, only the people who are authorized to do so can gain access to sensitive data.
+    - Integrity | 完整性 (not modified)
+        - Integrity is the maintenance of, and the assurance of the accuracy and consistency of, data over its entire life-cycle, aåd is a critical aspect to the design, implementation and usage of any system which stores, processes, or retrieves data.
+    - Availability | 可用性 (keep online, available when needed)
+        - For any information system to serve its purpose, the information must be available when it is needed. This means the computing systems used to store and process the information, the security controls used to protect it, and the communication channels used to access it must be functioning correctly. High-availability systems aim to remain available at all times, preventing service disruptions due to power outages, hardware failures, and system upgrades. Ensuring availability also involves preventing denial-of-service attacks, such as a flood of incoming messages to the target system, essentially forcing it to shut down.
+
 !!! quote "Acknowledgement"
     - [kaibu](https://list.zju.edu.cn/kaibu/netsec2024/)
     - [咸鱼暄](https://www.yuque.com/xianyuxuan/coding/netsec)
