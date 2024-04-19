@@ -128,6 +128,10 @@ blanks, tabs and newlines
       - $(r)$ 是 *RE*, $L((r)) = L(r)$
       - 优先级：闭包* > 连接 > 选择|
 
+!!! success "Pumping Lemma"
+    - 用于证明某个语言不是正则语言, 如 $L = \{0^n1^n | n \geq 0\}$ 不是正则语言
+    - 具体参见 [:fontawesome-solid-link: Pumping Lemma](../../Triviality/PumpingLemma.md)
+
 ??? note "正则表达式的一些定律"
     | 定律 | 描述 |
     | --- | --- |

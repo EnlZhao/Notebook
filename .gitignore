@@ -1,10 +1,13 @@
 docs/Course/Crypto/
 # docs/Course/ADS/
+docs/AI/**/data
+
 site/
 
 .github/
 **/.DS_Store
 *.cache
 **/.vscode
-docs/AI/**/data
+
 *.pth
+*.sh

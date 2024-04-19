@@ -126,6 +126,7 @@ nav:
       - CMake: Triviality/CMake/index.md
       - 准备&试编译: Triviality/CMake/Lec01.md
       - 初体验: Triviality/CMake/Lec02.md
+    - Pummping Lemma: Triviality/PumpingLemma.md
   - Tools: 
     - GitHub: 
       - GitHub: Triviality/GitHub/index.md
