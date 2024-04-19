@@ -4233,11 +4233,15 @@
 <p class="admonition-title">正则规则的二义性</p>
 <p>给定 <code>if8</code>, 它是单个标识符，还是两个 token (<code>if</code> 和 <code>8</code>) 的组合？</p>
 </div>
-<p>为解决这个问题，引出两种 rule：<br />
-1. 最长匹配 Longest Match: The longest initial substring of the input that can match any regular expression is taken as the next token.<br />
-2. 规则优先 Rule Priority: <br />
-      - For a particular longest initial substring, the first regular expression that can match determines its token-type. <br />
-      - This means that the order of writing down the regular-expression rules has significance.</p>
+<p>为解决这个问题，引出两种 rule：</p>
+<ol>
+<li>最长匹配 Longest Match: The longest initial substring of the input that can match any regular expression is taken as the next token.</li>
+<li>规则优先 Rule Priority: <ul>
+<li>For a particular longest initial substring, the first regular expression that can match determines its token-type. </li>
+<li>This means that the order of writing down the regular-expression rules has significance.</li>
+</ul>
+</li>
+</ol>
 <p>因此，按最长匹配，识别为 <code>if8</code> 。 按规则优先 <code>if</code> 优先于 <code>identifier</code>，所以 <code>if8</code> 是一个 <code>if</code> token 和一个 <code>identifier</code> token 的组合。</p>
 <h2 id="finite-automata">有穷自动机 | Finite Automata<a class="headerlink" href="#finite-automata" title="Permanent link">👀</a></h2>
 <blockquote>
