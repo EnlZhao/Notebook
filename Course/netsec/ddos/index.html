@@ -4015,7 +4015,7 @@
 
 <h1 id="ddos">DDos<a class="headerlink" href="#ddos" title="Permanent link">👀</a></h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 6009 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"/></svg></span> 预计阅读时间 20 分钟</p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 6134 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"/></svg></span> 预计阅读时间 20 分钟</p>
 </div>
 <h2 id="dos-denial-of-service">Dos | Denial of Service<a class="headerlink" href="#dos-denial-of-service" title="Permanent link">👀</a></h2>
 <ul>
@@ -4506,9 +4506,25 @@
 </ul>
 <p><strong>2) SDN CrossPath Attack</strong></p>
 <blockquote>
-<p>TODO  </p>
 <p>bring down the entire server so far weakest link from outside </p>
 </blockquote>
+<details class="info">
+<summary>Three-Layer Architecture</summary>
+<p><a class="glightbox" href="../../../Images/2024-04-19-14-39-09.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-04-19-14-39-09.png" /></a></p>
+<ul>
+<li>deliver all control traffic; </li>
+<li>issue rules from controller to switches(交换机);</li>
+<li>report stats from switches to controller;</li>
+<li>
+<p>guarantee security and reliability;</p>
+</li>
+<li>
+<p>发现需要很多从 controller 到 switch 的直接链路，从而导致 limited scalability</p>
+</li>
+<li>可以使用 shared links (relay control traffic via data paths) 来解决这个问题</li>
+</ul>
+<p><a class="glightbox" href="../../../Images/2024-04-19-14-42-54.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-04-19-14-42-54.png" /></a></p>
+</details>
 <div class="admonition abstract">
 <p class="admonition-title">SDN CrossPath Attack</p>
 <ul>
@@ -4532,19 +4548,19 @@
 <div class="admonition abstract">
 <p class="admonition-title">Type One</p>
 <ul>
-<li>enrich server with more resources</li>
-<li>leverage the sources of others</li>
+<li>enrich server with more resources | 通过增加服务器的资源来增强服务器的抵抗能力</li>
+<li>leverage the sources of others | 利用他人的资源</li>
 </ul>
 </div>
 <p><strong>Google Project Shield</strong></p>
 <ul>
-<li>Use Google bandwidth to shiel vulnerable websites</li>
+<li>Use Google bandwidth to shiel vulnerable websites | 使用谷歌带宽屏蔽易受攻击的网站</li>
 </ul>
 <p><a class="glightbox" href="../../../Images/2024-03-10-11-14-49.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-03-10-11-14-49.png" /></a></p>
 <h3 id="type-two">Type Two<a class="headerlink" href="#type-two" title="Permanent link">👀</a></h3>
 <div class="admonition abstract">
 <p class="admonition-title">Type Two</p>
-<p>detect and filter attack traffic with spoofed IP addresses</p>
+<p>detect and filter attack traffic with spoofed IP addresses | 检测和过滤具有伪造 IP 地址的攻击流量</p>
 <blockquote>
 <p>让攻击者攻击更困难</p>
 </blockquote>
