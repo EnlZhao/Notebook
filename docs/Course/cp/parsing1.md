@@ -426,6 +426,7 @@ E   -> E + E
 
 #### LL(1) 文法的定义
 
+!!! success "LL(1) 文法判定充要条件："
 文法 $G$ 的任何两个产生式 $A \rightarrow \alpha \vert \beta$ 都满足下列条件：
 
 1. $\text{First}(\alpha) \cap \text{First}(\beta) = \emptyset$
@@ -436,12 +437,16 @@ E   -> E + E
     - 假设下一个输入是 $b$, 且 $\text{First}(\alpha)$ 和 $\text{First}(\beta)$ 不相交。
     - 若 $b \in \text{First}(\alpha)$, 则选择 $A \rightarrow \alpha$; 若 $b \in \text{First}(\beta)$, 则选择 $A \rightarrow \beta$
 
-2. 若 $\beta \Rightarrow^* \epsilon$, 那么 $\alpha \nRightarrow^* \epsilon$, 且 $\text{First}(\alpha) \cap \text{Follow}(A) = \emptyset$
+2. $\beta, ~ \alpha$ 至多有一个可以允许推导出空串
+3. 如果 $\beta \Rightarrow^* \epsilon$, 那么 $\alpha \nRightarrow^* \epsilon$，那么 $\text{First}(\alpha) \cap \text{Follow}(A) = \emptyset$
 
 !!! tip "龙书中的不同"
     龙书中关于第二个条件的定义无需前面的设定，因为龙书中 First 集的定义包含了空串, 两者 First set 交集为空已经包含了 $\alpha$ 和 $\beta$ 不能同时推导出空串的情况
 
-> 即 $\alpha$ 和 $\beta$ 不能同时推导出空串；$\text{First}(\alpha)$ 和 $\text{Follow}(A)$ 不能有交集
+> 即
+>
+> - 2 $\alpha$ 和 $\beta$ 不能同时推导出空串
+> - 3 如果 $\beta$ 能推导空串， $\text{First}(\alpha)$ 和 $\text{Follow}(A)$ 不能有交集
 
 以上两条可以保证产生式选择的唯一性
 
@@ -740,8 +745,10 @@ LL(1) 分析的实现可以分为：
     的产生式，用如下方式 (提取相同的开始符号，并将剩下的部分用一个新的 non-terminal 来代替) 改写：
 
     $$
-    A \rightarrow \alpha A' \\
-    A' \rightarrow \beta \vert \gamma
+    \begin{aligned}
+    &A \rightarrow \alpha A' \\
+    &A' \rightarrow \beta \vert \gamma
+    \end{aligned}
     $$
 
     其中 $A'$ 是新的非终结符
