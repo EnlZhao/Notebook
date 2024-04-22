@@ -719,8 +719,10 @@ LL(1) 分析的实现可以分为：
     可以概括所有包含左递归的情况, 可以将其改写为：
 
     $$
-    S \rightarrow \beta_1 S' \vert \dots \beta_m S' \\
-    S' \rightarrow \alpha_1 S' \vert \dots \alpha_n S' \vert \epsilon
+    \begin{aligned}
+    &S \rightarrow \beta_1 S' \vert \dots \beta_m S' \\
+    &S' \rightarrow \alpha_1 S' \vert \dots \alpha_n S' \vert \epsilon
+    \end{aligned}
     $$
 
 ???+ note "左公因子 (left-factored) 文法"

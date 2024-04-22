@@ -186,6 +186,7 @@ $$\begin{align*}
     给定 `if8`, 它是单个标识符，还是两个 token (`if` 和 `8`) 的组合？
 
 为解决这个问题，引出两种 rule：
+
 1. 最长匹配 Longest Match: The longest initial substring of the input that can match any regular expression is taken as the next token.
 2. 规则优先 Rule Priority: 
       - For a particular longest initial substring, the first regular expression that can match determines its token-type. 
