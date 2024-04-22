@@ -713,15 +713,15 @@ LL(1) 分析的实现可以分为：
     一般来说
     
     $$
-    S \rightarrow S \alpha_1 \vert \dots S \alpha_n \vert \beta_1 \vert \dots \beta_m
+    S \rightarrow S ~ \alpha_1 ~ \vert ~ \dots ~ \vert ~ S ~ \alpha_n ~ \vert ~ \beta_1 ~ \vert ~ \dots ~ \vert ~\beta_m
     $$
 
     可以概括所有包含左递归的情况, 可以将其改写为：
 
     $$
     \begin{aligned}
-    &S \rightarrow \beta_1 S' \vert \dots \beta_m S' \\
-    &S' \rightarrow \alpha_1 S' \vert \dots \alpha_n S' \vert \epsilon
+    &S \rightarrow \beta_1 ~ S' ~ \vert ~ \dots ~ \vert ~ \beta_m ~ S' \\
+    &S' \rightarrow \alpha_1 ~ S' ~ \vert ~ \dots ~ \vert ~ \alpha_n ~ S' ~ \vert ~\epsilon
     \end{aligned}
     $$
 
