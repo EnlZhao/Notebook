@@ -3962,23 +3962,23 @@
 </details>
 <details class="info" open="open">
 <summary>Building AST Automatically</summary>
-<p><code>yacc
-    %{ ... %}
-    %union {
-        int num;
-        string id;
-    }
-    %token &lt;num&gt; INT
-    %token &lt;id&gt; ID
-    %type &lt;num&gt; exp
-    ...
-    %left UMINUS
-    %%
-    exp : INT {$$ = $1;}
-        | exp '+' exp {$$ = $1 + $3;}
-        | exp '-' exp {$$ = $1 - $3;}
-        | exp '*' exp {$$ = $1 * $3;}
-        | MINUS exp %prec UMINUS {$$ = -$2;}</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>    %{ ... %}
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    %union {
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>        int num;
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>        string id;
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>    }
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>    %token &lt;num&gt; INT
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>    %token &lt;id&gt; ID
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>    %type &lt;num&gt; exp
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>    ...
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>    %left UMINUS
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>    %%
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>    exp : INT {$$ = $1;}
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>        | exp &#39;+&#39; exp {$$ = $1 + $3;}
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>        | exp &#39;-&#39; exp {$$ = $1 - $3;}
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>        | exp &#39;*&#39; exp {$$ = $1 * $3;}
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>        | MINUS exp %prec UMINUS {$$ = -$2;}
+</code></pre></div>
 </details>
 <details class="info">
 <summary>Applications of AST Traversals</summary>
@@ -4019,13 +4019,13 @@
 <ul>
 <li>A Tiger program is expression (无 statement)</li>
 </ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>let
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    &lt;type declarations&gt;
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>    &lt;variable declarations&gt;
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>    &lt;function declarations&gt;
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>in
-<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>    &lt;sequence of expressions, separated by ;&gt;
-<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>end
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>let
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    &lt;type declarations&gt;
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    &lt;variable declarations&gt;
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>    &lt;function declarations&gt;
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>in
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>    &lt;sequence of expressions, separated by ;&gt;
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>end
 </code></pre></div>
 <ul>
 <li>Scope extends to end of expression sequence</li>
@@ -4034,10 +4034,10 @@
 <ul>
 <li>Array lengths are not specified until creation</li>
 </ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>type t1 = int
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>type t2 = string
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>type rec1 = {f1:int, f2:t2}
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>type intArray = array of int
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>type t1 = int
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>type t2 = string
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>type rec1 = {f1:int, f2:t2}
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>type intArray = array of int
 </code></pre></div>
 <p><strong>3) Variable Declarations</strong></p>
 <p><a class="glightbox" href="../../../Images/2024-05-06-10-52-55.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-05-06-10-52-55.png" /></a></p>
@@ -4045,9 +4045,9 @@
 <ul>
 <li>Parameters are passed by value:</li>
 </ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>function add1(x:int):int = x+1;
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>function changeRec(r:rec1) =
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>    (r.f1 := r.f1 + 10; r.f2 := &quot;hello&quot;)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>function add1(x:int):int = x+1;
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>function changeRec(r:rec1) =
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>    (r.f1 := r.f1 + 10; r.f2 := &quot;hello&quot;)
 </code></pre></div>
 <ul>
 <li>Function declarations can be nested<ul>
@@ -4055,14 +4055,14 @@
 </ul>
 </li>
 </ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>function f1(y:int):int =
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>let
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>    var z := 0
-<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>    var w := 0
-<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>    function f2():int = z + w * y
-<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>in
-<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>    f2()
-<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>end
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>function f1(y:int):int =
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>let
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>    var z := 0
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>    var w := 0
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>    function f2():int = z + w * y
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>in
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>    f2()
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>end
 </code></pre></div>
 <p><strong>5) Mutual Recursion</strong></p>
 <p>Functions and types can be mutually recursive</p>
