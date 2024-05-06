@@ -2140,14 +2140,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#position" class="md-nav__link">
-    Position
+  <a href="#tiger-language" class="md-nav__link">
+    Tiger Language
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#semantic-analysis_1" class="md-nav__link">
+    Semantic Analysis
+  </a>
   
 </li>
       
@@ -3749,14 +3756,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#position" class="md-nav__link">
-    Position
+  <a href="#tiger-language" class="md-nav__link">
+    Tiger Language
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#semantic-analysis_1" class="md-nav__link">
+    Semantic Analysis
+  </a>
   
 </li>
       
@@ -3781,7 +3795,7 @@
 
 <h1 id="semantic-analysis">Semantic Analysis<a class="headerlink" href="#semantic-analysis" title="Permanent link">👀</a></h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 379 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"/></svg></span> 预计阅读时间 1 分钟</p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 1353 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg></span> 54 行代码 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"/></svg></span> 预计阅读时间 5 分钟</p>
 </div>
 <h2 id="_1">过渡知识<a class="headerlink" href="#_1" title="Permanent link">👀</a></h2>
 <h3 id="attribute-grammar">属性文法 | Attribute Grammar<a class="headerlink" href="#attribute-grammar" title="Permanent link">👀</a></h3>
@@ -3820,8 +3834,244 @@
 <p>本课只需要关注 Yacc, Bison 中的 Semantic Action，以及怎么生成 AST 这些具体应用即可</p>
 </blockquote>
 <h3 id="semantic-action">Semantic Action<a class="headerlink" href="#semantic-action" title="Permanent link">👀</a></h3>
+<p>每个终结符和非终结符都可以与自己的语义值 (semantic value) 的类型相关联 (给每一个符号绑定一个语义值，比如类型，数学值等)</p>
+<div class="admonition example">
+<p class="admonition-title">CFG and its Semantic Action</p>
+<p>Suppose that we want to “evaluate” the values of an expression：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>E -&gt; E1 + T {E.val = E1.val + T.val}
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>E -&gt; E1 - T {E.val = E1.val - T.val}
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>E -&gt; T      {E.val = T.val}
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>T -&gt; (E)    {T.val = E.val}
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>T -&gt; num    {T.val = num.val}
+</code></pre></div>
+</div>
+<ul>
+<li>
+<p>在递归下降分析中：</p>
+<ul>
+<li>语义动作指代 parsing 函数的返回值，或这些函数的 side effect, 又或者两者皆有</li>
+<li>For each terminal and nonterminal symbol, we associate a type of semantic values representing phrases derived from that symbol.</li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p><code>T -&gt; T * F</code> 对应的 semantic action:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">T</span><span class="p">();</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">eat</span><span class="p">(</span><span class="n">TIMES</span><span class="p">);</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">F</span><span class="p">();</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+</code></pre></div>
+</div>
+</li>
+<li>
+<p>又比如在 Yacc 中加入 Semantic Action, 从而可以一边解析一边计算表达式的值</p>
+<ul>
+<li><code>{...}</code>: semantic action, 可以是任意合法的 C 代码</li>
+<li><code>$i</code>: the semantic values of the i-th RHS symbol</li>
+<li><code>$$</code>: the semantic value of the LHS nonterminal symbol</li>
+<li><code>%union</code>: difference possible types for semantic values to carry</li>
+<li><code>&lt;variant&gt;</code>: declares the type of each terminal and nonterminal</li>
+</ul>
+<details class="example">
+<summary>Example</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>%{ ... %}
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>%union {
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    int num;
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    string id;
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>}
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>%token &lt;num&gt; INT
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>%token &lt;id&gt; ID
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>%type &lt;num&gt; exp
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>...
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>%left UMINUS
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>%%
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>exp : INT {$$ = $1;}
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>    | exp &#39;+&#39; exp {$$ = $1 + $3;}
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>    | exp &#39;-&#39; exp {$$ = $1 - $3;}
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>    | exp &#39;*&#39; exp {$$ = $1 * $3;}
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>    | MINUS exp %prec UMINUS {$$ = -$2;}
+</code></pre></div>
+</details>
+</li>
+</ul>
+<details class="info">
+<summary>Semantic Actions in Yacc-Generated Parsers</summary>
+<ul>
+<li>Yacc 生成的 parser 会保留一个与状态栈平行的值栈，用于存储语义值</li>
+<li>当 parser 规约一个产生式时，会执行相应的 semantic action，将计算结果压入值栈</li>
+<li>当 parser 从符号栈中弹出 <span class="arithmatex">\(Y_k, \dots Y_1\)</span> 并弹入 <span class="arithmatex">\(A\)</span> 时, 也会从语义值栈中弹出 <span class="arithmatex">\(k\)</span> 个值, 并推入 semantic action 的结果</li>
+</ul>
+</details>
 <h3 id="abstract-parse-tree">Abstract Parse Tree<a class="headerlink" href="#abstract-parse-tree" title="Permanent link">👀</a></h3>
-<h3 id="position">Position<a class="headerlink" href="#position" title="Permanent link">👀</a></h3>
+<p>考虑之前的 semantic action, 其实可以用 Yacc 和相应的 semantic action 写出一个完整的编译器</p>
+<ul>
+<li>但是这样的编译器难以阅读和维护；</li>
+<li>并且必须完全按照程序解析的顺序分析程序</li>
+</ul>
+<p>由此，希望 separate issues of syntax (parsing) from issues of semantics (type-checking and translation to machine code)</p>
+<p>其中一个解决方案是：将语法树的构造与语义动作分离，即先构造语法树，再对语法树进行语义分析</p>
+<div class="admonition note">
+<p class="admonition-title">Why we need AST</p>
+<ul>
+<li>对于先前的语法树，他对输入的每一个 token 都有一个叶子节点，且每一个 parse 过程中的规约语法都有一个内部节点</li>
+<li>这样的语法树被称为 concrete parse tree，它包含了所有的细节</li>
+<li>但是这样的语法树不便于直接使用<ul>
+<li>redundant and useless tokens for later phases</li>
+<li>depends too much on the grammar</li>
+</ul>
+</li>
+</ul>
+<details class="example">
+<summary>Example</summary>
+<p><a class="glightbox" href="../../../Images/2024-05-06-09-58-48.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-05-06-09-58-48.png" /></a></p>
+<p>例如图中的 <span class="arithmatex">\(T\)</span> 可能只是之前为了消除二义性，临时加的新的 nonterminal，对于后续的语义分析是没有意义的</p>
+</details>
+</div>
+<p>AST 所做的是在 parser 和编译器的后续阶段之间建立一个 clean interface (具体操作是 parser 使用 concrete syntax 为抽象语法建立语法树)</p>
+<p><a class="glightbox" href="../../../Images/2024-05-06-10-03-02.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-05-06-10-03-02.png" /></a></p>
+<blockquote>
+<p>The semantic analysis phase takes this abstract syntax tree. </p>
+</blockquote>
+<p>AST 的构造可以手写，也可以通过 parser generator 生成</p>
+<details class="info">
+<summary>manmade AST</summary>
+<p>A typedef for each nonterminal, a union-variant for each production.</p>
+<details class="example">
+<summary>Example</summary>
+<p>对于文法：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>E  -&gt; n
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    | E + E
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    | E * E
+</code></pre></div>
+<p>使用如下数据结构表示 AST:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">A_exp_</span><span class="w"> </span><span class="o">*</span><span class="n">A_exp</span><span class="p">;</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="k">struct</span><span class="w"> </span><span class="nc">A_exp_</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="k">enum</span><span class="w"> </span><span class="p">{</span><span class="n">A_numExp</span><span class="p">,</span><span class="w"> </span><span class="n">A_plusExp</span><span class="p">,</span><span class="w"> </span><span class="n">A_timesExp</span><span class="p">}</span><span class="w"> </span><span class="n">kind</span><span class="p">;</span><span class="w"> </span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="k">union</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="p">;</span><span class="w"> </span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">        </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span><span class="n">A_exp</span><span class="w"> </span><span class="n">left</span><span class="p">;</span><span class="w"> </span><span class="n">A_exp</span><span class="w"> </span><span class="n">right</span><span class="p">;}</span><span class="w"> </span><span class="n">plus</span><span class="p">;</span><span class="w"> </span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">        </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span><span class="n">A_exp</span><span class="w"> </span><span class="n">left</span><span class="p">;</span><span class="w"> </span><span class="n">A_exp</span><span class="w"> </span><span class="n">right</span><span class="p">;}</span><span class="w"> </span><span class="n">times</span><span class="p">;</span><span class="w"> </span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="n">u</span><span class="p">;</span><span class="w"> </span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="p">};</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="n">A_exp</span><span class="w"> </span><span class="nf">A_NumExp</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="p">);</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="n">A_exp</span><span class="w"> </span><span class="nf">A_PlusExp</span><span class="p">(</span><span class="n">A_exp</span><span class="w"> </span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="n">A_exp</span><span class="w"> </span><span class="n">right</span><span class="p">);</span><span class="w"> </span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="n">A_exp</span><span class="w"> </span><span class="nf">A_TimesExp</span><span class="p">(</span><span class="n">A_exp</span><span class="w"> </span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="n">A_exp</span><span class="w"> </span><span class="n">right</span><span class="p">);</span>
+</code></pre></div>
+<p><a class="glightbox" href="../../../Images/2024-05-06-10-07-59.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-05-06-10-07-59.png" /></a></p>
+</details>
+</details>
+<details class="info" open="open">
+<summary>Building AST Automatically</summary>
+<p><code>yacc
+    %{ ... %}
+    %union {
+        int num;
+        string id;
+    }
+    %token &lt;num&gt; INT
+    %token &lt;id&gt; ID
+    %type &lt;num&gt; exp
+    ...
+    %left UMINUS
+    %%
+    exp : INT {$$ = $1;}
+        | exp '+' exp {$$ = $1 + $3;}
+        | exp '-' exp {$$ = $1 - $3;}
+        | exp '*' exp {$$ = $1 * $3;}
+        | MINUS exp %prec UMINUS {$$ = -$2;}</code></p>
+</details>
+<details class="info">
+<summary>Applications of AST Traversals</summary>
+<ul>
+<li>Pretty print</li>
+<li>Desugaring</li>
+<li>Inlining</li>
+<li>High-level optimizations (e.g., 删除公共子表达式)</li>
+<li>Symbolic execution!(e.g., Clang Static Analyzer)</li>
+<li>Semantic analysis , e.g., type checking</li>
+<li>Translation to intermediate representations</li>
+<li>&hellip;</li>
+</ul>
+</details>
+<!-- ### Positions
+
+- 在 one-pass 编译器中，词法分析，解析和语义分析是同时进行的
+- 如果出现了一个 type error 需要报错，那么词法分析器的 current position 是错误位置的合理近似位置
+- 在 one-pass 编译器中，词法分析器维护了一个 `current position` 全局变量
+-  -->
+
+<h3 id="tiger-language">Tiger Language<a class="headerlink" href="#tiger-language" title="Permanent link">👀</a></h3>
+<ul>
+<li>Simple control constructs:<ul>
+<li>if-then, if-then-else</li>
+<li>while-loops, for-loops</li>
+<li>function calls</li>
+</ul>
+</li>
+<li>Two basic types: int and string<ul>
+<li>Facility to define record and array types</li>
+<li>Facility to define mutually-recursive types</li>
+</ul>
+</li>
+<li>Supports nested functions, mutually recursive functions</li>
+</ul>
+<p><strong>1) Let-In-End Expressions</strong></p>
+<ul>
+<li>A Tiger program is expression (无 statement)</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>let
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    &lt;type declarations&gt;
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>    &lt;variable declarations&gt;
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>    &lt;function declarations&gt;
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>in
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>    &lt;sequence of expressions, separated by ;&gt;
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>end
+</code></pre></div>
+<ul>
+<li>Scope extends to end of expression sequence</li>
+</ul>
+<p><strong>2) Type Declarations</strong></p>
+<ul>
+<li>Array lengths are not specified until creation</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>type t1 = int
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>type t2 = string
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>type rec1 = {f1:int, f2:t2}
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>type intArray = array of int
+</code></pre></div>
+<p><strong>3) Variable Declarations</strong></p>
+<p><a class="glightbox" href="../../../Images/2024-05-06-10-52-55.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-05-06-10-52-55.png" /></a></p>
+<p><strong>4) Function Declarations</strong></p>
+<ul>
+<li>Parameters are passed by value:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>function add1(x:int):int = x+1;
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>function changeRec(r:rec1) =
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>    (r.f1 := r.f1 + 10; r.f2 := &quot;hello&quot;)
+</code></pre></div>
+<ul>
+<li>Function declarations can be nested<ul>
+<li>Nested functions can access local variables or parameters of outer functions</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>function f1(y:int):int =
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>let
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>    var z := 0
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>    var w := 0
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>    function f2():int = z + w * y
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>in
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>    f2()
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>end
+</code></pre></div>
+<p><strong>5) Mutual Recursion</strong></p>
+<p>Functions and types can be mutually recursive</p>
+<ul>
+<li>Mutually-recusive types must be declared consecutively with no intervening variable or function declarations | 互斥类型必须连续声明，中间不得有变量或函数声明</li>
+<li>Each recursion cycle in a type definition must pass through a record or array type | 每个递归循环在类型定义中必须通过记录或数组类型</li>
+<li>Mutually-recursive functions must be declared consecutively with no intervening type or variable declarations | 互斥递归函数必须连续声明，中间不得有类型或变量声明</li>
+</ul>
+<h2 id="semantic-analysis_1">Semantic Analysis<a class="headerlink" href="#semantic-analysis_1" title="Permanent link">👀</a></h2>
 
 
   
