@@ -133,6 +133,9 @@ function reload_js(src) {
             if (script_tag.src) {
                 new_script_tag.src = script_tag.src;
             }
+            if (script_tag.type) {
+                new_script_tag.type = script_tag.type;
+            }
             head.appendChild(new_script_tag);
         }
     } else {
@@ -168,12 +171,14 @@ function decrypt_somethings(key, encrypted_something) {
         if (html_item[0]) {
             for (let i = 0; i < html_item.length; i++) {
                 // grab the cipher bundle if something exist
-                let content = decrypt_content_from_bundle(key, html_item[i].innerHTML);
-                if (content !== false) {
-                    // success; display the decrypted content
-                    html_item[i].innerHTML = content;
-                    html_item[i].style.display = null;
-                    // any post processing on the decrypted content should be done here
+                if (html_item[i].style.display == "none") {
+                    let content = decrypt_content_from_bundle(key, html_item[i].innerHTML);
+                    if (content !== false) {
+                        // success; display the decrypted content
+                        html_item[i].innerHTML = content;
+                        html_item[i].style.display = null;
+                        // any post processing on the decrypted content should be done here
+                    }
                 }
             }
         }
@@ -182,7 +187,7 @@ function decrypt_somethings(key, encrypted_something) {
 };
 
 /* Decrypt content of a page */
-function decrypt_action(password_input, encrypted_content, decrypted_content, key_from_storage, username_input) {
+function decrypt_action(username_input, password_input, encrypted_content, decrypted_content, key_from_storage=false) {
     let key=false;
     let keys_from_keystore=false;
 
@@ -219,8 +224,7 @@ function decrypt_action(password_input, encrypted_content, decrypted_content, ke
     }
 };
 
-function decryptor_reaction(key_or_keys, password_input, fallback_used=false) {
-    let decrypted_element = document.getElementById("mkdocs-decrypted-content");
+function decryptor_reaction(key_or_keys, password_input, decrypted_content, fallback_used=false) {
     if (key_or_keys) {
         let key;
         if (typeof key_or_keys === "object") {
@@ -233,12 +237,24 @@ function decryptor_reaction(key_or_keys, password_input, fallback_used=false) {
 
         // continue to decrypt others parts
         
+        if (typeof inject_something !== 'undefined') {
+            decrypted_content = decrypt_somethings(key, inject_something);
+        }
+        if (typeof delete_something !== 'undefined') {
+            let el = document.getElementById(delete_something)
+            if (el) {
+                el.remove();
+            }
+        }
 
         // any post processing on the decrypted content should be done here
         if (typeof MathJax === 'object') { MathJax.typesetPromise();};
         if (typeof mermaid === 'object') { mermaid.contentLoaded();};
         
         
+        if (typeof theme_run_after_decryption !== 'undefined') {
+            theme_run_after_decryption();
+        }
         if (window.location.hash) { //jump to anchor if hash given after decryption
             window.location.href = window.location.hash;
         }
@@ -259,38 +275,45 @@ function decryptor_reaction(key_or_keys, password_input, fallback_used=false) {
 
 /* Trigger decryption process */
 function init_decryptor() {
-    var username_input = document.getElementById('mkdocs-content-user');
-    var password_input = document.getElementById('mkdocs-content-password');
+    let username_input = document.getElementById('mkdocs-content-user');
+    let password_input = document.getElementById('mkdocs-content-password');
     // adjust password field width to placeholder length
     //if (password_input.hasAttribute('placeholder')) {
     //    password_input.setAttribute('size', password_input.getAttribute('placeholder').length);
     //}
-    var encrypted_content = document.getElementById('mkdocs-encrypted-content');
-    var decrypted_content = document.getElementById('mkdocs-decrypted-content');
+    let encrypted_content = document.getElementById('mkdocs-encrypted-content');
+    let decrypted_content = document.getElementById('mkdocs-decrypted-content');
     let content_decrypted;
     /* If remember_keys is set, try to use sessionStorage item to decrypt content when page is loaded */
     let key_from_storage = getItemName(encryptcontent_id);
     if (key_from_storage) {
         content_decrypted = decrypt_action(
-            password_input, encrypted_content, decrypted_content, key_from_storage, username_input
+            username_input, password_input, encrypted_content, decrypted_content, key_from_storage
         );
         
-        decryptor_reaction(content_decrypted, password_input, true);
+        decryptor_reaction(content_decrypted, password_input, decrypted_content, true);
     }
     
     
-    /* Default, try decrypt content when key (ctrl) enter is press */
+    /* Default, try decrypt content when key enter is press */
     password_input.addEventListener('keypress', function(event) {
         if (event.key === "Enter") {
             event.preventDefault();
             content_decrypted = decrypt_action(
-                password_input, encrypted_content, decrypted_content, false, username_input
+                username_input, password_input, encrypted_content, decrypted_content
             );
-            decryptor_reaction(content_decrypted, password_input);
+            decryptor_reaction(content_decrypted, password_input, decrypted_content);
         }
     });
 }
 if (typeof base_url === 'undefined') {
     var base_url = JSON.parse(document.getElementById('__config').textContent).base;
 }
-document.addEventListener('DOMContentLoaded', init_decryptor());
+if (document.readyState === "loading") {
+  // Loading hasn't finished yet
+  document.addEventListener("DOMContentLoaded", init_decryptor);
+} else {
+  // `DOMContentLoaded` has already fired
+  init_decryptor();
+}
+window["init_decryptor"] = init_decryptor;
