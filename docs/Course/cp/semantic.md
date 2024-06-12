@@ -1,4 +1,4 @@
-# Semantic Analysis
+# Semantic Analysis | Activation Record
 
 ## 过渡知识
 
@@ -322,7 +322,7 @@ E.g., {$g \mapsto \text{string}, ~ a \mapsto \text{int}$}
 ???+ example
     > 考试可能考画 tiger 语言的符号表
 
-    ```tiger linenums="1" hl_lines="1 3 4 6"
+    ```c linenums="1" hl_lines="1 3 4 6"
     function f(a:int, b:int, c:int) =
         (print_int(a+c) ;
         let var j := a+b
@@ -453,9 +453,394 @@ E.g., {$g \mapsto \text{string}, ~ a \mapsto \text{int}$}
 
 ### Symbols in the Tiger Compiler
 
-实现表的时候存在一个问题：
+实现表的时候存在一个问题：对于判断 `key value = string | (strcmp)`, 我们在查找的时候需要进行大量的字符串比较操作
 
+一种解决方法是：使用 `symbol` 数据结构代替
 
+- 即每个 `symbol` 对象都与整数值相关联
+- 相同的字符串映射到同一个 `symbol` 对象
+- 于是之前比较 `key value = symbol` 可以变成简单的整数比较
 
+#### Implementation of Symbol Tables
+
+**The interface of symbols and symbol tables:**
+
+- `void*`: 在编译器中为不同目的使用不同的绑定概念, e.g., 
+    - Type binding for types
+    - value binding for variables and functions
+
+```c
+typedef struct S_symbol_ *S_symbol;
+S_symbol S_Symbol(string name);
+string S_name(S_symbol s);
+
+typedef struct TAB_table_ *S_table;
+S_table S_empty(void);
+void S_enter(S_table t, S_symbol sym, void *value);
+void *S_look(S_table t, S_symbol sym);
+void S_beginScope(S_table t);
+void S_endScope(S_table t);
+```
+
+??? code "mksymbol, S_Symbol, S_name"
+    ```c
+    static S_symbol mksymbol(string name, S_symbol next) {
+        S_symbol s = checked_malloc(sizeof(*s));
+        s->name = name;
+        s->next = next;
+        return s;
+    }
+
+    S_symbol S_Symbol(string name) {
+        int index = hash(name) % SIZE;
+        S_symbol syms = hashtable[index], sym;
+        for (sym = syms; sym; sym = sym->next)
+            if (strcmp(sym->name, name) == 0)
+                return sym;
+        sym = mksymbol(name, syms);
+        hashtable[index] = sym;
+        return sym;
+    }
+
+    string S_name(S_symbol s) {
+        return s->name;
+    }
+    ```
+
+- 用 C 语言实现的 Tiger 编译器使用 `destructive update` 的方式来更新 environments
+- An imperative table is implemented using a hash table.
+
+??? code "S_empty, S_enter, S_look"
+    ```c
+    S_table S_empty(void) {
+        return TAB_empty();
+    }
+
+    void S_enter(S_table t, S_symbol sym, void *value) {
+        TAB_enter(t, sym, value);
+    }
+
+    void *S_look(S_table t, S_symbol sym) {
+        return TAB_look(t, sym);
+    }
+    ```
+
+For destructive-update environments, 通过下面的方式实现 `beginScope` 和 `endScope`:
+
+- `S_beginScope`: 记住表格的当前状态；
+- `S_endScope`:  将表恢复到最近一次 beginScope 的位置。
+
+??? code "S_beginScope, S_endScope"
+    ```c
+    static struct S_symbol_ marksym = { “<mark>”, 0 };
+    void S_beginScope(S_table t) {
+        S_enter(t, &marksym, NULL);
+    }
+
+    void S_endScope(S_table t) {
+        S_symbol s;
+        do
+            s = TAB_pop(t);
+        while (s != &marksym);
+    }
+    ```
+
+**Auxiliary stack:**
+
+- Showing in what order the symbols were “pushed” into the symbol table. | 显示符号表中符号的顺序
+- As each symbol is popped, the head binding in its bucket is removed. ｜ 每次弹出一个符号，就会从 bucket 中删除一个 binding
+- `beginScope`: pushes a special marker onto the stack | 将一个特殊的标记推入栈中
+- `endScope`: pops symbols off the stack until finds the topmost  marker. | 弹出符号直到找到最顶部的标记
+
+- The auxiliary stack can be integrated into the Binder by having a global variable top showing the most recent Symbol bound in the table. | 可以将 auxiliary stack 集成到 Binder 中，通过一个全局变量 `top` 来显示最近绑定的符号
+- Pushing: copy top into the prevtop field of the Binder. | 将 `top` 复制到 `prevtop` 字段中
+
+??? code "Binder"
+    ```c
+    struct TAB_table_ { 
+        binder table[TABSIZE]; 
+        void *top;
+    };
+
+    static binder Binder(void *key, void *value, binder next, void *prevtop) {
+        binder b = checked_malloc(sizeof(*b));
+        b->key = key; 
+        b->value = value; 
+        b->next = next; 
+        b->prevtop = prevtop;
+        return b;
+    }
+    ```
 
 ### Type Checking
+
+### 类型及其作用
+
+??? info "编程语言中的类型"
+    - 变量的类型：
+        - 限制了变量在程序执行期间的取值范围
+    - 类型化的语言 (typed language)：
+        - 变量都被给定类型的语言，如 C/C++、Java、Go
+        - 表达式、语句等程序构造的类型都可以静态确定
+    - 未类型化的语言 (untyped language)
+        - 不限制变量值范围的语言 (no static types, 而非没有类型), 如 LISP、JavaScript 
+
+类型在编程语言中的作用:
+
+- 开发效率：更高层次的编程抽象, e.g.,
+    - 多态、代数数据类型、依赖类型… 
+    - hoogle利用类型信息搜索API
+- 运行性能：类型指导的编译优化, e.g.,
+    - 静态类型绑定避免运行时检查
+    - 类型信息优化内存布局
+- 安全可靠：内存安全乃至功能正确, e.g.,
+    - Rust线性类型保障内存安全
+    - LiquidHaskell 精化类型保障功能正确
+
+### Tiger 类型系统
+
+??? info "Type Checking 中的关键问题"
+    - What are valid type expressions ?
+        - 总共有哪些类型，每个类型表达式对应到什么?
+        - e.g., int, string, unit, nil, array of int, record ...
+    - How to define two types are equivalent ?
+        - 比如，两个 record 类型是否相同?
+    - What are the typing rules ?
+        - 要检查什么，比如形参和实参是否一致?
+
+**1) 首先回顾 Tiger 语言总共有哪些类型：**
+
+- 基本类型：int, string
+- 复合类型：record, array | using records and arrays from other types (primitive, record, or array)
+
+??? note "类型的文法定义和声明案例"
+    ![](../../Images/2024-06-11-21-44-25.png)
+
+那么如何将 type identifier 和 expression 绑定起来？
+
+- 当处理相互递归类型时：`Ty_Namw(sym, NULL)` 
+    - a place-holder for the type-name `sym`
+
+**2) 类型等价 (Type Equivalence)：**
+
+有如下两种等价关系：
+
+- *Name equivalence (NE):* T1 and T2 are equivalent iff T1 and T2 are identical type names defined by the exact same type declaration.
+- *Structure equivalence (SE):* T1 and T2 are equivalent iff T1 and T2 are composed of the same constructors applied in the same order.
+
+```c
+type a = {x:int, y:int}
+type ptr = {x:int, y:int}
+function f(a : point) = a
+```
+
+<u>Tiger 使用 Name Equivalence</u>，E.g., point and ptr are equivalent under SE but not equivalent under NE
+
+> Type equivalence 影响类型检查，如是否需要在 Typing environment 增加新的类型? 函数的形参和实参类型识别匹配?
+
+
+!!! warn "类型等价"
+    - 要注意每一个 `record type expression` 都创建一个新的、不同的 `record type`
+    
+    ??? example
+        === "Illegal"
+            ```c
+            let type a = {x:int, y:int}
+                type b = {x:int, y:int}
+                var i : a := ...
+                var j : b := ...
+            in i := j
+            end
+            ```
+        === "Legal"
+            ```c
+            let type a = {x:int, y:int}
+                type b = a
+                var i : a := ...
+                var j : b := ...
+            in i := j
+            end
+            ```
+
+**3) Tiger 的命名空间**
+
+Tiger 有两个独立的命名空间：
+
+- *Types*
+- *Variables and functions*
+
+=== "Type"
+    ```c
+    let type a = int
+        var a := 1
+    in ...
+    end
+    ```
+
+    - Both `a` can be used.
+=== "Variable and Function"
+    ```c
+    let function a(b : int) = ...
+        var a := 1
+    in ...
+    end
+    ```
+
+    - **variables and functions of the same name cannot both be in scope simultaneously (one will hide the other)** | 变量和函数不能同时存在，一个会隐藏另一个
+    - var `a` hides function `a`
+
+
+### Tiger 类型检查
+
+Tiger 语义分析需要维护 2 个环境:
+
+- *Types* environment: Maps type symbol to type that it stands for `Symbol -> Ty_ty`
+- *Variables and functions* environment:
+    - Maps variable symbol to its type. 
+        - E.g., `Symbol -> Ty_ty`
+    - Maps function symbol to parameter and result types.
+        - E.g., `Symbol -> struct {Ty_tyList formals; Ty_ty result}`
+
+??? note "预定义环境"
+    === "code"
+        ```c
+        typedef struct E_envent_ *E_envent;
+        struct E_enventry_ {
+            enum {E_varEntry, E_funEntry} kind; 
+            union {
+                struct {Ty_ty ty;} var;
+                struct {Ty_tyList formals; Ty_ty result;} fun; 
+                } u;
+        };
+        E_enventry E_VarEntry(Ty_ty ty); 
+        E_enventry E_FunEntry(Ty_tyList formals, Ty_ty result);
+
+        S_table E_base_tenv(void); /* Ty_ty environment */ 
+        S_table E_base_venv(void); /* E_enventry environment */
+        ```
+    === "Explanation"
+        Predefined type and value environments
+        
+        - Type environment "int" $\mapsto$ `Ty_Int()`, "string" $\mapsto$ `Ty_String()`
+        - Value environment contains predefined functions of Tiger
+
+对于语义分析, 既做语义检查又做中间代码 (IR Code) 生成。同时对 expressions 和 declarations 进行检查
+
+> 现在还不用考虑 IR code 生成
+
+??? info "Implementation"
+    - The Semant module (semant.h, semant.c) performs semantic analysis including type-checking – of abstract syntax
+    - Semantic analysis: four recursive functions over AST
+
+    ??? code "Semantic analysis"
+        ```c
+        Struct expty transVar (S_table venv, S_table tenv, A_var v); 
+        struct expty transExp (S_table venv, S_table tenv, A_exp a);
+        void transDec (S_table venv, S_table tenv, A_dec d);
+        Ty_ty transTy (S_table tenv, A_ty a);
+        ```
+
+1. Type-checking expressions 
+2. Type-checking declarations
+    - Variable declarations
+    - Type declarations
+    - Function declarations
+    - Recursive type declarations
+    - Recursive function declarations
+
+#### Type-checking expressions
+
+```c
+Struct expty transExp (S_table venv, S_table tenv, A_exp a);
+```
+
+- `transExp`: Type-checking expressions: query && update the environments
+- **Input**: 
+    - `venv`: value environment
+    - `tenv`: type environment
+    - `a`: expression to be type-checked
+- **Output**:
+    - a translated expression and its Tiger-language type
+
+**Rules**:
+
+- **Function call**: the types of formal parameters must be equivalent to the types of actual arguments.
+- **If-expression**: `if exp1 then exp2 else exp3`
+    - The type of `exp1` must be integer, the types of `exp2` and `exp3` should be equivalent.
+
+> 此处举两个例子，其余见虎书附录
+
+#### Type-checking declarations
+
+**Declarations 会修改 environments**，且在 Tiger 语言中，declaration 只能出现在 `let` 中 (`let` 中的声明可以在 `in` 中使用)
+
+**1) Variable Declarations**
+
+- Processing a variable declaration **without a type constraint:**
+
+```c
+var x := exp
+```
+
+- Processing a variable declaration **with a type constraint:**
+    - 需要检查 constraint 和 initializing expression 的类型是否一致
+    - 同时，initializing expressions of type `Ty_Nil` must be constrained by a `Ty_Record` type.
+
+```c
+var x: type-id := exp
+```
+
+**2) Type Declarations:**
+
+非递归类型声明，如 `type type-id = ty `
+
+- `transTy` 函数将 `ty` 递归转换为 `Ty_ty` 类型
+
+??? info 
+    可以直接利用抽象语法树 (AST) 节点上的类型信息 (A_ty) 
+
+    ```c hl_lines="4"
+    void transDec (S_table venv, S_table tenv, A_dec d) {
+        ...
+        case A_typeDec: {
+            S_enter(tenv, d->u.type->name, transTy(tenv, d->u.type->ty));
+        }
+        ...
+    }
+    ```
+
+    > NOTICE: This program fragment only handles the type-declaration list of length 1!
+
+**3) Function Declarations:**
+
+非递归函数声明，如 `function id (tyfields) ： type-id = exp`
+
+...
+
+**4) Recursive Type Declarations:**
+
+首先考虑如何将声明 `type list = {first:int, res:list}` 转化为 internal type representations？
+
+- 困难在于：需要从 type environment 中找到 `list` 的定义，但是此时 `list` 还没有被定义。
+- 解决办法是：**use two passes**
+    1. Put all the "headers" in the environment first (即便他们还没有 bodies)
+          1. 例如上例中：`type list =` 就是一个 header
+          2. Use the special **"name" type** for the header
+    2. Call `transTy` on the "body" of the type declaration
+          1. 对于上例，record type expression `{first:int, res:list}` 就是 body
+          2. The type that `transTy` returns can then be assigned into the ty field within the `Ty_Name` struct.
+
+!!! important "Tiger 语言的重要特性之一"
+    Every cycle in a set of mutually recursive type declarations MUST pass through a record or array declaration！| 在一组相互递归的类型声明中，每个循环都必须经过记录或数组声明
+
+    ??? example
+        ![](../../Images/2024-06-12-20-01-35.png)
+
+??? info "手动递归函数声明"
+    - 手动处理递归函数也是类似.E.g., `f call g, g call f`
+    - **Problem**: 在处理函数声明的右侧时，我们可能会遇到 env 中尚未定义的符号
+    - **Solution**: 
+        - First pass: gathers information about the **header** of each function but leaves the bodies of the functions untouched.
+        - Second pass: processes the **bodies** of all functions with the augmented environment.
+
+## Activation Record

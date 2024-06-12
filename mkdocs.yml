@@ -147,34 +147,37 @@ theme:
   custom_dir: overrides
   icon: 
     logo: material/airplane # 页面icon
+    admonition:
+      note: fontawesome/solid/note-sticky
+      abstract: fontawesome/solid/book
+      info: fontawesome/solid/circle-info
+      tip: fontawesome/solid/bullhorn
+      success: fontawesome/solid/check
+      question: fontawesome/solid/circle-question
+      warning: fontawesome/solid/triangle-exclamation
+      failure: fontawesome/solid/bomb
+      danger: fontawesome/solid/skull
+      bug: fontawesome/solid/robot
+      example: fontawesome/solid/flask
+      quote: fontawesome/solid/quote-left
+      code: fontawesome/solid/code
   font: 
     text: LXGW WenKai Screen #JetBrains Mono
     code: JetBrains Mono
   favicon: Icon/Avatar.png
-  admonition:
-    note: octicons/tag-16
-    abstract: octicons/checklist-16
-    info: octicons/info-16
-    tip: octicons/squirrel-16
-    success: octicons/check-16
-    question: octicons/question-16
-    warning: octicons/alert-16
-    failure: octicons/x-circle-16
-    danger: octicons/zap-16
-    bug: octicons/bug-16
-    example: octicons/beaker-16
-    quote: octicons/quote-16
-    code: octicons/code-16
   palette:
     - scheme: Kleinland
-      # primary: Kleinland 
       toggle:
         icon: material/toggle-switch
         name: Switch to Light_Pink mode
     - scheme: DustyPeony
-      # primary: DustyPeony 
       toggle:
         icon: material/toggle-switch-off-outline
+        name: Switch to Dark_Pink mode
+    - scheme: slate
+      primary: DustyPeony
+      toggle:
+        icon: material/toggle-switch
         name: Switch to Light_Blue mode
   # 导航栏
   features:
@@ -219,7 +222,6 @@ plugins:
       encryption_info_message: Contact me(Enl_Z) via methods provided in the comments section for access to this page
   - mermaid2:
       javascript: https://unpkg.com/mermaid@10.4.0/dist/mermaid.esm.min.mjs 
-  - obsidian-support
   - glightbox
   - statistics
   # - blog

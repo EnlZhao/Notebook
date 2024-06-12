@@ -11,3 +11,5 @@ site/
 
 *.pth
 *.sh
+
+requirements.txt
