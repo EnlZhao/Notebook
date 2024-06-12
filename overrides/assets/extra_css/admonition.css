@@ -55,3 +55,41 @@
     color: #000;
     flex: 1;
 }
+
+/* custom admonition*/
+
+:root {
+    --md-admonition-icon--code: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M278.9 511.5l-61-17.7c-6.4-1.8-10-8.5-8.2-14.9L346.2 8.7c1.8-6.4 8.5-10 14.9-8.2l61 17.7c6.4 1.8 10 8.5 8.2 14.9L293.8 503.3c-1.9 6.4-8.5 10.1-14.9 8.2zm-114-112.2l43.5-46.4c4.6-4.9 4.3-12.7-.8-17.2L117 256l90.6-79.7c5.1-4.5 5.5-12.3 .8-17.2l-43.5-46.4c-4.5-4.8-12.1-5.1-17-.5L3.8 247.2c-5.1 4.7-5.1 12.8 0 17.5l144.1 135.1c4.9 4.6 12.5 4.4 17-.5zm327.2 .6l144.1-135.1c5.1-4.7 5.1-12.8 0-17.5L492.1 112.1c-4.8-4.5-12.4-4.3-17 .5L431.6 159c-4.6 4.9-4.3 12.7 .8 17.2L523 256l-90.6 79.7c-5.1 4.5-5.5 12.3-.8 17.2l43.5 46.4c4.5 4.9 12.1 5.1 17 .6z"/></svg>')
+  }
+  .md-typeset .admonition.code,
+  .md-typeset details.code {
+    border-color: rgb(38, 59, 198);
+  }
+  .md-typeset .code > .admonition-title,
+  .md-typeset .code > summary {
+    background-color: rgba(211, 235, 217, 0.1);
+  }
+  .md-typeset .code > .admonition-title::before,
+  .md-typeset .code > summary::before {
+    background-color: rgb(38, 59, 198);
+    -webkit-mask-image: var(--md-admonition-icon--code);
+            mask-image: var(--md-admonition-icon--code);
+  }
+
+  :root {
+    --md-admonition-icon--important: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M176 432c0 44.1-35.9 80-80 80s-80-35.9-80-80 35.9-80 80-80 80 35.9 80 80zM25.3 25.2l13.6 272C39.5 310 50 320 62.8 320h66.3c12.8 0 23.3-10 24-22.8l13.6-272C167.4 11.5 156.5 0 142.8 0H49.2C35.5 0 24.6 11.5 25.3 25.2z"/></svg>')
+  }
+  .md-typeset .admonition.important,
+  .md-typeset details.important {
+    border-color: rgb(27, 192, 40);
+  }
+  .md-typeset .important > .admonition-title,
+  .md-typeset .important > summary {
+    background-color: rgba(43, 155, 70, 0.1);
+  }
+  .md-typeset .important > .admonition-title::before,
+  .md-typeset .important > summary::before {
+    background-color: rgb(27, 192, 40);
+    -webkit-mask-image: var(--md-admonition-icon--important);
+            mask-image: var(--md-admonition-icon--important);
+  }

@@ -161,6 +161,7 @@ theme:
       example: fontawesome/solid/flask
       quote: fontawesome/solid/quote-left
       code: fontawesome/solid/code
+      important: fontawesome/solid/exclamation
   font: 
     text: LXGW WenKai Screen #JetBrains Mono
     code: JetBrains Mono
