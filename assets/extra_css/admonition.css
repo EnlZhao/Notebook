@@ -99,7 +99,7 @@
   }
   .md-typeset .admonition.think,
   .md-typeset details.think {
-    border-color: rgb(237, 237, 121);
+    border-color: rgb(234, 234, 116);
   }
   .md-typeset .think > .admonition-title,
   .md-typeset .think > summary {
@@ -107,7 +107,7 @@
   }
   .md-typeset .think > .admonition-title::before,
   .md-typeset .think > summary::before {
-    background-color: rgb(237, 237, 121);
+    background-color: rgb(203, 203, 99);
     -webkit-mask-image: var(--md-admonition-icon--think);
             mask-image: var(--md-admonition-icon--think);
   }

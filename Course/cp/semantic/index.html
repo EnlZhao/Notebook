@@ -2561,6 +2561,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#tiger-frame" class="md-nav__link">
+    <span class="md-ellipsis">
+      关于 Tiger 编译器中 Frame 的补充
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -4660,6 +4669,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#tiger-frame" class="md-nav__link">
+    <span class="md-ellipsis">
+      关于 Tiger 编译器中 Frame 的补充
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -4686,7 +4704,7 @@
 
 <h1 id="semantic-analysis-activation-record">Semantic Analysis | Activation Record<a class="headerlink" href="#semantic-analysis-activation-record" title="Permanent link">👀</a></h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 6687 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg></span> 211 行代码 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"/></svg></span> 预计阅读时间 25 分钟</p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 7081 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg></span> 211 行代码 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"/></svg></span> 预计阅读时间 26 分钟</p>
 </div>
 <h2 id="_1">过渡知识<a class="headerlink" href="#_1" title="Permanent link">👀</a></h2>
 <h3 id="attribute-grammar">属性文法 | Attribute Grammar<a class="headerlink" href="#attribute-grammar" title="Permanent link">👀</a></h3>
@@ -6029,10 +6047,68 @@
 <div class="admonition important">
 <p class="admonition-title">和之前提到的 Stack frame 可能有所不同，考试以这一部分为主</p>
 </div>
-<div class="admonition note">
+<div class="admonition note inline">
 <p class="admonition-title">A Typical Stack Frame Layout for Tiger</p>
-<p><a class="glightbox" href="../../../Images/2024-06-21-21-12-45.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-06-21-21-12-45.png" /></a></p>
+<p><a class="glightbox" href="../../../Images/2024-06-21-21-16-55.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-06-21-21-16-55.png" /></a></p>
 </div>
+<ul>
+<li><em>incoming arguments</em>: passed by the caller</li>
+<li><em>return address</em>: where (within the calling function) control should return:<ul>
+<li>created by the CALL instruction</li>
+</ul>
+</li>
+<li>some <em>local variables</em> are in this frame, other local variables are kept in registers</li>
+<li><em>saved registers</em>: make room for other uses of the registers</li>
+<li><em>outgoing argument</em>: pass parameters to other functions</li>
+<li><em>static link</em></li>
+<li><em>Frame point</em> 为特定寄存器 (如rbp, SP)，其值为栈上的内存地址<ul>
+<li>该地址的内存中所保存值是 stack link (某个函数的 frame point)</li>
+</ul>
+</li>
+</ul>
+<details class="example">
+<summary>关于 incoming &amp; outgoing arguments 的例子</summary>
+<p><a class="glightbox" href="../../../Images/2024-06-21-21-21-18.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-06-21-21-21-18.png" /></a></p>
+</details>
+<p>On each procedure call or variable access, a chain of zero or more fetches is required; the length of the chain is just the difference in static nesting depth between the two functions involved. | 在每次函数调用或变量访问时，可能需要零个或多个取值操作；这个操作链的长度正是涉及的两个函数之间静态嵌套深度的差值。</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Static links may skip dynamic frames between f and g. They always point to the most recent frame of the routine that statically encloses the current routine. | 静态链接可能会跳过介于 f 和 g 之间的动态帧。它们始终指向当前程序被静态包含的最新帧。</p>
+</div>
+<details class="info">
+<summary>Limitation of Stack Frame</summary>
+<ul>
+<li><strong>Hard to support higher-order function</strong>: 支持高阶函数较为困难, 涉及嵌套函数与函数作为参数及返回值的组合。</li>
+<li>在支持高阶函数的语言中，函数返回后可能需要保留局部变量。</li>
+<li>但到目前为止，我们假定函数 f 返回后局部变量不会被使用（所以我们使用栈来存储）</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"></th>
+<th style="text-align: center;">Pascal; Tiger</th>
+<th style="text-align: center;">C</th>
+<th style="text-align: center;">ML; LISP; Haskell</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">Nested functions</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">Yes</td>
+</tr>
+<tr>
+<td style="text-align: center;">Procedure passed as arguments and results</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+</tr>
+</tbody>
+</table>
+</details>
+<h3 id="tiger-frame">关于 Tiger 编译器中 Frame 的补充<a class="headerlink" href="#tiger-frame" title="Permanent link">👀</a></h3>
+<p>TODO</p>
 <div class="footnote">
 <hr />
 <ol>
