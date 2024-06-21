@@ -844,3 +844,325 @@ var x: type-id := exp
         - Second pass: processes the **bodies** of all functions with the augmented environment.
 
 ## Activation Record
+
+!!! important "较简单，可略看"
+
+??? note "Overview of a Morden Processor"
+    由四部分组成：
+
+    - ALU 算术逻辑单元：执行算术和逻辑运算
+    - Registers 寄存器：存储临时数据 (有限数量但速度快，且用途大多相同，少部分有特殊用途，如 PC, SP)
+    - Control: 控制单元，执行指令，控制数据流向 (指令存储在内存中)
+    - Memory: 存储数据和指令 (地址空间是程序使用内存的方式)
+
+程序的运行时 **内存布局** 如下：
+
+![](../../Images/2024-06-21-09-23-06.png)
+
+本节聚焦于 **Activation Record**，即活动记录
+
+活动记录在函数 (Function)、过程 (Procedure) 和方法 (Method) 调用中起着重要作用，其实就是函数调用的栈帧
+
+函数和 API、ABI 很相似：
+
+- API (Application Programming Interface): 源程序之间的接口
+- ABI (Application Binary Interface): <font color="red">本节的主题就是如何实现 ABI</font> 
+    - 二进制程序之间的接口 (甚至可以是不同编译器编译编程语言的程序)
+    - Conventions on low-level details：
+        - 如何传递参数？
+        - 如何返回值？
+        - 如何处理寄存器？
+        - ...
+
+> - 通常情况下，function 和 method 视为同一种东西。 
+> - tiger 将过程和函数区分开来，过程没有返回值，函数有返回值
+
+### Stack Frame
+
+??? note "Function Invocation"
+    <u>An invocation of function P is an <B>activation</B> of P</u>
+    那么如何保存局部变量？
+
+    - Each invocation has its own instantiation of local variables | 每次调用都有自己的局部变量实例化
+    - 函数调用遵循后进先出（LIFO）原则
+    - 使用 LIFO 数据结构 —— 一个栈
+
+- **Activation record** Or **stack frame (栈帧)**: a piece of memory on the stack for a function
+- 栈帧连接了 caller 和 callee, E.g.,
+    - Relevant machine state (saved registers, return address) | 相关机器状态
+    - Space for return value | 返回值空间
+    - Space for local data | 本地数据空间
+    - Pointer to activation for accessing non-local data | 访问非本地数据的激活指针
+
+!!! question "由此引入 **关键问题**：如何布局 Activation record，以便调用者和被调用者能够正常通信？"
+
+#### 活动记录的设计
+
+> 《深入理解计算机系统》中的 Stack Frame 例子
+
+!!! important "Stack Frame 从高地址往低地址增长"
+
+对于 Frame 和 Stack 指针：
+
+![](../../Images/2024-06-21-14-47-53.png)
+
+- **Frame Pointer (FP)** (base pointer, 基址寄存器)
+    - 指向当前帧的起始位置
+    - 编编译代码引用局部变量和参数的方式是使用帧指针的偏移量
+    - E.g., x86: `ebp`, `rbp`; ARM: `fp`
+- **Stack Pointer (SP)** (top of stack, 栈顶指针)
+    - 指向当前帧的栈顶 (最低地址)
+    - Referring to the top of the stack
+    - E.g., x86: `esp`, `rsp`; ARM: `sp`
+
+??? example "Workflow Of Function Call"
+    f(...) 函数调用 g(a1, ..., an) 函数的过程：
+    
+    - 当 f 调用 g 时:
+        - 堆栈指针指向f传递给g的第一个参数
+        - g 通过简单地从堆栈指针（SP）减去帧大小来分配一个帧
+    - 当进入 g 时：
+        - 将旧的帧指针FP保存在帧中的内存中
+        - `FP = SP`
+    - 当从 g 返回时：
+        - `SP = FP`
+        - 恢复保存的旧帧指针 (FP)
+
+### Use of Registers
+
+!!! question "How to reduce memory traffic?"
+
+??? think "Recap: Memory Hierarchy"
+    - 访问寄存器比访问内存快得多
+    
+    ![](../../Images/2024-06-21-15-32-56.png)
+
+- Problem: **Putting everything in the stack frame can cause the memory traffic**
+- Solution: **Hold as much of the frame as possible in registers**
+    - (Some) function parameters
+    - Function return address
+    - Function return value
+    - (Some) Local variables
+    - (Some) Intermediate results of expressions (temporaries)
+
+#### Using Registers: 参数传递
+
+??? info "Tiger 的参数方式：Call-by-Value"
+    - 实际参数的值被传递并作为形式参数的值确立。
+    
+    > 对形式参数的修改不会影响实际参数。
+
+!!! warning "Problem: passing parameter stack causes memory traffic"
+    Solution (现代机器的参数传递约定)：
+
+    - The first k arguments ( k = 4 or 6) are passed in registers 
+    - The rest are passed on the stack
+
+虽然通过将部分参数传递到寄存器中可以减少内存流量，但是这种方法也有一些问题 : **extra memory traffic caused by passing arguments in registers!**
+
+Solution: **"Saving" the status of registers**
+
+??? info "More about Register Saving Conventions"
+    ![](../../Images/2024-06-21-15-51-19.png)
+
+考虑一种场景:
+
+```c linenums="1" hl_lines="1 3 5"
+f(int a) {
+    int z = ...
+    h(z);
+    ...
+    int t = a + 1;
+    ...
+}
+```
+
+- 假如 `f` 从寄存器 `r1` 中得到参数 `a`，随后通过寄存器 `r1` 将 `z` 传递给 `h`
+- 那么 `f` 在调用 `h` 之前需要保存 `r1` 的状态，以便在调用 `h` 之后恢复
+
+如何避免 `extra memory traffic` 呢？
+
+1. 如果在 `f` 中调用 `h` 之前，`a` 已经是一个 `dead variable`，那么就不需要保存 `r1` 的状态 (比如，不存在第五行，**那么就需要对代码预先做分析**)
+2. 也可以使用 `global register allocation`: 不同的函数使用不同的寄存器组，这样就不需要保存寄存器状态 (例如，`r1` 可以用于 `f`，`r2` 可以用于 `h`)
+3. Leaf procedures (没有调用其他函数的函数) 可以不保存寄存器状态
+4. 使用 `register windows` (SPARC)：每个函数调用可以申请一组新的寄存器，这样就不需要保存寄存器状态
+
+#### Using Registers: Others
+
+**1) 对于返回地址：**
+
+- 在现代机器上，调用指令只是将返回地址放到指定的寄存器中；
+- nonleaf procedures 必须将其写入堆栈（除非使用了 interprocedural register）, 叶子过程则不需要
+
+**2) 对于返回值：**
+
+- 通常情况下，返回值被 callee 放在指定的寄存器中
+
+**3) 对于 Locals and Tempories:**
+
+- 一些局部变量和临时变量（如表达式的中间结果）可以放在寄存器中，以减少内存流量
+
+> 在寄存器分配一节中详细讨论关于局部变量和临时变量的问题
+
+### Frame-Resident Variables
+
+<!-- !!! question "很多地方都可以用寄存器，还需要在 stack frame 中分配内存空间吗？" -->
+
+A variable **will be allocated in stack frames because:**
+
+- It is *passed by reference*，因此他必须要有一个内存地址
+- Its *address is taken*, 例如，通过 `&` 操作符
+- It is accessed by a procedure nested inside the current one; | 它通过当前程序中嵌套的程序来访问； 
+- 这个值太大，无法放入单个寄存器中；  
+- 该变量是一个 **数组**，需要进行地址运算来提取组件；  
+- 保存变量的寄存器有特定用途，比如传递参数（如上所述）；  
+- 局部变量和临时变量太多，导致“溢出” （将在讨论寄存器分配时详述）
+
+??? note "逃逸情况"
+    The variable **escapes**[^1] for any of the reasons:
+
+    - 通过引用传递，因此它必须有一个内存地址；
+    - 它的地址被获取，例如，在C语言中是 `&a`；
+    - 它被当前函数内部的嵌套过程访问。
+    
+    ??? example
+        **pass-by-reference** (在 Pascal 中支持，但 Tiger 不支持)：
+
+        - 真实的变量位置传递；
+        - 对形式参数的引用隐含着访问实际参数值的间接访问。
+        - 对形式参数的修改确实会改变实际参数！
+    
+[^1]: 通俗来讲，当一个对象的指针被多个方法或线程引用时，则称这个指针发生了逃逸。逃逸分析决定一个变量是分配在堆上还是分配在栈上。
+
+### Block Structure
+
+> Tiger 语言嵌套函数的实现
+
+#### Static Link (重点)
+
+使用 **static link** 的动机源自于 **block structure** 的实现
+
+![](../../Images/2024-06-21-20-18-09.png)
+
+!!! abstract
+    Whenever a function g is called, it can be passed a pointer to the frame of the function statically enclosing g; this pointer is the static link. | 每当函数 g 被调用时，可以传入一个指向静态包围 g 的函数帧的指针；这个指针就是静态链接。
+
+![](../../Images/2024-06-21-20-23-10.png)
+
+考虑上图，Static Link -> 每当函数 g 被调用时，它会接收到一个指针，该指针指向程序文本中立即包围 g 的 f 函数的最新活动记录｜Whenever g is called, it is passed pointer to most recent activation record of f that **immediately encloses g in program text**
+
+> The static link is a pointer to the activation record of the enclosing procedure
+
+**可以使用 static link 访问 non-local data**:
+
+- 每个函数标有其嵌套深度
+- 当深度为 n 的函数访问深度为 m 的变量时，生成代码以向上爬 n-m 层 link，以访问合适的活动记录
+
+??? example
+    === "C"
+        ```c
+        int f (int x, int y)
+        {
+            int m;
+            int g (int z)
+            {
+                int h ()
+                {
+                    return m + z;
+                }
+                return 1;
+            }
+            return 0;
+        }
+        ```
+    === "static link"
+        ```c
+        int f(link, int x, int y)
+        {
+            int m;
+            int g(link, int z)
+            {
+                int h(link)
+                {
+                    return link->prev->m + link->z;
+                }
+                return 1;
+            }
+            return 0;
+        }
+        ```
+
+??? info "优缺点"
+    - 优点：
+        - Little extra overhead on parameter passing
+    - 缺点：(主要是 climb up link 的开销)
+        - 需要为每个变量访问建立一系列间接内存引用
+        - 间接引用的数量等于变量声明函数和使用函数之间的嵌套深度差
+        - 函数可能深嵌套！
+
+#### Lambda Lifting
+
+!!! abstract
+    When f calls g, each variable of f that is actually accessed by g (or by any function nested inside g) is passed to g as an extra argument. This is called lambda lifting. | 当函数f调用函数 g 时，f 中被 g（或 g 内部嵌套的任何函数）实际访问到的每个变量，都会作为额外的参数传递给 g。这被称为 Lambda Lifting。
+
+- 当函数 g 调用 f 时，f（或 f 内部嵌套的任何函数）实际访问的 g 中的每个变量都会作为额外参数传递给 f。
+    - 通过将非局部变量视为形式参数来重写程序
+- 转换过程从最内层的程序开始，逐渐向外层推进。
+
+??? example
+    ![](../../Images/2024-06-21-21-01-37.png)
+
+    > 具体实现应该是传地址
+
+#### Display
+
+!!! abstract
+    A global array can be maintained, containing – in position i – a pointer to the frame of the most recently entered procedure whose static nesting depth is i. This array is called a display | 可以维护一个全局数组，其中在位置i存储最近进入的、静态嵌套深度为 i 的程序的帧指针。这个数组被称为显示体。
+
+**Display: a global array of pointers to frames**
+
+- 它记录了程序的词法嵌套结构
+- 在位置i —> 指向最近进入的、静态嵌套深度为 i 的 procedure 的帧的指针
+- 本质上，它指向当前设置的包含可访问变量的活动记录集合
+
+??? example
+    ![](../../Images/2024-06-21-21-03-19.png)
+
+### Stack Frame in Tiger
+
+!!! important "和之前提到的 Stack frame 可能有所不同，考试以这一部分为主"
+
+!!! note inline "A Typical Stack Frame Layout for Tiger"
+    ![](../../Images/2024-06-21-21-16-55.png)
+
+- *incoming arguments*: passed by the caller
+- *return address*: where (within the calling function) control should return:
+    - created by the CALL instruction
+- some *local variables* are in this frame, other local variables are kept in registers
+- *saved registers*: make room for other uses of the registers
+- *outgoing argument*: pass parameters to other functions
+- *static link*
+- *Frame point* 为特定寄存器 (如rbp, SP)，其值为栈上的内存地址
+    - 该地址的内存中所保存值是 stack link (某个函数的 frame point)
+
+??? example "关于 incoming & outgoing arguments 的例子"
+    ![](../../Images/2024-06-21-21-21-18.png)
+
+On each procedure call or variable access, a chain of zero or more fetches is required; the length of the chain is just the difference in static nesting depth between the two functions involved. | 在每次函数调用或变量访问时，可能需要零个或多个取值操作；这个操作链的长度正是涉及的两个函数之间静态嵌套深度的差值。
+
+!!! important
+    Static links may skip dynamic frames between f and g. They always point to the most recent frame of the routine that statically encloses the current routine. | 静态链接可能会跳过介于 f 和 g 之间的动态帧。它们始终指向当前程序被静态包含的最新帧。
+
+??? info "Limitation of Stack Frame"
+    - **Hard to support higher-order function**: 支持高阶函数较为困难, 涉及嵌套函数与函数作为参数及返回值的组合。
+    - 在支持高阶函数的语言中，函数返回后可能需要保留局部变量。
+    - 但到目前为止，我们假定函数 f 返回后局部变量不会被使用（所以我们使用栈来存储）
+    
+    | | Pascal; Tiger | C | ML; LISP; Haskell |
+    | :--: | :--: | :--: | :--: |
+    | Nested functions | Yes | No | Yes |
+    | Procedure passed as arguments and results | No | Yes | Yes |
+
+### 关于 Tiger 编译器中 Frame 的补充
+
+TODO
