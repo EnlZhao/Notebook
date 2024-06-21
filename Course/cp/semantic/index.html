@@ -2438,6 +2438,72 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Activation Record">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stack-frame" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stack Frame
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Stack Frame">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      活动记录的设计
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-of-registers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use of Registers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#frame-resident-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Frame-Resident Variables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#block-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Block Structure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stack-frame-in-tiger" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stack Frame in Tiger
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -4414,6 +4480,72 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Activation Record">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stack-frame" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stack Frame
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Stack Frame">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      活动记录的设计
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-of-registers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use of Registers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#frame-resident-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Frame-Resident Variables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#block-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Block Structure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stack-frame-in-tiger" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stack Frame in Tiger
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -4437,7 +4569,7 @@
 
 <h1 id="semantic-analysis-activation-record">Semantic Analysis | Activation Record<a class="headerlink" href="#semantic-analysis-activation-record" title="Permanent link">👀</a></h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 4397 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg></span> 178 行代码 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"/></svg></span> 预计阅读时间 17 分钟</p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 4915 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg></span> 178 行代码 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"/></svg></span> 预计阅读时间 19 分钟</p>
 </div>
 <h2 id="_1">过渡知识<a class="headerlink" href="#_1" title="Permanent link">👀</a></h2>
 <h3 id="attribute-grammar">属性文法 | Attribute Grammar<a class="headerlink" href="#attribute-grammar" title="Permanent link">👀</a></h3>
@@ -5441,6 +5573,76 @@
 </ul>
 </details>
 <h2 id="activation-record">Activation Record<a class="headerlink" href="#activation-record" title="Permanent link">👀</a></h2>
+<details class="note">
+<summary>Overview of a Morden Processor</summary>
+<p>由四部分组成：</p>
+<ul>
+<li>ALU 算术逻辑单元：执行算术和逻辑运算</li>
+<li>Registers 寄存器：存储临时数据 (有限数量但速度快，且用途大多相同，少部分有特殊用途，如 PC, SP)</li>
+<li>Control: 控制单元，执行指令，控制数据流向 (指令存储在内存中)</li>
+<li>Memory: 存储数据和指令 (地址空间是程序使用内存的方式)</li>
+</ul>
+</details>
+<p>程序的运行时 <strong>内存布局</strong> 如下：</p>
+<p><a class="glightbox" href="../../../Images/2024-06-21-09-23-06.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-06-21-09-23-06.png" /></a></p>
+<p>本节聚焦于 <strong>Activation Record</strong>，即活动记录</p>
+<p>活动记录在函数 (Function)、过程 (Procedure) 和方法 (Method) 调用中起着重要作用，其实就是函数调用的栈帧</p>
+<p>函数和 API、ABI 很相似：</p>
+<ul>
+<li>API (Application Programming Interface): 源程序之间的接口</li>
+<li>ABI (Application Binary Interface): <font color="red">本节的主题就是如何实现 ABI</font> <ul>
+<li>二进制程序之间的接口 (甚至可以是不同编译器编译编程语言的程序)</li>
+<li>Conventions on low-level details：<ul>
+<li>如何传递参数？</li>
+<li>如何返回值？</li>
+<li>如何处理寄存器？</li>
+<li>&hellip;</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li>通常情况下，function 和 method 视为同一种东西。 </li>
+<li>tiger 将过程和函数区分开来，过程没有返回值，函数有返回值</li>
+</ul>
+</blockquote>
+<h3 id="stack-frame">Stack Frame<a class="headerlink" href="#stack-frame" title="Permanent link">👀</a></h3>
+<details class="note">
+<summary>Function Invocation</summary>
+<p><u>An invocation of function P is an <B>activation</B> of P</u><br />
+那么如何保存局部变量？</p>
+<ul>
+<li>Each invocation has its own instantiation of local variables | 每次调用都有自己的局部变量实例化</li>
+<li>函数调用遵循后进先出（LIFO）原则</li>
+<li>使用 LIFO 数据结构 —— 一个栈</li>
+</ul>
+</details>
+<ul>
+<li><strong>Activation record</strong> Or <strong>stack frame (栈帧)</strong>: a piece of memory on the stack for a function</li>
+<li>栈帧连接了 caller 和 callee, E.g.,<ul>
+<li>Relevant machine state (saved registers, return address) | 相关机器状态</li>
+<li>Space for return value | 返回值空间</li>
+<li>Space for local data | 本地数据空间</li>
+<li>Pointer to activation for accessing non-local data | 访问非本地数据的激活指针</li>
+</ul>
+</li>
+</ul>
+<details class="question">
+<summary>由此引入 <strong>关键问题</strong>：如何布局 Activation record，以便调用者和被调用者能够正常通信？</summary>
+</details>
+<h4 id="_3">活动记录的设计<a class="headerlink" href="#_3" title="Permanent link">👀</a></h4>
+<blockquote>
+<p>《深入理解计算机系统》中的 Stack Frame 例子</p>
+</blockquote>
+<h3 id="use-of-registers">Use of Registers<a class="headerlink" href="#use-of-registers" title="Permanent link">👀</a></h3>
+<h3 id="frame-resident-variables">Frame-Resident Variables<a class="headerlink" href="#frame-resident-variables" title="Permanent link">👀</a></h3>
+<h3 id="block-structure">Block Structure<a class="headerlink" href="#block-structure" title="Permanent link">👀</a></h3>
+<blockquote>
+<p>Tiger 语言嵌套函数的实现</p>
+</blockquote>
+<h3 id="stack-frame-in-tiger">Stack Frame in Tiger<a class="headerlink" href="#stack-frame-in-tiger" title="Permanent link">👀</a></h3>
 
 
 
