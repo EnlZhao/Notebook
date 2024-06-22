@@ -2340,6 +2340,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#kinds-of-expressions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Kinds of Expressions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#translation-of-expressions" class="md-nav__link">
     <span class="md-ellipsis">
       Translation of Expressions
@@ -2379,7 +2388,7 @@
           <li class="md-nav__item">
   <a href="#subscripting-and-field-selection" class="md-nav__link">
     <span class="md-ellipsis">
-      Subscripting and Field Selection
+      Subscripting and Field Selection | 下标和域选择
     </span>
   </a>
   
@@ -4304,6 +4313,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#kinds-of-expressions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Kinds of Expressions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#translation-of-expressions" class="md-nav__link">
     <span class="md-ellipsis">
       Translation of Expressions
@@ -4343,7 +4361,7 @@
           <li class="md-nav__item">
   <a href="#subscripting-and-field-selection" class="md-nav__link">
     <span class="md-ellipsis">
-      Subscripting and Field Selection
+      Subscripting and Field Selection | 下标和域选择
     </span>
   </a>
   
@@ -4458,7 +4476,7 @@
 
 <h1 id="translating-into-intermediate-code">Translating into Intermediate Code<a class="headerlink" href="#translating-into-intermediate-code" title="Permanent link">👀</a></h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 1578 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg></span> 34 行代码 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"/></svg></span> 预计阅读时间 6 分钟</p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 2085 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg></span> 79 行代码 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"/></svg></span> 预计阅读时间 8 分钟</p>
 </div>
 <h2 id="_1">中间表示概述<a class="headerlink" href="#_1" title="Permanent link">👀</a></h2>
 <div class="admonition abstract">
@@ -4779,6 +4797,7 @@
 </ul>
 <p><a class="glightbox" href="../../../Images/2024-06-22-14-05-40.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-06-22-14-05-40.png" /></a></p>
 </div>
+<h3 id="kinds-of-expressions">Kinds of Expressions<a class="headerlink" href="#kinds-of-expressions" title="Permanent link">👀</a></h3>
 <ul>
 <li><strong>三种 Tiger AST Expressions:</strong></li>
 </ul>
@@ -4795,7 +4814,59 @@
 </ul>
 </li>
 </ul>
-<p>但其实有问题：<strong>Need utility functions for conversion among Ex, Nx, and Cx expressions</strong></p>
+<p>对于 <code>a &gt; b | c &lt; d</code>, 可以表示为：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Temp_label z = Temp_newlabel ( );
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>T_stm s1 = T_Seq(T_Cjump(T_gt,a,b,  NULL_t, z), 
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>                T_Seq (T_Label (z), 
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>                    T_Cjump (T_lt,c,d, NULL_t, NULL_f )));
+</code></pre></div>
+<p><a class="glightbox" href="../../../Images/2024-06-22-19-41-45.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-06-22-19-41-45.png" /></a></p>
+<p>由于我们到很久之后才能知道 true 值和 false 值对应的跳转地址，因此在语句中使用 <code>NULL</code> 代替</p>
+<ul>
+<li>其中 <code>NULL_t</code> 的位置记录在 <em>true patch list</em> （真值标号回填表）中</li>
+<li><code>NULL_f</code> 的位置记录在 <em>false patch list</em> (假值标号回填表)</li>
+<li><code>z</code> 表示第一个的 false label, 是判断语句 <code>c &lt; d</code> 对应的位置</li>
+</ul>
+<details class="code">
+<summary>patch_list</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">patchList_</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">patchList</span><span class="p">;</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="k">struct</span><span class="w"> </span><span class="nc">patchList_</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">Temp_label</span><span class="w"> </span><span class="o">*</span><span class="n">head</span><span class="p">;</span><span class="w"> </span><span class="n">patchList</span><span class="w"> </span><span class="n">tail</span><span class="p">;</span><span class="w"> </span><span class="p">};</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">patchList</span><span class="w"> </span><span class="nf">patchList</span><span class="p">(</span><span class="n">Temp_label</span><span class="w"> </span><span class="o">*</span><span class="n">head</span><span class="p">,</span><span class="w"> </span><span class="n">patchList</span><span class="w"> </span><span class="n">tail</span><span class="p">);</span>
+</code></pre></div>
+</details>
+<p>进而完成 <code>a &gt; b | c &lt; d</code> 到 <code>Tr_exp</code> 的翻译：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
+<span class="normal"><a href="#__codelineno-6-2">2</a></span>
+<span class="normal"><a href="#__codelineno-6-3">3</a></span>
+<span class="normal"><a href="#__codelineno-6-4">4</a></span>
+<span class="normal"><a href="#__codelineno-6-5">5</a></span>
+<span class="normal"><a href="#__codelineno-6-6">6</a></span>
+<span class="normal"><a href="#__codelineno-6-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="n">patchList</span><span class="w"> </span><span class="n">trues</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PatchList</span><span class="p">(</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="hll"><span class="w">  </span><span class="o">&amp;</span><span class="n">s1</span><span class="o">-&gt;</span><span class="n">u</span><span class="p">.</span><span class="n">SEQ</span><span class="p">.</span><span class="n">left</span><span class="o">-&gt;</span><span class="n">u</span><span class="p">.</span><span class="n">CJUMP</span><span class="p">.</span><span class="nb">true</span><span class="p">,</span>
+</span><a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="hll"><span class="w">    </span><span class="n">PatchList</span><span class="p">(</span><span class="o">&amp;</span><span class="n">s1</span><span class="o">-&gt;</span><span class="n">u</span><span class="p">.</span><span class="n">SEQ</span><span class="p">.</span><span class="n">right</span><span class="o">-&gt;</span><span class="n">u</span><span class="p">.</span><span class="n">SEQ</span><span class="p">.</span><span class="n">right</span><span class="o">-&gt;</span><span class="n">u</span><span class="p">.</span><span class="n">CJUMP</span><span class="p">.</span><span class="nb">true</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">));</span>
+</span><a id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="n">patchList</span><span class="w"> </span><span class="n">falses</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PatchList</span><span class="p">(</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="hll"><span class="w">  </span><span class="o">&amp;</span><span class="n">s1</span><span class="o">-&gt;</span><span class="n">u</span><span class="p">.</span><span class="n">SEQ</span><span class="p">.</span><span class="n">right</span><span class="o">-&gt;</span><span class="n">u</span><span class="p">.</span><span class="n">SEQ</span><span class="p">.</span><span class="n">right</span><span class="o">-&gt;</span><span class="n">U</span><span class="p">.</span><span class="n">CJUMP</span><span class="p">.</span><span class="nb">false</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span>
+</span><a id="__codelineno-6-6" name="__codelineno-6-6"></a>
+<a id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="n">Tr_exp</span><span class="w"> </span><span class="n">e1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Tr_Cx</span><span class="w"> </span><span class="p">(</span><span class="n">trues</span><span class="p">,</span><span class="w"> </span><span class="n">falses</span><span class="p">,</span><span class="w"> </span><span class="n">s1</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<details class="info">
+<summary>填充待填标号</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1">// 遍历所有位置并填充为 label</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="kt">void</span><span class="w"> </span><span class="nf">doPatch</span><span class="w"> </span><span class="p">(</span><span class="n">patchList</span><span class="w"> </span><span class="n">tList</span><span class="p">,</span><span class="w"> </span><span class="n">Temp_label</span><span class="w"> </span><span class="n">label</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">tList</span><span class="p">;</span><span class="w"> </span><span class="n">tList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tList</span><span class="o">-&gt;</span><span class="n">tail</span><span class="p">)</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span><span class="o">*</span><span class="p">(</span><span class="n">tList</span><span class="o">-&gt;</span><span class="n">head</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">label</span><span class="p">;</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="p">}</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="c1">// 合并 patch</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="n">patchList</span><span class="w"> </span><span class="nf">joinPatch</span><span class="w"> </span><span class="p">(</span><span class="n">patchList</span><span class="w"> </span><span class="n">first</span><span class="p">,</span><span class="w"> </span><span class="n">patchList</span><span class="w"> </span><span class="n">second</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">first</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">second</span><span class="p">;</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(;</span><span class="w"> </span><span class="n">first</span><span class="o">-&gt;</span><span class="n">tail</span><span class="p">;</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">first</span><span class="o">-&gt;</span><span class="n">tail</span><span class="p">);</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">    </span><span class="n">first</span><span class="o">-&gt;</span><span class="n">tail</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">second</span><span class="p">;</span><span class="w"> </span>
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">first</span><span class="p">;</span>
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="p">}</span>
+</code></pre></div>
+<p>调用 <code>doPatch(e&gt;u.cx.trues, trueLabel)</code>, <code>doPatch(e&gt;u.cx.false, falseLabe;)</code> 将真/假值标号填到 patch list 中所有待填的位置</p>
+</details>
+<p>但其实还有问题：<strong>Need utility functions for conversion among Ex, Nx, and Cx expressions</strong></p>
 <ul>
 <li>表达式、语句和条件：在各种情况下，需要将其中一种转换为另一种</li>
 <li>
@@ -4808,13 +4879,13 @@
 </ul>
 </li>
 </ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">static</span><span class="w"> </span><span class="n">T_exp</span><span class="w"> </span><span class="nf">unEx</span><span class="p">(</span><span class="n">Tr_exp</span><span class="w"> </span><span class="n">e</span><span class="p">);</span><span class="w"> </span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="k">static</span><span class="w"> </span><span class="n">T_stm</span><span class="w"> </span><span class="nf">unNx</span><span class="p">(</span><span class="n">Tr_exp</span><span class="w"> </span><span class="n">e</span><span class="p">);</span><span class="w"> </span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="k">static</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">Cx</span><span class="w"> </span><span class="n">unCx</span><span class="p">(</span><span class="n">Tr_exp</span><span class="w"> </span><span class="n">e</span><span class="p">);</span><span class="w"> </span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">static</span><span class="w"> </span><span class="n">T_exp</span><span class="w"> </span><span class="nf">unEx</span><span class="p">(</span><span class="n">Tr_exp</span><span class="w"> </span><span class="n">e</span><span class="p">);</span><span class="w"> </span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="k">static</span><span class="w"> </span><span class="n">T_stm</span><span class="w"> </span><span class="nf">unNx</span><span class="p">(</span><span class="n">Tr_exp</span><span class="w"> </span><span class="n">e</span><span class="p">);</span><span class="w"> </span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="k">static</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">Cx</span><span class="w"> </span><span class="n">unCx</span><span class="p">(</span><span class="n">Tr_exp</span><span class="w"> </span><span class="n">e</span><span class="p">);</span><span class="w"> </span>
 </code></pre></div>
-<p>由此，可将 <code>flag := a &gt; b</code> 转为</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">e</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Tr_Cx</span><span class="p">(</span><span class="n">trues</span><span class="p">,</span><span class="w"> </span><span class="n">falses</span><span class="p">,</span><span class="w"> </span><span class="n">stm</span><span class="p">)</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">MOVE</span><span class="p">(</span><span class="n">TEMP</span><span class="p">(</span><span class="n">flag</span><span class="p">),</span><span class="w"> </span><span class="n">unEx</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+<p>由此，可将 <code>flag := a &gt; b | c &lt; d</code> 转为</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">e</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Tr_Cx</span><span class="p">(</span><span class="n">trues</span><span class="p">,</span><span class="w"> </span><span class="n">falses</span><span class="p">,</span><span class="w"> </span><span class="n">stm</span><span class="p">)</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="n">MOVE</span><span class="p">(</span><span class="n">TEMP</span><span class="p">(</span><span class="n">flag</span><span class="p">),</span><span class="w"> </span><span class="n">unEx</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
 </code></pre></div>
 <blockquote>
 <p>为什么需要 unEx, unNx, unCx 这几个辅助函数?</p>
@@ -4823,13 +4894,60 @@
 <li>IR 翻译是 context-dependent 问题(难以用 CFG 刻画, 但是可以用属性文法、semantic actions 等方式)</li>
 </ul>
 </blockquote>
+<details class="code">
+<summary>unEx 的实现</summary>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">code</label><label for="__tabbed_2_2">Cx -&gt; Ex</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">static</span><span class="w"> </span><span class="n">T_exp</span><span class="w"> </span><span class="nf">unEx</span><span class="p">(</span><span class="n">Tr_exp</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">    </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">e</span><span class="o">-&gt;</span><span class="n">kind</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">Tr_ex</span><span class="p">:</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">e</span><span class="o">-&gt;</span><span class="n">u</span><span class="p">.</span><span class="n">ex</span><span class="p">;</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">Tr_cx</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">            </span><span class="n">Temp_temp</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Temp_newtemp</span><span class="p">(</span><span class="w"> </span><span class="p">);</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">            </span><span class="n">Temp_label</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Temp_newlabel</span><span class="p">(</span><span class="w"> </span><span class="p">),</span><span class="w"> </span><span class="n">f</span><span class="o">=</span><span class="w"> </span><span class="n">Temp_newlabel</span><span class="p">(</span><span class="w"> </span><span class="p">);</span><span class="w"> </span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">            </span><span class="n">doPatch</span><span class="p">(</span><span class="n">e</span><span class="o">-&gt;</span><span class="n">u</span><span class="p">.</span><span class="n">cx</span><span class="p">.</span><span class="n">trues</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">);</span><span class="w"> </span>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">            </span><span class="n">doPatch</span><span class="p">(</span><span class="n">e</span><span class="o">-&gt;</span><span class="n">u</span><span class="p">.</span><span class="n">cx</span><span class="p">.</span><span class="n">falses</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">);</span>
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">T_Eseq</span><span class="p">(</span><span class="n">T_move</span><span class="p">(</span><span class="n">T_Temp</span><span class="p">(</span><span class="n">r</span><span class="p">),</span><span class="n">T_Const</span><span class="p">(</span><span class="mi">1</span><span class="p">)),</span><span class="w"> </span>
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="w">                    </span><span class="n">T_Eseq</span><span class="p">(</span><span class="n">e</span><span class="o">-&gt;</span><span class="n">u</span><span class="p">.</span><span class="n">cx</span><span class="p">.</span><span class="n">stm</span><span class="p">,</span><span class="w"> </span><span class="n">T_Eseq</span><span class="p">(</span><span class="n">T_Label</span><span class="p">(</span><span class="n">f</span><span class="p">),</span><span class="w"> </span>
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="w">                        </span><span class="n">T_Eseq</span><span class="p">(</span><span class="n">T_Move</span><span class="p">(</span><span class="n">T_Temp</span><span class="p">(</span><span class="n">r</span><span class="p">),</span><span class="w"> </span><span class="n">T_Const</span><span class="p">(</span><span class="mi">0</span><span class="p">)),</span><span class="w"> </span>
+<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="w">                            </span><span class="n">T_Eseq</span><span class="p">(</span><span class="n">T_Label</span><span class="p">(</span><span class="n">t</span><span class="p">),</span><span class="w"> </span><span class="n">T_Temp</span><span class="p">(</span><span class="n">r</span><span class="p">))))));</span>
+<a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a><span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">Tr_nx</span><span class="p">:</span>
+<a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">T_Eseq</span><span class="p">(</span><span class="n">e</span><span class="o">-&gt;</span><span class="n">u</span><span class="p">.</span><span class="n">nx</span><span class="p">,</span><span class="w"> </span><span class="n">T_Const</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>
+<a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span>
+<a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a><span class="w">    </span><span class="n">assert</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w"> </span>
+<a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<p>首先将 Cx 转化为：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">if</span><span class="w"> </span><span class="n">Cx</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="k">else</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span>
+</code></pre></div>
+<p>再转化为：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>MOVE(TEMP r, 1)
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>e
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>LABEL(f)
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>MOVE(TEMP r, 0)
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>LABEL(t)
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>TEMP(r)
+</code></pre></div>
+</div>
+</div>
+</div>
+</details>
+<p>将 <code>e</code> 处替换掉可以得到最后翻译成的 <code>e := a &gt; b | c &lt; d</code></p>
+<p><a class="glightbox" href="../../../Images/2024-06-22-20-12-17.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-06-22-20-12-17.png" /></a></p>
 <h3 id="translation-of-expressions">Translation of Expressions<a class="headerlink" href="#translation-of-expressions" title="Permanent link">👀</a></h3>
 <h4 id="simple-variables">Simple Variables<a class="headerlink" href="#simple-variables" title="Permanent link">👀</a></h4>
 <ul>
 <li>在当前过程的堆栈帧中声明的一个简单变量 <code>v</code></li>
 <li>访问本地变量 <code>v</code>，偏移量为 <code>k</code>（帧指针为 <code>fp</code>）</li>
 </ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>MEM(BINOP(PLUS, TEMP fp, CONST k))
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>MEM(BINOP(PLUS, TEMP fp, CONST k))
 </code></pre></div>
 <p><a class="glightbox" href="../../../Images/2024-06-22-14-53-35.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-06-22-14-53-35.png" /></a></p>
 <blockquote>
@@ -4843,19 +4961,87 @@
 <li><span class="arithmatex">\(n\)</span> 是元素的数量</li>
 <li><span class="arithmatex">\(i\)</span> 是每个元素的初始值</li>
 </ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">let</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">    </span><span class="n">type</span><span class="w"> </span><span class="n">intArray</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">array</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="kt">int</span>
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="n">var</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">intArray</span><span class="p">[</span><span class="mi">12</span><span class="p">]</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="mi">0</span>
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span><span class="n">var</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">intArray</span><span class="p">[</span><span class="mi">12</span><span class="p">]</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="mi">7</span>
-<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="n">in</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">b</span>
-<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="n">end</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">let</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w">    </span><span class="n">type</span><span class="w"> </span><span class="n">intArray</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">array</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="kt">int</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">    </span><span class="n">var</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">intArray</span><span class="p">[</span><span class="mi">12</span><span class="p">]</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="mi">0</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="w">    </span><span class="n">var</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">intArray</span><span class="p">[</span><span class="mi">12</span><span class="p">]</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="mi">7</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="n">in</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">b</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="n">end</span>
 </code></pre></div>
 <ul>
 <li><code>a</code> 最终指向与变量 <code>b</code> 相同的 12 个 <code>7</code></li>
 <li>最初为 <code>a</code> 分配的 12 个 <code>0</code> 被丢弃。</li>
 </ul>
+<p>Tiger <strong>record</strong> values are also pointers.</p>
+<ul>
+<li><code>Record</code> 赋值类似数组赋值，是指针赋值，不拷贝所有 field</li>
+</ul>
+<p><a href="#subscripting-and-field-selection">How to translate array accesses, e.g., arr[2], arr[x]?</a></p>
 <h4 id="structured-l-values">Structured L-values<a class="headerlink" href="#structured-l-values" title="Permanent link">👀</a></h4>
-<h4 id="subscripting-and-field-selection">Subscripting and Field Selection<a class="headerlink" href="#subscripting-and-field-selection" title="Permanent link">👀</a></h4>
+<ul>
+<li><strong>R-value</strong>: 在赋值操作符右边出现的表达式 (表示不可被赋值的位置)</li>
+<li>
+<p><strong>L-value</strong>: 可以出现在赋值语句左边的表达式结果:</p>
+<ul>
+<li>表示一个可以被赋值的位置</li>
+<li>也可以出现在赋值语句的右边 (在这种情况下，意味着该位置的内容)</li>
+</ul>
+</li>
+<li>
+<p>An integer or pointer value is a “scalar” (It has only one component)</p>
+<ul>
+<li><strong>All the variables and L-values in Tiger are scalar</strong></li>
+<li>A Tiger array or record variable is really a pointer</li>
+</ul>
+</li>
+<li>In C or Pascal there are structured L-values<ul>
+<li>Structs in C, arrays and records in Pascal</li>
+<li>They are not scalar.</li>
+</ul>
+</li>
+</ul>
+<p>对于结构化左值，一次地址计算应为：<code>MEM(+(TEMP fp, CONST k), S)</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>T_exp T_Mem(T_exp, int size);
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>-&gt;
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>Mem(+(TEMP fp,CONST kn), S)
+</code></pre></div>
+<ul>
+<li><code>S</code> 表示要获取或存储的对象的大小</li>
+</ul>
+<h4 id="subscripting-and-field-selection">Subscripting and Field Selection | 下标和域选择<a class="headerlink" href="#subscripting-and-field-selection" title="Permanent link">👀</a></h4>
+<p>要计算 <code>a[i]</code> 的地址：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>(i - l) * s + a
+</code></pre></div>
+<ul>
+<li><code>l</code> 表示索引范围的下限 </li>
+<li><code>s</code>：每个数组元素的大小 (以字节为单位) </li>
+<li>
+<p><code>a</code>：数组元素的基地址</p>
+</li>
+<li>
+<p>如果 <code>a</code> 是全局变量，并且其地址在编译时为常量，则可以再编译时进行计算 <code>a - s × l</code> 的运算。</p>
+</li>
+<li>若要计算记录 <code>a</code> 中字段 <code>f</code> 的地址，即 <code>offset(f) + a</code></li>
+</ul>
+<details class="note">
+<summary>Note</summary>
+<ul>
+<li>在 Tiger language 中，所有的 record 和 array 值实际上都是指向记录和数组结构的 <strong>指针</strong>，没有结构化的左值</li>
+<li>数组的 &ldquo;base address&rdquo; 实际上是一个指针变量的内容，所以需要使用 <code>MEM</code> 操作</li>
+<li>在 IR Tree 中，<code>MEM</code> 既表示存储（当用作 <code>MOVE</code> 操作的左子节点时），也表示读取（在其他地方使用时）</li>
+</ul>
+</details>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p><a class="glightbox" href="../../../Images/2024-06-22-19-18-31.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-06-22-19-18-31.png" /></a></p>
+</div>
+<ul>
+<li>从技术角度讲，左值应表示为一个地址（不包含顶部的MEM节点）<ul>
+<li>将左值转换为右值：从该地址获取</li>
+<li>给左值赋值：向该地址存储</li>
+</ul>
+</li>
+</ul>
 <h4 id="arithmetic">Arithmetic<a class="headerlink" href="#arithmetic" title="Permanent link">👀</a></h4>
 <h4 id="conditionals">Conditionals<a class="headerlink" href="#conditionals" title="Permanent link">👀</a></h4>
 <h4 id="while-loops">While Loops<a class="headerlink" href="#while-loops" title="Permanent link">👀</a></h4>
