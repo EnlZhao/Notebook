@@ -458,22 +458,23 @@ if e1 then e2 else e3
     - 在标签 `f` 之后，将 `e3` 赋值给 `r`
     - 两个分支最后都跳转到新创建的 `join` 汇合标签
 
-```
-unCx(e1) 
-LABEL t 
-r = unEx(e2) 
-JUMP join 
-LABEL f 
-r = unEx(e3) 
-JUMP join 
-...
-LABEL join 
-...
-```
+!!! code
+    ```
+    unCx(e1) 
+    LABEL t 
+    r = unEx(e2) 
+    JUMP join 
+    LABEL f 
+    r = unEx(e3) 
+    JUMP join 
+    ...
+    LABEL join 
+    ...
+    ```
 
 如上翻译正确但是不高效
 
-- 如果 `e2` 和 `e3` 都是 statements（不返回值的表达式），使用 `unEx` 没有问题，但最好能专门识别这种情况。
+- 如果 `e2` 和 `e3` 都是 statements（不返回值的表达式）,使用 `unEx` 没有问题，但最好能专门识别这种情况。
 - 如果 `e2` 或 `e3` 是 `Cx` 表达式，`unEx` 会产生一团复杂的跳转和标签, 需要专门识别这种情况
 
 ??? code
