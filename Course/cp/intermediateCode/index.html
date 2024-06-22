@@ -2236,6 +2236,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    中间代码生成
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -2245,6 +2256,91 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      中间表示概述
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="中间表示概述">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ir" class="md-nav__link">
+    <span class="md-ellipsis">
+      (不要求掌握) IR分类
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#three-address-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      三地址码 | Three-Address Code
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="三地址码 | Three-Address Code">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ssa" class="md-nav__link">
+    <span class="md-ellipsis">
+      静态单赋值 (SSA)（不考）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ir-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      IR Tree 中间表示
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ir-tree_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      IR Tree 的生成
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -3999,6 +4095,80 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      中间表示概述
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="中间表示概述">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ir" class="md-nav__link">
+    <span class="md-ellipsis">
+      (不要求掌握) IR分类
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#three-address-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      三地址码 | Three-Address Code
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="三地址码 | Three-Address Code">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ssa" class="md-nav__link">
+    <span class="md-ellipsis">
+      静态单赋值 (SSA)（不考）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ir-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      IR Tree 中间表示
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ir-tree_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      IR Tree 的生成
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -4018,8 +4188,175 @@
 
 <h1 id="translating-into-intermediate-code">Translating into Intermediate Code<a class="headerlink" href="#translating-into-intermediate-code" title="Permanent link">👀</a></h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 4 个字 </p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 591 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg></span> 23 行代码 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"/></svg></span> 预计阅读时间 2 分钟</p>
 </div>
+<h2 id="_1">中间表示概述<a class="headerlink" href="#_1" title="Permanent link">👀</a></h2>
+<div class="admonition abstract">
+<p class="admonition-title">Abstract</p>
+<ul>
+<li>中间表示（IR）<ul>
+<li>一种抽象的机器语言</li>
+<li>能够表达目标机器的操作</li>
+<li>不过多涉及机器特定的细节</li>
+</ul>
+</li>
+<li>设计目标<ul>
+<li>可移植的编译器，适用于不同的源语言和不同的目标机器</li>
+</ul>
+</li>
+<li>IR 应该简洁<ul>
+<li>语法树的大块部分必须转换为 IR</li>
+<li>IR 的组合必须聚合成“真实”的机器指令</li>
+</ul>
+</li>
+</ul>
+</div>
+<p>为什么需要中间表示 (IR): 如果直接翻译成机器代码，会妨碍模块化 (modularity) 和可移植性 (portability)。</p>
+<h3 id="ir">(不要求掌握) IR分类<a class="headerlink" href="#ir" title="Permanent link">👀</a></h3>
+<p><strong>1) 根据抽象层次：</strong></p>
+<p>TODO</p>
+<p><strong>2) 根据结构特征：</strong></p>
+<p>TODO</p>
+<h3 id="three-address-code">三地址码 | Three-Address Code<a class="headerlink" href="#three-address-code" title="Permanent link">👀</a></h3>
+<div class="admonition abstract">
+<p class="admonition-title">Abstract</p>
+<ul>
+<li>目标：<ul>
+<li>接近大多数目标机器的执行模型 (机器码)</li>
+<li>支持大多数目标机器提供的数据类型和操作</li>
+<li>提供有限度的、高于机器码的抽象表达能力，更容易表达出大多数(命令式) 高级语言的特性</li>
+</ul>
+</li>
+<li>特征：<ul>
+<li>以指令为单位</li>
+<li>每条指令只有有限数量的操作码</li>
+</ul>
+</li>
+</ul>
+</div>
+<p>三地址码的一般形式：<span class="arithmatex">\(x = y ~ op ~ z\)</span></p>
+<ul>
+<li>每个“指令”最多 1 个运算符，最多 3 个操作数</li>
+<li>E.g., <code>x + y * z</code> 翻译为三地址语句序列：<code>t1 = y * z</code>, <code>t2 = x + t1</code></li>
+</ul>
+<details class="note">
+<summary>Note</summary>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">序号</th>
+<th style="text-align: center;">指令类型</th>
+<th style="text-align: center;">指令形式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">赋值指令</td>
+<td style="text-align: center;"><code>x = y op z</code>; <code>x = op y</code></td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">复制跳转</td>
+<td style="text-align: center;"><code>x = y</code></td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">条件跳转 ｜ <code>if x  relop y goto n</code></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">无条件跳转</td>
+<td style="text-align: center;"><code>goto n</code></td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">参数传递</td>
+<td style="text-align: center;"><code>param x</code></td>
+</tr>
+<tr>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">过程调用</td>
+<td style="text-align: center;"><code>call p, n</code></td>
+</tr>
+<tr>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">过程返回</td>
+<td style="text-align: center;"><code>return x</code></td>
+</tr>
+<tr>
+<td style="text-align: center;">&hellip;</td>
+<td style="text-align: center;">&hellip;</td>
+<td style="text-align: center;">&hellip;</td>
+</tr>
+</tbody>
+</table>
+<p>“地址”可以具有如下形式之一：</p>
+<ul>
+<li>源程序中的 <strong>名字</strong> (name)</li>
+<li><strong>常量</strong> (constant)</li>
+<li>编译器生成的 <strong>临时变量</strong> (temporary)</li>
+</ul>
+</details>
+<details class="example">
+<summary>Example</summary>
+<div class="admonition code inline">
+<p class="admonition-title">High-Level Language</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">read</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">;</span><span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="n">input</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">integer</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">if</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">then</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">don</span><span class="err">’</span><span class="n">t</span><span class="w"> </span><span class="n">compute</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">}</span><span class="w"> </span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nl">fact</span><span class="p">:</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">repeat</span><span class="w"> </span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="nl">fact</span><span class="p">:</span><span class="o">=</span><span class="n">fact</span><span class="o">*</span><span class="n">x</span><span class="p">;</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="nl">x</span><span class="p">:</span><span class="o">=</span><span class="n">x</span><span class="mi">-1</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="n">until</span><span class="w"> </span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="n">write</span><span class="w"> </span><span class="n">fact</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="n">factorial</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="n">end</span>
+</code></pre></div>
+</div>
+<div class="admonition code">
+<p class="admonition-title">Three-Address Code</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">read</span><span class="w"> </span><span class="n">x</span><span class="w"> </span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">t1</span><span class="o">=</span><span class="n">x</span><span class="o">&gt;</span><span class="mi">0</span><span class="w"> </span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">if_false</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="k">goto</span><span class="w"> </span><span class="n">L1</span><span class="w"> </span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">fact</span><span class="o">=</span><span class="mi">1</span><span class="w"> </span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">label</span><span class="w">   </span><span class="n">L2</span><span class="w"> </span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="n">t2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fact</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="w"> </span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="n">fact</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t2</span><span class="w"> </span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="n">t3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t3</span><span class="w"> </span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="n">t4</span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="o">=</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span><span class="w"> </span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="n">if_false</span><span class="w"> </span><span class="n">t4</span><span class="w"> </span><span class="k">goto</span><span class="w"> </span><span class="n">L2</span><span class="w"> </span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="n">write</span><span class="w"> </span><span class="n">fact</span><span class="w"> </span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="n">label</span><span class="w">   </span><span class="n">L1</span><span class="w"> </span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="n">halt</span>
+</code></pre></div>
+</div>
+</details>
+<ul>
+<li>整个三地址指令序列实现为链表数组的形式：</li>
+<li>最常见的实现方式是将三地址代码表示为四元组 (quadruples)：<ul>
+<li>一个字段用于操作</li>
+<li>三个字段用于地址<br />
+对于那些需要少于三个地址的指令，其中一个或多个地址字段会被赋 null 或 &ldquo;empty&rdquo; 值</li>
+</ul>
+</li>
+</ul>
+<details class="code">
+<summary>example code</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>t1 = x &gt; 0           -&gt; (gt, x, 0, t1)
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>if_false t1 goto L1  -&gt; (if_false, t1, L1, _)
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>fact = 1             -&gt; (assign, 1, fact, _)
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>label L2             -&gt; (label, L2, _, _)
+</code></pre></div>
+</details>
+<blockquote>
+<p>其他实现方式包括：三元组，间接三元组。</p>
+</blockquote>
+<h4 id="ssa">静态单赋值 (SSA)（不考）<a class="headerlink" href="#ssa" title="Permanent link">👀</a></h4>
+<p>TODO</p>
+<h2 id="ir-tree">IR Tree 中间表示<a class="headerlink" href="#ir-tree" title="Permanent link">👀</a></h2>
+<h2 id="ir-tree_1">IR Tree 的生成<a class="headerlink" href="#ir-tree_1" title="Permanent link">👀</a></h2>
 
 
 
