@@ -4476,7 +4476,7 @@
 
 <h1 id="translating-into-intermediate-code">Translating into Intermediate Code<a class="headerlink" href="#translating-into-intermediate-code" title="Permanent link">👀</a></h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 2085 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg></span> 79 行代码 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"/></svg></span> 预计阅读时间 8 分钟</p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 2365 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg></span> 79 行代码 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"/></svg></span> 预计阅读时间 9 分钟</p>
 </div>
 <h2 id="_1">中间表示概述<a class="headerlink" href="#_1" title="Permanent link">👀</a></h2>
 <div class="admonition abstract">
@@ -5036,14 +5036,65 @@
 <p><a class="glightbox" href="../../../Images/2024-06-22-19-18-31.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../../Images/2024-06-22-19-18-31.png" /></a></p>
 </div>
 <ul>
-<li>从技术角度讲，左值应表示为一个地址（不包含顶部的MEM节点）<ul>
+<li>从技术角度讲，左值应表示为一个地址（不包含顶部的 MEM 节点）, 但左值可以有以下用途：<ul>
 <li>将左值转换为右值：从该地址获取</li>
 <li>给左值赋值：向该地址存储</li>
+<li>故可以将左值表示为一个 <code>MEM</code> 节点</li>
 </ul>
 </li>
 </ul>
 <h4 id="arithmetic">Arithmetic<a class="headerlink" href="#arithmetic" title="Permanent link">👀</a></h4>
+<p>在 Tiger 中：</p>
+<ul>
+<li>每个算术运算符对应一个树形运算符, 例如，<code>BINOP(o, e1, e2)</code></li>
+<li>没有单目运算符<ul>
+<li>单目负可以实现为与零的减法</li>
+<li>单目补码 (取反) 可以实现为与全 1 的异或</li>
+</ul>
+</li>
+<li>不支持浮点数运算</li>
+</ul>
 <h4 id="conditionals">Conditionals<a class="headerlink" href="#conditionals" title="Permanent link">👀</a></h4>
+<ul>
+<li>比较运算符的结果将是一个 <code>Cx</code> 表达式<ul>
+<li>一个语句 (<code>T_stm) s</code>，它会在条件为真时跳转到真目标，为假时跳转到假目标。</li>
+</ul>
+</li>
+<li>条件表达式可以轻松地与 Tiger 操作符 <code>&amp;</code> 和 <code>|</code> 结合使用</li>
+<li>E.g., <code>x &lt; 5</code> 可以翻译为：</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>stm = CJUMP (LT, x, CONST(5), NULL_t, NULL_f)
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>trues = {t}
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>falses = {f}
+</code></pre></div>
+<p>对于处理 <code>if</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>if e1 then e2 else e3
+</code></pre></div>
+<div class="admonition note inline">
+<p class="admonition-title">方法</p>
+<p>最直接的方法：</p>
+<ul>
+<li>把 <code>e1</code> 视为 <code>Cx</code> 表达式 -&gt; 对 <code>e1</code> 应用 <code>unCx</code></li>
+<li><code>e2</code> 和 <code>e3</code> 视为 <code>Ex</code> 表达式 -&gt; 分别对 <code>e2</code> 和 <code>e3</code> 应用 <code>unEx</code></li>
+<li>为条件语句创建两个标签 <code>t</code> 和 <code>f</code> </li>
+<li>分配一个临时变量 <code>r</code></li>
+<li>在标签 <code>t</code> 之后，将 <code>e2</code> 赋值给 <code>r</code></li>
+<li>在标签 <code>f</code> 之后，将 <code>e3</code> 赋值给 <code>r</code></li>
+<li>两个分支最后都跳转到新创建的 <code>join</code> 汇合标签</li>
+</ul>
+</div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>unCx(e1) 
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>LABEL t 
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>r = unEx(e2) 
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>JUMP join 
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>LABEL f 
+<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>r = unEx(e3) 
+<a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a>JUMP join 
+<a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a>...
+<a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a>LABEL join 
+<a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a>...
+</code></pre></div>
+<p>如上翻译正确但是不高效</p>
 <h4 id="while-loops">While Loops<a class="headerlink" href="#while-loops" title="Permanent link">👀</a></h4>
 <h4 id="for-loops">For Loops<a class="headerlink" href="#for-loops" title="Permanent link">👀</a></h4>
 <h4 id="function-call">Function Call<a class="headerlink" href="#function-call" title="Permanent link">👀</a></h4>
