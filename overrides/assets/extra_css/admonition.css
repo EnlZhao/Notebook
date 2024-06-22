@@ -66,9 +66,9 @@
     border-color: rgb(188, 108, 104);
   }
   .md-typeset .code > .admonition-title,
-  /* .md-typeset .code > summary {
-    background-color: rgb(238, 243, 254);
-  } */
+  .md-typeset .code > summary {
+    background-color: rgb(188, 108, 104, 0.1);
+  }
   .md-typeset .code > .admonition-title::before,
   .md-typeset .code > summary::before {
     background-color: rgb(244, 65, 56);
@@ -84,9 +84,9 @@
     border-color: rgb(27, 192, 40);
   }
   .md-typeset .important > .admonition-title,
-  /* .md-typeset .important > summary {
-    background-color: rgba(43, 155, 70, 0.1);
-  } */
+  .md-typeset .important > summary {
+    background-color: rgba(27, 192, 40, 0.1);
+  }
   .md-typeset .important > .admonition-title::before,
   .md-typeset .important > summary::before {
     background-color: rgb(27, 192, 40);
@@ -102,9 +102,9 @@
     border-color: rgb(234, 234, 116);
   }
   .md-typeset .think > .admonition-title,
-  /* .md-typeset .think > summary {
-    background-color: rgba(227, 240, 174, 0.1);
-  } */
+  .md-typeset .think > summary {
+    background-color: rgba(234, 234, 116, 0.1);
+  }
   .md-typeset .think > .admonition-title::before,
   .md-typeset .think > summary::before {
     background-color: rgb(203, 203, 99);
