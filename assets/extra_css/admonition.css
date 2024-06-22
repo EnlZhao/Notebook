@@ -67,7 +67,7 @@
   }
   .md-typeset .code > .admonition-title,
   .md-typeset .code > summary {
-    background-color: var(--md-code-bg-color);
+    background-color: rgb(188, 108, 104, 0.1);
   }
   .md-typeset .code > .admonition-title::before,
   .md-typeset .code > summary::before {
@@ -85,7 +85,7 @@
   }
   .md-typeset .important > .admonition-title,
   .md-typeset .important > summary {
-    background-color: rgba(201, 238, 205, 0.481);
+    background-color: rgba(27, 192, 40, 0.1);
   }
   .md-typeset .important > .admonition-title::before,
   .md-typeset .important > summary::before {
@@ -103,7 +103,7 @@
   }
   .md-typeset .think > .admonition-title,
   .md-typeset .think > summary {
-    background-color: rgba(234, 234, 116, 0.309);
+    background-color: rgba(234, 234, 116, 0.1);
   }
   .md-typeset .think > .admonition-title::before,
   .md-typeset .think > summary::before {
