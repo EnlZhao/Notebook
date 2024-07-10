@@ -14,6 +14,10 @@
         - 综合性课程设计 = 25%
         - 期末考试 = 40% 
 
+!!! warning "Attention"
+    - 基本块后面的笔记先不发了（做不完了
+    - 需要的看[他(@小🐷)](https://www.yuque.com/howjul/rt9ms6/qyhhptbubm5spvta)的去
+
 !!! success "list"
     - [x] [Introduction | 课程介绍](intro.md)
     - [x] [Lexical Analysis | 词法分析](lexical.md)

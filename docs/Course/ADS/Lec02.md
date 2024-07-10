@@ -72,7 +72,9 @@ password: 21@ZJU@ADS
     > Assume each nonroot leaf also has between $\lceil$ M/2 $\rceil$ and M children
 
 * [Example] : A B++ tree of order 4 —— (2-3-4 tree)
+
 ![2023-03-07-21-07-14](../../Images/2023-03-07-21-07-14.png)
+
 * All the actual data stored at the leaves
 * Each interior node contains M pointers th the children (空余的指针指向 NULL)
 * And M-1 smallest key values in the subtrees except the 1^st^ one

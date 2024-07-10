@@ -136,13 +136,13 @@ light nodes along the right path: $l=O(\log{N})\to T_{\rm amortized}=O(\log{N})$
     * ![](../../Images/2023-03-25-15-14-17.png)
     * 也叫做 left-child-next-sibling representation (LCNS)
 
-??? example "pseudo-code"
+??? code "pseudo-code"
     * ![](../../Images/2023-03-25-15-15-46.png)
     * ![](../../Images/2023-03-25-15-16-51.png)
     * ![](../../Images/2023-03-25-15-17-27.png)
     * ![](../../Images/2023-03-25-15-17-40.png)
 
-??? example "code"
+??? code
     ```c
     #include <stdio.h>
     #include<stdlib.h>          //二项队列支持合并，插入，删除最小值等操作，且每次操作最坏花费log N

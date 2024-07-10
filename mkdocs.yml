@@ -80,13 +80,13 @@ nav:
       # - 抽象语法: Course/cp/abstractSyntax.md
       - 语义分析&活动记录: Course/cp/semantic.md
       - 中间代码生成: Course/cp/intermediateCode.md
-      - 基本块与轨迹: Course/cp/basicBlock.md
-      - 指令选择: Course/cp/instructionSel.md
-      - 活跃变量分析: Course/cp/LivenessAnalysis.md
-      - 寄存器分配: Course/cp/RegAlloc.md
-      - 垃圾回收: Course/cp/GarbageCollection.md
-      - 面向对象语言: Course/cp/OOLang.md
-      - 循环优化: Course/cp/LoopOptimization.md
+      # - 基本块与轨迹: Course/cp/basicBlock.md
+      # - 指令选择: Course/cp/instructionSel.md
+      # - 活跃变量分析: Course/cp/LivenessAnalysis.md
+      # - 寄存器分配: Course/cp/RegAlloc.md
+      # - 垃圾回收: Course/cp/GarbageCollection.md
+      # - 面向对象语言: Course/cp/OOLang.md
+      # - 循环优化: Course/cp/LoopOptimization.md
   - AI: 
     - Triviality:  
         - Triviality: AI/Triviality/index.md
