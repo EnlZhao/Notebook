@@ -12,4 +12,4 @@ site/
 *.pth
 *.sh
 
-requirements.txt
+# requirements.txt
