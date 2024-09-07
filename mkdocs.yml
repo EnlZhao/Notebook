@@ -137,8 +137,8 @@ nav:
     - Pummping Lemma: Triviality/PumpingLemma.md
     - Programming Language:
       - Python:
-        - Python: docs/python/index.md
-        - Triviality: docs/python/trivial.md
+        - Python: python/index.md
+        - Triviality: python/trivial.md
   - Tools: 
     - GitHub: 
       - GitHub: Triviality/GitHub/index.md
