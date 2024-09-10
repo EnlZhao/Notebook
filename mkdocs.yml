@@ -105,6 +105,9 @@ nav:
             - Autograd: AI/PyTorch/BLITZ/lec02.md
             - Neural Networks: AI/PyTorch/BLITZ/lec03.md
             - Training a Classifier: AI/PyTorch/BLITZ/lec04.md
+    - 人工智能算法:
+        - 人工智能算法: AI/aialgorithm/index.md
+        - 随机森林算法: AI/aialgorithm/randomForest.md
     - 优化算法: 
         - 优化算法: AI/OptimAlgorithm/index.md
     - 学习准则: 
@@ -167,6 +170,7 @@ theme:
       code: fontawesome/solid/code
       important: fontawesome/solid/exclamation
       think: fontawesome/solid/brain
+    #  def: #
   font: 
     text: LXGW WenKai Screen #JetBrains Mono
     code: JetBrains Mono
