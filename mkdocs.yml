@@ -128,6 +128,9 @@ nav:
           - Building Sequence Models: AI/Courses/DeepLearning/course5/index.md
       - CS229: 
         - CS229: AI/Courses/CS229/index.md
+      - 动手学习深度学习:
+        - 动手学习深度学习: AI/Courses/LiMu/index.md
+        - 预备知识: AI/Courses/LiMu/01.md
   - Triviality: 
     - Markdown: Triviality/markdown.md
     - Missing Semester: 
