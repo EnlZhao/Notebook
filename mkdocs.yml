@@ -9,6 +9,7 @@ nav:
   - Hello: 
     - Hello: index.md
     - 友链: link.md
+    - My ZJU: ms.md
   - Course:
     - 前言: Course/abstract.md
     - 计算机系统Ⅱ:
@@ -113,19 +114,22 @@ nav:
     - 学习准则: 
         - 学习准则: AI/LearningCriterion/index.md
     - RelatedCourses:
-      - DeepLearning: 
-        - DeepLearning: AI/Courses/DeepLearning/index.md
-        - Intrucution to Deep Learning: AI/Courses/DeepLearning/introduction.md
-        - Neural Networks and Deep Learning: 
-          - Neural Networks and Deep Learning: AI/Courses/DeepLearning/course1/index.md
-        - Improving Deep Neural Networks: 
-          - Improving Deep Neural Networks: AI/Courses/DeepLearning/course2/index.md
-        - Structuring Machine Learning Projects: 
-          - Structuring Machine Learning Projects: AI/Courses/DeepLearning/course3/index.md
-        - Convolutional Neural Networks: 
-          - Convolutional Neural Networks: AI/Courses/DeepLearning/course4/index.md
-        - Building Sequence Models: 
-          - Building Sequence Models: AI/Courses/DeepLearning/course5/index.md
+      - 机器学习 (西瓜书):
+        - 机器学习 (西瓜书): AI/Courses/wtbook/index.md
+        - 绪论: AI/Courses/wtbook/chap1.md
+      # - DeepLearning: 
+      #   - DeepLearning: AI/Courses/DeepLearning/index.md
+      #   - Intrucution to Deep Learning: AI/Courses/DeepLearning/introduction.md
+      #   - Neural Networks and Deep Learning: 
+      #     - Neural Networks and Deep Learning: AI/Courses/DeepLearning/course1/index.md
+      #   - Improving Deep Neural Networks: 
+      #     - Improving Deep Neural Networks: AI/Courses/DeepLearning/course2/index.md
+      #   - Structuring Machine Learning Projects: 
+      #     - Structuring Machine Learning Projects: AI/Courses/DeepLearning/course3/index.md
+      #   - Convolutional Neural Networks: 
+      #     - Convolutional Neural Networks: AI/Courses/DeepLearning/course4/index.md
+      #   - Building Sequence Models: 
+      #     - Building Sequence Models: AI/Courses/DeepLearning/course5/index.md
       - CS229: 
         - CS229: AI/Courses/CS229/index.md
       - 动手学习深度学习:

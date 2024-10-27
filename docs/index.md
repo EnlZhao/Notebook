@@ -42,7 +42,10 @@ statistics: true
   💬这里是 [某兰 | EnlZhao](https://enlzhao.github.io/Blog/about/) 的 [知识库](https://enlzhao.github.io/Notebook)，有一些课程笔记或者学习记录；
   
   💬其余较杂的内容（诸如学习总结一类的）欢迎大家到我的 [引导页](https://enlzhao.github.io/) 寻找
-  
+
+!!! warning
+    如果遇到 $\LaTeX$ 公式无法渲染的情况，多半是因为网络问题～
+
 !!! info 
     因为记性不好，笔记内容整理较为繁琐。
     而且能力有限，大噶选择性看看叭~

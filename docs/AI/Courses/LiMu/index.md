@@ -1,7 +1,7 @@
 # 动手学习深度学习
 
 !!! info
-    - 笔记基于李沐老师 [动手学深度学习v2](https://www.bilibili.com/list/1567748478?sid=358497&spm_id_from=333.999.0.0&desc=0&oid=289532467&bvid=BV1if4y147hS) 课程。
+    - 笔记基于李沐老师 [动手学深度学习v2](https://space.bilibili.com/1567748478/channel/seriesdetail?sid=358497) 课程。
     - 课程网站：[动手学深度学习](https://courses.d2l.ai/zh-v2/)
     - 教材: [动手学深度学习](https://zh-v2.d2l.ai/)
     - 课程论坛：[Discuss](https://discuss.d2l.ai/c/chinese-version/16)
