@@ -34,8 +34,8 @@ password: 21@ZJU@ADS
 2. $x_i \neq x_j$ if $i \neq j$
 3. $(x_i - x_j) / (i - j) \neq \pm 1$ if $i \neq j$
 
-> - 其实，这个问题的 Constraints 第一个暗示解空间有 $8^8 = 40320$ 种可能
-> - 问题的第二条约束条件暗示了解空间的大小缩减为为 $8! = 40320$ 种可能
+> - 其实，这个问题的 Constraints 第一个暗示解空间有 $8^8$ 种可能
+> - 问题的第二条约束条件暗示了解空间的大小缩减为为 $8!$ 种可能
 
 
 !!! example "以四皇后为例"
@@ -93,7 +93,7 @@ bool Reconstruct(DistType X[ ], DistSet D, int N, int left, int right)
 }
 ```
 
-* worst case: O(2^n) (rare)
+* worst case: O(2^n^) (rare)
 * best case: O(n) (most instances)
 
 ## Game - Tic-Tac-Toe

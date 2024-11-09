@@ -89,6 +89,9 @@ nav:
       # - 面向对象语言: Course/cp/OOLang.md
       # - 循环优化: Course/cp/LoopOptimization.md
   - AI: 
+    - Papers:
+        - Papers: AI/Papers/index.md
+        - "🔗 xNIDS: Explaining DL-NIDS...": https://www.yuque.com/enl_z/ghyd0i/cnckf8nkgw8dhlgn
     - Triviality:  
         - Triviality: AI/Triviality/index.md
         - 凸优化: AI/Triviality/ConvexOpt.md
