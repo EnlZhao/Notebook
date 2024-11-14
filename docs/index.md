@@ -43,6 +43,10 @@ statistics: true
   
   💬其余较杂的内容（诸如学习总结一类的）欢迎大家到我的 [引导页](https://enlzhao.github.io/) 寻找
 
+!!! think "近期安排"
+    🤯 [疯狂看论文中](./AI/Papers/index.md)...
+
+
 !!! warning
     如果遇到 $\LaTeX$ 公式无法渲染的情况，多半是因为网络问题～
 

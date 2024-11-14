@@ -92,6 +92,9 @@ nav:
     - Papers:
         - Papers: AI/Papers/index.md
         - "🔗 xNIDS: Explaining DL-NIDS...": https://www.yuque.com/enl_z/ghyd0i/cnckf8nkgw8dhlgn
+        - "🔗 a Semantics-Aware Routing Anomaly Detection System": https://www.yuque.com/enl_z/ghyd0i/ka1hegwra5ocx2kw
+        - "🔗 FLASH: NIDS via Provenance Graph Representation Learning": https://www.yuque.com/enl_z/ghyd0i/glgld6yafrwkhsnc
+        - "🔗 KAIROS: IDS using Whole-system Provenance": https://www.yuque.com/enl_z/ghyd0i/po5brv18r5s09t0n
     - Triviality:  
         - Triviality: AI/Triviality/index.md
         - 凸优化: AI/Triviality/ConvexOpt.md
