@@ -89,12 +89,6 @@ nav:
       # - 面向对象语言: Course/cp/OOLang.md
       # - 循环优化: Course/cp/LoopOptimization.md
   - AI: 
-    - Papers:
-        - Papers: AI/Papers/index.md
-        - "🔗 xNIDS: Explaining DL-NIDS...": https://www.yuque.com/enl_z/ghyd0i/cnckf8nkgw8dhlgn
-        - "🔗 a Semantics-Aware Routing Anomaly Detection System": https://www.yuque.com/enl_z/ghyd0i/ka1hegwra5ocx2kw
-        - "🔗 FLASH: NIDS via Provenance Graph Representation Learning": https://www.yuque.com/enl_z/ghyd0i/glgld6yafrwkhsnc
-        - "🔗 KAIROS: IDS using Whole-system Provenance": https://www.yuque.com/enl_z/ghyd0i/po5brv18r5s09t0n
     - Triviality:  
         - Triviality: AI/Triviality/index.md
         - 凸优化: AI/Triviality/ConvexOpt.md
@@ -141,15 +135,15 @@ nav:
       - 动手学习深度学习:
         - 动手学习深度学习: AI/Courses/LiMu/index.md
         - 预备知识: AI/Courses/LiMu/01.md
+  - Research:
+    - Papers: 
+        - Papers: research/Papers/index.md
+        - "🔗 xNIDS: Explainixwng DL-NIDS...": https://www.yuque.com/enl_z/ghyd0i/cnckf8nkgw8dhlgn
+        - "🔗 a Semantics-Aware Routing Anomaly Detection System": https://www.yuque.com/enl_z/ghyd0i/ka1hegwra5ocx2kw
+        - "🔗 FLASH: NIDS via Provenance Graph Representation Learning": https://www.yuque.com/enl_z/ghyd0i/glgld6yafrwkhsnc
+        - "🔗 KAIROS: IDS using Whole-system Provenance": https://www.yuque.com/enl_z/ghyd0i/po5brv18r5s09t0n
+        - "🔗 Network Detection of Interactive SSH Impostors": https://www.yuque.com/enl_z/ghyd0i/lxu81od6gik3hv3q
   - Triviality: 
-    - Markdown: Triviality/markdown.md
-    - Missing Semester: 
-      - Missing Semester: Triviality/The Missing Semester/index.md
-      - Vim: Triviality/The Missing Semester/Vim.md
-    - CMake: 
-      - CMake: Triviality/CMake/index.md
-      - 准备&试编译: Triviality/CMake/Lec01.md
-      - 初体验: Triviality/CMake/Lec02.md
     - Pummping Lemma: Triviality/PumpingLemma.md
     - Programming Language:
       - Python:
@@ -160,6 +154,14 @@ nav:
       - GitHub: Triviality/GitHub/index.md
       - Basics: Triviality/GitHub/docs.md
       - Git Related: Triviality/GitHub/Git.md
+    - 文档撰写 Markdown: Triviality/markdown.md
+    - Missing Semester: 
+      - Missing Semester: Triviality/The Missing Semester/index.md
+      - Vim: Triviality/The Missing Semester/Vim.md
+    - CMake: 
+      - CMake: Triviality/CMake/index.md
+      - 准备&试编译: Triviality/CMake/Lec01.md
+      - 初体验: Triviality/CMake/Lec02.md
 
 theme:
   name: material

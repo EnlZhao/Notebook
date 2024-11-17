@@ -10,3 +10,4 @@
         - USENIX 2024: [Learning with Semantics: Towards a Semantics-Aware Routing Anomaly Detection System](https://www.yuque.com/enl_z/ghyd0i/ka1hegwra5ocx2kw)
         - S&P 2024: [FLASH: A Comprehensive Approach to Intrusion Detection via Provenance Graph Representation Learning](https://www.yuque.com/enl_z/ghyd0i/glgld6yafrwkhsnc)
         - S&P 2024: [KAIROS: Practical Intrusion Detection and Investigation using Whole-system Provenance](https://www.yuque.com/enl_z/ghyd0i/po5brv18r5s09t0n)
+        - USENIX 2023 [Network Detection of Interactive SSH Impostors Using Deep Learning](https://www.yuque.com/enl_z/ghyd0i/lxu81od6gik3hv3q)

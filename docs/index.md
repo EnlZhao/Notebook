@@ -51,8 +51,8 @@ statistics: true
     如果遇到 $\LaTeX$ 公式无法渲染的情况，多半是因为网络问题～
 
 !!! info 
-    因为记性不好，笔记内容整理较为繁琐。
-    而且能力有限，大噶选择性看看叭~
+    - 因为记性不好，笔记内容整理较为繁琐。
+    - 许多笔记未完全整理完，若干月后会开启重新整理计划，敬请期待～
 
     <!-- !!! warning
         网站还没完全完善，会出现部分渲染错误 -->
@@ -60,10 +60,11 @@ statistics: true
 !!! success "Attention"
     上侧导航条中：
 
-    - $\lceil$ [Course](./Course/abstract.md) $\rfloor$ 中是一些课程笔记
-    - $\lceil$ [AI](./AI/index.md) $\rfloor$ 中是一些机器学习、深度学习相关的内容
-    - $\lceil$ [Triviality](./Triviality/markdown.md) $\rfloor$ 中一些比较杂的内容
-    - $\lceil$ [Tools](./Triviality/GitHub/index.md) $\rfloor$ 中是一些工具
+    - [Course](./Course/abstract.md) 中是一些课程笔记
+    - [AI](./AI/index.md) 中是一些机器学习、深度学习还有阅读的一些论文
+    - [Triviality](./Triviality/markdown.md) 中是一些比较杂的内容
+        - 编程语言，minor 定理等等
+    - [Tools](./Triviality/GitHub/index.md) 中是一些工具
 
-    > 关于 $\lceil$ **Triviality** $\rfloor$ 和 $\lceil$ **Tools** $\rfloor$ 的分类有些乱，后续可能也许大概会改一改
+    > 关于 **Triviality** 和 **Tools** 的分类有些乱，后续可能也许大概会改一改
 
