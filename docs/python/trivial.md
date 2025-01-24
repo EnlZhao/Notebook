@@ -29,7 +29,7 @@ def insert(n0: ListNode, P: ListNode):
 ```
 
 ??? note "链表典型应用"
-    > 应用自 [hello algorithm](https://www.hello-algo.com/chapter_array_and_linkedlist/linked_list/#424)
+    > 引用自 [hello algorithm](https://www.hello-algo.com/chapter_array_and_linkedlist/linked_list/#424)
 
     - 单向链表通常用于实现栈、队列、哈希表和图等数据结构。
         - 栈与队列：当插入和删除操作都在链表的一端进行时，它表现的特性为先进后出，对应栈；当插入操作在链表的一端进行，删除操作在链表的另一端进行，它表现的特性为先进先出，对应队列。
@@ -46,4 +46,4 @@ def insert(n0: ListNode, P: ListNode):
 ## 切片操作符 `[], [:], [::]`
 
 ??? quote
-    https://blog.csdn.net/chengyq116/article/details/100145100?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_baidulandingword~default-0-100145100-blog-131223329.235^v43^pc_blog_bottom_relevance_base5&spm=1001.2101.3001.4242.1&utm_relevant_index=3
+    ["Python 切片操作符 ([], [:], [::]) 和 Python 负数索引值"](https://blog.csdn.net/chengyq116/article/details/100145100?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_baidulandingword~default-0-100145100-blog-131223329.235^v43^pc_blog_bottom_relevance_base5&spm=1001.2101.3001.4242.1&utm_relevant_index=3)

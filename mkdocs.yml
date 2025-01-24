@@ -185,7 +185,8 @@ theme:
       code: fontawesome/solid/code
       important: fontawesome/solid/exclamation
       think: fontawesome/solid/brain
-    #  def: #
+      advertisment: fontawesome/solid/rectangle-ad
+      def: def
   font: 
     text: LXGW WenKai Screen #JetBrains Mono
     code: JetBrains Mono
