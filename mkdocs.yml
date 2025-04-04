@@ -323,6 +323,7 @@ extra_javascript:
   - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js
   - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js
   - https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js
+  - assets/javascripts/announcement.js
   
 
 extra_css:
@@ -334,6 +335,7 @@ extra_css:
   - assets/extra_css/tasklist.css
   - assets/extra_css/flink.css
   - assets/extra_css/admonition.css
+  - assets/extra_css/announcement.css
 
 extra: 
   vssue: EnlZhao

@@ -1,0 +1,19 @@
+.announcement-banner {
+    overflow: hidden;
+    background-color: rgba(255, 0, 0, 0.5); /* 红色半透明背景 */
+    white-space: nowrap;
+    padding: 1em 0;
+  }
+  
+  .marquee {
+    display: inline-block;
+    color: #ffffff; /* 白色字体 */
+    padding-left: 100%;
+    animation: marquee 15s linear infinite;
+  }
+  
+  @keyframes marquee {
+    0%   { transform: translate(0, 0); }
+    100% { transform: translate(-100%, 0); }
+  }
+  
