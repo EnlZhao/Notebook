@@ -134,15 +134,34 @@ nav:
         - CS229: AI/Courses/CS229/index.md
       - 动手学习深度学习:
         - 动手学习深度学习: AI/Courses/LiMu/index.md
-        - 预备知识: AI/Courses/LiMu/01.md
+        - 深度学习基础:
+          - 预备知识: AI/Courses/LiMu/01.md
+          - 线性神经网络: AI/Courses/LiMu/02.md
+          - 多层感知机: AI/Courses/LiMu/03.md
+          - 深度学习计算: AI/Courses/LiMu/04.md
+        - 卷积神经网络:
+          - 卷积神经网络: AI/Courses/LiMu/05.md
+          - 现代卷机神经网络: AI/Courses/LiMu/06.md
+        - 循环神经网络:
+          - 循环神经网络: AI/Courses/LiMu/07.md
+          - 现代循环神经网络: AI/Courses/LiMu/08.md
+        - 注意力机制: AI/Courses/LiMu/09.md
+        - 优化算法: AI/Courses/LiMu/10.md
+        - 高性能计算: AI/Courses/LiMu/11.md
+        - 计算机视觉: AI/Courses/LiMu/12.md
+        - 自然语言处理: 
+          - "自然语言处理: 预训练": AI/Courses/LiMu/13.md
+          - "自然语言处理: 应用": AI/Courses/LiMu/14.md
   - Research:
     - Papers: 
-        - Papers: research/Papers/index.md
-        - "🔗 xNIDS: Explainixwng DL-NIDS...": https://www.yuque.com/enl_z/ghyd0i/cnckf8nkgw8dhlgn
-        - "🔗 a Semantics-Aware Routing Anomaly Detection System": https://www.yuque.com/enl_z/ghyd0i/ka1hegwra5ocx2kw
-        - "🔗 FLASH: NIDS via Provenance Graph Representation Learning": https://www.yuque.com/enl_z/ghyd0i/glgld6yafrwkhsnc
-        - "🔗 KAIROS: IDS using Whole-system Provenance": https://www.yuque.com/enl_z/ghyd0i/po5brv18r5s09t0n
-        - "🔗 Network Detection of Interactive SSH Impostors": https://www.yuque.com/enl_z/ghyd0i/lxu81od6gik3hv3q
+      - Papers: research/Papers/index.md
+      - "🔗 xNIDS: Explainixwng DL-NIDS...": https://www.yuque.com/enl_z/ghyd0i/cnckf8nkgw8dhlgn
+      - "🔗 a Semantics-Aware Routing Anomaly Detection System": https://www.yuque.com/enl_z/ghyd0i/ka1hegwra5ocx2kw
+      - "🔗 FLASH: NIDS via Provenance Graph Representation Learning": https://www.yuque.com/enl_z/ghyd0i/glgld6yafrwkhsnc
+      - "🔗 KAIROS: IDS using Whole-system Provenance": https://www.yuque.com/enl_z/ghyd0i/po5brv18r5s09t0n
+      - "🔗 Network Detection of Interactive SSH Impostors": https://www.yuque.com/enl_z/ghyd0i/lxu81od6gik3hv3q
+    - Projects:
+      - LLM Quantization: research/LLM/llm_quantization_guide.md
   - Triviality: 
     - Pummping Lemma: Triviality/PumpingLemma.md
     - Programming Language:
